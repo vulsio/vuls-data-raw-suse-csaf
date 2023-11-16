@@ -1,0 +1,1354 @@
+{
+	"document": {
+		"aggregate_severity": {
+			"namespace": "https://www.suse.com/support/security/rating/",
+			"text": "important"
+		},
+		"category": "csaf_security_advisory",
+		"csaf_version": "2.0",
+		"distribution": {
+			"text": "Copyright 2023 SUSE LLC. All rights reserved.",
+			"tlp": {
+				"label": "WHITE",
+				"url": "https://www.first.org/tlp/"
+			}
+		},
+		"lang": "en",
+		"notes": [
+			{
+				"category": "summary",
+				"text": "Security update for quagga",
+				"title": "Title of the patch"
+			},
+			{
+				"category": "description",
+				"text": "This update for quagga fixes the following issues:\n\n- The Quagga BGP daemon contained a bug in the AS_PATH size calculation that\n  could have been exploited to facilitate a remote denial-of-service attack via\n  specially crafted BGP UPDATE messages. [CVE-2017-16227, bsc#1065641]\n\n- The Quagga BGP daemon did not check whether data sent to peers via NOTIFY had\n  an invalid attribute length. It was possible to exploit this issue and cause\n  the bgpd process to leak sensitive information over the network to a\n  configured peer. [CVE-2018-5378, bsc#1079798]\n\n- The Quagga BGP daemon used to double-free memory when processing certain\n  forms of UPDATE messages. This issue could be exploited by sending an\n  optional/transitive UPDATE attribute that all conforming eBGP speakers should\n  pass along. Consequently, a single UPDATE message could have affected many\n  bgpd processes across a wide area of a network. Through this vulnerability,\n  attackers could potentially have taken over control of affected bgpd\n  processes remotely. [CVE-2018-5379, bsc#1079799]\n\n- It was possible to overrun internal BGP code-to-string conversion tables in\n  the Quagga BGP daemon. Configured peers could have exploited this issue and\n  cause bgpd to emit debug and warning messages into the logs that would\n  contained arbitrary bytes. [CVE-2018-5380, bsc#1079800]\n\n- The Quagga BGP daemon could have entered an infinite loop if sent an invalid\n  OPEN message by a configured peer. If this issue was exploited, then bgpd\n  would cease to respond to any other events. BGP sessions would have been\n  dropped and not be reestablished. The CLI interface would have been\n  unresponsive. The bgpd daemon would have stayed in this state until\n  restarted. [CVE-2018-5381, bsc#1079801]\n\n- The Quagga daemon's telnet 'vty' CLI contains an unbounded memory allocation\n  bug that could be exploited for a denial-of-service attack on the daemon.\n  This issue has been fixed. [CVE-2017-5495, bsc#1021669]\n\n- The telnet 'vty' CLI of the Quagga daemon is no longer enabled by default,\n  because the passwords in the default 'zebra.conf' config file are now\n  disabled. The vty interface is available via 'vtysh' utility using pam\n  authentication to permit management access for root without password.\n  [bsc#1021669]\n",
+				"title": "Description of the patch"
+			},
+			{
+				"category": "details",
+				"text": "sdksp4-quagga-13471,sleposp3-quagga-13471,slessp3-quagga-13471,slessp4-quagga-13471",
+				"title": "Patchnames"
+			},
+			{
+				"category": "legal_disclaimer",
+				"text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+				"title": "Terms of use"
+			}
+		],
+		"publisher": {
+			"category": "vendor",
+			"contact_details": "https://www.suse.com/support/security/contact/",
+			"name": "SUSE Product Security Team",
+			"namespace": "https://www.suse.com/"
+		},
+		"references": [
+			{
+				"category": "self",
+				"summary": "URL for SUSE-SU-2018:0457-1",
+				"url": "https://www.suse.com/support/update/announcement/2018/suse-su-20180457-1/"
+			},
+			{
+				"category": "external",
+				"summary": "SUSE ratings",
+				"url": "https://www.suse.com/support/security/rating/"
+			},
+			{
+				"category": "self",
+				"summary": "URL of this CSAF notice",
+				"url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2018_0457-1.json"
+			},
+			{
+				"category": "self",
+				"summary": "E-Mail link for SUSE-SU-2018:0457-1",
+				"url": "https://lists.opensuse.org/opensuse-security-announce/2018-02/msg00031.html"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1021669",
+				"url": "https://bugzilla.suse.com/1021669"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1065641",
+				"url": "https://bugzilla.suse.com/1065641"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1079798",
+				"url": "https://bugzilla.suse.com/1079798"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1079799",
+				"url": "https://bugzilla.suse.com/1079799"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1079800",
+				"url": "https://bugzilla.suse.com/1079800"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1079801",
+				"url": "https://bugzilla.suse.com/1079801"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2017-16227 page",
+				"url": "https://www.suse.com/security/cve/CVE-2017-16227/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2017-5495 page",
+				"url": "https://www.suse.com/security/cve/CVE-2017-5495/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2018-5378 page",
+				"url": "https://www.suse.com/security/cve/CVE-2018-5378/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2018-5379 page",
+				"url": "https://www.suse.com/security/cve/CVE-2018-5379/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2018-5380 page",
+				"url": "https://www.suse.com/security/cve/CVE-2018-5380/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2018-5381 page",
+				"url": "https://www.suse.com/security/cve/CVE-2018-5381/"
+			}
+		],
+		"title": "Security update for quagga",
+		"tracking": {
+			"current_release_date": "2018-02-16T02:45:00Z",
+			"generator": {
+				"date": "2018-02-16T02:45:00Z",
+				"engine": {
+					"name": "cve-database.git:bin/generate-csaf.pl",
+					"version": "1"
+				}
+			},
+			"id": "SUSE-SU-2018:0457-1",
+			"initial_release_date": "2018-02-16T02:45:00Z",
+			"revision_history": [
+				{
+					"date": "2018-02-16T02:45:00Z",
+					"number": "1",
+					"summary": "Current version"
+				}
+			],
+			"status": "final",
+			"version": "1"
+		}
+	},
+	"product_tree": {
+		"branches": [
+			{
+				"branches": [
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "quagga-0.99.15-0.30.3.1.i586",
+								"product": {
+									"name": "quagga-0.99.15-0.30.3.1.i586",
+									"product_id": "quagga-0.99.15-0.30.3.1.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "quagga-devel-0.99.15-0.30.3.1.i586",
+								"product": {
+									"name": "quagga-devel-0.99.15-0.30.3.1.i586",
+									"product_id": "quagga-devel-0.99.15-0.30.3.1.i586"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "i586"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "quagga-devel-0.99.15-0.30.3.1.ia64",
+								"product": {
+									"name": "quagga-devel-0.99.15-0.30.3.1.ia64",
+									"product_id": "quagga-devel-0.99.15-0.30.3.1.ia64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "quagga-0.99.15-0.30.3.1.ia64",
+								"product": {
+									"name": "quagga-0.99.15-0.30.3.1.ia64",
+									"product_id": "quagga-0.99.15-0.30.3.1.ia64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "ia64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "quagga-devel-0.99.15-0.30.3.1.ppc64",
+								"product": {
+									"name": "quagga-devel-0.99.15-0.30.3.1.ppc64",
+									"product_id": "quagga-devel-0.99.15-0.30.3.1.ppc64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "quagga-0.99.15-0.30.3.1.ppc64",
+								"product": {
+									"name": "quagga-0.99.15-0.30.3.1.ppc64",
+									"product_id": "quagga-0.99.15-0.30.3.1.ppc64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "ppc64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "quagga-devel-0.99.15-0.30.3.1.s390x",
+								"product": {
+									"name": "quagga-devel-0.99.15-0.30.3.1.s390x",
+									"product_id": "quagga-devel-0.99.15-0.30.3.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "quagga-0.99.15-0.30.3.1.s390x",
+								"product": {
+									"name": "quagga-0.99.15-0.30.3.1.s390x",
+									"product_id": "quagga-0.99.15-0.30.3.1.s390x"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "s390x"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "quagga-0.99.15-0.30.3.1.x86_64",
+								"product": {
+									"name": "quagga-0.99.15-0.30.3.1.x86_64",
+									"product_id": "quagga-0.99.15-0.30.3.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "quagga-devel-0.99.15-0.30.3.1.x86_64",
+								"product": {
+									"name": "quagga-devel-0.99.15-0.30.3.1.x86_64",
+									"product_id": "quagga-devel-0.99.15-0.30.3.1.x86_64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "x86_64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Software Development Kit 11 SP4",
+								"product": {
+									"name": "SUSE Linux Enterprise Software Development Kit 11 SP4",
+									"product_id": "SUSE Linux Enterprise Software Development Kit 11 SP4",
+									"product_identification_helper": {
+										"cpe": "cpe:/a:suse:sle-sdk:11:sp4"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Point of Sale 11 SP3",
+								"product": {
+									"name": "SUSE Linux Enterprise Point of Sale 11 SP3",
+									"product_id": "SUSE Linux Enterprise Point of Sale 11 SP3",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-pos:11:sp3"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server 11 SP3-LTSS",
+								"product": {
+									"name": "SUSE Linux Enterprise Server 11 SP3-LTSS",
+									"product_id": "SUSE Linux Enterprise Server 11 SP3-LTSS",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:suse_sles_ltss:11:sp3"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server 11 SP3-TERADATA",
+								"product": {
+									"name": "SUSE Linux Enterprise Server 11 SP3-TERADATA",
+									"product_id": "SUSE Linux Enterprise Server 11 SP3-TERADATA",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sles:11:sp3:teradata"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server 11 SP4",
+								"product": {
+									"name": "SUSE Linux Enterprise Server 11 SP4",
+									"product_id": "SUSE Linux Enterprise Server 11 SP4",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:suse_sles:11:sp4"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+								"product": {
+									"name": "SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+									"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sles_sap:11:sp4"
+									}
+								}
+							}
+						],
+						"category": "product_family",
+						"name": "SUSE Linux Enterprise"
+					}
+				],
+				"category": "vendor",
+				"name": "SUSE"
+			}
+		],
+		"relationships": [
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "quagga-0.99.15-0.30.3.1.i586 as component of SUSE Linux Enterprise Software Development Kit 11 SP4",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-0.99.15-0.30.3.1.i586"
+				},
+				"product_reference": "quagga-0.99.15-0.30.3.1.i586",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "quagga-0.99.15-0.30.3.1.x86_64 as component of SUSE Linux Enterprise Software Development Kit 11 SP4",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-0.99.15-0.30.3.1.x86_64"
+				},
+				"product_reference": "quagga-0.99.15-0.30.3.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "quagga-devel-0.99.15-0.30.3.1.i586 as component of SUSE Linux Enterprise Software Development Kit 11 SP4",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.i586"
+				},
+				"product_reference": "quagga-devel-0.99.15-0.30.3.1.i586",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "quagga-devel-0.99.15-0.30.3.1.ia64 as component of SUSE Linux Enterprise Software Development Kit 11 SP4",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.ia64"
+				},
+				"product_reference": "quagga-devel-0.99.15-0.30.3.1.ia64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "quagga-devel-0.99.15-0.30.3.1.ppc64 as component of SUSE Linux Enterprise Software Development Kit 11 SP4",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.ppc64"
+				},
+				"product_reference": "quagga-devel-0.99.15-0.30.3.1.ppc64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "quagga-devel-0.99.15-0.30.3.1.s390x as component of SUSE Linux Enterprise Software Development Kit 11 SP4",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.s390x"
+				},
+				"product_reference": "quagga-devel-0.99.15-0.30.3.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "quagga-devel-0.99.15-0.30.3.1.x86_64 as component of SUSE Linux Enterprise Software Development Kit 11 SP4",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.x86_64"
+				},
+				"product_reference": "quagga-devel-0.99.15-0.30.3.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "quagga-0.99.15-0.30.3.1.i586 as component of SUSE Linux Enterprise Point of Sale 11 SP3",
+					"product_id": "SUSE Linux Enterprise Point of Sale 11 SP3:quagga-0.99.15-0.30.3.1.i586"
+				},
+				"product_reference": "quagga-0.99.15-0.30.3.1.i586",
+				"relates_to_product_reference": "SUSE Linux Enterprise Point of Sale 11 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "quagga-0.99.15-0.30.3.1.i586 as component of SUSE Linux Enterprise Server 11 SP3-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 11 SP3-LTSS:quagga-0.99.15-0.30.3.1.i586"
+				},
+				"product_reference": "quagga-0.99.15-0.30.3.1.i586",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP3-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "quagga-0.99.15-0.30.3.1.s390x as component of SUSE Linux Enterprise Server 11 SP3-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 11 SP3-LTSS:quagga-0.99.15-0.30.3.1.s390x"
+				},
+				"product_reference": "quagga-0.99.15-0.30.3.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP3-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "quagga-0.99.15-0.30.3.1.x86_64 as component of SUSE Linux Enterprise Server 11 SP3-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 11 SP3-LTSS:quagga-0.99.15-0.30.3.1.x86_64"
+				},
+				"product_reference": "quagga-0.99.15-0.30.3.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP3-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "quagga-0.99.15-0.30.3.1.i586 as component of SUSE Linux Enterprise Server 11 SP3-TERADATA",
+					"product_id": "SUSE Linux Enterprise Server 11 SP3-TERADATA:quagga-0.99.15-0.30.3.1.i586"
+				},
+				"product_reference": "quagga-0.99.15-0.30.3.1.i586",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP3-TERADATA"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "quagga-0.99.15-0.30.3.1.s390x as component of SUSE Linux Enterprise Server 11 SP3-TERADATA",
+					"product_id": "SUSE Linux Enterprise Server 11 SP3-TERADATA:quagga-0.99.15-0.30.3.1.s390x"
+				},
+				"product_reference": "quagga-0.99.15-0.30.3.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP3-TERADATA"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "quagga-0.99.15-0.30.3.1.x86_64 as component of SUSE Linux Enterprise Server 11 SP3-TERADATA",
+					"product_id": "SUSE Linux Enterprise Server 11 SP3-TERADATA:quagga-0.99.15-0.30.3.1.x86_64"
+				},
+				"product_reference": "quagga-0.99.15-0.30.3.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP3-TERADATA"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "quagga-0.99.15-0.30.3.1.i586 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.i586"
+				},
+				"product_reference": "quagga-0.99.15-0.30.3.1.i586",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "quagga-0.99.15-0.30.3.1.ia64 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.ia64"
+				},
+				"product_reference": "quagga-0.99.15-0.30.3.1.ia64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "quagga-0.99.15-0.30.3.1.ppc64 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.ppc64"
+				},
+				"product_reference": "quagga-0.99.15-0.30.3.1.ppc64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "quagga-0.99.15-0.30.3.1.s390x as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.s390x"
+				},
+				"product_reference": "quagga-0.99.15-0.30.3.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "quagga-0.99.15-0.30.3.1.x86_64 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.x86_64"
+				},
+				"product_reference": "quagga-0.99.15-0.30.3.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "quagga-0.99.15-0.30.3.1.i586 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.i586"
+				},
+				"product_reference": "quagga-0.99.15-0.30.3.1.i586",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "quagga-0.99.15-0.30.3.1.ia64 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.ia64"
+				},
+				"product_reference": "quagga-0.99.15-0.30.3.1.ia64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "quagga-0.99.15-0.30.3.1.ppc64 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.ppc64"
+				},
+				"product_reference": "quagga-0.99.15-0.30.3.1.ppc64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "quagga-0.99.15-0.30.3.1.s390x as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.s390x"
+				},
+				"product_reference": "quagga-0.99.15-0.30.3.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "quagga-0.99.15-0.30.3.1.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.x86_64"
+				},
+				"product_reference": "quagga-0.99.15-0.30.3.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			}
+		]
+	},
+	"vulnerabilities": [
+		{
+			"cve": "CVE-2017-16227",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2017-16227"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The aspath_put function in bgpd/bgp_aspath.c in Quagga before 1.2.2 allows remote attackers to cause a denial of service (session drop) via BGP UPDATE messages, because AS_PATH size calculation for long paths counts certain bytes twice and consequently constructs an invalid message.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Point of Sale 11 SP3:quagga-0.99.15-0.30.3.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:quagga-0.99.15-0.30.3.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:quagga-0.99.15-0.30.3.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:quagga-0.99.15-0.30.3.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:quagga-0.99.15-0.30.3.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:quagga-0.99.15-0.30.3.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:quagga-0.99.15-0.30.3.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-0.99.15-0.30.3.1.i586",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-0.99.15-0.30.3.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.i586",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.ia64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.ppc64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2017-16227",
+					"url": "https://www.suse.com/security/cve/CVE-2017-16227"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1065641 for CVE-2017-16227",
+					"url": "https://bugzilla.suse.com/1065641"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:quagga-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:quagga-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.ia64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.5,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:quagga-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:quagga-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.ia64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-02-16T02:45:00Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2017-16227"
+		},
+		{
+			"cve": "CVE-2017-5495",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2017-5495"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "All versions of Quagga, 0.93 through 1.1.0, are vulnerable to an unbounded memory allocation in the telnet 'vty' CLI, leading to a Denial-of-Service of Quagga daemons, or even the entire host. When Quagga daemons are configured with their telnet CLI enabled, anyone who can connect to the TCP ports can trigger this vulnerability, prior to authentication. Most distributions restrict the Quagga telnet interface to local access only by default. The Quagga telnet interface 'vty' input buffer grows automatically, without bound, so long as a newline is not entered. This allows an attacker to cause the Quagga daemon to allocate unbounded memory by sending very long strings without a newline. Eventually the daemon is terminated by the system, or the system itself runs out of memory. This is fixed in Quagga 1.1.1 and Free Range Routing (FRR) Protocol Suite 2017-01-10.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Point of Sale 11 SP3:quagga-0.99.15-0.30.3.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:quagga-0.99.15-0.30.3.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:quagga-0.99.15-0.30.3.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:quagga-0.99.15-0.30.3.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:quagga-0.99.15-0.30.3.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:quagga-0.99.15-0.30.3.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:quagga-0.99.15-0.30.3.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-0.99.15-0.30.3.1.i586",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-0.99.15-0.30.3.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.i586",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.ia64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.ppc64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2017-5495",
+					"url": "https://www.suse.com/security/cve/CVE-2017-5495"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1021669 for CVE-2017-5495",
+					"url": "https://bugzilla.suse.com/1021669"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:quagga-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:quagga-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.ia64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.5,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:quagga-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:quagga-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.ia64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-02-16T02:45:00Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2017-5495"
+		},
+		{
+			"cve": "CVE-2018-5378",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2018-5378"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The Quagga BGP daemon (bgpd) prior to version 1.2.3 does not properly bounds check the data sent with a NOTIFY to a peer, if an attribute length is invalid. Arbitrary data from the bgpd process may be sent over the network to a peer and/or bgpd may crash.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Point of Sale 11 SP3:quagga-0.99.15-0.30.3.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:quagga-0.99.15-0.30.3.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:quagga-0.99.15-0.30.3.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:quagga-0.99.15-0.30.3.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:quagga-0.99.15-0.30.3.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:quagga-0.99.15-0.30.3.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:quagga-0.99.15-0.30.3.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-0.99.15-0.30.3.1.i586",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-0.99.15-0.30.3.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.i586",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.ia64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.ppc64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2018-5378",
+					"url": "https://www.suse.com/security/cve/CVE-2018-5378"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1079798 for CVE-2018-5378",
+					"url": "https://bugzilla.suse.com/1079798"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:quagga-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:quagga-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.ia64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 5.9,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.0/AV:N/AC:H/PR:L/UI:N/S:U/C:L/I:N/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:quagga-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:quagga-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.ia64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-02-16T02:45:00Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2018-5378"
+		},
+		{
+			"cve": "CVE-2018-5379",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2018-5379"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The Quagga BGP daemon (bgpd) prior to version 1.2.3 can double-free memory when processing certain forms of UPDATE message, containing cluster-list and/or unknown attributes. A successful attack could cause a denial of service or potentially allow an attacker to execute arbitrary code.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Point of Sale 11 SP3:quagga-0.99.15-0.30.3.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:quagga-0.99.15-0.30.3.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:quagga-0.99.15-0.30.3.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:quagga-0.99.15-0.30.3.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:quagga-0.99.15-0.30.3.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:quagga-0.99.15-0.30.3.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:quagga-0.99.15-0.30.3.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-0.99.15-0.30.3.1.i586",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-0.99.15-0.30.3.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.i586",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.ia64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.ppc64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2018-5379",
+					"url": "https://www.suse.com/security/cve/CVE-2018-5379"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1079799 for CVE-2018-5379",
+					"url": "https://bugzilla.suse.com/1079799"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:quagga-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:quagga-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.ia64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 9.8,
+						"baseSeverity": "CRITICAL",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:quagga-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:quagga-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.ia64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-02-16T02:45:00Z",
+					"details": "critical"
+				}
+			],
+			"title": "CVE-2018-5379"
+		},
+		{
+			"cve": "CVE-2018-5380",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2018-5380"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The Quagga BGP daemon (bgpd) prior to version 1.2.3 can overrun internal BGP code-to-string conversion tables used for debug by 1 pointer value, based on input.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Point of Sale 11 SP3:quagga-0.99.15-0.30.3.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:quagga-0.99.15-0.30.3.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:quagga-0.99.15-0.30.3.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:quagga-0.99.15-0.30.3.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:quagga-0.99.15-0.30.3.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:quagga-0.99.15-0.30.3.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:quagga-0.99.15-0.30.3.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-0.99.15-0.30.3.1.i586",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-0.99.15-0.30.3.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.i586",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.ia64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.ppc64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2018-5380",
+					"url": "https://www.suse.com/security/cve/CVE-2018-5380"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1079800 for CVE-2018-5380",
+					"url": "https://bugzilla.suse.com/1079800"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:quagga-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:quagga-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.ia64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 4.3,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:L",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:quagga-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:quagga-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.ia64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-02-16T02:45:00Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2018-5380"
+		},
+		{
+			"cve": "CVE-2018-5381",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2018-5381"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The Quagga BGP daemon (bgpd) prior to version 1.2.3 has a bug in its parsing of \"Capabilities\" in BGP OPEN messages, in the bgp_packet.c:bgp_capability_msg_parse function. The parser can enter an infinite loop on invalid capabilities if a Multi-Protocol capability does not have a recognized AFI/SAFI, causing a denial of service.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Point of Sale 11 SP3:quagga-0.99.15-0.30.3.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:quagga-0.99.15-0.30.3.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:quagga-0.99.15-0.30.3.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:quagga-0.99.15-0.30.3.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:quagga-0.99.15-0.30.3.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:quagga-0.99.15-0.30.3.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:quagga-0.99.15-0.30.3.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-0.99.15-0.30.3.1.i586",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-0.99.15-0.30.3.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.i586",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.ia64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.ppc64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2018-5381",
+					"url": "https://www.suse.com/security/cve/CVE-2018-5381"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1079801 for CVE-2018-5381",
+					"url": "https://bugzilla.suse.com/1079801"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:quagga-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:quagga-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.ia64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.5,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:quagga-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:quagga-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-0.99.15-0.30.3.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.ia64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:quagga-devel-0.99.15-0.30.3.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-02-16T02:45:00Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2018-5381"
+		}
+	]
+}

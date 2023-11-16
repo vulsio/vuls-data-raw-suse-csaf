@@ -1,0 +1,819 @@
+{
+	"document": {
+		"aggregate_severity": {
+			"namespace": "https://www.suse.com/support/security/rating/",
+			"text": "moderate"
+		},
+		"category": "csaf_security_advisory",
+		"csaf_version": "2.0",
+		"distribution": {
+			"text": "Copyright 2023 SUSE LLC. All rights reserved.",
+			"tlp": {
+				"label": "WHITE",
+				"url": "https://www.first.org/tlp/"
+			}
+		},
+		"lang": "en",
+		"notes": [
+			{
+				"category": "summary",
+				"text": "Security update for libopenmpt",
+				"title": "Title of the patch"
+			},
+			{
+				"category": "description",
+				"text": "This update for libopenmpt fixes the following issues:\n\nVarious bugfix and stability issues were fixed, some of those\nmight have security impact.\n\nlibopenmpt was updated to 0.3.28:\n\n* Fixed excessive memory consumption with malformed files in\n  various formats.\n\nChanges in 0.3.27:\n\n* AMS: Avoid allocating excessive amount of memory for compressed\n  song message in malformed files.\n* S3M: Some samples were imported with a too high sample rate if\n  module was saved with Scream Tracker 3.\n\nChanges in 0.3.26:\n\n* DMF: Improve import of finetune effect with parameters larger\n  than +/-15.\n\nChanges in 0.3.25:\n\n* AMS: An upper bound for uncompressed sample size is now\n  established to avoid memory exhaustion from malformed files.\n* MO3: Avoid certain ModPlug hacks from being fixed up twice,\n  which could lead to e.g. very narrow pan swing range for old\n  OpenMPT IT files saved with a recent MO3 encoder version.\n* IMF: Instrument sample mapping was off by one octave, notable\n  in the guitar part of Astaris by Karsten Koch.\n* PLM: Percentage offset (Mxx) was slightly off.\n\nChanges in 0.3.24:\n\n* PP20: The first few bytes of some files were not decompressed\n  properly, making some files unplayable (depending on the\n  original format).\n\nChanges in 0.3.23:\n\n* IT: Global volume slides with both nibbles set preferred the\n  “slide up” nibble over the “slide down” nibble in old OpenMPT\n  versions, unlike other slides. Such old files are now imported\n  correctly again.\n* IT: Fixed an edge case where, if the filter hit full cutoff /\n  no resonance on the first tick of a row where a new delayed\n  note would be triggered, the filter would be disabled even\n  though it should stay active. Fixes trace.it by maddie.\n* XM: Out-of-range arpeggio clamping behaviour broke in OpenMPT\n  1.23.05.00. The arpeggios in Binary World by Dakota now play\n  correctly again.\n* S3M: Support old-style sample pre-amp value in very early\n  S3M files.\n* S3M: Only force-enable fast slides for files ST 3.00.\n  Previously, any S3M file made with an ST3 version older than\n  3.20 enabled them.\n* M15: Improve tracker detection heuristics to never assume\n  SoundTracker 2.0 if there is a huge number of Dxx commands,\n  as that is a definite hint that they should be treated as\n  volume slides. Fixes Monty On The Run by Master Blaster.\n\nChanges in 0.3.22:\n\n* IT: Disable retrigger with short notes quirk for modules saved\n  with Chibi Tracker, as it does not implement that quirk.\n* MOD: Fix early song ending due to ProTracker pattern jump quirk\n  (EEx + Dxx on same row) if infinite looping is disabled.\n  Fixes Haunted Tracks.mod by Triace.\n* MOD: Vibrato type “ramp down” was upside down.\n\nChanges in 0.3.21:\n\n* IT: Vibrato was too fast in Old Effects mode since\n  libopenmpt 0.3.\n* XM: Treat 8bitbubsy’s FT2 clone exactly like Fasttracker 2 with\n  respect to compatibility and playback flags. For example,\n  FT2 Pan Law was not applied.\n* DMF: Some files had a wrong tempo since libopenmpt\n  0.2.5705-beta15.\n",
+				"title": "Description of the patch"
+			},
+			{
+				"category": "details",
+				"text": "SUSE-2021-1914,SUSE-SLE-Module-Desktop-Applications-15-SP2-2021-1914,SUSE-SLE-Module-Desktop-Applications-15-SP3-2021-1914",
+				"title": "Patchnames"
+			},
+			{
+				"category": "legal_disclaimer",
+				"text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+				"title": "Terms of use"
+			}
+		],
+		"publisher": {
+			"category": "vendor",
+			"contact_details": "https://www.suse.com/support/security/contact/",
+			"name": "SUSE Product Security Team",
+			"namespace": "https://www.suse.com/"
+		},
+		"references": [
+			{
+				"category": "self",
+				"summary": "URL for SUSE-SU-2021:1914-1",
+				"url": "https://www.suse.com/support/update/announcement/2021/suse-su-20211914-1/"
+			},
+			{
+				"category": "external",
+				"summary": "SUSE ratings",
+				"url": "https://www.suse.com/support/security/rating/"
+			},
+			{
+				"category": "self",
+				"summary": "URL of this CSAF notice",
+				"url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2021_1914-1.json"
+			},
+			{
+				"category": "self",
+				"summary": "E-Mail link for SUSE-SU-2021:1914-1",
+				"url": "https://lists.suse.com/pipermail/sle-security-updates/2021-June/008976.html"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1186663",
+				"url": "https://bugzilla.suse.com/1186663"
+			}
+		],
+		"title": "Security update for libopenmpt",
+		"tracking": {
+			"current_release_date": "2021-06-09T12:29:45Z",
+			"generator": {
+				"date": "2021-06-09T12:29:45Z",
+				"engine": {
+					"name": "cve-database.git:bin/generate-csaf.pl",
+					"version": "1"
+				}
+			},
+			"id": "SUSE-SU-2021:1914-1",
+			"initial_release_date": "2021-06-09T12:29:45Z",
+			"revision_history": [
+				{
+					"date": "2021-06-09T12:29:45Z",
+					"number": "1",
+					"summary": "Current version"
+				}
+			],
+			"status": "final",
+			"version": "1"
+		}
+	},
+	"product_tree": {
+		"branches": [
+			{
+				"branches": [
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "libmodplug-devel-0.3.28-2.13.1.aarch64",
+								"product": {
+									"name": "libmodplug-devel-0.3.28-2.13.1.aarch64",
+									"product_id": "libmodplug-devel-0.3.28-2.13.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libmodplug1-0.3.28-2.13.1.aarch64",
+								"product": {
+									"name": "libmodplug1-0.3.28-2.13.1.aarch64",
+									"product_id": "libmodplug1-0.3.28-2.13.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libopenmpt-devel-0.3.28-2.13.1.aarch64",
+								"product": {
+									"name": "libopenmpt-devel-0.3.28-2.13.1.aarch64",
+									"product_id": "libopenmpt-devel-0.3.28-2.13.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libopenmpt0-0.3.28-2.13.1.aarch64",
+								"product": {
+									"name": "libopenmpt0-0.3.28-2.13.1.aarch64",
+									"product_id": "libopenmpt0-0.3.28-2.13.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libopenmpt_modplug1-0.3.28-2.13.1.aarch64",
+								"product": {
+									"name": "libopenmpt_modplug1-0.3.28-2.13.1.aarch64",
+									"product_id": "libopenmpt_modplug1-0.3.28-2.13.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openmpt123-0.3.28-2.13.1.aarch64",
+								"product": {
+									"name": "openmpt123-0.3.28-2.13.1.aarch64",
+									"product_id": "openmpt123-0.3.28-2.13.1.aarch64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "aarch64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "libmodplug1-64bit-0.3.28-2.13.1.aarch64_ilp32",
+								"product": {
+									"name": "libmodplug1-64bit-0.3.28-2.13.1.aarch64_ilp32",
+									"product_id": "libmodplug1-64bit-0.3.28-2.13.1.aarch64_ilp32"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libopenmpt0-64bit-0.3.28-2.13.1.aarch64_ilp32",
+								"product": {
+									"name": "libopenmpt0-64bit-0.3.28-2.13.1.aarch64_ilp32",
+									"product_id": "libopenmpt0-64bit-0.3.28-2.13.1.aarch64_ilp32"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libopenmpt_modplug1-64bit-0.3.28-2.13.1.aarch64_ilp32",
+								"product": {
+									"name": "libopenmpt_modplug1-64bit-0.3.28-2.13.1.aarch64_ilp32",
+									"product_id": "libopenmpt_modplug1-64bit-0.3.28-2.13.1.aarch64_ilp32"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "aarch64_ilp32"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "libmodplug-devel-0.3.28-2.13.1.i586",
+								"product": {
+									"name": "libmodplug-devel-0.3.28-2.13.1.i586",
+									"product_id": "libmodplug-devel-0.3.28-2.13.1.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libmodplug1-0.3.28-2.13.1.i586",
+								"product": {
+									"name": "libmodplug1-0.3.28-2.13.1.i586",
+									"product_id": "libmodplug1-0.3.28-2.13.1.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libopenmpt-devel-0.3.28-2.13.1.i586",
+								"product": {
+									"name": "libopenmpt-devel-0.3.28-2.13.1.i586",
+									"product_id": "libopenmpt-devel-0.3.28-2.13.1.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libopenmpt0-0.3.28-2.13.1.i586",
+								"product": {
+									"name": "libopenmpt0-0.3.28-2.13.1.i586",
+									"product_id": "libopenmpt0-0.3.28-2.13.1.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libopenmpt_modplug1-0.3.28-2.13.1.i586",
+								"product": {
+									"name": "libopenmpt_modplug1-0.3.28-2.13.1.i586",
+									"product_id": "libopenmpt_modplug1-0.3.28-2.13.1.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openmpt123-0.3.28-2.13.1.i586",
+								"product": {
+									"name": "openmpt123-0.3.28-2.13.1.i586",
+									"product_id": "openmpt123-0.3.28-2.13.1.i586"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "i586"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "libmodplug-devel-0.3.28-2.13.1.ppc64le",
+								"product": {
+									"name": "libmodplug-devel-0.3.28-2.13.1.ppc64le",
+									"product_id": "libmodplug-devel-0.3.28-2.13.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libmodplug1-0.3.28-2.13.1.ppc64le",
+								"product": {
+									"name": "libmodplug1-0.3.28-2.13.1.ppc64le",
+									"product_id": "libmodplug1-0.3.28-2.13.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libopenmpt-devel-0.3.28-2.13.1.ppc64le",
+								"product": {
+									"name": "libopenmpt-devel-0.3.28-2.13.1.ppc64le",
+									"product_id": "libopenmpt-devel-0.3.28-2.13.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libopenmpt0-0.3.28-2.13.1.ppc64le",
+								"product": {
+									"name": "libopenmpt0-0.3.28-2.13.1.ppc64le",
+									"product_id": "libopenmpt0-0.3.28-2.13.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libopenmpt_modplug1-0.3.28-2.13.1.ppc64le",
+								"product": {
+									"name": "libopenmpt_modplug1-0.3.28-2.13.1.ppc64le",
+									"product_id": "libopenmpt_modplug1-0.3.28-2.13.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openmpt123-0.3.28-2.13.1.ppc64le",
+								"product": {
+									"name": "openmpt123-0.3.28-2.13.1.ppc64le",
+									"product_id": "openmpt123-0.3.28-2.13.1.ppc64le"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "ppc64le"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "libmodplug-devel-0.3.28-2.13.1.s390x",
+								"product": {
+									"name": "libmodplug-devel-0.3.28-2.13.1.s390x",
+									"product_id": "libmodplug-devel-0.3.28-2.13.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libmodplug1-0.3.28-2.13.1.s390x",
+								"product": {
+									"name": "libmodplug1-0.3.28-2.13.1.s390x",
+									"product_id": "libmodplug1-0.3.28-2.13.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libopenmpt-devel-0.3.28-2.13.1.s390x",
+								"product": {
+									"name": "libopenmpt-devel-0.3.28-2.13.1.s390x",
+									"product_id": "libopenmpt-devel-0.3.28-2.13.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libopenmpt0-0.3.28-2.13.1.s390x",
+								"product": {
+									"name": "libopenmpt0-0.3.28-2.13.1.s390x",
+									"product_id": "libopenmpt0-0.3.28-2.13.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libopenmpt_modplug1-0.3.28-2.13.1.s390x",
+								"product": {
+									"name": "libopenmpt_modplug1-0.3.28-2.13.1.s390x",
+									"product_id": "libopenmpt_modplug1-0.3.28-2.13.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openmpt123-0.3.28-2.13.1.s390x",
+								"product": {
+									"name": "openmpt123-0.3.28-2.13.1.s390x",
+									"product_id": "openmpt123-0.3.28-2.13.1.s390x"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "s390x"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "libmodplug-devel-0.3.28-2.13.1.x86_64",
+								"product": {
+									"name": "libmodplug-devel-0.3.28-2.13.1.x86_64",
+									"product_id": "libmodplug-devel-0.3.28-2.13.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libmodplug1-0.3.28-2.13.1.x86_64",
+								"product": {
+									"name": "libmodplug1-0.3.28-2.13.1.x86_64",
+									"product_id": "libmodplug1-0.3.28-2.13.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libmodplug1-32bit-0.3.28-2.13.1.x86_64",
+								"product": {
+									"name": "libmodplug1-32bit-0.3.28-2.13.1.x86_64",
+									"product_id": "libmodplug1-32bit-0.3.28-2.13.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libopenmpt-devel-0.3.28-2.13.1.x86_64",
+								"product": {
+									"name": "libopenmpt-devel-0.3.28-2.13.1.x86_64",
+									"product_id": "libopenmpt-devel-0.3.28-2.13.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libopenmpt0-0.3.28-2.13.1.x86_64",
+								"product": {
+									"name": "libopenmpt0-0.3.28-2.13.1.x86_64",
+									"product_id": "libopenmpt0-0.3.28-2.13.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libopenmpt0-32bit-0.3.28-2.13.1.x86_64",
+								"product": {
+									"name": "libopenmpt0-32bit-0.3.28-2.13.1.x86_64",
+									"product_id": "libopenmpt0-32bit-0.3.28-2.13.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libopenmpt_modplug1-0.3.28-2.13.1.x86_64",
+								"product": {
+									"name": "libopenmpt_modplug1-0.3.28-2.13.1.x86_64",
+									"product_id": "libopenmpt_modplug1-0.3.28-2.13.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libopenmpt_modplug1-32bit-0.3.28-2.13.1.x86_64",
+								"product": {
+									"name": "libopenmpt_modplug1-32bit-0.3.28-2.13.1.x86_64",
+									"product_id": "libopenmpt_modplug1-32bit-0.3.28-2.13.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openmpt123-0.3.28-2.13.1.x86_64",
+								"product": {
+									"name": "openmpt123-0.3.28-2.13.1.x86_64",
+									"product_id": "openmpt123-0.3.28-2.13.1.x86_64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "x86_64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Module for Desktop Applications 15 SP2",
+								"product": {
+									"name": "SUSE Linux Enterprise Module for Desktop Applications 15 SP2",
+									"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP2",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-module-desktop-applications:15:sp2"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Module for Desktop Applications 15 SP3",
+								"product": {
+									"name": "SUSE Linux Enterprise Module for Desktop Applications 15 SP3",
+									"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP3",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-module-desktop-applications:15:sp3"
+									}
+								}
+							}
+						],
+						"category": "product_family",
+						"name": "SUSE Linux Enterprise"
+					}
+				],
+				"category": "vendor",
+				"name": "SUSE"
+			}
+		],
+		"relationships": [
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libmodplug-devel-0.3.28-2.13.1.aarch64 as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP2:libmodplug-devel-0.3.28-2.13.1.aarch64"
+				},
+				"product_reference": "libmodplug-devel-0.3.28-2.13.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libmodplug-devel-0.3.28-2.13.1.ppc64le as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP2:libmodplug-devel-0.3.28-2.13.1.ppc64le"
+				},
+				"product_reference": "libmodplug-devel-0.3.28-2.13.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libmodplug-devel-0.3.28-2.13.1.s390x as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP2:libmodplug-devel-0.3.28-2.13.1.s390x"
+				},
+				"product_reference": "libmodplug-devel-0.3.28-2.13.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libmodplug-devel-0.3.28-2.13.1.x86_64 as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP2:libmodplug-devel-0.3.28-2.13.1.x86_64"
+				},
+				"product_reference": "libmodplug-devel-0.3.28-2.13.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libmodplug1-0.3.28-2.13.1.aarch64 as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP2:libmodplug1-0.3.28-2.13.1.aarch64"
+				},
+				"product_reference": "libmodplug1-0.3.28-2.13.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libmodplug1-0.3.28-2.13.1.ppc64le as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP2:libmodplug1-0.3.28-2.13.1.ppc64le"
+				},
+				"product_reference": "libmodplug1-0.3.28-2.13.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libmodplug1-0.3.28-2.13.1.s390x as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP2:libmodplug1-0.3.28-2.13.1.s390x"
+				},
+				"product_reference": "libmodplug1-0.3.28-2.13.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libmodplug1-0.3.28-2.13.1.x86_64 as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP2:libmodplug1-0.3.28-2.13.1.x86_64"
+				},
+				"product_reference": "libmodplug1-0.3.28-2.13.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenmpt-devel-0.3.28-2.13.1.aarch64 as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP2:libopenmpt-devel-0.3.28-2.13.1.aarch64"
+				},
+				"product_reference": "libopenmpt-devel-0.3.28-2.13.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenmpt-devel-0.3.28-2.13.1.ppc64le as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP2:libopenmpt-devel-0.3.28-2.13.1.ppc64le"
+				},
+				"product_reference": "libopenmpt-devel-0.3.28-2.13.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenmpt-devel-0.3.28-2.13.1.s390x as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP2:libopenmpt-devel-0.3.28-2.13.1.s390x"
+				},
+				"product_reference": "libopenmpt-devel-0.3.28-2.13.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenmpt-devel-0.3.28-2.13.1.x86_64 as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP2:libopenmpt-devel-0.3.28-2.13.1.x86_64"
+				},
+				"product_reference": "libopenmpt-devel-0.3.28-2.13.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenmpt0-0.3.28-2.13.1.aarch64 as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP2:libopenmpt0-0.3.28-2.13.1.aarch64"
+				},
+				"product_reference": "libopenmpt0-0.3.28-2.13.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenmpt0-0.3.28-2.13.1.ppc64le as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP2:libopenmpt0-0.3.28-2.13.1.ppc64le"
+				},
+				"product_reference": "libopenmpt0-0.3.28-2.13.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenmpt0-0.3.28-2.13.1.s390x as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP2:libopenmpt0-0.3.28-2.13.1.s390x"
+				},
+				"product_reference": "libopenmpt0-0.3.28-2.13.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenmpt0-0.3.28-2.13.1.x86_64 as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP2:libopenmpt0-0.3.28-2.13.1.x86_64"
+				},
+				"product_reference": "libopenmpt0-0.3.28-2.13.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenmpt_modplug1-0.3.28-2.13.1.aarch64 as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP2:libopenmpt_modplug1-0.3.28-2.13.1.aarch64"
+				},
+				"product_reference": "libopenmpt_modplug1-0.3.28-2.13.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenmpt_modplug1-0.3.28-2.13.1.ppc64le as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP2:libopenmpt_modplug1-0.3.28-2.13.1.ppc64le"
+				},
+				"product_reference": "libopenmpt_modplug1-0.3.28-2.13.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenmpt_modplug1-0.3.28-2.13.1.s390x as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP2:libopenmpt_modplug1-0.3.28-2.13.1.s390x"
+				},
+				"product_reference": "libopenmpt_modplug1-0.3.28-2.13.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenmpt_modplug1-0.3.28-2.13.1.x86_64 as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP2:libopenmpt_modplug1-0.3.28-2.13.1.x86_64"
+				},
+				"product_reference": "libopenmpt_modplug1-0.3.28-2.13.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libmodplug-devel-0.3.28-2.13.1.aarch64 as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP3",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP3:libmodplug-devel-0.3.28-2.13.1.aarch64"
+				},
+				"product_reference": "libmodplug-devel-0.3.28-2.13.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libmodplug-devel-0.3.28-2.13.1.ppc64le as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP3",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP3:libmodplug-devel-0.3.28-2.13.1.ppc64le"
+				},
+				"product_reference": "libmodplug-devel-0.3.28-2.13.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libmodplug-devel-0.3.28-2.13.1.s390x as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP3",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP3:libmodplug-devel-0.3.28-2.13.1.s390x"
+				},
+				"product_reference": "libmodplug-devel-0.3.28-2.13.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libmodplug-devel-0.3.28-2.13.1.x86_64 as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP3",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP3:libmodplug-devel-0.3.28-2.13.1.x86_64"
+				},
+				"product_reference": "libmodplug-devel-0.3.28-2.13.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libmodplug1-0.3.28-2.13.1.aarch64 as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP3",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP3:libmodplug1-0.3.28-2.13.1.aarch64"
+				},
+				"product_reference": "libmodplug1-0.3.28-2.13.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libmodplug1-0.3.28-2.13.1.ppc64le as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP3",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP3:libmodplug1-0.3.28-2.13.1.ppc64le"
+				},
+				"product_reference": "libmodplug1-0.3.28-2.13.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libmodplug1-0.3.28-2.13.1.s390x as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP3",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP3:libmodplug1-0.3.28-2.13.1.s390x"
+				},
+				"product_reference": "libmodplug1-0.3.28-2.13.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libmodplug1-0.3.28-2.13.1.x86_64 as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP3",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP3:libmodplug1-0.3.28-2.13.1.x86_64"
+				},
+				"product_reference": "libmodplug1-0.3.28-2.13.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenmpt-devel-0.3.28-2.13.1.aarch64 as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP3",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP3:libopenmpt-devel-0.3.28-2.13.1.aarch64"
+				},
+				"product_reference": "libopenmpt-devel-0.3.28-2.13.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenmpt-devel-0.3.28-2.13.1.ppc64le as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP3",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP3:libopenmpt-devel-0.3.28-2.13.1.ppc64le"
+				},
+				"product_reference": "libopenmpt-devel-0.3.28-2.13.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenmpt-devel-0.3.28-2.13.1.s390x as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP3",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP3:libopenmpt-devel-0.3.28-2.13.1.s390x"
+				},
+				"product_reference": "libopenmpt-devel-0.3.28-2.13.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenmpt-devel-0.3.28-2.13.1.x86_64 as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP3",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP3:libopenmpt-devel-0.3.28-2.13.1.x86_64"
+				},
+				"product_reference": "libopenmpt-devel-0.3.28-2.13.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenmpt0-0.3.28-2.13.1.aarch64 as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP3",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP3:libopenmpt0-0.3.28-2.13.1.aarch64"
+				},
+				"product_reference": "libopenmpt0-0.3.28-2.13.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenmpt0-0.3.28-2.13.1.ppc64le as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP3",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP3:libopenmpt0-0.3.28-2.13.1.ppc64le"
+				},
+				"product_reference": "libopenmpt0-0.3.28-2.13.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenmpt0-0.3.28-2.13.1.s390x as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP3",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP3:libopenmpt0-0.3.28-2.13.1.s390x"
+				},
+				"product_reference": "libopenmpt0-0.3.28-2.13.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenmpt0-0.3.28-2.13.1.x86_64 as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP3",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP3:libopenmpt0-0.3.28-2.13.1.x86_64"
+				},
+				"product_reference": "libopenmpt0-0.3.28-2.13.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenmpt_modplug1-0.3.28-2.13.1.aarch64 as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP3",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP3:libopenmpt_modplug1-0.3.28-2.13.1.aarch64"
+				},
+				"product_reference": "libopenmpt_modplug1-0.3.28-2.13.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenmpt_modplug1-0.3.28-2.13.1.ppc64le as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP3",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP3:libopenmpt_modplug1-0.3.28-2.13.1.ppc64le"
+				},
+				"product_reference": "libopenmpt_modplug1-0.3.28-2.13.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenmpt_modplug1-0.3.28-2.13.1.s390x as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP3",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP3:libopenmpt_modplug1-0.3.28-2.13.1.s390x"
+				},
+				"product_reference": "libopenmpt_modplug1-0.3.28-2.13.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenmpt_modplug1-0.3.28-2.13.1.x86_64 as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP3",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP3:libopenmpt_modplug1-0.3.28-2.13.1.x86_64"
+				},
+				"product_reference": "libopenmpt_modplug1-0.3.28-2.13.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP3"
+			}
+		]
+	}
+}

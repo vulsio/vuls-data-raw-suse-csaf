@@ -1,0 +1,779 @@
+{
+	"document": {
+		"aggregate_severity": {
+			"namespace": "https://www.suse.com/support/security/rating/",
+			"text": "moderate"
+		},
+		"category": "csaf_security_advisory",
+		"csaf_version": "2.0",
+		"distribution": {
+			"text": "Copyright 2023 SUSE LLC. All rights reserved.",
+			"tlp": {
+				"label": "WHITE",
+				"url": "https://www.first.org/tlp/"
+			}
+		},
+		"lang": "en",
+		"notes": [
+			{
+				"category": "summary",
+				"text": "Security update for zstd",
+				"title": "Title of the patch"
+			},
+			{
+				"category": "description",
+				"text": "This update for zstd fixes the following issues:\n\n- Update to version 1.4.2:\n  * bug: Fix bug in zstd-0.5 decoder by @terrelln (#1696)\n  * bug: Fix seekable decompression in-memory API by @iburinoc (#1695)\n  * bug: Close minor memory leak in CLI by @LeeYoung624 (#1701)\n  * misc: Validate blocks are smaller than size limit by @vivekmig (#1685)\n  * misc: Restructure source files by @ephiepark (#1679)\n\n- Update to version 1.4.1:\n  * bug: Fix data corruption in niche use cases by @terrelln (#1659)\n  * bug: Fuzz legacy modes, fix uncovered bugs by @terrelln (#1593, #1594, #1595)\n  * bug: Fix out of bounds read by @terrelln (#1590)\n  * perf: Improve decode speed by ~7% @mgrice (#1668)\n  * perf: Slightly improved compression ratio of level 3 and 4 (ZSTD_dfast) by @cyan4973 (#1681)\n  * perf: Slightly faster compression speed when re-using a context by @cyan4973 (#1658)\n  * perf: Improve compression ratio for small windowLog by @cyan4973 (#1624)\n  * perf: Faster compression speed in high compression mode for repetitive data by @terrelln (#1635)\n  * api: Add parameter to generate smaller dictionaries by @tyler-tran (#1656)\n  * cli: Recognize symlinks when built in C99 mode by @felixhandte (#1640)\n  * cli: Expose cpu load indicator for each file on -vv mode by @ephiepark (#1631)\n  * cli: Restrict read permissions on destination files by @chungy (#1644)\n  * cli: zstdgrep: handle -f flag by @felixhandte (#1618)\n  * cli: zstdcat: follow symlinks by @vejnar (#1604)\n  * doc: Remove extra size limit on compressed blocks by @felixhandte (#1689)\n  * doc: Fix typo by @yk-tanigawa (#1633)\n  * doc: Improve documentation on streaming buffer sizes by @cyan4973 (#1629)\n  * build: CMake: support building with LZ4 @leeyoung624 (#1626)\n  * build: CMake: install zstdless and zstdgrep by @leeyoung624 (#1647)\n  * build: CMake: respect existing uninstall target by @j301scott (#1619)\n  * build: Make: skip multithread tests when built without support by @michaelforney (#1620)\n  * build: Make: Fix examples/ test target by @sjnam (#1603)\n  * build: Meson: rename options out of deprecated namespace by @lzutao (#1665)\n  * build: Meson: fix build by @lzutao (#1602)\n  * build: Visual Studio: don't export symbols in static lib by @scharan (#1650)\n  * build: Visual Studio: fix linking by @absotively (#1639)\n  * build: Fix MinGW-W64 build by @myzhang1029 (#1600)\n  * misc: Expand decodecorpus coverage by @ephiepark (#1664)\n\n- Add baselibs.conf: libarchive gained zstd support and provides\n  -32bit libraries. This means, zstd also needs to provide -32bit\n  libs.\n\n- Update to new upstream release 1.4.0\n  * perf: level 1 compression speed was improved\n  * cli: added --[no-]compress-literals flag to enable or disable\n    literal compression\n- Reword 'real-time' in description by some actual statistics,\n  because 603MB/s (lowest zstd level) is not 'real-time' for\n  quite some applications.\n\n- zstd 1.3.8:\n  * better decompression speed on large files (+7%) and cold\n    dictionaries (+15%)\n  * slightly better compression ratio at high compression modes\n  * new --rsyncable mode\n  * support decompression of empty frames into NULL (used to be an\n    error)\n  * support ZSTD_CLEVEL environment variable\n  * --no-progress flag, preserving final summary\n  * various CLI fixes\n  * fix race condition in one-pass compression functions that could\n    allow out of bounds write (CVE-2019-11922, boo#1142941)\n\n- zstd 1.3.7:\n  * fix ratio for dictionary compression at levels 9 and 10\n  * add man pages for zstdless and zstdgrep\n- includes changes from zstd 1.3.6:\n  * faster dictionary builder, also the new default for --train\n  * previous (slower, slightly higher quality) dictionary builder\n    to be selected via --train-cover\n  * Faster dictionary decompression and compression under memory\n    limits with many dictionaries used simultaneously\n  * New command --adapt for compressed network piping of data\n    adjusted to the perceived network conditions\n\n- update to 1.3.5:\n  * much faster dictionary compression\n  * small quality improvement for dictionary generation\n  * slightly improved performance at high compression levels\n  * automatic memory release for long duration contexts\n  * fix overlapLog can be manually set\n  * fix decoding invalid lz4 frames\n  * fix performance degradation for dictionary compression when\n    using advanced API\n\n- fix pzstd tests\n- enable pzstd (parallel zstd)\n\n- Use %license instead of %doc [boo#1082318]\n- Add disk _constraints to fix ppc64le build\n- Use FAT LTO objects in order to provide proper static library (boo#1133297).\n\n\nThis update was imported from the openSUSE:Leap:15.0:Update update project.",
+				"title": "Description of the patch"
+			},
+			{
+				"category": "details",
+				"text": "openSUSE-2019-2008",
+				"title": "Patchnames"
+			},
+			{
+				"category": "legal_disclaimer",
+				"text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+				"title": "Terms of use"
+			}
+		],
+		"publisher": {
+			"category": "vendor",
+			"contact_details": "https://www.suse.com/support/security/contact/",
+			"name": "SUSE Product Security Team",
+			"namespace": "https://www.suse.com/"
+		},
+		"references": [
+			{
+				"category": "self",
+				"summary": "URL for openSUSE-SU-2019:2008-1",
+				"url": "https://lists.opensuse.org/opensuse-security-announce/2019-08/msg00078.html"
+			},
+			{
+				"category": "external",
+				"summary": "SUSE ratings",
+				"url": "https://www.suse.com/support/security/rating/"
+			},
+			{
+				"category": "self",
+				"summary": "URL of this CSAF notice",
+				"url": "https://ftp.suse.com/pub/projects/security/csaf/opensuse-su-2019_2008-1.json"
+			},
+			{
+				"category": "self",
+				"summary": "E-Mail link for openSUSE-SU-2019:2008-1",
+				"url": "https://lists.opensuse.org/opensuse-security-announce/2019-08/msg00078.html"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1082318",
+				"url": "https://bugzilla.suse.com/1082318"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1133297",
+				"url": "https://bugzilla.suse.com/1133297"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1142941",
+				"url": "https://bugzilla.suse.com/1142941"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2019-11922 page",
+				"url": "https://www.suse.com/security/cve/CVE-2019-11922/"
+			}
+		],
+		"title": "Security update for zstd",
+		"tracking": {
+			"current_release_date": "2019-08-24T16:20:28Z",
+			"generator": {
+				"date": "2019-08-24T16:20:28Z",
+				"engine": {
+					"name": "cve-database.git:bin/generate-csaf.pl",
+					"version": "1"
+				}
+			},
+			"id": "openSUSE-SU-2019:2008-1",
+			"initial_release_date": "2019-08-24T16:20:28Z",
+			"revision_history": [
+				{
+					"date": "2019-08-24T16:20:28Z",
+					"number": "1",
+					"summary": "Current version"
+				}
+			],
+			"status": "final",
+			"version": "1"
+		}
+	},
+	"product_tree": {
+		"branches": [
+			{
+				"branches": [
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "libzstd-devel-1.4.2-bp151.4.3.1.aarch64",
+								"product": {
+									"name": "libzstd-devel-1.4.2-bp151.4.3.1.aarch64",
+									"product_id": "libzstd-devel-1.4.2-bp151.4.3.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libzstd-devel-static-1.4.2-bp151.4.3.1.aarch64",
+								"product": {
+									"name": "libzstd-devel-static-1.4.2-bp151.4.3.1.aarch64",
+									"product_id": "libzstd-devel-static-1.4.2-bp151.4.3.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libzstd1-1.4.2-bp151.4.3.1.aarch64",
+								"product": {
+									"name": "libzstd1-1.4.2-bp151.4.3.1.aarch64",
+									"product_id": "libzstd1-1.4.2-bp151.4.3.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "zstd-1.4.2-bp151.4.3.1.aarch64",
+								"product": {
+									"name": "zstd-1.4.2-bp151.4.3.1.aarch64",
+									"product_id": "zstd-1.4.2-bp151.4.3.1.aarch64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "aarch64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "libzstd1-64bit-1.4.2-bp151.4.3.1.aarch64_ilp32",
+								"product": {
+									"name": "libzstd1-64bit-1.4.2-bp151.4.3.1.aarch64_ilp32",
+									"product_id": "libzstd1-64bit-1.4.2-bp151.4.3.1.aarch64_ilp32"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "aarch64_ilp32"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "libzstd-devel-1.4.2-bp151.4.3.1.ppc64le",
+								"product": {
+									"name": "libzstd-devel-1.4.2-bp151.4.3.1.ppc64le",
+									"product_id": "libzstd-devel-1.4.2-bp151.4.3.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libzstd-devel-static-1.4.2-bp151.4.3.1.ppc64le",
+								"product": {
+									"name": "libzstd-devel-static-1.4.2-bp151.4.3.1.ppc64le",
+									"product_id": "libzstd-devel-static-1.4.2-bp151.4.3.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libzstd1-1.4.2-bp151.4.3.1.ppc64le",
+								"product": {
+									"name": "libzstd1-1.4.2-bp151.4.3.1.ppc64le",
+									"product_id": "libzstd1-1.4.2-bp151.4.3.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "zstd-1.4.2-bp151.4.3.1.ppc64le",
+								"product": {
+									"name": "zstd-1.4.2-bp151.4.3.1.ppc64le",
+									"product_id": "zstd-1.4.2-bp151.4.3.1.ppc64le"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "ppc64le"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "libzstd-devel-1.4.2-bp151.4.3.1.s390x",
+								"product": {
+									"name": "libzstd-devel-1.4.2-bp151.4.3.1.s390x",
+									"product_id": "libzstd-devel-1.4.2-bp151.4.3.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libzstd-devel-static-1.4.2-bp151.4.3.1.s390x",
+								"product": {
+									"name": "libzstd-devel-static-1.4.2-bp151.4.3.1.s390x",
+									"product_id": "libzstd-devel-static-1.4.2-bp151.4.3.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libzstd1-1.4.2-bp151.4.3.1.s390x",
+								"product": {
+									"name": "libzstd1-1.4.2-bp151.4.3.1.s390x",
+									"product_id": "libzstd1-1.4.2-bp151.4.3.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "zstd-1.4.2-bp151.4.3.1.s390x",
+								"product": {
+									"name": "zstd-1.4.2-bp151.4.3.1.s390x",
+									"product_id": "zstd-1.4.2-bp151.4.3.1.s390x"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "s390x"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "libzstd-devel-1.4.2-bp151.4.3.1.x86_64",
+								"product": {
+									"name": "libzstd-devel-1.4.2-bp151.4.3.1.x86_64",
+									"product_id": "libzstd-devel-1.4.2-bp151.4.3.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libzstd-devel-static-1.4.2-bp151.4.3.1.x86_64",
+								"product": {
+									"name": "libzstd-devel-static-1.4.2-bp151.4.3.1.x86_64",
+									"product_id": "libzstd-devel-static-1.4.2-bp151.4.3.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libzstd1-1.4.2-bp151.4.3.1.x86_64",
+								"product": {
+									"name": "libzstd1-1.4.2-bp151.4.3.1.x86_64",
+									"product_id": "libzstd1-1.4.2-bp151.4.3.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "zstd-1.4.2-bp151.4.3.1.x86_64",
+								"product": {
+									"name": "zstd-1.4.2-bp151.4.3.1.x86_64",
+									"product_id": "zstd-1.4.2-bp151.4.3.1.x86_64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "x86_64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_name",
+								"name": "SUSE Package Hub 15",
+								"product": {
+									"name": "SUSE Package Hub 15",
+									"product_id": "SUSE Package Hub 15"
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Package Hub 15 SP1",
+								"product": {
+									"name": "SUSE Package Hub 15 SP1",
+									"product_id": "SUSE Package Hub 15 SP1"
+								}
+							}
+						],
+						"category": "product_family",
+						"name": "SUSE Linux Enterprise"
+					}
+				],
+				"category": "vendor",
+				"name": "SUSE"
+			}
+		],
+		"relationships": [
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libzstd-devel-1.4.2-bp151.4.3.1.aarch64 as component of SUSE Package Hub 15",
+					"product_id": "SUSE Package Hub 15:libzstd-devel-1.4.2-bp151.4.3.1.aarch64"
+				},
+				"product_reference": "libzstd-devel-1.4.2-bp151.4.3.1.aarch64",
+				"relates_to_product_reference": "SUSE Package Hub 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libzstd-devel-1.4.2-bp151.4.3.1.ppc64le as component of SUSE Package Hub 15",
+					"product_id": "SUSE Package Hub 15:libzstd-devel-1.4.2-bp151.4.3.1.ppc64le"
+				},
+				"product_reference": "libzstd-devel-1.4.2-bp151.4.3.1.ppc64le",
+				"relates_to_product_reference": "SUSE Package Hub 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libzstd-devel-1.4.2-bp151.4.3.1.s390x as component of SUSE Package Hub 15",
+					"product_id": "SUSE Package Hub 15:libzstd-devel-1.4.2-bp151.4.3.1.s390x"
+				},
+				"product_reference": "libzstd-devel-1.4.2-bp151.4.3.1.s390x",
+				"relates_to_product_reference": "SUSE Package Hub 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libzstd-devel-1.4.2-bp151.4.3.1.x86_64 as component of SUSE Package Hub 15",
+					"product_id": "SUSE Package Hub 15:libzstd-devel-1.4.2-bp151.4.3.1.x86_64"
+				},
+				"product_reference": "libzstd-devel-1.4.2-bp151.4.3.1.x86_64",
+				"relates_to_product_reference": "SUSE Package Hub 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libzstd-devel-static-1.4.2-bp151.4.3.1.aarch64 as component of SUSE Package Hub 15",
+					"product_id": "SUSE Package Hub 15:libzstd-devel-static-1.4.2-bp151.4.3.1.aarch64"
+				},
+				"product_reference": "libzstd-devel-static-1.4.2-bp151.4.3.1.aarch64",
+				"relates_to_product_reference": "SUSE Package Hub 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libzstd-devel-static-1.4.2-bp151.4.3.1.ppc64le as component of SUSE Package Hub 15",
+					"product_id": "SUSE Package Hub 15:libzstd-devel-static-1.4.2-bp151.4.3.1.ppc64le"
+				},
+				"product_reference": "libzstd-devel-static-1.4.2-bp151.4.3.1.ppc64le",
+				"relates_to_product_reference": "SUSE Package Hub 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libzstd-devel-static-1.4.2-bp151.4.3.1.s390x as component of SUSE Package Hub 15",
+					"product_id": "SUSE Package Hub 15:libzstd-devel-static-1.4.2-bp151.4.3.1.s390x"
+				},
+				"product_reference": "libzstd-devel-static-1.4.2-bp151.4.3.1.s390x",
+				"relates_to_product_reference": "SUSE Package Hub 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libzstd-devel-static-1.4.2-bp151.4.3.1.x86_64 as component of SUSE Package Hub 15",
+					"product_id": "SUSE Package Hub 15:libzstd-devel-static-1.4.2-bp151.4.3.1.x86_64"
+				},
+				"product_reference": "libzstd-devel-static-1.4.2-bp151.4.3.1.x86_64",
+				"relates_to_product_reference": "SUSE Package Hub 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libzstd1-1.4.2-bp151.4.3.1.aarch64 as component of SUSE Package Hub 15",
+					"product_id": "SUSE Package Hub 15:libzstd1-1.4.2-bp151.4.3.1.aarch64"
+				},
+				"product_reference": "libzstd1-1.4.2-bp151.4.3.1.aarch64",
+				"relates_to_product_reference": "SUSE Package Hub 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libzstd1-1.4.2-bp151.4.3.1.ppc64le as component of SUSE Package Hub 15",
+					"product_id": "SUSE Package Hub 15:libzstd1-1.4.2-bp151.4.3.1.ppc64le"
+				},
+				"product_reference": "libzstd1-1.4.2-bp151.4.3.1.ppc64le",
+				"relates_to_product_reference": "SUSE Package Hub 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libzstd1-1.4.2-bp151.4.3.1.s390x as component of SUSE Package Hub 15",
+					"product_id": "SUSE Package Hub 15:libzstd1-1.4.2-bp151.4.3.1.s390x"
+				},
+				"product_reference": "libzstd1-1.4.2-bp151.4.3.1.s390x",
+				"relates_to_product_reference": "SUSE Package Hub 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libzstd1-1.4.2-bp151.4.3.1.x86_64 as component of SUSE Package Hub 15",
+					"product_id": "SUSE Package Hub 15:libzstd1-1.4.2-bp151.4.3.1.x86_64"
+				},
+				"product_reference": "libzstd1-1.4.2-bp151.4.3.1.x86_64",
+				"relates_to_product_reference": "SUSE Package Hub 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libzstd1-64bit-1.4.2-bp151.4.3.1.aarch64_ilp32 as component of SUSE Package Hub 15",
+					"product_id": "SUSE Package Hub 15:libzstd1-64bit-1.4.2-bp151.4.3.1.aarch64_ilp32"
+				},
+				"product_reference": "libzstd1-64bit-1.4.2-bp151.4.3.1.aarch64_ilp32",
+				"relates_to_product_reference": "SUSE Package Hub 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "zstd-1.4.2-bp151.4.3.1.aarch64 as component of SUSE Package Hub 15",
+					"product_id": "SUSE Package Hub 15:zstd-1.4.2-bp151.4.3.1.aarch64"
+				},
+				"product_reference": "zstd-1.4.2-bp151.4.3.1.aarch64",
+				"relates_to_product_reference": "SUSE Package Hub 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "zstd-1.4.2-bp151.4.3.1.ppc64le as component of SUSE Package Hub 15",
+					"product_id": "SUSE Package Hub 15:zstd-1.4.2-bp151.4.3.1.ppc64le"
+				},
+				"product_reference": "zstd-1.4.2-bp151.4.3.1.ppc64le",
+				"relates_to_product_reference": "SUSE Package Hub 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "zstd-1.4.2-bp151.4.3.1.s390x as component of SUSE Package Hub 15",
+					"product_id": "SUSE Package Hub 15:zstd-1.4.2-bp151.4.3.1.s390x"
+				},
+				"product_reference": "zstd-1.4.2-bp151.4.3.1.s390x",
+				"relates_to_product_reference": "SUSE Package Hub 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "zstd-1.4.2-bp151.4.3.1.x86_64 as component of SUSE Package Hub 15",
+					"product_id": "SUSE Package Hub 15:zstd-1.4.2-bp151.4.3.1.x86_64"
+				},
+				"product_reference": "zstd-1.4.2-bp151.4.3.1.x86_64",
+				"relates_to_product_reference": "SUSE Package Hub 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libzstd-devel-1.4.2-bp151.4.3.1.aarch64 as component of SUSE Package Hub 15 SP1",
+					"product_id": "SUSE Package Hub 15 SP1:libzstd-devel-1.4.2-bp151.4.3.1.aarch64"
+				},
+				"product_reference": "libzstd-devel-1.4.2-bp151.4.3.1.aarch64",
+				"relates_to_product_reference": "SUSE Package Hub 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libzstd-devel-1.4.2-bp151.4.3.1.ppc64le as component of SUSE Package Hub 15 SP1",
+					"product_id": "SUSE Package Hub 15 SP1:libzstd-devel-1.4.2-bp151.4.3.1.ppc64le"
+				},
+				"product_reference": "libzstd-devel-1.4.2-bp151.4.3.1.ppc64le",
+				"relates_to_product_reference": "SUSE Package Hub 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libzstd-devel-1.4.2-bp151.4.3.1.s390x as component of SUSE Package Hub 15 SP1",
+					"product_id": "SUSE Package Hub 15 SP1:libzstd-devel-1.4.2-bp151.4.3.1.s390x"
+				},
+				"product_reference": "libzstd-devel-1.4.2-bp151.4.3.1.s390x",
+				"relates_to_product_reference": "SUSE Package Hub 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libzstd-devel-1.4.2-bp151.4.3.1.x86_64 as component of SUSE Package Hub 15 SP1",
+					"product_id": "SUSE Package Hub 15 SP1:libzstd-devel-1.4.2-bp151.4.3.1.x86_64"
+				},
+				"product_reference": "libzstd-devel-1.4.2-bp151.4.3.1.x86_64",
+				"relates_to_product_reference": "SUSE Package Hub 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libzstd-devel-static-1.4.2-bp151.4.3.1.aarch64 as component of SUSE Package Hub 15 SP1",
+					"product_id": "SUSE Package Hub 15 SP1:libzstd-devel-static-1.4.2-bp151.4.3.1.aarch64"
+				},
+				"product_reference": "libzstd-devel-static-1.4.2-bp151.4.3.1.aarch64",
+				"relates_to_product_reference": "SUSE Package Hub 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libzstd-devel-static-1.4.2-bp151.4.3.1.ppc64le as component of SUSE Package Hub 15 SP1",
+					"product_id": "SUSE Package Hub 15 SP1:libzstd-devel-static-1.4.2-bp151.4.3.1.ppc64le"
+				},
+				"product_reference": "libzstd-devel-static-1.4.2-bp151.4.3.1.ppc64le",
+				"relates_to_product_reference": "SUSE Package Hub 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libzstd-devel-static-1.4.2-bp151.4.3.1.s390x as component of SUSE Package Hub 15 SP1",
+					"product_id": "SUSE Package Hub 15 SP1:libzstd-devel-static-1.4.2-bp151.4.3.1.s390x"
+				},
+				"product_reference": "libzstd-devel-static-1.4.2-bp151.4.3.1.s390x",
+				"relates_to_product_reference": "SUSE Package Hub 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libzstd-devel-static-1.4.2-bp151.4.3.1.x86_64 as component of SUSE Package Hub 15 SP1",
+					"product_id": "SUSE Package Hub 15 SP1:libzstd-devel-static-1.4.2-bp151.4.3.1.x86_64"
+				},
+				"product_reference": "libzstd-devel-static-1.4.2-bp151.4.3.1.x86_64",
+				"relates_to_product_reference": "SUSE Package Hub 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libzstd1-1.4.2-bp151.4.3.1.aarch64 as component of SUSE Package Hub 15 SP1",
+					"product_id": "SUSE Package Hub 15 SP1:libzstd1-1.4.2-bp151.4.3.1.aarch64"
+				},
+				"product_reference": "libzstd1-1.4.2-bp151.4.3.1.aarch64",
+				"relates_to_product_reference": "SUSE Package Hub 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libzstd1-1.4.2-bp151.4.3.1.ppc64le as component of SUSE Package Hub 15 SP1",
+					"product_id": "SUSE Package Hub 15 SP1:libzstd1-1.4.2-bp151.4.3.1.ppc64le"
+				},
+				"product_reference": "libzstd1-1.4.2-bp151.4.3.1.ppc64le",
+				"relates_to_product_reference": "SUSE Package Hub 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libzstd1-1.4.2-bp151.4.3.1.s390x as component of SUSE Package Hub 15 SP1",
+					"product_id": "SUSE Package Hub 15 SP1:libzstd1-1.4.2-bp151.4.3.1.s390x"
+				},
+				"product_reference": "libzstd1-1.4.2-bp151.4.3.1.s390x",
+				"relates_to_product_reference": "SUSE Package Hub 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libzstd1-1.4.2-bp151.4.3.1.x86_64 as component of SUSE Package Hub 15 SP1",
+					"product_id": "SUSE Package Hub 15 SP1:libzstd1-1.4.2-bp151.4.3.1.x86_64"
+				},
+				"product_reference": "libzstd1-1.4.2-bp151.4.3.1.x86_64",
+				"relates_to_product_reference": "SUSE Package Hub 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libzstd1-64bit-1.4.2-bp151.4.3.1.aarch64_ilp32 as component of SUSE Package Hub 15 SP1",
+					"product_id": "SUSE Package Hub 15 SP1:libzstd1-64bit-1.4.2-bp151.4.3.1.aarch64_ilp32"
+				},
+				"product_reference": "libzstd1-64bit-1.4.2-bp151.4.3.1.aarch64_ilp32",
+				"relates_to_product_reference": "SUSE Package Hub 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "zstd-1.4.2-bp151.4.3.1.aarch64 as component of SUSE Package Hub 15 SP1",
+					"product_id": "SUSE Package Hub 15 SP1:zstd-1.4.2-bp151.4.3.1.aarch64"
+				},
+				"product_reference": "zstd-1.4.2-bp151.4.3.1.aarch64",
+				"relates_to_product_reference": "SUSE Package Hub 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "zstd-1.4.2-bp151.4.3.1.ppc64le as component of SUSE Package Hub 15 SP1",
+					"product_id": "SUSE Package Hub 15 SP1:zstd-1.4.2-bp151.4.3.1.ppc64le"
+				},
+				"product_reference": "zstd-1.4.2-bp151.4.3.1.ppc64le",
+				"relates_to_product_reference": "SUSE Package Hub 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "zstd-1.4.2-bp151.4.3.1.s390x as component of SUSE Package Hub 15 SP1",
+					"product_id": "SUSE Package Hub 15 SP1:zstd-1.4.2-bp151.4.3.1.s390x"
+				},
+				"product_reference": "zstd-1.4.2-bp151.4.3.1.s390x",
+				"relates_to_product_reference": "SUSE Package Hub 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "zstd-1.4.2-bp151.4.3.1.x86_64 as component of SUSE Package Hub 15 SP1",
+					"product_id": "SUSE Package Hub 15 SP1:zstd-1.4.2-bp151.4.3.1.x86_64"
+				},
+				"product_reference": "zstd-1.4.2-bp151.4.3.1.x86_64",
+				"relates_to_product_reference": "SUSE Package Hub 15 SP1"
+			}
+		]
+	},
+	"vulnerabilities": [
+		{
+			"cve": "CVE-2019-11922",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2019-11922"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A race condition in the one-pass compression functions of Zstandard prior to version 1.3.8 could allow an attacker to write bytes out of bounds if an output buffer smaller than the recommended size was used.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Package Hub 15 SP1:libzstd-devel-1.4.2-bp151.4.3.1.aarch64",
+					"SUSE Package Hub 15 SP1:libzstd-devel-1.4.2-bp151.4.3.1.ppc64le",
+					"SUSE Package Hub 15 SP1:libzstd-devel-1.4.2-bp151.4.3.1.s390x",
+					"SUSE Package Hub 15 SP1:libzstd-devel-1.4.2-bp151.4.3.1.x86_64",
+					"SUSE Package Hub 15 SP1:libzstd-devel-static-1.4.2-bp151.4.3.1.aarch64",
+					"SUSE Package Hub 15 SP1:libzstd-devel-static-1.4.2-bp151.4.3.1.ppc64le",
+					"SUSE Package Hub 15 SP1:libzstd-devel-static-1.4.2-bp151.4.3.1.s390x",
+					"SUSE Package Hub 15 SP1:libzstd-devel-static-1.4.2-bp151.4.3.1.x86_64",
+					"SUSE Package Hub 15 SP1:libzstd1-1.4.2-bp151.4.3.1.aarch64",
+					"SUSE Package Hub 15 SP1:libzstd1-1.4.2-bp151.4.3.1.ppc64le",
+					"SUSE Package Hub 15 SP1:libzstd1-1.4.2-bp151.4.3.1.s390x",
+					"SUSE Package Hub 15 SP1:libzstd1-1.4.2-bp151.4.3.1.x86_64",
+					"SUSE Package Hub 15 SP1:libzstd1-64bit-1.4.2-bp151.4.3.1.aarch64_ilp32",
+					"SUSE Package Hub 15 SP1:zstd-1.4.2-bp151.4.3.1.aarch64",
+					"SUSE Package Hub 15 SP1:zstd-1.4.2-bp151.4.3.1.ppc64le",
+					"SUSE Package Hub 15 SP1:zstd-1.4.2-bp151.4.3.1.s390x",
+					"SUSE Package Hub 15 SP1:zstd-1.4.2-bp151.4.3.1.x86_64",
+					"SUSE Package Hub 15:libzstd-devel-1.4.2-bp151.4.3.1.aarch64",
+					"SUSE Package Hub 15:libzstd-devel-1.4.2-bp151.4.3.1.ppc64le",
+					"SUSE Package Hub 15:libzstd-devel-1.4.2-bp151.4.3.1.s390x",
+					"SUSE Package Hub 15:libzstd-devel-1.4.2-bp151.4.3.1.x86_64",
+					"SUSE Package Hub 15:libzstd-devel-static-1.4.2-bp151.4.3.1.aarch64",
+					"SUSE Package Hub 15:libzstd-devel-static-1.4.2-bp151.4.3.1.ppc64le",
+					"SUSE Package Hub 15:libzstd-devel-static-1.4.2-bp151.4.3.1.s390x",
+					"SUSE Package Hub 15:libzstd-devel-static-1.4.2-bp151.4.3.1.x86_64",
+					"SUSE Package Hub 15:libzstd1-1.4.2-bp151.4.3.1.aarch64",
+					"SUSE Package Hub 15:libzstd1-1.4.2-bp151.4.3.1.ppc64le",
+					"SUSE Package Hub 15:libzstd1-1.4.2-bp151.4.3.1.s390x",
+					"SUSE Package Hub 15:libzstd1-1.4.2-bp151.4.3.1.x86_64",
+					"SUSE Package Hub 15:libzstd1-64bit-1.4.2-bp151.4.3.1.aarch64_ilp32",
+					"SUSE Package Hub 15:zstd-1.4.2-bp151.4.3.1.aarch64",
+					"SUSE Package Hub 15:zstd-1.4.2-bp151.4.3.1.ppc64le",
+					"SUSE Package Hub 15:zstd-1.4.2-bp151.4.3.1.s390x",
+					"SUSE Package Hub 15:zstd-1.4.2-bp151.4.3.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2019-11922",
+					"url": "https://www.suse.com/security/cve/CVE-2019-11922"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1142941 for CVE-2019-11922",
+					"url": "https://bugzilla.suse.com/1142941"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Package Hub 15 SP1:libzstd-devel-1.4.2-bp151.4.3.1.aarch64",
+						"SUSE Package Hub 15 SP1:libzstd-devel-1.4.2-bp151.4.3.1.ppc64le",
+						"SUSE Package Hub 15 SP1:libzstd-devel-1.4.2-bp151.4.3.1.s390x",
+						"SUSE Package Hub 15 SP1:libzstd-devel-1.4.2-bp151.4.3.1.x86_64",
+						"SUSE Package Hub 15 SP1:libzstd-devel-static-1.4.2-bp151.4.3.1.aarch64",
+						"SUSE Package Hub 15 SP1:libzstd-devel-static-1.4.2-bp151.4.3.1.ppc64le",
+						"SUSE Package Hub 15 SP1:libzstd-devel-static-1.4.2-bp151.4.3.1.s390x",
+						"SUSE Package Hub 15 SP1:libzstd-devel-static-1.4.2-bp151.4.3.1.x86_64",
+						"SUSE Package Hub 15 SP1:libzstd1-1.4.2-bp151.4.3.1.aarch64",
+						"SUSE Package Hub 15 SP1:libzstd1-1.4.2-bp151.4.3.1.ppc64le",
+						"SUSE Package Hub 15 SP1:libzstd1-1.4.2-bp151.4.3.1.s390x",
+						"SUSE Package Hub 15 SP1:libzstd1-1.4.2-bp151.4.3.1.x86_64",
+						"SUSE Package Hub 15 SP1:libzstd1-64bit-1.4.2-bp151.4.3.1.aarch64_ilp32",
+						"SUSE Package Hub 15 SP1:zstd-1.4.2-bp151.4.3.1.aarch64",
+						"SUSE Package Hub 15 SP1:zstd-1.4.2-bp151.4.3.1.ppc64le",
+						"SUSE Package Hub 15 SP1:zstd-1.4.2-bp151.4.3.1.s390x",
+						"SUSE Package Hub 15 SP1:zstd-1.4.2-bp151.4.3.1.x86_64",
+						"SUSE Package Hub 15:libzstd-devel-1.4.2-bp151.4.3.1.aarch64",
+						"SUSE Package Hub 15:libzstd-devel-1.4.2-bp151.4.3.1.ppc64le",
+						"SUSE Package Hub 15:libzstd-devel-1.4.2-bp151.4.3.1.s390x",
+						"SUSE Package Hub 15:libzstd-devel-1.4.2-bp151.4.3.1.x86_64",
+						"SUSE Package Hub 15:libzstd-devel-static-1.4.2-bp151.4.3.1.aarch64",
+						"SUSE Package Hub 15:libzstd-devel-static-1.4.2-bp151.4.3.1.ppc64le",
+						"SUSE Package Hub 15:libzstd-devel-static-1.4.2-bp151.4.3.1.s390x",
+						"SUSE Package Hub 15:libzstd-devel-static-1.4.2-bp151.4.3.1.x86_64",
+						"SUSE Package Hub 15:libzstd1-1.4.2-bp151.4.3.1.aarch64",
+						"SUSE Package Hub 15:libzstd1-1.4.2-bp151.4.3.1.ppc64le",
+						"SUSE Package Hub 15:libzstd1-1.4.2-bp151.4.3.1.s390x",
+						"SUSE Package Hub 15:libzstd1-1.4.2-bp151.4.3.1.x86_64",
+						"SUSE Package Hub 15:libzstd1-64bit-1.4.2-bp151.4.3.1.aarch64_ilp32",
+						"SUSE Package Hub 15:zstd-1.4.2-bp151.4.3.1.aarch64",
+						"SUSE Package Hub 15:zstd-1.4.2-bp151.4.3.1.ppc64le",
+						"SUSE Package Hub 15:zstd-1.4.2-bp151.4.3.1.s390x",
+						"SUSE Package Hub 15:zstd-1.4.2-bp151.4.3.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseSeverity": "NONE",
+						"vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:N",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Package Hub 15 SP1:libzstd-devel-1.4.2-bp151.4.3.1.aarch64",
+						"SUSE Package Hub 15 SP1:libzstd-devel-1.4.2-bp151.4.3.1.ppc64le",
+						"SUSE Package Hub 15 SP1:libzstd-devel-1.4.2-bp151.4.3.1.s390x",
+						"SUSE Package Hub 15 SP1:libzstd-devel-1.4.2-bp151.4.3.1.x86_64",
+						"SUSE Package Hub 15 SP1:libzstd-devel-static-1.4.2-bp151.4.3.1.aarch64",
+						"SUSE Package Hub 15 SP1:libzstd-devel-static-1.4.2-bp151.4.3.1.ppc64le",
+						"SUSE Package Hub 15 SP1:libzstd-devel-static-1.4.2-bp151.4.3.1.s390x",
+						"SUSE Package Hub 15 SP1:libzstd-devel-static-1.4.2-bp151.4.3.1.x86_64",
+						"SUSE Package Hub 15 SP1:libzstd1-1.4.2-bp151.4.3.1.aarch64",
+						"SUSE Package Hub 15 SP1:libzstd1-1.4.2-bp151.4.3.1.ppc64le",
+						"SUSE Package Hub 15 SP1:libzstd1-1.4.2-bp151.4.3.1.s390x",
+						"SUSE Package Hub 15 SP1:libzstd1-1.4.2-bp151.4.3.1.x86_64",
+						"SUSE Package Hub 15 SP1:libzstd1-64bit-1.4.2-bp151.4.3.1.aarch64_ilp32",
+						"SUSE Package Hub 15 SP1:zstd-1.4.2-bp151.4.3.1.aarch64",
+						"SUSE Package Hub 15 SP1:zstd-1.4.2-bp151.4.3.1.ppc64le",
+						"SUSE Package Hub 15 SP1:zstd-1.4.2-bp151.4.3.1.s390x",
+						"SUSE Package Hub 15 SP1:zstd-1.4.2-bp151.4.3.1.x86_64",
+						"SUSE Package Hub 15:libzstd-devel-1.4.2-bp151.4.3.1.aarch64",
+						"SUSE Package Hub 15:libzstd-devel-1.4.2-bp151.4.3.1.ppc64le",
+						"SUSE Package Hub 15:libzstd-devel-1.4.2-bp151.4.3.1.s390x",
+						"SUSE Package Hub 15:libzstd-devel-1.4.2-bp151.4.3.1.x86_64",
+						"SUSE Package Hub 15:libzstd-devel-static-1.4.2-bp151.4.3.1.aarch64",
+						"SUSE Package Hub 15:libzstd-devel-static-1.4.2-bp151.4.3.1.ppc64le",
+						"SUSE Package Hub 15:libzstd-devel-static-1.4.2-bp151.4.3.1.s390x",
+						"SUSE Package Hub 15:libzstd-devel-static-1.4.2-bp151.4.3.1.x86_64",
+						"SUSE Package Hub 15:libzstd1-1.4.2-bp151.4.3.1.aarch64",
+						"SUSE Package Hub 15:libzstd1-1.4.2-bp151.4.3.1.ppc64le",
+						"SUSE Package Hub 15:libzstd1-1.4.2-bp151.4.3.1.s390x",
+						"SUSE Package Hub 15:libzstd1-1.4.2-bp151.4.3.1.x86_64",
+						"SUSE Package Hub 15:libzstd1-64bit-1.4.2-bp151.4.3.1.aarch64_ilp32",
+						"SUSE Package Hub 15:zstd-1.4.2-bp151.4.3.1.aarch64",
+						"SUSE Package Hub 15:zstd-1.4.2-bp151.4.3.1.ppc64le",
+						"SUSE Package Hub 15:zstd-1.4.2-bp151.4.3.1.s390x",
+						"SUSE Package Hub 15:zstd-1.4.2-bp151.4.3.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2019-08-24T16:20:28Z",
+					"details": "low"
+				}
+			],
+			"title": "CVE-2019-11922"
+		}
+	]
+}

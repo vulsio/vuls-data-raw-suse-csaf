@@ -1,0 +1,890 @@
+{
+	"document": {
+		"aggregate_severity": {
+			"namespace": "https://www.suse.com/support/security/rating/",
+			"text": "important"
+		},
+		"category": "csaf_security_advisory",
+		"csaf_version": "2.0",
+		"distribution": {
+			"text": "Copyright 2023 SUSE LLC. All rights reserved.",
+			"tlp": {
+				"label": "WHITE",
+				"url": "https://www.first.org/tlp/"
+			}
+		},
+		"lang": "en",
+		"notes": [
+			{
+				"category": "summary",
+				"text": "Security update for the Linux Kernel",
+				"title": "Title of the patch"
+			},
+			{
+				"category": "description",
+				"text": "\n\nThe SUSE Linux Enterprise 11 SP4 Realtime kernel was updated to receive various security and bugfixes.\n\n\nThe following security bugs were fixed:\n\n- CVE-2017-13080: Wi-Fi Protected Access (WPA and WPA2) allowed reinstallation of the Group Temporal Key (GTK) during the group key handshake, allowing an attacker within radio range to replay frames from access points to clients (bnc#1063667).\n- CVE-2017-15274: security/keys/keyctl.c in the Linux kernel did not consider the case of a NULL payload in conjunction with a nonzero length value, which allowed local users to cause a denial of service (NULL pointer dereference and OOPS) via a crafted add_key or keyctl system call, a different vulnerability than CVE-2017-12192 (bnc#1045327).\n- CVE-2017-15265: Race condition in the ALSA subsystem in the Linux kernel allowed local users to cause a denial of service (use-after-free) or possibly have unspecified other impact via crafted /dev/snd/seq ioctl calls, related to sound/core/seq/seq_clientmgr.c and sound/core/seq/seq_ports.c (bnc#1062520).\n- CVE-2017-14489: The iscsi_if_rx function in drivers/scsi/scsi_transport_iscsi.c in the Linux kernel allowed local users to cause a denial of service (panic) by leveraging incorrect length validation (bnc#1059051).\n- CVE-2017-1000253: Setuid root PIE binaries could still be exploited to gain local root access due missing overlapping memory checking in the ELF loader in the Linux Kernel. (bnc#1059525).\n\nThe following non-security bugs were fixed:\n\n- blacklist.conf: blacklist bfedb589252c ('mm: Add a user_ns owner to mm_struct and fix ptrace permission checks') (bnc#1044228)\n- bnx2x: prevent crash when accessing PTP with interface down (bsc#1060665).\n- drm/mgag200: Fixes for G200eH3. (bnc#1062842)\n- fs/binfmt_elf.c:load_elf_binary(): return -EINVAL on zero-length mappings (bnc#1059525).\n- getcwd: Close race with d_move called by lustre (bsc#1052593).\n- hid: usbhid: Add HID_QUIRK_NOGET for Aten CS-1758 KVM switch (bnc#1022967).\n- i40e: Initialize 64-bit statistics TX ring seqcount (bsc#909484 FATE#317397).\n- kvm: async_pf: Fix #DF due to inject 'Page not Present' and 'Page Ready' exceptions simultaneously (bsc#1061017).\n- kvm: SVM: Add a missing 'break' statement (bsc#1061017).\n- lustre: Fix 'getcwd: Close race with d_move called by lustre' for -rt Convert added spin_lock/unlock() of ->d_lock to seqlock variants.\n- md/bitmap: disable bitmap_resize for file-backed bitmaps (bsc#1061180).\n- netback: coalesce (guest) RX SKBs as needed (bsc#1056504).\n- nfs: Remove asserts from the NFS XDR code (bsc#1063544).\n- powerpc: Fix the corrupt r3 error during MCE handling (bnc#1056230).\n- powerpc: Make sure IPI handlers see data written by IPI senders (bnc#1056230).\n- powerpc/xics: Harden xics hypervisor backend (bnc#1056230).\n- s390/cpcmd,vmcp: avoid GFP_DMA allocations (bnc#1060245, LTC#159112).\n- s390/qdio: avoid reschedule of outbound tasklet once killed (bnc#1063301, LTC#159885).\n- s390/topology: alternative topology for topology-less machines (bnc#1060245, LTC#159177).\n- s390/topology: enable / disable topology dynamically (bnc#1060245, LTC#159177).\n- scsi: qla2xxx: Get mutex lock before checking optrom_state (bsc#1053317).\n- scsi: reset wait for IO completion (bsc#996376).\n- scsi: zfcp: fix capping of unsuccessful GPN_FT SAN response trace records (bnc#1060245, LTC#158494).\n- scsi: zfcp: fix missing trace records for early returns in TMF eh handlers (bnc#1060245, LTC#158494).\n- scsi: zfcp: fix passing fsf_req to SCSI trace on TMF to correlate with HBA (bnc#1060245, LTC#158494).\n- scsi: zfcp: fix payload with full FCP_RSP IU in SCSI trace records (bnc#1060245, LTC#158494).\n- scsi: zfcp: fix queuecommand for scsi_eh commands when DIX enabled (bnc#1060245, LTC#158493).\n- scsi: zfcp: trace HBA FSF response by default on dismiss or timedout late response (bnc#1060245, LTC#158494).\n- Update config files. (bsc#1057796) The CONFIG_MODULE_SIG_UEFI should be enabled on x86_64/xen architecture because xen can work with shim on x86_64. Enabling the following kernel config to load certificate from db/mok: +CONFIG_MODULE_SIG_BLACKLIST=y +CONFIG_MODULE_SIG_UEFI=y\n- virtio_scsi: do not call virtqueue_add_sgs(... GFP_NOIO) holding spinlock (bsc#1036286).\n",
+				"title": "Description of the patch"
+			},
+			{
+				"category": "details",
+				"text": "slertesp4-kernel-rt-201711-13355",
+				"title": "Patchnames"
+			},
+			{
+				"category": "legal_disclaimer",
+				"text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+				"title": "Terms of use"
+			}
+		],
+		"publisher": {
+			"category": "vendor",
+			"contact_details": "https://www.suse.com/support/security/contact/",
+			"name": "SUSE Product Security Team",
+			"namespace": "https://www.suse.com/"
+		},
+		"references": [
+			{
+				"category": "self",
+				"summary": "URL for SUSE-SU-2017:3165-1",
+				"url": "https://www.suse.com/support/update/announcement/2017/suse-su-20173165-1/"
+			},
+			{
+				"category": "external",
+				"summary": "SUSE ratings",
+				"url": "https://www.suse.com/support/security/rating/"
+			},
+			{
+				"category": "self",
+				"summary": "URL of this CSAF notice",
+				"url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2017_3165-1.json"
+			},
+			{
+				"category": "self",
+				"summary": "E-Mail link for SUSE-SU-2017:3165-1",
+				"url": "https://lists.opensuse.org/opensuse-security-announce/2017-11/msg00082.html"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1022967",
+				"url": "https://bugzilla.suse.com/1022967"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1036286",
+				"url": "https://bugzilla.suse.com/1036286"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1044228",
+				"url": "https://bugzilla.suse.com/1044228"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1045327",
+				"url": "https://bugzilla.suse.com/1045327"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1052593",
+				"url": "https://bugzilla.suse.com/1052593"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1053317",
+				"url": "https://bugzilla.suse.com/1053317"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1056230",
+				"url": "https://bugzilla.suse.com/1056230"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1056504",
+				"url": "https://bugzilla.suse.com/1056504"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1057796",
+				"url": "https://bugzilla.suse.com/1057796"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1059051",
+				"url": "https://bugzilla.suse.com/1059051"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1059525",
+				"url": "https://bugzilla.suse.com/1059525"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1060245",
+				"url": "https://bugzilla.suse.com/1060245"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1060665",
+				"url": "https://bugzilla.suse.com/1060665"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1061017",
+				"url": "https://bugzilla.suse.com/1061017"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1061180",
+				"url": "https://bugzilla.suse.com/1061180"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1062520",
+				"url": "https://bugzilla.suse.com/1062520"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1062842",
+				"url": "https://bugzilla.suse.com/1062842"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1063301",
+				"url": "https://bugzilla.suse.com/1063301"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1063544",
+				"url": "https://bugzilla.suse.com/1063544"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1063667",
+				"url": "https://bugzilla.suse.com/1063667"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 909484",
+				"url": "https://bugzilla.suse.com/909484"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 996376",
+				"url": "https://bugzilla.suse.com/996376"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2017-1000253 page",
+				"url": "https://www.suse.com/security/cve/CVE-2017-1000253/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2017-13080 page",
+				"url": "https://www.suse.com/security/cve/CVE-2017-13080/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2017-14489 page",
+				"url": "https://www.suse.com/security/cve/CVE-2017-14489/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2017-15265 page",
+				"url": "https://www.suse.com/security/cve/CVE-2017-15265/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2017-15274 page",
+				"url": "https://www.suse.com/security/cve/CVE-2017-15274/"
+			}
+		],
+		"title": "Security update for the Linux Kernel",
+		"tracking": {
+			"current_release_date": "2017-11-30T15:59:50Z",
+			"generator": {
+				"date": "2017-11-30T15:59:50Z",
+				"engine": {
+					"name": "cve-database.git:bin/generate-csaf.pl",
+					"version": "1"
+				}
+			},
+			"id": "SUSE-SU-2017:3165-1",
+			"initial_release_date": "2017-11-30T15:59:50Z",
+			"revision_history": [
+				{
+					"date": "2017-11-30T15:59:50Z",
+					"number": "1",
+					"summary": "Current version"
+				}
+			],
+			"status": "final",
+			"version": "1"
+		}
+	},
+	"product_tree": {
+		"branches": [
+			{
+				"branches": [
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "kernel-rt-3.0.101.rt130-69.11.1.x86_64",
+								"product": {
+									"name": "kernel-rt-3.0.101.rt130-69.11.1.x86_64",
+									"product_id": "kernel-rt-3.0.101.rt130-69.11.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-rt-base-3.0.101.rt130-69.11.1.x86_64",
+								"product": {
+									"name": "kernel-rt-base-3.0.101.rt130-69.11.1.x86_64",
+									"product_id": "kernel-rt-base-3.0.101.rt130-69.11.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-rt-devel-3.0.101.rt130-69.11.1.x86_64",
+								"product": {
+									"name": "kernel-rt-devel-3.0.101.rt130-69.11.1.x86_64",
+									"product_id": "kernel-rt-devel-3.0.101.rt130-69.11.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-rt_trace-3.0.101.rt130-69.11.1.x86_64",
+								"product": {
+									"name": "kernel-rt_trace-3.0.101.rt130-69.11.1.x86_64",
+									"product_id": "kernel-rt_trace-3.0.101.rt130-69.11.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-rt_trace-base-3.0.101.rt130-69.11.1.x86_64",
+								"product": {
+									"name": "kernel-rt_trace-base-3.0.101.rt130-69.11.1.x86_64",
+									"product_id": "kernel-rt_trace-base-3.0.101.rt130-69.11.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-rt_trace-devel-3.0.101.rt130-69.11.1.x86_64",
+								"product": {
+									"name": "kernel-rt_trace-devel-3.0.101.rt130-69.11.1.x86_64",
+									"product_id": "kernel-rt_trace-devel-3.0.101.rt130-69.11.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-source-rt-3.0.101.rt130-69.11.1.x86_64",
+								"product": {
+									"name": "kernel-source-rt-3.0.101.rt130-69.11.1.x86_64",
+									"product_id": "kernel-source-rt-3.0.101.rt130-69.11.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-syms-rt-3.0.101.rt130-69.11.1.x86_64",
+								"product": {
+									"name": "kernel-syms-rt-3.0.101.rt130-69.11.1.x86_64",
+									"product_id": "kernel-syms-rt-3.0.101.rt130-69.11.1.x86_64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "x86_64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Real Time 11 SP4",
+								"product": {
+									"name": "SUSE Linux Enterprise Real Time 11 SP4",
+									"product_id": "SUSE Linux Enterprise Real Time 11 SP4"
+								}
+							}
+						],
+						"category": "product_family",
+						"name": "SUSE Linux Enterprise"
+					}
+				],
+				"category": "vendor",
+				"name": "SUSE"
+			}
+		],
+		"relationships": [
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-rt-3.0.101.rt130-69.11.1.x86_64 as component of SUSE Linux Enterprise Real Time 11 SP4",
+					"product_id": "SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-3.0.101.rt130-69.11.1.x86_64"
+				},
+				"product_reference": "kernel-rt-3.0.101.rt130-69.11.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Real Time 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-rt-base-3.0.101.rt130-69.11.1.x86_64 as component of SUSE Linux Enterprise Real Time 11 SP4",
+					"product_id": "SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-base-3.0.101.rt130-69.11.1.x86_64"
+				},
+				"product_reference": "kernel-rt-base-3.0.101.rt130-69.11.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Real Time 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-rt-devel-3.0.101.rt130-69.11.1.x86_64 as component of SUSE Linux Enterprise Real Time 11 SP4",
+					"product_id": "SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-devel-3.0.101.rt130-69.11.1.x86_64"
+				},
+				"product_reference": "kernel-rt-devel-3.0.101.rt130-69.11.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Real Time 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-rt_trace-3.0.101.rt130-69.11.1.x86_64 as component of SUSE Linux Enterprise Real Time 11 SP4",
+					"product_id": "SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-3.0.101.rt130-69.11.1.x86_64"
+				},
+				"product_reference": "kernel-rt_trace-3.0.101.rt130-69.11.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Real Time 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-rt_trace-base-3.0.101.rt130-69.11.1.x86_64 as component of SUSE Linux Enterprise Real Time 11 SP4",
+					"product_id": "SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-base-3.0.101.rt130-69.11.1.x86_64"
+				},
+				"product_reference": "kernel-rt_trace-base-3.0.101.rt130-69.11.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Real Time 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-rt_trace-devel-3.0.101.rt130-69.11.1.x86_64 as component of SUSE Linux Enterprise Real Time 11 SP4",
+					"product_id": "SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-devel-3.0.101.rt130-69.11.1.x86_64"
+				},
+				"product_reference": "kernel-rt_trace-devel-3.0.101.rt130-69.11.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Real Time 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-source-rt-3.0.101.rt130-69.11.1.x86_64 as component of SUSE Linux Enterprise Real Time 11 SP4",
+					"product_id": "SUSE Linux Enterprise Real Time 11 SP4:kernel-source-rt-3.0.101.rt130-69.11.1.x86_64"
+				},
+				"product_reference": "kernel-source-rt-3.0.101.rt130-69.11.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Real Time 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-syms-rt-3.0.101.rt130-69.11.1.x86_64 as component of SUSE Linux Enterprise Real Time 11 SP4",
+					"product_id": "SUSE Linux Enterprise Real Time 11 SP4:kernel-syms-rt-3.0.101.rt130-69.11.1.x86_64"
+				},
+				"product_reference": "kernel-syms-rt-3.0.101.rt130-69.11.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Real Time 11 SP4"
+			}
+		]
+	},
+	"vulnerabilities": [
+		{
+			"cve": "CVE-2017-1000253",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2017-1000253"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Linux distributions that have not patched their long-term kernels with https://git.kernel.org/linus/a87938b2e246b81b4fb713edb371a9fa3c5c3c86 (committed on April 14, 2015). This kernel vulnerability was fixed in April 2015 by commit a87938b2e246b81b4fb713edb371a9fa3c5c3c86 (backported to Linux 3.10.77 in May 2015), but it was not recognized as a security threat. With CONFIG_ARCH_BINFMT_ELF_RANDOMIZE_PIE enabled, and a normal top-down address allocation strategy, load_elf_binary() will attempt to map a PIE binary into an address range immediately below mm->mmap_base. Unfortunately, load_elf_ binary() does not take account of the need to allocate sufficient space for the entire binary which means that, while the first PT_LOAD segment is mapped below mm->mmap_base, the subsequent PT_LOAD segment(s) end up being mapped above mm->mmap_base into the are that is supposed to be the \"gap\" between the stack and the binary.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-3.0.101.rt130-69.11.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-base-3.0.101.rt130-69.11.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-devel-3.0.101.rt130-69.11.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-3.0.101.rt130-69.11.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-base-3.0.101.rt130-69.11.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-devel-3.0.101.rt130-69.11.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-source-rt-3.0.101.rt130-69.11.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-syms-rt-3.0.101.rt130-69.11.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2017-1000253",
+					"url": "https://www.suse.com/security/cve/CVE-2017-1000253"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1059525 for CVE-2017-1000253",
+					"url": "https://bugzilla.suse.com/1059525"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1061680 for CVE-2017-1000253",
+					"url": "https://bugzilla.suse.com/1061680"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1071943 for CVE-2017-1000253",
+					"url": "https://bugzilla.suse.com/1071943"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1072204 for CVE-2017-1000253",
+					"url": "https://bugzilla.suse.com/1072204"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1075506 for CVE-2017-1000253",
+					"url": "https://bugzilla.suse.com/1075506"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1115893 for CVE-2017-1000253",
+					"url": "https://bugzilla.suse.com/1115893"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1149729 for CVE-2017-1000253",
+					"url": "https://bugzilla.suse.com/1149729"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-base-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-devel-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-base-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-devel-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-source-rt-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-syms-rt-3.0.101.rt130-69.11.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 8.4,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.0/AV:L/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-base-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-devel-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-base-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-devel-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-source-rt-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-syms-rt-3.0.101.rt130-69.11.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2017-11-30T15:59:50Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2017-1000253"
+		},
+		{
+			"cve": "CVE-2017-13080",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2017-13080"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Wi-Fi Protected Access (WPA and WPA2) allows reinstallation of the Group Temporal Key (GTK) during the group key handshake, allowing an attacker within radio range to replay frames from access points to clients.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-3.0.101.rt130-69.11.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-base-3.0.101.rt130-69.11.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-devel-3.0.101.rt130-69.11.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-3.0.101.rt130-69.11.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-base-3.0.101.rt130-69.11.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-devel-3.0.101.rt130-69.11.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-source-rt-3.0.101.rt130-69.11.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-syms-rt-3.0.101.rt130-69.11.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2017-13080",
+					"url": "https://www.suse.com/security/cve/CVE-2017-13080"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1056061 for CVE-2017-13080",
+					"url": "https://bugzilla.suse.com/1056061"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1063479 for CVE-2017-13080",
+					"url": "https://bugzilla.suse.com/1063479"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1063667 for CVE-2017-13080",
+					"url": "https://bugzilla.suse.com/1063667"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1063671 for CVE-2017-13080",
+					"url": "https://bugzilla.suse.com/1063671"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1066295 for CVE-2017-13080",
+					"url": "https://bugzilla.suse.com/1066295"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1105108 for CVE-2017-13080",
+					"url": "https://bugzilla.suse.com/1105108"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1178872 for CVE-2017-13080",
+					"url": "https://bugzilla.suse.com/1178872"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1179588 for CVE-2017-13080",
+					"url": "https://bugzilla.suse.com/1179588"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-base-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-devel-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-base-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-devel-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-source-rt-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-syms-rt-3.0.101.rt130-69.11.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 8.1,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.0/AV:A/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-base-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-devel-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-base-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-devel-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-source-rt-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-syms-rt-3.0.101.rt130-69.11.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2017-11-30T15:59:50Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2017-13080"
+		},
+		{
+			"cve": "CVE-2017-14489",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2017-14489"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The iscsi_if_rx function in drivers/scsi/scsi_transport_iscsi.c in the Linux kernel through 4.13.2 allows local users to cause a denial of service (panic) by leveraging incorrect length validation.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-3.0.101.rt130-69.11.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-base-3.0.101.rt130-69.11.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-devel-3.0.101.rt130-69.11.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-3.0.101.rt130-69.11.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-base-3.0.101.rt130-69.11.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-devel-3.0.101.rt130-69.11.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-source-rt-3.0.101.rt130-69.11.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-syms-rt-3.0.101.rt130-69.11.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2017-14489",
+					"url": "https://www.suse.com/security/cve/CVE-2017-14489"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1059051 for CVE-2017-14489",
+					"url": "https://bugzilla.suse.com/1059051"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-base-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-devel-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-base-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-devel-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-source-rt-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-syms-rt-3.0.101.rt130-69.11.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 5.5,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-base-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-devel-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-base-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-devel-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-source-rt-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-syms-rt-3.0.101.rt130-69.11.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2017-11-30T15:59:50Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2017-14489"
+		},
+		{
+			"cve": "CVE-2017-15265",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2017-15265"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Race condition in the ALSA subsystem in the Linux kernel before 4.13.8 allows local users to cause a denial of service (use-after-free) or possibly have unspecified other impact via crafted /dev/snd/seq ioctl calls, related to sound/core/seq/seq_clientmgr.c and sound/core/seq/seq_ports.c.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-3.0.101.rt130-69.11.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-base-3.0.101.rt130-69.11.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-devel-3.0.101.rt130-69.11.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-3.0.101.rt130-69.11.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-base-3.0.101.rt130-69.11.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-devel-3.0.101.rt130-69.11.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-source-rt-3.0.101.rt130-69.11.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-syms-rt-3.0.101.rt130-69.11.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2017-15265",
+					"url": "https://www.suse.com/security/cve/CVE-2017-15265"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1062520 for CVE-2017-15265",
+					"url": "https://bugzilla.suse.com/1062520"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1115893 for CVE-2017-15265",
+					"url": "https://bugzilla.suse.com/1115893"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-base-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-devel-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-base-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-devel-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-source-rt-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-syms-rt-3.0.101.rt130-69.11.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 5.5,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-base-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-devel-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-base-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-devel-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-source-rt-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-syms-rt-3.0.101.rt130-69.11.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2017-11-30T15:59:50Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2017-15265"
+		},
+		{
+			"cve": "CVE-2017-15274",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2017-15274"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "security/keys/keyctl.c in the Linux kernel before 4.11.5 does not consider the case of a NULL payload in conjunction with a nonzero length value, which allows local users to cause a denial of service (NULL pointer dereference and OOPS) via a crafted add_key or keyctl system call, a different vulnerability than CVE-2017-12192.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-3.0.101.rt130-69.11.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-base-3.0.101.rt130-69.11.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-devel-3.0.101.rt130-69.11.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-3.0.101.rt130-69.11.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-base-3.0.101.rt130-69.11.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-devel-3.0.101.rt130-69.11.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-source-rt-3.0.101.rt130-69.11.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-syms-rt-3.0.101.rt130-69.11.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2017-15274",
+					"url": "https://www.suse.com/security/cve/CVE-2017-15274"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1045327 for CVE-2017-15274",
+					"url": "https://bugzilla.suse.com/1045327"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1062471 for CVE-2017-15274",
+					"url": "https://bugzilla.suse.com/1062471"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-base-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-devel-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-base-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-devel-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-source-rt-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-syms-rt-3.0.101.rt130-69.11.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 5.5,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-base-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-devel-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-base-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-devel-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-source-rt-3.0.101.rt130-69.11.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-syms-rt-3.0.101.rt130-69.11.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2017-11-30T15:59:50Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2017-15274"
+		}
+	]
+}

@@ -1,0 +1,2913 @@
+{
+	"document": {
+		"aggregate_severity": {
+			"namespace": "https://www.suse.com/support/security/rating/",
+			"text": "important"
+		},
+		"category": "csaf_security_advisory",
+		"csaf_version": "2.0",
+		"distribution": {
+			"text": "Copyright 2023 SUSE LLC. All rights reserved.",
+			"tlp": {
+				"label": "WHITE",
+				"url": "https://www.first.org/tlp/"
+			}
+		},
+		"lang": "en",
+		"notes": [
+			{
+				"category": "summary",
+				"text": "Security update for libvirt",
+				"title": "Title of the patch"
+			},
+			{
+				"category": "description",
+				"text": "This update for libvirt provides the following fixes:\n\nSecurity issue fixed: \n\n- CVE-2019-3840: Fixed a null pointer dereference vulnerability in virJSONValueObjectHasKey function which could \n  have resulted in a remote denial of service via the guest agent (bsc#1127458).  \n\nOther issues addressed: \n\n- apparmor: reintroduce upstream lxc mount rules (bsc#1130129).\n- hook: encode incoming XML to UTF-8 before passing to lxml etree from string method (bsc#1123642).\n- supportconfig: collect rotated logs in /var/log/libvirt/* (bsc#1124667).\n- libxl: support Xen's max_grant_frames setting with maxGrantFrames attribute on the xenbus controller (bsc#1126325).\n- conf: added new 'xenbus' controller type\n- util: skip RDMA detection for non-PCI network devices (bsc#1112182).\n- qemu: don't use CAP_DAC_OVERRIDE capability if non-root (bsc#1125665).\n- qemu: fix issues related to restricted permissions on /dev/sev(bsc#1102604).\n- apparmor: add support for named profiles (bsc#1118952).\n- libxl: save current memory value after successful balloon (bsc#1120813).\n- apparmor: Fix ptrace rules. (bsc#1117058)\n- libxl: Add support for soft reset. (bsc#1081516)\n- libxl: Fix VM migration on busy hosts. (bsc#1108086)\n- qemu: Add support for SEV guests. (fate#325817)\n- util: Don't check for parallel iteration in hash-related functions. (bsc#1106420)\n- spec: Don't restart libvirt-guests when updating libvirt-client. (bsc#1104662)\n- Fix virNodeGetSEVInfo API crashing libvirtd on AMD SEV enabled hosts. (bsc#1108395)\n",
+				"title": "Description of the patch"
+			},
+			{
+				"category": "details",
+				"text": "SUSE-2019-936,SUSE-SLE-Module-Basesystem-15-2019-936,SUSE-SLE-Module-Development-Tools-OBS-15-2019-936,SUSE-SLE-Module-Server-Applications-15-2019-936",
+				"title": "Patchnames"
+			},
+			{
+				"category": "legal_disclaimer",
+				"text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+				"title": "Terms of use"
+			}
+		],
+		"publisher": {
+			"category": "vendor",
+			"contact_details": "https://www.suse.com/support/security/contact/",
+			"name": "SUSE Product Security Team",
+			"namespace": "https://www.suse.com/"
+		},
+		"references": [
+			{
+				"category": "self",
+				"summary": "URL for SUSE-SU-2019:0936-1",
+				"url": "https://www.suse.com/support/update/announcement/2019/suse-su-20190936-1/"
+			},
+			{
+				"category": "external",
+				"summary": "SUSE ratings",
+				"url": "https://www.suse.com/support/security/rating/"
+			},
+			{
+				"category": "self",
+				"summary": "URL of this CSAF notice",
+				"url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2019_0936-1.json"
+			},
+			{
+				"category": "self",
+				"summary": "E-Mail link for SUSE-SU-2019:0936-1",
+				"url": "https://lists.suse.com/pipermail/sle-security-updates/2019-April/005330.html"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1081516",
+				"url": "https://bugzilla.suse.com/1081516"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1102604",
+				"url": "https://bugzilla.suse.com/1102604"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1104662",
+				"url": "https://bugzilla.suse.com/1104662"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1106420",
+				"url": "https://bugzilla.suse.com/1106420"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1108086",
+				"url": "https://bugzilla.suse.com/1108086"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1108395",
+				"url": "https://bugzilla.suse.com/1108395"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1112182",
+				"url": "https://bugzilla.suse.com/1112182"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1117058",
+				"url": "https://bugzilla.suse.com/1117058"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1118952",
+				"url": "https://bugzilla.suse.com/1118952"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1120813",
+				"url": "https://bugzilla.suse.com/1120813"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1123642",
+				"url": "https://bugzilla.suse.com/1123642"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1124667",
+				"url": "https://bugzilla.suse.com/1124667"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1125665",
+				"url": "https://bugzilla.suse.com/1125665"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1126325",
+				"url": "https://bugzilla.suse.com/1126325"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1127458",
+				"url": "https://bugzilla.suse.com/1127458"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1130129",
+				"url": "https://bugzilla.suse.com/1130129"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2019-3840 page",
+				"url": "https://www.suse.com/security/cve/CVE-2019-3840/"
+			}
+		],
+		"title": "Security update for libvirt",
+		"tracking": {
+			"current_release_date": "2019-04-12T07:06:33Z",
+			"generator": {
+				"date": "2019-04-12T07:06:33Z",
+				"engine": {
+					"name": "cve-database.git:bin/generate-csaf.pl",
+					"version": "1"
+				}
+			},
+			"id": "SUSE-SU-2019:0936-1",
+			"initial_release_date": "2019-04-12T07:06:33Z",
+			"revision_history": [
+				{
+					"date": "2019-04-12T07:06:33Z",
+					"number": "1",
+					"summary": "Current version"
+				}
+			],
+			"status": "final",
+			"version": "1"
+		}
+	},
+	"product_tree": {
+		"branches": [
+			{
+				"branches": [
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "libvirt-4.0.0-9.16.7.aarch64",
+								"product": {
+									"name": "libvirt-4.0.0-9.16.7.aarch64",
+									"product_id": "libvirt-4.0.0-9.16.7.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-admin-4.0.0-9.16.7.aarch64",
+								"product": {
+									"name": "libvirt-admin-4.0.0-9.16.7.aarch64",
+									"product_id": "libvirt-admin-4.0.0-9.16.7.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-client-4.0.0-9.16.7.aarch64",
+								"product": {
+									"name": "libvirt-client-4.0.0-9.16.7.aarch64",
+									"product_id": "libvirt-client-4.0.0-9.16.7.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-4.0.0-9.16.7.aarch64",
+								"product": {
+									"name": "libvirt-daemon-4.0.0-9.16.7.aarch64",
+									"product_id": "libvirt-daemon-4.0.0-9.16.7.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-config-network-4.0.0-9.16.7.aarch64",
+								"product": {
+									"name": "libvirt-daemon-config-network-4.0.0-9.16.7.aarch64",
+									"product_id": "libvirt-daemon-config-network-4.0.0-9.16.7.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-config-nwfilter-4.0.0-9.16.7.aarch64",
+								"product": {
+									"name": "libvirt-daemon-config-nwfilter-4.0.0-9.16.7.aarch64",
+									"product_id": "libvirt-daemon-config-nwfilter-4.0.0-9.16.7.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-interface-4.0.0-9.16.7.aarch64",
+								"product": {
+									"name": "libvirt-daemon-driver-interface-4.0.0-9.16.7.aarch64",
+									"product_id": "libvirt-daemon-driver-interface-4.0.0-9.16.7.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-lxc-4.0.0-9.16.7.aarch64",
+								"product": {
+									"name": "libvirt-daemon-driver-lxc-4.0.0-9.16.7.aarch64",
+									"product_id": "libvirt-daemon-driver-lxc-4.0.0-9.16.7.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-network-4.0.0-9.16.7.aarch64",
+								"product": {
+									"name": "libvirt-daemon-driver-network-4.0.0-9.16.7.aarch64",
+									"product_id": "libvirt-daemon-driver-network-4.0.0-9.16.7.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-nodedev-4.0.0-9.16.7.aarch64",
+								"product": {
+									"name": "libvirt-daemon-driver-nodedev-4.0.0-9.16.7.aarch64",
+									"product_id": "libvirt-daemon-driver-nodedev-4.0.0-9.16.7.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-nwfilter-4.0.0-9.16.7.aarch64",
+								"product": {
+									"name": "libvirt-daemon-driver-nwfilter-4.0.0-9.16.7.aarch64",
+									"product_id": "libvirt-daemon-driver-nwfilter-4.0.0-9.16.7.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-qemu-4.0.0-9.16.7.aarch64",
+								"product": {
+									"name": "libvirt-daemon-driver-qemu-4.0.0-9.16.7.aarch64",
+									"product_id": "libvirt-daemon-driver-qemu-4.0.0-9.16.7.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-secret-4.0.0-9.16.7.aarch64",
+								"product": {
+									"name": "libvirt-daemon-driver-secret-4.0.0-9.16.7.aarch64",
+									"product_id": "libvirt-daemon-driver-secret-4.0.0-9.16.7.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-storage-4.0.0-9.16.7.aarch64",
+								"product": {
+									"name": "libvirt-daemon-driver-storage-4.0.0-9.16.7.aarch64",
+									"product_id": "libvirt-daemon-driver-storage-4.0.0-9.16.7.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-storage-core-4.0.0-9.16.7.aarch64",
+								"product": {
+									"name": "libvirt-daemon-driver-storage-core-4.0.0-9.16.7.aarch64",
+									"product_id": "libvirt-daemon-driver-storage-core-4.0.0-9.16.7.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-storage-disk-4.0.0-9.16.7.aarch64",
+								"product": {
+									"name": "libvirt-daemon-driver-storage-disk-4.0.0-9.16.7.aarch64",
+									"product_id": "libvirt-daemon-driver-storage-disk-4.0.0-9.16.7.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-storage-iscsi-4.0.0-9.16.7.aarch64",
+								"product": {
+									"name": "libvirt-daemon-driver-storage-iscsi-4.0.0-9.16.7.aarch64",
+									"product_id": "libvirt-daemon-driver-storage-iscsi-4.0.0-9.16.7.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-storage-logical-4.0.0-9.16.7.aarch64",
+								"product": {
+									"name": "libvirt-daemon-driver-storage-logical-4.0.0-9.16.7.aarch64",
+									"product_id": "libvirt-daemon-driver-storage-logical-4.0.0-9.16.7.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-storage-mpath-4.0.0-9.16.7.aarch64",
+								"product": {
+									"name": "libvirt-daemon-driver-storage-mpath-4.0.0-9.16.7.aarch64",
+									"product_id": "libvirt-daemon-driver-storage-mpath-4.0.0-9.16.7.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-storage-rbd-4.0.0-9.16.7.aarch64",
+								"product": {
+									"name": "libvirt-daemon-driver-storage-rbd-4.0.0-9.16.7.aarch64",
+									"product_id": "libvirt-daemon-driver-storage-rbd-4.0.0-9.16.7.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-storage-scsi-4.0.0-9.16.7.aarch64",
+								"product": {
+									"name": "libvirt-daemon-driver-storage-scsi-4.0.0-9.16.7.aarch64",
+									"product_id": "libvirt-daemon-driver-storage-scsi-4.0.0-9.16.7.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-hooks-4.0.0-9.16.7.aarch64",
+								"product": {
+									"name": "libvirt-daemon-hooks-4.0.0-9.16.7.aarch64",
+									"product_id": "libvirt-daemon-hooks-4.0.0-9.16.7.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-lxc-4.0.0-9.16.7.aarch64",
+								"product": {
+									"name": "libvirt-daemon-lxc-4.0.0-9.16.7.aarch64",
+									"product_id": "libvirt-daemon-lxc-4.0.0-9.16.7.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-qemu-4.0.0-9.16.7.aarch64",
+								"product": {
+									"name": "libvirt-daemon-qemu-4.0.0-9.16.7.aarch64",
+									"product_id": "libvirt-daemon-qemu-4.0.0-9.16.7.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-devel-4.0.0-9.16.7.aarch64",
+								"product": {
+									"name": "libvirt-devel-4.0.0-9.16.7.aarch64",
+									"product_id": "libvirt-devel-4.0.0-9.16.7.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-doc-4.0.0-9.16.7.aarch64",
+								"product": {
+									"name": "libvirt-doc-4.0.0-9.16.7.aarch64",
+									"product_id": "libvirt-doc-4.0.0-9.16.7.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-libs-4.0.0-9.16.7.aarch64",
+								"product": {
+									"name": "libvirt-libs-4.0.0-9.16.7.aarch64",
+									"product_id": "libvirt-libs-4.0.0-9.16.7.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-lock-sanlock-4.0.0-9.16.7.aarch64",
+								"product": {
+									"name": "libvirt-lock-sanlock-4.0.0-9.16.7.aarch64",
+									"product_id": "libvirt-lock-sanlock-4.0.0-9.16.7.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-nss-4.0.0-9.16.7.aarch64",
+								"product": {
+									"name": "libvirt-nss-4.0.0-9.16.7.aarch64",
+									"product_id": "libvirt-nss-4.0.0-9.16.7.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "wireshark-plugin-libvirt-4.0.0-9.16.7.aarch64",
+								"product": {
+									"name": "wireshark-plugin-libvirt-4.0.0-9.16.7.aarch64",
+									"product_id": "wireshark-plugin-libvirt-4.0.0-9.16.7.aarch64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "aarch64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "libvirt-devel-64bit-4.0.0-9.16.7.aarch64_ilp32",
+								"product": {
+									"name": "libvirt-devel-64bit-4.0.0-9.16.7.aarch64_ilp32",
+									"product_id": "libvirt-devel-64bit-4.0.0-9.16.7.aarch64_ilp32"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "aarch64_ilp32"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "libvirt-4.0.0-9.16.7.i586",
+								"product": {
+									"name": "libvirt-4.0.0-9.16.7.i586",
+									"product_id": "libvirt-4.0.0-9.16.7.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-admin-4.0.0-9.16.7.i586",
+								"product": {
+									"name": "libvirt-admin-4.0.0-9.16.7.i586",
+									"product_id": "libvirt-admin-4.0.0-9.16.7.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-client-4.0.0-9.16.7.i586",
+								"product": {
+									"name": "libvirt-client-4.0.0-9.16.7.i586",
+									"product_id": "libvirt-client-4.0.0-9.16.7.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-4.0.0-9.16.7.i586",
+								"product": {
+									"name": "libvirt-daemon-4.0.0-9.16.7.i586",
+									"product_id": "libvirt-daemon-4.0.0-9.16.7.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-config-network-4.0.0-9.16.7.i586",
+								"product": {
+									"name": "libvirt-daemon-config-network-4.0.0-9.16.7.i586",
+									"product_id": "libvirt-daemon-config-network-4.0.0-9.16.7.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-config-nwfilter-4.0.0-9.16.7.i586",
+								"product": {
+									"name": "libvirt-daemon-config-nwfilter-4.0.0-9.16.7.i586",
+									"product_id": "libvirt-daemon-config-nwfilter-4.0.0-9.16.7.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-interface-4.0.0-9.16.7.i586",
+								"product": {
+									"name": "libvirt-daemon-driver-interface-4.0.0-9.16.7.i586",
+									"product_id": "libvirt-daemon-driver-interface-4.0.0-9.16.7.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-lxc-4.0.0-9.16.7.i586",
+								"product": {
+									"name": "libvirt-daemon-driver-lxc-4.0.0-9.16.7.i586",
+									"product_id": "libvirt-daemon-driver-lxc-4.0.0-9.16.7.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-network-4.0.0-9.16.7.i586",
+								"product": {
+									"name": "libvirt-daemon-driver-network-4.0.0-9.16.7.i586",
+									"product_id": "libvirt-daemon-driver-network-4.0.0-9.16.7.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-nodedev-4.0.0-9.16.7.i586",
+								"product": {
+									"name": "libvirt-daemon-driver-nodedev-4.0.0-9.16.7.i586",
+									"product_id": "libvirt-daemon-driver-nodedev-4.0.0-9.16.7.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-nwfilter-4.0.0-9.16.7.i586",
+								"product": {
+									"name": "libvirt-daemon-driver-nwfilter-4.0.0-9.16.7.i586",
+									"product_id": "libvirt-daemon-driver-nwfilter-4.0.0-9.16.7.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-qemu-4.0.0-9.16.7.i586",
+								"product": {
+									"name": "libvirt-daemon-driver-qemu-4.0.0-9.16.7.i586",
+									"product_id": "libvirt-daemon-driver-qemu-4.0.0-9.16.7.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-secret-4.0.0-9.16.7.i586",
+								"product": {
+									"name": "libvirt-daemon-driver-secret-4.0.0-9.16.7.i586",
+									"product_id": "libvirt-daemon-driver-secret-4.0.0-9.16.7.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-storage-4.0.0-9.16.7.i586",
+								"product": {
+									"name": "libvirt-daemon-driver-storage-4.0.0-9.16.7.i586",
+									"product_id": "libvirt-daemon-driver-storage-4.0.0-9.16.7.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-storage-core-4.0.0-9.16.7.i586",
+								"product": {
+									"name": "libvirt-daemon-driver-storage-core-4.0.0-9.16.7.i586",
+									"product_id": "libvirt-daemon-driver-storage-core-4.0.0-9.16.7.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-storage-disk-4.0.0-9.16.7.i586",
+								"product": {
+									"name": "libvirt-daemon-driver-storage-disk-4.0.0-9.16.7.i586",
+									"product_id": "libvirt-daemon-driver-storage-disk-4.0.0-9.16.7.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-storage-iscsi-4.0.0-9.16.7.i586",
+								"product": {
+									"name": "libvirt-daemon-driver-storage-iscsi-4.0.0-9.16.7.i586",
+									"product_id": "libvirt-daemon-driver-storage-iscsi-4.0.0-9.16.7.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-storage-logical-4.0.0-9.16.7.i586",
+								"product": {
+									"name": "libvirt-daemon-driver-storage-logical-4.0.0-9.16.7.i586",
+									"product_id": "libvirt-daemon-driver-storage-logical-4.0.0-9.16.7.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-storage-mpath-4.0.0-9.16.7.i586",
+								"product": {
+									"name": "libvirt-daemon-driver-storage-mpath-4.0.0-9.16.7.i586",
+									"product_id": "libvirt-daemon-driver-storage-mpath-4.0.0-9.16.7.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-storage-scsi-4.0.0-9.16.7.i586",
+								"product": {
+									"name": "libvirt-daemon-driver-storage-scsi-4.0.0-9.16.7.i586",
+									"product_id": "libvirt-daemon-driver-storage-scsi-4.0.0-9.16.7.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-hooks-4.0.0-9.16.7.i586",
+								"product": {
+									"name": "libvirt-daemon-hooks-4.0.0-9.16.7.i586",
+									"product_id": "libvirt-daemon-hooks-4.0.0-9.16.7.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-lxc-4.0.0-9.16.7.i586",
+								"product": {
+									"name": "libvirt-daemon-lxc-4.0.0-9.16.7.i586",
+									"product_id": "libvirt-daemon-lxc-4.0.0-9.16.7.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-qemu-4.0.0-9.16.7.i586",
+								"product": {
+									"name": "libvirt-daemon-qemu-4.0.0-9.16.7.i586",
+									"product_id": "libvirt-daemon-qemu-4.0.0-9.16.7.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-devel-4.0.0-9.16.7.i586",
+								"product": {
+									"name": "libvirt-devel-4.0.0-9.16.7.i586",
+									"product_id": "libvirt-devel-4.0.0-9.16.7.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-doc-4.0.0-9.16.7.i586",
+								"product": {
+									"name": "libvirt-doc-4.0.0-9.16.7.i586",
+									"product_id": "libvirt-doc-4.0.0-9.16.7.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-libs-4.0.0-9.16.7.i586",
+								"product": {
+									"name": "libvirt-libs-4.0.0-9.16.7.i586",
+									"product_id": "libvirt-libs-4.0.0-9.16.7.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-lock-sanlock-4.0.0-9.16.7.i586",
+								"product": {
+									"name": "libvirt-lock-sanlock-4.0.0-9.16.7.i586",
+									"product_id": "libvirt-lock-sanlock-4.0.0-9.16.7.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-nss-4.0.0-9.16.7.i586",
+								"product": {
+									"name": "libvirt-nss-4.0.0-9.16.7.i586",
+									"product_id": "libvirt-nss-4.0.0-9.16.7.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "wireshark-plugin-libvirt-4.0.0-9.16.7.i586",
+								"product": {
+									"name": "wireshark-plugin-libvirt-4.0.0-9.16.7.i586",
+									"product_id": "wireshark-plugin-libvirt-4.0.0-9.16.7.i586"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "i586"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "libvirt-4.0.0-9.16.7.ppc64le",
+								"product": {
+									"name": "libvirt-4.0.0-9.16.7.ppc64le",
+									"product_id": "libvirt-4.0.0-9.16.7.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-admin-4.0.0-9.16.7.ppc64le",
+								"product": {
+									"name": "libvirt-admin-4.0.0-9.16.7.ppc64le",
+									"product_id": "libvirt-admin-4.0.0-9.16.7.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-client-4.0.0-9.16.7.ppc64le",
+								"product": {
+									"name": "libvirt-client-4.0.0-9.16.7.ppc64le",
+									"product_id": "libvirt-client-4.0.0-9.16.7.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-4.0.0-9.16.7.ppc64le",
+								"product": {
+									"name": "libvirt-daemon-4.0.0-9.16.7.ppc64le",
+									"product_id": "libvirt-daemon-4.0.0-9.16.7.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-config-network-4.0.0-9.16.7.ppc64le",
+								"product": {
+									"name": "libvirt-daemon-config-network-4.0.0-9.16.7.ppc64le",
+									"product_id": "libvirt-daemon-config-network-4.0.0-9.16.7.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-config-nwfilter-4.0.0-9.16.7.ppc64le",
+								"product": {
+									"name": "libvirt-daemon-config-nwfilter-4.0.0-9.16.7.ppc64le",
+									"product_id": "libvirt-daemon-config-nwfilter-4.0.0-9.16.7.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-interface-4.0.0-9.16.7.ppc64le",
+								"product": {
+									"name": "libvirt-daemon-driver-interface-4.0.0-9.16.7.ppc64le",
+									"product_id": "libvirt-daemon-driver-interface-4.0.0-9.16.7.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-lxc-4.0.0-9.16.7.ppc64le",
+								"product": {
+									"name": "libvirt-daemon-driver-lxc-4.0.0-9.16.7.ppc64le",
+									"product_id": "libvirt-daemon-driver-lxc-4.0.0-9.16.7.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-network-4.0.0-9.16.7.ppc64le",
+								"product": {
+									"name": "libvirt-daemon-driver-network-4.0.0-9.16.7.ppc64le",
+									"product_id": "libvirt-daemon-driver-network-4.0.0-9.16.7.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-nodedev-4.0.0-9.16.7.ppc64le",
+								"product": {
+									"name": "libvirt-daemon-driver-nodedev-4.0.0-9.16.7.ppc64le",
+									"product_id": "libvirt-daemon-driver-nodedev-4.0.0-9.16.7.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-nwfilter-4.0.0-9.16.7.ppc64le",
+								"product": {
+									"name": "libvirt-daemon-driver-nwfilter-4.0.0-9.16.7.ppc64le",
+									"product_id": "libvirt-daemon-driver-nwfilter-4.0.0-9.16.7.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-qemu-4.0.0-9.16.7.ppc64le",
+								"product": {
+									"name": "libvirt-daemon-driver-qemu-4.0.0-9.16.7.ppc64le",
+									"product_id": "libvirt-daemon-driver-qemu-4.0.0-9.16.7.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-secret-4.0.0-9.16.7.ppc64le",
+								"product": {
+									"name": "libvirt-daemon-driver-secret-4.0.0-9.16.7.ppc64le",
+									"product_id": "libvirt-daemon-driver-secret-4.0.0-9.16.7.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-storage-4.0.0-9.16.7.ppc64le",
+								"product": {
+									"name": "libvirt-daemon-driver-storage-4.0.0-9.16.7.ppc64le",
+									"product_id": "libvirt-daemon-driver-storage-4.0.0-9.16.7.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-storage-core-4.0.0-9.16.7.ppc64le",
+								"product": {
+									"name": "libvirt-daemon-driver-storage-core-4.0.0-9.16.7.ppc64le",
+									"product_id": "libvirt-daemon-driver-storage-core-4.0.0-9.16.7.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-storage-disk-4.0.0-9.16.7.ppc64le",
+								"product": {
+									"name": "libvirt-daemon-driver-storage-disk-4.0.0-9.16.7.ppc64le",
+									"product_id": "libvirt-daemon-driver-storage-disk-4.0.0-9.16.7.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-storage-iscsi-4.0.0-9.16.7.ppc64le",
+								"product": {
+									"name": "libvirt-daemon-driver-storage-iscsi-4.0.0-9.16.7.ppc64le",
+									"product_id": "libvirt-daemon-driver-storage-iscsi-4.0.0-9.16.7.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-storage-logical-4.0.0-9.16.7.ppc64le",
+								"product": {
+									"name": "libvirt-daemon-driver-storage-logical-4.0.0-9.16.7.ppc64le",
+									"product_id": "libvirt-daemon-driver-storage-logical-4.0.0-9.16.7.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-storage-mpath-4.0.0-9.16.7.ppc64le",
+								"product": {
+									"name": "libvirt-daemon-driver-storage-mpath-4.0.0-9.16.7.ppc64le",
+									"product_id": "libvirt-daemon-driver-storage-mpath-4.0.0-9.16.7.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-storage-scsi-4.0.0-9.16.7.ppc64le",
+								"product": {
+									"name": "libvirt-daemon-driver-storage-scsi-4.0.0-9.16.7.ppc64le",
+									"product_id": "libvirt-daemon-driver-storage-scsi-4.0.0-9.16.7.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-hooks-4.0.0-9.16.7.ppc64le",
+								"product": {
+									"name": "libvirt-daemon-hooks-4.0.0-9.16.7.ppc64le",
+									"product_id": "libvirt-daemon-hooks-4.0.0-9.16.7.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-lxc-4.0.0-9.16.7.ppc64le",
+								"product": {
+									"name": "libvirt-daemon-lxc-4.0.0-9.16.7.ppc64le",
+									"product_id": "libvirt-daemon-lxc-4.0.0-9.16.7.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-qemu-4.0.0-9.16.7.ppc64le",
+								"product": {
+									"name": "libvirt-daemon-qemu-4.0.0-9.16.7.ppc64le",
+									"product_id": "libvirt-daemon-qemu-4.0.0-9.16.7.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-devel-4.0.0-9.16.7.ppc64le",
+								"product": {
+									"name": "libvirt-devel-4.0.0-9.16.7.ppc64le",
+									"product_id": "libvirt-devel-4.0.0-9.16.7.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-doc-4.0.0-9.16.7.ppc64le",
+								"product": {
+									"name": "libvirt-doc-4.0.0-9.16.7.ppc64le",
+									"product_id": "libvirt-doc-4.0.0-9.16.7.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-libs-4.0.0-9.16.7.ppc64le",
+								"product": {
+									"name": "libvirt-libs-4.0.0-9.16.7.ppc64le",
+									"product_id": "libvirt-libs-4.0.0-9.16.7.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-lock-sanlock-4.0.0-9.16.7.ppc64le",
+								"product": {
+									"name": "libvirt-lock-sanlock-4.0.0-9.16.7.ppc64le",
+									"product_id": "libvirt-lock-sanlock-4.0.0-9.16.7.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-nss-4.0.0-9.16.7.ppc64le",
+								"product": {
+									"name": "libvirt-nss-4.0.0-9.16.7.ppc64le",
+									"product_id": "libvirt-nss-4.0.0-9.16.7.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "wireshark-plugin-libvirt-4.0.0-9.16.7.ppc64le",
+								"product": {
+									"name": "wireshark-plugin-libvirt-4.0.0-9.16.7.ppc64le",
+									"product_id": "wireshark-plugin-libvirt-4.0.0-9.16.7.ppc64le"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "ppc64le"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "libvirt-4.0.0-9.16.7.s390x",
+								"product": {
+									"name": "libvirt-4.0.0-9.16.7.s390x",
+									"product_id": "libvirt-4.0.0-9.16.7.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-admin-4.0.0-9.16.7.s390x",
+								"product": {
+									"name": "libvirt-admin-4.0.0-9.16.7.s390x",
+									"product_id": "libvirt-admin-4.0.0-9.16.7.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-client-4.0.0-9.16.7.s390x",
+								"product": {
+									"name": "libvirt-client-4.0.0-9.16.7.s390x",
+									"product_id": "libvirt-client-4.0.0-9.16.7.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-4.0.0-9.16.7.s390x",
+								"product": {
+									"name": "libvirt-daemon-4.0.0-9.16.7.s390x",
+									"product_id": "libvirt-daemon-4.0.0-9.16.7.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-config-network-4.0.0-9.16.7.s390x",
+								"product": {
+									"name": "libvirt-daemon-config-network-4.0.0-9.16.7.s390x",
+									"product_id": "libvirt-daemon-config-network-4.0.0-9.16.7.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-config-nwfilter-4.0.0-9.16.7.s390x",
+								"product": {
+									"name": "libvirt-daemon-config-nwfilter-4.0.0-9.16.7.s390x",
+									"product_id": "libvirt-daemon-config-nwfilter-4.0.0-9.16.7.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-interface-4.0.0-9.16.7.s390x",
+								"product": {
+									"name": "libvirt-daemon-driver-interface-4.0.0-9.16.7.s390x",
+									"product_id": "libvirt-daemon-driver-interface-4.0.0-9.16.7.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-lxc-4.0.0-9.16.7.s390x",
+								"product": {
+									"name": "libvirt-daemon-driver-lxc-4.0.0-9.16.7.s390x",
+									"product_id": "libvirt-daemon-driver-lxc-4.0.0-9.16.7.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-network-4.0.0-9.16.7.s390x",
+								"product": {
+									"name": "libvirt-daemon-driver-network-4.0.0-9.16.7.s390x",
+									"product_id": "libvirt-daemon-driver-network-4.0.0-9.16.7.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-nodedev-4.0.0-9.16.7.s390x",
+								"product": {
+									"name": "libvirt-daemon-driver-nodedev-4.0.0-9.16.7.s390x",
+									"product_id": "libvirt-daemon-driver-nodedev-4.0.0-9.16.7.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-nwfilter-4.0.0-9.16.7.s390x",
+								"product": {
+									"name": "libvirt-daemon-driver-nwfilter-4.0.0-9.16.7.s390x",
+									"product_id": "libvirt-daemon-driver-nwfilter-4.0.0-9.16.7.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-qemu-4.0.0-9.16.7.s390x",
+								"product": {
+									"name": "libvirt-daemon-driver-qemu-4.0.0-9.16.7.s390x",
+									"product_id": "libvirt-daemon-driver-qemu-4.0.0-9.16.7.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-secret-4.0.0-9.16.7.s390x",
+								"product": {
+									"name": "libvirt-daemon-driver-secret-4.0.0-9.16.7.s390x",
+									"product_id": "libvirt-daemon-driver-secret-4.0.0-9.16.7.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-storage-4.0.0-9.16.7.s390x",
+								"product": {
+									"name": "libvirt-daemon-driver-storage-4.0.0-9.16.7.s390x",
+									"product_id": "libvirt-daemon-driver-storage-4.0.0-9.16.7.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-storage-core-4.0.0-9.16.7.s390x",
+								"product": {
+									"name": "libvirt-daemon-driver-storage-core-4.0.0-9.16.7.s390x",
+									"product_id": "libvirt-daemon-driver-storage-core-4.0.0-9.16.7.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-storage-disk-4.0.0-9.16.7.s390x",
+								"product": {
+									"name": "libvirt-daemon-driver-storage-disk-4.0.0-9.16.7.s390x",
+									"product_id": "libvirt-daemon-driver-storage-disk-4.0.0-9.16.7.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-storage-iscsi-4.0.0-9.16.7.s390x",
+								"product": {
+									"name": "libvirt-daemon-driver-storage-iscsi-4.0.0-9.16.7.s390x",
+									"product_id": "libvirt-daemon-driver-storage-iscsi-4.0.0-9.16.7.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-storage-logical-4.0.0-9.16.7.s390x",
+								"product": {
+									"name": "libvirt-daemon-driver-storage-logical-4.0.0-9.16.7.s390x",
+									"product_id": "libvirt-daemon-driver-storage-logical-4.0.0-9.16.7.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-storage-mpath-4.0.0-9.16.7.s390x",
+								"product": {
+									"name": "libvirt-daemon-driver-storage-mpath-4.0.0-9.16.7.s390x",
+									"product_id": "libvirt-daemon-driver-storage-mpath-4.0.0-9.16.7.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-storage-scsi-4.0.0-9.16.7.s390x",
+								"product": {
+									"name": "libvirt-daemon-driver-storage-scsi-4.0.0-9.16.7.s390x",
+									"product_id": "libvirt-daemon-driver-storage-scsi-4.0.0-9.16.7.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-hooks-4.0.0-9.16.7.s390x",
+								"product": {
+									"name": "libvirt-daemon-hooks-4.0.0-9.16.7.s390x",
+									"product_id": "libvirt-daemon-hooks-4.0.0-9.16.7.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-lxc-4.0.0-9.16.7.s390x",
+								"product": {
+									"name": "libvirt-daemon-lxc-4.0.0-9.16.7.s390x",
+									"product_id": "libvirt-daemon-lxc-4.0.0-9.16.7.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-qemu-4.0.0-9.16.7.s390x",
+								"product": {
+									"name": "libvirt-daemon-qemu-4.0.0-9.16.7.s390x",
+									"product_id": "libvirt-daemon-qemu-4.0.0-9.16.7.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-devel-4.0.0-9.16.7.s390x",
+								"product": {
+									"name": "libvirt-devel-4.0.0-9.16.7.s390x",
+									"product_id": "libvirt-devel-4.0.0-9.16.7.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-doc-4.0.0-9.16.7.s390x",
+								"product": {
+									"name": "libvirt-doc-4.0.0-9.16.7.s390x",
+									"product_id": "libvirt-doc-4.0.0-9.16.7.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-libs-4.0.0-9.16.7.s390x",
+								"product": {
+									"name": "libvirt-libs-4.0.0-9.16.7.s390x",
+									"product_id": "libvirt-libs-4.0.0-9.16.7.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-lock-sanlock-4.0.0-9.16.7.s390x",
+								"product": {
+									"name": "libvirt-lock-sanlock-4.0.0-9.16.7.s390x",
+									"product_id": "libvirt-lock-sanlock-4.0.0-9.16.7.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-nss-4.0.0-9.16.7.s390x",
+								"product": {
+									"name": "libvirt-nss-4.0.0-9.16.7.s390x",
+									"product_id": "libvirt-nss-4.0.0-9.16.7.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "wireshark-plugin-libvirt-4.0.0-9.16.7.s390x",
+								"product": {
+									"name": "wireshark-plugin-libvirt-4.0.0-9.16.7.s390x",
+									"product_id": "wireshark-plugin-libvirt-4.0.0-9.16.7.s390x"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "s390x"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "libvirt-4.0.0-9.16.7.x86_64",
+								"product": {
+									"name": "libvirt-4.0.0-9.16.7.x86_64",
+									"product_id": "libvirt-4.0.0-9.16.7.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-admin-4.0.0-9.16.7.x86_64",
+								"product": {
+									"name": "libvirt-admin-4.0.0-9.16.7.x86_64",
+									"product_id": "libvirt-admin-4.0.0-9.16.7.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-client-4.0.0-9.16.7.x86_64",
+								"product": {
+									"name": "libvirt-client-4.0.0-9.16.7.x86_64",
+									"product_id": "libvirt-client-4.0.0-9.16.7.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-4.0.0-9.16.7.x86_64",
+								"product": {
+									"name": "libvirt-daemon-4.0.0-9.16.7.x86_64",
+									"product_id": "libvirt-daemon-4.0.0-9.16.7.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-config-network-4.0.0-9.16.7.x86_64",
+								"product": {
+									"name": "libvirt-daemon-config-network-4.0.0-9.16.7.x86_64",
+									"product_id": "libvirt-daemon-config-network-4.0.0-9.16.7.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-config-nwfilter-4.0.0-9.16.7.x86_64",
+								"product": {
+									"name": "libvirt-daemon-config-nwfilter-4.0.0-9.16.7.x86_64",
+									"product_id": "libvirt-daemon-config-nwfilter-4.0.0-9.16.7.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-interface-4.0.0-9.16.7.x86_64",
+								"product": {
+									"name": "libvirt-daemon-driver-interface-4.0.0-9.16.7.x86_64",
+									"product_id": "libvirt-daemon-driver-interface-4.0.0-9.16.7.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-libxl-4.0.0-9.16.7.x86_64",
+								"product": {
+									"name": "libvirt-daemon-driver-libxl-4.0.0-9.16.7.x86_64",
+									"product_id": "libvirt-daemon-driver-libxl-4.0.0-9.16.7.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-lxc-4.0.0-9.16.7.x86_64",
+								"product": {
+									"name": "libvirt-daemon-driver-lxc-4.0.0-9.16.7.x86_64",
+									"product_id": "libvirt-daemon-driver-lxc-4.0.0-9.16.7.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-network-4.0.0-9.16.7.x86_64",
+								"product": {
+									"name": "libvirt-daemon-driver-network-4.0.0-9.16.7.x86_64",
+									"product_id": "libvirt-daemon-driver-network-4.0.0-9.16.7.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-nodedev-4.0.0-9.16.7.x86_64",
+								"product": {
+									"name": "libvirt-daemon-driver-nodedev-4.0.0-9.16.7.x86_64",
+									"product_id": "libvirt-daemon-driver-nodedev-4.0.0-9.16.7.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-nwfilter-4.0.0-9.16.7.x86_64",
+								"product": {
+									"name": "libvirt-daemon-driver-nwfilter-4.0.0-9.16.7.x86_64",
+									"product_id": "libvirt-daemon-driver-nwfilter-4.0.0-9.16.7.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-qemu-4.0.0-9.16.7.x86_64",
+								"product": {
+									"name": "libvirt-daemon-driver-qemu-4.0.0-9.16.7.x86_64",
+									"product_id": "libvirt-daemon-driver-qemu-4.0.0-9.16.7.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-secret-4.0.0-9.16.7.x86_64",
+								"product": {
+									"name": "libvirt-daemon-driver-secret-4.0.0-9.16.7.x86_64",
+									"product_id": "libvirt-daemon-driver-secret-4.0.0-9.16.7.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-storage-4.0.0-9.16.7.x86_64",
+								"product": {
+									"name": "libvirt-daemon-driver-storage-4.0.0-9.16.7.x86_64",
+									"product_id": "libvirt-daemon-driver-storage-4.0.0-9.16.7.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-storage-core-4.0.0-9.16.7.x86_64",
+								"product": {
+									"name": "libvirt-daemon-driver-storage-core-4.0.0-9.16.7.x86_64",
+									"product_id": "libvirt-daemon-driver-storage-core-4.0.0-9.16.7.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-storage-disk-4.0.0-9.16.7.x86_64",
+								"product": {
+									"name": "libvirt-daemon-driver-storage-disk-4.0.0-9.16.7.x86_64",
+									"product_id": "libvirt-daemon-driver-storage-disk-4.0.0-9.16.7.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-storage-iscsi-4.0.0-9.16.7.x86_64",
+								"product": {
+									"name": "libvirt-daemon-driver-storage-iscsi-4.0.0-9.16.7.x86_64",
+									"product_id": "libvirt-daemon-driver-storage-iscsi-4.0.0-9.16.7.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-storage-logical-4.0.0-9.16.7.x86_64",
+								"product": {
+									"name": "libvirt-daemon-driver-storage-logical-4.0.0-9.16.7.x86_64",
+									"product_id": "libvirt-daemon-driver-storage-logical-4.0.0-9.16.7.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-storage-mpath-4.0.0-9.16.7.x86_64",
+								"product": {
+									"name": "libvirt-daemon-driver-storage-mpath-4.0.0-9.16.7.x86_64",
+									"product_id": "libvirt-daemon-driver-storage-mpath-4.0.0-9.16.7.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-storage-rbd-4.0.0-9.16.7.x86_64",
+								"product": {
+									"name": "libvirt-daemon-driver-storage-rbd-4.0.0-9.16.7.x86_64",
+									"product_id": "libvirt-daemon-driver-storage-rbd-4.0.0-9.16.7.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-driver-storage-scsi-4.0.0-9.16.7.x86_64",
+								"product": {
+									"name": "libvirt-daemon-driver-storage-scsi-4.0.0-9.16.7.x86_64",
+									"product_id": "libvirt-daemon-driver-storage-scsi-4.0.0-9.16.7.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-hooks-4.0.0-9.16.7.x86_64",
+								"product": {
+									"name": "libvirt-daemon-hooks-4.0.0-9.16.7.x86_64",
+									"product_id": "libvirt-daemon-hooks-4.0.0-9.16.7.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-lxc-4.0.0-9.16.7.x86_64",
+								"product": {
+									"name": "libvirt-daemon-lxc-4.0.0-9.16.7.x86_64",
+									"product_id": "libvirt-daemon-lxc-4.0.0-9.16.7.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-qemu-4.0.0-9.16.7.x86_64",
+								"product": {
+									"name": "libvirt-daemon-qemu-4.0.0-9.16.7.x86_64",
+									"product_id": "libvirt-daemon-qemu-4.0.0-9.16.7.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-daemon-xen-4.0.0-9.16.7.x86_64",
+								"product": {
+									"name": "libvirt-daemon-xen-4.0.0-9.16.7.x86_64",
+									"product_id": "libvirt-daemon-xen-4.0.0-9.16.7.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-devel-4.0.0-9.16.7.x86_64",
+								"product": {
+									"name": "libvirt-devel-4.0.0-9.16.7.x86_64",
+									"product_id": "libvirt-devel-4.0.0-9.16.7.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-devel-32bit-4.0.0-9.16.7.x86_64",
+								"product": {
+									"name": "libvirt-devel-32bit-4.0.0-9.16.7.x86_64",
+									"product_id": "libvirt-devel-32bit-4.0.0-9.16.7.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-doc-4.0.0-9.16.7.x86_64",
+								"product": {
+									"name": "libvirt-doc-4.0.0-9.16.7.x86_64",
+									"product_id": "libvirt-doc-4.0.0-9.16.7.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-libs-4.0.0-9.16.7.x86_64",
+								"product": {
+									"name": "libvirt-libs-4.0.0-9.16.7.x86_64",
+									"product_id": "libvirt-libs-4.0.0-9.16.7.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-lock-sanlock-4.0.0-9.16.7.x86_64",
+								"product": {
+									"name": "libvirt-lock-sanlock-4.0.0-9.16.7.x86_64",
+									"product_id": "libvirt-lock-sanlock-4.0.0-9.16.7.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libvirt-nss-4.0.0-9.16.7.x86_64",
+								"product": {
+									"name": "libvirt-nss-4.0.0-9.16.7.x86_64",
+									"product_id": "libvirt-nss-4.0.0-9.16.7.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "wireshark-plugin-libvirt-4.0.0-9.16.7.x86_64",
+								"product": {
+									"name": "wireshark-plugin-libvirt-4.0.0-9.16.7.x86_64",
+									"product_id": "wireshark-plugin-libvirt-4.0.0-9.16.7.x86_64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "x86_64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Module for Basesystem 15",
+								"product": {
+									"name": "SUSE Linux Enterprise Module for Basesystem 15",
+									"product_id": "SUSE Linux Enterprise Module for Basesystem 15",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-module-basesystem:15"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Module for Server Applications 15",
+								"product": {
+									"name": "SUSE Linux Enterprise Module for Server Applications 15",
+									"product_id": "SUSE Linux Enterprise Module for Server Applications 15",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-module-server-applications:15"
+									}
+								}
+							}
+						],
+						"category": "product_family",
+						"name": "SUSE Linux Enterprise"
+					}
+				],
+				"category": "vendor",
+				"name": "SUSE"
+			}
+		],
+		"relationships": [
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-libs-4.0.0-9.16.7.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15:libvirt-libs-4.0.0-9.16.7.aarch64"
+				},
+				"product_reference": "libvirt-libs-4.0.0-9.16.7.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-libs-4.0.0-9.16.7.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15:libvirt-libs-4.0.0-9.16.7.ppc64le"
+				},
+				"product_reference": "libvirt-libs-4.0.0-9.16.7.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-libs-4.0.0-9.16.7.s390x as component of SUSE Linux Enterprise Module for Basesystem 15",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15:libvirt-libs-4.0.0-9.16.7.s390x"
+				},
+				"product_reference": "libvirt-libs-4.0.0-9.16.7.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-libs-4.0.0-9.16.7.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15:libvirt-libs-4.0.0-9.16.7.x86_64"
+				},
+				"product_reference": "libvirt-libs-4.0.0-9.16.7.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-4.0.0-9.16.7.aarch64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-4.0.0-9.16.7.aarch64"
+				},
+				"product_reference": "libvirt-4.0.0-9.16.7.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-4.0.0-9.16.7.ppc64le as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-4.0.0-9.16.7.ppc64le"
+				},
+				"product_reference": "libvirt-4.0.0-9.16.7.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-4.0.0-9.16.7.s390x as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-4.0.0-9.16.7.s390x"
+				},
+				"product_reference": "libvirt-4.0.0-9.16.7.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-4.0.0-9.16.7.x86_64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-4.0.0-9.16.7.x86_64"
+				},
+				"product_reference": "libvirt-4.0.0-9.16.7.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-admin-4.0.0-9.16.7.aarch64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-admin-4.0.0-9.16.7.aarch64"
+				},
+				"product_reference": "libvirt-admin-4.0.0-9.16.7.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-admin-4.0.0-9.16.7.ppc64le as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-admin-4.0.0-9.16.7.ppc64le"
+				},
+				"product_reference": "libvirt-admin-4.0.0-9.16.7.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-admin-4.0.0-9.16.7.s390x as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-admin-4.0.0-9.16.7.s390x"
+				},
+				"product_reference": "libvirt-admin-4.0.0-9.16.7.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-admin-4.0.0-9.16.7.x86_64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-admin-4.0.0-9.16.7.x86_64"
+				},
+				"product_reference": "libvirt-admin-4.0.0-9.16.7.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-client-4.0.0-9.16.7.aarch64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-client-4.0.0-9.16.7.aarch64"
+				},
+				"product_reference": "libvirt-client-4.0.0-9.16.7.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-client-4.0.0-9.16.7.ppc64le as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-client-4.0.0-9.16.7.ppc64le"
+				},
+				"product_reference": "libvirt-client-4.0.0-9.16.7.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-client-4.0.0-9.16.7.s390x as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-client-4.0.0-9.16.7.s390x"
+				},
+				"product_reference": "libvirt-client-4.0.0-9.16.7.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-client-4.0.0-9.16.7.x86_64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-client-4.0.0-9.16.7.x86_64"
+				},
+				"product_reference": "libvirt-client-4.0.0-9.16.7.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-4.0.0-9.16.7.aarch64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-4.0.0-9.16.7.aarch64"
+				},
+				"product_reference": "libvirt-daemon-4.0.0-9.16.7.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-4.0.0-9.16.7.ppc64le as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-4.0.0-9.16.7.ppc64le"
+				},
+				"product_reference": "libvirt-daemon-4.0.0-9.16.7.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-4.0.0-9.16.7.s390x as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-4.0.0-9.16.7.s390x"
+				},
+				"product_reference": "libvirt-daemon-4.0.0-9.16.7.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-4.0.0-9.16.7.x86_64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-4.0.0-9.16.7.x86_64"
+				},
+				"product_reference": "libvirt-daemon-4.0.0-9.16.7.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-config-network-4.0.0-9.16.7.aarch64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-config-network-4.0.0-9.16.7.aarch64"
+				},
+				"product_reference": "libvirt-daemon-config-network-4.0.0-9.16.7.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-config-network-4.0.0-9.16.7.ppc64le as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-config-network-4.0.0-9.16.7.ppc64le"
+				},
+				"product_reference": "libvirt-daemon-config-network-4.0.0-9.16.7.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-config-network-4.0.0-9.16.7.s390x as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-config-network-4.0.0-9.16.7.s390x"
+				},
+				"product_reference": "libvirt-daemon-config-network-4.0.0-9.16.7.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-config-network-4.0.0-9.16.7.x86_64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-config-network-4.0.0-9.16.7.x86_64"
+				},
+				"product_reference": "libvirt-daemon-config-network-4.0.0-9.16.7.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-config-nwfilter-4.0.0-9.16.7.aarch64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-config-nwfilter-4.0.0-9.16.7.aarch64"
+				},
+				"product_reference": "libvirt-daemon-config-nwfilter-4.0.0-9.16.7.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-config-nwfilter-4.0.0-9.16.7.ppc64le as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-config-nwfilter-4.0.0-9.16.7.ppc64le"
+				},
+				"product_reference": "libvirt-daemon-config-nwfilter-4.0.0-9.16.7.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-config-nwfilter-4.0.0-9.16.7.s390x as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-config-nwfilter-4.0.0-9.16.7.s390x"
+				},
+				"product_reference": "libvirt-daemon-config-nwfilter-4.0.0-9.16.7.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-config-nwfilter-4.0.0-9.16.7.x86_64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-config-nwfilter-4.0.0-9.16.7.x86_64"
+				},
+				"product_reference": "libvirt-daemon-config-nwfilter-4.0.0-9.16.7.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-interface-4.0.0-9.16.7.aarch64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-interface-4.0.0-9.16.7.aarch64"
+				},
+				"product_reference": "libvirt-daemon-driver-interface-4.0.0-9.16.7.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-interface-4.0.0-9.16.7.ppc64le as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-interface-4.0.0-9.16.7.ppc64le"
+				},
+				"product_reference": "libvirt-daemon-driver-interface-4.0.0-9.16.7.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-interface-4.0.0-9.16.7.s390x as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-interface-4.0.0-9.16.7.s390x"
+				},
+				"product_reference": "libvirt-daemon-driver-interface-4.0.0-9.16.7.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-interface-4.0.0-9.16.7.x86_64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-interface-4.0.0-9.16.7.x86_64"
+				},
+				"product_reference": "libvirt-daemon-driver-interface-4.0.0-9.16.7.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-libxl-4.0.0-9.16.7.x86_64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-libxl-4.0.0-9.16.7.x86_64"
+				},
+				"product_reference": "libvirt-daemon-driver-libxl-4.0.0-9.16.7.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-lxc-4.0.0-9.16.7.aarch64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-lxc-4.0.0-9.16.7.aarch64"
+				},
+				"product_reference": "libvirt-daemon-driver-lxc-4.0.0-9.16.7.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-lxc-4.0.0-9.16.7.ppc64le as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-lxc-4.0.0-9.16.7.ppc64le"
+				},
+				"product_reference": "libvirt-daemon-driver-lxc-4.0.0-9.16.7.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-lxc-4.0.0-9.16.7.s390x as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-lxc-4.0.0-9.16.7.s390x"
+				},
+				"product_reference": "libvirt-daemon-driver-lxc-4.0.0-9.16.7.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-lxc-4.0.0-9.16.7.x86_64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-lxc-4.0.0-9.16.7.x86_64"
+				},
+				"product_reference": "libvirt-daemon-driver-lxc-4.0.0-9.16.7.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-network-4.0.0-9.16.7.aarch64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-network-4.0.0-9.16.7.aarch64"
+				},
+				"product_reference": "libvirt-daemon-driver-network-4.0.0-9.16.7.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-network-4.0.0-9.16.7.ppc64le as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-network-4.0.0-9.16.7.ppc64le"
+				},
+				"product_reference": "libvirt-daemon-driver-network-4.0.0-9.16.7.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-network-4.0.0-9.16.7.s390x as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-network-4.0.0-9.16.7.s390x"
+				},
+				"product_reference": "libvirt-daemon-driver-network-4.0.0-9.16.7.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-network-4.0.0-9.16.7.x86_64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-network-4.0.0-9.16.7.x86_64"
+				},
+				"product_reference": "libvirt-daemon-driver-network-4.0.0-9.16.7.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-nodedev-4.0.0-9.16.7.aarch64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-nodedev-4.0.0-9.16.7.aarch64"
+				},
+				"product_reference": "libvirt-daemon-driver-nodedev-4.0.0-9.16.7.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-nodedev-4.0.0-9.16.7.ppc64le as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-nodedev-4.0.0-9.16.7.ppc64le"
+				},
+				"product_reference": "libvirt-daemon-driver-nodedev-4.0.0-9.16.7.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-nodedev-4.0.0-9.16.7.s390x as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-nodedev-4.0.0-9.16.7.s390x"
+				},
+				"product_reference": "libvirt-daemon-driver-nodedev-4.0.0-9.16.7.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-nodedev-4.0.0-9.16.7.x86_64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-nodedev-4.0.0-9.16.7.x86_64"
+				},
+				"product_reference": "libvirt-daemon-driver-nodedev-4.0.0-9.16.7.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-nwfilter-4.0.0-9.16.7.aarch64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-nwfilter-4.0.0-9.16.7.aarch64"
+				},
+				"product_reference": "libvirt-daemon-driver-nwfilter-4.0.0-9.16.7.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-nwfilter-4.0.0-9.16.7.ppc64le as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-nwfilter-4.0.0-9.16.7.ppc64le"
+				},
+				"product_reference": "libvirt-daemon-driver-nwfilter-4.0.0-9.16.7.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-nwfilter-4.0.0-9.16.7.s390x as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-nwfilter-4.0.0-9.16.7.s390x"
+				},
+				"product_reference": "libvirt-daemon-driver-nwfilter-4.0.0-9.16.7.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-nwfilter-4.0.0-9.16.7.x86_64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-nwfilter-4.0.0-9.16.7.x86_64"
+				},
+				"product_reference": "libvirt-daemon-driver-nwfilter-4.0.0-9.16.7.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-qemu-4.0.0-9.16.7.aarch64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-qemu-4.0.0-9.16.7.aarch64"
+				},
+				"product_reference": "libvirt-daemon-driver-qemu-4.0.0-9.16.7.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-qemu-4.0.0-9.16.7.ppc64le as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-qemu-4.0.0-9.16.7.ppc64le"
+				},
+				"product_reference": "libvirt-daemon-driver-qemu-4.0.0-9.16.7.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-qemu-4.0.0-9.16.7.s390x as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-qemu-4.0.0-9.16.7.s390x"
+				},
+				"product_reference": "libvirt-daemon-driver-qemu-4.0.0-9.16.7.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-qemu-4.0.0-9.16.7.x86_64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-qemu-4.0.0-9.16.7.x86_64"
+				},
+				"product_reference": "libvirt-daemon-driver-qemu-4.0.0-9.16.7.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-secret-4.0.0-9.16.7.aarch64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-secret-4.0.0-9.16.7.aarch64"
+				},
+				"product_reference": "libvirt-daemon-driver-secret-4.0.0-9.16.7.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-secret-4.0.0-9.16.7.ppc64le as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-secret-4.0.0-9.16.7.ppc64le"
+				},
+				"product_reference": "libvirt-daemon-driver-secret-4.0.0-9.16.7.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-secret-4.0.0-9.16.7.s390x as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-secret-4.0.0-9.16.7.s390x"
+				},
+				"product_reference": "libvirt-daemon-driver-secret-4.0.0-9.16.7.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-secret-4.0.0-9.16.7.x86_64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-secret-4.0.0-9.16.7.x86_64"
+				},
+				"product_reference": "libvirt-daemon-driver-secret-4.0.0-9.16.7.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-storage-4.0.0-9.16.7.aarch64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-4.0.0-9.16.7.aarch64"
+				},
+				"product_reference": "libvirt-daemon-driver-storage-4.0.0-9.16.7.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-storage-4.0.0-9.16.7.ppc64le as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-4.0.0-9.16.7.ppc64le"
+				},
+				"product_reference": "libvirt-daemon-driver-storage-4.0.0-9.16.7.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-storage-4.0.0-9.16.7.s390x as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-4.0.0-9.16.7.s390x"
+				},
+				"product_reference": "libvirt-daemon-driver-storage-4.0.0-9.16.7.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-storage-4.0.0-9.16.7.x86_64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-4.0.0-9.16.7.x86_64"
+				},
+				"product_reference": "libvirt-daemon-driver-storage-4.0.0-9.16.7.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-storage-core-4.0.0-9.16.7.aarch64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-core-4.0.0-9.16.7.aarch64"
+				},
+				"product_reference": "libvirt-daemon-driver-storage-core-4.0.0-9.16.7.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-storage-core-4.0.0-9.16.7.ppc64le as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-core-4.0.0-9.16.7.ppc64le"
+				},
+				"product_reference": "libvirt-daemon-driver-storage-core-4.0.0-9.16.7.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-storage-core-4.0.0-9.16.7.s390x as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-core-4.0.0-9.16.7.s390x"
+				},
+				"product_reference": "libvirt-daemon-driver-storage-core-4.0.0-9.16.7.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-storage-core-4.0.0-9.16.7.x86_64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-core-4.0.0-9.16.7.x86_64"
+				},
+				"product_reference": "libvirt-daemon-driver-storage-core-4.0.0-9.16.7.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-storage-disk-4.0.0-9.16.7.aarch64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-disk-4.0.0-9.16.7.aarch64"
+				},
+				"product_reference": "libvirt-daemon-driver-storage-disk-4.0.0-9.16.7.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-storage-disk-4.0.0-9.16.7.ppc64le as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-disk-4.0.0-9.16.7.ppc64le"
+				},
+				"product_reference": "libvirt-daemon-driver-storage-disk-4.0.0-9.16.7.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-storage-disk-4.0.0-9.16.7.s390x as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-disk-4.0.0-9.16.7.s390x"
+				},
+				"product_reference": "libvirt-daemon-driver-storage-disk-4.0.0-9.16.7.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-storage-disk-4.0.0-9.16.7.x86_64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-disk-4.0.0-9.16.7.x86_64"
+				},
+				"product_reference": "libvirt-daemon-driver-storage-disk-4.0.0-9.16.7.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-storage-iscsi-4.0.0-9.16.7.aarch64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-iscsi-4.0.0-9.16.7.aarch64"
+				},
+				"product_reference": "libvirt-daemon-driver-storage-iscsi-4.0.0-9.16.7.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-storage-iscsi-4.0.0-9.16.7.ppc64le as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-iscsi-4.0.0-9.16.7.ppc64le"
+				},
+				"product_reference": "libvirt-daemon-driver-storage-iscsi-4.0.0-9.16.7.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-storage-iscsi-4.0.0-9.16.7.s390x as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-iscsi-4.0.0-9.16.7.s390x"
+				},
+				"product_reference": "libvirt-daemon-driver-storage-iscsi-4.0.0-9.16.7.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-storage-iscsi-4.0.0-9.16.7.x86_64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-iscsi-4.0.0-9.16.7.x86_64"
+				},
+				"product_reference": "libvirt-daemon-driver-storage-iscsi-4.0.0-9.16.7.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-storage-logical-4.0.0-9.16.7.aarch64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-logical-4.0.0-9.16.7.aarch64"
+				},
+				"product_reference": "libvirt-daemon-driver-storage-logical-4.0.0-9.16.7.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-storage-logical-4.0.0-9.16.7.ppc64le as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-logical-4.0.0-9.16.7.ppc64le"
+				},
+				"product_reference": "libvirt-daemon-driver-storage-logical-4.0.0-9.16.7.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-storage-logical-4.0.0-9.16.7.s390x as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-logical-4.0.0-9.16.7.s390x"
+				},
+				"product_reference": "libvirt-daemon-driver-storage-logical-4.0.0-9.16.7.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-storage-logical-4.0.0-9.16.7.x86_64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-logical-4.0.0-9.16.7.x86_64"
+				},
+				"product_reference": "libvirt-daemon-driver-storage-logical-4.0.0-9.16.7.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-storage-mpath-4.0.0-9.16.7.aarch64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-mpath-4.0.0-9.16.7.aarch64"
+				},
+				"product_reference": "libvirt-daemon-driver-storage-mpath-4.0.0-9.16.7.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-storage-mpath-4.0.0-9.16.7.ppc64le as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-mpath-4.0.0-9.16.7.ppc64le"
+				},
+				"product_reference": "libvirt-daemon-driver-storage-mpath-4.0.0-9.16.7.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-storage-mpath-4.0.0-9.16.7.s390x as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-mpath-4.0.0-9.16.7.s390x"
+				},
+				"product_reference": "libvirt-daemon-driver-storage-mpath-4.0.0-9.16.7.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-storage-mpath-4.0.0-9.16.7.x86_64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-mpath-4.0.0-9.16.7.x86_64"
+				},
+				"product_reference": "libvirt-daemon-driver-storage-mpath-4.0.0-9.16.7.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-storage-rbd-4.0.0-9.16.7.aarch64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-rbd-4.0.0-9.16.7.aarch64"
+				},
+				"product_reference": "libvirt-daemon-driver-storage-rbd-4.0.0-9.16.7.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-storage-rbd-4.0.0-9.16.7.x86_64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-rbd-4.0.0-9.16.7.x86_64"
+				},
+				"product_reference": "libvirt-daemon-driver-storage-rbd-4.0.0-9.16.7.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-storage-scsi-4.0.0-9.16.7.aarch64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-scsi-4.0.0-9.16.7.aarch64"
+				},
+				"product_reference": "libvirt-daemon-driver-storage-scsi-4.0.0-9.16.7.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-storage-scsi-4.0.0-9.16.7.ppc64le as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-scsi-4.0.0-9.16.7.ppc64le"
+				},
+				"product_reference": "libvirt-daemon-driver-storage-scsi-4.0.0-9.16.7.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-storage-scsi-4.0.0-9.16.7.s390x as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-scsi-4.0.0-9.16.7.s390x"
+				},
+				"product_reference": "libvirt-daemon-driver-storage-scsi-4.0.0-9.16.7.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-driver-storage-scsi-4.0.0-9.16.7.x86_64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-scsi-4.0.0-9.16.7.x86_64"
+				},
+				"product_reference": "libvirt-daemon-driver-storage-scsi-4.0.0-9.16.7.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-hooks-4.0.0-9.16.7.aarch64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-hooks-4.0.0-9.16.7.aarch64"
+				},
+				"product_reference": "libvirt-daemon-hooks-4.0.0-9.16.7.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-hooks-4.0.0-9.16.7.ppc64le as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-hooks-4.0.0-9.16.7.ppc64le"
+				},
+				"product_reference": "libvirt-daemon-hooks-4.0.0-9.16.7.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-hooks-4.0.0-9.16.7.s390x as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-hooks-4.0.0-9.16.7.s390x"
+				},
+				"product_reference": "libvirt-daemon-hooks-4.0.0-9.16.7.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-hooks-4.0.0-9.16.7.x86_64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-hooks-4.0.0-9.16.7.x86_64"
+				},
+				"product_reference": "libvirt-daemon-hooks-4.0.0-9.16.7.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-lxc-4.0.0-9.16.7.aarch64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-lxc-4.0.0-9.16.7.aarch64"
+				},
+				"product_reference": "libvirt-daemon-lxc-4.0.0-9.16.7.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-lxc-4.0.0-9.16.7.ppc64le as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-lxc-4.0.0-9.16.7.ppc64le"
+				},
+				"product_reference": "libvirt-daemon-lxc-4.0.0-9.16.7.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-lxc-4.0.0-9.16.7.s390x as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-lxc-4.0.0-9.16.7.s390x"
+				},
+				"product_reference": "libvirt-daemon-lxc-4.0.0-9.16.7.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-lxc-4.0.0-9.16.7.x86_64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-lxc-4.0.0-9.16.7.x86_64"
+				},
+				"product_reference": "libvirt-daemon-lxc-4.0.0-9.16.7.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-qemu-4.0.0-9.16.7.aarch64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-qemu-4.0.0-9.16.7.aarch64"
+				},
+				"product_reference": "libvirt-daemon-qemu-4.0.0-9.16.7.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-qemu-4.0.0-9.16.7.ppc64le as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-qemu-4.0.0-9.16.7.ppc64le"
+				},
+				"product_reference": "libvirt-daemon-qemu-4.0.0-9.16.7.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-qemu-4.0.0-9.16.7.s390x as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-qemu-4.0.0-9.16.7.s390x"
+				},
+				"product_reference": "libvirt-daemon-qemu-4.0.0-9.16.7.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-qemu-4.0.0-9.16.7.x86_64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-qemu-4.0.0-9.16.7.x86_64"
+				},
+				"product_reference": "libvirt-daemon-qemu-4.0.0-9.16.7.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-daemon-xen-4.0.0-9.16.7.x86_64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-xen-4.0.0-9.16.7.x86_64"
+				},
+				"product_reference": "libvirt-daemon-xen-4.0.0-9.16.7.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-devel-4.0.0-9.16.7.aarch64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-devel-4.0.0-9.16.7.aarch64"
+				},
+				"product_reference": "libvirt-devel-4.0.0-9.16.7.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-devel-4.0.0-9.16.7.ppc64le as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-devel-4.0.0-9.16.7.ppc64le"
+				},
+				"product_reference": "libvirt-devel-4.0.0-9.16.7.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-devel-4.0.0-9.16.7.s390x as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-devel-4.0.0-9.16.7.s390x"
+				},
+				"product_reference": "libvirt-devel-4.0.0-9.16.7.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-devel-4.0.0-9.16.7.x86_64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-devel-4.0.0-9.16.7.x86_64"
+				},
+				"product_reference": "libvirt-devel-4.0.0-9.16.7.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-doc-4.0.0-9.16.7.aarch64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-doc-4.0.0-9.16.7.aarch64"
+				},
+				"product_reference": "libvirt-doc-4.0.0-9.16.7.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-doc-4.0.0-9.16.7.ppc64le as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-doc-4.0.0-9.16.7.ppc64le"
+				},
+				"product_reference": "libvirt-doc-4.0.0-9.16.7.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-doc-4.0.0-9.16.7.s390x as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-doc-4.0.0-9.16.7.s390x"
+				},
+				"product_reference": "libvirt-doc-4.0.0-9.16.7.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-doc-4.0.0-9.16.7.x86_64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-doc-4.0.0-9.16.7.x86_64"
+				},
+				"product_reference": "libvirt-doc-4.0.0-9.16.7.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-lock-sanlock-4.0.0-9.16.7.aarch64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-lock-sanlock-4.0.0-9.16.7.aarch64"
+				},
+				"product_reference": "libvirt-lock-sanlock-4.0.0-9.16.7.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-lock-sanlock-4.0.0-9.16.7.ppc64le as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-lock-sanlock-4.0.0-9.16.7.ppc64le"
+				},
+				"product_reference": "libvirt-lock-sanlock-4.0.0-9.16.7.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-lock-sanlock-4.0.0-9.16.7.s390x as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-lock-sanlock-4.0.0-9.16.7.s390x"
+				},
+				"product_reference": "libvirt-lock-sanlock-4.0.0-9.16.7.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-lock-sanlock-4.0.0-9.16.7.x86_64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-lock-sanlock-4.0.0-9.16.7.x86_64"
+				},
+				"product_reference": "libvirt-lock-sanlock-4.0.0-9.16.7.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-nss-4.0.0-9.16.7.aarch64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-nss-4.0.0-9.16.7.aarch64"
+				},
+				"product_reference": "libvirt-nss-4.0.0-9.16.7.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-nss-4.0.0-9.16.7.ppc64le as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-nss-4.0.0-9.16.7.ppc64le"
+				},
+				"product_reference": "libvirt-nss-4.0.0-9.16.7.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-nss-4.0.0-9.16.7.s390x as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-nss-4.0.0-9.16.7.s390x"
+				},
+				"product_reference": "libvirt-nss-4.0.0-9.16.7.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libvirt-nss-4.0.0-9.16.7.x86_64 as component of SUSE Linux Enterprise Module for Server Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15:libvirt-nss-4.0.0-9.16.7.x86_64"
+				},
+				"product_reference": "libvirt-nss-4.0.0-9.16.7.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15"
+			}
+		]
+	},
+	"vulnerabilities": [
+		{
+			"cve": "CVE-2019-3840",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2019-3840"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A NULL pointer dereference flaw was discovered in libvirt before version 5.0.0 in the way it gets interface information through the QEMU agent. An attacker in a guest VM can use this flaw to crash libvirtd and cause a denial of service.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Module for Basesystem 15:libvirt-libs-4.0.0-9.16.7.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15:libvirt-libs-4.0.0-9.16.7.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15:libvirt-libs-4.0.0-9.16.7.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15:libvirt-libs-4.0.0-9.16.7.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-4.0.0-9.16.7.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-4.0.0-9.16.7.ppc64le",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-4.0.0-9.16.7.s390x",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-4.0.0-9.16.7.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-admin-4.0.0-9.16.7.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-admin-4.0.0-9.16.7.ppc64le",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-admin-4.0.0-9.16.7.s390x",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-admin-4.0.0-9.16.7.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-client-4.0.0-9.16.7.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-client-4.0.0-9.16.7.ppc64le",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-client-4.0.0-9.16.7.s390x",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-client-4.0.0-9.16.7.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-4.0.0-9.16.7.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-4.0.0-9.16.7.ppc64le",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-4.0.0-9.16.7.s390x",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-4.0.0-9.16.7.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-config-network-4.0.0-9.16.7.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-config-network-4.0.0-9.16.7.ppc64le",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-config-network-4.0.0-9.16.7.s390x",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-config-network-4.0.0-9.16.7.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-config-nwfilter-4.0.0-9.16.7.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-config-nwfilter-4.0.0-9.16.7.ppc64le",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-config-nwfilter-4.0.0-9.16.7.s390x",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-config-nwfilter-4.0.0-9.16.7.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-interface-4.0.0-9.16.7.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-interface-4.0.0-9.16.7.ppc64le",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-interface-4.0.0-9.16.7.s390x",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-interface-4.0.0-9.16.7.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-libxl-4.0.0-9.16.7.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-lxc-4.0.0-9.16.7.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-lxc-4.0.0-9.16.7.ppc64le",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-lxc-4.0.0-9.16.7.s390x",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-lxc-4.0.0-9.16.7.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-network-4.0.0-9.16.7.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-network-4.0.0-9.16.7.ppc64le",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-network-4.0.0-9.16.7.s390x",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-network-4.0.0-9.16.7.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-nodedev-4.0.0-9.16.7.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-nodedev-4.0.0-9.16.7.ppc64le",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-nodedev-4.0.0-9.16.7.s390x",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-nodedev-4.0.0-9.16.7.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-nwfilter-4.0.0-9.16.7.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-nwfilter-4.0.0-9.16.7.ppc64le",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-nwfilter-4.0.0-9.16.7.s390x",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-nwfilter-4.0.0-9.16.7.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-qemu-4.0.0-9.16.7.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-qemu-4.0.0-9.16.7.ppc64le",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-qemu-4.0.0-9.16.7.s390x",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-qemu-4.0.0-9.16.7.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-secret-4.0.0-9.16.7.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-secret-4.0.0-9.16.7.ppc64le",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-secret-4.0.0-9.16.7.s390x",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-secret-4.0.0-9.16.7.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-4.0.0-9.16.7.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-4.0.0-9.16.7.ppc64le",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-4.0.0-9.16.7.s390x",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-4.0.0-9.16.7.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-core-4.0.0-9.16.7.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-core-4.0.0-9.16.7.ppc64le",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-core-4.0.0-9.16.7.s390x",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-core-4.0.0-9.16.7.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-disk-4.0.0-9.16.7.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-disk-4.0.0-9.16.7.ppc64le",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-disk-4.0.0-9.16.7.s390x",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-disk-4.0.0-9.16.7.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-iscsi-4.0.0-9.16.7.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-iscsi-4.0.0-9.16.7.ppc64le",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-iscsi-4.0.0-9.16.7.s390x",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-iscsi-4.0.0-9.16.7.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-logical-4.0.0-9.16.7.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-logical-4.0.0-9.16.7.ppc64le",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-logical-4.0.0-9.16.7.s390x",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-logical-4.0.0-9.16.7.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-mpath-4.0.0-9.16.7.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-mpath-4.0.0-9.16.7.ppc64le",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-mpath-4.0.0-9.16.7.s390x",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-mpath-4.0.0-9.16.7.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-rbd-4.0.0-9.16.7.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-rbd-4.0.0-9.16.7.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-scsi-4.0.0-9.16.7.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-scsi-4.0.0-9.16.7.ppc64le",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-scsi-4.0.0-9.16.7.s390x",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-scsi-4.0.0-9.16.7.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-hooks-4.0.0-9.16.7.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-hooks-4.0.0-9.16.7.ppc64le",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-hooks-4.0.0-9.16.7.s390x",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-hooks-4.0.0-9.16.7.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-lxc-4.0.0-9.16.7.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-lxc-4.0.0-9.16.7.ppc64le",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-lxc-4.0.0-9.16.7.s390x",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-lxc-4.0.0-9.16.7.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-qemu-4.0.0-9.16.7.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-qemu-4.0.0-9.16.7.ppc64le",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-qemu-4.0.0-9.16.7.s390x",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-qemu-4.0.0-9.16.7.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-xen-4.0.0-9.16.7.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-devel-4.0.0-9.16.7.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-devel-4.0.0-9.16.7.ppc64le",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-devel-4.0.0-9.16.7.s390x",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-devel-4.0.0-9.16.7.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-doc-4.0.0-9.16.7.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-doc-4.0.0-9.16.7.ppc64le",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-doc-4.0.0-9.16.7.s390x",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-doc-4.0.0-9.16.7.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-lock-sanlock-4.0.0-9.16.7.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-lock-sanlock-4.0.0-9.16.7.ppc64le",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-lock-sanlock-4.0.0-9.16.7.s390x",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-lock-sanlock-4.0.0-9.16.7.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-nss-4.0.0-9.16.7.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-nss-4.0.0-9.16.7.ppc64le",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-nss-4.0.0-9.16.7.s390x",
+					"SUSE Linux Enterprise Module for Server Applications 15:libvirt-nss-4.0.0-9.16.7.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2019-3840",
+					"url": "https://www.suse.com/security/cve/CVE-2019-3840"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1127458 for CVE-2019-3840",
+					"url": "https://bugzilla.suse.com/1127458"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Basesystem 15:libvirt-libs-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:libvirt-libs-4.0.0-9.16.7.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:libvirt-libs-4.0.0-9.16.7.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:libvirt-libs-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-4.0.0-9.16.7.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-4.0.0-9.16.7.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-admin-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-admin-4.0.0-9.16.7.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-admin-4.0.0-9.16.7.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-admin-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-client-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-client-4.0.0-9.16.7.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-client-4.0.0-9.16.7.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-client-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-4.0.0-9.16.7.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-4.0.0-9.16.7.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-config-network-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-config-network-4.0.0-9.16.7.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-config-network-4.0.0-9.16.7.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-config-network-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-config-nwfilter-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-config-nwfilter-4.0.0-9.16.7.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-config-nwfilter-4.0.0-9.16.7.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-config-nwfilter-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-interface-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-interface-4.0.0-9.16.7.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-interface-4.0.0-9.16.7.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-interface-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-libxl-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-lxc-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-lxc-4.0.0-9.16.7.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-lxc-4.0.0-9.16.7.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-lxc-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-network-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-network-4.0.0-9.16.7.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-network-4.0.0-9.16.7.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-network-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-nodedev-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-nodedev-4.0.0-9.16.7.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-nodedev-4.0.0-9.16.7.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-nodedev-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-nwfilter-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-nwfilter-4.0.0-9.16.7.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-nwfilter-4.0.0-9.16.7.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-nwfilter-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-qemu-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-qemu-4.0.0-9.16.7.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-qemu-4.0.0-9.16.7.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-qemu-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-secret-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-secret-4.0.0-9.16.7.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-secret-4.0.0-9.16.7.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-secret-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-4.0.0-9.16.7.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-4.0.0-9.16.7.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-core-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-core-4.0.0-9.16.7.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-core-4.0.0-9.16.7.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-core-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-disk-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-disk-4.0.0-9.16.7.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-disk-4.0.0-9.16.7.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-disk-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-iscsi-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-iscsi-4.0.0-9.16.7.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-iscsi-4.0.0-9.16.7.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-iscsi-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-logical-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-logical-4.0.0-9.16.7.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-logical-4.0.0-9.16.7.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-logical-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-mpath-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-mpath-4.0.0-9.16.7.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-mpath-4.0.0-9.16.7.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-mpath-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-rbd-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-rbd-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-scsi-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-scsi-4.0.0-9.16.7.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-scsi-4.0.0-9.16.7.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-scsi-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-hooks-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-hooks-4.0.0-9.16.7.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-hooks-4.0.0-9.16.7.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-hooks-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-lxc-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-lxc-4.0.0-9.16.7.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-lxc-4.0.0-9.16.7.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-lxc-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-qemu-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-qemu-4.0.0-9.16.7.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-qemu-4.0.0-9.16.7.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-qemu-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-xen-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-devel-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-devel-4.0.0-9.16.7.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-devel-4.0.0-9.16.7.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-devel-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-doc-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-doc-4.0.0-9.16.7.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-doc-4.0.0-9.16.7.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-doc-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-lock-sanlock-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-lock-sanlock-4.0.0-9.16.7.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-lock-sanlock-4.0.0-9.16.7.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-lock-sanlock-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-nss-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-nss-4.0.0-9.16.7.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-nss-4.0.0-9.16.7.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-nss-4.0.0-9.16.7.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 5.8,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.0/AV:N/AC:H/PR:L/UI:R/S:C/C:N/I:N/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Module for Basesystem 15:libvirt-libs-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:libvirt-libs-4.0.0-9.16.7.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:libvirt-libs-4.0.0-9.16.7.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:libvirt-libs-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-4.0.0-9.16.7.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-4.0.0-9.16.7.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-admin-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-admin-4.0.0-9.16.7.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-admin-4.0.0-9.16.7.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-admin-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-client-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-client-4.0.0-9.16.7.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-client-4.0.0-9.16.7.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-client-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-4.0.0-9.16.7.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-4.0.0-9.16.7.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-config-network-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-config-network-4.0.0-9.16.7.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-config-network-4.0.0-9.16.7.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-config-network-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-config-nwfilter-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-config-nwfilter-4.0.0-9.16.7.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-config-nwfilter-4.0.0-9.16.7.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-config-nwfilter-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-interface-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-interface-4.0.0-9.16.7.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-interface-4.0.0-9.16.7.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-interface-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-libxl-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-lxc-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-lxc-4.0.0-9.16.7.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-lxc-4.0.0-9.16.7.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-lxc-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-network-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-network-4.0.0-9.16.7.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-network-4.0.0-9.16.7.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-network-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-nodedev-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-nodedev-4.0.0-9.16.7.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-nodedev-4.0.0-9.16.7.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-nodedev-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-nwfilter-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-nwfilter-4.0.0-9.16.7.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-nwfilter-4.0.0-9.16.7.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-nwfilter-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-qemu-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-qemu-4.0.0-9.16.7.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-qemu-4.0.0-9.16.7.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-qemu-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-secret-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-secret-4.0.0-9.16.7.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-secret-4.0.0-9.16.7.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-secret-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-4.0.0-9.16.7.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-4.0.0-9.16.7.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-core-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-core-4.0.0-9.16.7.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-core-4.0.0-9.16.7.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-core-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-disk-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-disk-4.0.0-9.16.7.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-disk-4.0.0-9.16.7.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-disk-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-iscsi-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-iscsi-4.0.0-9.16.7.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-iscsi-4.0.0-9.16.7.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-iscsi-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-logical-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-logical-4.0.0-9.16.7.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-logical-4.0.0-9.16.7.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-logical-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-mpath-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-mpath-4.0.0-9.16.7.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-mpath-4.0.0-9.16.7.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-mpath-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-rbd-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-rbd-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-scsi-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-scsi-4.0.0-9.16.7.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-scsi-4.0.0-9.16.7.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-driver-storage-scsi-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-hooks-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-hooks-4.0.0-9.16.7.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-hooks-4.0.0-9.16.7.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-hooks-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-lxc-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-lxc-4.0.0-9.16.7.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-lxc-4.0.0-9.16.7.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-lxc-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-qemu-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-qemu-4.0.0-9.16.7.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-qemu-4.0.0-9.16.7.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-qemu-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-daemon-xen-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-devel-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-devel-4.0.0-9.16.7.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-devel-4.0.0-9.16.7.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-devel-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-doc-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-doc-4.0.0-9.16.7.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-doc-4.0.0-9.16.7.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-doc-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-lock-sanlock-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-lock-sanlock-4.0.0-9.16.7.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-lock-sanlock-4.0.0-9.16.7.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-lock-sanlock-4.0.0-9.16.7.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-nss-4.0.0-9.16.7.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-nss-4.0.0-9.16.7.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-nss-4.0.0-9.16.7.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15:libvirt-nss-4.0.0-9.16.7.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2019-04-12T07:06:33Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2019-3840"
+		}
+	]
+}

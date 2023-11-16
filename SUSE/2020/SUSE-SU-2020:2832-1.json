@@ -1,0 +1,2014 @@
+{
+	"document": {
+		"aggregate_severity": {
+			"namespace": "https://www.suse.com/support/security/rating/",
+			"text": "moderate"
+		},
+		"category": "csaf_security_advisory",
+		"csaf_version": "2.0",
+		"distribution": {
+			"text": "Copyright 2023 SUSE LLC. All rights reserved.",
+			"tlp": {
+				"label": "WHITE",
+				"url": "https://www.first.org/tlp/"
+			}
+		},
+		"lang": "en",
+		"notes": [
+			{
+				"category": "summary",
+				"text": "Security update for SUSE Manager Server 4.1",
+				"title": "Title of the patch"
+			},
+			{
+				"category": "description",
+				"text": "\nThis update fixes the following issues:\n\ngolang-github-QubitProducts-exporter_exporter:\n\n- Pin Golang version to 1.14\n\ngolang-github-prometheus-node_exporter:\n\n- Update to 1.0.1\n  * Changes to build specification\n    + Modify spec: update golang version to 1.14\n    + Remove update tarball script\n    + Add _service file to allow for updates via `osc service disabledrun`  \n  * Bug fixes\n    + [BUGFIX] filesystem_freebsd: Fix label values #1728\n    + [BUGFIX] Update prometheus/procfs to fix log noise #1735\n    + [BUGFIX] Fix build tags for collectors #1745\n    + [BUGFIX] Handle no data from powersupplyclass #1747, #1749\n- Update to 1.0.0\n  * Bug fixes\n    + [BUGFIX] Read /proc/net files with a single read syscall #1380\n    + [BUGFIX] Renamed label state to name on node_systemd_service_restart_total. #1393\n    + [BUGFIX] Fix netdev nil reference on Darwin #1414\n    + [BUGFIX] Strip path.rootfs from mountpoint labels #1421\n    + [BUGFIX] Fix seconds reported by schedstat #1426\n    + [BUGFIX] Fix empty string in path.rootfs #1464\n    + [BUGFIX] Fix typo in cpufreq metric names #1510\n    + [BUGFIX] Read /proc/stat in one syscall #1538\n    + [BUGFIX] Fix OpenBSD cache memory information #1542\n    + [BUGFIX] Refactor textfile collector to avoid looping defer #1549\n    + [BUGFIX] Fix network speed math #1580\n    + [BUGFIX] collector/systemd: use regexp to extract systemd version #1647\n    + [BUGFIX] Fix initialization in perf collector when using multiple CPUs #1665\n    + [BUGFIX] Fix accidentally empty lines in meminfo_linux #1671\n  * Several enhancements\n    + See https://github.com/prometheus/node_exporter/releases/tag/v1.0.0\n- Update to 1.0.0-rc.0\n  * The netdev collector CLI argument --collector.netdev.ignored-devices \n    was renamed to --collector.netdev.device-blacklist in order to conform \n    with the systemd collector. #1279\n  * The label named state on node_systemd_service_restart_total metrics was \n    changed to name to better describe the metric. #1393\n  * Refactoring of the mdadm collector changes several metrics\n        node_md_disks_active is removed\n        node_md_disks now has a state label for 'fail', 'spare', 'active' disks.\n        node_md_is_active is replaced by node_md_state with a state set of \n        'active', 'inactive', 'recovering', 'resync'.\n  * Additional label mountaddr added to NFS device metrics to distinguish \n    mounts from the same URL, but different IP addresses. #1417\n  * Metrics node_cpu_scaling_frequency_min_hrts and \n    node_cpu_scaling_frequency_max_hrts of the cpufreq collector were \n    renamed to node_cpu_scaling_frequency_min_hertz and \n    node_cpu_scaling_frequency_max_hertz. #1510\n  * Collectors that are enabled, but are unable to find data to collect, \n    now return 0 for node_scrape_collector_success.\n- Add missing sysconfig file in rpm  bsc#1151557\n\nhibernate5:\n\n- Address CVE-2019-14900 (bsc#1172079)\n- Add patch:\n\nhub-xmlrpc-api:\n\n- One configuration flag was renamed for clarity\n- Added USE_SSL flag to https insted of plain http \n- Updated docs\n- Bugfixes\n- Changed configuration to plain variables\n- Bugfixes \n\npatterns-suse-manager:\n\n- Change PostgreSQL requirements to require at least PostgreSQL 12\n\nprometheus-exporters-formula:\n\n- Bugfix: More robust handling of NoneType arguments (bsc#1176844)\n- Bugfix: Handle <NoneType> arguments (bsc#1176844)\n\nsalt-netapi-client:\n\n- Fix text resource usage\n\nspacecmd:\n\n- Fix softwarechannel_listlatestpackages throwing error on\n  empty channels (bsc#1175889)\n\nspacewalk-backend:\n\n- Fix strings (mentions of Satellite, replace SUSE Manager with PRODUCT_NAME, etc)\n- Only regenerate bootstrap repositories when linking new packages (bsc#1174636)\n- Support installer_updates flag in ISS\n- Remove duplicate languages and update translation strings\n\nspacewalk-branding:\n\n- Re-enable language picker for user creation\n\nspacewalk-certs-tools:\n\n- Add option --nostricthostkeychecking to spacewalk-ssh-push-init\n- Fix the fallback to RES bootstrap repo for Centos (bsc#1174423)\n\nspacewalk-client-tools:\n\n- Remove duplicated languages and update translation strings\n\nspacewalk-java:\n\n- Force disable SPA for non-navigation links (bsc#1175512)\n- Fix strings (mentions of Satellite, replace SUSE Manager with PRODUCT_NAME, etc)\n- Pass the log level parameter to matcher\n- Add language picker to user preferences and user creation\n- Detect client organization from connected proxy (bsc#1175545)\n- Fix EntityExistsException on migration from traditional to salt minion via proxy (bsc#1175556)\n- Fix: use quiet API method when using spacewalk-common-channels (bsc#1175529)\n- Add java.allow_adding_patches_via_api to allow adding errata to vendor channels\n- Fix alignment on icon on entitlement page\n- Support installer update channels during autoinstallation\n- Filter machines not in maintenance mode for remote commands\n- Reset the server path on minion registration (bsc#1174254)\n- Data null means the sync never ran yet (bsc#1174357)\n\nspacewalk-utils:\n\n- Avoid exceptions on the logs when looking for channels that do\n  not exist (bsc#1175529)\n\nspacewalk-web:\n\n- Fix the jQuery selector in SP Migration page (bsc#1176500)\n- Fix JavaScript error caused by SPA navigation event with empty event field (bsc#1176503)\n- Force disable SPA for non-navigation links (bsc#1175512)\n- Add translation support for react t() function\n- Fix striping on react tables\n- Update translation strings\n\nsubscription-matcher:\n\n- Allow matching any guest products for Unlimited Virtualization subscriptions (bsc#1165287)\n- Only report confirmed matches in the output.json\n- Expose the log level setting to the command line\n- In the subscriptions CSV output, print the active subscriptions first\n\nsusemanager:\n\n- Add missing packages to SLE12 >= SP1 bootstrap data to fix JeOS bootstrap problems (bsc#1176913)\n- Fix strings (mentions of Satellite, replace SUSE Manager with PRODUCT_NAME, etc)\n- Support installer update channels during autoinstallation\n\nsusemanager-build-keys:\n\n- Trust PackageHub key (bsc#1175103)\n\nsusemanager-doc-indexes:\n\n- Fix contrast problem for visited links (bsc#1176862)\n- Remove old certs before renaming in Administration Guide (bsc#1171836)\n- Reference example scripts for SP Mass Migration in Upgrade Guide\n- Move PoS Terminal Requirements to the Requirements sections in the Retail Guide\n- Updated SP Mass Migration section in Upgrade Guide for clarity\n- Documented Proxy Y Upgrade (SP Migration) in Upgrade Guide\n- In the Upgrade Guide, use Major, Minor, and Patch Level\n  terminology for versioning.\n- Align SUSE Manager and Uyuni Proxy installation in the Installation Guide\n- New section Upgrade Uyuni Proxy in Upgrade Guide\n- New section Upgrade Uyuni Server in Upgrade Guide\n- Add GPG information about Oracle clients to SUMA (bsc#1173520)\n- Add hostname admonition to public cloud sections (bsc#1173621)\n- Add error wording to Taskomatic troubleshooting (bsc#1172263)\n- Add required URLs to Installation Guide\n- Replaces removed instructions for adding channels on older Ubuntu clients using the CLI in SUMA (bsc#1174025)\n- Added more concepts to Client Cfg\n- Documented maintenance windows feature in Admin Guide\n- Some reorganization of Client Cfg & Admin Guides\n- Updates storage device requirements in Install Guide\n- Adds new section for SUMA formulas in the Salt Guide\n- Updates storage device requirements in Install Guide\n- Added reverse proxy information to Monitoring in�Admin Guide\n- Add note about accessibility to index\n- Add note about CentOS upstream repository (bsc#1173603)\n- Add firewall troubleshooting to Admin�Guide\n- Fix Azure command in Install Guide (thanks Rahul-CTS)\n- Fix broken links in Auto-Install Proxy in Client Cfg (thanks shirocco88)\n- Adds Ubuntu 20.04 supported features for Uyuni in Client Cfg\n- Adds Uyuni Config Modules to the Salt Guide as tech preview \n\nsusemanager-docs_en:\n\n- Fix contrast problem for visited links (bsc#1176862)\n- Remove old certs before renaming in Administration Guide (bsc#1171836)\n- Reference example scripts for SP Mass Migration in Upgrade Guide\n- Move PoS Terminal Requirements to the Requirements sections in the Retail Guide\n- Updated SP Mass Migration section in Upgrade Guide for clarity\n- Documented Proxy Y Upgrade (SP Migration) in Upgrade Guide\n- In the Upgrade Guide, use Major, Minor, and Patch Level\n  terminology for versioning.\n- Align SUSE Manager and Uyuni Proxy installation in the Installation Guide\n- New section Upgrade Uyuni Proxy in Upgrade Guide\n- New section Upgrade Uyuni Server in Upgrade Guide\n- Add GPG information about Oracle clients to SUMA (bsc#1173520)\n- Add hostname admonition to public cloud sections (bsc#1173621)\n- Add error wording to Taskomatic troubleshooting (bsc#1172263)\n- Add required URLs to Installation Guide\n- Replaces removed instructions for adding channels on older\n  Ubuntu clients using the CLI in SUMA (bsc#1174025)\n- Added more concepts to Client Cfg\n- Documented maintenance windows feature in Admin Guide\n- Some reorganization of Client Cfg & Admin Guides\n- Updates storage device requirements in Install Guide\n- Adds new section for SUMA formulas in the Salt Guide\n- Updates storage device requirements in Install Guide\n- Added reverse proxy information to Monitoring in�Admin Guide\n- Add note about accessibility to index\n- Add note about CentOS upstream repository (bsc#1173603)\n- Add firewall troubleshooting to Admin�Guide\n- Fix Azure command in Install Guide (thanks Rahul-CTS)\n- Fix broken links in Auto-Install Proxy in Client Cfg (thanks shirocco88)\n- Adds Ubuntu 20.04 supported features for Uyuni in Client Cfg\n- Adds Uyuni Config Modules to the Salt Guide as tech preview\n\nsusemanager-schema:\n\n- Support installer update channels during autoinstallation\n- Prevent a deadlock error involving delete_server and update_needed_cache (bsc#1173073)\n\nsusemanager-sls:\n\n- Add uyuni-config-modules subpackage with Salt modules to configure\n  Servers\n- Fix reporting of missing products in product.all_installed (bsc#1165829)\n\nHow to apply this update:\n1. Log in as root user to the SUSE Manager server.\n2. Stop the Spacewalk service:\nspacewalk-service stop\n3. Apply the patch using either zypper patch or YaST Online Update.\n4. Upgrade the database schema:\nspacewalk-schema-upgrade\n5. Start the Spacewalk service:\nspacewalk-service start\n",
+				"title": "Description of the patch"
+			},
+			{
+				"category": "details",
+				"text": "SUSE-2020-2832,SUSE-SLE-Module-SUSE-Manager-Server-4.1-2020-2832",
+				"title": "Patchnames"
+			},
+			{
+				"category": "legal_disclaimer",
+				"text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+				"title": "Terms of use"
+			}
+		],
+		"publisher": {
+			"category": "vendor",
+			"contact_details": "https://www.suse.com/support/security/contact/",
+			"name": "SUSE Product Security Team",
+			"namespace": "https://www.suse.com/"
+		},
+		"references": [
+			{
+				"category": "self",
+				"summary": "URL for SUSE-SU-2020:2832-1",
+				"url": "https://www.suse.com/support/update/announcement/2020/suse-su-20202832-1/"
+			},
+			{
+				"category": "external",
+				"summary": "SUSE ratings",
+				"url": "https://www.suse.com/support/security/rating/"
+			},
+			{
+				"category": "self",
+				"summary": "URL of this CSAF notice",
+				"url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2020_2832-1.json"
+			},
+			{
+				"category": "self",
+				"summary": "E-Mail link for SUSE-SU-2020:2832-1",
+				"url": "https://lists.suse.com/pipermail/sle-security-updates/2020-October/007517.html"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1151557",
+				"url": "https://bugzilla.suse.com/1151557"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1165287",
+				"url": "https://bugzilla.suse.com/1165287"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1165829",
+				"url": "https://bugzilla.suse.com/1165829"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1171836",
+				"url": "https://bugzilla.suse.com/1171836"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1172079",
+				"url": "https://bugzilla.suse.com/1172079"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1172263",
+				"url": "https://bugzilla.suse.com/1172263"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1173073",
+				"url": "https://bugzilla.suse.com/1173073"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1173520",
+				"url": "https://bugzilla.suse.com/1173520"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1173603",
+				"url": "https://bugzilla.suse.com/1173603"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1173621",
+				"url": "https://bugzilla.suse.com/1173621"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1174025",
+				"url": "https://bugzilla.suse.com/1174025"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1174254",
+				"url": "https://bugzilla.suse.com/1174254"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1174357",
+				"url": "https://bugzilla.suse.com/1174357"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1174423",
+				"url": "https://bugzilla.suse.com/1174423"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1174636",
+				"url": "https://bugzilla.suse.com/1174636"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1175103",
+				"url": "https://bugzilla.suse.com/1175103"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1175512",
+				"url": "https://bugzilla.suse.com/1175512"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1175529",
+				"url": "https://bugzilla.suse.com/1175529"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1175545",
+				"url": "https://bugzilla.suse.com/1175545"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1175556",
+				"url": "https://bugzilla.suse.com/1175556"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1175889",
+				"url": "https://bugzilla.suse.com/1175889"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1176500",
+				"url": "https://bugzilla.suse.com/1176500"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1176503",
+				"url": "https://bugzilla.suse.com/1176503"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1176844",
+				"url": "https://bugzilla.suse.com/1176844"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1176862",
+				"url": "https://bugzilla.suse.com/1176862"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1176913",
+				"url": "https://bugzilla.suse.com/1176913"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2019-14900 page",
+				"url": "https://www.suse.com/security/cve/CVE-2019-14900/"
+			}
+		],
+		"title": "Security update for SUSE Manager Server 4.1",
+		"tracking": {
+			"current_release_date": "2020-10-02T10:13:06Z",
+			"generator": {
+				"date": "2020-10-02T10:13:06Z",
+				"engine": {
+					"name": "cve-database.git:bin/generate-csaf.pl",
+					"version": "1"
+				}
+			},
+			"id": "SUSE-SU-2020:2832-1",
+			"initial_release_date": "2020-10-02T10:13:06Z",
+			"revision_history": [
+				{
+					"date": "2020-10-02T10:13:06Z",
+					"number": "1",
+					"summary": "Current version"
+				}
+			],
+			"status": "final",
+			"version": "1"
+		}
+	},
+	"product_tree": {
+		"branches": [
+			{
+				"branches": [
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "golang-github-QubitProducts-exporter_exporter-0.4.0-6.9.4.aarch64",
+								"product": {
+									"name": "golang-github-QubitProducts-exporter_exporter-0.4.0-6.9.4.aarch64",
+									"product_id": "golang-github-QubitProducts-exporter_exporter-0.4.0-6.9.4.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "golang-github-prometheus-node_exporter-1.0.1-3.3.4.aarch64",
+								"product": {
+									"name": "golang-github-prometheus-node_exporter-1.0.1-3.3.4.aarch64",
+									"product_id": "golang-github-prometheus-node_exporter-1.0.1-3.3.4.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "hub-xmlrpc-api-0.7-3.3.3.aarch64",
+								"product": {
+									"name": "hub-xmlrpc-api-0.7-3.3.3.aarch64",
+									"product_id": "hub-xmlrpc-api-0.7-3.3.3.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "patterns-suma_proxy-4.1-6.6.3.aarch64",
+								"product": {
+									"name": "patterns-suma_proxy-4.1-6.6.3.aarch64",
+									"product_id": "patterns-suma_proxy-4.1-6.6.3.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "patterns-suma_retail-4.1-6.6.3.aarch64",
+								"product": {
+									"name": "patterns-suma_retail-4.1-6.6.3.aarch64",
+									"product_id": "patterns-suma_retail-4.1-6.6.3.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "patterns-suma_server-4.1-6.6.3.aarch64",
+								"product": {
+									"name": "patterns-suma_server-4.1-6.6.3.aarch64",
+									"product_id": "patterns-suma_server-4.1-6.6.3.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-branding-4.1.10-3.6.3.aarch64",
+								"product": {
+									"name": "spacewalk-branding-4.1.10-3.6.3.aarch64",
+									"product_id": "spacewalk-branding-4.1.10-3.6.3.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-branding-devel-4.1.10-3.6.3.aarch64",
+								"product": {
+									"name": "spacewalk-branding-devel-4.1.10-3.6.3.aarch64",
+									"product_id": "spacewalk-branding-devel-4.1.10-3.6.3.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-4.1.20-3.8.3.aarch64",
+								"product": {
+									"name": "susemanager-4.1.20-3.8.3.aarch64",
+									"product_id": "susemanager-4.1.20-3.8.3.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-nodejs-sdk-devel-4.1.7-3.6.3.aarch64",
+								"product": {
+									"name": "susemanager-nodejs-sdk-devel-4.1.7-3.6.3.aarch64",
+									"product_id": "susemanager-nodejs-sdk-devel-4.1.7-3.6.3.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-tools-4.1.20-3.8.3.aarch64",
+								"product": {
+									"name": "susemanager-tools-4.1.20-3.8.3.aarch64",
+									"product_id": "susemanager-tools-4.1.20-3.8.3.aarch64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "aarch64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "hibernate5-5.3.7-3.3.4.noarch",
+								"product": {
+									"name": "hibernate5-5.3.7-3.3.4.noarch",
+									"product_id": "hibernate5-5.3.7-3.3.4.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "mgr-daemon-4.1.2-2.3.3.noarch",
+								"product": {
+									"name": "mgr-daemon-4.1.2-2.3.3.noarch",
+									"product_id": "mgr-daemon-4.1.2-2.3.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "prometheus-exporters-formula-0.7.3-3.10.1.noarch",
+								"product": {
+									"name": "prometheus-exporters-formula-0.7.3-3.10.1.noarch",
+									"product_id": "prometheus-exporters-formula-0.7.3-3.10.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "python2-spacewalk-certs-tools-4.1.13-3.6.3.noarch",
+								"product": {
+									"name": "python2-spacewalk-certs-tools-4.1.13-3.6.3.noarch",
+									"product_id": "python2-spacewalk-certs-tools-4.1.13-3.6.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "python2-spacewalk-check-4.1.6-4.3.3.noarch",
+								"product": {
+									"name": "python2-spacewalk-check-4.1.6-4.3.3.noarch",
+									"product_id": "python2-spacewalk-check-4.1.6-4.3.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "python2-spacewalk-client-setup-4.1.6-4.3.3.noarch",
+								"product": {
+									"name": "python2-spacewalk-client-setup-4.1.6-4.3.3.noarch",
+									"product_id": "python2-spacewalk-client-setup-4.1.6-4.3.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "python2-spacewalk-client-tools-4.1.6-4.3.3.noarch",
+								"product": {
+									"name": "python2-spacewalk-client-tools-4.1.6-4.3.3.noarch",
+									"product_id": "python2-spacewalk-client-tools-4.1.6-4.3.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "python3-spacewalk-certs-tools-4.1.13-3.6.3.noarch",
+								"product": {
+									"name": "python3-spacewalk-certs-tools-4.1.13-3.6.3.noarch",
+									"product_id": "python3-spacewalk-certs-tools-4.1.13-3.6.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "python3-spacewalk-check-4.1.6-4.3.3.noarch",
+								"product": {
+									"name": "python3-spacewalk-check-4.1.6-4.3.3.noarch",
+									"product_id": "python3-spacewalk-check-4.1.6-4.3.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "python3-spacewalk-client-setup-4.1.6-4.3.3.noarch",
+								"product": {
+									"name": "python3-spacewalk-client-setup-4.1.6-4.3.3.noarch",
+									"product_id": "python3-spacewalk-client-setup-4.1.6-4.3.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "python3-spacewalk-client-tools-4.1.6-4.3.3.noarch",
+								"product": {
+									"name": "python3-spacewalk-client-tools-4.1.6-4.3.3.noarch",
+									"product_id": "python3-spacewalk-client-tools-4.1.6-4.3.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "salt-netapi-client-0.17.0-15.4.3.noarch",
+								"product": {
+									"name": "salt-netapi-client-0.17.0-15.4.3.noarch",
+									"product_id": "salt-netapi-client-0.17.0-15.4.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacecmd-4.1.7-4.6.3.noarch",
+								"product": {
+									"name": "spacecmd-4.1.7-4.6.3.noarch",
+									"product_id": "spacecmd-4.1.7-4.6.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-backend-4.1.15-4.8.4.noarch",
+								"product": {
+									"name": "spacewalk-backend-4.1.15-4.8.4.noarch",
+									"product_id": "spacewalk-backend-4.1.15-4.8.4.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-backend-app-4.1.15-4.8.4.noarch",
+								"product": {
+									"name": "spacewalk-backend-app-4.1.15-4.8.4.noarch",
+									"product_id": "spacewalk-backend-app-4.1.15-4.8.4.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-backend-applet-4.1.15-4.8.4.noarch",
+								"product": {
+									"name": "spacewalk-backend-applet-4.1.15-4.8.4.noarch",
+									"product_id": "spacewalk-backend-applet-4.1.15-4.8.4.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-backend-cdn-4.1.15-4.8.4.noarch",
+								"product": {
+									"name": "spacewalk-backend-cdn-4.1.15-4.8.4.noarch",
+									"product_id": "spacewalk-backend-cdn-4.1.15-4.8.4.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-backend-config-files-4.1.15-4.8.4.noarch",
+								"product": {
+									"name": "spacewalk-backend-config-files-4.1.15-4.8.4.noarch",
+									"product_id": "spacewalk-backend-config-files-4.1.15-4.8.4.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-backend-config-files-common-4.1.15-4.8.4.noarch",
+								"product": {
+									"name": "spacewalk-backend-config-files-common-4.1.15-4.8.4.noarch",
+									"product_id": "spacewalk-backend-config-files-common-4.1.15-4.8.4.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-backend-config-files-tool-4.1.15-4.8.4.noarch",
+								"product": {
+									"name": "spacewalk-backend-config-files-tool-4.1.15-4.8.4.noarch",
+									"product_id": "spacewalk-backend-config-files-tool-4.1.15-4.8.4.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-backend-iss-4.1.15-4.8.4.noarch",
+								"product": {
+									"name": "spacewalk-backend-iss-4.1.15-4.8.4.noarch",
+									"product_id": "spacewalk-backend-iss-4.1.15-4.8.4.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-backend-iss-export-4.1.15-4.8.4.noarch",
+								"product": {
+									"name": "spacewalk-backend-iss-export-4.1.15-4.8.4.noarch",
+									"product_id": "spacewalk-backend-iss-export-4.1.15-4.8.4.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-backend-package-push-server-4.1.15-4.8.4.noarch",
+								"product": {
+									"name": "spacewalk-backend-package-push-server-4.1.15-4.8.4.noarch",
+									"product_id": "spacewalk-backend-package-push-server-4.1.15-4.8.4.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-backend-server-4.1.15-4.8.4.noarch",
+								"product": {
+									"name": "spacewalk-backend-server-4.1.15-4.8.4.noarch",
+									"product_id": "spacewalk-backend-server-4.1.15-4.8.4.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-backend-sql-4.1.15-4.8.4.noarch",
+								"product": {
+									"name": "spacewalk-backend-sql-4.1.15-4.8.4.noarch",
+									"product_id": "spacewalk-backend-sql-4.1.15-4.8.4.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-backend-sql-postgresql-4.1.15-4.8.4.noarch",
+								"product": {
+									"name": "spacewalk-backend-sql-postgresql-4.1.15-4.8.4.noarch",
+									"product_id": "spacewalk-backend-sql-postgresql-4.1.15-4.8.4.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-backend-tools-4.1.15-4.8.4.noarch",
+								"product": {
+									"name": "spacewalk-backend-tools-4.1.15-4.8.4.noarch",
+									"product_id": "spacewalk-backend-tools-4.1.15-4.8.4.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-backend-xml-export-libs-4.1.15-4.8.4.noarch",
+								"product": {
+									"name": "spacewalk-backend-xml-export-libs-4.1.15-4.8.4.noarch",
+									"product_id": "spacewalk-backend-xml-export-libs-4.1.15-4.8.4.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-backend-xmlrpc-4.1.15-4.8.4.noarch",
+								"product": {
+									"name": "spacewalk-backend-xmlrpc-4.1.15-4.8.4.noarch",
+									"product_id": "spacewalk-backend-xmlrpc-4.1.15-4.8.4.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-base-4.1.18-3.6.3.noarch",
+								"product": {
+									"name": "spacewalk-base-4.1.18-3.6.3.noarch",
+									"product_id": "spacewalk-base-4.1.18-3.6.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-base-minimal-4.1.18-3.6.3.noarch",
+								"product": {
+									"name": "spacewalk-base-minimal-4.1.18-3.6.3.noarch",
+									"product_id": "spacewalk-base-minimal-4.1.18-3.6.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-base-minimal-config-4.1.18-3.6.3.noarch",
+								"product": {
+									"name": "spacewalk-base-minimal-config-4.1.18-3.6.3.noarch",
+									"product_id": "spacewalk-base-minimal-config-4.1.18-3.6.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-certs-tools-4.1.13-3.6.3.noarch",
+								"product": {
+									"name": "spacewalk-certs-tools-4.1.13-3.6.3.noarch",
+									"product_id": "spacewalk-certs-tools-4.1.13-3.6.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-check-4.1.6-4.3.3.noarch",
+								"product": {
+									"name": "spacewalk-check-4.1.6-4.3.3.noarch",
+									"product_id": "spacewalk-check-4.1.6-4.3.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-client-setup-4.1.6-4.3.3.noarch",
+								"product": {
+									"name": "spacewalk-client-setup-4.1.6-4.3.3.noarch",
+									"product_id": "spacewalk-client-setup-4.1.6-4.3.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-client-tools-4.1.6-4.3.3.noarch",
+								"product": {
+									"name": "spacewalk-client-tools-4.1.6-4.3.3.noarch",
+									"product_id": "spacewalk-client-tools-4.1.6-4.3.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-dobby-4.1.18-3.6.3.noarch",
+								"product": {
+									"name": "spacewalk-dobby-4.1.18-3.6.3.noarch",
+									"product_id": "spacewalk-dobby-4.1.18-3.6.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-html-4.1.18-3.6.3.noarch",
+								"product": {
+									"name": "spacewalk-html-4.1.18-3.6.3.noarch",
+									"product_id": "spacewalk-html-4.1.18-3.6.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-html-debug-4.1.18-3.6.3.noarch",
+								"product": {
+									"name": "spacewalk-html-debug-4.1.18-3.6.3.noarch",
+									"product_id": "spacewalk-html-debug-4.1.18-3.6.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-java-4.1.20-3.11.8.noarch",
+								"product": {
+									"name": "spacewalk-java-4.1.20-3.11.8.noarch",
+									"product_id": "spacewalk-java-4.1.20-3.11.8.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-java-apidoc-sources-4.1.20-3.11.8.noarch",
+								"product": {
+									"name": "spacewalk-java-apidoc-sources-4.1.20-3.11.8.noarch",
+									"product_id": "spacewalk-java-apidoc-sources-4.1.20-3.11.8.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-java-config-4.1.20-3.11.8.noarch",
+								"product": {
+									"name": "spacewalk-java-config-4.1.20-3.11.8.noarch",
+									"product_id": "spacewalk-java-config-4.1.20-3.11.8.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-java-lib-4.1.20-3.11.8.noarch",
+								"product": {
+									"name": "spacewalk-java-lib-4.1.20-3.11.8.noarch",
+									"product_id": "spacewalk-java-lib-4.1.20-3.11.8.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-java-postgresql-4.1.20-3.11.8.noarch",
+								"product": {
+									"name": "spacewalk-java-postgresql-4.1.20-3.11.8.noarch",
+									"product_id": "spacewalk-java-postgresql-4.1.20-3.11.8.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-taskomatic-4.1.20-3.11.8.noarch",
+								"product": {
+									"name": "spacewalk-taskomatic-4.1.20-3.11.8.noarch",
+									"product_id": "spacewalk-taskomatic-4.1.20-3.11.8.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-utils-4.1.12-3.6.3.noarch",
+								"product": {
+									"name": "spacewalk-utils-4.1.12-3.6.3.noarch",
+									"product_id": "spacewalk-utils-4.1.12-3.6.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-utils-extras-4.1.12-3.6.3.noarch",
+								"product": {
+									"name": "spacewalk-utils-extras-4.1.12-3.6.3.noarch",
+									"product_id": "spacewalk-utils-extras-4.1.12-3.6.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "subscription-matcher-0.26-3.3.3.noarch",
+								"product": {
+									"name": "subscription-matcher-0.26-3.3.3.noarch",
+									"product_id": "subscription-matcher-0.26-3.3.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-build-keys-15.2.1-3.3.2.noarch",
+								"product": {
+									"name": "susemanager-build-keys-15.2.1-3.3.2.noarch",
+									"product_id": "susemanager-build-keys-15.2.1-3.3.2.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-build-keys-web-15.2.1-3.3.2.noarch",
+								"product": {
+									"name": "susemanager-build-keys-web-15.2.1-3.3.2.noarch",
+									"product_id": "susemanager-build-keys-web-15.2.1-3.3.2.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-doc-indexes-4.1-11.12.2.noarch",
+								"product": {
+									"name": "susemanager-doc-indexes-4.1-11.12.2.noarch",
+									"product_id": "susemanager-doc-indexes-4.1-11.12.2.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-docs_en-4.1-11.12.2.noarch",
+								"product": {
+									"name": "susemanager-docs_en-4.1-11.12.2.noarch",
+									"product_id": "susemanager-docs_en-4.1-11.12.2.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-docs_en-pdf-4.1-11.12.2.noarch",
+								"product": {
+									"name": "susemanager-docs_en-pdf-4.1-11.12.2.noarch",
+									"product_id": "susemanager-docs_en-pdf-4.1-11.12.2.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-schema-4.1.13-3.6.3.noarch",
+								"product": {
+									"name": "susemanager-schema-4.1.13-3.6.3.noarch",
+									"product_id": "susemanager-schema-4.1.13-3.6.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-schema-sanity-4.1.13-3.6.3.noarch",
+								"product": {
+									"name": "susemanager-schema-sanity-4.1.13-3.6.3.noarch",
+									"product_id": "susemanager-schema-sanity-4.1.13-3.6.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-sls-4.1.15-3.8.4.noarch",
+								"product": {
+									"name": "susemanager-sls-4.1.15-3.8.4.noarch",
+									"product_id": "susemanager-sls-4.1.15-3.8.4.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-web-libs-4.1.18-3.6.3.noarch",
+								"product": {
+									"name": "susemanager-web-libs-4.1.18-3.6.3.noarch",
+									"product_id": "susemanager-web-libs-4.1.18-3.6.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-web-libs-debug-4.1.18-3.6.3.noarch",
+								"product": {
+									"name": "susemanager-web-libs-debug-4.1.18-3.6.3.noarch",
+									"product_id": "susemanager-web-libs-debug-4.1.18-3.6.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "uyuni-config-formula-0.1-6.3.3.noarch",
+								"product": {
+									"name": "uyuni-config-formula-0.1-6.3.3.noarch",
+									"product_id": "uyuni-config-formula-0.1-6.3.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "uyuni-config-modules-4.1.15-3.8.4.noarch",
+								"product": {
+									"name": "uyuni-config-modules-4.1.15-3.8.4.noarch",
+									"product_id": "uyuni-config-modules-4.1.15-3.8.4.noarch"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "noarch"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "golang-github-QubitProducts-exporter_exporter-0.4.0-6.9.4.ppc64le",
+								"product": {
+									"name": "golang-github-QubitProducts-exporter_exporter-0.4.0-6.9.4.ppc64le",
+									"product_id": "golang-github-QubitProducts-exporter_exporter-0.4.0-6.9.4.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "golang-github-prometheus-node_exporter-1.0.1-3.3.4.ppc64le",
+								"product": {
+									"name": "golang-github-prometheus-node_exporter-1.0.1-3.3.4.ppc64le",
+									"product_id": "golang-github-prometheus-node_exporter-1.0.1-3.3.4.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "hub-xmlrpc-api-0.7-3.3.3.ppc64le",
+								"product": {
+									"name": "hub-xmlrpc-api-0.7-3.3.3.ppc64le",
+									"product_id": "hub-xmlrpc-api-0.7-3.3.3.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "patterns-suma_proxy-4.1-6.6.3.ppc64le",
+								"product": {
+									"name": "patterns-suma_proxy-4.1-6.6.3.ppc64le",
+									"product_id": "patterns-suma_proxy-4.1-6.6.3.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "patterns-suma_retail-4.1-6.6.3.ppc64le",
+								"product": {
+									"name": "patterns-suma_retail-4.1-6.6.3.ppc64le",
+									"product_id": "patterns-suma_retail-4.1-6.6.3.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "patterns-suma_server-4.1-6.6.3.ppc64le",
+								"product": {
+									"name": "patterns-suma_server-4.1-6.6.3.ppc64le",
+									"product_id": "patterns-suma_server-4.1-6.6.3.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-branding-4.1.10-3.6.3.ppc64le",
+								"product": {
+									"name": "spacewalk-branding-4.1.10-3.6.3.ppc64le",
+									"product_id": "spacewalk-branding-4.1.10-3.6.3.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-branding-devel-4.1.10-3.6.3.ppc64le",
+								"product": {
+									"name": "spacewalk-branding-devel-4.1.10-3.6.3.ppc64le",
+									"product_id": "spacewalk-branding-devel-4.1.10-3.6.3.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-4.1.20-3.8.3.ppc64le",
+								"product": {
+									"name": "susemanager-4.1.20-3.8.3.ppc64le",
+									"product_id": "susemanager-4.1.20-3.8.3.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-nodejs-sdk-devel-4.1.7-3.6.3.ppc64le",
+								"product": {
+									"name": "susemanager-nodejs-sdk-devel-4.1.7-3.6.3.ppc64le",
+									"product_id": "susemanager-nodejs-sdk-devel-4.1.7-3.6.3.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-tools-4.1.20-3.8.3.ppc64le",
+								"product": {
+									"name": "susemanager-tools-4.1.20-3.8.3.ppc64le",
+									"product_id": "susemanager-tools-4.1.20-3.8.3.ppc64le"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "ppc64le"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "golang-github-QubitProducts-exporter_exporter-0.4.0-6.9.4.s390x",
+								"product": {
+									"name": "golang-github-QubitProducts-exporter_exporter-0.4.0-6.9.4.s390x",
+									"product_id": "golang-github-QubitProducts-exporter_exporter-0.4.0-6.9.4.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "golang-github-prometheus-node_exporter-1.0.1-3.3.4.s390x",
+								"product": {
+									"name": "golang-github-prometheus-node_exporter-1.0.1-3.3.4.s390x",
+									"product_id": "golang-github-prometheus-node_exporter-1.0.1-3.3.4.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "hub-xmlrpc-api-0.7-3.3.3.s390x",
+								"product": {
+									"name": "hub-xmlrpc-api-0.7-3.3.3.s390x",
+									"product_id": "hub-xmlrpc-api-0.7-3.3.3.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "patterns-suma_proxy-4.1-6.6.3.s390x",
+								"product": {
+									"name": "patterns-suma_proxy-4.1-6.6.3.s390x",
+									"product_id": "patterns-suma_proxy-4.1-6.6.3.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "patterns-suma_retail-4.1-6.6.3.s390x",
+								"product": {
+									"name": "patterns-suma_retail-4.1-6.6.3.s390x",
+									"product_id": "patterns-suma_retail-4.1-6.6.3.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "patterns-suma_server-4.1-6.6.3.s390x",
+								"product": {
+									"name": "patterns-suma_server-4.1-6.6.3.s390x",
+									"product_id": "patterns-suma_server-4.1-6.6.3.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-branding-4.1.10-3.6.3.s390x",
+								"product": {
+									"name": "spacewalk-branding-4.1.10-3.6.3.s390x",
+									"product_id": "spacewalk-branding-4.1.10-3.6.3.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-branding-devel-4.1.10-3.6.3.s390x",
+								"product": {
+									"name": "spacewalk-branding-devel-4.1.10-3.6.3.s390x",
+									"product_id": "spacewalk-branding-devel-4.1.10-3.6.3.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-4.1.20-3.8.3.s390x",
+								"product": {
+									"name": "susemanager-4.1.20-3.8.3.s390x",
+									"product_id": "susemanager-4.1.20-3.8.3.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-nodejs-sdk-devel-4.1.7-3.6.3.s390x",
+								"product": {
+									"name": "susemanager-nodejs-sdk-devel-4.1.7-3.6.3.s390x",
+									"product_id": "susemanager-nodejs-sdk-devel-4.1.7-3.6.3.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-tools-4.1.20-3.8.3.s390x",
+								"product": {
+									"name": "susemanager-tools-4.1.20-3.8.3.s390x",
+									"product_id": "susemanager-tools-4.1.20-3.8.3.s390x"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "s390x"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "golang-github-QubitProducts-exporter_exporter-0.4.0-6.9.4.x86_64",
+								"product": {
+									"name": "golang-github-QubitProducts-exporter_exporter-0.4.0-6.9.4.x86_64",
+									"product_id": "golang-github-QubitProducts-exporter_exporter-0.4.0-6.9.4.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "golang-github-prometheus-node_exporter-1.0.1-3.3.4.x86_64",
+								"product": {
+									"name": "golang-github-prometheus-node_exporter-1.0.1-3.3.4.x86_64",
+									"product_id": "golang-github-prometheus-node_exporter-1.0.1-3.3.4.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "hibernate5-kit-06f89f5f40a0b95b08f814879026e8ce444876e5-3.3.3.x86_64",
+								"product": {
+									"name": "hibernate5-kit-06f89f5f40a0b95b08f814879026e8ce444876e5-3.3.3.x86_64",
+									"product_id": "hibernate5-kit-06f89f5f40a0b95b08f814879026e8ce444876e5-3.3.3.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "hub-xmlrpc-api-0.7-3.3.3.x86_64",
+								"product": {
+									"name": "hub-xmlrpc-api-0.7-3.3.3.x86_64",
+									"product_id": "hub-xmlrpc-api-0.7-3.3.3.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "patterns-suma_proxy-4.1-6.6.3.x86_64",
+								"product": {
+									"name": "patterns-suma_proxy-4.1-6.6.3.x86_64",
+									"product_id": "patterns-suma_proxy-4.1-6.6.3.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "patterns-suma_retail-4.1-6.6.3.x86_64",
+								"product": {
+									"name": "patterns-suma_retail-4.1-6.6.3.x86_64",
+									"product_id": "patterns-suma_retail-4.1-6.6.3.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "patterns-suma_server-4.1-6.6.3.x86_64",
+								"product": {
+									"name": "patterns-suma_server-4.1-6.6.3.x86_64",
+									"product_id": "patterns-suma_server-4.1-6.6.3.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-branding-4.1.10-3.6.3.x86_64",
+								"product": {
+									"name": "spacewalk-branding-4.1.10-3.6.3.x86_64",
+									"product_id": "spacewalk-branding-4.1.10-3.6.3.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-branding-devel-4.1.10-3.6.3.x86_64",
+								"product": {
+									"name": "spacewalk-branding-devel-4.1.10-3.6.3.x86_64",
+									"product_id": "spacewalk-branding-devel-4.1.10-3.6.3.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-4.1.20-3.8.3.x86_64",
+								"product": {
+									"name": "susemanager-4.1.20-3.8.3.x86_64",
+									"product_id": "susemanager-4.1.20-3.8.3.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-nodejs-sdk-devel-4.1.7-3.6.3.x86_64",
+								"product": {
+									"name": "susemanager-nodejs-sdk-devel-4.1.7-3.6.3.x86_64",
+									"product_id": "susemanager-nodejs-sdk-devel-4.1.7-3.6.3.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-tools-4.1.20-3.8.3.x86_64",
+								"product": {
+									"name": "susemanager-tools-4.1.20-3.8.3.x86_64",
+									"product_id": "susemanager-tools-4.1.20-3.8.3.x86_64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "x86_64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_name",
+								"name": "SUSE Manager Server Module 4.1",
+								"product": {
+									"name": "SUSE Manager Server Module 4.1",
+									"product_id": "SUSE Manager Server Module 4.1",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-module-suse-manager-server:4.1"
+									}
+								}
+							}
+						],
+						"category": "product_family",
+						"name": "SUSE Linux Enterprise"
+					}
+				],
+				"category": "vendor",
+				"name": "SUSE"
+			}
+		],
+		"relationships": [
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-QubitProducts-exporter_exporter-0.4.0-6.9.4.ppc64le as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:golang-github-QubitProducts-exporter_exporter-0.4.0-6.9.4.ppc64le"
+				},
+				"product_reference": "golang-github-QubitProducts-exporter_exporter-0.4.0-6.9.4.ppc64le",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-QubitProducts-exporter_exporter-0.4.0-6.9.4.s390x as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:golang-github-QubitProducts-exporter_exporter-0.4.0-6.9.4.s390x"
+				},
+				"product_reference": "golang-github-QubitProducts-exporter_exporter-0.4.0-6.9.4.s390x",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-QubitProducts-exporter_exporter-0.4.0-6.9.4.x86_64 as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:golang-github-QubitProducts-exporter_exporter-0.4.0-6.9.4.x86_64"
+				},
+				"product_reference": "golang-github-QubitProducts-exporter_exporter-0.4.0-6.9.4.x86_64",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-node_exporter-1.0.1-3.3.4.ppc64le as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:golang-github-prometheus-node_exporter-1.0.1-3.3.4.ppc64le"
+				},
+				"product_reference": "golang-github-prometheus-node_exporter-1.0.1-3.3.4.ppc64le",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-node_exporter-1.0.1-3.3.4.s390x as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:golang-github-prometheus-node_exporter-1.0.1-3.3.4.s390x"
+				},
+				"product_reference": "golang-github-prometheus-node_exporter-1.0.1-3.3.4.s390x",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-node_exporter-1.0.1-3.3.4.x86_64 as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:golang-github-prometheus-node_exporter-1.0.1-3.3.4.x86_64"
+				},
+				"product_reference": "golang-github-prometheus-node_exporter-1.0.1-3.3.4.x86_64",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "hibernate5-5.3.7-3.3.4.noarch as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:hibernate5-5.3.7-3.3.4.noarch"
+				},
+				"product_reference": "hibernate5-5.3.7-3.3.4.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "hub-xmlrpc-api-0.7-3.3.3.ppc64le as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:hub-xmlrpc-api-0.7-3.3.3.ppc64le"
+				},
+				"product_reference": "hub-xmlrpc-api-0.7-3.3.3.ppc64le",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "hub-xmlrpc-api-0.7-3.3.3.s390x as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:hub-xmlrpc-api-0.7-3.3.3.s390x"
+				},
+				"product_reference": "hub-xmlrpc-api-0.7-3.3.3.s390x",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "hub-xmlrpc-api-0.7-3.3.3.x86_64 as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:hub-xmlrpc-api-0.7-3.3.3.x86_64"
+				},
+				"product_reference": "hub-xmlrpc-api-0.7-3.3.3.x86_64",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "patterns-suma_retail-4.1-6.6.3.ppc64le as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:patterns-suma_retail-4.1-6.6.3.ppc64le"
+				},
+				"product_reference": "patterns-suma_retail-4.1-6.6.3.ppc64le",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "patterns-suma_retail-4.1-6.6.3.s390x as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:patterns-suma_retail-4.1-6.6.3.s390x"
+				},
+				"product_reference": "patterns-suma_retail-4.1-6.6.3.s390x",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "patterns-suma_retail-4.1-6.6.3.x86_64 as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:patterns-suma_retail-4.1-6.6.3.x86_64"
+				},
+				"product_reference": "patterns-suma_retail-4.1-6.6.3.x86_64",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "patterns-suma_server-4.1-6.6.3.ppc64le as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:patterns-suma_server-4.1-6.6.3.ppc64le"
+				},
+				"product_reference": "patterns-suma_server-4.1-6.6.3.ppc64le",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "patterns-suma_server-4.1-6.6.3.s390x as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:patterns-suma_server-4.1-6.6.3.s390x"
+				},
+				"product_reference": "patterns-suma_server-4.1-6.6.3.s390x",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "patterns-suma_server-4.1-6.6.3.x86_64 as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:patterns-suma_server-4.1-6.6.3.x86_64"
+				},
+				"product_reference": "patterns-suma_server-4.1-6.6.3.x86_64",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "prometheus-exporters-formula-0.7.3-3.10.1.noarch as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:prometheus-exporters-formula-0.7.3-3.10.1.noarch"
+				},
+				"product_reference": "prometheus-exporters-formula-0.7.3-3.10.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "python3-spacewalk-certs-tools-4.1.13-3.6.3.noarch as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:python3-spacewalk-certs-tools-4.1.13-3.6.3.noarch"
+				},
+				"product_reference": "python3-spacewalk-certs-tools-4.1.13-3.6.3.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "python3-spacewalk-client-tools-4.1.6-4.3.3.noarch as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:python3-spacewalk-client-tools-4.1.6-4.3.3.noarch"
+				},
+				"product_reference": "python3-spacewalk-client-tools-4.1.6-4.3.3.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "salt-netapi-client-0.17.0-15.4.3.noarch as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:salt-netapi-client-0.17.0-15.4.3.noarch"
+				},
+				"product_reference": "salt-netapi-client-0.17.0-15.4.3.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacecmd-4.1.7-4.6.3.noarch as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:spacecmd-4.1.7-4.6.3.noarch"
+				},
+				"product_reference": "spacecmd-4.1.7-4.6.3.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-backend-4.1.15-4.8.4.noarch as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:spacewalk-backend-4.1.15-4.8.4.noarch"
+				},
+				"product_reference": "spacewalk-backend-4.1.15-4.8.4.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-backend-app-4.1.15-4.8.4.noarch as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:spacewalk-backend-app-4.1.15-4.8.4.noarch"
+				},
+				"product_reference": "spacewalk-backend-app-4.1.15-4.8.4.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-backend-applet-4.1.15-4.8.4.noarch as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:spacewalk-backend-applet-4.1.15-4.8.4.noarch"
+				},
+				"product_reference": "spacewalk-backend-applet-4.1.15-4.8.4.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-backend-config-files-4.1.15-4.8.4.noarch as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:spacewalk-backend-config-files-4.1.15-4.8.4.noarch"
+				},
+				"product_reference": "spacewalk-backend-config-files-4.1.15-4.8.4.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-backend-config-files-common-4.1.15-4.8.4.noarch as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:spacewalk-backend-config-files-common-4.1.15-4.8.4.noarch"
+				},
+				"product_reference": "spacewalk-backend-config-files-common-4.1.15-4.8.4.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-backend-config-files-tool-4.1.15-4.8.4.noarch as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:spacewalk-backend-config-files-tool-4.1.15-4.8.4.noarch"
+				},
+				"product_reference": "spacewalk-backend-config-files-tool-4.1.15-4.8.4.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-backend-iss-4.1.15-4.8.4.noarch as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:spacewalk-backend-iss-4.1.15-4.8.4.noarch"
+				},
+				"product_reference": "spacewalk-backend-iss-4.1.15-4.8.4.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-backend-iss-export-4.1.15-4.8.4.noarch as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:spacewalk-backend-iss-export-4.1.15-4.8.4.noarch"
+				},
+				"product_reference": "spacewalk-backend-iss-export-4.1.15-4.8.4.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-backend-package-push-server-4.1.15-4.8.4.noarch as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:spacewalk-backend-package-push-server-4.1.15-4.8.4.noarch"
+				},
+				"product_reference": "spacewalk-backend-package-push-server-4.1.15-4.8.4.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-backend-server-4.1.15-4.8.4.noarch as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:spacewalk-backend-server-4.1.15-4.8.4.noarch"
+				},
+				"product_reference": "spacewalk-backend-server-4.1.15-4.8.4.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-backend-sql-4.1.15-4.8.4.noarch as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:spacewalk-backend-sql-4.1.15-4.8.4.noarch"
+				},
+				"product_reference": "spacewalk-backend-sql-4.1.15-4.8.4.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-backend-sql-postgresql-4.1.15-4.8.4.noarch as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:spacewalk-backend-sql-postgresql-4.1.15-4.8.4.noarch"
+				},
+				"product_reference": "spacewalk-backend-sql-postgresql-4.1.15-4.8.4.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-backend-tools-4.1.15-4.8.4.noarch as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:spacewalk-backend-tools-4.1.15-4.8.4.noarch"
+				},
+				"product_reference": "spacewalk-backend-tools-4.1.15-4.8.4.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-backend-xml-export-libs-4.1.15-4.8.4.noarch as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:spacewalk-backend-xml-export-libs-4.1.15-4.8.4.noarch"
+				},
+				"product_reference": "spacewalk-backend-xml-export-libs-4.1.15-4.8.4.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-backend-xmlrpc-4.1.15-4.8.4.noarch as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:spacewalk-backend-xmlrpc-4.1.15-4.8.4.noarch"
+				},
+				"product_reference": "spacewalk-backend-xmlrpc-4.1.15-4.8.4.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-base-4.1.18-3.6.3.noarch as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:spacewalk-base-4.1.18-3.6.3.noarch"
+				},
+				"product_reference": "spacewalk-base-4.1.18-3.6.3.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-base-minimal-4.1.18-3.6.3.noarch as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:spacewalk-base-minimal-4.1.18-3.6.3.noarch"
+				},
+				"product_reference": "spacewalk-base-minimal-4.1.18-3.6.3.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-base-minimal-config-4.1.18-3.6.3.noarch as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:spacewalk-base-minimal-config-4.1.18-3.6.3.noarch"
+				},
+				"product_reference": "spacewalk-base-minimal-config-4.1.18-3.6.3.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-branding-4.1.10-3.6.3.ppc64le as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:spacewalk-branding-4.1.10-3.6.3.ppc64le"
+				},
+				"product_reference": "spacewalk-branding-4.1.10-3.6.3.ppc64le",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-branding-4.1.10-3.6.3.s390x as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:spacewalk-branding-4.1.10-3.6.3.s390x"
+				},
+				"product_reference": "spacewalk-branding-4.1.10-3.6.3.s390x",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-branding-4.1.10-3.6.3.x86_64 as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:spacewalk-branding-4.1.10-3.6.3.x86_64"
+				},
+				"product_reference": "spacewalk-branding-4.1.10-3.6.3.x86_64",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-certs-tools-4.1.13-3.6.3.noarch as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:spacewalk-certs-tools-4.1.13-3.6.3.noarch"
+				},
+				"product_reference": "spacewalk-certs-tools-4.1.13-3.6.3.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-client-tools-4.1.6-4.3.3.noarch as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:spacewalk-client-tools-4.1.6-4.3.3.noarch"
+				},
+				"product_reference": "spacewalk-client-tools-4.1.6-4.3.3.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-html-4.1.18-3.6.3.noarch as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:spacewalk-html-4.1.18-3.6.3.noarch"
+				},
+				"product_reference": "spacewalk-html-4.1.18-3.6.3.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-java-4.1.20-3.11.8.noarch as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:spacewalk-java-4.1.20-3.11.8.noarch"
+				},
+				"product_reference": "spacewalk-java-4.1.20-3.11.8.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-java-config-4.1.20-3.11.8.noarch as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:spacewalk-java-config-4.1.20-3.11.8.noarch"
+				},
+				"product_reference": "spacewalk-java-config-4.1.20-3.11.8.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-java-lib-4.1.20-3.11.8.noarch as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:spacewalk-java-lib-4.1.20-3.11.8.noarch"
+				},
+				"product_reference": "spacewalk-java-lib-4.1.20-3.11.8.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-java-postgresql-4.1.20-3.11.8.noarch as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:spacewalk-java-postgresql-4.1.20-3.11.8.noarch"
+				},
+				"product_reference": "spacewalk-java-postgresql-4.1.20-3.11.8.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-taskomatic-4.1.20-3.11.8.noarch as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:spacewalk-taskomatic-4.1.20-3.11.8.noarch"
+				},
+				"product_reference": "spacewalk-taskomatic-4.1.20-3.11.8.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-utils-4.1.12-3.6.3.noarch as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:spacewalk-utils-4.1.12-3.6.3.noarch"
+				},
+				"product_reference": "spacewalk-utils-4.1.12-3.6.3.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-utils-extras-4.1.12-3.6.3.noarch as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:spacewalk-utils-extras-4.1.12-3.6.3.noarch"
+				},
+				"product_reference": "spacewalk-utils-extras-4.1.12-3.6.3.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "subscription-matcher-0.26-3.3.3.noarch as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:subscription-matcher-0.26-3.3.3.noarch"
+				},
+				"product_reference": "subscription-matcher-0.26-3.3.3.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "susemanager-4.1.20-3.8.3.ppc64le as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:susemanager-4.1.20-3.8.3.ppc64le"
+				},
+				"product_reference": "susemanager-4.1.20-3.8.3.ppc64le",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "susemanager-4.1.20-3.8.3.s390x as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:susemanager-4.1.20-3.8.3.s390x"
+				},
+				"product_reference": "susemanager-4.1.20-3.8.3.s390x",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "susemanager-4.1.20-3.8.3.x86_64 as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:susemanager-4.1.20-3.8.3.x86_64"
+				},
+				"product_reference": "susemanager-4.1.20-3.8.3.x86_64",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "susemanager-build-keys-15.2.1-3.3.2.noarch as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:susemanager-build-keys-15.2.1-3.3.2.noarch"
+				},
+				"product_reference": "susemanager-build-keys-15.2.1-3.3.2.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "susemanager-build-keys-web-15.2.1-3.3.2.noarch as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:susemanager-build-keys-web-15.2.1-3.3.2.noarch"
+				},
+				"product_reference": "susemanager-build-keys-web-15.2.1-3.3.2.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "susemanager-doc-indexes-4.1-11.12.2.noarch as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:susemanager-doc-indexes-4.1-11.12.2.noarch"
+				},
+				"product_reference": "susemanager-doc-indexes-4.1-11.12.2.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "susemanager-docs_en-4.1-11.12.2.noarch as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:susemanager-docs_en-4.1-11.12.2.noarch"
+				},
+				"product_reference": "susemanager-docs_en-4.1-11.12.2.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "susemanager-docs_en-pdf-4.1-11.12.2.noarch as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:susemanager-docs_en-pdf-4.1-11.12.2.noarch"
+				},
+				"product_reference": "susemanager-docs_en-pdf-4.1-11.12.2.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "susemanager-schema-4.1.13-3.6.3.noarch as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:susemanager-schema-4.1.13-3.6.3.noarch"
+				},
+				"product_reference": "susemanager-schema-4.1.13-3.6.3.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "susemanager-sls-4.1.15-3.8.4.noarch as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:susemanager-sls-4.1.15-3.8.4.noarch"
+				},
+				"product_reference": "susemanager-sls-4.1.15-3.8.4.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "susemanager-tools-4.1.20-3.8.3.ppc64le as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:susemanager-tools-4.1.20-3.8.3.ppc64le"
+				},
+				"product_reference": "susemanager-tools-4.1.20-3.8.3.ppc64le",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "susemanager-tools-4.1.20-3.8.3.s390x as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:susemanager-tools-4.1.20-3.8.3.s390x"
+				},
+				"product_reference": "susemanager-tools-4.1.20-3.8.3.s390x",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "susemanager-tools-4.1.20-3.8.3.x86_64 as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:susemanager-tools-4.1.20-3.8.3.x86_64"
+				},
+				"product_reference": "susemanager-tools-4.1.20-3.8.3.x86_64",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "susemanager-web-libs-4.1.18-3.6.3.noarch as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:susemanager-web-libs-4.1.18-3.6.3.noarch"
+				},
+				"product_reference": "susemanager-web-libs-4.1.18-3.6.3.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "uyuni-config-formula-0.1-6.3.3.noarch as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:uyuni-config-formula-0.1-6.3.3.noarch"
+				},
+				"product_reference": "uyuni-config-formula-0.1-6.3.3.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "uyuni-config-modules-4.1.15-3.8.4.noarch as component of SUSE Manager Server Module 4.1",
+					"product_id": "SUSE Manager Server Module 4.1:uyuni-config-modules-4.1.15-3.8.4.noarch"
+				},
+				"product_reference": "uyuni-config-modules-4.1.15-3.8.4.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.1"
+			}
+		]
+	},
+	"vulnerabilities": [
+		{
+			"cve": "CVE-2019-14900",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2019-14900"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A flaw was found in Hibernate ORM in versions before 5.3.18, 5.4.18 and 5.5.0.Beta1. A SQL injection in the implementation of the JPA Criteria API can permit unsanitized literals when a literal is used in the SELECT or GROUP BY parts of the query. This flaw could allow an attacker to access unauthorized information or possibly conduct further attacks.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Manager Server Module 4.1:golang-github-QubitProducts-exporter_exporter-0.4.0-6.9.4.ppc64le",
+					"SUSE Manager Server Module 4.1:golang-github-QubitProducts-exporter_exporter-0.4.0-6.9.4.s390x",
+					"SUSE Manager Server Module 4.1:golang-github-QubitProducts-exporter_exporter-0.4.0-6.9.4.x86_64",
+					"SUSE Manager Server Module 4.1:golang-github-prometheus-node_exporter-1.0.1-3.3.4.ppc64le",
+					"SUSE Manager Server Module 4.1:golang-github-prometheus-node_exporter-1.0.1-3.3.4.s390x",
+					"SUSE Manager Server Module 4.1:golang-github-prometheus-node_exporter-1.0.1-3.3.4.x86_64",
+					"SUSE Manager Server Module 4.1:hibernate5-5.3.7-3.3.4.noarch",
+					"SUSE Manager Server Module 4.1:hub-xmlrpc-api-0.7-3.3.3.ppc64le",
+					"SUSE Manager Server Module 4.1:hub-xmlrpc-api-0.7-3.3.3.s390x",
+					"SUSE Manager Server Module 4.1:hub-xmlrpc-api-0.7-3.3.3.x86_64",
+					"SUSE Manager Server Module 4.1:patterns-suma_retail-4.1-6.6.3.ppc64le",
+					"SUSE Manager Server Module 4.1:patterns-suma_retail-4.1-6.6.3.s390x",
+					"SUSE Manager Server Module 4.1:patterns-suma_retail-4.1-6.6.3.x86_64",
+					"SUSE Manager Server Module 4.1:patterns-suma_server-4.1-6.6.3.ppc64le",
+					"SUSE Manager Server Module 4.1:patterns-suma_server-4.1-6.6.3.s390x",
+					"SUSE Manager Server Module 4.1:patterns-suma_server-4.1-6.6.3.x86_64",
+					"SUSE Manager Server Module 4.1:prometheus-exporters-formula-0.7.3-3.10.1.noarch",
+					"SUSE Manager Server Module 4.1:python3-spacewalk-certs-tools-4.1.13-3.6.3.noarch",
+					"SUSE Manager Server Module 4.1:python3-spacewalk-client-tools-4.1.6-4.3.3.noarch",
+					"SUSE Manager Server Module 4.1:salt-netapi-client-0.17.0-15.4.3.noarch",
+					"SUSE Manager Server Module 4.1:spacecmd-4.1.7-4.6.3.noarch",
+					"SUSE Manager Server Module 4.1:spacewalk-backend-4.1.15-4.8.4.noarch",
+					"SUSE Manager Server Module 4.1:spacewalk-backend-app-4.1.15-4.8.4.noarch",
+					"SUSE Manager Server Module 4.1:spacewalk-backend-applet-4.1.15-4.8.4.noarch",
+					"SUSE Manager Server Module 4.1:spacewalk-backend-config-files-4.1.15-4.8.4.noarch",
+					"SUSE Manager Server Module 4.1:spacewalk-backend-config-files-common-4.1.15-4.8.4.noarch",
+					"SUSE Manager Server Module 4.1:spacewalk-backend-config-files-tool-4.1.15-4.8.4.noarch",
+					"SUSE Manager Server Module 4.1:spacewalk-backend-iss-4.1.15-4.8.4.noarch",
+					"SUSE Manager Server Module 4.1:spacewalk-backend-iss-export-4.1.15-4.8.4.noarch",
+					"SUSE Manager Server Module 4.1:spacewalk-backend-package-push-server-4.1.15-4.8.4.noarch",
+					"SUSE Manager Server Module 4.1:spacewalk-backend-server-4.1.15-4.8.4.noarch",
+					"SUSE Manager Server Module 4.1:spacewalk-backend-sql-4.1.15-4.8.4.noarch",
+					"SUSE Manager Server Module 4.1:spacewalk-backend-sql-postgresql-4.1.15-4.8.4.noarch",
+					"SUSE Manager Server Module 4.1:spacewalk-backend-tools-4.1.15-4.8.4.noarch",
+					"SUSE Manager Server Module 4.1:spacewalk-backend-xml-export-libs-4.1.15-4.8.4.noarch",
+					"SUSE Manager Server Module 4.1:spacewalk-backend-xmlrpc-4.1.15-4.8.4.noarch",
+					"SUSE Manager Server Module 4.1:spacewalk-base-4.1.18-3.6.3.noarch",
+					"SUSE Manager Server Module 4.1:spacewalk-base-minimal-4.1.18-3.6.3.noarch",
+					"SUSE Manager Server Module 4.1:spacewalk-base-minimal-config-4.1.18-3.6.3.noarch",
+					"SUSE Manager Server Module 4.1:spacewalk-branding-4.1.10-3.6.3.ppc64le",
+					"SUSE Manager Server Module 4.1:spacewalk-branding-4.1.10-3.6.3.s390x",
+					"SUSE Manager Server Module 4.1:spacewalk-branding-4.1.10-3.6.3.x86_64",
+					"SUSE Manager Server Module 4.1:spacewalk-certs-tools-4.1.13-3.6.3.noarch",
+					"SUSE Manager Server Module 4.1:spacewalk-client-tools-4.1.6-4.3.3.noarch",
+					"SUSE Manager Server Module 4.1:spacewalk-html-4.1.18-3.6.3.noarch",
+					"SUSE Manager Server Module 4.1:spacewalk-java-4.1.20-3.11.8.noarch",
+					"SUSE Manager Server Module 4.1:spacewalk-java-config-4.1.20-3.11.8.noarch",
+					"SUSE Manager Server Module 4.1:spacewalk-java-lib-4.1.20-3.11.8.noarch",
+					"SUSE Manager Server Module 4.1:spacewalk-java-postgresql-4.1.20-3.11.8.noarch",
+					"SUSE Manager Server Module 4.1:spacewalk-taskomatic-4.1.20-3.11.8.noarch",
+					"SUSE Manager Server Module 4.1:spacewalk-utils-4.1.12-3.6.3.noarch",
+					"SUSE Manager Server Module 4.1:spacewalk-utils-extras-4.1.12-3.6.3.noarch",
+					"SUSE Manager Server Module 4.1:subscription-matcher-0.26-3.3.3.noarch",
+					"SUSE Manager Server Module 4.1:susemanager-4.1.20-3.8.3.ppc64le",
+					"SUSE Manager Server Module 4.1:susemanager-4.1.20-3.8.3.s390x",
+					"SUSE Manager Server Module 4.1:susemanager-4.1.20-3.8.3.x86_64",
+					"SUSE Manager Server Module 4.1:susemanager-build-keys-15.2.1-3.3.2.noarch",
+					"SUSE Manager Server Module 4.1:susemanager-build-keys-web-15.2.1-3.3.2.noarch",
+					"SUSE Manager Server Module 4.1:susemanager-doc-indexes-4.1-11.12.2.noarch",
+					"SUSE Manager Server Module 4.1:susemanager-docs_en-4.1-11.12.2.noarch",
+					"SUSE Manager Server Module 4.1:susemanager-docs_en-pdf-4.1-11.12.2.noarch",
+					"SUSE Manager Server Module 4.1:susemanager-schema-4.1.13-3.6.3.noarch",
+					"SUSE Manager Server Module 4.1:susemanager-sls-4.1.15-3.8.4.noarch",
+					"SUSE Manager Server Module 4.1:susemanager-tools-4.1.20-3.8.3.ppc64le",
+					"SUSE Manager Server Module 4.1:susemanager-tools-4.1.20-3.8.3.s390x",
+					"SUSE Manager Server Module 4.1:susemanager-tools-4.1.20-3.8.3.x86_64",
+					"SUSE Manager Server Module 4.1:susemanager-web-libs-4.1.18-3.6.3.noarch",
+					"SUSE Manager Server Module 4.1:uyuni-config-formula-0.1-6.3.3.noarch",
+					"SUSE Manager Server Module 4.1:uyuni-config-modules-4.1.15-3.8.4.noarch"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2019-14900",
+					"url": "https://www.suse.com/security/cve/CVE-2019-14900"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1172079 for CVE-2019-14900",
+					"url": "https://bugzilla.suse.com/1172079"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Manager Server Module 4.1:golang-github-QubitProducts-exporter_exporter-0.4.0-6.9.4.ppc64le",
+						"SUSE Manager Server Module 4.1:golang-github-QubitProducts-exporter_exporter-0.4.0-6.9.4.s390x",
+						"SUSE Manager Server Module 4.1:golang-github-QubitProducts-exporter_exporter-0.4.0-6.9.4.x86_64",
+						"SUSE Manager Server Module 4.1:golang-github-prometheus-node_exporter-1.0.1-3.3.4.ppc64le",
+						"SUSE Manager Server Module 4.1:golang-github-prometheus-node_exporter-1.0.1-3.3.4.s390x",
+						"SUSE Manager Server Module 4.1:golang-github-prometheus-node_exporter-1.0.1-3.3.4.x86_64",
+						"SUSE Manager Server Module 4.1:hibernate5-5.3.7-3.3.4.noarch",
+						"SUSE Manager Server Module 4.1:hub-xmlrpc-api-0.7-3.3.3.ppc64le",
+						"SUSE Manager Server Module 4.1:hub-xmlrpc-api-0.7-3.3.3.s390x",
+						"SUSE Manager Server Module 4.1:hub-xmlrpc-api-0.7-3.3.3.x86_64",
+						"SUSE Manager Server Module 4.1:patterns-suma_retail-4.1-6.6.3.ppc64le",
+						"SUSE Manager Server Module 4.1:patterns-suma_retail-4.1-6.6.3.s390x",
+						"SUSE Manager Server Module 4.1:patterns-suma_retail-4.1-6.6.3.x86_64",
+						"SUSE Manager Server Module 4.1:patterns-suma_server-4.1-6.6.3.ppc64le",
+						"SUSE Manager Server Module 4.1:patterns-suma_server-4.1-6.6.3.s390x",
+						"SUSE Manager Server Module 4.1:patterns-suma_server-4.1-6.6.3.x86_64",
+						"SUSE Manager Server Module 4.1:prometheus-exporters-formula-0.7.3-3.10.1.noarch",
+						"SUSE Manager Server Module 4.1:python3-spacewalk-certs-tools-4.1.13-3.6.3.noarch",
+						"SUSE Manager Server Module 4.1:python3-spacewalk-client-tools-4.1.6-4.3.3.noarch",
+						"SUSE Manager Server Module 4.1:salt-netapi-client-0.17.0-15.4.3.noarch",
+						"SUSE Manager Server Module 4.1:spacecmd-4.1.7-4.6.3.noarch",
+						"SUSE Manager Server Module 4.1:spacewalk-backend-4.1.15-4.8.4.noarch",
+						"SUSE Manager Server Module 4.1:spacewalk-backend-app-4.1.15-4.8.4.noarch",
+						"SUSE Manager Server Module 4.1:spacewalk-backend-applet-4.1.15-4.8.4.noarch",
+						"SUSE Manager Server Module 4.1:spacewalk-backend-config-files-4.1.15-4.8.4.noarch",
+						"SUSE Manager Server Module 4.1:spacewalk-backend-config-files-common-4.1.15-4.8.4.noarch",
+						"SUSE Manager Server Module 4.1:spacewalk-backend-config-files-tool-4.1.15-4.8.4.noarch",
+						"SUSE Manager Server Module 4.1:spacewalk-backend-iss-4.1.15-4.8.4.noarch",
+						"SUSE Manager Server Module 4.1:spacewalk-backend-iss-export-4.1.15-4.8.4.noarch",
+						"SUSE Manager Server Module 4.1:spacewalk-backend-package-push-server-4.1.15-4.8.4.noarch",
+						"SUSE Manager Server Module 4.1:spacewalk-backend-server-4.1.15-4.8.4.noarch",
+						"SUSE Manager Server Module 4.1:spacewalk-backend-sql-4.1.15-4.8.4.noarch",
+						"SUSE Manager Server Module 4.1:spacewalk-backend-sql-postgresql-4.1.15-4.8.4.noarch",
+						"SUSE Manager Server Module 4.1:spacewalk-backend-tools-4.1.15-4.8.4.noarch",
+						"SUSE Manager Server Module 4.1:spacewalk-backend-xml-export-libs-4.1.15-4.8.4.noarch",
+						"SUSE Manager Server Module 4.1:spacewalk-backend-xmlrpc-4.1.15-4.8.4.noarch",
+						"SUSE Manager Server Module 4.1:spacewalk-base-4.1.18-3.6.3.noarch",
+						"SUSE Manager Server Module 4.1:spacewalk-base-minimal-4.1.18-3.6.3.noarch",
+						"SUSE Manager Server Module 4.1:spacewalk-base-minimal-config-4.1.18-3.6.3.noarch",
+						"SUSE Manager Server Module 4.1:spacewalk-branding-4.1.10-3.6.3.ppc64le",
+						"SUSE Manager Server Module 4.1:spacewalk-branding-4.1.10-3.6.3.s390x",
+						"SUSE Manager Server Module 4.1:spacewalk-branding-4.1.10-3.6.3.x86_64",
+						"SUSE Manager Server Module 4.1:spacewalk-certs-tools-4.1.13-3.6.3.noarch",
+						"SUSE Manager Server Module 4.1:spacewalk-client-tools-4.1.6-4.3.3.noarch",
+						"SUSE Manager Server Module 4.1:spacewalk-html-4.1.18-3.6.3.noarch",
+						"SUSE Manager Server Module 4.1:spacewalk-java-4.1.20-3.11.8.noarch",
+						"SUSE Manager Server Module 4.1:spacewalk-java-config-4.1.20-3.11.8.noarch",
+						"SUSE Manager Server Module 4.1:spacewalk-java-lib-4.1.20-3.11.8.noarch",
+						"SUSE Manager Server Module 4.1:spacewalk-java-postgresql-4.1.20-3.11.8.noarch",
+						"SUSE Manager Server Module 4.1:spacewalk-taskomatic-4.1.20-3.11.8.noarch",
+						"SUSE Manager Server Module 4.1:spacewalk-utils-4.1.12-3.6.3.noarch",
+						"SUSE Manager Server Module 4.1:spacewalk-utils-extras-4.1.12-3.6.3.noarch",
+						"SUSE Manager Server Module 4.1:subscription-matcher-0.26-3.3.3.noarch",
+						"SUSE Manager Server Module 4.1:susemanager-4.1.20-3.8.3.ppc64le",
+						"SUSE Manager Server Module 4.1:susemanager-4.1.20-3.8.3.s390x",
+						"SUSE Manager Server Module 4.1:susemanager-4.1.20-3.8.3.x86_64",
+						"SUSE Manager Server Module 4.1:susemanager-build-keys-15.2.1-3.3.2.noarch",
+						"SUSE Manager Server Module 4.1:susemanager-build-keys-web-15.2.1-3.3.2.noarch",
+						"SUSE Manager Server Module 4.1:susemanager-doc-indexes-4.1-11.12.2.noarch",
+						"SUSE Manager Server Module 4.1:susemanager-docs_en-4.1-11.12.2.noarch",
+						"SUSE Manager Server Module 4.1:susemanager-docs_en-pdf-4.1-11.12.2.noarch",
+						"SUSE Manager Server Module 4.1:susemanager-schema-4.1.13-3.6.3.noarch",
+						"SUSE Manager Server Module 4.1:susemanager-sls-4.1.15-3.8.4.noarch",
+						"SUSE Manager Server Module 4.1:susemanager-tools-4.1.20-3.8.3.ppc64le",
+						"SUSE Manager Server Module 4.1:susemanager-tools-4.1.20-3.8.3.s390x",
+						"SUSE Manager Server Module 4.1:susemanager-tools-4.1.20-3.8.3.x86_64",
+						"SUSE Manager Server Module 4.1:susemanager-web-libs-4.1.18-3.6.3.noarch",
+						"SUSE Manager Server Module 4.1:uyuni-config-formula-0.1-6.3.3.noarch",
+						"SUSE Manager Server Module 4.1:uyuni-config-modules-4.1.15-3.8.4.noarch"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 6.5,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Manager Server Module 4.1:golang-github-QubitProducts-exporter_exporter-0.4.0-6.9.4.ppc64le",
+						"SUSE Manager Server Module 4.1:golang-github-QubitProducts-exporter_exporter-0.4.0-6.9.4.s390x",
+						"SUSE Manager Server Module 4.1:golang-github-QubitProducts-exporter_exporter-0.4.0-6.9.4.x86_64",
+						"SUSE Manager Server Module 4.1:golang-github-prometheus-node_exporter-1.0.1-3.3.4.ppc64le",
+						"SUSE Manager Server Module 4.1:golang-github-prometheus-node_exporter-1.0.1-3.3.4.s390x",
+						"SUSE Manager Server Module 4.1:golang-github-prometheus-node_exporter-1.0.1-3.3.4.x86_64",
+						"SUSE Manager Server Module 4.1:hibernate5-5.3.7-3.3.4.noarch",
+						"SUSE Manager Server Module 4.1:hub-xmlrpc-api-0.7-3.3.3.ppc64le",
+						"SUSE Manager Server Module 4.1:hub-xmlrpc-api-0.7-3.3.3.s390x",
+						"SUSE Manager Server Module 4.1:hub-xmlrpc-api-0.7-3.3.3.x86_64",
+						"SUSE Manager Server Module 4.1:patterns-suma_retail-4.1-6.6.3.ppc64le",
+						"SUSE Manager Server Module 4.1:patterns-suma_retail-4.1-6.6.3.s390x",
+						"SUSE Manager Server Module 4.1:patterns-suma_retail-4.1-6.6.3.x86_64",
+						"SUSE Manager Server Module 4.1:patterns-suma_server-4.1-6.6.3.ppc64le",
+						"SUSE Manager Server Module 4.1:patterns-suma_server-4.1-6.6.3.s390x",
+						"SUSE Manager Server Module 4.1:patterns-suma_server-4.1-6.6.3.x86_64",
+						"SUSE Manager Server Module 4.1:prometheus-exporters-formula-0.7.3-3.10.1.noarch",
+						"SUSE Manager Server Module 4.1:python3-spacewalk-certs-tools-4.1.13-3.6.3.noarch",
+						"SUSE Manager Server Module 4.1:python3-spacewalk-client-tools-4.1.6-4.3.3.noarch",
+						"SUSE Manager Server Module 4.1:salt-netapi-client-0.17.0-15.4.3.noarch",
+						"SUSE Manager Server Module 4.1:spacecmd-4.1.7-4.6.3.noarch",
+						"SUSE Manager Server Module 4.1:spacewalk-backend-4.1.15-4.8.4.noarch",
+						"SUSE Manager Server Module 4.1:spacewalk-backend-app-4.1.15-4.8.4.noarch",
+						"SUSE Manager Server Module 4.1:spacewalk-backend-applet-4.1.15-4.8.4.noarch",
+						"SUSE Manager Server Module 4.1:spacewalk-backend-config-files-4.1.15-4.8.4.noarch",
+						"SUSE Manager Server Module 4.1:spacewalk-backend-config-files-common-4.1.15-4.8.4.noarch",
+						"SUSE Manager Server Module 4.1:spacewalk-backend-config-files-tool-4.1.15-4.8.4.noarch",
+						"SUSE Manager Server Module 4.1:spacewalk-backend-iss-4.1.15-4.8.4.noarch",
+						"SUSE Manager Server Module 4.1:spacewalk-backend-iss-export-4.1.15-4.8.4.noarch",
+						"SUSE Manager Server Module 4.1:spacewalk-backend-package-push-server-4.1.15-4.8.4.noarch",
+						"SUSE Manager Server Module 4.1:spacewalk-backend-server-4.1.15-4.8.4.noarch",
+						"SUSE Manager Server Module 4.1:spacewalk-backend-sql-4.1.15-4.8.4.noarch",
+						"SUSE Manager Server Module 4.1:spacewalk-backend-sql-postgresql-4.1.15-4.8.4.noarch",
+						"SUSE Manager Server Module 4.1:spacewalk-backend-tools-4.1.15-4.8.4.noarch",
+						"SUSE Manager Server Module 4.1:spacewalk-backend-xml-export-libs-4.1.15-4.8.4.noarch",
+						"SUSE Manager Server Module 4.1:spacewalk-backend-xmlrpc-4.1.15-4.8.4.noarch",
+						"SUSE Manager Server Module 4.1:spacewalk-base-4.1.18-3.6.3.noarch",
+						"SUSE Manager Server Module 4.1:spacewalk-base-minimal-4.1.18-3.6.3.noarch",
+						"SUSE Manager Server Module 4.1:spacewalk-base-minimal-config-4.1.18-3.6.3.noarch",
+						"SUSE Manager Server Module 4.1:spacewalk-branding-4.1.10-3.6.3.ppc64le",
+						"SUSE Manager Server Module 4.1:spacewalk-branding-4.1.10-3.6.3.s390x",
+						"SUSE Manager Server Module 4.1:spacewalk-branding-4.1.10-3.6.3.x86_64",
+						"SUSE Manager Server Module 4.1:spacewalk-certs-tools-4.1.13-3.6.3.noarch",
+						"SUSE Manager Server Module 4.1:spacewalk-client-tools-4.1.6-4.3.3.noarch",
+						"SUSE Manager Server Module 4.1:spacewalk-html-4.1.18-3.6.3.noarch",
+						"SUSE Manager Server Module 4.1:spacewalk-java-4.1.20-3.11.8.noarch",
+						"SUSE Manager Server Module 4.1:spacewalk-java-config-4.1.20-3.11.8.noarch",
+						"SUSE Manager Server Module 4.1:spacewalk-java-lib-4.1.20-3.11.8.noarch",
+						"SUSE Manager Server Module 4.1:spacewalk-java-postgresql-4.1.20-3.11.8.noarch",
+						"SUSE Manager Server Module 4.1:spacewalk-taskomatic-4.1.20-3.11.8.noarch",
+						"SUSE Manager Server Module 4.1:spacewalk-utils-4.1.12-3.6.3.noarch",
+						"SUSE Manager Server Module 4.1:spacewalk-utils-extras-4.1.12-3.6.3.noarch",
+						"SUSE Manager Server Module 4.1:subscription-matcher-0.26-3.3.3.noarch",
+						"SUSE Manager Server Module 4.1:susemanager-4.1.20-3.8.3.ppc64le",
+						"SUSE Manager Server Module 4.1:susemanager-4.1.20-3.8.3.s390x",
+						"SUSE Manager Server Module 4.1:susemanager-4.1.20-3.8.3.x86_64",
+						"SUSE Manager Server Module 4.1:susemanager-build-keys-15.2.1-3.3.2.noarch",
+						"SUSE Manager Server Module 4.1:susemanager-build-keys-web-15.2.1-3.3.2.noarch",
+						"SUSE Manager Server Module 4.1:susemanager-doc-indexes-4.1-11.12.2.noarch",
+						"SUSE Manager Server Module 4.1:susemanager-docs_en-4.1-11.12.2.noarch",
+						"SUSE Manager Server Module 4.1:susemanager-docs_en-pdf-4.1-11.12.2.noarch",
+						"SUSE Manager Server Module 4.1:susemanager-schema-4.1.13-3.6.3.noarch",
+						"SUSE Manager Server Module 4.1:susemanager-sls-4.1.15-3.8.4.noarch",
+						"SUSE Manager Server Module 4.1:susemanager-tools-4.1.20-3.8.3.ppc64le",
+						"SUSE Manager Server Module 4.1:susemanager-tools-4.1.20-3.8.3.s390x",
+						"SUSE Manager Server Module 4.1:susemanager-tools-4.1.20-3.8.3.x86_64",
+						"SUSE Manager Server Module 4.1:susemanager-web-libs-4.1.18-3.6.3.noarch",
+						"SUSE Manager Server Module 4.1:uyuni-config-formula-0.1-6.3.3.noarch",
+						"SUSE Manager Server Module 4.1:uyuni-config-modules-4.1.15-3.8.4.noarch"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2020-10-02T10:13:06Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2019-14900"
+		}
+	]
+}

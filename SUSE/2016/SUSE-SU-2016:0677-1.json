@@ -1,0 +1,2517 @@
+{
+	"document": {
+		"aggregate_severity": {
+			"namespace": "https://www.suse.com/support/security/rating/",
+			"text": "important"
+		},
+		"category": "csaf_security_advisory",
+		"csaf_version": "2.0",
+		"distribution": {
+			"text": "Copyright 2023 SUSE LLC. All rights reserved.",
+			"tlp": {
+				"label": "WHITE",
+				"url": "https://www.first.org/tlp/"
+			}
+		},
+		"lang": "en",
+		"notes": [
+			{
+				"category": "summary",
+				"text": "Security update for postgresql94",
+				"title": "Title of the patch"
+			},
+			{
+				"category": "description",
+				"text": "\nThis update for postgresql94 fixes the following issues: \n\n- Security and bugfix release 9.4.6:\n  * *** IMPORTANT ***\n    Users of version 9.4 will need to reindex any jsonb_path_ops\n    indexes they have created, in order to fix a persistent issue\n    with missing index entries.\n  * Fix infinite loops and buffer-overrun problems in regular\n    expressions (CVE-2016-0773, bsc#966436).\n  * Fix regular-expression compiler to handle loops of constraint\n    arcs (CVE-2007-4772).\n  * Prevent certain PL/Java parameters from being set by\n    non-superusers (CVE-2016-0766, bsc#966435).\n  * Fix many issues in pg_dump with specific object types\n  * Prevent over-eager pushdown of HAVING clauses for\n    GROUPING SETS\n  * Fix deparsing error with ON CONFLICT ... WHERE clauses\n  * Fix tableoid errors for postgres_fdw\n  * Prevent floating-point exceptions in pgbench\n  * Make \\det search Foreign Table names consistently\n  * Fix quoting of domain constraint names in pg_dump\n  * Prevent putting expanded objects into Const nodes\n  * Allow compile of PL/Java on Windows\n  * Fix 'unresolved symbol' errors in PL/Python execution\n  * Allow Python2 and Python3 to be used in the same database\n  * Add support for Python 3.5 in PL/Python\n  * Fix issue with subdirectory creation during initdb\n  * Make pg_ctl report status correctly on Windows\n  * Suppress confusing error when using pg_receivexlog with older\n    servers\n  * Multiple documentation corrections and additions\n  * Fix erroneous hash calculations in gin_extract_jsonb_path()\n- For the full release notse, see:\n  http://www.postgresql.org/docs/9.4/static/release-9-4-6.html\n\n- Security and bugfix release 9.4.5:\n  * CVE-2015-5289, bsc#949670: json or jsonb input values\n    constructed from arbitrary user input can crash the PostgreSQL\n    server and cause a denial of service.\n  * CVE-2015-5288, bsc#949669: The crypt() function included with\n    the optional pgCrypto extension could be exploited to read a\n    few additional bytes of memory. No working exploit for this\n    issue has been developed.\n- For the full release notse, see:\n  http://www.postgresql.org/docs/current/static/release-9-4-5.html\n- Relax dependency on libpq to major version.\n",
+				"title": "Description of the patch"
+			},
+			{
+				"category": "details",
+				"text": "sdksp4-postgresql94-12440,sledsp4-postgresql94-12440,slessp4-postgresql94-12440",
+				"title": "Patchnames"
+			},
+			{
+				"category": "legal_disclaimer",
+				"text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+				"title": "Terms of use"
+			}
+		],
+		"publisher": {
+			"category": "vendor",
+			"contact_details": "https://www.suse.com/support/security/contact/",
+			"name": "SUSE Product Security Team",
+			"namespace": "https://www.suse.com/"
+		},
+		"references": [
+			{
+				"category": "self",
+				"summary": "URL for SUSE-SU-2016:0677-1",
+				"url": "https://www.suse.com/support/update/announcement/2016/suse-su-20160677-1/"
+			},
+			{
+				"category": "external",
+				"summary": "SUSE ratings",
+				"url": "https://www.suse.com/support/security/rating/"
+			},
+			{
+				"category": "self",
+				"summary": "URL of this CSAF notice",
+				"url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2016_0677-1.json"
+			},
+			{
+				"category": "self",
+				"summary": "E-Mail link for SUSE-SU-2016:0677-1",
+				"url": "https://lists.opensuse.org/opensuse-security-announce/2016-03/msg00016.html"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 949669",
+				"url": "https://bugzilla.suse.com/949669"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 949670",
+				"url": "https://bugzilla.suse.com/949670"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 966435",
+				"url": "https://bugzilla.suse.com/966435"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 966436",
+				"url": "https://bugzilla.suse.com/966436"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2007-4772 page",
+				"url": "https://www.suse.com/security/cve/CVE-2007-4772/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-5288 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-5288/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-5289 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-5289/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2016-0766 page",
+				"url": "https://www.suse.com/security/cve/CVE-2016-0766/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2016-0773 page",
+				"url": "https://www.suse.com/security/cve/CVE-2016-0773/"
+			}
+		],
+		"title": "Security update for postgresql94",
+		"tracking": {
+			"current_release_date": "2016-03-07T14:09:05Z",
+			"generator": {
+				"date": "2016-03-07T14:09:05Z",
+				"engine": {
+					"name": "cve-database.git:bin/generate-csaf.pl",
+					"version": "1"
+				}
+			},
+			"id": "SUSE-SU-2016:0677-1",
+			"initial_release_date": "2016-03-07T14:09:05Z",
+			"revision_history": [
+				{
+					"date": "2016-03-07T14:09:05Z",
+					"number": "1",
+					"summary": "Current version"
+				}
+			],
+			"status": "final",
+			"version": "1"
+		}
+	},
+	"product_tree": {
+		"branches": [
+			{
+				"branches": [
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "postgresql94-devel-9.4.6-0.14.3.i586",
+								"product": {
+									"name": "postgresql94-devel-9.4.6-0.14.3.i586",
+									"product_id": "postgresql94-devel-9.4.6-0.14.3.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libecpg6-9.4.6-0.14.3.i586",
+								"product": {
+									"name": "libecpg6-9.4.6-0.14.3.i586",
+									"product_id": "libecpg6-9.4.6-0.14.3.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libpq5-9.4.6-0.14.3.i586",
+								"product": {
+									"name": "libpq5-9.4.6-0.14.3.i586",
+									"product_id": "libpq5-9.4.6-0.14.3.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql94-9.4.6-0.14.3.i586",
+								"product": {
+									"name": "postgresql94-9.4.6-0.14.3.i586",
+									"product_id": "postgresql94-9.4.6-0.14.3.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql94-docs-9.4.6-0.14.3.i586",
+								"product": {
+									"name": "postgresql94-docs-9.4.6-0.14.3.i586",
+									"product_id": "postgresql94-docs-9.4.6-0.14.3.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql94-contrib-9.4.6-0.14.3.i586",
+								"product": {
+									"name": "postgresql94-contrib-9.4.6-0.14.3.i586",
+									"product_id": "postgresql94-contrib-9.4.6-0.14.3.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql94-server-9.4.6-0.14.3.i586",
+								"product": {
+									"name": "postgresql94-server-9.4.6-0.14.3.i586",
+									"product_id": "postgresql94-server-9.4.6-0.14.3.i586"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "i586"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "postgresql94-devel-9.4.6-0.14.3.ia64",
+								"product": {
+									"name": "postgresql94-devel-9.4.6-0.14.3.ia64",
+									"product_id": "postgresql94-devel-9.4.6-0.14.3.ia64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libecpg6-9.4.6-0.14.3.ia64",
+								"product": {
+									"name": "libecpg6-9.4.6-0.14.3.ia64",
+									"product_id": "libecpg6-9.4.6-0.14.3.ia64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libpq5-9.4.6-0.14.3.ia64",
+								"product": {
+									"name": "libpq5-9.4.6-0.14.3.ia64",
+									"product_id": "libpq5-9.4.6-0.14.3.ia64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql94-9.4.6-0.14.3.ia64",
+								"product": {
+									"name": "postgresql94-9.4.6-0.14.3.ia64",
+									"product_id": "postgresql94-9.4.6-0.14.3.ia64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql94-contrib-9.4.6-0.14.3.ia64",
+								"product": {
+									"name": "postgresql94-contrib-9.4.6-0.14.3.ia64",
+									"product_id": "postgresql94-contrib-9.4.6-0.14.3.ia64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql94-docs-9.4.6-0.14.3.ia64",
+								"product": {
+									"name": "postgresql94-docs-9.4.6-0.14.3.ia64",
+									"product_id": "postgresql94-docs-9.4.6-0.14.3.ia64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql94-server-9.4.6-0.14.3.ia64",
+								"product": {
+									"name": "postgresql94-server-9.4.6-0.14.3.ia64",
+									"product_id": "postgresql94-server-9.4.6-0.14.3.ia64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "ia64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "postgresql94-devel-9.4.6-0.14.3.ppc64",
+								"product": {
+									"name": "postgresql94-devel-9.4.6-0.14.3.ppc64",
+									"product_id": "postgresql94-devel-9.4.6-0.14.3.ppc64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libecpg6-9.4.6-0.14.3.ppc64",
+								"product": {
+									"name": "libecpg6-9.4.6-0.14.3.ppc64",
+									"product_id": "libecpg6-9.4.6-0.14.3.ppc64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libpq5-9.4.6-0.14.3.ppc64",
+								"product": {
+									"name": "libpq5-9.4.6-0.14.3.ppc64",
+									"product_id": "libpq5-9.4.6-0.14.3.ppc64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libpq5-32bit-9.4.6-0.14.3.ppc64",
+								"product": {
+									"name": "libpq5-32bit-9.4.6-0.14.3.ppc64",
+									"product_id": "libpq5-32bit-9.4.6-0.14.3.ppc64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql94-9.4.6-0.14.3.ppc64",
+								"product": {
+									"name": "postgresql94-9.4.6-0.14.3.ppc64",
+									"product_id": "postgresql94-9.4.6-0.14.3.ppc64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql94-contrib-9.4.6-0.14.3.ppc64",
+								"product": {
+									"name": "postgresql94-contrib-9.4.6-0.14.3.ppc64",
+									"product_id": "postgresql94-contrib-9.4.6-0.14.3.ppc64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql94-docs-9.4.6-0.14.3.ppc64",
+								"product": {
+									"name": "postgresql94-docs-9.4.6-0.14.3.ppc64",
+									"product_id": "postgresql94-docs-9.4.6-0.14.3.ppc64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql94-server-9.4.6-0.14.3.ppc64",
+								"product": {
+									"name": "postgresql94-server-9.4.6-0.14.3.ppc64",
+									"product_id": "postgresql94-server-9.4.6-0.14.3.ppc64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "ppc64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "postgresql94-devel-9.4.6-0.14.3.s390x",
+								"product": {
+									"name": "postgresql94-devel-9.4.6-0.14.3.s390x",
+									"product_id": "postgresql94-devel-9.4.6-0.14.3.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libecpg6-9.4.6-0.14.3.s390x",
+								"product": {
+									"name": "libecpg6-9.4.6-0.14.3.s390x",
+									"product_id": "libecpg6-9.4.6-0.14.3.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libpq5-9.4.6-0.14.3.s390x",
+								"product": {
+									"name": "libpq5-9.4.6-0.14.3.s390x",
+									"product_id": "libpq5-9.4.6-0.14.3.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libpq5-32bit-9.4.6-0.14.3.s390x",
+								"product": {
+									"name": "libpq5-32bit-9.4.6-0.14.3.s390x",
+									"product_id": "libpq5-32bit-9.4.6-0.14.3.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql94-9.4.6-0.14.3.s390x",
+								"product": {
+									"name": "postgresql94-9.4.6-0.14.3.s390x",
+									"product_id": "postgresql94-9.4.6-0.14.3.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql94-contrib-9.4.6-0.14.3.s390x",
+								"product": {
+									"name": "postgresql94-contrib-9.4.6-0.14.3.s390x",
+									"product_id": "postgresql94-contrib-9.4.6-0.14.3.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql94-docs-9.4.6-0.14.3.s390x",
+								"product": {
+									"name": "postgresql94-docs-9.4.6-0.14.3.s390x",
+									"product_id": "postgresql94-docs-9.4.6-0.14.3.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql94-server-9.4.6-0.14.3.s390x",
+								"product": {
+									"name": "postgresql94-server-9.4.6-0.14.3.s390x",
+									"product_id": "postgresql94-server-9.4.6-0.14.3.s390x"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "s390x"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "postgresql94-devel-9.4.6-0.14.3.x86_64",
+								"product": {
+									"name": "postgresql94-devel-9.4.6-0.14.3.x86_64",
+									"product_id": "postgresql94-devel-9.4.6-0.14.3.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libecpg6-9.4.6-0.14.3.x86_64",
+								"product": {
+									"name": "libecpg6-9.4.6-0.14.3.x86_64",
+									"product_id": "libecpg6-9.4.6-0.14.3.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libpq5-9.4.6-0.14.3.x86_64",
+								"product": {
+									"name": "libpq5-9.4.6-0.14.3.x86_64",
+									"product_id": "libpq5-9.4.6-0.14.3.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libpq5-32bit-9.4.6-0.14.3.x86_64",
+								"product": {
+									"name": "libpq5-32bit-9.4.6-0.14.3.x86_64",
+									"product_id": "libpq5-32bit-9.4.6-0.14.3.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql94-9.4.6-0.14.3.x86_64",
+								"product": {
+									"name": "postgresql94-9.4.6-0.14.3.x86_64",
+									"product_id": "postgresql94-9.4.6-0.14.3.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql94-docs-9.4.6-0.14.3.x86_64",
+								"product": {
+									"name": "postgresql94-docs-9.4.6-0.14.3.x86_64",
+									"product_id": "postgresql94-docs-9.4.6-0.14.3.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql94-contrib-9.4.6-0.14.3.x86_64",
+								"product": {
+									"name": "postgresql94-contrib-9.4.6-0.14.3.x86_64",
+									"product_id": "postgresql94-contrib-9.4.6-0.14.3.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql94-server-9.4.6-0.14.3.x86_64",
+								"product": {
+									"name": "postgresql94-server-9.4.6-0.14.3.x86_64",
+									"product_id": "postgresql94-server-9.4.6-0.14.3.x86_64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "x86_64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Software Development Kit 11 SP4",
+								"product": {
+									"name": "SUSE Linux Enterprise Software Development Kit 11 SP4",
+									"product_id": "SUSE Linux Enterprise Software Development Kit 11 SP4",
+									"product_identification_helper": {
+										"cpe": "cpe:/a:suse:sle-sdk:11:sp4"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Desktop 11 SP4",
+								"product": {
+									"name": "SUSE Linux Enterprise Desktop 11 SP4",
+									"product_id": "SUSE Linux Enterprise Desktop 11 SP4",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:suse_sled:11:sp4"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server 11 SP4",
+								"product": {
+									"name": "SUSE Linux Enterprise Server 11 SP4",
+									"product_id": "SUSE Linux Enterprise Server 11 SP4",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:suse_sles:11:sp4"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+								"product": {
+									"name": "SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+									"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sles_sap:11:sp4"
+									}
+								}
+							}
+						],
+						"category": "product_family",
+						"name": "SUSE Linux Enterprise"
+					}
+				],
+				"category": "vendor",
+				"name": "SUSE"
+			}
+		],
+		"relationships": [
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql94-devel-9.4.6-0.14.3.i586 as component of SUSE Linux Enterprise Software Development Kit 11 SP4",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.i586"
+				},
+				"product_reference": "postgresql94-devel-9.4.6-0.14.3.i586",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql94-devel-9.4.6-0.14.3.ia64 as component of SUSE Linux Enterprise Software Development Kit 11 SP4",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.ia64"
+				},
+				"product_reference": "postgresql94-devel-9.4.6-0.14.3.ia64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql94-devel-9.4.6-0.14.3.ppc64 as component of SUSE Linux Enterprise Software Development Kit 11 SP4",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.ppc64"
+				},
+				"product_reference": "postgresql94-devel-9.4.6-0.14.3.ppc64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql94-devel-9.4.6-0.14.3.s390x as component of SUSE Linux Enterprise Software Development Kit 11 SP4",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.s390x"
+				},
+				"product_reference": "postgresql94-devel-9.4.6-0.14.3.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql94-devel-9.4.6-0.14.3.x86_64 as component of SUSE Linux Enterprise Software Development Kit 11 SP4",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.x86_64"
+				},
+				"product_reference": "postgresql94-devel-9.4.6-0.14.3.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libecpg6-9.4.6-0.14.3.i586 as component of SUSE Linux Enterprise Desktop 11 SP4",
+					"product_id": "SUSE Linux Enterprise Desktop 11 SP4:libecpg6-9.4.6-0.14.3.i586"
+				},
+				"product_reference": "libecpg6-9.4.6-0.14.3.i586",
+				"relates_to_product_reference": "SUSE Linux Enterprise Desktop 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libecpg6-9.4.6-0.14.3.x86_64 as component of SUSE Linux Enterprise Desktop 11 SP4",
+					"product_id": "SUSE Linux Enterprise Desktop 11 SP4:libecpg6-9.4.6-0.14.3.x86_64"
+				},
+				"product_reference": "libecpg6-9.4.6-0.14.3.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Desktop 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libpq5-9.4.6-0.14.3.i586 as component of SUSE Linux Enterprise Desktop 11 SP4",
+					"product_id": "SUSE Linux Enterprise Desktop 11 SP4:libpq5-9.4.6-0.14.3.i586"
+				},
+				"product_reference": "libpq5-9.4.6-0.14.3.i586",
+				"relates_to_product_reference": "SUSE Linux Enterprise Desktop 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libpq5-9.4.6-0.14.3.x86_64 as component of SUSE Linux Enterprise Desktop 11 SP4",
+					"product_id": "SUSE Linux Enterprise Desktop 11 SP4:libpq5-9.4.6-0.14.3.x86_64"
+				},
+				"product_reference": "libpq5-9.4.6-0.14.3.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Desktop 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libpq5-32bit-9.4.6-0.14.3.x86_64 as component of SUSE Linux Enterprise Desktop 11 SP4",
+					"product_id": "SUSE Linux Enterprise Desktop 11 SP4:libpq5-32bit-9.4.6-0.14.3.x86_64"
+				},
+				"product_reference": "libpq5-32bit-9.4.6-0.14.3.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Desktop 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql94-9.4.6-0.14.3.i586 as component of SUSE Linux Enterprise Desktop 11 SP4",
+					"product_id": "SUSE Linux Enterprise Desktop 11 SP4:postgresql94-9.4.6-0.14.3.i586"
+				},
+				"product_reference": "postgresql94-9.4.6-0.14.3.i586",
+				"relates_to_product_reference": "SUSE Linux Enterprise Desktop 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql94-9.4.6-0.14.3.x86_64 as component of SUSE Linux Enterprise Desktop 11 SP4",
+					"product_id": "SUSE Linux Enterprise Desktop 11 SP4:postgresql94-9.4.6-0.14.3.x86_64"
+				},
+				"product_reference": "postgresql94-9.4.6-0.14.3.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Desktop 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql94-docs-9.4.6-0.14.3.i586 as component of SUSE Linux Enterprise Desktop 11 SP4",
+					"product_id": "SUSE Linux Enterprise Desktop 11 SP4:postgresql94-docs-9.4.6-0.14.3.i586"
+				},
+				"product_reference": "postgresql94-docs-9.4.6-0.14.3.i586",
+				"relates_to_product_reference": "SUSE Linux Enterprise Desktop 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql94-docs-9.4.6-0.14.3.x86_64 as component of SUSE Linux Enterprise Desktop 11 SP4",
+					"product_id": "SUSE Linux Enterprise Desktop 11 SP4:postgresql94-docs-9.4.6-0.14.3.x86_64"
+				},
+				"product_reference": "postgresql94-docs-9.4.6-0.14.3.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Desktop 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libecpg6-9.4.6-0.14.3.i586 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.i586"
+				},
+				"product_reference": "libecpg6-9.4.6-0.14.3.i586",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libecpg6-9.4.6-0.14.3.ia64 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.ia64"
+				},
+				"product_reference": "libecpg6-9.4.6-0.14.3.ia64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libecpg6-9.4.6-0.14.3.ppc64 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.ppc64"
+				},
+				"product_reference": "libecpg6-9.4.6-0.14.3.ppc64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libecpg6-9.4.6-0.14.3.s390x as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.s390x"
+				},
+				"product_reference": "libecpg6-9.4.6-0.14.3.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libecpg6-9.4.6-0.14.3.x86_64 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.x86_64"
+				},
+				"product_reference": "libecpg6-9.4.6-0.14.3.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libpq5-9.4.6-0.14.3.i586 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.i586"
+				},
+				"product_reference": "libpq5-9.4.6-0.14.3.i586",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libpq5-9.4.6-0.14.3.ia64 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.ia64"
+				},
+				"product_reference": "libpq5-9.4.6-0.14.3.ia64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libpq5-9.4.6-0.14.3.ppc64 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.ppc64"
+				},
+				"product_reference": "libpq5-9.4.6-0.14.3.ppc64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libpq5-9.4.6-0.14.3.s390x as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.s390x"
+				},
+				"product_reference": "libpq5-9.4.6-0.14.3.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libpq5-9.4.6-0.14.3.x86_64 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.x86_64"
+				},
+				"product_reference": "libpq5-9.4.6-0.14.3.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libpq5-32bit-9.4.6-0.14.3.ppc64 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:libpq5-32bit-9.4.6-0.14.3.ppc64"
+				},
+				"product_reference": "libpq5-32bit-9.4.6-0.14.3.ppc64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libpq5-32bit-9.4.6-0.14.3.s390x as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:libpq5-32bit-9.4.6-0.14.3.s390x"
+				},
+				"product_reference": "libpq5-32bit-9.4.6-0.14.3.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libpq5-32bit-9.4.6-0.14.3.x86_64 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:libpq5-32bit-9.4.6-0.14.3.x86_64"
+				},
+				"product_reference": "libpq5-32bit-9.4.6-0.14.3.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql94-9.4.6-0.14.3.i586 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.i586"
+				},
+				"product_reference": "postgresql94-9.4.6-0.14.3.i586",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql94-9.4.6-0.14.3.ia64 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.ia64"
+				},
+				"product_reference": "postgresql94-9.4.6-0.14.3.ia64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql94-9.4.6-0.14.3.ppc64 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.ppc64"
+				},
+				"product_reference": "postgresql94-9.4.6-0.14.3.ppc64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql94-9.4.6-0.14.3.s390x as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.s390x"
+				},
+				"product_reference": "postgresql94-9.4.6-0.14.3.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql94-9.4.6-0.14.3.x86_64 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.x86_64"
+				},
+				"product_reference": "postgresql94-9.4.6-0.14.3.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql94-contrib-9.4.6-0.14.3.i586 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.i586"
+				},
+				"product_reference": "postgresql94-contrib-9.4.6-0.14.3.i586",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql94-contrib-9.4.6-0.14.3.ia64 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.ia64"
+				},
+				"product_reference": "postgresql94-contrib-9.4.6-0.14.3.ia64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql94-contrib-9.4.6-0.14.3.ppc64 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.ppc64"
+				},
+				"product_reference": "postgresql94-contrib-9.4.6-0.14.3.ppc64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql94-contrib-9.4.6-0.14.3.s390x as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.s390x"
+				},
+				"product_reference": "postgresql94-contrib-9.4.6-0.14.3.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql94-contrib-9.4.6-0.14.3.x86_64 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.x86_64"
+				},
+				"product_reference": "postgresql94-contrib-9.4.6-0.14.3.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql94-docs-9.4.6-0.14.3.i586 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.i586"
+				},
+				"product_reference": "postgresql94-docs-9.4.6-0.14.3.i586",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql94-docs-9.4.6-0.14.3.ia64 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.ia64"
+				},
+				"product_reference": "postgresql94-docs-9.4.6-0.14.3.ia64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql94-docs-9.4.6-0.14.3.ppc64 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.ppc64"
+				},
+				"product_reference": "postgresql94-docs-9.4.6-0.14.3.ppc64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql94-docs-9.4.6-0.14.3.s390x as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.s390x"
+				},
+				"product_reference": "postgresql94-docs-9.4.6-0.14.3.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql94-docs-9.4.6-0.14.3.x86_64 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.x86_64"
+				},
+				"product_reference": "postgresql94-docs-9.4.6-0.14.3.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql94-server-9.4.6-0.14.3.i586 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.i586"
+				},
+				"product_reference": "postgresql94-server-9.4.6-0.14.3.i586",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql94-server-9.4.6-0.14.3.ia64 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.ia64"
+				},
+				"product_reference": "postgresql94-server-9.4.6-0.14.3.ia64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql94-server-9.4.6-0.14.3.ppc64 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.ppc64"
+				},
+				"product_reference": "postgresql94-server-9.4.6-0.14.3.ppc64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql94-server-9.4.6-0.14.3.s390x as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.s390x"
+				},
+				"product_reference": "postgresql94-server-9.4.6-0.14.3.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql94-server-9.4.6-0.14.3.x86_64 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.x86_64"
+				},
+				"product_reference": "postgresql94-server-9.4.6-0.14.3.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libecpg6-9.4.6-0.14.3.i586 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.i586"
+				},
+				"product_reference": "libecpg6-9.4.6-0.14.3.i586",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libecpg6-9.4.6-0.14.3.ia64 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.ia64"
+				},
+				"product_reference": "libecpg6-9.4.6-0.14.3.ia64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libecpg6-9.4.6-0.14.3.ppc64 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.ppc64"
+				},
+				"product_reference": "libecpg6-9.4.6-0.14.3.ppc64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libecpg6-9.4.6-0.14.3.s390x as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.s390x"
+				},
+				"product_reference": "libecpg6-9.4.6-0.14.3.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libecpg6-9.4.6-0.14.3.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.x86_64"
+				},
+				"product_reference": "libecpg6-9.4.6-0.14.3.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libpq5-9.4.6-0.14.3.i586 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.i586"
+				},
+				"product_reference": "libpq5-9.4.6-0.14.3.i586",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libpq5-9.4.6-0.14.3.ia64 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.ia64"
+				},
+				"product_reference": "libpq5-9.4.6-0.14.3.ia64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libpq5-9.4.6-0.14.3.ppc64 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.ppc64"
+				},
+				"product_reference": "libpq5-9.4.6-0.14.3.ppc64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libpq5-9.4.6-0.14.3.s390x as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.s390x"
+				},
+				"product_reference": "libpq5-9.4.6-0.14.3.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libpq5-9.4.6-0.14.3.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.x86_64"
+				},
+				"product_reference": "libpq5-9.4.6-0.14.3.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libpq5-32bit-9.4.6-0.14.3.ppc64 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-32bit-9.4.6-0.14.3.ppc64"
+				},
+				"product_reference": "libpq5-32bit-9.4.6-0.14.3.ppc64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libpq5-32bit-9.4.6-0.14.3.s390x as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-32bit-9.4.6-0.14.3.s390x"
+				},
+				"product_reference": "libpq5-32bit-9.4.6-0.14.3.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libpq5-32bit-9.4.6-0.14.3.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-32bit-9.4.6-0.14.3.x86_64"
+				},
+				"product_reference": "libpq5-32bit-9.4.6-0.14.3.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql94-9.4.6-0.14.3.i586 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.i586"
+				},
+				"product_reference": "postgresql94-9.4.6-0.14.3.i586",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql94-9.4.6-0.14.3.ia64 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.ia64"
+				},
+				"product_reference": "postgresql94-9.4.6-0.14.3.ia64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql94-9.4.6-0.14.3.ppc64 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.ppc64"
+				},
+				"product_reference": "postgresql94-9.4.6-0.14.3.ppc64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql94-9.4.6-0.14.3.s390x as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.s390x"
+				},
+				"product_reference": "postgresql94-9.4.6-0.14.3.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql94-9.4.6-0.14.3.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.x86_64"
+				},
+				"product_reference": "postgresql94-9.4.6-0.14.3.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql94-contrib-9.4.6-0.14.3.i586 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.i586"
+				},
+				"product_reference": "postgresql94-contrib-9.4.6-0.14.3.i586",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql94-contrib-9.4.6-0.14.3.ia64 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.ia64"
+				},
+				"product_reference": "postgresql94-contrib-9.4.6-0.14.3.ia64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql94-contrib-9.4.6-0.14.3.ppc64 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.ppc64"
+				},
+				"product_reference": "postgresql94-contrib-9.4.6-0.14.3.ppc64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql94-contrib-9.4.6-0.14.3.s390x as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.s390x"
+				},
+				"product_reference": "postgresql94-contrib-9.4.6-0.14.3.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql94-contrib-9.4.6-0.14.3.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.x86_64"
+				},
+				"product_reference": "postgresql94-contrib-9.4.6-0.14.3.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql94-docs-9.4.6-0.14.3.i586 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.i586"
+				},
+				"product_reference": "postgresql94-docs-9.4.6-0.14.3.i586",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql94-docs-9.4.6-0.14.3.ia64 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.ia64"
+				},
+				"product_reference": "postgresql94-docs-9.4.6-0.14.3.ia64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql94-docs-9.4.6-0.14.3.ppc64 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.ppc64"
+				},
+				"product_reference": "postgresql94-docs-9.4.6-0.14.3.ppc64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql94-docs-9.4.6-0.14.3.s390x as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.s390x"
+				},
+				"product_reference": "postgresql94-docs-9.4.6-0.14.3.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql94-docs-9.4.6-0.14.3.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.x86_64"
+				},
+				"product_reference": "postgresql94-docs-9.4.6-0.14.3.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql94-server-9.4.6-0.14.3.i586 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.i586"
+				},
+				"product_reference": "postgresql94-server-9.4.6-0.14.3.i586",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql94-server-9.4.6-0.14.3.ia64 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.ia64"
+				},
+				"product_reference": "postgresql94-server-9.4.6-0.14.3.ia64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql94-server-9.4.6-0.14.3.ppc64 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.ppc64"
+				},
+				"product_reference": "postgresql94-server-9.4.6-0.14.3.ppc64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql94-server-9.4.6-0.14.3.s390x as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.s390x"
+				},
+				"product_reference": "postgresql94-server-9.4.6-0.14.3.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql94-server-9.4.6-0.14.3.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.x86_64"
+				},
+				"product_reference": "postgresql94-server-9.4.6-0.14.3.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			}
+		]
+	},
+	"vulnerabilities": [
+		{
+			"cve": "CVE-2007-4772",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2007-4772"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The regular expression parser in TCL before 8.4.17, as used in PostgreSQL 8.2 before 8.2.6, 8.1 before 8.1.11, 8.0 before 8.0.15, and 7.4 before 7.4.19, allows context-dependent attackers to cause a denial of service (infinite loop) via a crafted regular expression.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Desktop 11 SP4:libecpg6-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Desktop 11 SP4:libecpg6-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Desktop 11 SP4:libpq5-32bit-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Desktop 11 SP4:libpq5-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Desktop 11 SP4:libpq5-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Desktop 11 SP4:postgresql94-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Desktop 11 SP4:postgresql94-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Desktop 11 SP4:postgresql94-docs-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Desktop 11 SP4:postgresql94-docs-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:libpq5-32bit-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:libpq5-32bit-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:libpq5-32bit-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-32bit-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-32bit-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-32bit-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2007-4772",
+					"url": "https://www.suse.com/security/cve/CVE-2007-4772"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 329282 for CVE-2007-4772",
+					"url": "https://bugzilla.suse.com/329282"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 11 SP4:libecpg6-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:libecpg6-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:libpq5-32bit-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:libpq5-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:libpq5-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:postgresql94-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:postgresql94-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:postgresql94-docs-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:postgresql94-docs-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libpq5-32bit-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libpq5-32bit-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libpq5-32bit-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-32bit-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-32bit-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-32bit-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2016-03-07T14:09:05Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2007-4772"
+		},
+		{
+			"cve": "CVE-2015-5288",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-5288"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The crypt function in contrib/pgcrypto in PostgreSQL before 9.0.23, 9.1.x before 9.1.19, 9.2.x before 9.2.14, 9.3.x before 9.3.10, and 9.4.x before 9.4.5 allows attackers to cause a denial of service (server crash) or read arbitrary server memory via a \"too-short\" salt.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Desktop 11 SP4:libecpg6-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Desktop 11 SP4:libecpg6-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Desktop 11 SP4:libpq5-32bit-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Desktop 11 SP4:libpq5-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Desktop 11 SP4:libpq5-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Desktop 11 SP4:postgresql94-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Desktop 11 SP4:postgresql94-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Desktop 11 SP4:postgresql94-docs-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Desktop 11 SP4:postgresql94-docs-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:libpq5-32bit-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:libpq5-32bit-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:libpq5-32bit-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-32bit-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-32bit-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-32bit-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-5288",
+					"url": "https://www.suse.com/security/cve/CVE-2015-5288"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 949669 for CVE-2015-5288",
+					"url": "https://bugzilla.suse.com/949669"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 949670 for CVE-2015-5288",
+					"url": "https://bugzilla.suse.com/949670"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 11 SP4:libecpg6-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:libecpg6-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:libpq5-32bit-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:libpq5-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:libpq5-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:postgresql94-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:postgresql94-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:postgresql94-docs-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:postgresql94-docs-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libpq5-32bit-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libpq5-32bit-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libpq5-32bit-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-32bit-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-32bit-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-32bit-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2016-03-07T14:09:05Z",
+					"details": "low"
+				}
+			],
+			"title": "CVE-2015-5288"
+		},
+		{
+			"cve": "CVE-2015-5289",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-5289"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Multiple stack-based buffer overflows in json parsing in PostgreSQL before 9.3.x before 9.3.10 and 9.4.x before 9.4.5 allow attackers to cause a denial of service (server crash) via unspecified vectors, which are not properly handled in (1) json or (2) jsonb values.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Desktop 11 SP4:libecpg6-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Desktop 11 SP4:libecpg6-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Desktop 11 SP4:libpq5-32bit-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Desktop 11 SP4:libpq5-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Desktop 11 SP4:libpq5-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Desktop 11 SP4:postgresql94-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Desktop 11 SP4:postgresql94-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Desktop 11 SP4:postgresql94-docs-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Desktop 11 SP4:postgresql94-docs-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:libpq5-32bit-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:libpq5-32bit-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:libpq5-32bit-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-32bit-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-32bit-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-32bit-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-5289",
+					"url": "https://www.suse.com/security/cve/CVE-2015-5289"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 949669 for CVE-2015-5289",
+					"url": "https://bugzilla.suse.com/949669"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 949670 for CVE-2015-5289",
+					"url": "https://bugzilla.suse.com/949670"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 11 SP4:libecpg6-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:libecpg6-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:libpq5-32bit-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:libpq5-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:libpq5-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:postgresql94-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:postgresql94-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:postgresql94-docs-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:postgresql94-docs-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libpq5-32bit-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libpq5-32bit-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libpq5-32bit-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-32bit-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-32bit-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-32bit-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2016-03-07T14:09:05Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2015-5289"
+		},
+		{
+			"cve": "CVE-2016-0766",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2016-0766"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "PostgreSQL before 9.1.20, 9.2.x before 9.2.15, 9.3.x before 9.3.11, 9.4.x before 9.4.6, and 9.5.x before 9.5.1 does not properly restrict access to unspecified custom configuration settings (GUCS) for PL/Java, which allows attackers to gain privileges via unspecified vectors.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Desktop 11 SP4:libecpg6-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Desktop 11 SP4:libecpg6-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Desktop 11 SP4:libpq5-32bit-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Desktop 11 SP4:libpq5-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Desktop 11 SP4:libpq5-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Desktop 11 SP4:postgresql94-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Desktop 11 SP4:postgresql94-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Desktop 11 SP4:postgresql94-docs-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Desktop 11 SP4:postgresql94-docs-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:libpq5-32bit-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:libpq5-32bit-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:libpq5-32bit-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-32bit-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-32bit-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-32bit-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2016-0766",
+					"url": "https://www.suse.com/security/cve/CVE-2016-0766"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 966435 for CVE-2016-0766",
+					"url": "https://bugzilla.suse.com/966435"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 966436 for CVE-2016-0766",
+					"url": "https://bugzilla.suse.com/966436"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 978323 for CVE-2016-0766",
+					"url": "https://bugzilla.suse.com/978323"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 11 SP4:libecpg6-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:libecpg6-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:libpq5-32bit-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:libpq5-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:libpq5-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:postgresql94-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:postgresql94-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:postgresql94-docs-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:postgresql94-docs-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libpq5-32bit-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libpq5-32bit-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libpq5-32bit-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-32bit-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-32bit-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-32bit-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 8.8,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Desktop 11 SP4:libecpg6-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:libecpg6-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:libpq5-32bit-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:libpq5-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:libpq5-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:postgresql94-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:postgresql94-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:postgresql94-docs-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:postgresql94-docs-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libpq5-32bit-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libpq5-32bit-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libpq5-32bit-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-32bit-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-32bit-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-32bit-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2016-03-07T14:09:05Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2016-0766"
+		},
+		{
+			"cve": "CVE-2016-0773",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2016-0773"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "PostgreSQL before 9.1.20, 9.2.x before 9.2.15, 9.3.x before 9.3.11, 9.4.x before 9.4.6, and 9.5.x before 9.5.1 allows remote attackers to cause a denial of service (infinite loop or buffer overflow and crash) via a large Unicode character range in a regular expression.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Desktop 11 SP4:libecpg6-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Desktop 11 SP4:libecpg6-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Desktop 11 SP4:libpq5-32bit-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Desktop 11 SP4:libpq5-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Desktop 11 SP4:libpq5-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Desktop 11 SP4:postgresql94-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Desktop 11 SP4:postgresql94-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Desktop 11 SP4:postgresql94-docs-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Desktop 11 SP4:postgresql94-docs-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:libpq5-32bit-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:libpq5-32bit-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:libpq5-32bit-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-32bit-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-32bit-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-32bit-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.i586",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.ia64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.ppc64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.s390x",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2016-0773",
+					"url": "https://www.suse.com/security/cve/CVE-2016-0773"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 966435 for CVE-2016-0773",
+					"url": "https://bugzilla.suse.com/966435"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 966436 for CVE-2016-0773",
+					"url": "https://bugzilla.suse.com/966436"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 978323 for CVE-2016-0773",
+					"url": "https://bugzilla.suse.com/978323"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 983246 for CVE-2016-0773",
+					"url": "https://bugzilla.suse.com/983246"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 986409 for CVE-2016-0773",
+					"url": "https://bugzilla.suse.com/986409"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 11 SP4:libecpg6-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:libecpg6-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:libpq5-32bit-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:libpq5-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:libpq5-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:postgresql94-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:postgresql94-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:postgresql94-docs-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:postgresql94-docs-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libpq5-32bit-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libpq5-32bit-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libpq5-32bit-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-32bit-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-32bit-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-32bit-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.5,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Desktop 11 SP4:libecpg6-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:libecpg6-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:libpq5-32bit-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:libpq5-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:libpq5-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:postgresql94-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:postgresql94-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:postgresql94-docs-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:postgresql94-docs-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libecpg6-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libpq5-32bit-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libpq5-32bit-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libpq5-32bit-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libpq5-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-contrib-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-docs-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:postgresql94-server-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libecpg6-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-32bit-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-32bit-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-32bit-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libpq5-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-contrib-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-docs-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:postgresql94-server-9.4.6-0.14.3.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.ia64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:postgresql94-devel-9.4.6-0.14.3.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2016-03-07T14:09:05Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2016-0773"
+		}
+	]
+}

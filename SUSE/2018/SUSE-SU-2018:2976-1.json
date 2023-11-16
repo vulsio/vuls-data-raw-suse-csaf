@@ -1,0 +1,2761 @@
+{
+	"document": {
+		"aggregate_severity": {
+			"namespace": "https://www.suse.com/support/security/rating/",
+			"text": "important"
+		},
+		"category": "csaf_security_advisory",
+		"csaf_version": "2.0",
+		"distribution": {
+			"text": "Copyright 2023 SUSE LLC. All rights reserved.",
+			"tlp": {
+				"label": "WHITE",
+				"url": "https://www.first.org/tlp/"
+			}
+		},
+		"lang": "en",
+		"notes": [
+			{
+				"category": "summary",
+				"text": "Security update for ghostscript",
+				"title": "Title of the patch"
+			},
+			{
+				"category": "description",
+				"text": "This update for ghostscript to version 9.25 fixes the following issues:\n\nThese security issues were fixed:\n\n- CVE-2018-17183: Remote attackers were be able to supply crafted PostScript to\n  potentially overwrite or replace error handlers to inject code (bsc#1109105)\n- CVE-2018-15909: Prevent type confusion using the .shfill operator that could\n  have been used by attackers able to supply crafted PostScript files to crash\n  the interpreter or potentially execute code (bsc#1106172).\n- CVE-2018-15908: Prevent attackers that are able to supply malicious\n  PostScript files to bypass .tempfile restrictions and write files\n  (bsc#1106171).\n- CVE-2018-15910: Prevent a type confusion in the LockDistillerParams parameter\n  that could have been used to crash the interpreter or execute code\n  (bsc#1106173).\n- CVE-2018-15911: Prevent use uninitialized memory access in the aesdecode\n  operator that could have been used to crash the interpreter or potentially\n  execute code (bsc#1106195).\n- CVE-2018-16513: Prevent a type confusion in the setcolor function that could\n  have been used to crash the interpreter or possibly have unspecified other\n  impact (bsc#1107412).\n- CVE-2018-16509: Incorrect 'restoration of privilege' checking during handling\n  of /invalidaccess exceptions could be have been used by attackers able to\n  supply crafted PostScript to execute code using the 'pipe' instruction\n  (bsc#1107410).\n- CVE-2018-16510: Incorrect exec stack handling in the 'CS' and 'SC' PDF\n  primitives could have been used by remote attackers able to supply crafted PDFs\n  to crash the interpreter or possibly have unspecified other impact\n  (bsc#1107411).\n- CVE-2018-16542: Prevent attackers able to supply crafted PostScript files\n  from using insufficient interpreter stack-size checking during error handling\n  to crash the interpreter (bsc#1107413).\n- CVE-2018-16541: Prevent attackers able to supply crafted PostScript files\n  from using incorrect free logic in pagedevice replacement to crash the\n  interpreter (bsc#1107421).\n- CVE-2018-16540: Prevent use-after-free in copydevice handling that could have\n  been used to crash the interpreter or possibly have unspecified other impact\n  (bsc#1107420).\n- CVE-2018-16539: Prevent attackers able to supply crafted PostScript files\n  from using incorrect access checking in temp file handling to disclose contents\n  of files on the system otherwise not readable (bsc#1107422).\n- CVE-2018-16543: gssetresolution and gsgetresolution allowed attackers to have\n  an unspecified impact (bsc#1107423).\n- CVE-2018-16511: A type confusion in 'ztype' could have been used by remote\n  attackers able to supply crafted PostScript to crash the interpreter or\n  possibly have unspecified other impact (bsc#1107426).\n- CVE-2018-16585: The .setdistillerkeys PostScript command was accepted even\n  though it is not intended for use during document processing (e.g., after the\n  startup phase). This lead to memory corruption, allowing remote attackers able\n  to supply crafted PostScript to crash the interpreter or possibly have\n  unspecified other impact (bsc#1107581).\n- CVE-2018-16802: Incorrect 'restoration of privilege' checking when running\n  out of stack during exception handling could have been used by attackers able\n  to supply crafted PostScript to execute code using the 'pipe' instruction. This\n  is due to an incomplete fix for CVE-2018-16509 (bsc#1108027).\n\nThese non-security issues were fixed:\n\n* Fixes problems with argument handling, some unintended results of the\n  security fixes to the SAFER file access restrictions (specifically accessing\n  ICC profile files).\n* Avoid that ps2epsi fails with 'Error: /undefined in --setpagedevice--'\n\nFor additional changes please check http://www.ghostscript.com/doc/9.25/News.htm\n",
+				"title": "Description of the patch"
+			},
+			{
+				"category": "details",
+				"text": "SUSE-SLE-Module-Basesystem-15-2018-2119,SUSE-SLE-Module-Desktop-Applications-15-2018-2119",
+				"title": "Patchnames"
+			},
+			{
+				"category": "legal_disclaimer",
+				"text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+				"title": "Terms of use"
+			}
+		],
+		"publisher": {
+			"category": "vendor",
+			"contact_details": "https://www.suse.com/support/security/contact/",
+			"name": "SUSE Product Security Team",
+			"namespace": "https://www.suse.com/"
+		},
+		"references": [
+			{
+				"category": "self",
+				"summary": "URL for SUSE-SU-2018:2976-1",
+				"url": "https://www.suse.com/support/update/announcement/2018/suse-su-20182976-1/"
+			},
+			{
+				"category": "external",
+				"summary": "SUSE ratings",
+				"url": "https://www.suse.com/support/security/rating/"
+			},
+			{
+				"category": "self",
+				"summary": "URL of this CSAF notice",
+				"url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2018_2976-1.json"
+			},
+			{
+				"category": "self",
+				"summary": "E-Mail link for SUSE-SU-2018:2976-1",
+				"url": "https://lists.suse.com/pipermail/sle-security-updates/2018-October/004633.html"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1106171",
+				"url": "https://bugzilla.suse.com/1106171"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1106172",
+				"url": "https://bugzilla.suse.com/1106172"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1106173",
+				"url": "https://bugzilla.suse.com/1106173"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1106195",
+				"url": "https://bugzilla.suse.com/1106195"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1107410",
+				"url": "https://bugzilla.suse.com/1107410"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1107411",
+				"url": "https://bugzilla.suse.com/1107411"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1107412",
+				"url": "https://bugzilla.suse.com/1107412"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1107413",
+				"url": "https://bugzilla.suse.com/1107413"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1107420",
+				"url": "https://bugzilla.suse.com/1107420"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1107421",
+				"url": "https://bugzilla.suse.com/1107421"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1107422",
+				"url": "https://bugzilla.suse.com/1107422"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1107423",
+				"url": "https://bugzilla.suse.com/1107423"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1107426",
+				"url": "https://bugzilla.suse.com/1107426"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1107581",
+				"url": "https://bugzilla.suse.com/1107581"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1108027",
+				"url": "https://bugzilla.suse.com/1108027"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1109105",
+				"url": "https://bugzilla.suse.com/1109105"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2018-15908 page",
+				"url": "https://www.suse.com/security/cve/CVE-2018-15908/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2018-15909 page",
+				"url": "https://www.suse.com/security/cve/CVE-2018-15909/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2018-15910 page",
+				"url": "https://www.suse.com/security/cve/CVE-2018-15910/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2018-15911 page",
+				"url": "https://www.suse.com/security/cve/CVE-2018-15911/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2018-16509 page",
+				"url": "https://www.suse.com/security/cve/CVE-2018-16509/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2018-16510 page",
+				"url": "https://www.suse.com/security/cve/CVE-2018-16510/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2018-16511 page",
+				"url": "https://www.suse.com/security/cve/CVE-2018-16511/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2018-16513 page",
+				"url": "https://www.suse.com/security/cve/CVE-2018-16513/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2018-16539 page",
+				"url": "https://www.suse.com/security/cve/CVE-2018-16539/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2018-16540 page",
+				"url": "https://www.suse.com/security/cve/CVE-2018-16540/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2018-16541 page",
+				"url": "https://www.suse.com/security/cve/CVE-2018-16541/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2018-16542 page",
+				"url": "https://www.suse.com/security/cve/CVE-2018-16542/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2018-16543 page",
+				"url": "https://www.suse.com/security/cve/CVE-2018-16543/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2018-16585 page",
+				"url": "https://www.suse.com/security/cve/CVE-2018-16585/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2018-16802 page",
+				"url": "https://www.suse.com/security/cve/CVE-2018-16802/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2018-17183 page",
+				"url": "https://www.suse.com/security/cve/CVE-2018-17183/"
+			}
+		],
+		"title": "Security update for ghostscript",
+		"tracking": {
+			"current_release_date": "2018-10-02T14:31:31Z",
+			"generator": {
+				"date": "2018-10-02T14:31:31Z",
+				"engine": {
+					"name": "cve-database.git:bin/generate-csaf.pl",
+					"version": "1"
+				}
+			},
+			"id": "SUSE-SU-2018:2976-1",
+			"initial_release_date": "2018-10-02T14:31:31Z",
+			"revision_history": [
+				{
+					"date": "2018-10-02T14:31:31Z",
+					"number": "1",
+					"summary": "Current version"
+				}
+			],
+			"status": "final",
+			"version": "1"
+		}
+	},
+	"product_tree": {
+		"branches": [
+			{
+				"branches": [
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "ghostscript-9.25-3.6.1.aarch64",
+								"product": {
+									"name": "ghostscript-9.25-3.6.1.aarch64",
+									"product_id": "ghostscript-9.25-3.6.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "ghostscript-devel-9.25-3.6.1.aarch64",
+								"product": {
+									"name": "ghostscript-devel-9.25-3.6.1.aarch64",
+									"product_id": "ghostscript-devel-9.25-3.6.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "ghostscript-x11-9.25-3.6.1.aarch64",
+								"product": {
+									"name": "ghostscript-x11-9.25-3.6.1.aarch64",
+									"product_id": "ghostscript-x11-9.25-3.6.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libspectre-devel-0.2.8-3.2.1.aarch64",
+								"product": {
+									"name": "libspectre-devel-0.2.8-3.2.1.aarch64",
+									"product_id": "libspectre-devel-0.2.8-3.2.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libspectre1-0.2.8-3.2.1.aarch64",
+								"product": {
+									"name": "libspectre1-0.2.8-3.2.1.aarch64",
+									"product_id": "libspectre1-0.2.8-3.2.1.aarch64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "aarch64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "ghostscript-9.25-3.6.1.ppc64le",
+								"product": {
+									"name": "ghostscript-9.25-3.6.1.ppc64le",
+									"product_id": "ghostscript-9.25-3.6.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "ghostscript-devel-9.25-3.6.1.ppc64le",
+								"product": {
+									"name": "ghostscript-devel-9.25-3.6.1.ppc64le",
+									"product_id": "ghostscript-devel-9.25-3.6.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "ghostscript-x11-9.25-3.6.1.ppc64le",
+								"product": {
+									"name": "ghostscript-x11-9.25-3.6.1.ppc64le",
+									"product_id": "ghostscript-x11-9.25-3.6.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libspectre-devel-0.2.8-3.2.1.ppc64le",
+								"product": {
+									"name": "libspectre-devel-0.2.8-3.2.1.ppc64le",
+									"product_id": "libspectre-devel-0.2.8-3.2.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libspectre1-0.2.8-3.2.1.ppc64le",
+								"product": {
+									"name": "libspectre1-0.2.8-3.2.1.ppc64le",
+									"product_id": "libspectre1-0.2.8-3.2.1.ppc64le"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "ppc64le"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "ghostscript-9.25-3.6.1.s390x",
+								"product": {
+									"name": "ghostscript-9.25-3.6.1.s390x",
+									"product_id": "ghostscript-9.25-3.6.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "ghostscript-devel-9.25-3.6.1.s390x",
+								"product": {
+									"name": "ghostscript-devel-9.25-3.6.1.s390x",
+									"product_id": "ghostscript-devel-9.25-3.6.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "ghostscript-x11-9.25-3.6.1.s390x",
+								"product": {
+									"name": "ghostscript-x11-9.25-3.6.1.s390x",
+									"product_id": "ghostscript-x11-9.25-3.6.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libspectre-devel-0.2.8-3.2.1.s390x",
+								"product": {
+									"name": "libspectre-devel-0.2.8-3.2.1.s390x",
+									"product_id": "libspectre-devel-0.2.8-3.2.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libspectre1-0.2.8-3.2.1.s390x",
+								"product": {
+									"name": "libspectre1-0.2.8-3.2.1.s390x",
+									"product_id": "libspectre1-0.2.8-3.2.1.s390x"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "s390x"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "ghostscript-9.25-3.6.1.x86_64",
+								"product": {
+									"name": "ghostscript-9.25-3.6.1.x86_64",
+									"product_id": "ghostscript-9.25-3.6.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "ghostscript-devel-9.25-3.6.1.x86_64",
+								"product": {
+									"name": "ghostscript-devel-9.25-3.6.1.x86_64",
+									"product_id": "ghostscript-devel-9.25-3.6.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "ghostscript-x11-9.25-3.6.1.x86_64",
+								"product": {
+									"name": "ghostscript-x11-9.25-3.6.1.x86_64",
+									"product_id": "ghostscript-x11-9.25-3.6.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libspectre-devel-0.2.8-3.2.1.x86_64",
+								"product": {
+									"name": "libspectre-devel-0.2.8-3.2.1.x86_64",
+									"product_id": "libspectre-devel-0.2.8-3.2.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libspectre1-0.2.8-3.2.1.x86_64",
+								"product": {
+									"name": "libspectre1-0.2.8-3.2.1.x86_64",
+									"product_id": "libspectre1-0.2.8-3.2.1.x86_64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "x86_64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Module for Basesystem 15",
+								"product": {
+									"name": "SUSE Linux Enterprise Module for Basesystem 15",
+									"product_id": "SUSE Linux Enterprise Module for Basesystem 15",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-module-basesystem:15"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Module for Desktop Applications 15",
+								"product": {
+									"name": "SUSE Linux Enterprise Module for Desktop Applications 15",
+									"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-module-desktop-applications:15"
+									}
+								}
+							}
+						],
+						"category": "product_family",
+						"name": "SUSE Linux Enterprise"
+					}
+				],
+				"category": "vendor",
+				"name": "SUSE"
+			}
+		],
+		"relationships": [
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ghostscript-9.25-3.6.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.aarch64"
+				},
+				"product_reference": "ghostscript-9.25-3.6.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ghostscript-9.25-3.6.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.ppc64le"
+				},
+				"product_reference": "ghostscript-9.25-3.6.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ghostscript-9.25-3.6.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.s390x"
+				},
+				"product_reference": "ghostscript-9.25-3.6.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ghostscript-9.25-3.6.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.x86_64"
+				},
+				"product_reference": "ghostscript-9.25-3.6.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ghostscript-devel-9.25-3.6.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.aarch64"
+				},
+				"product_reference": "ghostscript-devel-9.25-3.6.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ghostscript-devel-9.25-3.6.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.ppc64le"
+				},
+				"product_reference": "ghostscript-devel-9.25-3.6.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ghostscript-devel-9.25-3.6.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.s390x"
+				},
+				"product_reference": "ghostscript-devel-9.25-3.6.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ghostscript-devel-9.25-3.6.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.x86_64"
+				},
+				"product_reference": "ghostscript-devel-9.25-3.6.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ghostscript-x11-9.25-3.6.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.aarch64"
+				},
+				"product_reference": "ghostscript-x11-9.25-3.6.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ghostscript-x11-9.25-3.6.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.ppc64le"
+				},
+				"product_reference": "ghostscript-x11-9.25-3.6.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ghostscript-x11-9.25-3.6.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.s390x"
+				},
+				"product_reference": "ghostscript-x11-9.25-3.6.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ghostscript-x11-9.25-3.6.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.x86_64"
+				},
+				"product_reference": "ghostscript-x11-9.25-3.6.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libspectre-devel-0.2.8-3.2.1.aarch64 as component of SUSE Linux Enterprise Module for Desktop Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.aarch64"
+				},
+				"product_reference": "libspectre-devel-0.2.8-3.2.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libspectre-devel-0.2.8-3.2.1.ppc64le as component of SUSE Linux Enterprise Module for Desktop Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.ppc64le"
+				},
+				"product_reference": "libspectre-devel-0.2.8-3.2.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libspectre-devel-0.2.8-3.2.1.s390x as component of SUSE Linux Enterprise Module for Desktop Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.s390x"
+				},
+				"product_reference": "libspectre-devel-0.2.8-3.2.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libspectre-devel-0.2.8-3.2.1.x86_64 as component of SUSE Linux Enterprise Module for Desktop Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.x86_64"
+				},
+				"product_reference": "libspectre-devel-0.2.8-3.2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libspectre1-0.2.8-3.2.1.aarch64 as component of SUSE Linux Enterprise Module for Desktop Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.aarch64"
+				},
+				"product_reference": "libspectre1-0.2.8-3.2.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libspectre1-0.2.8-3.2.1.ppc64le as component of SUSE Linux Enterprise Module for Desktop Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.ppc64le"
+				},
+				"product_reference": "libspectre1-0.2.8-3.2.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libspectre1-0.2.8-3.2.1.s390x as component of SUSE Linux Enterprise Module for Desktop Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.s390x"
+				},
+				"product_reference": "libspectre1-0.2.8-3.2.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libspectre1-0.2.8-3.2.1.x86_64 as component of SUSE Linux Enterprise Module for Desktop Applications 15",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.x86_64"
+				},
+				"product_reference": "libspectre1-0.2.8-3.2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15"
+			}
+		]
+	},
+	"vulnerabilities": [
+		{
+			"cve": "CVE-2018-15908",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2018-15908"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "In Artifex Ghostscript 9.23 before 2018-08-23, attackers are able to supply malicious PostScript files to bypass .tempfile restrictions and write files.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.x86_64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.aarch64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.ppc64le",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.s390x",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.x86_64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.aarch64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.ppc64le",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.s390x",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2018-15908",
+					"url": "https://www.suse.com/security/cve/CVE-2018-15908"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1105464 for CVE-2018-15908",
+					"url": "https://bugzilla.suse.com/1105464"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1106171 for CVE-2018-15908",
+					"url": "https://bugzilla.suse.com/1106171"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.3,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-10-02T14:31:31Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2018-15908"
+		},
+		{
+			"cve": "CVE-2018-15909",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2018-15909"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "In Artifex Ghostscript 9.23 before 2018-08-24, a type confusion using the .shfill operator could be used by attackers able to supply crafted PostScript files to crash the interpreter or potentially execute code.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.x86_64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.aarch64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.ppc64le",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.s390x",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.x86_64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.aarch64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.ppc64le",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.s390x",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2018-15909",
+					"url": "https://www.suse.com/security/cve/CVE-2018-15909"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1105464 for CVE-2018-15909",
+					"url": "https://bugzilla.suse.com/1105464"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1106172 for CVE-2018-15909",
+					"url": "https://bugzilla.suse.com/1106172"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.3,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-10-02T14:31:31Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2018-15909"
+		},
+		{
+			"cve": "CVE-2018-15910",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2018-15910"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "In Artifex Ghostscript before 9.24, attackers able to supply crafted PostScript files could use a type confusion in the LockDistillerParams parameter to crash the interpreter or execute code.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.x86_64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.aarch64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.ppc64le",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.s390x",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.x86_64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.aarch64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.ppc64le",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.s390x",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2018-15910",
+					"url": "https://www.suse.com/security/cve/CVE-2018-15910"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1105464 for CVE-2018-15910",
+					"url": "https://bugzilla.suse.com/1105464"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1106173 for CVE-2018-15910",
+					"url": "https://bugzilla.suse.com/1106173"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.3,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-10-02T14:31:31Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2018-15910"
+		},
+		{
+			"cve": "CVE-2018-15911",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2018-15911"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "In Artifex Ghostscript 9.23 before 2018-08-24, attackers able to supply crafted PostScript could use uninitialized memory access in the aesdecode operator to crash the interpreter or potentially execute code.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.x86_64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.aarch64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.ppc64le",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.s390x",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.x86_64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.aarch64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.ppc64le",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.s390x",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2018-15911",
+					"url": "https://www.suse.com/security/cve/CVE-2018-15911"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1105464 for CVE-2018-15911",
+					"url": "https://bugzilla.suse.com/1105464"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1106195 for CVE-2018-15911",
+					"url": "https://bugzilla.suse.com/1106195"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1108027 for CVE-2018-15911",
+					"url": "https://bugzilla.suse.com/1108027"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1109105 for CVE-2018-15911",
+					"url": "https://bugzilla.suse.com/1109105"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1111479 for CVE-2018-15911",
+					"url": "https://bugzilla.suse.com/1111479"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1111480 for CVE-2018-15911",
+					"url": "https://bugzilla.suse.com/1111480"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1112229 for CVE-2018-15911",
+					"url": "https://bugzilla.suse.com/1112229"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1117022 for CVE-2018-15911",
+					"url": "https://bugzilla.suse.com/1117022"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1118455 for CVE-2018-15911",
+					"url": "https://bugzilla.suse.com/1118455"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.3,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-10-02T14:31:31Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2018-15911"
+		},
+		{
+			"cve": "CVE-2018-16509",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2018-16509"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "An issue was discovered in Artifex Ghostscript before 9.24. Incorrect \"restoration of privilege\" checking during handling of /invalidaccess exceptions could be used by attackers able to supply crafted PostScript to execute code using the \"pipe\" instruction.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.x86_64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.aarch64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.ppc64le",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.s390x",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.x86_64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.aarch64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.ppc64le",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.s390x",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2018-16509",
+					"url": "https://www.suse.com/security/cve/CVE-2018-16509"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1107410 for CVE-2018-16509",
+					"url": "https://bugzilla.suse.com/1107410"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1108027 for CVE-2018-16509",
+					"url": "https://bugzilla.suse.com/1108027"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1118318 for CVE-2018-16509",
+					"url": "https://bugzilla.suse.com/1118318"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.3,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-10-02T14:31:31Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2018-16509"
+		},
+		{
+			"cve": "CVE-2018-16510",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2018-16510"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "An issue was discovered in Artifex Ghostscript before 9.24. Incorrect exec stack handling in the \"CS\" and \"SC\" PDF primitives could be used by remote attackers able to supply crafted PDFs to crash the interpreter or possibly have unspecified other impact.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.x86_64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.aarch64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.ppc64le",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.s390x",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.x86_64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.aarch64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.ppc64le",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.s390x",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2018-16510",
+					"url": "https://www.suse.com/security/cve/CVE-2018-16510"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1107411 for CVE-2018-16510",
+					"url": "https://bugzilla.suse.com/1107411"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.3,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-10-02T14:31:31Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2018-16510"
+		},
+		{
+			"cve": "CVE-2018-16511",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2018-16511"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "An issue was discovered in Artifex Ghostscript before 9.24. A type confusion in \"ztype\" could be used by remote attackers able to supply crafted PostScript to crash the interpreter or possibly have unspecified other impact.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.x86_64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.aarch64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.ppc64le",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.s390x",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.x86_64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.aarch64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.ppc64le",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.s390x",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2018-16511",
+					"url": "https://www.suse.com/security/cve/CVE-2018-16511"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1107426 for CVE-2018-16511",
+					"url": "https://bugzilla.suse.com/1107426"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1111479 for CVE-2018-16511",
+					"url": "https://bugzilla.suse.com/1111479"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1112229 for CVE-2018-16511",
+					"url": "https://bugzilla.suse.com/1112229"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.1,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-10-02T14:31:31Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2018-16511"
+		},
+		{
+			"cve": "CVE-2018-16513",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2018-16513"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "In Artifex Ghostscript before 9.24, attackers able to supply crafted PostScript files could use a type confusion in the setcolor function to crash the interpreter or possibly have unspecified other impact.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.x86_64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.aarch64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.ppc64le",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.s390x",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.x86_64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.aarch64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.ppc64le",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.s390x",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2018-16513",
+					"url": "https://www.suse.com/security/cve/CVE-2018-16513"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1107412 for CVE-2018-16513",
+					"url": "https://bugzilla.suse.com/1107412"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.3,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-10-02T14:31:31Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2018-16513"
+		},
+		{
+			"cve": "CVE-2018-16539",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2018-16539"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "In Artifex Ghostscript before 9.24, attackers able to supply crafted PostScript files could use incorrect access checking in temp file handling to disclose contents of files on the system otherwise not readable.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.x86_64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.aarch64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.ppc64le",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.s390x",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.x86_64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.aarch64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.ppc64le",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.s390x",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2018-16539",
+					"url": "https://www.suse.com/security/cve/CVE-2018-16539"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1107422 for CVE-2018-16539",
+					"url": "https://bugzilla.suse.com/1107422"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 5.3,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-10-02T14:31:31Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2018-16539"
+		},
+		{
+			"cve": "CVE-2018-16540",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2018-16540"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "In Artifex Ghostscript before 9.24, attackers able to supply crafted PostScript files to the builtin PDF14 converter could use a use-after-free in copydevice handling to crash the interpreter or possibly have unspecified other impact.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.x86_64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.aarch64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.ppc64le",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.s390x",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.x86_64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.aarch64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.ppc64le",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.s390x",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2018-16540",
+					"url": "https://www.suse.com/security/cve/CVE-2018-16540"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1107420 for CVE-2018-16540",
+					"url": "https://bugzilla.suse.com/1107420"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.3,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-10-02T14:31:31Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2018-16540"
+		},
+		{
+			"cve": "CVE-2018-16541",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2018-16541"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "In Artifex Ghostscript before 9.24, attackers able to supply crafted PostScript files could use incorrect free logic in pagedevice replacement to crash the interpreter.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.x86_64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.aarch64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.ppc64le",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.s390x",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.x86_64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.aarch64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.ppc64le",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.s390x",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2018-16541",
+					"url": "https://www.suse.com/security/cve/CVE-2018-16541"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1107421 for CVE-2018-16541",
+					"url": "https://bugzilla.suse.com/1107421"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1108027 for CVE-2018-16541",
+					"url": "https://bugzilla.suse.com/1108027"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1109105 for CVE-2018-16541",
+					"url": "https://bugzilla.suse.com/1109105"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1111479 for CVE-2018-16541",
+					"url": "https://bugzilla.suse.com/1111479"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1111480 for CVE-2018-16541",
+					"url": "https://bugzilla.suse.com/1111480"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1112229 for CVE-2018-16541",
+					"url": "https://bugzilla.suse.com/1112229"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1117022 for CVE-2018-16541",
+					"url": "https://bugzilla.suse.com/1117022"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1118455 for CVE-2018-16541",
+					"url": "https://bugzilla.suse.com/1118455"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.3,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-10-02T14:31:31Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2018-16541"
+		},
+		{
+			"cve": "CVE-2018-16542",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2018-16542"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "In Artifex Ghostscript before 9.24, attackers able to supply crafted PostScript files could use insufficient interpreter stack-size checking during error handling to crash the interpreter.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.x86_64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.aarch64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.ppc64le",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.s390x",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.x86_64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.aarch64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.ppc64le",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.s390x",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2018-16542",
+					"url": "https://www.suse.com/security/cve/CVE-2018-16542"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1107413 for CVE-2018-16542",
+					"url": "https://bugzilla.suse.com/1107413"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.3,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-10-02T14:31:31Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2018-16542"
+		},
+		{
+			"cve": "CVE-2018-16543",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2018-16543"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "In Artifex Ghostscript before 9.24, gssetresolution and gsgetresolution allow attackers to have an unspecified impact.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.x86_64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.aarch64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.ppc64le",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.s390x",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.x86_64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.aarch64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.ppc64le",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.s390x",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2018-16543",
+					"url": "https://www.suse.com/security/cve/CVE-2018-16543"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1107423 for CVE-2018-16543",
+					"url": "https://bugzilla.suse.com/1107423"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.3,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-10-02T14:31:31Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2018-16543"
+		},
+		{
+			"cve": "CVE-2018-16585",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2018-16585"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "** DISPUTED ** An issue was discovered in Artifex Ghostscript before 9.24. The .setdistillerkeys PostScript command is accepted even though it is not intended for use during document processing (e.g., after the startup phase). This leads to memory corruption, allowing remote attackers able to supply crafted PostScript to crash the interpreter or possibly have unspecified other impact. Note: A reputable source believes that the CVE is potentially a duplicate of CVE-2018-15910 as explained in Red Hat bugzilla (https://bugzilla.redhat.com/show_bug.cgi?id=1626193).",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.x86_64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.aarch64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.ppc64le",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.s390x",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.x86_64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.aarch64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.ppc64le",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.s390x",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2018-16585",
+					"url": "https://www.suse.com/security/cve/CVE-2018-16585"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1107581 for CVE-2018-16585",
+					"url": "https://bugzilla.suse.com/1107581"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 3.3,
+						"baseSeverity": "LOW",
+						"vectorString": "CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:L",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-10-02T14:31:31Z",
+					"details": "low"
+				}
+			],
+			"title": "CVE-2018-16585"
+		},
+		{
+			"cve": "CVE-2018-16802",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2018-16802"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "An issue was discovered in Artifex Ghostscript before 9.25. Incorrect \"restoration of privilege\" checking when running out of stack during exception handling could be used by attackers able to supply crafted PostScript to execute code using the \"pipe\" instruction. This is due to an incomplete fix for CVE-2018-16509.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.x86_64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.aarch64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.ppc64le",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.s390x",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.x86_64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.aarch64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.ppc64le",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.s390x",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2018-16802",
+					"url": "https://www.suse.com/security/cve/CVE-2018-16802"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1107410 for CVE-2018-16802",
+					"url": "https://bugzilla.suse.com/1107410"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1108027 for CVE-2018-16802",
+					"url": "https://bugzilla.suse.com/1108027"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1109105 for CVE-2018-16802",
+					"url": "https://bugzilla.suse.com/1109105"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1111479 for CVE-2018-16802",
+					"url": "https://bugzilla.suse.com/1111479"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1111480 for CVE-2018-16802",
+					"url": "https://bugzilla.suse.com/1111480"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1112229 for CVE-2018-16802",
+					"url": "https://bugzilla.suse.com/1112229"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1117022 for CVE-2018-16802",
+					"url": "https://bugzilla.suse.com/1117022"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1117327 for CVE-2018-16802",
+					"url": "https://bugzilla.suse.com/1117327"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1118455 for CVE-2018-16802",
+					"url": "https://bugzilla.suse.com/1118455"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 8.8,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-10-02T14:31:31Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2018-16802"
+		},
+		{
+			"cve": "CVE-2018-17183",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2018-17183"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Artifex Ghostscript before 9.25 allowed a user-writable error exception table, which could be used by remote attackers able to supply crafted PostScript to potentially overwrite or replace error handlers to inject code.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.x86_64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.aarch64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.ppc64le",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.s390x",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.x86_64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.aarch64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.ppc64le",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.s390x",
+					"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2018-17183",
+					"url": "https://www.suse.com/security/cve/CVE-2018-17183"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1108027 for CVE-2018-17183",
+					"url": "https://bugzilla.suse.com/1108027"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1109105 for CVE-2018-17183",
+					"url": "https://bugzilla.suse.com/1109105"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1111479 for CVE-2018-17183",
+					"url": "https://bugzilla.suse.com/1111479"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1111480 for CVE-2018-17183",
+					"url": "https://bugzilla.suse.com/1111480"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1112229 for CVE-2018-17183",
+					"url": "https://bugzilla.suse.com/1112229"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1117022 for CVE-2018-17183",
+					"url": "https://bugzilla.suse.com/1117022"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1117331 for CVE-2018-17183",
+					"url": "https://bugzilla.suse.com/1117331"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1118455 for CVE-2018-17183",
+					"url": "https://bugzilla.suse.com/1118455"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 8.1,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-devel-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15:ghostscript-x11-9.25-3.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre-devel-0.2.8-3.2.1.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15:libspectre1-0.2.8-3.2.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-10-02T14:31:31Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2018-17183"
+		}
+	]
+}

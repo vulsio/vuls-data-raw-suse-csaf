@@ -1,0 +1,3074 @@
+{
+	"document": {
+		"aggregate_severity": {
+			"namespace": "https://www.suse.com/support/security/rating/",
+			"text": "moderate"
+		},
+		"category": "csaf_security_advisory",
+		"csaf_version": "2.0",
+		"distribution": {
+			"text": "Copyright 2023 SUSE LLC. All rights reserved.",
+			"tlp": {
+				"label": "WHITE",
+				"url": "https://www.first.org/tlp/"
+			}
+		},
+		"lang": "en",
+		"notes": [
+			{
+				"category": "summary",
+				"text": "Security update for tiff",
+				"title": "Title of the patch"
+			},
+			{
+				"category": "description",
+				"text": "This update for tiff fixes the following security issues:\n\n- CVE-2017-5225: Prevent heap buffer overflow in the tools/tiffcp that could\n  have caused DoS or code execution via a crafted BitsPerSample value\n  (bsc#1019611)\n- CVE-2018-7456: Prevent a NULL Pointer dereference in the function\n  TIFFPrintDirectory when using the tiffinfo tool to print crafted TIFF\n  information, a different vulnerability than CVE-2017-18013 (bsc#1082825)\n- CVE-2017-11613: Prevent denial of service in the TIFFOpen function. During\n  the TIFFOpen process, td_imagelength is not checked. The value of\n  td_imagelength can be directly controlled by an input file. In the\n  ChopUpSingleUncompressedStrip function, the _TIFFCheckMalloc function is called\n  based on td_imagelength. If the value of td_imagelength is set close to the\n  amount of system memory, it will hang the system or trigger the OOM killer\n  (bsc#1082332)\n- CVE-2016-10266: Prevent remote attackers to cause a denial of service\n  (divide-by-zero error and application crash) via a crafted TIFF image, related\n  to libtiff/tif_read.c:351:22 (bsc#1031263)\n- CVE-2018-8905: Prevent heap-based buffer overflow in the function\n  LZWDecodeCompat via a crafted TIFF file (bsc#1086408)\n- CVE-2016-9540: Prevent out-of-bounds write on tiled images with odd tile\n  width versus image width (bsc#1011839).\n- CVE-2016-9535: tif_predict.h and tif_predict.c had assertions that could have\n  lead to assertion failures in debug mode, or buffer overflows in release mode,\n  when dealing with unusual tile size like YCbCr with subsampling (bsc#1011846).\n- CVE-2016-9535: tif_predict.h and tif_predict.c had assertions that could have\n  lead to assertion failures in debug mode, or buffer overflows in release mode,\n  when dealing with unusual tile size like YCbCr with subsampling (bsc#1011846).\n- Removed assert in readSeparateTilesIntoBuffer() function (bsc#1017689).\n- CVE-2016-10095: Prevent stack-based buffer overflow in the _TIFFVGetField\n  function that allowed remote attackers to cause a denial of service (crash) via\n  a crafted TIFF file (bsc#1017690).\n- CVE-2016-8331: Prevent remote code execution because of incorrect handling of\n  TIFF images. A crafted TIFF document could have lead to a type confusion\n  vulnerability resulting in remote code execution. This vulnerability could have\n  been be triggered via a TIFF file delivered to the application using LibTIFF's\n  tag extension functionality (bsc#1007276).\n- CVE-2016-3632: The _TIFFVGetField function allowed remote attackers to cause\n  a denial of service (out-of-bounds write) or execute arbitrary code via a\n  crafted TIFF image (bsc#974621).\n",
+				"title": "Description of the patch"
+			},
+			{
+				"category": "details",
+				"text": "sdksp4-tiff-13683,slessp4-tiff-13683",
+				"title": "Patchnames"
+			},
+			{
+				"category": "legal_disclaimer",
+				"text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+				"title": "Terms of use"
+			}
+		],
+		"publisher": {
+			"category": "vendor",
+			"contact_details": "https://www.suse.com/support/security/contact/",
+			"name": "SUSE Product Security Team",
+			"namespace": "https://www.suse.com/"
+		},
+		"references": [
+			{
+				"category": "self",
+				"summary": "URL for SUSE-SU-2018:1835-1",
+				"url": "https://www.suse.com/support/update/announcement/2018/suse-su-20181835-1/"
+			},
+			{
+				"category": "external",
+				"summary": "SUSE ratings",
+				"url": "https://www.suse.com/support/security/rating/"
+			},
+			{
+				"category": "self",
+				"summary": "URL of this CSAF notice",
+				"url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2018_1835-1.json"
+			},
+			{
+				"category": "self",
+				"summary": "E-Mail link for SUSE-SU-2018:1835-1",
+				"url": "https://lists.suse.com/pipermail/sle-security-updates/2018-June/004228.html"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1007276",
+				"url": "https://bugzilla.suse.com/1007276"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1011839",
+				"url": "https://bugzilla.suse.com/1011839"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1011846",
+				"url": "https://bugzilla.suse.com/1011846"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1017689",
+				"url": "https://bugzilla.suse.com/1017689"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1017690",
+				"url": "https://bugzilla.suse.com/1017690"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1019611",
+				"url": "https://bugzilla.suse.com/1019611"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1031263",
+				"url": "https://bugzilla.suse.com/1031263"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1082332",
+				"url": "https://bugzilla.suse.com/1082332"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1082825",
+				"url": "https://bugzilla.suse.com/1082825"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1086408",
+				"url": "https://bugzilla.suse.com/1086408"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 974621",
+				"url": "https://bugzilla.suse.com/974621"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2014-8128 page",
+				"url": "https://www.suse.com/security/cve/CVE-2014-8128/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-7554 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-7554/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2016-10095 page",
+				"url": "https://www.suse.com/security/cve/CVE-2016-10095/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2016-10266 page",
+				"url": "https://www.suse.com/security/cve/CVE-2016-10266/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2016-3632 page",
+				"url": "https://www.suse.com/security/cve/CVE-2016-3632/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2016-5318 page",
+				"url": "https://www.suse.com/security/cve/CVE-2016-5318/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2016-8331 page",
+				"url": "https://www.suse.com/security/cve/CVE-2016-8331/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2016-9535 page",
+				"url": "https://www.suse.com/security/cve/CVE-2016-9535/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2016-9540 page",
+				"url": "https://www.suse.com/security/cve/CVE-2016-9540/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2017-11613 page",
+				"url": "https://www.suse.com/security/cve/CVE-2017-11613/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2017-5225 page",
+				"url": "https://www.suse.com/security/cve/CVE-2017-5225/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2018-7456 page",
+				"url": "https://www.suse.com/security/cve/CVE-2018-7456/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2018-8905 page",
+				"url": "https://www.suse.com/security/cve/CVE-2018-8905/"
+			}
+		],
+		"title": "Security update for tiff",
+		"tracking": {
+			"current_release_date": "2018-06-28T09:41:44Z",
+			"generator": {
+				"date": "2018-06-28T09:41:44Z",
+				"engine": {
+					"name": "cve-database.git:bin/generate-csaf.pl",
+					"version": "1"
+				}
+			},
+			"id": "SUSE-SU-2018:1835-1",
+			"initial_release_date": "2018-06-28T09:41:44Z",
+			"revision_history": [
+				{
+					"date": "2018-06-28T09:41:44Z",
+					"number": "1",
+					"summary": "Current version"
+				}
+			],
+			"status": "final",
+			"version": "1"
+		}
+	},
+	"product_tree": {
+		"branches": [
+			{
+				"branches": [
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "libtiff-devel-3.8.2-141.169.9.1.i586",
+								"product": {
+									"name": "libtiff-devel-3.8.2-141.169.9.1.i586",
+									"product_id": "libtiff-devel-3.8.2-141.169.9.1.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libtiff3-3.8.2-141.169.9.1.i586",
+								"product": {
+									"name": "libtiff3-3.8.2-141.169.9.1.i586",
+									"product_id": "libtiff3-3.8.2-141.169.9.1.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "tiff-3.8.2-141.169.9.1.i586",
+								"product": {
+									"name": "tiff-3.8.2-141.169.9.1.i586",
+									"product_id": "tiff-3.8.2-141.169.9.1.i586"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "i586"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "libtiff-devel-3.8.2-141.169.9.1.ia64",
+								"product": {
+									"name": "libtiff-devel-3.8.2-141.169.9.1.ia64",
+									"product_id": "libtiff-devel-3.8.2-141.169.9.1.ia64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libtiff3-3.8.2-141.169.9.1.ia64",
+								"product": {
+									"name": "libtiff3-3.8.2-141.169.9.1.ia64",
+									"product_id": "libtiff3-3.8.2-141.169.9.1.ia64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libtiff3-x86-3.8.2-141.169.9.1.ia64",
+								"product": {
+									"name": "libtiff3-x86-3.8.2-141.169.9.1.ia64",
+									"product_id": "libtiff3-x86-3.8.2-141.169.9.1.ia64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "tiff-3.8.2-141.169.9.1.ia64",
+								"product": {
+									"name": "tiff-3.8.2-141.169.9.1.ia64",
+									"product_id": "tiff-3.8.2-141.169.9.1.ia64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "ia64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "libtiff-devel-3.8.2-141.169.9.1.ppc64",
+								"product": {
+									"name": "libtiff-devel-3.8.2-141.169.9.1.ppc64",
+									"product_id": "libtiff-devel-3.8.2-141.169.9.1.ppc64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libtiff-devel-32bit-3.8.2-141.169.9.1.ppc64",
+								"product": {
+									"name": "libtiff-devel-32bit-3.8.2-141.169.9.1.ppc64",
+									"product_id": "libtiff-devel-32bit-3.8.2-141.169.9.1.ppc64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libtiff3-3.8.2-141.169.9.1.ppc64",
+								"product": {
+									"name": "libtiff3-3.8.2-141.169.9.1.ppc64",
+									"product_id": "libtiff3-3.8.2-141.169.9.1.ppc64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+								"product": {
+									"name": "libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+									"product_id": "libtiff3-32bit-3.8.2-141.169.9.1.ppc64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "tiff-3.8.2-141.169.9.1.ppc64",
+								"product": {
+									"name": "tiff-3.8.2-141.169.9.1.ppc64",
+									"product_id": "tiff-3.8.2-141.169.9.1.ppc64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "ppc64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "libtiff-devel-3.8.2-141.169.9.1.s390x",
+								"product": {
+									"name": "libtiff-devel-3.8.2-141.169.9.1.s390x",
+									"product_id": "libtiff-devel-3.8.2-141.169.9.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libtiff-devel-32bit-3.8.2-141.169.9.1.s390x",
+								"product": {
+									"name": "libtiff-devel-32bit-3.8.2-141.169.9.1.s390x",
+									"product_id": "libtiff-devel-32bit-3.8.2-141.169.9.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libtiff3-3.8.2-141.169.9.1.s390x",
+								"product": {
+									"name": "libtiff3-3.8.2-141.169.9.1.s390x",
+									"product_id": "libtiff3-3.8.2-141.169.9.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+								"product": {
+									"name": "libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+									"product_id": "libtiff3-32bit-3.8.2-141.169.9.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "tiff-3.8.2-141.169.9.1.s390x",
+								"product": {
+									"name": "tiff-3.8.2-141.169.9.1.s390x",
+									"product_id": "tiff-3.8.2-141.169.9.1.s390x"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "s390x"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "libtiff-devel-3.8.2-141.169.9.1.x86_64",
+								"product": {
+									"name": "libtiff-devel-3.8.2-141.169.9.1.x86_64",
+									"product_id": "libtiff-devel-3.8.2-141.169.9.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libtiff-devel-32bit-3.8.2-141.169.9.1.x86_64",
+								"product": {
+									"name": "libtiff-devel-32bit-3.8.2-141.169.9.1.x86_64",
+									"product_id": "libtiff-devel-32bit-3.8.2-141.169.9.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libtiff3-3.8.2-141.169.9.1.x86_64",
+								"product": {
+									"name": "libtiff3-3.8.2-141.169.9.1.x86_64",
+									"product_id": "libtiff3-3.8.2-141.169.9.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+								"product": {
+									"name": "libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+									"product_id": "libtiff3-32bit-3.8.2-141.169.9.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "tiff-3.8.2-141.169.9.1.x86_64",
+								"product": {
+									"name": "tiff-3.8.2-141.169.9.1.x86_64",
+									"product_id": "tiff-3.8.2-141.169.9.1.x86_64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "x86_64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Software Development Kit 11 SP4",
+								"product": {
+									"name": "SUSE Linux Enterprise Software Development Kit 11 SP4",
+									"product_id": "SUSE Linux Enterprise Software Development Kit 11 SP4",
+									"product_identification_helper": {
+										"cpe": "cpe:/a:suse:sle-sdk:11:sp4"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server 11 SP4",
+								"product": {
+									"name": "SUSE Linux Enterprise Server 11 SP4",
+									"product_id": "SUSE Linux Enterprise Server 11 SP4",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:suse_sles:11:sp4"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+								"product": {
+									"name": "SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+									"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sles_sap:11:sp4"
+									}
+								}
+							}
+						],
+						"category": "product_family",
+						"name": "SUSE Linux Enterprise"
+					}
+				],
+				"category": "vendor",
+				"name": "SUSE"
+			}
+		],
+		"relationships": [
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libtiff-devel-3.8.2-141.169.9.1.i586 as component of SUSE Linux Enterprise Software Development Kit 11 SP4",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.i586"
+				},
+				"product_reference": "libtiff-devel-3.8.2-141.169.9.1.i586",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libtiff-devel-3.8.2-141.169.9.1.ia64 as component of SUSE Linux Enterprise Software Development Kit 11 SP4",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ia64"
+				},
+				"product_reference": "libtiff-devel-3.8.2-141.169.9.1.ia64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libtiff-devel-3.8.2-141.169.9.1.ppc64 as component of SUSE Linux Enterprise Software Development Kit 11 SP4",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ppc64"
+				},
+				"product_reference": "libtiff-devel-3.8.2-141.169.9.1.ppc64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libtiff-devel-3.8.2-141.169.9.1.s390x as component of SUSE Linux Enterprise Software Development Kit 11 SP4",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.s390x"
+				},
+				"product_reference": "libtiff-devel-3.8.2-141.169.9.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libtiff-devel-3.8.2-141.169.9.1.x86_64 as component of SUSE Linux Enterprise Software Development Kit 11 SP4",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.x86_64"
+				},
+				"product_reference": "libtiff-devel-3.8.2-141.169.9.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libtiff-devel-32bit-3.8.2-141.169.9.1.ppc64 as component of SUSE Linux Enterprise Software Development Kit 11 SP4",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.ppc64"
+				},
+				"product_reference": "libtiff-devel-32bit-3.8.2-141.169.9.1.ppc64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libtiff-devel-32bit-3.8.2-141.169.9.1.s390x as component of SUSE Linux Enterprise Software Development Kit 11 SP4",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.s390x"
+				},
+				"product_reference": "libtiff-devel-32bit-3.8.2-141.169.9.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libtiff-devel-32bit-3.8.2-141.169.9.1.x86_64 as component of SUSE Linux Enterprise Software Development Kit 11 SP4",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.x86_64"
+				},
+				"product_reference": "libtiff-devel-32bit-3.8.2-141.169.9.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libtiff3-3.8.2-141.169.9.1.i586 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.i586"
+				},
+				"product_reference": "libtiff3-3.8.2-141.169.9.1.i586",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libtiff3-3.8.2-141.169.9.1.ia64 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64"
+				},
+				"product_reference": "libtiff3-3.8.2-141.169.9.1.ia64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libtiff3-3.8.2-141.169.9.1.ppc64 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64"
+				},
+				"product_reference": "libtiff3-3.8.2-141.169.9.1.ppc64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libtiff3-3.8.2-141.169.9.1.s390x as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x"
+				},
+				"product_reference": "libtiff3-3.8.2-141.169.9.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libtiff3-3.8.2-141.169.9.1.x86_64 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64"
+				},
+				"product_reference": "libtiff3-3.8.2-141.169.9.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libtiff3-32bit-3.8.2-141.169.9.1.ppc64 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64"
+				},
+				"product_reference": "libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libtiff3-32bit-3.8.2-141.169.9.1.s390x as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x"
+				},
+				"product_reference": "libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libtiff3-32bit-3.8.2-141.169.9.1.x86_64 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64"
+				},
+				"product_reference": "libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libtiff3-x86-3.8.2-141.169.9.1.ia64 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64"
+				},
+				"product_reference": "libtiff3-x86-3.8.2-141.169.9.1.ia64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "tiff-3.8.2-141.169.9.1.i586 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.i586"
+				},
+				"product_reference": "tiff-3.8.2-141.169.9.1.i586",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "tiff-3.8.2-141.169.9.1.ia64 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ia64"
+				},
+				"product_reference": "tiff-3.8.2-141.169.9.1.ia64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "tiff-3.8.2-141.169.9.1.ppc64 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ppc64"
+				},
+				"product_reference": "tiff-3.8.2-141.169.9.1.ppc64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "tiff-3.8.2-141.169.9.1.s390x as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.s390x"
+				},
+				"product_reference": "tiff-3.8.2-141.169.9.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "tiff-3.8.2-141.169.9.1.x86_64 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.x86_64"
+				},
+				"product_reference": "tiff-3.8.2-141.169.9.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libtiff3-3.8.2-141.169.9.1.i586 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.i586"
+				},
+				"product_reference": "libtiff3-3.8.2-141.169.9.1.i586",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libtiff3-3.8.2-141.169.9.1.ia64 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64"
+				},
+				"product_reference": "libtiff3-3.8.2-141.169.9.1.ia64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libtiff3-3.8.2-141.169.9.1.ppc64 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64"
+				},
+				"product_reference": "libtiff3-3.8.2-141.169.9.1.ppc64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libtiff3-3.8.2-141.169.9.1.s390x as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x"
+				},
+				"product_reference": "libtiff3-3.8.2-141.169.9.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libtiff3-3.8.2-141.169.9.1.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64"
+				},
+				"product_reference": "libtiff3-3.8.2-141.169.9.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libtiff3-32bit-3.8.2-141.169.9.1.ppc64 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64"
+				},
+				"product_reference": "libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libtiff3-32bit-3.8.2-141.169.9.1.s390x as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x"
+				},
+				"product_reference": "libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libtiff3-32bit-3.8.2-141.169.9.1.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64"
+				},
+				"product_reference": "libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libtiff3-x86-3.8.2-141.169.9.1.ia64 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64"
+				},
+				"product_reference": "libtiff3-x86-3.8.2-141.169.9.1.ia64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "tiff-3.8.2-141.169.9.1.i586 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.i586"
+				},
+				"product_reference": "tiff-3.8.2-141.169.9.1.i586",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "tiff-3.8.2-141.169.9.1.ia64 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ia64"
+				},
+				"product_reference": "tiff-3.8.2-141.169.9.1.ia64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "tiff-3.8.2-141.169.9.1.ppc64 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ppc64"
+				},
+				"product_reference": "tiff-3.8.2-141.169.9.1.ppc64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "tiff-3.8.2-141.169.9.1.s390x as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.s390x"
+				},
+				"product_reference": "tiff-3.8.2-141.169.9.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "tiff-3.8.2-141.169.9.1.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.x86_64"
+				},
+				"product_reference": "tiff-3.8.2-141.169.9.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			}
+		]
+	},
+	"vulnerabilities": [
+		{
+			"cve": "CVE-2014-8128",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2014-8128"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "LibTIFF prior to 4.0.4, as used in Apple iOS before 8.4 and OS X before 10.10.4 and other products, allows remote attackers to cause a denial of service (out-of-bounds write) via a crafted TIFF image.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2014-8128",
+					"url": "https://www.suse.com/security/cve/CVE-2014-8128"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1007276 for CVE-2014-8128",
+					"url": "https://bugzilla.suse.com/1007276"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1017690 for CVE-2014-8128",
+					"url": "https://bugzilla.suse.com/1017690"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1040322 for CVE-2014-8128",
+					"url": "https://bugzilla.suse.com/1040322"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1206220 for CVE-2014-8128",
+					"url": "https://bugzilla.suse.com/1206220"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 914890 for CVE-2014-8128",
+					"url": "https://bugzilla.suse.com/914890"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 916925 for CVE-2014-8128",
+					"url": "https://bugzilla.suse.com/916925"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 942690 for CVE-2014-8128",
+					"url": "https://bugzilla.suse.com/942690"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 960341 for CVE-2014-8128",
+					"url": "https://bugzilla.suse.com/960341"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 969783 for CVE-2014-8128",
+					"url": "https://bugzilla.suse.com/969783"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 974621 for CVE-2014-8128",
+					"url": "https://bugzilla.suse.com/974621"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 983436 for CVE-2014-8128",
+					"url": "https://bugzilla.suse.com/983436"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 6.5,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-06-28T09:41:44Z",
+					"details": "critical"
+				}
+			],
+			"title": "CVE-2014-8128"
+		},
+		{
+			"cve": "CVE-2015-7554",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-7554"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The _TIFFVGetField function in tif_dir.c in libtiff 4.0.6 allows attackers to cause a denial of service (invalid memory write and crash) or possibly have unspecified other impact via crafted field data in an extension tag in a TIFF image.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-7554",
+					"url": "https://www.suse.com/security/cve/CVE-2015-7554"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1007276 for CVE-2015-7554",
+					"url": "https://bugzilla.suse.com/1007276"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1017690 for CVE-2015-7554",
+					"url": "https://bugzilla.suse.com/1017690"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1040322 for CVE-2015-7554",
+					"url": "https://bugzilla.suse.com/1040322"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 960341 for CVE-2015-7554",
+					"url": "https://bugzilla.suse.com/960341"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 974621 for CVE-2015-7554",
+					"url": "https://bugzilla.suse.com/974621"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 983436 for CVE-2015-7554",
+					"url": "https://bugzilla.suse.com/983436"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-06-28T09:41:44Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2015-7554"
+		},
+		{
+			"cve": "CVE-2016-10095",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2016-10095"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Stack-based buffer overflow in the _TIFFVGetField function in tif_dir.c in LibTIFF 4.0.0alpha4, 4.0.0alpha5, 4.0.0alpha6, 4.0.0beta7, 4.0.0, 4.0.1, 4.0.2, 4.0.3, 4.0.4, 4.0.4beta, 4.0.5, 4.0.6, 4.0.7 and 4.0.8 allows remote attackers to cause a denial of service (crash) via a crafted TIFF file.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2016-10095",
+					"url": "https://www.suse.com/security/cve/CVE-2016-10095"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1017690 for CVE-2016-10095",
+					"url": "https://bugzilla.suse.com/1017690"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 960341 for CVE-2016-10095",
+					"url": "https://bugzilla.suse.com/960341"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 983436 for CVE-2016-10095",
+					"url": "https://bugzilla.suse.com/983436"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 5.5,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-06-28T09:41:44Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2016-10095"
+		},
+		{
+			"cve": "CVE-2016-10266",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2016-10266"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "LibTIFF 4.0.7 allows remote attackers to cause a denial of service (divide-by-zero error and application crash) via a crafted TIFF image, related to libtiff/tif_read.c:351:22.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2016-10266",
+					"url": "https://www.suse.com/security/cve/CVE-2016-10266"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1017694 for CVE-2016-10266",
+					"url": "https://bugzilla.suse.com/1017694"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1031263 for CVE-2016-10266",
+					"url": "https://bugzilla.suse.com/1031263"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 5.5,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-06-28T09:41:44Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2016-10266"
+		},
+		{
+			"cve": "CVE-2016-3632",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2016-3632"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The _TIFFVGetField function in tif_dirinfo.c in LibTIFF 4.0.6 and earlier allows remote attackers to cause a denial of service (out-of-bounds write) or execute arbitrary code via a crafted TIFF image.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2016-3632",
+					"url": "https://www.suse.com/security/cve/CVE-2016-3632"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1007276 for CVE-2016-3632",
+					"url": "https://bugzilla.suse.com/1007276"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 974621 for CVE-2016-3632",
+					"url": "https://bugzilla.suse.com/974621"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 983436 for CVE-2016-3632",
+					"url": "https://bugzilla.suse.com/983436"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.8,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-06-28T09:41:44Z",
+					"details": "low"
+				}
+			],
+			"title": "CVE-2016-3632"
+		},
+		{
+			"cve": "CVE-2016-5318",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2016-5318"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Stack-based buffer overflow in the _TIFFVGetField function in libtiff 4.0.6 and earlier allows remote attackers to crash the application via a crafted tiff.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2016-5318",
+					"url": "https://www.suse.com/security/cve/CVE-2016-5318"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1007276 for CVE-2016-5318",
+					"url": "https://bugzilla.suse.com/1007276"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1017690 for CVE-2016-5318",
+					"url": "https://bugzilla.suse.com/1017690"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1040322 for CVE-2016-5318",
+					"url": "https://bugzilla.suse.com/1040322"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 960341 for CVE-2016-5318",
+					"url": "https://bugzilla.suse.com/960341"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 974621 for CVE-2016-5318",
+					"url": "https://bugzilla.suse.com/974621"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 983436 for CVE-2016-5318",
+					"url": "https://bugzilla.suse.com/983436"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 6.5,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-06-28T09:41:44Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2016-5318"
+		},
+		{
+			"cve": "CVE-2016-8331",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2016-8331"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "An exploitable remote code execution vulnerability exists in the handling of TIFF images in LibTIFF version 4.0.6. A crafted TIFF document can lead to a type confusion vulnerability resulting in remote code execution. This vulnerability can be triggered via a TIFF file delivered to the application using LibTIFF's tag extension functionality.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2016-8331",
+					"url": "https://www.suse.com/security/cve/CVE-2016-8331"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1007276 for CVE-2016-8331",
+					"url": "https://bugzilla.suse.com/1007276"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 8.1,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-06-28T09:41:44Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2016-8331"
+		},
+		{
+			"cve": "CVE-2016-9535",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2016-9535"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "tif_predict.h and tif_predict.c in libtiff 4.0.6 have assertions that can lead to assertion failures in debug mode, or buffer overflows in release mode, when dealing with unusual tile size like YCbCr with subsampling. Reported as MSVR 35105, aka \"Predictor heap-buffer-overflow.\"",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2016-9535",
+					"url": "https://www.suse.com/security/cve/CVE-2016-9535"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1011846 for CVE-2016-9535",
+					"url": "https://bugzilla.suse.com/1011846"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1013308 for CVE-2016-9535",
+					"url": "https://bugzilla.suse.com/1013308"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 9.8,
+						"baseSeverity": "CRITICAL",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-06-28T09:41:44Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2016-9535"
+		},
+		{
+			"cve": "CVE-2016-9540",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2016-9540"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "tools/tiffcp.c in libtiff 4.0.6 has an out-of-bounds write on tiled images with odd tile width versus image width. Reported as MSVR 35103, aka \"cpStripToTile heap-buffer-overflow.\"",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2016-9540",
+					"url": "https://www.suse.com/security/cve/CVE-2016-9540"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1011839 for CVE-2016-9540",
+					"url": "https://bugzilla.suse.com/1011839"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1013308 for CVE-2016-9540",
+					"url": "https://bugzilla.suse.com/1013308"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 9.8,
+						"baseSeverity": "CRITICAL",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-06-28T09:41:44Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2016-9540"
+		},
+		{
+			"cve": "CVE-2017-11613",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2017-11613"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "In LibTIFF 4.0.8, there is a denial of service vulnerability in the TIFFOpen function. A crafted input will lead to a denial of service attack. During the TIFFOpen process, td_imagelength is not checked. The value of td_imagelength can be directly controlled by an input file. In the ChopUpSingleUncompressedStrip function, the _TIFFCheckMalloc function is called based on td_imagelength. If we set the value of td_imagelength close to the amount of system memory, it will hang the system or trigger the OOM killer.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2017-11613",
+					"url": "https://www.suse.com/security/cve/CVE-2017-11613"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1082332 for CVE-2017-11613",
+					"url": "https://bugzilla.suse.com/1082332"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1106853 for CVE-2017-11613",
+					"url": "https://bugzilla.suse.com/1106853"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 3.3,
+						"baseSeverity": "LOW",
+						"vectorString": "CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:L",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-06-28T09:41:44Z",
+					"details": "low"
+				}
+			],
+			"title": "CVE-2017-11613"
+		},
+		{
+			"cve": "CVE-2017-5225",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2017-5225"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "LibTIFF version 4.0.7 is vulnerable to a heap buffer overflow in the tools/tiffcp resulting in DoS or code execution via a crafted BitsPerSample value.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2017-5225",
+					"url": "https://www.suse.com/security/cve/CVE-2017-5225"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1019611 for CVE-2017-5225",
+					"url": "https://bugzilla.suse.com/1019611"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 9.8,
+						"baseSeverity": "CRITICAL",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-06-28T09:41:44Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2017-5225"
+		},
+		{
+			"cve": "CVE-2018-7456",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2018-7456"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A NULL Pointer Dereference occurs in the function TIFFPrintDirectory in tif_print.c in LibTIFF 3.9.3, 3.9.4, 3.9.5, 3.9.6, 3.9.7, 4.0.0alpha4, 4.0.0alpha5, 4.0.0alpha6, 4.0.0beta7, 4.0.0, 4.0.1, 4.0.2, 4.0.3, 4.0.4, 4.0.4beta, 4.0.5, 4.0.6, 4.0.7, 4.0.8 and 4.0.9 when using the tiffinfo tool to print crafted TIFF information, a different vulnerability than CVE-2017-18013. (This affects an earlier part of the TIFFPrintDirectory function that was not addressed by the CVE-2017-18013 patch.)",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2018-7456",
+					"url": "https://www.suse.com/security/cve/CVE-2018-7456"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1074317 for CVE-2018-7456",
+					"url": "https://bugzilla.suse.com/1074317"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1082825 for CVE-2018-7456",
+					"url": "https://bugzilla.suse.com/1082825"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 5.5,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-06-28T09:41:44Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2018-7456"
+		},
+		{
+			"cve": "CVE-2018-8905",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2018-8905"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "In LibTIFF 4.0.9, a heap-based buffer overflow occurs in the function LZWDecodeCompat in tif_lzw.c via a crafted TIFF file, as demonstrated by tiff2ps.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.i586",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ia64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.ppc64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2018-8905",
+					"url": "https://www.suse.com/security/cve/CVE-2018-8905"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1086408 for CVE-2018-8905",
+					"url": "https://bugzilla.suse.com/1086408"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 5.3,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:L/I:L/A:L",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-32bit-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:libtiff3-x86-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:tiff-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ia64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-3.8.2-141.169.9.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:libtiff-devel-32bit-3.8.2-141.169.9.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-06-28T09:41:44Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2018-8905"
+		}
+	]
+}

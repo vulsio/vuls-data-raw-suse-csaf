@@ -1,0 +1,682 @@
+{
+	"document": {
+		"aggregate_severity": {
+			"namespace": "https://www.suse.com/support/security/rating/",
+			"text": "important"
+		},
+		"category": "csaf_security_advisory",
+		"csaf_version": "2.0",
+		"distribution": {
+			"text": "Copyright 2023 SUSE LLC. All rights reserved.",
+			"tlp": {
+				"label": "WHITE",
+				"url": "https://www.first.org/tlp/"
+			}
+		},
+		"lang": "en",
+		"notes": [
+			{
+				"category": "summary",
+				"text": "Security update for the Linux Kernel (Live Patch 1 for SLE 15)",
+				"title": "Title of the patch"
+			},
+			{
+				"category": "description",
+				"text": "This update for the Linux Kernel 4.12.14-25_3 fixes several issues.\n\nThe following security issues were fixed:\n\n- CVE-2019-9213: Expand_downwards in mm/mmap.c lacked a check for the mmap minimum address, which made it easier for attackers to exploit kernel NULL pointer dereferences on non-SMAP platforms. This is related to a capability check for the wrong task (bsc#1128378).\n- CVE-2019-8912: af_alg_release() in crypto/af_alg.c neglected to set a NULL value for a certain structure member, which could have led to a use-after-free in sockfs_setattr (bsc#1126284).\n- CVE-2018-12232: In net/socket.c there was a race condition between fchownat and close in cases where they target the same socket file descriptor, related to the sock_close and sockfs_setattr functions. fchownat did not increment the file descriptor reference count, which allowed close to set the socket to NULL during fchownat's execution, leading to a NULL pointer dereference and system crash (bsc#1127757).\n- CVE-2019-7221: Fixed a user-after-free vulnerability in the KVM hypervisor related to the emulation of a preemption timer, allowing an guest user/process to crash the host kernel. (bsc#1124734).\n- CVE-2019-6974: kvm_ioctl_create_device in virt/kvm/kvm_main.c mishandled reference counting because of a race condition, leading to a use-after-free (bsc#1124729).\n",
+				"title": "Description of the patch"
+			},
+			{
+				"category": "details",
+				"text": "SUSE-2019-740,SUSE-SLE-Module-Live-Patching-15-2019-740,SUSE-SLE-Module-Live-Patching-15-2019-746",
+				"title": "Patchnames"
+			},
+			{
+				"category": "legal_disclaimer",
+				"text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+				"title": "Terms of use"
+			}
+		],
+		"publisher": {
+			"category": "vendor",
+			"contact_details": "https://www.suse.com/support/security/contact/",
+			"name": "SUSE Product Security Team",
+			"namespace": "https://www.suse.com/"
+		},
+		"references": [
+			{
+				"category": "self",
+				"summary": "URL for SUSE-SU-2019:0740-1",
+				"url": "https://www.suse.com/support/update/announcement/2019/suse-su-20190740-1/"
+			},
+			{
+				"category": "external",
+				"summary": "SUSE ratings",
+				"url": "https://www.suse.com/support/security/rating/"
+			},
+			{
+				"category": "self",
+				"summary": "URL of this CSAF notice",
+				"url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2019_0740-1.json"
+			},
+			{
+				"category": "self",
+				"summary": "E-Mail link for SUSE-SU-2019:0740-1",
+				"url": "https://lists.suse.com/pipermail/sle-security-updates/2019-March/005235.html"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1124729",
+				"url": "https://bugzilla.suse.com/1124729"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1124734",
+				"url": "https://bugzilla.suse.com/1124734"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1126284",
+				"url": "https://bugzilla.suse.com/1126284"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1127757",
+				"url": "https://bugzilla.suse.com/1127757"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1128378",
+				"url": "https://bugzilla.suse.com/1128378"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2018-12232 page",
+				"url": "https://www.suse.com/security/cve/CVE-2018-12232/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2019-6974 page",
+				"url": "https://www.suse.com/security/cve/CVE-2019-6974/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2019-7221 page",
+				"url": "https://www.suse.com/security/cve/CVE-2019-7221/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2019-8912 page",
+				"url": "https://www.suse.com/security/cve/CVE-2019-8912/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2019-9213 page",
+				"url": "https://www.suse.com/security/cve/CVE-2019-9213/"
+			}
+		],
+		"title": "Security update for the Linux Kernel (Live Patch 1 for SLE 15)",
+		"tracking": {
+			"current_release_date": "2019-03-26T13:34:42Z",
+			"generator": {
+				"date": "2019-03-26T13:34:42Z",
+				"engine": {
+					"name": "cve-database.git:bin/generate-csaf.pl",
+					"version": "1"
+				}
+			},
+			"id": "SUSE-SU-2019:0740-1",
+			"initial_release_date": "2019-03-26T13:34:42Z",
+			"revision_history": [
+				{
+					"date": "2019-03-26T13:34:42Z",
+					"number": "1",
+					"summary": "Current version"
+				}
+			],
+			"status": "final",
+			"version": "1"
+		}
+	},
+	"product_tree": {
+		"branches": [
+			{
+				"branches": [
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "kernel-livepatch-4_12_14-23-default-9-25.2.ppc64le",
+								"product": {
+									"name": "kernel-livepatch-4_12_14-23-default-9-25.2.ppc64le",
+									"product_id": "kernel-livepatch-4_12_14-23-default-9-25.2.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-livepatch-4_12_14-25_3-default-8-2.1.ppc64le",
+								"product": {
+									"name": "kernel-livepatch-4_12_14-25_3-default-8-2.1.ppc64le",
+									"product_id": "kernel-livepatch-4_12_14-25_3-default-8-2.1.ppc64le"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "ppc64le"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "kernel-livepatch-4_12_14-23-default-9-25.2.x86_64",
+								"product": {
+									"name": "kernel-livepatch-4_12_14-23-default-9-25.2.x86_64",
+									"product_id": "kernel-livepatch-4_12_14-23-default-9-25.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-livepatch-4_12_14-25_3-default-8-2.1.x86_64",
+								"product": {
+									"name": "kernel-livepatch-4_12_14-25_3-default-8-2.1.x86_64",
+									"product_id": "kernel-livepatch-4_12_14-25_3-default-8-2.1.x86_64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "x86_64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Live Patching 15",
+								"product": {
+									"name": "SUSE Linux Enterprise Live Patching 15",
+									"product_id": "SUSE Linux Enterprise Live Patching 15",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-module-live-patching:15"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Live Patching 15",
+								"product": {
+									"name": "SUSE Linux Enterprise Live Patching 15",
+									"product_id": "SUSE Linux Enterprise Live Patching 15",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-module-live-patching:15"
+									}
+								}
+							}
+						],
+						"category": "product_family",
+						"name": "SUSE Linux Enterprise"
+					}
+				],
+				"category": "vendor",
+				"name": "SUSE"
+			}
+		],
+		"relationships": [
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-livepatch-4_12_14-23-default-9-25.2.ppc64le as component of SUSE Linux Enterprise Live Patching 15",
+					"product_id": "SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-9-25.2.ppc64le"
+				},
+				"product_reference": "kernel-livepatch-4_12_14-23-default-9-25.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Live Patching 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-livepatch-4_12_14-23-default-9-25.2.x86_64 as component of SUSE Linux Enterprise Live Patching 15",
+					"product_id": "SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-9-25.2.x86_64"
+				},
+				"product_reference": "kernel-livepatch-4_12_14-23-default-9-25.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Live Patching 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-livepatch-4_12_14-25_3-default-8-2.1.ppc64le as component of SUSE Linux Enterprise Live Patching 15",
+					"product_id": "SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-25_3-default-8-2.1.ppc64le"
+				},
+				"product_reference": "kernel-livepatch-4_12_14-25_3-default-8-2.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Live Patching 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-livepatch-4_12_14-25_3-default-8-2.1.x86_64 as component of SUSE Linux Enterprise Live Patching 15",
+					"product_id": "SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-25_3-default-8-2.1.x86_64"
+				},
+				"product_reference": "kernel-livepatch-4_12_14-25_3-default-8-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Live Patching 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-livepatch-4_12_14-23-default-9-25.2.ppc64le as component of SUSE Linux Enterprise Live Patching 15",
+					"product_id": "SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-9-25.2.ppc64le"
+				},
+				"product_reference": "kernel-livepatch-4_12_14-23-default-9-25.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Live Patching 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-livepatch-4_12_14-23-default-9-25.2.x86_64 as component of SUSE Linux Enterprise Live Patching 15",
+					"product_id": "SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-9-25.2.x86_64"
+				},
+				"product_reference": "kernel-livepatch-4_12_14-23-default-9-25.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Live Patching 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-livepatch-4_12_14-25_3-default-8-2.1.ppc64le as component of SUSE Linux Enterprise Live Patching 15",
+					"product_id": "SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-25_3-default-8-2.1.ppc64le"
+				},
+				"product_reference": "kernel-livepatch-4_12_14-25_3-default-8-2.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Live Patching 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-livepatch-4_12_14-25_3-default-8-2.1.x86_64 as component of SUSE Linux Enterprise Live Patching 15",
+					"product_id": "SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-25_3-default-8-2.1.x86_64"
+				},
+				"product_reference": "kernel-livepatch-4_12_14-25_3-default-8-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Live Patching 15"
+			}
+		]
+	},
+	"vulnerabilities": [
+		{
+			"cve": "CVE-2018-12232",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2018-12232"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "In net/socket.c in the Linux kernel through 4.17.1, there is a race condition between fchownat and close in cases where they target the same socket file descriptor, related to the sock_close and sockfs_setattr functions. fchownat does not increment the file descriptor reference count, which allows close to set the socket to NULL during fchownat's execution, leading to a NULL pointer dereference and system crash.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-9-25.2.ppc64le",
+					"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-9-25.2.x86_64",
+					"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-25_3-default-8-2.1.ppc64le",
+					"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-25_3-default-8-2.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2018-12232",
+					"url": "https://www.suse.com/security/cve/CVE-2018-12232"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1087082 for CVE-2018-12232",
+					"url": "https://bugzilla.suse.com/1087082"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1097593 for CVE-2018-12232",
+					"url": "https://bugzilla.suse.com/1097593"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1125907 for CVE-2018-12232",
+					"url": "https://bugzilla.suse.com/1125907"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1127757 for CVE-2018-12232",
+					"url": "https://bugzilla.suse.com/1127757"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-9-25.2.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-9-25.2.x86_64",
+						"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-25_3-default-8-2.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-25_3-default-8-2.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2019-03-26T13:34:42Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2018-12232"
+		},
+		{
+			"cve": "CVE-2019-6974",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2019-6974"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "In the Linux kernel before 4.20.8, kvm_ioctl_create_device in virt/kvm/kvm_main.c mishandles reference counting because of a race condition, leading to a use-after-free.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-9-25.2.ppc64le",
+					"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-9-25.2.x86_64",
+					"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-25_3-default-8-2.1.ppc64le",
+					"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-25_3-default-8-2.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2019-6974",
+					"url": "https://www.suse.com/security/cve/CVE-2019-6974"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1124728 for CVE-2019-6974",
+					"url": "https://bugzilla.suse.com/1124728"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1124729 for CVE-2019-6974",
+					"url": "https://bugzilla.suse.com/1124729"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-9-25.2.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-9-25.2.x86_64",
+						"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-25_3-default-8-2.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-25_3-default-8-2.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.8,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.0/AV:L/AC:H/PR:L/UI:N/S:C/C:H/I:H/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-9-25.2.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-9-25.2.x86_64",
+						"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-25_3-default-8-2.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-25_3-default-8-2.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2019-03-26T13:34:42Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2019-6974"
+		},
+		{
+			"cve": "CVE-2019-7221",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2019-7221"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The KVM implementation in the Linux kernel through 4.20.5 has a Use-after-Free.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-9-25.2.ppc64le",
+					"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-9-25.2.x86_64",
+					"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-25_3-default-8-2.1.ppc64le",
+					"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-25_3-default-8-2.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2019-7221",
+					"url": "https://www.suse.com/security/cve/CVE-2019-7221"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1124732 for CVE-2019-7221",
+					"url": "https://bugzilla.suse.com/1124732"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1124734 for CVE-2019-7221",
+					"url": "https://bugzilla.suse.com/1124734"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-9-25.2.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-9-25.2.x86_64",
+						"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-25_3-default-8-2.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-25_3-default-8-2.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.5,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.0/AV:L/AC:H/PR:H/UI:N/S:C/C:H/I:H/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-9-25.2.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-9-25.2.x86_64",
+						"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-25_3-default-8-2.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-25_3-default-8-2.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2019-03-26T13:34:42Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2019-7221"
+		},
+		{
+			"cve": "CVE-2019-8912",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2019-8912"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "In the Linux kernel through 4.20.11, af_alg_release() in crypto/af_alg.c neglects to set a NULL value for a certain structure member, which leads to a use-after-free in sockfs_setattr.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-9-25.2.ppc64le",
+					"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-9-25.2.x86_64",
+					"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-25_3-default-8-2.1.ppc64le",
+					"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-25_3-default-8-2.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2019-8912",
+					"url": "https://www.suse.com/security/cve/CVE-2019-8912"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1125907 for CVE-2019-8912",
+					"url": "https://bugzilla.suse.com/1125907"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1126284 for CVE-2019-8912",
+					"url": "https://bugzilla.suse.com/1126284"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-9-25.2.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-9-25.2.x86_64",
+						"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-25_3-default-8-2.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-25_3-default-8-2.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.8,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-9-25.2.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-9-25.2.x86_64",
+						"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-25_3-default-8-2.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-25_3-default-8-2.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2019-03-26T13:34:42Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2019-8912"
+		},
+		{
+			"cve": "CVE-2019-9213",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2019-9213"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "In the Linux kernel before 4.20.14, expand_downwards in mm/mmap.c lacks a check for the mmap minimum address, which makes it easier for attackers to exploit kernel NULL pointer dereferences on non-SMAP platforms. This is related to a capability check for the wrong task.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-9-25.2.ppc64le",
+					"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-9-25.2.x86_64",
+					"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-25_3-default-8-2.1.ppc64le",
+					"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-25_3-default-8-2.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2019-9213",
+					"url": "https://www.suse.com/security/cve/CVE-2019-9213"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1128166 for CVE-2019-9213",
+					"url": "https://bugzilla.suse.com/1128166"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1128378 for CVE-2019-9213",
+					"url": "https://bugzilla.suse.com/1128378"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1129016 for CVE-2019-9213",
+					"url": "https://bugzilla.suse.com/1129016"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-9-25.2.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-9-25.2.x86_64",
+						"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-25_3-default-8-2.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-25_3-default-8-2.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 5.5,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-9-25.2.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-9-25.2.x86_64",
+						"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-25_3-default-8-2.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-25_3-default-8-2.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2019-03-26T13:34:42Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2019-9213"
+		}
+	]
+}

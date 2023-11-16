@@ -1,0 +1,1784 @@
+{
+	"document": {
+		"aggregate_severity": {
+			"namespace": "https://www.suse.com/support/security/rating/",
+			"text": "moderate"
+		},
+		"category": "csaf_security_advisory",
+		"csaf_version": "2.0",
+		"distribution": {
+			"text": "Copyright 2023 SUSE LLC. All rights reserved.",
+			"tlp": {
+				"label": "WHITE",
+				"url": "https://www.first.org/tlp/"
+			}
+		},
+		"lang": "en",
+		"notes": [
+			{
+				"category": "summary",
+				"text": "Security update for Prometheus Golang clients",
+				"title": "Title of the patch"
+			},
+			{
+				"category": "description",
+				"text": "This update for golang-github-prometheus-alertmanager and golang-github-prometheus-node_exporter fixes the following issues:\n\ngolang-github-prometheus-alertmanager:\n\n- Security issues fixed:\n  * CVE-2022-46146: Fix authentication bypass via cache poisoning (bsc#1208051)   \n    \ngolang-github-prometheus-node_exporter:\n\n- Security issues fixed in this version update to version 1.5.0 (jsc#PED-3578):\n  * CVE-2022-27191: Update go/x/crypto (bsc#1197284)\n  * CVE-2022-27664: Update go/x/net (bsc#1203185)\n  * CVE-2022-46146: Update exporter-toolkit (bsc#1208064)\n- Other non-security bug fixes and changes in this version update to 1.5.0 (jsc#PED-3578):\n  * NOTE: This changes the Go runtime 'GOMAXPROCS' to 1. This is done to limit the concurrency of the exporter to 1 CPU\n    thread at a time in order to avoid a race condition problem in the Linux kernel and parallel IO issues on nodes with\n    high numbers of CPUs/CPU threads.\n  * [BUGFIX] Fix hwmon label sanitizer\n  * [BUGFIX] Use native endianness when encoding InetDiagMsg\n  * [BUGFIX] Fix btrfs device stats always being zero\n  * [BUGFIX] Fix diskstats exclude flags\n  * [BUGFIX] [node-mixin] Fix fsSpaceAvailableCriticalThreshold and fsSpaceAvailableWarning\n  * [BUGFIX] Fix concurrency issue in ethtool collector\n  * [BUGFIX] Fix concurrency issue in netdev collector\n  * [BUGFIX] Fix diskstat reads and write metrics for disks with different sector sizes\n  * [BUGFIX] Fix iostat on macos broken by deprecation warning\n  * [BUGFIX] Fix NodeFileDescriptorLimit alerts\n  * [BUGFIX] Sanitize rapl zone names\n  * [BUGFIX] Add file descriptor close safely in test\n  * [BUGFIX] Fix race condition in os_release.go\n  * [BUGFIX] Skip ZFS IO metrics if their paths are missing\n  * [BUGFIX] Handle nil CPU thermal power status on M1\n  * [BUGFIX] bsd: Ignore filesystems flagged as MNT_IGNORE\n  * [BUGFIX] Sanitize UTF-8 in dmi collector\n  * [CHANGE] Merge metrics descriptions in textfile collector\n  * [FEATURE] Add multiple listeners and systemd socket listener activation\n  * [FEATURE] [node-mixin] Add darwin dashboard to mixin\n  * [FEATURE] Add 'isolated' metric on cpu collector on linux\n  * [FEATURE] Add cgroup summary collector\n  * [FEATURE] Add selinux collector\n  * [FEATURE] Add slab info collector\n  * [FEATURE] Add sysctl collector\n  * [FEATURE] Also track the CPU Spin time for OpenBSD systems\n  * [FEATURE] Add support for MacOS version\n  * [ENHANCEMENT] Add RTNL version of netclass collector\n  * [ENHANCEMENT] [node-mixin] Add missing selectors\n  * [ENHANCEMENT] [node-mixin] Change current datasource to grafana's default\n  * [ENHANCEMENT] [node-mixin] Change disk graph to disk table\n  * [ENHANCEMENT] [node-mixin] Change io time units to %util\n  * [ENHANCEMENT] Ad user_wired_bytes and laundry_bytes on *bsd\n  * [ENHANCEMENT] Add additional vm_stat memory metrics for darwin\n  * [ENHANCEMENT] Add device filter flags to arp collector\n  * [ENHANCEMENT] Add diskstats include and exclude device flags\n  * [ENHANCEMENT] Add node_softirqs_total metric\n  * [ENHANCEMENT] Add rapl zone name label option\n  * [ENHANCEMENT] Add slabinfo collector\n  * [ENHANCEMENT] Allow user to select port on NTP server to query\n  * [ENHANCEMENT] collector/diskstats: Add labels and metrics from udev\n  * [ENHANCEMENT] Enable builds against older macOS SDK\n  * [ENHANCEMENT] qdisk-linux: Add exclude and include flags for interface name\n  * [ENHANCEMENT] systemd: Expose systemd minor version\n  * [ENHANCEMENT] Use netlink for tcpstat collector\n  * [ENHANCEMENT] Use netlink to get netdev stats\n  * [ENHANCEMENT] Add additional perf counters for stalled frontend/backend cycles\n  * [ENHANCEMENT] Add btrfs device error stats\n- Change build requirement to go1.18 or higher (previously this was fixed to version 1.14)\n",
+				"title": "Description of the patch"
+			},
+			{
+				"category": "details",
+				"text": "SUSE-2023-2187,SUSE-SLE-Manager-Tools-15-2023-2187,SUSE-SLE-Manager-Tools-For-Micro-5-2023-2187,SUSE-SLE-Module-Basesystem-15-SP4-2023-2187,SUSE-SLE-Module-SUSE-Manager-Proxy-4.2-2023-2187,SUSE-SLE-Module-SUSE-Manager-Proxy-4.3-2023-2187,SUSE-SLE-Product-HPC-15-SP1-LTSS-2023-2187,SUSE-SLE-Product-HPC-15-SP2-LTSS-2023-2187,SUSE-SLE-Product-HPC-15-SP3-ESPOS-2023-2187,SUSE-SLE-Product-HPC-15-SP3-LTSS-2023-2187,SUSE-SLE-Product-RT-15-SP3-2023-2187,SUSE-SLE-Product-SLES-15-SP1-LTSS-2023-2187,SUSE-SLE-Product-SLES-15-SP2-LTSS-2023-2187,SUSE-SLE-Product-SLES-15-SP3-LTSS-2023-2187,SUSE-SLE-Product-SLES_SAP-15-SP1-2023-2187,SUSE-SLE-Product-SLES_SAP-15-SP2-2023-2187,SUSE-SLE-Product-SLES_SAP-15-SP3-2023-2187,SUSE-SLE-Product-SUSE-Manager-Proxy-4.2-2023-2187,SUSE-SLE-Product-SUSE-Manager-Server-4.2-2023-2187,SUSE-Storage-7-2023-2187,SUSE-Storage-7.1-2023-2187,openSUSE-SLE-15.4-2023-2187",
+				"title": "Patchnames"
+			},
+			{
+				"category": "legal_disclaimer",
+				"text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+				"title": "Terms of use"
+			}
+		],
+		"publisher": {
+			"category": "vendor",
+			"contact_details": "https://www.suse.com/support/security/contact/",
+			"name": "SUSE Product Security Team",
+			"namespace": "https://www.suse.com/"
+		},
+		"references": [
+			{
+				"category": "self",
+				"summary": "URL for SUSE-SU-2023:2187-1",
+				"url": "https://www.suse.com/support/update/announcement/2023/suse-su-20232187-1/"
+			},
+			{
+				"category": "external",
+				"summary": "SUSE ratings",
+				"url": "https://www.suse.com/support/security/rating/"
+			},
+			{
+				"category": "self",
+				"summary": "URL of this CSAF notice",
+				"url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2023_2187-1.json"
+			},
+			{
+				"category": "self",
+				"summary": "E-Mail link for SUSE-SU-2023:2187-1",
+				"url": "https://lists.suse.com/pipermail/sle-security-updates/2023-May/014865.html"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1197284",
+				"url": "https://bugzilla.suse.com/1197284"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1203185",
+				"url": "https://bugzilla.suse.com/1203185"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1208051",
+				"url": "https://bugzilla.suse.com/1208051"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1208064",
+				"url": "https://bugzilla.suse.com/1208064"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2022-27191 page",
+				"url": "https://www.suse.com/security/cve/CVE-2022-27191/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2022-27664 page",
+				"url": "https://www.suse.com/security/cve/CVE-2022-27664/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2022-46146 page",
+				"url": "https://www.suse.com/security/cve/CVE-2022-46146/"
+			}
+		],
+		"title": "Security update for Prometheus Golang clients",
+		"tracking": {
+			"current_release_date": "2023-05-11T17:02:04Z",
+			"generator": {
+				"date": "2023-05-11T17:02:04Z",
+				"engine": {
+					"name": "cve-database.git:bin/generate-csaf.pl",
+					"version": "1"
+				}
+			},
+			"id": "SUSE-SU-2023:2187-1",
+			"initial_release_date": "2023-05-11T17:02:04Z",
+			"revision_history": [
+				{
+					"date": "2023-05-11T17:02:04Z",
+					"number": "1",
+					"summary": "Current version"
+				}
+			],
+			"status": "final",
+			"version": "1"
+		}
+	},
+	"product_tree": {
+		"branches": [
+			{
+				"branches": [
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.aarch64",
+								"product": {
+									"name": "golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.aarch64",
+									"product_id": "golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+								"product": {
+									"name": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+									"product_id": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "aarch64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.i586",
+								"product": {
+									"name": "golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.i586",
+									"product_id": "golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.i586",
+								"product": {
+									"name": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.i586",
+									"product_id": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.i586"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "i586"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.ppc64le",
+								"product": {
+									"name": "golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.ppc64le",
+									"product_id": "golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+								"product": {
+									"name": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+									"product_id": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "ppc64le"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.s390x",
+								"product": {
+									"name": "golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.s390x",
+									"product_id": "golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+								"product": {
+									"name": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+									"product_id": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "s390x"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.x86_64",
+								"product": {
+									"name": "golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.x86_64",
+									"product_id": "golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+								"product": {
+									"name": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+									"product_id": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "x86_64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_name",
+								"name": "SUSE Manager Tools 15",
+								"product": {
+									"name": "SUSE Manager Tools 15",
+									"product_id": "SUSE Manager Tools 15",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-manager-tools:15"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Manager Tools for SLE Micro 5",
+								"product": {
+									"name": "SUSE Manager Tools for SLE Micro 5",
+									"product_id": "SUSE Manager Tools for SLE Micro 5"
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Module for Basesystem 15 SP4",
+								"product": {
+									"name": "SUSE Linux Enterprise Module for Basesystem 15 SP4",
+									"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP4",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-module-basesystem:15:sp4"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Manager Proxy Module 4.2",
+								"product": {
+									"name": "SUSE Manager Proxy Module 4.2",
+									"product_id": "SUSE Manager Proxy Module 4.2",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-module-suse-manager-proxy:4.2"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Manager Proxy Module 4.3",
+								"product": {
+									"name": "SUSE Manager Proxy Module 4.3",
+									"product_id": "SUSE Manager Proxy Module 4.3",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-module-suse-manager-proxy:4.3"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise High Performance Computing 15 SP1-LTSS",
+								"product": {
+									"name": "SUSE Linux Enterprise High Performance Computing 15 SP1-LTSS",
+									"product_id": "SUSE Linux Enterprise High Performance Computing 15 SP1-LTSS",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle_hpc-ltss:15:sp1"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise High Performance Computing 15 SP2-LTSS",
+								"product": {
+									"name": "SUSE Linux Enterprise High Performance Computing 15 SP2-LTSS",
+									"product_id": "SUSE Linux Enterprise High Performance Computing 15 SP2-LTSS",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle_hpc-ltss:15:sp2"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise High Performance Computing 15 SP3-ESPOS",
+								"product": {
+									"name": "SUSE Linux Enterprise High Performance Computing 15 SP3-ESPOS",
+									"product_id": "SUSE Linux Enterprise High Performance Computing 15 SP3-ESPOS",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle_hpc-espos:15:sp3"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise High Performance Computing 15 SP3-LTSS",
+								"product": {
+									"name": "SUSE Linux Enterprise High Performance Computing 15 SP3-LTSS",
+									"product_id": "SUSE Linux Enterprise High Performance Computing 15 SP3-LTSS",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle_hpc-ltss:15:sp3"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Real Time 15 SP3",
+								"product": {
+									"name": "SUSE Linux Enterprise Real Time 15 SP3",
+									"product_id": "SUSE Linux Enterprise Real Time 15 SP3",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle_rt:15:sp3"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server 15 SP1-LTSS",
+								"product": {
+									"name": "SUSE Linux Enterprise Server 15 SP1-LTSS",
+									"product_id": "SUSE Linux Enterprise Server 15 SP1-LTSS",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sles-ltss:15:sp1"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server 15 SP2-LTSS",
+								"product": {
+									"name": "SUSE Linux Enterprise Server 15 SP2-LTSS",
+									"product_id": "SUSE Linux Enterprise Server 15 SP2-LTSS",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sles-ltss:15:sp2"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server 15 SP3-LTSS",
+								"product": {
+									"name": "SUSE Linux Enterprise Server 15 SP3-LTSS",
+									"product_id": "SUSE Linux Enterprise Server 15 SP3-LTSS",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sles-ltss:15:sp3"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server for SAP Applications 15 SP1",
+								"product": {
+									"name": "SUSE Linux Enterprise Server for SAP Applications 15 SP1",
+									"product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP1",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sles_sap:15:sp1"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server for SAP Applications 15 SP2",
+								"product": {
+									"name": "SUSE Linux Enterprise Server for SAP Applications 15 SP2",
+									"product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP2",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sles_sap:15:sp2"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server for SAP Applications 15 SP3",
+								"product": {
+									"name": "SUSE Linux Enterprise Server for SAP Applications 15 SP3",
+									"product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP3",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sles_sap:15:sp3"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Manager Proxy 4.2",
+								"product": {
+									"name": "SUSE Manager Proxy 4.2",
+									"product_id": "SUSE Manager Proxy 4.2",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:suse-manager-proxy:4.2"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Manager Server 4.2",
+								"product": {
+									"name": "SUSE Manager Server 4.2",
+									"product_id": "SUSE Manager Server 4.2",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:suse-manager-server:4.2"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Enterprise Storage 7",
+								"product": {
+									"name": "SUSE Enterprise Storage 7",
+									"product_id": "SUSE Enterprise Storage 7",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:ses:7"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Enterprise Storage 7.1",
+								"product": {
+									"name": "SUSE Enterprise Storage 7.1",
+									"product_id": "SUSE Enterprise Storage 7.1",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:ses:7.1"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "openSUSE Leap 15.4",
+								"product": {
+									"name": "openSUSE Leap 15.4",
+									"product_id": "openSUSE Leap 15.4",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:opensuse:leap:15.4"
+									}
+								}
+							}
+						],
+						"category": "product_family",
+						"name": "SUSE Linux Enterprise"
+					}
+				],
+				"category": "vendor",
+				"name": "SUSE"
+			}
+		],
+		"relationships": [
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.aarch64 as component of SUSE Manager Tools 15",
+					"product_id": "SUSE Manager Tools 15:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.aarch64"
+				},
+				"product_reference": "golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.aarch64",
+				"relates_to_product_reference": "SUSE Manager Tools 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.ppc64le as component of SUSE Manager Tools 15",
+					"product_id": "SUSE Manager Tools 15:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.ppc64le"
+				},
+				"product_reference": "golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.ppc64le",
+				"relates_to_product_reference": "SUSE Manager Tools 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.s390x as component of SUSE Manager Tools 15",
+					"product_id": "SUSE Manager Tools 15:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.s390x"
+				},
+				"product_reference": "golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.s390x",
+				"relates_to_product_reference": "SUSE Manager Tools 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.x86_64 as component of SUSE Manager Tools 15",
+					"product_id": "SUSE Manager Tools 15:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.x86_64"
+				},
+				"product_reference": "golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.x86_64",
+				"relates_to_product_reference": "SUSE Manager Tools 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64 as component of SUSE Manager Tools for SLE Micro 5",
+					"product_id": "SUSE Manager Tools for SLE Micro 5:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64"
+				},
+				"product_reference": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+				"relates_to_product_reference": "SUSE Manager Tools for SLE Micro 5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x as component of SUSE Manager Tools for SLE Micro 5",
+					"product_id": "SUSE Manager Tools for SLE Micro 5:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x"
+				},
+				"product_reference": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+				"relates_to_product_reference": "SUSE Manager Tools for SLE Micro 5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64 as component of SUSE Manager Tools for SLE Micro 5",
+					"product_id": "SUSE Manager Tools for SLE Micro 5:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64"
+				},
+				"product_reference": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+				"relates_to_product_reference": "SUSE Manager Tools for SLE Micro 5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP4",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64"
+				},
+				"product_reference": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP4",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le"
+				},
+				"product_reference": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP4",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x"
+				},
+				"product_reference": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP4",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64"
+				},
+				"product_reference": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.aarch64 as component of SUSE Manager Proxy Module 4.2",
+					"product_id": "SUSE Manager Proxy Module 4.2:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.aarch64"
+				},
+				"product_reference": "golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.aarch64",
+				"relates_to_product_reference": "SUSE Manager Proxy Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.ppc64le as component of SUSE Manager Proxy Module 4.2",
+					"product_id": "SUSE Manager Proxy Module 4.2:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.ppc64le"
+				},
+				"product_reference": "golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.ppc64le",
+				"relates_to_product_reference": "SUSE Manager Proxy Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.s390x as component of SUSE Manager Proxy Module 4.2",
+					"product_id": "SUSE Manager Proxy Module 4.2:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.s390x"
+				},
+				"product_reference": "golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.s390x",
+				"relates_to_product_reference": "SUSE Manager Proxy Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.x86_64 as component of SUSE Manager Proxy Module 4.2",
+					"product_id": "SUSE Manager Proxy Module 4.2:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.x86_64"
+				},
+				"product_reference": "golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.x86_64",
+				"relates_to_product_reference": "SUSE Manager Proxy Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.aarch64 as component of SUSE Manager Proxy Module 4.3",
+					"product_id": "SUSE Manager Proxy Module 4.3:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.aarch64"
+				},
+				"product_reference": "golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.aarch64",
+				"relates_to_product_reference": "SUSE Manager Proxy Module 4.3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.ppc64le as component of SUSE Manager Proxy Module 4.3",
+					"product_id": "SUSE Manager Proxy Module 4.3:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.ppc64le"
+				},
+				"product_reference": "golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.ppc64le",
+				"relates_to_product_reference": "SUSE Manager Proxy Module 4.3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.s390x as component of SUSE Manager Proxy Module 4.3",
+					"product_id": "SUSE Manager Proxy Module 4.3:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.s390x"
+				},
+				"product_reference": "golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.s390x",
+				"relates_to_product_reference": "SUSE Manager Proxy Module 4.3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.x86_64 as component of SUSE Manager Proxy Module 4.3",
+					"product_id": "SUSE Manager Proxy Module 4.3:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.x86_64"
+				},
+				"product_reference": "golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.x86_64",
+				"relates_to_product_reference": "SUSE Manager Proxy Module 4.3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64 as component of SUSE Linux Enterprise High Performance Computing 15 SP1-LTSS",
+					"product_id": "SUSE Linux Enterprise High Performance Computing 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64"
+				},
+				"product_reference": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP1-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP1-LTSS",
+					"product_id": "SUSE Linux Enterprise High Performance Computing 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64"
+				},
+				"product_reference": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP1-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64 as component of SUSE Linux Enterprise High Performance Computing 15 SP2-LTSS",
+					"product_id": "SUSE Linux Enterprise High Performance Computing 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64"
+				},
+				"product_reference": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP2-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP2-LTSS",
+					"product_id": "SUSE Linux Enterprise High Performance Computing 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64"
+				},
+				"product_reference": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP2-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64 as component of SUSE Linux Enterprise High Performance Computing 15 SP3-ESPOS",
+					"product_id": "SUSE Linux Enterprise High Performance Computing 15 SP3-ESPOS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64"
+				},
+				"product_reference": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP3-ESPOS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP3-ESPOS",
+					"product_id": "SUSE Linux Enterprise High Performance Computing 15 SP3-ESPOS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64"
+				},
+				"product_reference": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP3-ESPOS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64 as component of SUSE Linux Enterprise High Performance Computing 15 SP3-LTSS",
+					"product_id": "SUSE Linux Enterprise High Performance Computing 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64"
+				},
+				"product_reference": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP3-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP3-LTSS",
+					"product_id": "SUSE Linux Enterprise High Performance Computing 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64"
+				},
+				"product_reference": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP3-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64 as component of SUSE Linux Enterprise Real Time 15 SP3",
+					"product_id": "SUSE Linux Enterprise Real Time 15 SP3:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64"
+				},
+				"product_reference": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Real Time 15 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64 as component of SUSE Linux Enterprise Server 15 SP1-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64"
+				},
+				"product_reference": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP1-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le as component of SUSE Linux Enterprise Server 15 SP1-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le"
+				},
+				"product_reference": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP1-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x as component of SUSE Linux Enterprise Server 15 SP1-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x"
+				},
+				"product_reference": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP1-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64 as component of SUSE Linux Enterprise Server 15 SP1-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64"
+				},
+				"product_reference": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP1-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64 as component of SUSE Linux Enterprise Server 15 SP2-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64"
+				},
+				"product_reference": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP2-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le as component of SUSE Linux Enterprise Server 15 SP2-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le"
+				},
+				"product_reference": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP2-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x as component of SUSE Linux Enterprise Server 15 SP2-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x"
+				},
+				"product_reference": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP2-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64 as component of SUSE Linux Enterprise Server 15 SP2-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64"
+				},
+				"product_reference": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP2-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64 as component of SUSE Linux Enterprise Server 15 SP3-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64"
+				},
+				"product_reference": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP3-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le as component of SUSE Linux Enterprise Server 15 SP3-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le"
+				},
+				"product_reference": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP3-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x as component of SUSE Linux Enterprise Server 15 SP3-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x"
+				},
+				"product_reference": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP3-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64 as component of SUSE Linux Enterprise Server 15 SP3-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64"
+				},
+				"product_reference": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP3-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le as component of SUSE Linux Enterprise Server for SAP Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP1:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le"
+				},
+				"product_reference": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP1:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64"
+				},
+				"product_reference": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le as component of SUSE Linux Enterprise Server for SAP Applications 15 SP2",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le"
+				},
+				"product_reference": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 15 SP2",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64"
+				},
+				"product_reference": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le as component of SUSE Linux Enterprise Server for SAP Applications 15 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP3:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le"
+				},
+				"product_reference": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 15 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP3:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64"
+				},
+				"product_reference": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64 as component of SUSE Manager Proxy 4.2",
+					"product_id": "SUSE Manager Proxy 4.2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64"
+				},
+				"product_reference": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+				"relates_to_product_reference": "SUSE Manager Proxy 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le as component of SUSE Manager Server 4.2",
+					"product_id": "SUSE Manager Server 4.2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le"
+				},
+				"product_reference": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+				"relates_to_product_reference": "SUSE Manager Server 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x as component of SUSE Manager Server 4.2",
+					"product_id": "SUSE Manager Server 4.2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x"
+				},
+				"product_reference": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+				"relates_to_product_reference": "SUSE Manager Server 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64 as component of SUSE Manager Server 4.2",
+					"product_id": "SUSE Manager Server 4.2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64"
+				},
+				"product_reference": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+				"relates_to_product_reference": "SUSE Manager Server 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64 as component of SUSE Enterprise Storage 7",
+					"product_id": "SUSE Enterprise Storage 7:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64"
+				},
+				"product_reference": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+				"relates_to_product_reference": "SUSE Enterprise Storage 7"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64 as component of SUSE Enterprise Storage 7",
+					"product_id": "SUSE Enterprise Storage 7:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64"
+				},
+				"product_reference": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+				"relates_to_product_reference": "SUSE Enterprise Storage 7"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64 as component of SUSE Enterprise Storage 7.1",
+					"product_id": "SUSE Enterprise Storage 7.1:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64"
+				},
+				"product_reference": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+				"relates_to_product_reference": "SUSE Enterprise Storage 7.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64 as component of SUSE Enterprise Storage 7.1",
+					"product_id": "SUSE Enterprise Storage 7.1:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64"
+				},
+				"product_reference": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+				"relates_to_product_reference": "SUSE Enterprise Storage 7.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.aarch64 as component of openSUSE Leap 15.4",
+					"product_id": "openSUSE Leap 15.4:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.aarch64"
+				},
+				"product_reference": "golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.aarch64",
+				"relates_to_product_reference": "openSUSE Leap 15.4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.ppc64le as component of openSUSE Leap 15.4",
+					"product_id": "openSUSE Leap 15.4:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.ppc64le"
+				},
+				"product_reference": "golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.ppc64le",
+				"relates_to_product_reference": "openSUSE Leap 15.4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.s390x as component of openSUSE Leap 15.4",
+					"product_id": "openSUSE Leap 15.4:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.s390x"
+				},
+				"product_reference": "golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.s390x",
+				"relates_to_product_reference": "openSUSE Leap 15.4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.x86_64 as component of openSUSE Leap 15.4",
+					"product_id": "openSUSE Leap 15.4:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.x86_64"
+				},
+				"product_reference": "golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.x86_64",
+				"relates_to_product_reference": "openSUSE Leap 15.4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64 as component of openSUSE Leap 15.4",
+					"product_id": "openSUSE Leap 15.4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64"
+				},
+				"product_reference": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+				"relates_to_product_reference": "openSUSE Leap 15.4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le as component of openSUSE Leap 15.4",
+					"product_id": "openSUSE Leap 15.4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le"
+				},
+				"product_reference": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+				"relates_to_product_reference": "openSUSE Leap 15.4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x as component of openSUSE Leap 15.4",
+					"product_id": "openSUSE Leap 15.4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x"
+				},
+				"product_reference": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+				"relates_to_product_reference": "openSUSE Leap 15.4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64 as component of openSUSE Leap 15.4",
+					"product_id": "openSUSE Leap 15.4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64"
+				},
+				"product_reference": "golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+				"relates_to_product_reference": "openSUSE Leap 15.4"
+			}
+		]
+	},
+	"vulnerabilities": [
+		{
+			"cve": "CVE-2022-27191",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2022-27191"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The golang.org/x/crypto/ssh package before 0.0.0-20220314234659-1baeb1ce4c0b for Go allows an attacker to crash a server in certain circumstances involving AddHostKey.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Enterprise Storage 7.1:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+					"SUSE Enterprise Storage 7.1:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+					"SUSE Enterprise Storage 7:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+					"SUSE Enterprise Storage 7:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15 SP3-ESPOS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15 SP3-ESPOS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+					"SUSE Linux Enterprise Real Time 15 SP3:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+					"SUSE Linux Enterprise Server 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+					"SUSE Linux Enterprise Server 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+					"SUSE Linux Enterprise Server 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+					"SUSE Linux Enterprise Server 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+					"SUSE Linux Enterprise Server 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+					"SUSE Linux Enterprise Server 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+					"SUSE Linux Enterprise Server 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+					"SUSE Linux Enterprise Server 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+					"SUSE Linux Enterprise Server 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+					"SUSE Linux Enterprise Server 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+					"SUSE Linux Enterprise Server 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+					"SUSE Linux Enterprise Server 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 15 SP1:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 15 SP1:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 15 SP2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 15 SP2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 15 SP3:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 15 SP3:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+					"SUSE Manager Proxy 4.2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+					"SUSE Manager Proxy Module 4.2:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.aarch64",
+					"SUSE Manager Proxy Module 4.2:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.ppc64le",
+					"SUSE Manager Proxy Module 4.2:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.s390x",
+					"SUSE Manager Proxy Module 4.2:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.x86_64",
+					"SUSE Manager Proxy Module 4.3:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.aarch64",
+					"SUSE Manager Proxy Module 4.3:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.ppc64le",
+					"SUSE Manager Proxy Module 4.3:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.s390x",
+					"SUSE Manager Proxy Module 4.3:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.x86_64",
+					"SUSE Manager Server 4.2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+					"SUSE Manager Server 4.2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+					"SUSE Manager Server 4.2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+					"SUSE Manager Tools 15:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.aarch64",
+					"SUSE Manager Tools 15:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.ppc64le",
+					"SUSE Manager Tools 15:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.s390x",
+					"SUSE Manager Tools 15:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.x86_64",
+					"SUSE Manager Tools for SLE Micro 5:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+					"SUSE Manager Tools for SLE Micro 5:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+					"SUSE Manager Tools for SLE Micro 5:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+					"openSUSE Leap 15.4:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.aarch64",
+					"openSUSE Leap 15.4:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.ppc64le",
+					"openSUSE Leap 15.4:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.s390x",
+					"openSUSE Leap 15.4:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.x86_64",
+					"openSUSE Leap 15.4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+					"openSUSE Leap 15.4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+					"openSUSE Leap 15.4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+					"openSUSE Leap 15.4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2022-27191",
+					"url": "https://www.suse.com/security/cve/CVE-2022-27191"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1197284 for CVE-2022-27191",
+					"url": "https://bugzilla.suse.com/1197284"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Enterprise Storage 7.1:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Enterprise Storage 7.1:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Enterprise Storage 7:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Enterprise Storage 7:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP3-ESPOS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP3-ESPOS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise Real Time 15 SP3:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise Server 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Linux Enterprise Server 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+						"SUSE Linux Enterprise Server 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+						"SUSE Linux Enterprise Server 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise Server 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Linux Enterprise Server 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+						"SUSE Linux Enterprise Server 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+						"SUSE Linux Enterprise Server 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise Server 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Linux Enterprise Server 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+						"SUSE Linux Enterprise Server 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+						"SUSE Linux Enterprise Server 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP1:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP1:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP3:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP3:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Manager Proxy 4.2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Manager Proxy Module 4.2:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.aarch64",
+						"SUSE Manager Proxy Module 4.2:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.ppc64le",
+						"SUSE Manager Proxy Module 4.2:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.s390x",
+						"SUSE Manager Proxy Module 4.2:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.x86_64",
+						"SUSE Manager Proxy Module 4.3:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.aarch64",
+						"SUSE Manager Proxy Module 4.3:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.ppc64le",
+						"SUSE Manager Proxy Module 4.3:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.s390x",
+						"SUSE Manager Proxy Module 4.3:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.x86_64",
+						"SUSE Manager Server 4.2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+						"SUSE Manager Server 4.2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+						"SUSE Manager Server 4.2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Manager Tools 15:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.aarch64",
+						"SUSE Manager Tools 15:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.ppc64le",
+						"SUSE Manager Tools 15:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.s390x",
+						"SUSE Manager Tools 15:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.x86_64",
+						"SUSE Manager Tools for SLE Micro 5:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Manager Tools for SLE Micro 5:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+						"SUSE Manager Tools for SLE Micro 5:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"openSUSE Leap 15.4:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.aarch64",
+						"openSUSE Leap 15.4:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.ppc64le",
+						"openSUSE Leap 15.4:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.s390x",
+						"openSUSE Leap 15.4:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.x86_64",
+						"openSUSE Leap 15.4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"openSUSE Leap 15.4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+						"openSUSE Leap 15.4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+						"openSUSE Leap 15.4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.5,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Enterprise Storage 7.1:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Enterprise Storage 7.1:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Enterprise Storage 7:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Enterprise Storage 7:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP3-ESPOS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP3-ESPOS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise Real Time 15 SP3:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise Server 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Linux Enterprise Server 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+						"SUSE Linux Enterprise Server 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+						"SUSE Linux Enterprise Server 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise Server 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Linux Enterprise Server 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+						"SUSE Linux Enterprise Server 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+						"SUSE Linux Enterprise Server 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise Server 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Linux Enterprise Server 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+						"SUSE Linux Enterprise Server 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+						"SUSE Linux Enterprise Server 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP1:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP1:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP3:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP3:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Manager Proxy 4.2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Manager Proxy Module 4.2:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.aarch64",
+						"SUSE Manager Proxy Module 4.2:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.ppc64le",
+						"SUSE Manager Proxy Module 4.2:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.s390x",
+						"SUSE Manager Proxy Module 4.2:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.x86_64",
+						"SUSE Manager Proxy Module 4.3:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.aarch64",
+						"SUSE Manager Proxy Module 4.3:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.ppc64le",
+						"SUSE Manager Proxy Module 4.3:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.s390x",
+						"SUSE Manager Proxy Module 4.3:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.x86_64",
+						"SUSE Manager Server 4.2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+						"SUSE Manager Server 4.2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+						"SUSE Manager Server 4.2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Manager Tools 15:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.aarch64",
+						"SUSE Manager Tools 15:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.ppc64le",
+						"SUSE Manager Tools 15:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.s390x",
+						"SUSE Manager Tools 15:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.x86_64",
+						"SUSE Manager Tools for SLE Micro 5:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Manager Tools for SLE Micro 5:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+						"SUSE Manager Tools for SLE Micro 5:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"openSUSE Leap 15.4:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.aarch64",
+						"openSUSE Leap 15.4:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.ppc64le",
+						"openSUSE Leap 15.4:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.s390x",
+						"openSUSE Leap 15.4:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.x86_64",
+						"openSUSE Leap 15.4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"openSUSE Leap 15.4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+						"openSUSE Leap 15.4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+						"openSUSE Leap 15.4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2023-05-11T17:02:04Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2022-27191"
+		},
+		{
+			"cve": "CVE-2022-27664",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2022-27664"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "In net/http in Go before 1.18.6 and 1.19.x before 1.19.1, attackers can cause a denial of service because an HTTP/2 connection can hang during closing if shutdown were preempted by a fatal error.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Enterprise Storage 7.1:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+					"SUSE Enterprise Storage 7.1:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+					"SUSE Enterprise Storage 7:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+					"SUSE Enterprise Storage 7:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15 SP3-ESPOS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15 SP3-ESPOS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+					"SUSE Linux Enterprise Real Time 15 SP3:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+					"SUSE Linux Enterprise Server 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+					"SUSE Linux Enterprise Server 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+					"SUSE Linux Enterprise Server 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+					"SUSE Linux Enterprise Server 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+					"SUSE Linux Enterprise Server 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+					"SUSE Linux Enterprise Server 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+					"SUSE Linux Enterprise Server 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+					"SUSE Linux Enterprise Server 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+					"SUSE Linux Enterprise Server 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+					"SUSE Linux Enterprise Server 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+					"SUSE Linux Enterprise Server 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+					"SUSE Linux Enterprise Server 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 15 SP1:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 15 SP1:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 15 SP2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 15 SP2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 15 SP3:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 15 SP3:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+					"SUSE Manager Proxy 4.2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+					"SUSE Manager Proxy Module 4.2:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.aarch64",
+					"SUSE Manager Proxy Module 4.2:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.ppc64le",
+					"SUSE Manager Proxy Module 4.2:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.s390x",
+					"SUSE Manager Proxy Module 4.2:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.x86_64",
+					"SUSE Manager Proxy Module 4.3:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.aarch64",
+					"SUSE Manager Proxy Module 4.3:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.ppc64le",
+					"SUSE Manager Proxy Module 4.3:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.s390x",
+					"SUSE Manager Proxy Module 4.3:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.x86_64",
+					"SUSE Manager Server 4.2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+					"SUSE Manager Server 4.2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+					"SUSE Manager Server 4.2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+					"SUSE Manager Tools 15:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.aarch64",
+					"SUSE Manager Tools 15:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.ppc64le",
+					"SUSE Manager Tools 15:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.s390x",
+					"SUSE Manager Tools 15:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.x86_64",
+					"SUSE Manager Tools for SLE Micro 5:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+					"SUSE Manager Tools for SLE Micro 5:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+					"SUSE Manager Tools for SLE Micro 5:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+					"openSUSE Leap 15.4:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.aarch64",
+					"openSUSE Leap 15.4:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.ppc64le",
+					"openSUSE Leap 15.4:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.s390x",
+					"openSUSE Leap 15.4:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.x86_64",
+					"openSUSE Leap 15.4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+					"openSUSE Leap 15.4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+					"openSUSE Leap 15.4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+					"openSUSE Leap 15.4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2022-27664",
+					"url": "https://www.suse.com/security/cve/CVE-2022-27664"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1203185 for CVE-2022-27664",
+					"url": "https://bugzilla.suse.com/1203185"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1203293 for CVE-2022-27664",
+					"url": "https://bugzilla.suse.com/1203293"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Enterprise Storage 7.1:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Enterprise Storage 7.1:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Enterprise Storage 7:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Enterprise Storage 7:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP3-ESPOS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP3-ESPOS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise Real Time 15 SP3:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise Server 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Linux Enterprise Server 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+						"SUSE Linux Enterprise Server 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+						"SUSE Linux Enterprise Server 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise Server 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Linux Enterprise Server 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+						"SUSE Linux Enterprise Server 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+						"SUSE Linux Enterprise Server 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise Server 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Linux Enterprise Server 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+						"SUSE Linux Enterprise Server 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+						"SUSE Linux Enterprise Server 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP1:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP1:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP3:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP3:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Manager Proxy 4.2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Manager Proxy Module 4.2:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.aarch64",
+						"SUSE Manager Proxy Module 4.2:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.ppc64le",
+						"SUSE Manager Proxy Module 4.2:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.s390x",
+						"SUSE Manager Proxy Module 4.2:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.x86_64",
+						"SUSE Manager Proxy Module 4.3:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.aarch64",
+						"SUSE Manager Proxy Module 4.3:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.ppc64le",
+						"SUSE Manager Proxy Module 4.3:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.s390x",
+						"SUSE Manager Proxy Module 4.3:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.x86_64",
+						"SUSE Manager Server 4.2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+						"SUSE Manager Server 4.2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+						"SUSE Manager Server 4.2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Manager Tools 15:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.aarch64",
+						"SUSE Manager Tools 15:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.ppc64le",
+						"SUSE Manager Tools 15:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.s390x",
+						"SUSE Manager Tools 15:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.x86_64",
+						"SUSE Manager Tools for SLE Micro 5:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Manager Tools for SLE Micro 5:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+						"SUSE Manager Tools for SLE Micro 5:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"openSUSE Leap 15.4:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.aarch64",
+						"openSUSE Leap 15.4:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.ppc64le",
+						"openSUSE Leap 15.4:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.s390x",
+						"openSUSE Leap 15.4:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.x86_64",
+						"openSUSE Leap 15.4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"openSUSE Leap 15.4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+						"openSUSE Leap 15.4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+						"openSUSE Leap 15.4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.5,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Enterprise Storage 7.1:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Enterprise Storage 7.1:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Enterprise Storage 7:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Enterprise Storage 7:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP3-ESPOS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP3-ESPOS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise Real Time 15 SP3:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise Server 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Linux Enterprise Server 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+						"SUSE Linux Enterprise Server 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+						"SUSE Linux Enterprise Server 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise Server 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Linux Enterprise Server 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+						"SUSE Linux Enterprise Server 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+						"SUSE Linux Enterprise Server 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise Server 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Linux Enterprise Server 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+						"SUSE Linux Enterprise Server 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+						"SUSE Linux Enterprise Server 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP1:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP1:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP3:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP3:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Manager Proxy 4.2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Manager Proxy Module 4.2:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.aarch64",
+						"SUSE Manager Proxy Module 4.2:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.ppc64le",
+						"SUSE Manager Proxy Module 4.2:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.s390x",
+						"SUSE Manager Proxy Module 4.2:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.x86_64",
+						"SUSE Manager Proxy Module 4.3:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.aarch64",
+						"SUSE Manager Proxy Module 4.3:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.ppc64le",
+						"SUSE Manager Proxy Module 4.3:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.s390x",
+						"SUSE Manager Proxy Module 4.3:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.x86_64",
+						"SUSE Manager Server 4.2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+						"SUSE Manager Server 4.2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+						"SUSE Manager Server 4.2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Manager Tools 15:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.aarch64",
+						"SUSE Manager Tools 15:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.ppc64le",
+						"SUSE Manager Tools 15:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.s390x",
+						"SUSE Manager Tools 15:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.x86_64",
+						"SUSE Manager Tools for SLE Micro 5:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Manager Tools for SLE Micro 5:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+						"SUSE Manager Tools for SLE Micro 5:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"openSUSE Leap 15.4:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.aarch64",
+						"openSUSE Leap 15.4:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.ppc64le",
+						"openSUSE Leap 15.4:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.s390x",
+						"openSUSE Leap 15.4:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.x86_64",
+						"openSUSE Leap 15.4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"openSUSE Leap 15.4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+						"openSUSE Leap 15.4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+						"openSUSE Leap 15.4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2023-05-11T17:02:04Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2022-27664"
+		},
+		{
+			"cve": "CVE-2022-46146",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2022-46146"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Prometheus Exporter Toolkit is a utility package to build exporters. Prior to versions 0.7.2 and 0.8.2, if someone has access to a Prometheus web.yml file and users' bcrypted passwords, they can bypass security by poisoning the built-in authentication cache. Versions 0.7.2 and 0.8.2 contain a fix for the issue. There is no workaround, but attacker must have access to the hashed password to use this functionality.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Enterprise Storage 7.1:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+					"SUSE Enterprise Storage 7.1:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+					"SUSE Enterprise Storage 7:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+					"SUSE Enterprise Storage 7:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15 SP3-ESPOS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15 SP3-ESPOS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+					"SUSE Linux Enterprise Real Time 15 SP3:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+					"SUSE Linux Enterprise Server 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+					"SUSE Linux Enterprise Server 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+					"SUSE Linux Enterprise Server 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+					"SUSE Linux Enterprise Server 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+					"SUSE Linux Enterprise Server 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+					"SUSE Linux Enterprise Server 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+					"SUSE Linux Enterprise Server 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+					"SUSE Linux Enterprise Server 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+					"SUSE Linux Enterprise Server 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+					"SUSE Linux Enterprise Server 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+					"SUSE Linux Enterprise Server 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+					"SUSE Linux Enterprise Server 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 15 SP1:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 15 SP1:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 15 SP2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 15 SP2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 15 SP3:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 15 SP3:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+					"SUSE Manager Proxy 4.2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+					"SUSE Manager Proxy Module 4.2:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.aarch64",
+					"SUSE Manager Proxy Module 4.2:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.ppc64le",
+					"SUSE Manager Proxy Module 4.2:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.s390x",
+					"SUSE Manager Proxy Module 4.2:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.x86_64",
+					"SUSE Manager Proxy Module 4.3:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.aarch64",
+					"SUSE Manager Proxy Module 4.3:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.ppc64le",
+					"SUSE Manager Proxy Module 4.3:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.s390x",
+					"SUSE Manager Proxy Module 4.3:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.x86_64",
+					"SUSE Manager Server 4.2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+					"SUSE Manager Server 4.2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+					"SUSE Manager Server 4.2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+					"SUSE Manager Tools 15:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.aarch64",
+					"SUSE Manager Tools 15:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.ppc64le",
+					"SUSE Manager Tools 15:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.s390x",
+					"SUSE Manager Tools 15:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.x86_64",
+					"SUSE Manager Tools for SLE Micro 5:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+					"SUSE Manager Tools for SLE Micro 5:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+					"SUSE Manager Tools for SLE Micro 5:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+					"openSUSE Leap 15.4:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.aarch64",
+					"openSUSE Leap 15.4:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.ppc64le",
+					"openSUSE Leap 15.4:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.s390x",
+					"openSUSE Leap 15.4:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.x86_64",
+					"openSUSE Leap 15.4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+					"openSUSE Leap 15.4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+					"openSUSE Leap 15.4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+					"openSUSE Leap 15.4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2022-46146",
+					"url": "https://www.suse.com/security/cve/CVE-2022-46146"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1208046 for CVE-2022-46146",
+					"url": "https://bugzilla.suse.com/1208046"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Enterprise Storage 7.1:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Enterprise Storage 7.1:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Enterprise Storage 7:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Enterprise Storage 7:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP3-ESPOS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP3-ESPOS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise Real Time 15 SP3:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise Server 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Linux Enterprise Server 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+						"SUSE Linux Enterprise Server 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+						"SUSE Linux Enterprise Server 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise Server 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Linux Enterprise Server 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+						"SUSE Linux Enterprise Server 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+						"SUSE Linux Enterprise Server 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise Server 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Linux Enterprise Server 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+						"SUSE Linux Enterprise Server 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+						"SUSE Linux Enterprise Server 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP1:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP1:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP3:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP3:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Manager Proxy 4.2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Manager Proxy Module 4.2:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.aarch64",
+						"SUSE Manager Proxy Module 4.2:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.ppc64le",
+						"SUSE Manager Proxy Module 4.2:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.s390x",
+						"SUSE Manager Proxy Module 4.2:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.x86_64",
+						"SUSE Manager Proxy Module 4.3:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.aarch64",
+						"SUSE Manager Proxy Module 4.3:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.ppc64le",
+						"SUSE Manager Proxy Module 4.3:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.s390x",
+						"SUSE Manager Proxy Module 4.3:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.x86_64",
+						"SUSE Manager Server 4.2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+						"SUSE Manager Server 4.2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+						"SUSE Manager Server 4.2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Manager Tools 15:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.aarch64",
+						"SUSE Manager Tools 15:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.ppc64le",
+						"SUSE Manager Tools 15:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.s390x",
+						"SUSE Manager Tools 15:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.x86_64",
+						"SUSE Manager Tools for SLE Micro 5:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Manager Tools for SLE Micro 5:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+						"SUSE Manager Tools for SLE Micro 5:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"openSUSE Leap 15.4:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.aarch64",
+						"openSUSE Leap 15.4:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.ppc64le",
+						"openSUSE Leap 15.4:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.s390x",
+						"openSUSE Leap 15.4:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.x86_64",
+						"openSUSE Leap 15.4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"openSUSE Leap 15.4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+						"openSUSE Leap 15.4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+						"openSUSE Leap 15.4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 8.8,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Enterprise Storage 7.1:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Enterprise Storage 7.1:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Enterprise Storage 7:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Enterprise Storage 7:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP3-ESPOS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP3-ESPOS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise Real Time 15 SP3:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise Server 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Linux Enterprise Server 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+						"SUSE Linux Enterprise Server 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+						"SUSE Linux Enterprise Server 15 SP1-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise Server 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Linux Enterprise Server 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+						"SUSE Linux Enterprise Server 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+						"SUSE Linux Enterprise Server 15 SP2-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise Server 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Linux Enterprise Server 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+						"SUSE Linux Enterprise Server 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+						"SUSE Linux Enterprise Server 15 SP3-LTSS:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP1:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP1:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP3:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP3:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Manager Proxy 4.2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Manager Proxy Module 4.2:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.aarch64",
+						"SUSE Manager Proxy Module 4.2:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.ppc64le",
+						"SUSE Manager Proxy Module 4.2:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.s390x",
+						"SUSE Manager Proxy Module 4.2:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.x86_64",
+						"SUSE Manager Proxy Module 4.3:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.aarch64",
+						"SUSE Manager Proxy Module 4.3:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.ppc64le",
+						"SUSE Manager Proxy Module 4.3:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.s390x",
+						"SUSE Manager Proxy Module 4.3:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.x86_64",
+						"SUSE Manager Server 4.2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+						"SUSE Manager Server 4.2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+						"SUSE Manager Server 4.2:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"SUSE Manager Tools 15:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.aarch64",
+						"SUSE Manager Tools 15:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.ppc64le",
+						"SUSE Manager Tools 15:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.s390x",
+						"SUSE Manager Tools 15:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.x86_64",
+						"SUSE Manager Tools for SLE Micro 5:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"SUSE Manager Tools for SLE Micro 5:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+						"SUSE Manager Tools for SLE Micro 5:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64",
+						"openSUSE Leap 15.4:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.aarch64",
+						"openSUSE Leap 15.4:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.ppc64le",
+						"openSUSE Leap 15.4:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.s390x",
+						"openSUSE Leap 15.4:golang-github-prometheus-alertmanager-0.23.0-150100.4.13.2.x86_64",
+						"openSUSE Leap 15.4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.aarch64",
+						"openSUSE Leap 15.4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.ppc64le",
+						"openSUSE Leap 15.4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.s390x",
+						"openSUSE Leap 15.4:golang-github-prometheus-node_exporter-1.5.0-150100.3.23.2.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2023-05-11T17:02:04Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2022-46146"
+		}
+	]
+}

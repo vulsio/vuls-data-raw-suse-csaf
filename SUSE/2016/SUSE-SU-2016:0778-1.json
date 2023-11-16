@@ -1,0 +1,1483 @@
+{
+	"document": {
+		"aggregate_severity": {
+			"namespace": "https://www.suse.com/support/security/rating/",
+			"text": "important"
+		},
+		"category": "csaf_security_advisory",
+		"csaf_version": "2.0",
+		"distribution": {
+			"text": "Copyright 2023 SUSE LLC. All rights reserved.",
+			"tlp": {
+				"label": "WHITE",
+				"url": "https://www.first.org/tlp/"
+			}
+		},
+		"lang": "en",
+		"notes": [
+			{
+				"category": "summary",
+				"text": "Security update for sles11sp4-docker-image",
+				"title": "Title of the patch"
+			},
+			{
+				"category": "description",
+				"text": "\nThis rebuild for sles11sp4-docker-image fixes several important security issues\ndone in libraries contained inside, for glibc, openssl, curl and openldap2.\n\nglibc security fixes:\n\n- CVE-2015-7547: A stack-based buffer overflow in getaddrinfo allowed remote attackers to cause a crash or execute arbitrary code via crafted and timed DNS responses (bsc#961721)\n- CVE-2015-8777: Insufficient checking of LD_POINTER_GUARD environment variable allowed local attackers to bypass the pointer guarding protection of the dynamic loader on set-user-ID and set-group-ID programs (bsc#950944)\n- CVE-2015-8776: Out-of-range time values passed to the strftime function may cause it to crash, leading to a denial of service, or potentially disclosure information (bsc#962736)\n- CVE-2015-8778: Integer overflow in hcreate and hcreate_r could have caused an out-of-bound memory access. leading to application crashes or, potentially, arbitrary code execution (bsc#962737)\n- CVE-2014-9761: A stack overflow (unbounded alloca) could have caused applications which process long strings with the nan function to crash or, potentially, execute arbitrary code. (bsc#962738)\n- CVE-2015-8779: A stack overflow (unbounded alloca) in the catopen function could have caused applications which pass long strings to the catopen function to crash or, potentially execute arbitrary code. (bsc#962739)\n\nglibc non-security bugfixes:\n\n- bsc#930721: Accept leading and trailing spaces in getdate input string\n- bsc#942317: Recognize power8 platform \n- bsc#950944: Always enable pointer guard\n- bsc#956988: Fix deadlock in __dl_iterate_phdr\n\nopenssl security issues fixed:\n\n- CVE-2016-0800 aka the 'DROWN' attack (bsc#968046):\n  OpenSSL was vulnerable to a cross-protocol attack that could lead to\n  decryption of TLS sessions by using a server supporting SSLv2 and\n  EXPORT cipher suites as a Bleichenbacher RSA padding oracle.\n\n  This update changes the openssl library to:\n\n  * Disable SSLv2 protocol support by default.\n\n    This can be overridden by setting the environment variable\n    'OPENSSL_ALLOW_SSL2' or by using SSL_CTX_clear_options using the\n    SSL_OP_NO_SSLv2 flag.\n\n    Note that various services and clients had already disabled SSL\n    protocol 2 by default previously.\n\n  * Disable all weak EXPORT ciphers by default. These can be reenabled\n    if required by old legacy software using the environment variable\n    'OPENSSL_ALLOW_EXPORT'.\n\n- CVE-2016-0705 (bnc#968047):\n  A double free() bug in the DSA ASN1 parser code was fixed that could\n  be abused to facilitate a denial-of-service attack.\n\n- CVE-2016-0797 (bnc#968048):\n  The BN_hex2bn() and BN_dec2bn() functions had a bug that could result\n  in an attempt to de-reference a NULL pointer leading to crashes.\n  This could have security consequences if these functions were ever\n  called by user applications with large untrusted hex/decimal data. Also,\n  internal usage of these functions in OpenSSL uses data from config files\n  or application command line arguments. If user developed applications\n  generated config file data based on untrusted data, then this could\n  have had security consequences as well.\n\n- CVE-2016-0799 (bnc#968374)\n  On many 64 bit systems, the internal fmtstr() and doapr_outch()\n  functions could miscalculate the length of a string and attempt to\n  access out-of-bounds memory locations. These problems could have\n  enabled attacks where large amounts of untrusted data is passed to\n  the BIO_*printf functions. If applications use these functions in\n  this way then they could have been vulnerable. OpenSSL itself uses\n  these functions when printing out human-readable dumps of ASN.1\n  data. Therefore applications that print this data could have been\n  vulnerable if the data is from untrusted sources. OpenSSL command line\n  applications could also have been vulnerable when they print out ASN.1\n  data, or if untrusted data is passed as command line arguments. Libssl\n  is not considered directly vulnerable.\n\n- CVE-2015-3197 (bsc#963415):\n  The SSLv2 protocol did not block disabled ciphers.\n\nNote that the March 1st 2016 release also references following CVEs\nthat were fixed by us with CVE-2015-0293 in 2015:\n\n- CVE-2016-0703 (bsc#968051): This issue only affected versions of\n  OpenSSL prior to March 19th 2015 at which time the code was refactored\n  to address vulnerability CVE-2015-0293. It would have made the above\n  'DROWN' attack much easier.\n- CVE-2016-0704 (bsc#968053): 'Bleichenbacher oracle in SSLv2'\n  This issue only affected versions of OpenSSL prior to March 19th\n  2015 at which time the code was refactored to address vulnerability\n  CVE-2015-0293. It would have made the above 'DROWN' attack much easier.\n\nopenssl non-security bugs fixed:\n\n- Avoid running OPENSSL_config twice. This avoids breaking\n  engine loading and also fixes a memory leak in libssl. (bsc#952871 bsc#967787)\n\n\ncurl security issues fixed:\n\n- CVE-2016-0755: libcurl would reuse NTLM-authenticated proxy connections without properly making sure that the connection was authenticated with the same credentials as set for this transfer (bsc#962983)\n\ncurl non-security bugs fixed:\n- bsc#926511: Check for errors on the control connection during FTP transfers\n\nopenldap2 security issue fixed:\n\n- CVE-2015-6908. Passing a crafted packet to the function  ber_get_next(),\n  an attacker may cause a remote denial of service, crashing the OpenLDAP server (bsc#945582).\n",
+				"title": "Description of the patch"
+			},
+			{
+				"category": "details",
+				"text": "SUSE-SLE-Module-Containers-12-2016-457",
+				"title": "Patchnames"
+			},
+			{
+				"category": "legal_disclaimer",
+				"text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+				"title": "Terms of use"
+			}
+		],
+		"publisher": {
+			"category": "vendor",
+			"contact_details": "https://www.suse.com/support/security/contact/",
+			"name": "SUSE Product Security Team",
+			"namespace": "https://www.suse.com/"
+		},
+		"references": [
+			{
+				"category": "self",
+				"summary": "URL for SUSE-SU-2016:0778-1",
+				"url": "https://www.suse.com/support/update/announcement/2016/suse-su-20160778-1/"
+			},
+			{
+				"category": "external",
+				"summary": "SUSE ratings",
+				"url": "https://www.suse.com/support/security/rating/"
+			},
+			{
+				"category": "self",
+				"summary": "URL of this CSAF notice",
+				"url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2016_0778-1.json"
+			},
+			{
+				"category": "self",
+				"summary": "E-Mail link for SUSE-SU-2016:0778-1",
+				"url": "https://lists.opensuse.org/opensuse-security-announce/2016-03/msg00051.html"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 969591",
+				"url": "https://bugzilla.suse.com/969591"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2014-9761 page",
+				"url": "https://www.suse.com/security/cve/CVE-2014-9761/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-3197 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-3197/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-6908 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-6908/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-7547 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-7547/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-8776 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-8776/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-8777 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-8777/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-8778 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-8778/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-8779 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-8779/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2016-0702 page",
+				"url": "https://www.suse.com/security/cve/CVE-2016-0702/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2016-0703 page",
+				"url": "https://www.suse.com/security/cve/CVE-2016-0703/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2016-0704 page",
+				"url": "https://www.suse.com/security/cve/CVE-2016-0704/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2016-0705 page",
+				"url": "https://www.suse.com/security/cve/CVE-2016-0705/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2016-0755 page",
+				"url": "https://www.suse.com/security/cve/CVE-2016-0755/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2016-0797 page",
+				"url": "https://www.suse.com/security/cve/CVE-2016-0797/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2016-0799 page",
+				"url": "https://www.suse.com/security/cve/CVE-2016-0799/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2016-0800 page",
+				"url": "https://www.suse.com/security/cve/CVE-2016-0800/"
+			}
+		],
+		"title": "Security update for sles11sp4-docker-image",
+		"tracking": {
+			"current_release_date": "2016-03-15T17:01:49Z",
+			"generator": {
+				"date": "2016-03-15T17:01:49Z",
+				"engine": {
+					"name": "cve-database.git:bin/generate-csaf.pl",
+					"version": "1"
+				}
+			},
+			"id": "SUSE-SU-2016:0778-1",
+			"initial_release_date": "2016-03-15T17:01:49Z",
+			"revision_history": [
+				{
+					"date": "2016-03-15T17:01:49Z",
+					"number": "1",
+					"summary": "Current version"
+				}
+			],
+			"status": "final",
+			"version": "1"
+		}
+	},
+	"product_tree": {
+		"branches": [
+			{
+				"branches": [
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "sles11sp4-docker-image-1.1.1-20160304104123.s390x",
+								"product": {
+									"name": "sles11sp4-docker-image-1.1.1-20160304104123.s390x",
+									"product_id": "sles11sp4-docker-image-1.1.1-20160304104123.s390x"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "s390x"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "sles11sp4-docker-image-1.1.1-20160304104123.x86_64",
+								"product": {
+									"name": "sles11sp4-docker-image-1.1.1-20160304104123.x86_64",
+									"product_id": "sles11sp4-docker-image-1.1.1-20160304104123.x86_64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "x86_64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Module for Containers 12",
+								"product": {
+									"name": "SUSE Linux Enterprise Module for Containers 12",
+									"product_id": "SUSE Linux Enterprise Module for Containers 12",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-module-containers:12"
+									}
+								}
+							}
+						],
+						"category": "product_family",
+						"name": "SUSE Linux Enterprise"
+					}
+				],
+				"category": "vendor",
+				"name": "SUSE"
+			}
+		],
+		"relationships": [
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "sles11sp4-docker-image-1.1.1-20160304104123.s390x as component of SUSE Linux Enterprise Module for Containers 12",
+					"product_id": "SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.s390x"
+				},
+				"product_reference": "sles11sp4-docker-image-1.1.1-20160304104123.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Containers 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "sles11sp4-docker-image-1.1.1-20160304104123.x86_64 as component of SUSE Linux Enterprise Module for Containers 12",
+					"product_id": "SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.x86_64"
+				},
+				"product_reference": "sles11sp4-docker-image-1.1.1-20160304104123.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Containers 12"
+			}
+		]
+	},
+	"vulnerabilities": [
+		{
+			"cve": "CVE-2014-9761",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2014-9761"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Multiple stack-based buffer overflows in the GNU C Library (aka glibc or libc6) before 2.23 allow context-dependent attackers to cause a denial of service (application crash) or possibly execute arbitrary code via a long argument to the (1) nan, (2) nanf, or (3) nanl function.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.s390x",
+					"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2014-9761",
+					"url": "https://www.suse.com/security/cve/CVE-2014-9761"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1123874 for CVE-2014-9761",
+					"url": "https://bugzilla.suse.com/1123874"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 962738 for CVE-2014-9761",
+					"url": "https://bugzilla.suse.com/962738"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 986086 for CVE-2014-9761",
+					"url": "https://bugzilla.suse.com/986086"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.s390x",
+						"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 9.8,
+						"baseSeverity": "CRITICAL",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.s390x",
+						"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2016-03-15T17:01:49Z",
+					"details": "critical"
+				}
+			],
+			"title": "CVE-2014-9761"
+		},
+		{
+			"cve": "CVE-2015-3197",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-3197"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "ssl/s2_srvr.c in OpenSSL 1.0.1 before 1.0.1r and 1.0.2 before 1.0.2f does not prevent use of disabled ciphers, which makes it easier for man-in-the-middle attackers to defeat cryptographic protection mechanisms by performing computations on SSLv2 traffic, related to the get_client_master_key and get_client_hello functions.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.s390x",
+					"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-3197",
+					"url": "https://www.suse.com/security/cve/CVE-2015-3197"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 963410 for CVE-2015-3197",
+					"url": "https://bugzilla.suse.com/963410"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 963415 for CVE-2015-3197",
+					"url": "https://bugzilla.suse.com/963415"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 968044 for CVE-2015-3197",
+					"url": "https://bugzilla.suse.com/968044"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 968046 for CVE-2015-3197",
+					"url": "https://bugzilla.suse.com/968046"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.s390x",
+						"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 5.9,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.s390x",
+						"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2016-03-15T17:01:49Z",
+					"details": "low"
+				}
+			],
+			"title": "CVE-2015-3197"
+		},
+		{
+			"cve": "CVE-2015-6908",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-6908"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The ber_get_next function in libraries/liblber/io.c in OpenLDAP 2.4.42 and earlier allows remote attackers to cause a denial of service (reachable assertion and application crash) via crafted BER data, as demonstrated by an attack against slapd.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.s390x",
+					"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-6908",
+					"url": "https://www.suse.com/security/cve/CVE-2015-6908"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 945582 for CVE-2015-6908",
+					"url": "https://bugzilla.suse.com/945582"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.s390x",
+						"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2016-03-15T17:01:49Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2015-6908"
+		},
+		{
+			"cve": "CVE-2015-7547",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-7547"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Multiple stack-based buffer overflows in the (1) send_dg and (2) send_vc functions in the libresolv library in the GNU C Library (aka glibc or libc6) before 2.23 allow remote attackers to cause a denial of service (crash) or possibly execute arbitrary code via a crafted DNS response that triggers a call to the getaddrinfo function with the AF_UNSPEC or AF_INET6 address family, related to performing \"dual A/AAAA DNS queries\" and the libnss_dns.so.2 NSS module.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.s390x",
+					"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-7547",
+					"url": "https://www.suse.com/security/cve/CVE-2015-7547"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1077097 for CVE-2015-7547",
+					"url": "https://bugzilla.suse.com/1077097"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 847227 for CVE-2015-7547",
+					"url": "https://bugzilla.suse.com/847227"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 961721 for CVE-2015-7547",
+					"url": "https://bugzilla.suse.com/961721"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 967023 for CVE-2015-7547",
+					"url": "https://bugzilla.suse.com/967023"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 967061 for CVE-2015-7547",
+					"url": "https://bugzilla.suse.com/967061"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 967072 for CVE-2015-7547",
+					"url": "https://bugzilla.suse.com/967072"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 967496 for CVE-2015-7547",
+					"url": "https://bugzilla.suse.com/967496"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 969216 for CVE-2015-7547",
+					"url": "https://bugzilla.suse.com/969216"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 969241 for CVE-2015-7547",
+					"url": "https://bugzilla.suse.com/969241"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 969591 for CVE-2015-7547",
+					"url": "https://bugzilla.suse.com/969591"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 986086 for CVE-2015-7547",
+					"url": "https://bugzilla.suse.com/986086"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.s390x",
+						"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 8.1,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.s390x",
+						"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2016-03-15T17:01:49Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2015-7547"
+		},
+		{
+			"cve": "CVE-2015-8776",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-8776"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The strftime function in the GNU C Library (aka glibc or libc6) before 2.23 allows context-dependent attackers to cause a denial of service (application crash) or possibly obtain sensitive information via an out-of-range time value.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.s390x",
+					"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-8776",
+					"url": "https://www.suse.com/security/cve/CVE-2015-8776"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1123874 for CVE-2015-8776",
+					"url": "https://bugzilla.suse.com/1123874"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 962736 for CVE-2015-8776",
+					"url": "https://bugzilla.suse.com/962736"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 986086 for CVE-2015-8776",
+					"url": "https://bugzilla.suse.com/986086"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.s390x",
+						"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2016-03-15T17:01:49Z",
+					"details": "low"
+				}
+			],
+			"title": "CVE-2015-8776"
+		},
+		{
+			"cve": "CVE-2015-8777",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-8777"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The process_envvars function in elf/rtld.c in the GNU C Library (aka glibc or libc6) before 2.23 allows local users to bypass a pointer-guarding protection mechanism via a zero value of the LD_POINTER_GUARD environment variable.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.s390x",
+					"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-8777",
+					"url": "https://www.suse.com/security/cve/CVE-2015-8777"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1123874 for CVE-2015-8777",
+					"url": "https://bugzilla.suse.com/1123874"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 950944 for CVE-2015-8777",
+					"url": "https://bugzilla.suse.com/950944"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 962735 for CVE-2015-8777",
+					"url": "https://bugzilla.suse.com/962735"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.s390x",
+						"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2016-03-15T17:01:49Z",
+					"details": "low"
+				}
+			],
+			"title": "CVE-2015-8777"
+		},
+		{
+			"cve": "CVE-2015-8778",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-8778"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Integer overflow in the GNU C Library (aka glibc or libc6) before 2.23 allows context-dependent attackers to cause a denial of service (application crash) or possibly execute arbitrary code via the size argument to the __hcreate_r function, which triggers out-of-bounds heap-memory access.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.s390x",
+					"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-8778",
+					"url": "https://www.suse.com/security/cve/CVE-2015-8778"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1123874 for CVE-2015-8778",
+					"url": "https://bugzilla.suse.com/1123874"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 962737 for CVE-2015-8778",
+					"url": "https://bugzilla.suse.com/962737"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 986086 for CVE-2015-8778",
+					"url": "https://bugzilla.suse.com/986086"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.s390x",
+						"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2016-03-15T17:01:49Z",
+					"details": "low"
+				}
+			],
+			"title": "CVE-2015-8778"
+		},
+		{
+			"cve": "CVE-2015-8779",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-8779"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Stack-based buffer overflow in the catopen function in the GNU C Library (aka glibc or libc6) before 2.23 allows context-dependent attackers to cause a denial of service (application crash) or possibly execute arbitrary code via a long catalog name.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.s390x",
+					"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-8779",
+					"url": "https://www.suse.com/security/cve/CVE-2015-8779"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1123874 for CVE-2015-8779",
+					"url": "https://bugzilla.suse.com/1123874"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 962739 for CVE-2015-8779",
+					"url": "https://bugzilla.suse.com/962739"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 965453 for CVE-2015-8779",
+					"url": "https://bugzilla.suse.com/965453"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 986086 for CVE-2015-8779",
+					"url": "https://bugzilla.suse.com/986086"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.s390x",
+						"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2016-03-15T17:01:49Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2015-8779"
+		},
+		{
+			"cve": "CVE-2016-0702",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2016-0702"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The MOD_EXP_CTIME_COPY_FROM_PREBUF function in crypto/bn/bn_exp.c in OpenSSL 1.0.1 before 1.0.1s and 1.0.2 before 1.0.2g does not properly consider cache-bank access times during modular exponentiation, which makes it easier for local users to discover RSA keys by running a crafted application on the same Intel Sandy Bridge CPU core as a victim and leveraging cache-bank conflicts, aka a \"CacheBleed\" attack.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.s390x",
+					"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2016-0702",
+					"url": "https://www.suse.com/security/cve/CVE-2016-0702"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1007806 for CVE-2016-0702",
+					"url": "https://bugzilla.suse.com/1007806"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 968044 for CVE-2016-0702",
+					"url": "https://bugzilla.suse.com/968044"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 968050 for CVE-2016-0702",
+					"url": "https://bugzilla.suse.com/968050"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 971238 for CVE-2016-0702",
+					"url": "https://bugzilla.suse.com/971238"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 990370 for CVE-2016-0702",
+					"url": "https://bugzilla.suse.com/990370"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.s390x",
+						"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 5.1,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:L/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.s390x",
+						"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2016-03-15T17:01:49Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2016-0702"
+		},
+		{
+			"cve": "CVE-2016-0703",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2016-0703"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The get_client_master_key function in s2_srvr.c in the SSLv2 implementation in OpenSSL before 0.9.8zf, 1.0.0 before 1.0.0r, 1.0.1 before 1.0.1m, and 1.0.2 before 1.0.2a accepts a nonzero CLIENT-MASTER-KEY CLEAR-KEY-LENGTH value for an arbitrary cipher, which allows man-in-the-middle attackers to determine the MASTER-KEY value and decrypt TLS ciphertext data by leveraging a Bleichenbacher RSA padding oracle, a related issue to CVE-2016-0800.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.s390x",
+					"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2016-0703",
+					"url": "https://www.suse.com/security/cve/CVE-2016-0703"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 968044 for CVE-2016-0703",
+					"url": "https://bugzilla.suse.com/968044"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 968046 for CVE-2016-0703",
+					"url": "https://bugzilla.suse.com/968046"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 968051 for CVE-2016-0703",
+					"url": "https://bugzilla.suse.com/968051"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 986238 for CVE-2016-0703",
+					"url": "https://bugzilla.suse.com/986238"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.s390x",
+						"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 5.9,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.s390x",
+						"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2016-03-15T17:01:49Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2016-0703"
+		},
+		{
+			"cve": "CVE-2016-0704",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2016-0704"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "An oracle protection mechanism in the get_client_master_key function in s2_srvr.c in the SSLv2 implementation in OpenSSL before 0.9.8zf, 1.0.0 before 1.0.0r, 1.0.1 before 1.0.1m, and 1.0.2 before 1.0.2a overwrites incorrect MASTER-KEY bytes during use of export cipher suites, which makes it easier for remote attackers to decrypt TLS ciphertext data by leveraging a Bleichenbacher RSA padding oracle, a related issue to CVE-2016-0800.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.s390x",
+					"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2016-0704",
+					"url": "https://www.suse.com/security/cve/CVE-2016-0704"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 968044 for CVE-2016-0704",
+					"url": "https://bugzilla.suse.com/968044"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 968053 for CVE-2016-0704",
+					"url": "https://bugzilla.suse.com/968053"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 986238 for CVE-2016-0704",
+					"url": "https://bugzilla.suse.com/986238"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.s390x",
+						"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 5.9,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.s390x",
+						"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2016-03-15T17:01:49Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2016-0704"
+		},
+		{
+			"cve": "CVE-2016-0705",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2016-0705"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Double free vulnerability in the dsa_priv_decode function in crypto/dsa/dsa_ameth.c in OpenSSL 1.0.1 before 1.0.1s and 1.0.2 before 1.0.2g allows remote attackers to cause a denial of service (memory corruption) or possibly have unspecified other impact via a malformed DSA private key.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.s390x",
+					"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2016-0705",
+					"url": "https://www.suse.com/security/cve/CVE-2016-0705"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 968044 for CVE-2016-0705",
+					"url": "https://bugzilla.suse.com/968044"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 968047 for CVE-2016-0705",
+					"url": "https://bugzilla.suse.com/968047"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 971238 for CVE-2016-0705",
+					"url": "https://bugzilla.suse.com/971238"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 976341 for CVE-2016-0705",
+					"url": "https://bugzilla.suse.com/976341"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.s390x",
+						"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 9.8,
+						"baseSeverity": "CRITICAL",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.s390x",
+						"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2016-03-15T17:01:49Z",
+					"details": "critical"
+				}
+			],
+			"title": "CVE-2016-0705"
+		},
+		{
+			"cve": "CVE-2016-0755",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2016-0755"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The ConnectionExists function in lib/url.c in libcurl before 7.47.0 does not properly re-use NTLM-authenticated proxy connections, which might allow remote attackers to authenticate as other users via a request, a similar issue to CVE-2014-0015.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.s390x",
+					"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2016-0755",
+					"url": "https://www.suse.com/security/cve/CVE-2016-0755"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 962983 for CVE-2016-0755",
+					"url": "https://bugzilla.suse.com/962983"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.s390x",
+						"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.3,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.s390x",
+						"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2016-03-15T17:01:49Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2016-0755"
+		},
+		{
+			"cve": "CVE-2016-0797",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2016-0797"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Multiple integer overflows in OpenSSL 1.0.1 before 1.0.1s and 1.0.2 before 1.0.2g allow remote attackers to cause a denial of service (heap memory corruption or NULL pointer dereference) or possibly have unspecified other impact via a long digit string that is mishandled by the (1) BN_dec2bn or (2) BN_hex2bn function, related to crypto/bn/bn.h and crypto/bn/bn_print.c.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.s390x",
+					"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2016-0797",
+					"url": "https://www.suse.com/security/cve/CVE-2016-0797"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 968044 for CVE-2016-0797",
+					"url": "https://bugzilla.suse.com/968044"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 968048 for CVE-2016-0797",
+					"url": "https://bugzilla.suse.com/968048"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 990370 for CVE-2016-0797",
+					"url": "https://bugzilla.suse.com/990370"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.s390x",
+						"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.5,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.s390x",
+						"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2016-03-15T17:01:49Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2016-0797"
+		},
+		{
+			"cve": "CVE-2016-0799",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2016-0799"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The fmtstr function in crypto/bio/b_print.c in OpenSSL 1.0.1 before 1.0.1s and 1.0.2 before 1.0.2g improperly calculates string lengths, which allows remote attackers to cause a denial of service (overflow and out-of-bounds read) or possibly have unspecified other impact via a long string, as demonstrated by a large amount of ASN.1 data, a different vulnerability than CVE-2016-2842.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.s390x",
+					"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2016-0799",
+					"url": "https://www.suse.com/security/cve/CVE-2016-0799"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 968044 for CVE-2016-0799",
+					"url": "https://bugzilla.suse.com/968044"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 968374 for CVE-2016-0799",
+					"url": "https://bugzilla.suse.com/968374"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 969517 for CVE-2016-0799",
+					"url": "https://bugzilla.suse.com/969517"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 989345 for CVE-2016-0799",
+					"url": "https://bugzilla.suse.com/989345"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 990370 for CVE-2016-0799",
+					"url": "https://bugzilla.suse.com/990370"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 991722 for CVE-2016-0799",
+					"url": "https://bugzilla.suse.com/991722"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.s390x",
+						"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 9.8,
+						"baseSeverity": "CRITICAL",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.s390x",
+						"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2016-03-15T17:01:49Z",
+					"details": "low"
+				}
+			],
+			"title": "CVE-2016-0799"
+		},
+		{
+			"cve": "CVE-2016-0800",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2016-0800"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The SSLv2 protocol, as used in OpenSSL before 1.0.1s and 1.0.2 before 1.0.2g and other products, requires a server to send a ServerVerify message before establishing that a client possesses certain plaintext RSA data, which makes it easier for remote attackers to decrypt TLS ciphertext data by leveraging a Bleichenbacher RSA padding oracle, aka a \"DROWN\" attack.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.s390x",
+					"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2016-0800",
+					"url": "https://www.suse.com/security/cve/CVE-2016-0800"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1106871 for CVE-2016-0800",
+					"url": "https://bugzilla.suse.com/1106871"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 961377 for CVE-2016-0800",
+					"url": "https://bugzilla.suse.com/961377"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 968044 for CVE-2016-0800",
+					"url": "https://bugzilla.suse.com/968044"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 968046 for CVE-2016-0800",
+					"url": "https://bugzilla.suse.com/968046"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 968888 for CVE-2016-0800",
+					"url": "https://bugzilla.suse.com/968888"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 969591 for CVE-2016-0800",
+					"url": "https://bugzilla.suse.com/969591"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 979060 for CVE-2016-0800",
+					"url": "https://bugzilla.suse.com/979060"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.s390x",
+						"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 5.9,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.s390x",
+						"SUSE Linux Enterprise Module for Containers 12:sles11sp4-docker-image-1.1.1-20160304104123.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2016-03-15T17:01:49Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2016-0800"
+		}
+	]
+}

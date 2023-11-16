@@ -1,0 +1,2281 @@
+{
+	"document": {
+		"aggregate_severity": {
+			"namespace": "https://www.suse.com/support/security/rating/",
+			"text": "important"
+		},
+		"category": "csaf_security_advisory",
+		"csaf_version": "2.0",
+		"distribution": {
+			"text": "Copyright 2023 SUSE LLC. All rights reserved.",
+			"tlp": {
+				"label": "WHITE",
+				"url": "https://www.first.org/tlp/"
+			}
+		},
+		"lang": "en",
+		"notes": [
+			{
+				"category": "summary",
+				"text": "Security update for the Linux Kernel",
+				"title": "Title of the patch"
+			},
+			{
+				"category": "description",
+				"text": "\n\nThe SUSE Linux Enterprise 12 GA LTSS kernel was updated to receive various security and bugfixes.\n\nThe following security bugs were fixed:\n\n- CVE-2018-1087: And an unprivileged KVM guest user could use this flaw to potentially escalate their privileges inside a guest. (bsc#1087088)\n- CVE-2018-8897: An unprivileged system user could use incorrect set up interrupt stacks to crash the Linux kernel resulting in DoS issue. (bsc#1087088)\n- CVE-2018-8781: The udl_fb_mmap function in drivers/gpu/drm/udl/udl_fb.c had an integer-overflow vulnerability allowing local users with access to the udldrmfb driver to obtain full read and write permissions on kernel physical pages, resulting in a code execution in kernel space (bnc#1090643).\n- CVE-2018-10124: The kill_something_info function in kernel/signal.c might allow local users to cause a denial of service via an INT_MIN argument (bnc#1089752).\n- CVE-2018-10087: The kernel_wait4 function in kernel/exit.c might allow local users to cause a denial of service by triggering an attempted use of the -INT_MIN value (bnc#1089608).\n- CVE-2018-7757: Memory leak in the sas_smp_get_phy_events function in drivers/scsi/libsas/sas_expander.c allowed local users to cause a denial of service (memory consumption) via many read accesses to files in the /sys/class/sas_phy directory, as demonstrated by the /sys/class/sas_phy/phy-1:0:12/invalid_dword_count file (bnc#1084536 1087209).\n- CVE-2017-13220: An elevation of privilege vulnerability in the Upstream kernel bluez was fixed. (bnc#1076537).\n- CVE-2017-11089: A buffer overread was observed in nl80211_set_station when user space application sends attribute NL80211_ATTR_LOCAL_MESH_POWER_MODE with data of size less than 4 bytes   (bnc#1088261).\n- CVE-2017-0861: Use-after-free vulnerability in the snd_pcm_info function in the ALSA subsystem allowed attackers to gain privileges via unspecified vectors (bnc#1088260).\n- CVE-2018-8822: Incorrect buffer length handling in the ncp_read_kernel function in fs/ncpfs/ncplib_kernel.c could be exploited by malicious NCPFS servers to crash the kernel or execute code (bnc#1086162).\n- CVE-2017-18203: The dm_get_from_kobject function in drivers/md/dm.c allow local users to cause a denial of service (BUG) by leveraging a race condition with __dm_destroy during creation and removal of DM devices (bnc#1083242).\n\nThe following non-security bugs were fixed:\n\n- Integrate fixes resulting from bsc#1088147 More info in the respective commit messages.\n- KABI: x86/kaiser: properly align trampoline stack (bsc#1087260).\n- kGraft: fix small race in reversion code (bsc#1083125).\n- kabi/severities: Ignore kgr_shadow_* kABI changes\n- kvm/x86: fix icebp instruction handling (bsc#1087088).\n- livepatch: Allow to call a custom callback when freeing shadow variables (bsc#1082299 fate#313296).\n- livepatch: Initialize shadow variables safely by a custom callback (bsc#1082299 fate#313296).\n- x86/entry/64: Do not use IST entry for #BP stack (bsc#1087088).\n- x86/kaiser: properly align trampoline stack (bsc#1087260).\n- x86/retpoline: do not perform thunk calls in ring3 vsyscall code (bsc#1085331).\n",
+				"title": "Description of the patch"
+			},
+			{
+				"category": "details",
+				"text": "SUSE-SLE-Module-Public-Cloud-12-2018-844,SUSE-SLE-SERVER-12-2018-844",
+				"title": "Patchnames"
+			},
+			{
+				"category": "legal_disclaimer",
+				"text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+				"title": "Terms of use"
+			}
+		],
+		"publisher": {
+			"category": "vendor",
+			"contact_details": "https://www.suse.com/support/security/contact/",
+			"name": "SUSE Product Security Team",
+			"namespace": "https://www.suse.com/"
+		},
+		"references": [
+			{
+				"category": "self",
+				"summary": "URL for SUSE-SU-2018:1221-1",
+				"url": "https://www.suse.com/support/update/announcement/2018/suse-su-20181221-1/"
+			},
+			{
+				"category": "external",
+				"summary": "SUSE ratings",
+				"url": "https://www.suse.com/support/security/rating/"
+			},
+			{
+				"category": "self",
+				"summary": "URL of this CSAF notice",
+				"url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2018_1221-1.json"
+			},
+			{
+				"category": "self",
+				"summary": "E-Mail link for SUSE-SU-2018:1221-1",
+				"url": "https://lists.opensuse.org/opensuse-security-announce/2018-05/msg00021.html"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1076537",
+				"url": "https://bugzilla.suse.com/1076537"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1082299",
+				"url": "https://bugzilla.suse.com/1082299"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1083125",
+				"url": "https://bugzilla.suse.com/1083125"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1083242",
+				"url": "https://bugzilla.suse.com/1083242"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1084536",
+				"url": "https://bugzilla.suse.com/1084536"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1085331",
+				"url": "https://bugzilla.suse.com/1085331"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1086162",
+				"url": "https://bugzilla.suse.com/1086162"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1087088",
+				"url": "https://bugzilla.suse.com/1087088"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1087209",
+				"url": "https://bugzilla.suse.com/1087209"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1087260",
+				"url": "https://bugzilla.suse.com/1087260"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1088147",
+				"url": "https://bugzilla.suse.com/1088147"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1088260",
+				"url": "https://bugzilla.suse.com/1088260"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1088261",
+				"url": "https://bugzilla.suse.com/1088261"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089608",
+				"url": "https://bugzilla.suse.com/1089608"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089752",
+				"url": "https://bugzilla.suse.com/1089752"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1090643",
+				"url": "https://bugzilla.suse.com/1090643"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2017-0861 page",
+				"url": "https://www.suse.com/security/cve/CVE-2017-0861/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2017-11089 page",
+				"url": "https://www.suse.com/security/cve/CVE-2017-11089/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2017-13220 page",
+				"url": "https://www.suse.com/security/cve/CVE-2017-13220/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2017-18203 page",
+				"url": "https://www.suse.com/security/cve/CVE-2017-18203/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2018-10087 page",
+				"url": "https://www.suse.com/security/cve/CVE-2018-10087/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2018-10124 page",
+				"url": "https://www.suse.com/security/cve/CVE-2018-10124/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2018-1087 page",
+				"url": "https://www.suse.com/security/cve/CVE-2018-1087/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2018-7757 page",
+				"url": "https://www.suse.com/security/cve/CVE-2018-7757/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2018-8781 page",
+				"url": "https://www.suse.com/security/cve/CVE-2018-8781/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2018-8822 page",
+				"url": "https://www.suse.com/security/cve/CVE-2018-8822/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2018-8897 page",
+				"url": "https://www.suse.com/security/cve/CVE-2018-8897/"
+			}
+		],
+		"title": "Security update for the Linux Kernel",
+		"tracking": {
+			"current_release_date": "2018-05-11T15:16:24Z",
+			"generator": {
+				"date": "2018-05-11T15:16:24Z",
+				"engine": {
+					"name": "cve-database.git:bin/generate-csaf.pl",
+					"version": "1"
+				}
+			},
+			"id": "SUSE-SU-2018:1221-1",
+			"initial_release_date": "2018-05-11T15:16:24Z",
+			"revision_history": [
+				{
+					"date": "2018-05-11T15:16:24Z",
+					"number": "1",
+					"summary": "Current version"
+				}
+			],
+			"status": "final",
+			"version": "1"
+		}
+	},
+	"product_tree": {
+		"branches": [
+			{
+				"branches": [
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "kernel-devel-3.12.61-52.128.1.noarch",
+								"product": {
+									"name": "kernel-devel-3.12.61-52.128.1.noarch",
+									"product_id": "kernel-devel-3.12.61-52.128.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-macros-3.12.61-52.128.1.noarch",
+								"product": {
+									"name": "kernel-macros-3.12.61-52.128.1.noarch",
+									"product_id": "kernel-macros-3.12.61-52.128.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-source-3.12.61-52.128.1.noarch",
+								"product": {
+									"name": "kernel-source-3.12.61-52.128.1.noarch",
+									"product_id": "kernel-source-3.12.61-52.128.1.noarch"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "noarch"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "kernel-default-3.12.61-52.128.1.ppc64le",
+								"product": {
+									"name": "kernel-default-3.12.61-52.128.1.ppc64le",
+									"product_id": "kernel-default-3.12.61-52.128.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-base-3.12.61-52.128.1.ppc64le",
+								"product": {
+									"name": "kernel-default-base-3.12.61-52.128.1.ppc64le",
+									"product_id": "kernel-default-base-3.12.61-52.128.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-devel-3.12.61-52.128.1.ppc64le",
+								"product": {
+									"name": "kernel-default-devel-3.12.61-52.128.1.ppc64le",
+									"product_id": "kernel-default-devel-3.12.61-52.128.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-syms-3.12.61-52.128.1.ppc64le",
+								"product": {
+									"name": "kernel-syms-3.12.61-52.128.1.ppc64le",
+									"product_id": "kernel-syms-3.12.61-52.128.1.ppc64le"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "ppc64le"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "kernel-default-3.12.61-52.128.1.s390x",
+								"product": {
+									"name": "kernel-default-3.12.61-52.128.1.s390x",
+									"product_id": "kernel-default-3.12.61-52.128.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-base-3.12.61-52.128.1.s390x",
+								"product": {
+									"name": "kernel-default-base-3.12.61-52.128.1.s390x",
+									"product_id": "kernel-default-base-3.12.61-52.128.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-devel-3.12.61-52.128.1.s390x",
+								"product": {
+									"name": "kernel-default-devel-3.12.61-52.128.1.s390x",
+									"product_id": "kernel-default-devel-3.12.61-52.128.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-man-3.12.61-52.128.1.s390x",
+								"product": {
+									"name": "kernel-default-man-3.12.61-52.128.1.s390x",
+									"product_id": "kernel-default-man-3.12.61-52.128.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-syms-3.12.61-52.128.1.s390x",
+								"product": {
+									"name": "kernel-syms-3.12.61-52.128.1.s390x",
+									"product_id": "kernel-syms-3.12.61-52.128.1.s390x"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "s390x"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "kernel-ec2-3.12.61-52.128.1.x86_64",
+								"product": {
+									"name": "kernel-ec2-3.12.61-52.128.1.x86_64",
+									"product_id": "kernel-ec2-3.12.61-52.128.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-ec2-devel-3.12.61-52.128.1.x86_64",
+								"product": {
+									"name": "kernel-ec2-devel-3.12.61-52.128.1.x86_64",
+									"product_id": "kernel-ec2-devel-3.12.61-52.128.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-ec2-extra-3.12.61-52.128.1.x86_64",
+								"product": {
+									"name": "kernel-ec2-extra-3.12.61-52.128.1.x86_64",
+									"product_id": "kernel-ec2-extra-3.12.61-52.128.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-3.12.61-52.128.1.x86_64",
+								"product": {
+									"name": "kernel-default-3.12.61-52.128.1.x86_64",
+									"product_id": "kernel-default-3.12.61-52.128.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-base-3.12.61-52.128.1.x86_64",
+								"product": {
+									"name": "kernel-default-base-3.12.61-52.128.1.x86_64",
+									"product_id": "kernel-default-base-3.12.61-52.128.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-devel-3.12.61-52.128.1.x86_64",
+								"product": {
+									"name": "kernel-default-devel-3.12.61-52.128.1.x86_64",
+									"product_id": "kernel-default-devel-3.12.61-52.128.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-syms-3.12.61-52.128.1.x86_64",
+								"product": {
+									"name": "kernel-syms-3.12.61-52.128.1.x86_64",
+									"product_id": "kernel-syms-3.12.61-52.128.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-xen-3.12.61-52.128.1.x86_64",
+								"product": {
+									"name": "kernel-xen-3.12.61-52.128.1.x86_64",
+									"product_id": "kernel-xen-3.12.61-52.128.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-xen-base-3.12.61-52.128.1.x86_64",
+								"product": {
+									"name": "kernel-xen-base-3.12.61-52.128.1.x86_64",
+									"product_id": "kernel-xen-base-3.12.61-52.128.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-xen-devel-3.12.61-52.128.1.x86_64",
+								"product": {
+									"name": "kernel-xen-devel-3.12.61-52.128.1.x86_64",
+									"product_id": "kernel-xen-devel-3.12.61-52.128.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kgraft-patch-3_12_61-52_128-default-1-1.3.1.x86_64",
+								"product": {
+									"name": "kgraft-patch-3_12_61-52_128-default-1-1.3.1.x86_64",
+									"product_id": "kgraft-patch-3_12_61-52_128-default-1-1.3.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kgraft-patch-3_12_61-52_128-xen-1-1.3.1.x86_64",
+								"product": {
+									"name": "kgraft-patch-3_12_61-52_128-xen-1-1.3.1.x86_64",
+									"product_id": "kgraft-patch-3_12_61-52_128-xen-1-1.3.1.x86_64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "x86_64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Module for Public Cloud 12",
+								"product": {
+									"name": "SUSE Linux Enterprise Module for Public Cloud 12",
+									"product_id": "SUSE Linux Enterprise Module for Public Cloud 12",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-module-public-cloud:12"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server 12-LTSS",
+								"product": {
+									"name": "SUSE Linux Enterprise Server 12-LTSS",
+									"product_id": "SUSE Linux Enterprise Server 12-LTSS",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sles-ltss:12"
+									}
+								}
+							}
+						],
+						"category": "product_family",
+						"name": "SUSE Linux Enterprise"
+					}
+				],
+				"category": "vendor",
+				"name": "SUSE"
+			}
+		],
+		"relationships": [
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-ec2-3.12.61-52.128.1.x86_64 as component of SUSE Linux Enterprise Module for Public Cloud 12",
+					"product_id": "SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-3.12.61-52.128.1.x86_64"
+				},
+				"product_reference": "kernel-ec2-3.12.61-52.128.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Public Cloud 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-ec2-devel-3.12.61-52.128.1.x86_64 as component of SUSE Linux Enterprise Module for Public Cloud 12",
+					"product_id": "SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-devel-3.12.61-52.128.1.x86_64"
+				},
+				"product_reference": "kernel-ec2-devel-3.12.61-52.128.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Public Cloud 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-ec2-extra-3.12.61-52.128.1.x86_64 as component of SUSE Linux Enterprise Module for Public Cloud 12",
+					"product_id": "SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-extra-3.12.61-52.128.1.x86_64"
+				},
+				"product_reference": "kernel-ec2-extra-3.12.61-52.128.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Public Cloud 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-3.12.61-52.128.1.ppc64le as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.ppc64le"
+				},
+				"product_reference": "kernel-default-3.12.61-52.128.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-3.12.61-52.128.1.s390x as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.s390x"
+				},
+				"product_reference": "kernel-default-3.12.61-52.128.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-3.12.61-52.128.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.x86_64"
+				},
+				"product_reference": "kernel-default-3.12.61-52.128.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-base-3.12.61-52.128.1.ppc64le as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.ppc64le"
+				},
+				"product_reference": "kernel-default-base-3.12.61-52.128.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-base-3.12.61-52.128.1.s390x as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.s390x"
+				},
+				"product_reference": "kernel-default-base-3.12.61-52.128.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-base-3.12.61-52.128.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.x86_64"
+				},
+				"product_reference": "kernel-default-base-3.12.61-52.128.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-devel-3.12.61-52.128.1.ppc64le as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.ppc64le"
+				},
+				"product_reference": "kernel-default-devel-3.12.61-52.128.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-devel-3.12.61-52.128.1.s390x as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.s390x"
+				},
+				"product_reference": "kernel-default-devel-3.12.61-52.128.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-devel-3.12.61-52.128.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.x86_64"
+				},
+				"product_reference": "kernel-default-devel-3.12.61-52.128.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-man-3.12.61-52.128.1.s390x as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kernel-default-man-3.12.61-52.128.1.s390x"
+				},
+				"product_reference": "kernel-default-man-3.12.61-52.128.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-devel-3.12.61-52.128.1.noarch as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kernel-devel-3.12.61-52.128.1.noarch"
+				},
+				"product_reference": "kernel-devel-3.12.61-52.128.1.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-macros-3.12.61-52.128.1.noarch as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kernel-macros-3.12.61-52.128.1.noarch"
+				},
+				"product_reference": "kernel-macros-3.12.61-52.128.1.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-source-3.12.61-52.128.1.noarch as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kernel-source-3.12.61-52.128.1.noarch"
+				},
+				"product_reference": "kernel-source-3.12.61-52.128.1.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-syms-3.12.61-52.128.1.ppc64le as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.ppc64le"
+				},
+				"product_reference": "kernel-syms-3.12.61-52.128.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-syms-3.12.61-52.128.1.s390x as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.s390x"
+				},
+				"product_reference": "kernel-syms-3.12.61-52.128.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-syms-3.12.61-52.128.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.x86_64"
+				},
+				"product_reference": "kernel-syms-3.12.61-52.128.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-xen-3.12.61-52.128.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kernel-xen-3.12.61-52.128.1.x86_64"
+				},
+				"product_reference": "kernel-xen-3.12.61-52.128.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-xen-base-3.12.61-52.128.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kernel-xen-base-3.12.61-52.128.1.x86_64"
+				},
+				"product_reference": "kernel-xen-base-3.12.61-52.128.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-xen-devel-3.12.61-52.128.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kernel-xen-devel-3.12.61-52.128.1.x86_64"
+				},
+				"product_reference": "kernel-xen-devel-3.12.61-52.128.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_128-default-1-1.3.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-default-1-1.3.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_128-default-1-1.3.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_128-xen-1-1.3.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-xen-1-1.3.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_128-xen-1-1.3.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			}
+		]
+	},
+	"vulnerabilities": [
+		{
+			"cve": "CVE-2017-0861",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2017-0861"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Use-after-free vulnerability in the snd_pcm_info function in the ALSA subsystem in the Linux kernel allows attackers to gain privileges via unspecified vectors.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-devel-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-extra-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-man-3.12.61-52.128.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-devel-3.12.61-52.128.1.noarch",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-macros-3.12.61-52.128.1.noarch",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-source-3.12.61-52.128.1.noarch",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-base-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-devel-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-default-1-1.3.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-xen-1-1.3.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2017-0861",
+					"url": "https://www.suse.com/security/cve/CVE-2017-0861"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1088260 for CVE-2017-0861",
+					"url": "https://bugzilla.suse.com/1088260"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1088268 for CVE-2017-0861",
+					"url": "https://bugzilla.suse.com/1088268"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1091815 for CVE-2017-0861",
+					"url": "https://bugzilla.suse.com/1091815"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1115893 for CVE-2017-0861",
+					"url": "https://bugzilla.suse.com/1115893"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-extra-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-man-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-devel-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-macros-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-source-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-base-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-default-1-1.3.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-xen-1-1.3.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.0/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-extra-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-man-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-devel-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-macros-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-source-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-base-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-default-1-1.3.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-xen-1-1.3.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-05-11T15:16:24Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2017-0861"
+		},
+		{
+			"cve": "CVE-2017-11089",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2017-11089"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "In android for MSM, Firefox OS for MSM, QRD Android, with all Android releases from CAF using the Linux kernel, a buffer overread is observed in nl80211_set_station when user space application sends attribute NL80211_ATTR_LOCAL_MESH_POWER_MODE with data of size less than 4 bytes",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-devel-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-extra-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-man-3.12.61-52.128.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-devel-3.12.61-52.128.1.noarch",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-macros-3.12.61-52.128.1.noarch",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-source-3.12.61-52.128.1.noarch",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-base-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-devel-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-default-1-1.3.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-xen-1-1.3.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2017-11089",
+					"url": "https://www.suse.com/security/cve/CVE-2017-11089"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1088261 for CVE-2017-11089",
+					"url": "https://bugzilla.suse.com/1088261"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-extra-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-man-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-devel-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-macros-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-source-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-base-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-default-1-1.3.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-xen-1-1.3.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 6.4,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.0/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-extra-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-man-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-devel-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-macros-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-source-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-base-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-default-1-1.3.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-xen-1-1.3.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-05-11T15:16:24Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2017-11089"
+		},
+		{
+			"cve": "CVE-2017-13220",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2017-13220"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "An elevation of privilege vulnerability in the Upstream kernel bluez. Product: Android. Versions: Android kernel. Android ID: A-63527053.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-devel-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-extra-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-man-3.12.61-52.128.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-devel-3.12.61-52.128.1.noarch",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-macros-3.12.61-52.128.1.noarch",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-source-3.12.61-52.128.1.noarch",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-base-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-devel-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-default-1-1.3.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-xen-1-1.3.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2017-13220",
+					"url": "https://www.suse.com/security/cve/CVE-2017-13220"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1076537 for CVE-2017-13220",
+					"url": "https://bugzilla.suse.com/1076537"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-extra-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-man-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-devel-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-macros-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-source-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-base-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-default-1-1.3.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-xen-1-1.3.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 5.3,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.0/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:L/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-extra-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-man-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-devel-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-macros-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-source-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-base-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-default-1-1.3.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-xen-1-1.3.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-05-11T15:16:24Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2017-13220"
+		},
+		{
+			"cve": "CVE-2017-18203",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2017-18203"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The dm_get_from_kobject function in drivers/md/dm.c in the Linux kernel before 4.14.3 allow local users to cause a denial of service (BUG) by leveraging a race condition with __dm_destroy during creation and removal of DM devices.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-devel-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-extra-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-man-3.12.61-52.128.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-devel-3.12.61-52.128.1.noarch",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-macros-3.12.61-52.128.1.noarch",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-source-3.12.61-52.128.1.noarch",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-base-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-devel-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-default-1-1.3.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-xen-1-1.3.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2017-18203",
+					"url": "https://www.suse.com/security/cve/CVE-2017-18203"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1083242 for CVE-2017-18203",
+					"url": "https://bugzilla.suse.com/1083242"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1091815 for CVE-2017-18203",
+					"url": "https://bugzilla.suse.com/1091815"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-extra-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-man-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-devel-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-macros-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-source-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-base-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-default-1-1.3.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-xen-1-1.3.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 6.5,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:C/C:N/I:N/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-extra-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-man-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-devel-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-macros-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-source-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-base-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-default-1-1.3.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-xen-1-1.3.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-05-11T15:16:24Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2017-18203"
+		},
+		{
+			"cve": "CVE-2018-10087",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2018-10087"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The kernel_wait4 function in kernel/exit.c in the Linux kernel before 4.13, when an unspecified architecture and compiler is used, might allow local users to cause a denial of service by triggering an attempted use of the -INT_MIN value.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-devel-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-extra-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-man-3.12.61-52.128.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-devel-3.12.61-52.128.1.noarch",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-macros-3.12.61-52.128.1.noarch",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-source-3.12.61-52.128.1.noarch",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-base-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-devel-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-default-1-1.3.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-xen-1-1.3.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2018-10087",
+					"url": "https://www.suse.com/security/cve/CVE-2018-10087"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1087082 for CVE-2018-10087",
+					"url": "https://bugzilla.suse.com/1087082"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1089608 for CVE-2018-10087",
+					"url": "https://bugzilla.suse.com/1089608"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1091815 for CVE-2018-10087",
+					"url": "https://bugzilla.suse.com/1091815"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-extra-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-man-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-devel-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-macros-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-source-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-base-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-default-1-1.3.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-xen-1-1.3.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 4,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.0/AV:L/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-extra-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-man-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-devel-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-macros-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-source-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-base-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-default-1-1.3.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-xen-1-1.3.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-05-11T15:16:24Z",
+					"details": "low"
+				}
+			],
+			"title": "CVE-2018-10087"
+		},
+		{
+			"cve": "CVE-2018-10124",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2018-10124"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The kill_something_info function in kernel/signal.c in the Linux kernel before 4.13, when an unspecified architecture and compiler is used, might allow local users to cause a denial of service via an INT_MIN argument.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-devel-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-extra-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-man-3.12.61-52.128.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-devel-3.12.61-52.128.1.noarch",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-macros-3.12.61-52.128.1.noarch",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-source-3.12.61-52.128.1.noarch",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-base-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-devel-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-default-1-1.3.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-xen-1-1.3.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2018-10124",
+					"url": "https://www.suse.com/security/cve/CVE-2018-10124"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1087082 for CVE-2018-10124",
+					"url": "https://bugzilla.suse.com/1087082"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1089752 for CVE-2018-10124",
+					"url": "https://bugzilla.suse.com/1089752"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1091815 for CVE-2018-10124",
+					"url": "https://bugzilla.suse.com/1091815"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-extra-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-man-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-devel-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-macros-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-source-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-base-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-default-1-1.3.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-xen-1-1.3.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 4,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.0/AV:L/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-extra-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-man-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-devel-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-macros-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-source-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-base-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-default-1-1.3.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-xen-1-1.3.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-05-11T15:16:24Z",
+					"details": "low"
+				}
+			],
+			"title": "CVE-2018-10124"
+		},
+		{
+			"cve": "CVE-2018-1087",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2018-1087"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "kernel KVM before versions kernel 4.16, kernel 4.16-rc7, kernel 4.17-rc1, kernel 4.17-rc2 and kernel 4.17-rc3 is vulnerable to a flaw in the way the Linux kernel's KVM hypervisor handled exceptions delivered after a stack switch operation via Mov SS or Pop SS instructions. During the stack switch operation, the processor did not deliver interrupts and exceptions, rather they are delivered once the first instruction after the stack switch is executed. An unprivileged KVM guest user could use this flaw to crash the guest or, potentially, escalate their privileges in the guest.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-devel-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-extra-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-man-3.12.61-52.128.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-devel-3.12.61-52.128.1.noarch",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-macros-3.12.61-52.128.1.noarch",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-source-3.12.61-52.128.1.noarch",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-base-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-devel-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-default-1-1.3.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-xen-1-1.3.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2018-1087",
+					"url": "https://www.suse.com/security/cve/CVE-2018-1087"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1087088 for CVE-2018-1087",
+					"url": "https://bugzilla.suse.com/1087088"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-extra-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-man-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-devel-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-macros-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-source-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-base-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-default-1-1.3.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-xen-1-1.3.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.8,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-extra-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-man-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-devel-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-macros-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-source-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-base-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-default-1-1.3.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-xen-1-1.3.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-05-11T15:16:24Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2018-1087"
+		},
+		{
+			"cve": "CVE-2018-7757",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2018-7757"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Memory leak in the sas_smp_get_phy_events function in drivers/scsi/libsas/sas_expander.c in the Linux kernel through 4.15.7 allows local users to cause a denial of service (memory consumption) via many read accesses to files in the /sys/class/sas_phy directory, as demonstrated by the /sys/class/sas_phy/phy-1:0:12/invalid_dword_count file.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-devel-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-extra-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-man-3.12.61-52.128.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-devel-3.12.61-52.128.1.noarch",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-macros-3.12.61-52.128.1.noarch",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-source-3.12.61-52.128.1.noarch",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-base-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-devel-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-default-1-1.3.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-xen-1-1.3.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2018-7757",
+					"url": "https://www.suse.com/security/cve/CVE-2018-7757"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1084536 for CVE-2018-7757",
+					"url": "https://bugzilla.suse.com/1084536"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1087082 for CVE-2018-7757",
+					"url": "https://bugzilla.suse.com/1087082"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1087209 for CVE-2018-7757",
+					"url": "https://bugzilla.suse.com/1087209"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1091815 for CVE-2018-7757",
+					"url": "https://bugzilla.suse.com/1091815"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-extra-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-man-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-devel-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-macros-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-source-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-base-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-default-1-1.3.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-xen-1-1.3.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 5.5,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-extra-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-man-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-devel-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-macros-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-source-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-base-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-default-1-1.3.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-xen-1-1.3.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-05-11T15:16:24Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2018-7757"
+		},
+		{
+			"cve": "CVE-2018-8781",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2018-8781"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The udl_fb_mmap function in drivers/gpu/drm/udl/udl_fb.c at the Linux kernel version 3.4 and up to and including 4.15 has an integer-overflow vulnerability allowing local users with access to the udldrmfb driver to obtain full read and write permissions on kernel physical pages, resulting in a code execution in kernel space.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-devel-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-extra-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-man-3.12.61-52.128.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-devel-3.12.61-52.128.1.noarch",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-macros-3.12.61-52.128.1.noarch",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-source-3.12.61-52.128.1.noarch",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-base-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-devel-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-default-1-1.3.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-xen-1-1.3.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2018-8781",
+					"url": "https://www.suse.com/security/cve/CVE-2018-8781"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1087082 for CVE-2018-8781",
+					"url": "https://bugzilla.suse.com/1087082"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1090643 for CVE-2018-8781",
+					"url": "https://bugzilla.suse.com/1090643"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1090646 for CVE-2018-8781",
+					"url": "https://bugzilla.suse.com/1090646"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-extra-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-man-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-devel-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-macros-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-source-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-base-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-default-1-1.3.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-xen-1-1.3.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.8,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-extra-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-man-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-devel-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-macros-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-source-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-base-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-default-1-1.3.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-xen-1-1.3.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-05-11T15:16:24Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2018-8781"
+		},
+		{
+			"cve": "CVE-2018-8822",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2018-8822"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Incorrect buffer length handling in the ncp_read_kernel function in fs/ncpfs/ncplib_kernel.c in the Linux kernel through 4.15.11, and in drivers/staging/ncpfs/ncplib_kernel.c in the Linux kernel 4.16-rc through 4.16-rc6, could be exploited by malicious NCPFS servers to crash the kernel or execute code.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-devel-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-extra-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-man-3.12.61-52.128.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-devel-3.12.61-52.128.1.noarch",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-macros-3.12.61-52.128.1.noarch",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-source-3.12.61-52.128.1.noarch",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-base-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-devel-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-default-1-1.3.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-xen-1-1.3.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2018-8822",
+					"url": "https://www.suse.com/security/cve/CVE-2018-8822"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1086162 for CVE-2018-8822",
+					"url": "https://bugzilla.suse.com/1086162"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1090404 for CVE-2018-8822",
+					"url": "https://bugzilla.suse.com/1090404"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1091815 for CVE-2018-8822",
+					"url": "https://bugzilla.suse.com/1091815"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-extra-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-man-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-devel-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-macros-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-source-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-base-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-default-1-1.3.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-xen-1-1.3.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 6.4,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.0/AV:N/AC:H/PR:H/UI:R/S:U/C:H/I:H/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-extra-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-man-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-devel-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-macros-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-source-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-base-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-default-1-1.3.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-xen-1-1.3.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-05-11T15:16:24Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2018-8822"
+		},
+		{
+			"cve": "CVE-2018-8897",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2018-8897"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A statement in the System Programming Guide of the Intel 64 and IA-32 Architectures Software Developer's Manual (SDM) was mishandled in the development of some or all operating-system kernels, resulting in unexpected behavior for #DB exceptions that are deferred by MOV SS or POP SS, as demonstrated by (for example) privilege escalation in Windows, macOS, some Xen configurations, or FreeBSD, or a Linux kernel crash. The MOV to SS and POP SS instructions inhibit interrupts (including NMIs), data breakpoints, and single step trap exceptions until the instruction boundary following the next instruction (SDM Vol. 3A; section 6.8.3). (The inhibited data breakpoints are those on memory accessed by the MOV to SS or POP to SS instruction itself.) Note that debug exceptions are not inhibited by the interrupt enable (EFLAGS.IF) system flag (SDM Vol. 3A; section 2.3). If the instruction following the MOV to SS or POP to SS instruction is an instruction like SYSCALL, SYSENTER, INT 3, etc. that transfers control to the operating system at CPL < 3, the debug exception is delivered after the transfer to CPL < 3 is complete. OS kernels may not expect this order of events and may therefore experience unexpected behavior when it occurs.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-devel-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-extra-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-default-man-3.12.61-52.128.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-devel-3.12.61-52.128.1.noarch",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-macros-3.12.61-52.128.1.noarch",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-source-3.12.61-52.128.1.noarch",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-base-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-devel-3.12.61-52.128.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-default-1-1.3.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-xen-1-1.3.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2018-8897",
+					"url": "https://www.suse.com/security/cve/CVE-2018-8897"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1087078 for CVE-2018-8897",
+					"url": "https://bugzilla.suse.com/1087078"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1087088 for CVE-2018-8897",
+					"url": "https://bugzilla.suse.com/1087088"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1090368 for CVE-2018-8897",
+					"url": "https://bugzilla.suse.com/1090368"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1090820 for CVE-2018-8897",
+					"url": "https://bugzilla.suse.com/1090820"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1090869 for CVE-2018-8897",
+					"url": "https://bugzilla.suse.com/1090869"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1092497 for CVE-2018-8897",
+					"url": "https://bugzilla.suse.com/1092497"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1093522 for CVE-2018-8897",
+					"url": "https://bugzilla.suse.com/1093522"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1093524 for CVE-2018-8897",
+					"url": "https://bugzilla.suse.com/1093524"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1098813 for CVE-2018-8897",
+					"url": "https://bugzilla.suse.com/1098813"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1100835 for CVE-2018-8897",
+					"url": "https://bugzilla.suse.com/1100835"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1115893 for CVE-2018-8897",
+					"url": "https://bugzilla.suse.com/1115893"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1178658 for CVE-2018-8897",
+					"url": "https://bugzilla.suse.com/1178658"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-extra-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-man-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-devel-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-macros-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-source-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-base-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-default-1-1.3.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-xen-1-1.3.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.0/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Module for Public Cloud 12:kernel-ec2-extra-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-base-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-default-man-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-devel-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-macros-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-source-3.12.61-52.128.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-syms-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-base-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kernel-xen-devel-3.12.61-52.128.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-default-1-1.3.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-xen-1-1.3.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-05-11T15:16:24Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2018-8897"
+		}
+	]
+}

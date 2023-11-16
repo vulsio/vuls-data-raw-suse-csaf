@@ -1,0 +1,1733 @@
+{
+	"document": {
+		"aggregate_severity": {
+			"namespace": "https://www.suse.com/support/security/rating/",
+			"text": "moderate"
+		},
+		"category": "csaf_security_advisory",
+		"csaf_version": "2.0",
+		"distribution": {
+			"text": "Copyright 2023 SUSE LLC. All rights reserved.",
+			"tlp": {
+				"label": "WHITE",
+				"url": "https://www.first.org/tlp/"
+			}
+		},
+		"lang": "en",
+		"notes": [
+			{
+				"category": "summary",
+				"text": "Security update for tiff",
+				"title": "Title of the patch"
+			},
+			{
+				"category": "description",
+				"text": "This update for tiff fixes the following issues:\n\nThese security issues were fixed:\n\n- CVE-2017-18013: There was a Null-Pointer Dereference in the tif_print.c TIFFPrintDirectory function, as demonstrated by a tiffinfo crash.  (bsc#1074317)\n- CVE-2018-10963: The TIFFWriteDirectorySec() function in tif_dirwrite.c allowed remote attackers to cause a denial of service (assertion failure and application crash) via a crafted file, a different vulnerability than CVE-2017-13726.  (bsc#1092949)\n- CVE-2018-7456: Prevent a NULL Pointer dereference in the function TIFFPrintDirectory when using the tiffinfo tool to print crafted TIFF information, a different vulnerability than CVE-2017-18013 (bsc#1082825)\n- CVE-2017-11613: Prevent denial of service in the TIFFOpen function. During the TIFFOpen process, td_imagelength is not checked. The value of td_imagelength can be directly controlled by an input file. In the ChopUpSingleUncompressedStrip function, the _TIFFCheckMalloc function is called based on td_imagelength. If the value of td_imagelength is set close to the amount of system memory, it will hang the system or trigger the OOM killer (bsc#1082332)\n- CVE-2018-8905: Prevent heap-based buffer overflow in the function LZWDecodeCompat via a crafted TIFF file (bsc#1086408)\n- CVE-2016-8331: Prevent remote code execution because of incorrect handling of TIFF images. A crafted TIFF document could have lead to a type confusion vulnerability resulting in remote code execution. This vulnerability could have been be triggered via a TIFF file delivered to the application using LibTIFF's tag extension functionality (bsc#1007276)\n- CVE-2016-3632: The _TIFFVGetField function allowed remote attackers to cause a denial of service (out-of-bounds write) or execute arbitrary code via a crafted TIFF image (bsc#974621)\n",
+				"title": "Description of the patch"
+			},
+			{
+				"category": "details",
+				"text": "SUSE-SLE-DESKTOP-12-SP3-2018-1233,SUSE-SLE-SDK-12-SP3-2018-1233,SUSE-SLE-SERVER-12-SP3-2018-1233",
+				"title": "Patchnames"
+			},
+			{
+				"category": "legal_disclaimer",
+				"text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+				"title": "Terms of use"
+			}
+		],
+		"publisher": {
+			"category": "vendor",
+			"contact_details": "https://www.suse.com/support/security/contact/",
+			"name": "SUSE Product Security Team",
+			"namespace": "https://www.suse.com/"
+		},
+		"references": [
+			{
+				"category": "self",
+				"summary": "URL for SUSE-SU-2018:1826-1",
+				"url": "https://www.suse.com/support/update/announcement/2018/suse-su-20181826-1/"
+			},
+			{
+				"category": "external",
+				"summary": "SUSE ratings",
+				"url": "https://www.suse.com/support/security/rating/"
+			},
+			{
+				"category": "self",
+				"summary": "URL of this CSAF notice",
+				"url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2018_1826-1.json"
+			},
+			{
+				"category": "self",
+				"summary": "E-Mail link for SUSE-SU-2018:1826-1",
+				"url": "https://lists.suse.com/pipermail/sle-security-updates/2018-June/004224.html"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1007276",
+				"url": "https://bugzilla.suse.com/1007276"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1074317",
+				"url": "https://bugzilla.suse.com/1074317"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1082332",
+				"url": "https://bugzilla.suse.com/1082332"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1082825",
+				"url": "https://bugzilla.suse.com/1082825"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1086408",
+				"url": "https://bugzilla.suse.com/1086408"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1092949",
+				"url": "https://bugzilla.suse.com/1092949"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 974621",
+				"url": "https://bugzilla.suse.com/974621"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2016-3632 page",
+				"url": "https://www.suse.com/security/cve/CVE-2016-3632/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2016-8331 page",
+				"url": "https://www.suse.com/security/cve/CVE-2016-8331/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2017-11613 page",
+				"url": "https://www.suse.com/security/cve/CVE-2017-11613/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2017-13726 page",
+				"url": "https://www.suse.com/security/cve/CVE-2017-13726/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2017-18013 page",
+				"url": "https://www.suse.com/security/cve/CVE-2017-18013/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2018-10963 page",
+				"url": "https://www.suse.com/security/cve/CVE-2018-10963/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2018-7456 page",
+				"url": "https://www.suse.com/security/cve/CVE-2018-7456/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2018-8905 page",
+				"url": "https://www.suse.com/security/cve/CVE-2018-8905/"
+			}
+		],
+		"title": "Security update for tiff",
+		"tracking": {
+			"current_release_date": "2018-06-27T10:45:25Z",
+			"generator": {
+				"date": "2018-06-27T10:45:25Z",
+				"engine": {
+					"name": "cve-database.git:bin/generate-csaf.pl",
+					"version": "1"
+				}
+			},
+			"id": "SUSE-SU-2018:1826-1",
+			"initial_release_date": "2018-06-27T10:45:25Z",
+			"revision_history": [
+				{
+					"date": "2018-06-27T10:45:25Z",
+					"number": "1",
+					"summary": "Current version"
+				}
+			],
+			"status": "final",
+			"version": "1"
+		}
+	},
+	"product_tree": {
+		"branches": [
+			{
+				"branches": [
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "libtiff-devel-4.0.9-44.15.2.aarch64",
+								"product": {
+									"name": "libtiff-devel-4.0.9-44.15.2.aarch64",
+									"product_id": "libtiff-devel-4.0.9-44.15.2.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libtiff5-4.0.9-44.15.2.aarch64",
+								"product": {
+									"name": "libtiff5-4.0.9-44.15.2.aarch64",
+									"product_id": "libtiff5-4.0.9-44.15.2.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "tiff-4.0.9-44.15.2.aarch64",
+								"product": {
+									"name": "tiff-4.0.9-44.15.2.aarch64",
+									"product_id": "tiff-4.0.9-44.15.2.aarch64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "aarch64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "libtiff-devel-4.0.9-44.15.2.ppc64le",
+								"product": {
+									"name": "libtiff-devel-4.0.9-44.15.2.ppc64le",
+									"product_id": "libtiff-devel-4.0.9-44.15.2.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libtiff5-4.0.9-44.15.2.ppc64le",
+								"product": {
+									"name": "libtiff5-4.0.9-44.15.2.ppc64le",
+									"product_id": "libtiff5-4.0.9-44.15.2.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "tiff-4.0.9-44.15.2.ppc64le",
+								"product": {
+									"name": "tiff-4.0.9-44.15.2.ppc64le",
+									"product_id": "tiff-4.0.9-44.15.2.ppc64le"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "ppc64le"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "libtiff-devel-4.0.9-44.15.2.s390x",
+								"product": {
+									"name": "libtiff-devel-4.0.9-44.15.2.s390x",
+									"product_id": "libtiff-devel-4.0.9-44.15.2.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libtiff5-4.0.9-44.15.2.s390x",
+								"product": {
+									"name": "libtiff5-4.0.9-44.15.2.s390x",
+									"product_id": "libtiff5-4.0.9-44.15.2.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libtiff5-32bit-4.0.9-44.15.2.s390x",
+								"product": {
+									"name": "libtiff5-32bit-4.0.9-44.15.2.s390x",
+									"product_id": "libtiff5-32bit-4.0.9-44.15.2.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "tiff-4.0.9-44.15.2.s390x",
+								"product": {
+									"name": "tiff-4.0.9-44.15.2.s390x",
+									"product_id": "tiff-4.0.9-44.15.2.s390x"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "s390x"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "libtiff5-4.0.9-44.15.2.x86_64",
+								"product": {
+									"name": "libtiff5-4.0.9-44.15.2.x86_64",
+									"product_id": "libtiff5-4.0.9-44.15.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libtiff5-32bit-4.0.9-44.15.2.x86_64",
+								"product": {
+									"name": "libtiff5-32bit-4.0.9-44.15.2.x86_64",
+									"product_id": "libtiff5-32bit-4.0.9-44.15.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libtiff-devel-4.0.9-44.15.2.x86_64",
+								"product": {
+									"name": "libtiff-devel-4.0.9-44.15.2.x86_64",
+									"product_id": "libtiff-devel-4.0.9-44.15.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "tiff-4.0.9-44.15.2.x86_64",
+								"product": {
+									"name": "tiff-4.0.9-44.15.2.x86_64",
+									"product_id": "tiff-4.0.9-44.15.2.x86_64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "x86_64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Desktop 12 SP3",
+								"product": {
+									"name": "SUSE Linux Enterprise Desktop 12 SP3",
+									"product_id": "SUSE Linux Enterprise Desktop 12 SP3",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sled:12:sp3"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Software Development Kit 12 SP3",
+								"product": {
+									"name": "SUSE Linux Enterprise Software Development Kit 12 SP3",
+									"product_id": "SUSE Linux Enterprise Software Development Kit 12 SP3",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-sdk:12:sp3"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server 12 SP3",
+								"product": {
+									"name": "SUSE Linux Enterprise Server 12 SP3",
+									"product_id": "SUSE Linux Enterprise Server 12 SP3",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sles:12:sp3"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+								"product": {
+									"name": "SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+									"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sles_sap:12:sp3"
+									}
+								}
+							}
+						],
+						"category": "product_family",
+						"name": "SUSE Linux Enterprise"
+					}
+				],
+				"category": "vendor",
+				"name": "SUSE"
+			}
+		],
+		"relationships": [
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libtiff5-4.0.9-44.15.2.x86_64 as component of SUSE Linux Enterprise Desktop 12 SP3",
+					"product_id": "SUSE Linux Enterprise Desktop 12 SP3:libtiff5-4.0.9-44.15.2.x86_64"
+				},
+				"product_reference": "libtiff5-4.0.9-44.15.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Desktop 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libtiff5-32bit-4.0.9-44.15.2.x86_64 as component of SUSE Linux Enterprise Desktop 12 SP3",
+					"product_id": "SUSE Linux Enterprise Desktop 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64"
+				},
+				"product_reference": "libtiff5-32bit-4.0.9-44.15.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Desktop 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libtiff-devel-4.0.9-44.15.2.aarch64 as component of SUSE Linux Enterprise Software Development Kit 12 SP3",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.aarch64"
+				},
+				"product_reference": "libtiff-devel-4.0.9-44.15.2.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libtiff-devel-4.0.9-44.15.2.ppc64le as component of SUSE Linux Enterprise Software Development Kit 12 SP3",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.ppc64le"
+				},
+				"product_reference": "libtiff-devel-4.0.9-44.15.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libtiff-devel-4.0.9-44.15.2.s390x as component of SUSE Linux Enterprise Software Development Kit 12 SP3",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.s390x"
+				},
+				"product_reference": "libtiff-devel-4.0.9-44.15.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libtiff-devel-4.0.9-44.15.2.x86_64 as component of SUSE Linux Enterprise Software Development Kit 12 SP3",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.x86_64"
+				},
+				"product_reference": "libtiff-devel-4.0.9-44.15.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libtiff5-4.0.9-44.15.2.aarch64 as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.aarch64"
+				},
+				"product_reference": "libtiff5-4.0.9-44.15.2.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libtiff5-4.0.9-44.15.2.ppc64le as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.ppc64le"
+				},
+				"product_reference": "libtiff5-4.0.9-44.15.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libtiff5-4.0.9-44.15.2.s390x as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.s390x"
+				},
+				"product_reference": "libtiff5-4.0.9-44.15.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libtiff5-4.0.9-44.15.2.x86_64 as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.x86_64"
+				},
+				"product_reference": "libtiff5-4.0.9-44.15.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libtiff5-32bit-4.0.9-44.15.2.s390x as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:libtiff5-32bit-4.0.9-44.15.2.s390x"
+				},
+				"product_reference": "libtiff5-32bit-4.0.9-44.15.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libtiff5-32bit-4.0.9-44.15.2.x86_64 as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64"
+				},
+				"product_reference": "libtiff5-32bit-4.0.9-44.15.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "tiff-4.0.9-44.15.2.aarch64 as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.aarch64"
+				},
+				"product_reference": "tiff-4.0.9-44.15.2.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "tiff-4.0.9-44.15.2.ppc64le as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.ppc64le"
+				},
+				"product_reference": "tiff-4.0.9-44.15.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "tiff-4.0.9-44.15.2.s390x as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.s390x"
+				},
+				"product_reference": "tiff-4.0.9-44.15.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "tiff-4.0.9-44.15.2.x86_64 as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.x86_64"
+				},
+				"product_reference": "tiff-4.0.9-44.15.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libtiff5-4.0.9-44.15.2.aarch64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.aarch64"
+				},
+				"product_reference": "libtiff5-4.0.9-44.15.2.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libtiff5-4.0.9-44.15.2.ppc64le as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.ppc64le"
+				},
+				"product_reference": "libtiff5-4.0.9-44.15.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libtiff5-4.0.9-44.15.2.s390x as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.s390x"
+				},
+				"product_reference": "libtiff5-4.0.9-44.15.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libtiff5-4.0.9-44.15.2.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.x86_64"
+				},
+				"product_reference": "libtiff5-4.0.9-44.15.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libtiff5-32bit-4.0.9-44.15.2.s390x as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-32bit-4.0.9-44.15.2.s390x"
+				},
+				"product_reference": "libtiff5-32bit-4.0.9-44.15.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libtiff5-32bit-4.0.9-44.15.2.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64"
+				},
+				"product_reference": "libtiff5-32bit-4.0.9-44.15.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "tiff-4.0.9-44.15.2.aarch64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.aarch64"
+				},
+				"product_reference": "tiff-4.0.9-44.15.2.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "tiff-4.0.9-44.15.2.ppc64le as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.ppc64le"
+				},
+				"product_reference": "tiff-4.0.9-44.15.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "tiff-4.0.9-44.15.2.s390x as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.s390x"
+				},
+				"product_reference": "tiff-4.0.9-44.15.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "tiff-4.0.9-44.15.2.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.x86_64"
+				},
+				"product_reference": "tiff-4.0.9-44.15.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			}
+		]
+	},
+	"vulnerabilities": [
+		{
+			"cve": "CVE-2016-3632",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2016-3632"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The _TIFFVGetField function in tif_dirinfo.c in LibTIFF 4.0.6 and earlier allows remote attackers to cause a denial of service (out-of-bounds write) or execute arbitrary code via a crafted TIFF image.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Desktop 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Server 12 SP3:libtiff5-32bit-4.0.9-44.15.2.s390x",
+					"SUSE Linux Enterprise Server 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.aarch64",
+					"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.s390x",
+					"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.aarch64",
+					"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.s390x",
+					"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-32bit-4.0.9-44.15.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.aarch64",
+					"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.ppc64le",
+					"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.s390x",
+					"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2016-3632",
+					"url": "https://www.suse.com/security/cve/CVE-2016-3632"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1007276 for CVE-2016-3632",
+					"url": "https://bugzilla.suse.com/1007276"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 974621 for CVE-2016-3632",
+					"url": "https://bugzilla.suse.com/974621"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 983436 for CVE-2016-3632",
+					"url": "https://bugzilla.suse.com/983436"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-32bit-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-32bit-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.8,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Desktop 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-32bit-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-32bit-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-06-27T10:45:25Z",
+					"details": "low"
+				}
+			],
+			"title": "CVE-2016-3632"
+		},
+		{
+			"cve": "CVE-2016-8331",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2016-8331"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "An exploitable remote code execution vulnerability exists in the handling of TIFF images in LibTIFF version 4.0.6. A crafted TIFF document can lead to a type confusion vulnerability resulting in remote code execution. This vulnerability can be triggered via a TIFF file delivered to the application using LibTIFF's tag extension functionality.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Desktop 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Server 12 SP3:libtiff5-32bit-4.0.9-44.15.2.s390x",
+					"SUSE Linux Enterprise Server 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.aarch64",
+					"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.s390x",
+					"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.aarch64",
+					"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.s390x",
+					"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-32bit-4.0.9-44.15.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.aarch64",
+					"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.ppc64le",
+					"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.s390x",
+					"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2016-8331",
+					"url": "https://www.suse.com/security/cve/CVE-2016-8331"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1007276 for CVE-2016-8331",
+					"url": "https://bugzilla.suse.com/1007276"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-32bit-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-32bit-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 8.1,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Desktop 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-32bit-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-32bit-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-06-27T10:45:25Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2016-8331"
+		},
+		{
+			"cve": "CVE-2017-11613",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2017-11613"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "In LibTIFF 4.0.8, there is a denial of service vulnerability in the TIFFOpen function. A crafted input will lead to a denial of service attack. During the TIFFOpen process, td_imagelength is not checked. The value of td_imagelength can be directly controlled by an input file. In the ChopUpSingleUncompressedStrip function, the _TIFFCheckMalloc function is called based on td_imagelength. If we set the value of td_imagelength close to the amount of system memory, it will hang the system or trigger the OOM killer.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Desktop 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Server 12 SP3:libtiff5-32bit-4.0.9-44.15.2.s390x",
+					"SUSE Linux Enterprise Server 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.aarch64",
+					"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.s390x",
+					"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.aarch64",
+					"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.s390x",
+					"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-32bit-4.0.9-44.15.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.aarch64",
+					"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.ppc64le",
+					"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.s390x",
+					"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2017-11613",
+					"url": "https://www.suse.com/security/cve/CVE-2017-11613"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1082332 for CVE-2017-11613",
+					"url": "https://bugzilla.suse.com/1082332"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1106853 for CVE-2017-11613",
+					"url": "https://bugzilla.suse.com/1106853"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-32bit-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-32bit-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 3.3,
+						"baseSeverity": "LOW",
+						"vectorString": "CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:L",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Desktop 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-32bit-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-32bit-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-06-27T10:45:25Z",
+					"details": "low"
+				}
+			],
+			"title": "CVE-2017-11613"
+		},
+		{
+			"cve": "CVE-2017-13726",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2017-13726"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "There is a reachable assertion abort in the function TIFFWriteDirectorySec() in LibTIFF 4.0.8, related to tif_dirwrite.c and a SubIFD tag. A crafted input will lead to a remote denial of service attack.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Desktop 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Server 12 SP3:libtiff5-32bit-4.0.9-44.15.2.s390x",
+					"SUSE Linux Enterprise Server 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.aarch64",
+					"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.s390x",
+					"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.aarch64",
+					"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.s390x",
+					"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-32bit-4.0.9-44.15.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.aarch64",
+					"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.ppc64le",
+					"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.s390x",
+					"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2017-13726",
+					"url": "https://www.suse.com/security/cve/CVE-2017-13726"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1056176 for CVE-2017-13726",
+					"url": "https://bugzilla.suse.com/1056176"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1092949 for CVE-2017-13726",
+					"url": "https://bugzilla.suse.com/1092949"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-32bit-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-32bit-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 5.3,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Desktop 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-32bit-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-32bit-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-06-27T10:45:25Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2017-13726"
+		},
+		{
+			"cve": "CVE-2017-18013",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2017-18013"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "In LibTIFF 4.0.9, there is a Null-Pointer Dereference in the tif_print.c TIFFPrintDirectory function, as demonstrated by a tiffinfo crash.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Desktop 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Server 12 SP3:libtiff5-32bit-4.0.9-44.15.2.s390x",
+					"SUSE Linux Enterprise Server 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.aarch64",
+					"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.s390x",
+					"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.aarch64",
+					"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.s390x",
+					"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-32bit-4.0.9-44.15.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.aarch64",
+					"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.ppc64le",
+					"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.s390x",
+					"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2017-18013",
+					"url": "https://www.suse.com/security/cve/CVE-2017-18013"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1074317 for CVE-2017-18013",
+					"url": "https://bugzilla.suse.com/1074317"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1082825 for CVE-2017-18013",
+					"url": "https://bugzilla.suse.com/1082825"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-32bit-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-32bit-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.5,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Desktop 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-32bit-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-32bit-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-06-27T10:45:25Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2017-18013"
+		},
+		{
+			"cve": "CVE-2018-10963",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2018-10963"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The TIFFWriteDirectorySec() function in tif_dirwrite.c in LibTIFF through 4.0.9 allows remote attackers to cause a denial of service (assertion failure and application crash) via a crafted file, a different vulnerability than CVE-2017-13726.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Desktop 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Server 12 SP3:libtiff5-32bit-4.0.9-44.15.2.s390x",
+					"SUSE Linux Enterprise Server 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.aarch64",
+					"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.s390x",
+					"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.aarch64",
+					"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.s390x",
+					"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-32bit-4.0.9-44.15.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.aarch64",
+					"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.ppc64le",
+					"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.s390x",
+					"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2018-10963",
+					"url": "https://www.suse.com/security/cve/CVE-2018-10963"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1092949 for CVE-2018-10963",
+					"url": "https://bugzilla.suse.com/1092949"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-32bit-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-32bit-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 6.5,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Desktop 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-32bit-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-32bit-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-06-27T10:45:25Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2018-10963"
+		},
+		{
+			"cve": "CVE-2018-7456",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2018-7456"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A NULL Pointer Dereference occurs in the function TIFFPrintDirectory in tif_print.c in LibTIFF 3.9.3, 3.9.4, 3.9.5, 3.9.6, 3.9.7, 4.0.0alpha4, 4.0.0alpha5, 4.0.0alpha6, 4.0.0beta7, 4.0.0, 4.0.1, 4.0.2, 4.0.3, 4.0.4, 4.0.4beta, 4.0.5, 4.0.6, 4.0.7, 4.0.8 and 4.0.9 when using the tiffinfo tool to print crafted TIFF information, a different vulnerability than CVE-2017-18013. (This affects an earlier part of the TIFFPrintDirectory function that was not addressed by the CVE-2017-18013 patch.)",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Desktop 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Server 12 SP3:libtiff5-32bit-4.0.9-44.15.2.s390x",
+					"SUSE Linux Enterprise Server 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.aarch64",
+					"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.s390x",
+					"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.aarch64",
+					"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.s390x",
+					"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-32bit-4.0.9-44.15.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.aarch64",
+					"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.ppc64le",
+					"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.s390x",
+					"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2018-7456",
+					"url": "https://www.suse.com/security/cve/CVE-2018-7456"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1074317 for CVE-2018-7456",
+					"url": "https://bugzilla.suse.com/1074317"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1082825 for CVE-2018-7456",
+					"url": "https://bugzilla.suse.com/1082825"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-32bit-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-32bit-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 5.5,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Desktop 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-32bit-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-32bit-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-06-27T10:45:25Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2018-7456"
+		},
+		{
+			"cve": "CVE-2018-8905",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2018-8905"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "In LibTIFF 4.0.9, a heap-based buffer overflow occurs in the function LZWDecodeCompat in tif_lzw.c via a crafted TIFF file, as demonstrated by tiff2ps.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Desktop 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Server 12 SP3:libtiff5-32bit-4.0.9-44.15.2.s390x",
+					"SUSE Linux Enterprise Server 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.aarch64",
+					"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.s390x",
+					"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.aarch64",
+					"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.s390x",
+					"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-32bit-4.0.9-44.15.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.aarch64",
+					"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.ppc64le",
+					"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.s390x",
+					"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2018-8905",
+					"url": "https://www.suse.com/security/cve/CVE-2018-8905"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1086408 for CVE-2018-8905",
+					"url": "https://bugzilla.suse.com/1086408"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-32bit-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-32bit-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 5.3,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:L/I:L/A:L",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Desktop 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-32bit-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:tiff-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-32bit-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-32bit-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libtiff5-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:tiff-4.0.9-44.15.2.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.aarch64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libtiff-devel-4.0.9-44.15.2.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-06-27T10:45:25Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2018-8905"
+		}
+	]
+}

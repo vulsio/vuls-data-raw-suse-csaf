@@ -1,0 +1,237 @@
+{
+	"document": {
+		"aggregate_severity": {
+			"namespace": "https://www.suse.com/support/security/rating/",
+			"text": "moderate"
+		},
+		"category": "csaf_security_advisory",
+		"csaf_version": "2.0",
+		"distribution": {
+			"text": "Copyright 2023 SUSE LLC. All rights reserved.",
+			"tlp": {
+				"label": "WHITE",
+				"url": "https://www.first.org/tlp/"
+			}
+		},
+		"lang": "en",
+		"notes": [
+			{
+				"category": "summary",
+				"text": "Security update for perl-HTTP-Tiny",
+				"title": "Title of the patch"
+			},
+			{
+				"category": "description",
+				"text": "This update for perl-HTTP-Tiny fixes the following issues:\n\nperl-HTTP-Tiny was updated to 0.086:\n\nsee /usr/share/doc/packages/perl-HTTP-Tiny/Changes\n\n0.086     2023-06-22 10:06:37-04:00 America/New_York\n\n    - Fix code to use `$ENV{PERL_HTTP_TINY_SSL_INSECURE_BY_DEFAULT}` as documented.\n\n0.084     2023-06-14 06:35:01-04:00 America/New_York\n\n    - No changes from 0.083-TRIAL.\n\n0.083     2023-06-11 07:05:45-04:00 America/New_York (TRIAL RELEASE)\n\n    [!!! SECURITY !!!]\n    - Changes the `verify_SSL` default parameter from `0` to `1`.\n      Fixes CVE-2023-31486 (boo#1211002)\n    - `$ENV{PERL_HTTP_TINY_SSL_INSECURE_BY_DEFAULT}` can be used to restore the\n      old default if required.\n\n0.081     2022-07-17 09:01:51-04:00 America/New_York (TRIAL RELEASE)\n\n      [FIXED]\n      - No longer deletes the 'headers' key from post_form arguments hashref.\n      [DOCS]\n      - Noted that request/response content are handled as raw bytes.\n\n0.079     2021-11-04 12:33:43-04:00 America/New_York (TRIAL RELEASE)\n\n      [FIXED]\n      - Fixed uninitialized value warnings on older Perls when the REQUEST_METHOD\n        environment variable is set and CGI_HTTP_PROXY is not.\n\n0.077     2021-07-22 13:07:14-04:00 America/New_York (TRIAL RELEASE)\n\n      [ADDED]\n\n      - Added a `patch` helper method for the HTTP `PATCH` verb.\n      - If the REQUEST_METHOD environment variable is set, then CGI_HTTP_PROXY\n        replaces HTTP_PROXY.\n\n      [FIXED]\n\n      - Unsupported scheme errors early without giving an uninitialized value\n        warning first.\n      - Sends Content-Length: 0 on empty body PUT/POST.  This is not in the spec,\n        but some servers require this.\n      - Allows optional status line reason, as clarified in RFC 7230.\n      - Ignore SIGPIPE on reads as well as writes, as IO::Socket::SSL says that\n        SSL reads can also send writes as a side effect.\n      - Check if a server has closed a connection before preserving it for reuse.\n\n      [DOCS]\n\n      - Clarified that exceptions/errors result in 599 status codes.\n\n      [PREREQS]\n\n      - Optional IO::Socket::IP prereq must be at least version 0.32 to be used.\n        This ensures correct timeout support.\n\n0.076     2018-08-05 21:07:38-04:00 America/New_York\n  \n      - No changes from 0.075-TRIAL.\n  \n0.075     2018-08-01 07:03:36-04:00 America/New_York (TRIAL RELEASE)\n  \n      [CHANGED] - The 'peer' option now also can take a code reference\n\n0.073     2018-07-24 11:33:53-04:00 America/New_York (TRIAL RELEASE)\n  \n      [DOCS] - Documented 'protocol' field in response hash.\n  \n0.071     2018-04-22 14:45:43+02:00 Europe/Oslo (TRIAL RELEASE)\n  \n      [DOCS] - Documented that method argument to request() is case-sensitive.\n  \n",
+				"title": "Description of the patch"
+			},
+			{
+				"category": "details",
+				"text": "openSUSE-2023-222",
+				"title": "Patchnames"
+			},
+			{
+				"category": "legal_disclaimer",
+				"text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+				"title": "Terms of use"
+			}
+		],
+		"publisher": {
+			"category": "vendor",
+			"contact_details": "https://www.suse.com/support/security/contact/",
+			"name": "SUSE Product Security Team",
+			"namespace": "https://www.suse.com/"
+		},
+		"references": [
+			{
+				"category": "self",
+				"summary": "URL for openSUSE-SU-2023:0222-1",
+				"url": "https://lists.opensuse.org/archives/list/security-announce@lists.opensuse.org/thread/FZ3WQJQQLQE44DSFUCLKY6CTBST6SPN6/"
+			},
+			{
+				"category": "external",
+				"summary": "SUSE ratings",
+				"url": "https://www.suse.com/support/security/rating/"
+			},
+			{
+				"category": "self",
+				"summary": "URL of this CSAF notice",
+				"url": "https://ftp.suse.com/pub/projects/security/csaf/opensuse-su-2023_0222-1.json"
+			},
+			{
+				"category": "self",
+				"summary": "E-Mail link for openSUSE-SU-2023:0222-1",
+				"url": "https://lists.opensuse.org/archives/list/security-announce@lists.opensuse.org/thread/FZ3WQJQQLQE44DSFUCLKY6CTBST6SPN6/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1211002",
+				"url": "https://bugzilla.suse.com/1211002"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2023-31486 page",
+				"url": "https://www.suse.com/security/cve/CVE-2023-31486/"
+			}
+		],
+		"title": "Security update for perl-HTTP-Tiny",
+		"tracking": {
+			"current_release_date": "2023-08-15T12:01:47Z",
+			"generator": {
+				"date": "2023-08-15T12:01:47Z",
+				"engine": {
+					"name": "cve-database.git:bin/generate-csaf.pl",
+					"version": "1"
+				}
+			},
+			"id": "openSUSE-SU-2023:0222-1",
+			"initial_release_date": "2023-08-15T12:01:47Z",
+			"revision_history": [
+				{
+					"date": "2023-08-15T12:01:47Z",
+					"number": "1",
+					"summary": "Current version"
+				}
+			],
+			"status": "final",
+			"version": "1"
+		}
+	},
+	"product_tree": {
+		"branches": [
+			{
+				"branches": [
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "perl-HTTP-Tiny-0.086-bp154.2.3.1.noarch",
+								"product": {
+									"name": "perl-HTTP-Tiny-0.086-bp154.2.3.1.noarch",
+									"product_id": "perl-HTTP-Tiny-0.086-bp154.2.3.1.noarch"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "noarch"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_name",
+								"name": "SUSE Package Hub 15 SP4",
+								"product": {
+									"name": "SUSE Package Hub 15 SP4",
+									"product_id": "SUSE Package Hub 15 SP4"
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "openSUSE Leap 15.4",
+								"product": {
+									"name": "openSUSE Leap 15.4",
+									"product_id": "openSUSE Leap 15.4",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:opensuse:leap:15.4"
+									}
+								}
+							}
+						],
+						"category": "product_family",
+						"name": "SUSE Linux Enterprise"
+					}
+				],
+				"category": "vendor",
+				"name": "SUSE"
+			}
+		],
+		"relationships": [
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "perl-HTTP-Tiny-0.086-bp154.2.3.1.noarch as component of SUSE Package Hub 15 SP4",
+					"product_id": "SUSE Package Hub 15 SP4:perl-HTTP-Tiny-0.086-bp154.2.3.1.noarch"
+				},
+				"product_reference": "perl-HTTP-Tiny-0.086-bp154.2.3.1.noarch",
+				"relates_to_product_reference": "SUSE Package Hub 15 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "perl-HTTP-Tiny-0.086-bp154.2.3.1.noarch as component of openSUSE Leap 15.4",
+					"product_id": "openSUSE Leap 15.4:perl-HTTP-Tiny-0.086-bp154.2.3.1.noarch"
+				},
+				"product_reference": "perl-HTTP-Tiny-0.086-bp154.2.3.1.noarch",
+				"relates_to_product_reference": "openSUSE Leap 15.4"
+			}
+		]
+	},
+	"vulnerabilities": [
+		{
+			"cve": "CVE-2023-31486",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2023-31486"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "HTTP::Tiny before 0.083, a Perl core module since 5.13.9 and available standalone on CPAN, has an insecure default TLS configuration where users must opt in to verify certificates.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Package Hub 15 SP4:perl-HTTP-Tiny-0.086-bp154.2.3.1.noarch",
+					"openSUSE Leap 15.4:perl-HTTP-Tiny-0.086-bp154.2.3.1.noarch"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2023-31486",
+					"url": "https://www.suse.com/security/cve/CVE-2023-31486"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1211001 for CVE-2023-31486",
+					"url": "https://bugzilla.suse.com/1211001"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Package Hub 15 SP4:perl-HTTP-Tiny-0.086-bp154.2.3.1.noarch",
+						"openSUSE Leap 15.4:perl-HTTP-Tiny-0.086-bp154.2.3.1.noarch"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.4,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Package Hub 15 SP4:perl-HTTP-Tiny-0.086-bp154.2.3.1.noarch",
+						"openSUSE Leap 15.4:perl-HTTP-Tiny-0.086-bp154.2.3.1.noarch"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2023-08-15T12:01:47Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2023-31486"
+		}
+	]
+}

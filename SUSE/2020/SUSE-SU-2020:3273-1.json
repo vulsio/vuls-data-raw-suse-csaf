@@ -1,0 +1,2476 @@
+{
+	"document": {
+		"aggregate_severity": {
+			"namespace": "https://www.suse.com/support/security/rating/",
+			"text": "important"
+		},
+		"category": "csaf_security_advisory",
+		"csaf_version": "2.0",
+		"distribution": {
+			"text": "Copyright 2023 SUSE LLC. All rights reserved.",
+			"tlp": {
+				"label": "WHITE",
+				"url": "https://www.first.org/tlp/"
+			}
+		},
+		"lang": "en",
+		"notes": [
+			{
+				"category": "summary",
+				"text": "Security update for the Linux Kernel",
+				"title": "Title of the patch"
+			},
+			{
+				"category": "description",
+				"text": "\nThe SUSE Linux Enterprise 15 SP2 kernel was updated to receive various security and bug fixes.\n\n\nThe following security bugs were fixed:\n\n- CVE-2020-25656: Fixed a concurrency use-after-free in vt_do_kdgkb_ioctl (bnc#1177766).\n- CVE-2020-8694: Restricted energy meter to root access (bsc#1170415).\n- CVE-2020-25705: A ICMP global rate limiting side-channel was removed which could lead to e.g. the SADDNS attack (bsc#1175721)\n\nThe following non-security bugs were fixed:\n\n- act_ife: load meta modules before tcf_idr_check_alloc() (networking-stable-20_09_24).\n- ath10k: check idx validity in __ath10k_htt_rx_ring_fill_n() (git-fixes).\n- ath9k: hif_usb: fix race condition between usb_get_urb() and usb_kill_anchored_urbs() (git-fixes).\n- block: Set same_page to false in __bio_try_merge_page if ret is false (git-fixes).\n- Bluetooth: btusb: Fix memleak in btusb_mtk_submit_wmt_recv_urb (git-fixes).\n- Bluetooth: Only mark socket zapped after unlocking (git-fixes).\n- bnxt_en: Protect bnxt_set_eee() and bnxt_set_pauseparam() with mutex (git-fixes).\n- bonding: show saner speed for broadcast mode (networking-stable-20_08_24).\n- brcm80211: fix possible memleak in brcmf_proto_msgbuf_attach (git-fixes).\n- brcmsmac: fix memory leak in wlc_phy_attach_lcnphy (git-fixes).\n- btrfs: allocate scrub workqueues outside of locks (bsc#1178183).\n- btrfs: do not force read-only after error in drop snapshot (bsc#1176354).\n- btrfs: drop path before adding new uuid tree entry (bsc#1178176).\n- btrfs: fix filesystem corruption after a device replace (bsc#1178395).\n- btrfs: fix NULL pointer dereference after failure to create snapshot (bsc#1178190).\n- btrfs: fix overflow when copying corrupt csums for a message (bsc#1178191).\n- btrfs: fix space cache memory leak after transaction abort (bsc#1178173).\n- btrfs: move btrfs_rm_dev_replace_free_srcdev outside of all locks (bsc#1178395).\n- btrfs: move btrfs_scratch_superblocks into btrfs_dev_replace_finishing (bsc#1178395).\n- btrfs: set the correct lockdep class for new nodes (bsc#1178184).\n- btrfs: set the lockdep class for log tree extent buffers (bsc#1178186).\n- can: flexcan: flexcan_chip_stop(): add error handling and propagate error value (git-fixes).\n- ceph: promote to unsigned long long before shifting (bsc#1178175).\n- crypto: ccp - fix error handling (git-fixes).\n- cxgb4: fix memory leak during module unload (networking-stable-20_09_24).\n- cxgb4: Fix offset when clearing filter byte counters (networking-stable-20_09_24).\n- Disable ipa-clones dump for KMP builds (bsc#1178330) The feature is not really useful for KMP, and rather confusing, so let's disable it at building out-of-tree codes\n- Disable module compression on SLE15 SP2 (bsc#1178307)\n- dmaengine: dw: Activate FIFO-mode for memory peripherals only (git-fixes).\n- eeprom: at25: set minimum read/write access stride to 1 (git-fixes).\n- futex: Adjust absolute futex timeouts with per time namespace offset (bsc#1164648).\n- futex: Consistently use fshared as boolean (bsc#1149032).\n- futex: Fix incorrect should_fail_futex() handling (bsc#1149032).\n- futex: Remove put_futex_key() (bsc#1149032).\n- futex: Remove unused or redundant includes (bsc#1149032).\n- gre6: Fix reception with IP6_TNL_F_RCV_DSCP_COPY (networking-stable-20_08_24).\n- gtp: add GTPA_LINK info to msg sent to userspace (networking-stable-20_09_11).\n- HID: ite: Add USB id match for Acer One S1003 keyboard dock (git-fixes).\n- ibmveth: Identify ingress large send packets (bsc#1178185 ltc#188897).\n- ibmvnic: fix ibmvnic_set_mac (bsc#1066382 ltc#160943 git-fixes).\n- icmp: randomize the global rate limiter (git-fixes).\n- ip: fix tos reflection in ack and reset packets (networking-stable-20_09_24).\n- ipv4: Initialize flowi4_multipath_hash in data path (networking-stable-20_09_24).\n- ipv4: Restore flowi4_oif update before call to xfrm_lookup_route (git-fixes).\n- ipv4: Update exception handling for multipath routes via same device (networking-stable-20_09_24).\n- ipv6: avoid lockdep issue in fib6_del() (networking-stable-20_09_24).\n- ipv6: Fix sysctl max for fib_multipath_hash_policy (networking-stable-20_09_11).\n- ipvlan: fix device features (networking-stable-20_08_24).\n- kallsyms: Refactor kallsyms_show_value() to take cred (git-fixes).\n- kbuild: enforce -Werror=return-type (bsc#1177281).\n- KVM: x86/mmu: Commit zap of remaining invalid pages when recovering lpages (git-fixes).\n- libceph: clear con->out_msg on Policy::stateful_server faults (bsc#1178177).\n- mac80211: handle lack of sband->bitrates in rates (git-fixes).\n- mailbox: avoid timer start from callback (git-fixes).\n- media: ati_remote: sanity check for both endpoints (git-fixes).\n- media: bdisp: Fix runtime PM imbalance on error (git-fixes).\n- media: exynos4-is: Fix a reference count leak (git-fixes).\n- media: exynos4-is: Fix a reference count leak due to pm_runtime_get_sync (git-fixes).\n- media: exynos4-is: Fix several reference count leaks due to pm_runtime_get_sync (git-fixes).\n- media: firewire: fix memory leak (git-fixes).\n- media: i2c: ov5640: Enable data pins on poweron for DVP mode (git-fixes).\n- media: i2c: ov5640: Remain in power down for DVP mode unless streaming (git-fixes).\n- media: i2c: ov5640: Separate out mipi configuration from s_power (git-fixes).\n- media: media/pci: prevent memory leak in bttv_probe (git-fixes).\n- media: platform: s3c-camif: Fix runtime PM imbalance on error (git-fixes).\n- media: platform: sti: hva: Fix runtime PM imbalance on error (git-fixes).\n- media: rcar_drif: Allocate v4l2_async_subdev dynamically (git-fixes).\n- media: rcar_drif: Fix fwnode reference leak when parsing DT (git-fixes).\n- media: saa7134: avoid a shift overflow (git-fixes).\n- media: st-delta: Fix reference count leak in delta_run_work (git-fixes).\n- media: sti: Fix reference count leaks (git-fixes).\n- media: uvcvideo: Ensure all probed info is returned to v4l2 (git-fixes).\n- media: venus: core: Fix runtime PM imbalance in venus_probe (git-fixes).\n- media: vsp1: Fix runtime PM imbalance on error (git-fixes).\n- mic: vop: copy data to kernel space then write to io memory (git-fixes).\n- misc: rtsx: Fix memory leak in rtsx_pci_probe (git-fixes).\n- misc: vop: add round_up(x,4) for vring_size to avoid kernel panic (git-fixes).\n- mm: fix a race during THP splitting (bsc#1178255).\n- mm: madvise: fix vma user-after-free (git-fixes).\n- mmc: sdio: Check for CISTPL_VERS_1 buffer size (git-fixes).\n- module: Correctly truncate sysfs sections output (git-fixes).\n- module: Do not expose section addresses to non-CAP_SYSLOG (git-fixes).\n- module: Refactor section attr into bin attribute (git-fixes).\n- module: statically initialize init section freeing data (git-fixes).\n- mwifiex: do not call del_timer_sync() on uninitialized timer (git-fixes).\n- net/core: check length before updating Ethertype in skb_mpls_{push,pop} (git-fixes).\n- net/mlx5: Fix FTE cleanup (networking-stable-20_09_24).\n- net/mlx5e: Enable adding peer miss rules only if merged eswitch is supported (networking-stable-20_09_24).\n- net/mlx5e: TLS, Do not expose FPGA TLS counter if not supported (networking-stable-20_09_24).\n- net/sched: act_ct: Fix skb double-free in tcf_ct_handle_fragments() error flow (networking-stable-20_08_24).\n- net/smc: Prevent kernel-infoleak in __smc_diag_dump() (networking-stable-20_08_24).\n- net: bridge: br_vlan_get_pvid_rcu() should dereference the VLAN group under RCU (networking-stable-20_09_24).\n- net: DCB: Validate DCB_ATTR_DCB_BUFFER argument (networking-stable-20_09_24).\n- net: disable netpoll on fresh napis (networking-stable-20_09_11).\n- net: dsa: b53: check for timeout (networking-stable-20_08_24).\n- net: dsa: rtl8366: Properly clear member config (networking-stable-20_09_24).\n- net: fec: correct the error path for regulator disable in probe (networking-stable-20_08_24).\n- net: Fix bridge enslavement failure (networking-stable-20_09_24).\n- net: Fix potential wrong skb->protocol in skb_vlan_untag() (networking-stable-20_08_24).\n- net: hns: Fix memleak in hns_nic_dev_probe (networking-stable-20_09_11).\n- net: ipv6: fix kconfig dependency warning for IPV6_SEG6_HMAC (networking-stable-20_09_24).\n- net: lantiq: Disable IRQs only if NAPI gets scheduled (networking-stable-20_09_24).\n- net: lantiq: Use napi_complete_done() (networking-stable-20_09_24).\n- net: lantiq: use netif_tx_napi_add() for TX NAPI (networking-stable-20_09_24).\n- net: lantiq: Wake TX queue again (networking-stable-20_09_24).\n- net: phy: Avoid NPD upon phy_detach() when driver is unbound (networking-stable-20_09_24).\n- net: phy: Do not warn in phy_stop() on PHY_DOWN (networking-stable-20_09_24).\n- net: qrtr: fix usage of idr in port assignment to socket (networking-stable-20_08_24).\n- net: sctp: Fix IPv6 ancestor_size calc in sctp_copy_descendant (networking-stable-20_09_24).\n- net: sctp: Fix negotiation of the number of data streams (networking-stable-20_08_24).\n- net: systemport: Fix memleak in bcm_sysport_probe (networking-stable-20_09_11).\n- net: usb: dm9601: Add USB ID of Keenetic Plus DSL (networking-stable-20_09_11).\n- net: usb: qmi_wwan: add Cellient MPL200 card (git-fixes).\n- net: usb: rtl8150: set random MAC address when set_ethernet_addr() fails (git-fixes).\n- netlabel: fix problems with mapping removal (networking-stable-20_09_11).\n- nfp: use correct define to return NONE fec (networking-stable-20_09_24).\n- PM: hibernate: remove the bogus call to get_gendisk() in software_resume() (git-fixes).\n- r8169: fix issue with forced threading in combination with shared interrupts (git-fixes).\n- rpm/kernel-binary.spec.in: Fix compressed module handling for in-tree KMP (jsc#SLE-10886) The in-tree KMP that is built with SLE kernels have a different scriptlet that is embedded in kernel-binary.spec.in rather than *.sh files.\n- rpm/kernel-module-subpackage: make Group tag optional (bsc#1163592)\n- rtl8xxxu: prevent potential memory leak (git-fixes).\n- rtw88: increse the size of rx buffer size (git-fixes).\n- s390/cio: add cond_resched() in the slow_eval_known_fn() loop (bsc#1177799 LTC#188733).\n- s390/dasd: Fix zero write for FBA devices (bsc#1177801 LTC#188735).\n- scsi: ibmvscsi: Fix potential race after loss of transport (bsc#1178166 ltc#188226).\n- sctp: not disable bh in the whole sctp_get_port_local() (networking-stable-20_09_11).\n- selftests/timers: Turn off timeout setting (git-fixes).\n- spi: spi-s3c64xx: Check return values (git-fixes).\n- spi: spi-s3c64xx: swap s3c64xx_spi_set_cs() and s3c64xx_enable_datapath() (git-fixes).\n- taprio: Fix allowing too small intervals (networking-stable-20_09_24).\n- time: Prevent undefined behaviour in timespec64_to_ns() (bsc#1164648).\n- tipc: fix memory leak caused by tipc_buf_append() (git-fixes).\n- tipc: Fix memory leak in tipc_group_create_member() (networking-stable-20_09_24).\n- tipc: fix shutdown() of connection oriented socket (networking-stable-20_09_24).\n- tipc: fix shutdown() of connectionless socket (networking-stable-20_09_11).\n- tipc: fix the skb_unshare() in tipc_buf_append() (git-fixes).\n- tipc: fix uninit skb->data in tipc_nl_compat_dumpit() (networking-stable-20_08_24).\n- tipc: use skb_unshare() instead in tipc_buf_append() (networking-stable-20_09_24).\n- tty: ipwireless: fix error handling (git-fixes).\n- tty: serial: fsl_lpuart: fix lpuart32_poll_get_char (git-fixes).\n- usb: cdc-acm: add quirk to blacklist ETAS ES58X devices (git-fixes).\n- usb: cdc-acm: handle broken union descriptors (git-fixes).\n- usb: cdc-wdm: Make wdm_flush() interruptible and add wdm_fsync() (git-fixes).\n- usb: core: Solve race condition in anchor cleanup functions (git-fixes).\n- usb: dwc3: simple: add support for Hikey 970 (git-fixes).\n- usb: gadget: f_ncm: allow using NCM in SuperSpeed Plus gadgets (git-fixes).\n- usb: gadget: function: printer: fix use-after-free in __lock_acquire (git-fixes).\n- usb: ohci: Default to per-port over-current protection (git-fixes).\n- x86/alternative: Do not call text_poke() in lazy TLB mode (bsc#1175749).\n- xen/gntdev.c: Mark pages as dirty (bsc#1065600).\n- xfs: fix high key handling in the rt allocator's query_range function (git-fixes).\n- xfs: fix xfs_bmap_validate_extent_raw when checking attr fork of rt files (git-fixes).\n- xfs: limit entries returned when counting fsmap records (git-fixes).\n",
+				"title": "Description of the patch"
+			},
+			{
+				"category": "details",
+				"text": "SUSE-2020-3273,SUSE-SLE-Module-Basesystem-15-SP2-2020-3273,SUSE-SLE-Module-Development-Tools-15-SP2-2020-3273,SUSE-SLE-Module-Legacy-15-SP2-2020-3273,SUSE-SLE-Module-Live-Patching-15-SP2-2020-3273,SUSE-SLE-Product-HA-15-SP2-2020-3273,SUSE-SLE-Product-WE-15-SP2-2020-3273",
+				"title": "Patchnames"
+			},
+			{
+				"category": "legal_disclaimer",
+				"text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+				"title": "Terms of use"
+			}
+		],
+		"publisher": {
+			"category": "vendor",
+			"contact_details": "https://www.suse.com/support/security/contact/",
+			"name": "SUSE Product Security Team",
+			"namespace": "https://www.suse.com/"
+		},
+		"references": [
+			{
+				"category": "self",
+				"summary": "URL for SUSE-SU-2020:3273-1",
+				"url": "https://www.suse.com/support/update/announcement/2020/suse-su-20203273-1/"
+			},
+			{
+				"category": "external",
+				"summary": "SUSE ratings",
+				"url": "https://www.suse.com/support/security/rating/"
+			},
+			{
+				"category": "self",
+				"summary": "URL of this CSAF notice",
+				"url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2020_3273-1.json"
+			},
+			{
+				"category": "self",
+				"summary": "E-Mail link for SUSE-SU-2020:3273-1",
+				"url": "https://lists.suse.com/pipermail/sle-security-updates/2020-November/007745.html"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1065600",
+				"url": "https://bugzilla.suse.com/1065600"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1066382",
+				"url": "https://bugzilla.suse.com/1066382"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1149032",
+				"url": "https://bugzilla.suse.com/1149032"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1163592",
+				"url": "https://bugzilla.suse.com/1163592"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1164648",
+				"url": "https://bugzilla.suse.com/1164648"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1170415",
+				"url": "https://bugzilla.suse.com/1170415"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1175721",
+				"url": "https://bugzilla.suse.com/1175721"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1175749",
+				"url": "https://bugzilla.suse.com/1175749"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1176354",
+				"url": "https://bugzilla.suse.com/1176354"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1177281",
+				"url": "https://bugzilla.suse.com/1177281"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1177766",
+				"url": "https://bugzilla.suse.com/1177766"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1177799",
+				"url": "https://bugzilla.suse.com/1177799"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1177801",
+				"url": "https://bugzilla.suse.com/1177801"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1178166",
+				"url": "https://bugzilla.suse.com/1178166"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1178173",
+				"url": "https://bugzilla.suse.com/1178173"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1178175",
+				"url": "https://bugzilla.suse.com/1178175"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1178176",
+				"url": "https://bugzilla.suse.com/1178176"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1178177",
+				"url": "https://bugzilla.suse.com/1178177"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1178183",
+				"url": "https://bugzilla.suse.com/1178183"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1178184",
+				"url": "https://bugzilla.suse.com/1178184"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1178185",
+				"url": "https://bugzilla.suse.com/1178185"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1178186",
+				"url": "https://bugzilla.suse.com/1178186"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1178190",
+				"url": "https://bugzilla.suse.com/1178190"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1178191",
+				"url": "https://bugzilla.suse.com/1178191"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1178255",
+				"url": "https://bugzilla.suse.com/1178255"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1178307",
+				"url": "https://bugzilla.suse.com/1178307"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1178330",
+				"url": "https://bugzilla.suse.com/1178330"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1178395",
+				"url": "https://bugzilla.suse.com/1178395"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2020-25656 page",
+				"url": "https://www.suse.com/security/cve/CVE-2020-25656/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2020-25705 page",
+				"url": "https://www.suse.com/security/cve/CVE-2020-25705/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2020-8694 page",
+				"url": "https://www.suse.com/security/cve/CVE-2020-8694/"
+			}
+		],
+		"title": "Security update for the Linux Kernel",
+		"tracking": {
+			"current_release_date": "2020-11-14T07:22:03Z",
+			"generator": {
+				"date": "2020-11-14T07:22:03Z",
+				"engine": {
+					"name": "cve-database.git:bin/generate-csaf.pl",
+					"version": "1"
+				}
+			},
+			"id": "SUSE-SU-2020:3273-1",
+			"initial_release_date": "2020-11-14T07:22:03Z",
+			"revision_history": [
+				{
+					"date": "2020-11-14T07:22:03Z",
+					"number": "1",
+					"summary": "Current version"
+				}
+			],
+			"status": "final",
+			"version": "1"
+		}
+	},
+	"product_tree": {
+		"branches": [
+			{
+				"branches": [
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "cluster-md-kmp-default-5.3.18-24.37.1.aarch64",
+								"product": {
+									"name": "cluster-md-kmp-default-5.3.18-24.37.1.aarch64",
+									"product_id": "cluster-md-kmp-default-5.3.18-24.37.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "cluster-md-kmp-preempt-5.3.18-24.37.1.aarch64",
+								"product": {
+									"name": "cluster-md-kmp-preempt-5.3.18-24.37.1.aarch64",
+									"product_id": "cluster-md-kmp-preempt-5.3.18-24.37.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "dlm-kmp-default-5.3.18-24.37.1.aarch64",
+								"product": {
+									"name": "dlm-kmp-default-5.3.18-24.37.1.aarch64",
+									"product_id": "dlm-kmp-default-5.3.18-24.37.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "dlm-kmp-preempt-5.3.18-24.37.1.aarch64",
+								"product": {
+									"name": "dlm-kmp-preempt-5.3.18-24.37.1.aarch64",
+									"product_id": "dlm-kmp-preempt-5.3.18-24.37.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "gfs2-kmp-default-5.3.18-24.37.1.aarch64",
+								"product": {
+									"name": "gfs2-kmp-default-5.3.18-24.37.1.aarch64",
+									"product_id": "gfs2-kmp-default-5.3.18-24.37.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "gfs2-kmp-preempt-5.3.18-24.37.1.aarch64",
+								"product": {
+									"name": "gfs2-kmp-preempt-5.3.18-24.37.1.aarch64",
+									"product_id": "gfs2-kmp-preempt-5.3.18-24.37.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-5.3.18-24.37.1.aarch64",
+								"product": {
+									"name": "kernel-default-5.3.18-24.37.1.aarch64",
+									"product_id": "kernel-default-5.3.18-24.37.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-base-5.3.18-24.37.1.9.13.1.aarch64",
+								"product": {
+									"name": "kernel-default-base-5.3.18-24.37.1.9.13.1.aarch64",
+									"product_id": "kernel-default-base-5.3.18-24.37.1.9.13.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-base-rebuild-5.3.18-24.37.1.9.13.1.aarch64",
+								"product": {
+									"name": "kernel-default-base-rebuild-5.3.18-24.37.1.9.13.1.aarch64",
+									"product_id": "kernel-default-base-rebuild-5.3.18-24.37.1.9.13.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-devel-5.3.18-24.37.1.aarch64",
+								"product": {
+									"name": "kernel-default-devel-5.3.18-24.37.1.aarch64",
+									"product_id": "kernel-default-devel-5.3.18-24.37.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-extra-5.3.18-24.37.1.aarch64",
+								"product": {
+									"name": "kernel-default-extra-5.3.18-24.37.1.aarch64",
+									"product_id": "kernel-default-extra-5.3.18-24.37.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-livepatch-5.3.18-24.37.1.aarch64",
+								"product": {
+									"name": "kernel-default-livepatch-5.3.18-24.37.1.aarch64",
+									"product_id": "kernel-default-livepatch-5.3.18-24.37.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-livepatch-devel-5.3.18-24.37.1.aarch64",
+								"product": {
+									"name": "kernel-default-livepatch-devel-5.3.18-24.37.1.aarch64",
+									"product_id": "kernel-default-livepatch-devel-5.3.18-24.37.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-obs-build-5.3.18-24.37.1.aarch64",
+								"product": {
+									"name": "kernel-obs-build-5.3.18-24.37.1.aarch64",
+									"product_id": "kernel-obs-build-5.3.18-24.37.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-obs-qa-5.3.18-24.37.1.aarch64",
+								"product": {
+									"name": "kernel-obs-qa-5.3.18-24.37.1.aarch64",
+									"product_id": "kernel-obs-qa-5.3.18-24.37.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-preempt-5.3.18-24.37.1.aarch64",
+								"product": {
+									"name": "kernel-preempt-5.3.18-24.37.1.aarch64",
+									"product_id": "kernel-preempt-5.3.18-24.37.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-preempt-devel-5.3.18-24.37.1.aarch64",
+								"product": {
+									"name": "kernel-preempt-devel-5.3.18-24.37.1.aarch64",
+									"product_id": "kernel-preempt-devel-5.3.18-24.37.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-preempt-extra-5.3.18-24.37.1.aarch64",
+								"product": {
+									"name": "kernel-preempt-extra-5.3.18-24.37.1.aarch64",
+									"product_id": "kernel-preempt-extra-5.3.18-24.37.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-preempt-livepatch-devel-5.3.18-24.37.1.aarch64",
+								"product": {
+									"name": "kernel-preempt-livepatch-devel-5.3.18-24.37.1.aarch64",
+									"product_id": "kernel-preempt-livepatch-devel-5.3.18-24.37.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-syms-5.3.18-24.37.1.aarch64",
+								"product": {
+									"name": "kernel-syms-5.3.18-24.37.1.aarch64",
+									"product_id": "kernel-syms-5.3.18-24.37.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kselftests-kmp-default-5.3.18-24.37.1.aarch64",
+								"product": {
+									"name": "kselftests-kmp-default-5.3.18-24.37.1.aarch64",
+									"product_id": "kselftests-kmp-default-5.3.18-24.37.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kselftests-kmp-preempt-5.3.18-24.37.1.aarch64",
+								"product": {
+									"name": "kselftests-kmp-preempt-5.3.18-24.37.1.aarch64",
+									"product_id": "kselftests-kmp-preempt-5.3.18-24.37.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "ocfs2-kmp-default-5.3.18-24.37.1.aarch64",
+								"product": {
+									"name": "ocfs2-kmp-default-5.3.18-24.37.1.aarch64",
+									"product_id": "ocfs2-kmp-default-5.3.18-24.37.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "ocfs2-kmp-preempt-5.3.18-24.37.1.aarch64",
+								"product": {
+									"name": "ocfs2-kmp-preempt-5.3.18-24.37.1.aarch64",
+									"product_id": "ocfs2-kmp-preempt-5.3.18-24.37.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "reiserfs-kmp-default-5.3.18-24.37.1.aarch64",
+								"product": {
+									"name": "reiserfs-kmp-default-5.3.18-24.37.1.aarch64",
+									"product_id": "reiserfs-kmp-default-5.3.18-24.37.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "reiserfs-kmp-preempt-5.3.18-24.37.1.aarch64",
+								"product": {
+									"name": "reiserfs-kmp-preempt-5.3.18-24.37.1.aarch64",
+									"product_id": "reiserfs-kmp-preempt-5.3.18-24.37.1.aarch64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "aarch64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "kernel-devel-5.3.18-24.37.1.noarch",
+								"product": {
+									"name": "kernel-devel-5.3.18-24.37.1.noarch",
+									"product_id": "kernel-devel-5.3.18-24.37.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-docs-5.3.18-24.37.1.noarch",
+								"product": {
+									"name": "kernel-docs-5.3.18-24.37.1.noarch",
+									"product_id": "kernel-docs-5.3.18-24.37.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-docs-html-5.3.18-24.37.1.noarch",
+								"product": {
+									"name": "kernel-docs-html-5.3.18-24.37.1.noarch",
+									"product_id": "kernel-docs-html-5.3.18-24.37.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-macros-5.3.18-24.37.1.noarch",
+								"product": {
+									"name": "kernel-macros-5.3.18-24.37.1.noarch",
+									"product_id": "kernel-macros-5.3.18-24.37.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-source-5.3.18-24.37.1.noarch",
+								"product": {
+									"name": "kernel-source-5.3.18-24.37.1.noarch",
+									"product_id": "kernel-source-5.3.18-24.37.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-source-vanilla-5.3.18-24.37.1.noarch",
+								"product": {
+									"name": "kernel-source-vanilla-5.3.18-24.37.1.noarch",
+									"product_id": "kernel-source-vanilla-5.3.18-24.37.1.noarch"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "noarch"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "cluster-md-kmp-default-5.3.18-24.37.1.ppc64le",
+								"product": {
+									"name": "cluster-md-kmp-default-5.3.18-24.37.1.ppc64le",
+									"product_id": "cluster-md-kmp-default-5.3.18-24.37.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "dlm-kmp-default-5.3.18-24.37.1.ppc64le",
+								"product": {
+									"name": "dlm-kmp-default-5.3.18-24.37.1.ppc64le",
+									"product_id": "dlm-kmp-default-5.3.18-24.37.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "gfs2-kmp-default-5.3.18-24.37.1.ppc64le",
+								"product": {
+									"name": "gfs2-kmp-default-5.3.18-24.37.1.ppc64le",
+									"product_id": "gfs2-kmp-default-5.3.18-24.37.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-debug-5.3.18-24.37.1.ppc64le",
+								"product": {
+									"name": "kernel-debug-5.3.18-24.37.1.ppc64le",
+									"product_id": "kernel-debug-5.3.18-24.37.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-debug-devel-5.3.18-24.37.1.ppc64le",
+								"product": {
+									"name": "kernel-debug-devel-5.3.18-24.37.1.ppc64le",
+									"product_id": "kernel-debug-devel-5.3.18-24.37.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-debug-livepatch-devel-5.3.18-24.37.1.ppc64le",
+								"product": {
+									"name": "kernel-debug-livepatch-devel-5.3.18-24.37.1.ppc64le",
+									"product_id": "kernel-debug-livepatch-devel-5.3.18-24.37.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-5.3.18-24.37.1.ppc64le",
+								"product": {
+									"name": "kernel-default-5.3.18-24.37.1.ppc64le",
+									"product_id": "kernel-default-5.3.18-24.37.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-base-5.3.18-24.37.1.9.13.1.ppc64le",
+								"product": {
+									"name": "kernel-default-base-5.3.18-24.37.1.9.13.1.ppc64le",
+									"product_id": "kernel-default-base-5.3.18-24.37.1.9.13.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-base-rebuild-5.3.18-24.37.1.9.13.1.ppc64le",
+								"product": {
+									"name": "kernel-default-base-rebuild-5.3.18-24.37.1.9.13.1.ppc64le",
+									"product_id": "kernel-default-base-rebuild-5.3.18-24.37.1.9.13.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-devel-5.3.18-24.37.1.ppc64le",
+								"product": {
+									"name": "kernel-default-devel-5.3.18-24.37.1.ppc64le",
+									"product_id": "kernel-default-devel-5.3.18-24.37.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-extra-5.3.18-24.37.1.ppc64le",
+								"product": {
+									"name": "kernel-default-extra-5.3.18-24.37.1.ppc64le",
+									"product_id": "kernel-default-extra-5.3.18-24.37.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-livepatch-5.3.18-24.37.1.ppc64le",
+								"product": {
+									"name": "kernel-default-livepatch-5.3.18-24.37.1.ppc64le",
+									"product_id": "kernel-default-livepatch-5.3.18-24.37.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-livepatch-devel-5.3.18-24.37.1.ppc64le",
+								"product": {
+									"name": "kernel-default-livepatch-devel-5.3.18-24.37.1.ppc64le",
+									"product_id": "kernel-default-livepatch-devel-5.3.18-24.37.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-kvmsmall-5.3.18-24.37.1.ppc64le",
+								"product": {
+									"name": "kernel-kvmsmall-5.3.18-24.37.1.ppc64le",
+									"product_id": "kernel-kvmsmall-5.3.18-24.37.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-kvmsmall-devel-5.3.18-24.37.1.ppc64le",
+								"product": {
+									"name": "kernel-kvmsmall-devel-5.3.18-24.37.1.ppc64le",
+									"product_id": "kernel-kvmsmall-devel-5.3.18-24.37.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-kvmsmall-livepatch-devel-5.3.18-24.37.1.ppc64le",
+								"product": {
+									"name": "kernel-kvmsmall-livepatch-devel-5.3.18-24.37.1.ppc64le",
+									"product_id": "kernel-kvmsmall-livepatch-devel-5.3.18-24.37.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-livepatch-5_3_18-24_37-default-1-5.3.1.ppc64le",
+								"product": {
+									"name": "kernel-livepatch-5_3_18-24_37-default-1-5.3.1.ppc64le",
+									"product_id": "kernel-livepatch-5_3_18-24_37-default-1-5.3.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-obs-build-5.3.18-24.37.1.ppc64le",
+								"product": {
+									"name": "kernel-obs-build-5.3.18-24.37.1.ppc64le",
+									"product_id": "kernel-obs-build-5.3.18-24.37.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-obs-qa-5.3.18-24.37.1.ppc64le",
+								"product": {
+									"name": "kernel-obs-qa-5.3.18-24.37.1.ppc64le",
+									"product_id": "kernel-obs-qa-5.3.18-24.37.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-syms-5.3.18-24.37.1.ppc64le",
+								"product": {
+									"name": "kernel-syms-5.3.18-24.37.1.ppc64le",
+									"product_id": "kernel-syms-5.3.18-24.37.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kselftests-kmp-default-5.3.18-24.37.1.ppc64le",
+								"product": {
+									"name": "kselftests-kmp-default-5.3.18-24.37.1.ppc64le",
+									"product_id": "kselftests-kmp-default-5.3.18-24.37.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "ocfs2-kmp-default-5.3.18-24.37.1.ppc64le",
+								"product": {
+									"name": "ocfs2-kmp-default-5.3.18-24.37.1.ppc64le",
+									"product_id": "ocfs2-kmp-default-5.3.18-24.37.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "reiserfs-kmp-default-5.3.18-24.37.1.ppc64le",
+								"product": {
+									"name": "reiserfs-kmp-default-5.3.18-24.37.1.ppc64le",
+									"product_id": "reiserfs-kmp-default-5.3.18-24.37.1.ppc64le"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "ppc64le"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "cluster-md-kmp-default-5.3.18-24.37.1.s390x",
+								"product": {
+									"name": "cluster-md-kmp-default-5.3.18-24.37.1.s390x",
+									"product_id": "cluster-md-kmp-default-5.3.18-24.37.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "dlm-kmp-default-5.3.18-24.37.1.s390x",
+								"product": {
+									"name": "dlm-kmp-default-5.3.18-24.37.1.s390x",
+									"product_id": "dlm-kmp-default-5.3.18-24.37.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "gfs2-kmp-default-5.3.18-24.37.1.s390x",
+								"product": {
+									"name": "gfs2-kmp-default-5.3.18-24.37.1.s390x",
+									"product_id": "gfs2-kmp-default-5.3.18-24.37.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-5.3.18-24.37.1.s390x",
+								"product": {
+									"name": "kernel-default-5.3.18-24.37.1.s390x",
+									"product_id": "kernel-default-5.3.18-24.37.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-base-5.3.18-24.37.1.9.13.1.s390x",
+								"product": {
+									"name": "kernel-default-base-5.3.18-24.37.1.9.13.1.s390x",
+									"product_id": "kernel-default-base-5.3.18-24.37.1.9.13.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-base-rebuild-5.3.18-24.37.1.9.13.1.s390x",
+								"product": {
+									"name": "kernel-default-base-rebuild-5.3.18-24.37.1.9.13.1.s390x",
+									"product_id": "kernel-default-base-rebuild-5.3.18-24.37.1.9.13.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-devel-5.3.18-24.37.1.s390x",
+								"product": {
+									"name": "kernel-default-devel-5.3.18-24.37.1.s390x",
+									"product_id": "kernel-default-devel-5.3.18-24.37.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-extra-5.3.18-24.37.1.s390x",
+								"product": {
+									"name": "kernel-default-extra-5.3.18-24.37.1.s390x",
+									"product_id": "kernel-default-extra-5.3.18-24.37.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-livepatch-5.3.18-24.37.1.s390x",
+								"product": {
+									"name": "kernel-default-livepatch-5.3.18-24.37.1.s390x",
+									"product_id": "kernel-default-livepatch-5.3.18-24.37.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-livepatch-devel-5.3.18-24.37.1.s390x",
+								"product": {
+									"name": "kernel-default-livepatch-devel-5.3.18-24.37.1.s390x",
+									"product_id": "kernel-default-livepatch-devel-5.3.18-24.37.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-livepatch-5_3_18-24_37-default-1-5.3.1.s390x",
+								"product": {
+									"name": "kernel-livepatch-5_3_18-24_37-default-1-5.3.1.s390x",
+									"product_id": "kernel-livepatch-5_3_18-24_37-default-1-5.3.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-obs-build-5.3.18-24.37.1.s390x",
+								"product": {
+									"name": "kernel-obs-build-5.3.18-24.37.1.s390x",
+									"product_id": "kernel-obs-build-5.3.18-24.37.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-obs-qa-5.3.18-24.37.1.s390x",
+								"product": {
+									"name": "kernel-obs-qa-5.3.18-24.37.1.s390x",
+									"product_id": "kernel-obs-qa-5.3.18-24.37.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-syms-5.3.18-24.37.1.s390x",
+								"product": {
+									"name": "kernel-syms-5.3.18-24.37.1.s390x",
+									"product_id": "kernel-syms-5.3.18-24.37.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-zfcpdump-5.3.18-24.37.1.s390x",
+								"product": {
+									"name": "kernel-zfcpdump-5.3.18-24.37.1.s390x",
+									"product_id": "kernel-zfcpdump-5.3.18-24.37.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kselftests-kmp-default-5.3.18-24.37.1.s390x",
+								"product": {
+									"name": "kselftests-kmp-default-5.3.18-24.37.1.s390x",
+									"product_id": "kselftests-kmp-default-5.3.18-24.37.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "ocfs2-kmp-default-5.3.18-24.37.1.s390x",
+								"product": {
+									"name": "ocfs2-kmp-default-5.3.18-24.37.1.s390x",
+									"product_id": "ocfs2-kmp-default-5.3.18-24.37.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "reiserfs-kmp-default-5.3.18-24.37.1.s390x",
+								"product": {
+									"name": "reiserfs-kmp-default-5.3.18-24.37.1.s390x",
+									"product_id": "reiserfs-kmp-default-5.3.18-24.37.1.s390x"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "s390x"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "cluster-md-kmp-default-5.3.18-24.37.1.x86_64",
+								"product": {
+									"name": "cluster-md-kmp-default-5.3.18-24.37.1.x86_64",
+									"product_id": "cluster-md-kmp-default-5.3.18-24.37.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "cluster-md-kmp-preempt-5.3.18-24.37.1.x86_64",
+								"product": {
+									"name": "cluster-md-kmp-preempt-5.3.18-24.37.1.x86_64",
+									"product_id": "cluster-md-kmp-preempt-5.3.18-24.37.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "dlm-kmp-default-5.3.18-24.37.1.x86_64",
+								"product": {
+									"name": "dlm-kmp-default-5.3.18-24.37.1.x86_64",
+									"product_id": "dlm-kmp-default-5.3.18-24.37.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "dlm-kmp-preempt-5.3.18-24.37.1.x86_64",
+								"product": {
+									"name": "dlm-kmp-preempt-5.3.18-24.37.1.x86_64",
+									"product_id": "dlm-kmp-preempt-5.3.18-24.37.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "gfs2-kmp-default-5.3.18-24.37.1.x86_64",
+								"product": {
+									"name": "gfs2-kmp-default-5.3.18-24.37.1.x86_64",
+									"product_id": "gfs2-kmp-default-5.3.18-24.37.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "gfs2-kmp-preempt-5.3.18-24.37.1.x86_64",
+								"product": {
+									"name": "gfs2-kmp-preempt-5.3.18-24.37.1.x86_64",
+									"product_id": "gfs2-kmp-preempt-5.3.18-24.37.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-debug-5.3.18-24.37.1.x86_64",
+								"product": {
+									"name": "kernel-debug-5.3.18-24.37.1.x86_64",
+									"product_id": "kernel-debug-5.3.18-24.37.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-debug-devel-5.3.18-24.37.1.x86_64",
+								"product": {
+									"name": "kernel-debug-devel-5.3.18-24.37.1.x86_64",
+									"product_id": "kernel-debug-devel-5.3.18-24.37.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-debug-livepatch-devel-5.3.18-24.37.1.x86_64",
+								"product": {
+									"name": "kernel-debug-livepatch-devel-5.3.18-24.37.1.x86_64",
+									"product_id": "kernel-debug-livepatch-devel-5.3.18-24.37.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-5.3.18-24.37.1.x86_64",
+								"product": {
+									"name": "kernel-default-5.3.18-24.37.1.x86_64",
+									"product_id": "kernel-default-5.3.18-24.37.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-base-5.3.18-24.37.1.9.13.1.x86_64",
+								"product": {
+									"name": "kernel-default-base-5.3.18-24.37.1.9.13.1.x86_64",
+									"product_id": "kernel-default-base-5.3.18-24.37.1.9.13.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-base-rebuild-5.3.18-24.37.1.9.13.1.x86_64",
+								"product": {
+									"name": "kernel-default-base-rebuild-5.3.18-24.37.1.9.13.1.x86_64",
+									"product_id": "kernel-default-base-rebuild-5.3.18-24.37.1.9.13.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-devel-5.3.18-24.37.1.x86_64",
+								"product": {
+									"name": "kernel-default-devel-5.3.18-24.37.1.x86_64",
+									"product_id": "kernel-default-devel-5.3.18-24.37.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-extra-5.3.18-24.37.1.x86_64",
+								"product": {
+									"name": "kernel-default-extra-5.3.18-24.37.1.x86_64",
+									"product_id": "kernel-default-extra-5.3.18-24.37.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-livepatch-5.3.18-24.37.1.x86_64",
+								"product": {
+									"name": "kernel-default-livepatch-5.3.18-24.37.1.x86_64",
+									"product_id": "kernel-default-livepatch-5.3.18-24.37.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-livepatch-devel-5.3.18-24.37.1.x86_64",
+								"product": {
+									"name": "kernel-default-livepatch-devel-5.3.18-24.37.1.x86_64",
+									"product_id": "kernel-default-livepatch-devel-5.3.18-24.37.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-kvmsmall-5.3.18-24.37.1.x86_64",
+								"product": {
+									"name": "kernel-kvmsmall-5.3.18-24.37.1.x86_64",
+									"product_id": "kernel-kvmsmall-5.3.18-24.37.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-kvmsmall-devel-5.3.18-24.37.1.x86_64",
+								"product": {
+									"name": "kernel-kvmsmall-devel-5.3.18-24.37.1.x86_64",
+									"product_id": "kernel-kvmsmall-devel-5.3.18-24.37.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-kvmsmall-livepatch-devel-5.3.18-24.37.1.x86_64",
+								"product": {
+									"name": "kernel-kvmsmall-livepatch-devel-5.3.18-24.37.1.x86_64",
+									"product_id": "kernel-kvmsmall-livepatch-devel-5.3.18-24.37.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-livepatch-5_3_18-24_37-default-1-5.3.1.x86_64",
+								"product": {
+									"name": "kernel-livepatch-5_3_18-24_37-default-1-5.3.1.x86_64",
+									"product_id": "kernel-livepatch-5_3_18-24_37-default-1-5.3.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-livepatch-5_3_18-24_37-preempt-1-5.3.1.x86_64",
+								"product": {
+									"name": "kernel-livepatch-5_3_18-24_37-preempt-1-5.3.1.x86_64",
+									"product_id": "kernel-livepatch-5_3_18-24_37-preempt-1-5.3.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-obs-build-5.3.18-24.37.1.x86_64",
+								"product": {
+									"name": "kernel-obs-build-5.3.18-24.37.1.x86_64",
+									"product_id": "kernel-obs-build-5.3.18-24.37.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-obs-qa-5.3.18-24.37.1.x86_64",
+								"product": {
+									"name": "kernel-obs-qa-5.3.18-24.37.1.x86_64",
+									"product_id": "kernel-obs-qa-5.3.18-24.37.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-preempt-5.3.18-24.37.1.x86_64",
+								"product": {
+									"name": "kernel-preempt-5.3.18-24.37.1.x86_64",
+									"product_id": "kernel-preempt-5.3.18-24.37.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-preempt-devel-5.3.18-24.37.1.x86_64",
+								"product": {
+									"name": "kernel-preempt-devel-5.3.18-24.37.1.x86_64",
+									"product_id": "kernel-preempt-devel-5.3.18-24.37.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-preempt-extra-5.3.18-24.37.1.x86_64",
+								"product": {
+									"name": "kernel-preempt-extra-5.3.18-24.37.1.x86_64",
+									"product_id": "kernel-preempt-extra-5.3.18-24.37.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-preempt-livepatch-devel-5.3.18-24.37.1.x86_64",
+								"product": {
+									"name": "kernel-preempt-livepatch-devel-5.3.18-24.37.1.x86_64",
+									"product_id": "kernel-preempt-livepatch-devel-5.3.18-24.37.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-syms-5.3.18-24.37.1.x86_64",
+								"product": {
+									"name": "kernel-syms-5.3.18-24.37.1.x86_64",
+									"product_id": "kernel-syms-5.3.18-24.37.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kselftests-kmp-default-5.3.18-24.37.1.x86_64",
+								"product": {
+									"name": "kselftests-kmp-default-5.3.18-24.37.1.x86_64",
+									"product_id": "kselftests-kmp-default-5.3.18-24.37.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kselftests-kmp-preempt-5.3.18-24.37.1.x86_64",
+								"product": {
+									"name": "kselftests-kmp-preempt-5.3.18-24.37.1.x86_64",
+									"product_id": "kselftests-kmp-preempt-5.3.18-24.37.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "ocfs2-kmp-default-5.3.18-24.37.1.x86_64",
+								"product": {
+									"name": "ocfs2-kmp-default-5.3.18-24.37.1.x86_64",
+									"product_id": "ocfs2-kmp-default-5.3.18-24.37.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "ocfs2-kmp-preempt-5.3.18-24.37.1.x86_64",
+								"product": {
+									"name": "ocfs2-kmp-preempt-5.3.18-24.37.1.x86_64",
+									"product_id": "ocfs2-kmp-preempt-5.3.18-24.37.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "reiserfs-kmp-default-5.3.18-24.37.1.x86_64",
+								"product": {
+									"name": "reiserfs-kmp-default-5.3.18-24.37.1.x86_64",
+									"product_id": "reiserfs-kmp-default-5.3.18-24.37.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "reiserfs-kmp-preempt-5.3.18-24.37.1.x86_64",
+								"product": {
+									"name": "reiserfs-kmp-preempt-5.3.18-24.37.1.x86_64",
+									"product_id": "reiserfs-kmp-preempt-5.3.18-24.37.1.x86_64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "x86_64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Module for Basesystem 15 SP2",
+								"product": {
+									"name": "SUSE Linux Enterprise Module for Basesystem 15 SP2",
+									"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP2",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-module-basesystem:15:sp2"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Module for Development Tools 15 SP2",
+								"product": {
+									"name": "SUSE Linux Enterprise Module for Development Tools 15 SP2",
+									"product_id": "SUSE Linux Enterprise Module for Development Tools 15 SP2",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-module-development-tools:15:sp2"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Module for Legacy 15 SP2",
+								"product": {
+									"name": "SUSE Linux Enterprise Module for Legacy 15 SP2",
+									"product_id": "SUSE Linux Enterprise Module for Legacy 15 SP2",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-module-legacy:15:sp2"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Live Patching 15 SP2",
+								"product": {
+									"name": "SUSE Linux Enterprise Live Patching 15 SP2",
+									"product_id": "SUSE Linux Enterprise Live Patching 15 SP2",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-module-live-patching:15:sp2"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise High Availability Extension 15 SP2",
+								"product": {
+									"name": "SUSE Linux Enterprise High Availability Extension 15 SP2",
+									"product_id": "SUSE Linux Enterprise High Availability Extension 15 SP2",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-ha:15:sp2"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Workstation Extension 15 SP2",
+								"product": {
+									"name": "SUSE Linux Enterprise Workstation Extension 15 SP2",
+									"product_id": "SUSE Linux Enterprise Workstation Extension 15 SP2",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-we:15:sp2"
+									}
+								}
+							}
+						],
+						"category": "product_family",
+						"name": "SUSE Linux Enterprise"
+					}
+				],
+				"category": "vendor",
+				"name": "SUSE"
+			}
+		],
+		"relationships": [
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-5.3.18-24.37.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-5.3.18-24.37.1.aarch64"
+				},
+				"product_reference": "kernel-default-5.3.18-24.37.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-5.3.18-24.37.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-5.3.18-24.37.1.ppc64le"
+				},
+				"product_reference": "kernel-default-5.3.18-24.37.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-5.3.18-24.37.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-5.3.18-24.37.1.s390x"
+				},
+				"product_reference": "kernel-default-5.3.18-24.37.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-5.3.18-24.37.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-5.3.18-24.37.1.x86_64"
+				},
+				"product_reference": "kernel-default-5.3.18-24.37.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-base-5.3.18-24.37.1.9.13.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-base-5.3.18-24.37.1.9.13.1.aarch64"
+				},
+				"product_reference": "kernel-default-base-5.3.18-24.37.1.9.13.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-base-5.3.18-24.37.1.9.13.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-base-5.3.18-24.37.1.9.13.1.ppc64le"
+				},
+				"product_reference": "kernel-default-base-5.3.18-24.37.1.9.13.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-base-5.3.18-24.37.1.9.13.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-base-5.3.18-24.37.1.9.13.1.s390x"
+				},
+				"product_reference": "kernel-default-base-5.3.18-24.37.1.9.13.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-base-5.3.18-24.37.1.9.13.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-base-5.3.18-24.37.1.9.13.1.x86_64"
+				},
+				"product_reference": "kernel-default-base-5.3.18-24.37.1.9.13.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-devel-5.3.18-24.37.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-devel-5.3.18-24.37.1.aarch64"
+				},
+				"product_reference": "kernel-default-devel-5.3.18-24.37.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-devel-5.3.18-24.37.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-devel-5.3.18-24.37.1.ppc64le"
+				},
+				"product_reference": "kernel-default-devel-5.3.18-24.37.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-devel-5.3.18-24.37.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-devel-5.3.18-24.37.1.s390x"
+				},
+				"product_reference": "kernel-default-devel-5.3.18-24.37.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-devel-5.3.18-24.37.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-devel-5.3.18-24.37.1.x86_64"
+				},
+				"product_reference": "kernel-default-devel-5.3.18-24.37.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-devel-5.3.18-24.37.1.noarch as component of SUSE Linux Enterprise Module for Basesystem 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-devel-5.3.18-24.37.1.noarch"
+				},
+				"product_reference": "kernel-devel-5.3.18-24.37.1.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-macros-5.3.18-24.37.1.noarch as component of SUSE Linux Enterprise Module for Basesystem 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-macros-5.3.18-24.37.1.noarch"
+				},
+				"product_reference": "kernel-macros-5.3.18-24.37.1.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-preempt-5.3.18-24.37.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-preempt-5.3.18-24.37.1.aarch64"
+				},
+				"product_reference": "kernel-preempt-5.3.18-24.37.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-preempt-5.3.18-24.37.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-preempt-5.3.18-24.37.1.x86_64"
+				},
+				"product_reference": "kernel-preempt-5.3.18-24.37.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-docs-5.3.18-24.37.1.noarch as component of SUSE Linux Enterprise Module for Development Tools 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-docs-5.3.18-24.37.1.noarch"
+				},
+				"product_reference": "kernel-docs-5.3.18-24.37.1.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Development Tools 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-obs-build-5.3.18-24.37.1.aarch64 as component of SUSE Linux Enterprise Module for Development Tools 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-obs-build-5.3.18-24.37.1.aarch64"
+				},
+				"product_reference": "kernel-obs-build-5.3.18-24.37.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Development Tools 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-obs-build-5.3.18-24.37.1.ppc64le as component of SUSE Linux Enterprise Module for Development Tools 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-obs-build-5.3.18-24.37.1.ppc64le"
+				},
+				"product_reference": "kernel-obs-build-5.3.18-24.37.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Development Tools 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-obs-build-5.3.18-24.37.1.s390x as component of SUSE Linux Enterprise Module for Development Tools 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-obs-build-5.3.18-24.37.1.s390x"
+				},
+				"product_reference": "kernel-obs-build-5.3.18-24.37.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Development Tools 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-obs-build-5.3.18-24.37.1.x86_64 as component of SUSE Linux Enterprise Module for Development Tools 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-obs-build-5.3.18-24.37.1.x86_64"
+				},
+				"product_reference": "kernel-obs-build-5.3.18-24.37.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Development Tools 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-preempt-devel-5.3.18-24.37.1.aarch64 as component of SUSE Linux Enterprise Module for Development Tools 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-preempt-devel-5.3.18-24.37.1.aarch64"
+				},
+				"product_reference": "kernel-preempt-devel-5.3.18-24.37.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Development Tools 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-preempt-devel-5.3.18-24.37.1.x86_64 as component of SUSE Linux Enterprise Module for Development Tools 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-preempt-devel-5.3.18-24.37.1.x86_64"
+				},
+				"product_reference": "kernel-preempt-devel-5.3.18-24.37.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Development Tools 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-source-5.3.18-24.37.1.noarch as component of SUSE Linux Enterprise Module for Development Tools 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-source-5.3.18-24.37.1.noarch"
+				},
+				"product_reference": "kernel-source-5.3.18-24.37.1.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Development Tools 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-syms-5.3.18-24.37.1.aarch64 as component of SUSE Linux Enterprise Module for Development Tools 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-syms-5.3.18-24.37.1.aarch64"
+				},
+				"product_reference": "kernel-syms-5.3.18-24.37.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Development Tools 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-syms-5.3.18-24.37.1.ppc64le as component of SUSE Linux Enterprise Module for Development Tools 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-syms-5.3.18-24.37.1.ppc64le"
+				},
+				"product_reference": "kernel-syms-5.3.18-24.37.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Development Tools 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-syms-5.3.18-24.37.1.s390x as component of SUSE Linux Enterprise Module for Development Tools 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-syms-5.3.18-24.37.1.s390x"
+				},
+				"product_reference": "kernel-syms-5.3.18-24.37.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Development Tools 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-syms-5.3.18-24.37.1.x86_64 as component of SUSE Linux Enterprise Module for Development Tools 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-syms-5.3.18-24.37.1.x86_64"
+				},
+				"product_reference": "kernel-syms-5.3.18-24.37.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Development Tools 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "reiserfs-kmp-default-5.3.18-24.37.1.aarch64 as component of SUSE Linux Enterprise Module for Legacy 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Legacy 15 SP2:reiserfs-kmp-default-5.3.18-24.37.1.aarch64"
+				},
+				"product_reference": "reiserfs-kmp-default-5.3.18-24.37.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Legacy 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "reiserfs-kmp-default-5.3.18-24.37.1.ppc64le as component of SUSE Linux Enterprise Module for Legacy 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Legacy 15 SP2:reiserfs-kmp-default-5.3.18-24.37.1.ppc64le"
+				},
+				"product_reference": "reiserfs-kmp-default-5.3.18-24.37.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Legacy 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "reiserfs-kmp-default-5.3.18-24.37.1.s390x as component of SUSE Linux Enterprise Module for Legacy 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Legacy 15 SP2:reiserfs-kmp-default-5.3.18-24.37.1.s390x"
+				},
+				"product_reference": "reiserfs-kmp-default-5.3.18-24.37.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Legacy 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "reiserfs-kmp-default-5.3.18-24.37.1.x86_64 as component of SUSE Linux Enterprise Module for Legacy 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Legacy 15 SP2:reiserfs-kmp-default-5.3.18-24.37.1.x86_64"
+				},
+				"product_reference": "reiserfs-kmp-default-5.3.18-24.37.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Legacy 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-livepatch-5.3.18-24.37.1.ppc64le as component of SUSE Linux Enterprise Live Patching 15 SP2",
+					"product_id": "SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-5.3.18-24.37.1.ppc64le"
+				},
+				"product_reference": "kernel-default-livepatch-5.3.18-24.37.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Live Patching 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-livepatch-5.3.18-24.37.1.s390x as component of SUSE Linux Enterprise Live Patching 15 SP2",
+					"product_id": "SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-5.3.18-24.37.1.s390x"
+				},
+				"product_reference": "kernel-default-livepatch-5.3.18-24.37.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Live Patching 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-livepatch-5.3.18-24.37.1.x86_64 as component of SUSE Linux Enterprise Live Patching 15 SP2",
+					"product_id": "SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-5.3.18-24.37.1.x86_64"
+				},
+				"product_reference": "kernel-default-livepatch-5.3.18-24.37.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Live Patching 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-livepatch-devel-5.3.18-24.37.1.ppc64le as component of SUSE Linux Enterprise Live Patching 15 SP2",
+					"product_id": "SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-devel-5.3.18-24.37.1.ppc64le"
+				},
+				"product_reference": "kernel-default-livepatch-devel-5.3.18-24.37.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Live Patching 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-livepatch-devel-5.3.18-24.37.1.s390x as component of SUSE Linux Enterprise Live Patching 15 SP2",
+					"product_id": "SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-devel-5.3.18-24.37.1.s390x"
+				},
+				"product_reference": "kernel-default-livepatch-devel-5.3.18-24.37.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Live Patching 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-livepatch-devel-5.3.18-24.37.1.x86_64 as component of SUSE Linux Enterprise Live Patching 15 SP2",
+					"product_id": "SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-devel-5.3.18-24.37.1.x86_64"
+				},
+				"product_reference": "kernel-default-livepatch-devel-5.3.18-24.37.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Live Patching 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-livepatch-5_3_18-24_37-default-1-5.3.1.ppc64le as component of SUSE Linux Enterprise Live Patching 15 SP2",
+					"product_id": "SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_37-default-1-5.3.1.ppc64le"
+				},
+				"product_reference": "kernel-livepatch-5_3_18-24_37-default-1-5.3.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Live Patching 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-livepatch-5_3_18-24_37-default-1-5.3.1.s390x as component of SUSE Linux Enterprise Live Patching 15 SP2",
+					"product_id": "SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_37-default-1-5.3.1.s390x"
+				},
+				"product_reference": "kernel-livepatch-5_3_18-24_37-default-1-5.3.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Live Patching 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-livepatch-5_3_18-24_37-default-1-5.3.1.x86_64 as component of SUSE Linux Enterprise Live Patching 15 SP2",
+					"product_id": "SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_37-default-1-5.3.1.x86_64"
+				},
+				"product_reference": "kernel-livepatch-5_3_18-24_37-default-1-5.3.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Live Patching 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "cluster-md-kmp-default-5.3.18-24.37.1.aarch64 as component of SUSE Linux Enterprise High Availability Extension 15 SP2",
+					"product_id": "SUSE Linux Enterprise High Availability Extension 15 SP2:cluster-md-kmp-default-5.3.18-24.37.1.aarch64"
+				},
+				"product_reference": "cluster-md-kmp-default-5.3.18-24.37.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Availability Extension 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "cluster-md-kmp-default-5.3.18-24.37.1.ppc64le as component of SUSE Linux Enterprise High Availability Extension 15 SP2",
+					"product_id": "SUSE Linux Enterprise High Availability Extension 15 SP2:cluster-md-kmp-default-5.3.18-24.37.1.ppc64le"
+				},
+				"product_reference": "cluster-md-kmp-default-5.3.18-24.37.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Availability Extension 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "cluster-md-kmp-default-5.3.18-24.37.1.s390x as component of SUSE Linux Enterprise High Availability Extension 15 SP2",
+					"product_id": "SUSE Linux Enterprise High Availability Extension 15 SP2:cluster-md-kmp-default-5.3.18-24.37.1.s390x"
+				},
+				"product_reference": "cluster-md-kmp-default-5.3.18-24.37.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Availability Extension 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "cluster-md-kmp-default-5.3.18-24.37.1.x86_64 as component of SUSE Linux Enterprise High Availability Extension 15 SP2",
+					"product_id": "SUSE Linux Enterprise High Availability Extension 15 SP2:cluster-md-kmp-default-5.3.18-24.37.1.x86_64"
+				},
+				"product_reference": "cluster-md-kmp-default-5.3.18-24.37.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Availability Extension 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "dlm-kmp-default-5.3.18-24.37.1.aarch64 as component of SUSE Linux Enterprise High Availability Extension 15 SP2",
+					"product_id": "SUSE Linux Enterprise High Availability Extension 15 SP2:dlm-kmp-default-5.3.18-24.37.1.aarch64"
+				},
+				"product_reference": "dlm-kmp-default-5.3.18-24.37.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Availability Extension 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "dlm-kmp-default-5.3.18-24.37.1.ppc64le as component of SUSE Linux Enterprise High Availability Extension 15 SP2",
+					"product_id": "SUSE Linux Enterprise High Availability Extension 15 SP2:dlm-kmp-default-5.3.18-24.37.1.ppc64le"
+				},
+				"product_reference": "dlm-kmp-default-5.3.18-24.37.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Availability Extension 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "dlm-kmp-default-5.3.18-24.37.1.s390x as component of SUSE Linux Enterprise High Availability Extension 15 SP2",
+					"product_id": "SUSE Linux Enterprise High Availability Extension 15 SP2:dlm-kmp-default-5.3.18-24.37.1.s390x"
+				},
+				"product_reference": "dlm-kmp-default-5.3.18-24.37.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Availability Extension 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "dlm-kmp-default-5.3.18-24.37.1.x86_64 as component of SUSE Linux Enterprise High Availability Extension 15 SP2",
+					"product_id": "SUSE Linux Enterprise High Availability Extension 15 SP2:dlm-kmp-default-5.3.18-24.37.1.x86_64"
+				},
+				"product_reference": "dlm-kmp-default-5.3.18-24.37.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Availability Extension 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "gfs2-kmp-default-5.3.18-24.37.1.aarch64 as component of SUSE Linux Enterprise High Availability Extension 15 SP2",
+					"product_id": "SUSE Linux Enterprise High Availability Extension 15 SP2:gfs2-kmp-default-5.3.18-24.37.1.aarch64"
+				},
+				"product_reference": "gfs2-kmp-default-5.3.18-24.37.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Availability Extension 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "gfs2-kmp-default-5.3.18-24.37.1.ppc64le as component of SUSE Linux Enterprise High Availability Extension 15 SP2",
+					"product_id": "SUSE Linux Enterprise High Availability Extension 15 SP2:gfs2-kmp-default-5.3.18-24.37.1.ppc64le"
+				},
+				"product_reference": "gfs2-kmp-default-5.3.18-24.37.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Availability Extension 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "gfs2-kmp-default-5.3.18-24.37.1.s390x as component of SUSE Linux Enterprise High Availability Extension 15 SP2",
+					"product_id": "SUSE Linux Enterprise High Availability Extension 15 SP2:gfs2-kmp-default-5.3.18-24.37.1.s390x"
+				},
+				"product_reference": "gfs2-kmp-default-5.3.18-24.37.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Availability Extension 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "gfs2-kmp-default-5.3.18-24.37.1.x86_64 as component of SUSE Linux Enterprise High Availability Extension 15 SP2",
+					"product_id": "SUSE Linux Enterprise High Availability Extension 15 SP2:gfs2-kmp-default-5.3.18-24.37.1.x86_64"
+				},
+				"product_reference": "gfs2-kmp-default-5.3.18-24.37.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Availability Extension 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ocfs2-kmp-default-5.3.18-24.37.1.aarch64 as component of SUSE Linux Enterprise High Availability Extension 15 SP2",
+					"product_id": "SUSE Linux Enterprise High Availability Extension 15 SP2:ocfs2-kmp-default-5.3.18-24.37.1.aarch64"
+				},
+				"product_reference": "ocfs2-kmp-default-5.3.18-24.37.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Availability Extension 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ocfs2-kmp-default-5.3.18-24.37.1.ppc64le as component of SUSE Linux Enterprise High Availability Extension 15 SP2",
+					"product_id": "SUSE Linux Enterprise High Availability Extension 15 SP2:ocfs2-kmp-default-5.3.18-24.37.1.ppc64le"
+				},
+				"product_reference": "ocfs2-kmp-default-5.3.18-24.37.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Availability Extension 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ocfs2-kmp-default-5.3.18-24.37.1.s390x as component of SUSE Linux Enterprise High Availability Extension 15 SP2",
+					"product_id": "SUSE Linux Enterprise High Availability Extension 15 SP2:ocfs2-kmp-default-5.3.18-24.37.1.s390x"
+				},
+				"product_reference": "ocfs2-kmp-default-5.3.18-24.37.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Availability Extension 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ocfs2-kmp-default-5.3.18-24.37.1.x86_64 as component of SUSE Linux Enterprise High Availability Extension 15 SP2",
+					"product_id": "SUSE Linux Enterprise High Availability Extension 15 SP2:ocfs2-kmp-default-5.3.18-24.37.1.x86_64"
+				},
+				"product_reference": "ocfs2-kmp-default-5.3.18-24.37.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Availability Extension 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-extra-5.3.18-24.37.1.x86_64 as component of SUSE Linux Enterprise Workstation Extension 15 SP2",
+					"product_id": "SUSE Linux Enterprise Workstation Extension 15 SP2:kernel-default-extra-5.3.18-24.37.1.x86_64"
+				},
+				"product_reference": "kernel-default-extra-5.3.18-24.37.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Workstation Extension 15 SP2"
+			}
+		]
+	},
+	"vulnerabilities": [
+		{
+			"cve": "CVE-2020-25656",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2020-25656"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A flaw was found in the Linux kernel. A use-after-free was found in the way the console subsystem was using ioctls KDGKBSENT and KDSKBSENT. A local user could use this flaw to get read memory access out of bounds. The highest threat from this vulnerability is to data confidentiality.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise High Availability Extension 15 SP2:cluster-md-kmp-default-5.3.18-24.37.1.aarch64",
+					"SUSE Linux Enterprise High Availability Extension 15 SP2:cluster-md-kmp-default-5.3.18-24.37.1.ppc64le",
+					"SUSE Linux Enterprise High Availability Extension 15 SP2:cluster-md-kmp-default-5.3.18-24.37.1.s390x",
+					"SUSE Linux Enterprise High Availability Extension 15 SP2:cluster-md-kmp-default-5.3.18-24.37.1.x86_64",
+					"SUSE Linux Enterprise High Availability Extension 15 SP2:dlm-kmp-default-5.3.18-24.37.1.aarch64",
+					"SUSE Linux Enterprise High Availability Extension 15 SP2:dlm-kmp-default-5.3.18-24.37.1.ppc64le",
+					"SUSE Linux Enterprise High Availability Extension 15 SP2:dlm-kmp-default-5.3.18-24.37.1.s390x",
+					"SUSE Linux Enterprise High Availability Extension 15 SP2:dlm-kmp-default-5.3.18-24.37.1.x86_64",
+					"SUSE Linux Enterprise High Availability Extension 15 SP2:gfs2-kmp-default-5.3.18-24.37.1.aarch64",
+					"SUSE Linux Enterprise High Availability Extension 15 SP2:gfs2-kmp-default-5.3.18-24.37.1.ppc64le",
+					"SUSE Linux Enterprise High Availability Extension 15 SP2:gfs2-kmp-default-5.3.18-24.37.1.s390x",
+					"SUSE Linux Enterprise High Availability Extension 15 SP2:gfs2-kmp-default-5.3.18-24.37.1.x86_64",
+					"SUSE Linux Enterprise High Availability Extension 15 SP2:ocfs2-kmp-default-5.3.18-24.37.1.aarch64",
+					"SUSE Linux Enterprise High Availability Extension 15 SP2:ocfs2-kmp-default-5.3.18-24.37.1.ppc64le",
+					"SUSE Linux Enterprise High Availability Extension 15 SP2:ocfs2-kmp-default-5.3.18-24.37.1.s390x",
+					"SUSE Linux Enterprise High Availability Extension 15 SP2:ocfs2-kmp-default-5.3.18-24.37.1.x86_64",
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-5.3.18-24.37.1.ppc64le",
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-5.3.18-24.37.1.s390x",
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-5.3.18-24.37.1.x86_64",
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-devel-5.3.18-24.37.1.ppc64le",
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-devel-5.3.18-24.37.1.s390x",
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-devel-5.3.18-24.37.1.x86_64",
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_37-default-1-5.3.1.ppc64le",
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_37-default-1-5.3.1.s390x",
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_37-default-1-5.3.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-5.3.18-24.37.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-5.3.18-24.37.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-5.3.18-24.37.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-5.3.18-24.37.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-base-5.3.18-24.37.1.9.13.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-base-5.3.18-24.37.1.9.13.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-base-5.3.18-24.37.1.9.13.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-base-5.3.18-24.37.1.9.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-devel-5.3.18-24.37.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-devel-5.3.18-24.37.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-devel-5.3.18-24.37.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-devel-5.3.18-24.37.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-devel-5.3.18-24.37.1.noarch",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-macros-5.3.18-24.37.1.noarch",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-preempt-5.3.18-24.37.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-preempt-5.3.18-24.37.1.x86_64",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-docs-5.3.18-24.37.1.noarch",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-obs-build-5.3.18-24.37.1.aarch64",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-obs-build-5.3.18-24.37.1.ppc64le",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-obs-build-5.3.18-24.37.1.s390x",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-obs-build-5.3.18-24.37.1.x86_64",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-preempt-devel-5.3.18-24.37.1.aarch64",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-preempt-devel-5.3.18-24.37.1.x86_64",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-source-5.3.18-24.37.1.noarch",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-syms-5.3.18-24.37.1.aarch64",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-syms-5.3.18-24.37.1.ppc64le",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-syms-5.3.18-24.37.1.s390x",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-syms-5.3.18-24.37.1.x86_64",
+					"SUSE Linux Enterprise Module for Legacy 15 SP2:reiserfs-kmp-default-5.3.18-24.37.1.aarch64",
+					"SUSE Linux Enterprise Module for Legacy 15 SP2:reiserfs-kmp-default-5.3.18-24.37.1.ppc64le",
+					"SUSE Linux Enterprise Module for Legacy 15 SP2:reiserfs-kmp-default-5.3.18-24.37.1.s390x",
+					"SUSE Linux Enterprise Module for Legacy 15 SP2:reiserfs-kmp-default-5.3.18-24.37.1.x86_64",
+					"SUSE Linux Enterprise Workstation Extension 15 SP2:kernel-default-extra-5.3.18-24.37.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2020-25656",
+					"url": "https://www.suse.com/security/cve/CVE-2020-25656"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1177766 for CVE-2020-25656",
+					"url": "https://bugzilla.suse.com/1177766"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:cluster-md-kmp-default-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:cluster-md-kmp-default-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:cluster-md-kmp-default-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:cluster-md-kmp-default-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:dlm-kmp-default-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:dlm-kmp-default-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:dlm-kmp-default-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:dlm-kmp-default-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:gfs2-kmp-default-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:gfs2-kmp-default-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:gfs2-kmp-default-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:gfs2-kmp-default-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:ocfs2-kmp-default-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:ocfs2-kmp-default-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:ocfs2-kmp-default-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:ocfs2-kmp-default-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-devel-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-devel-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-devel-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_37-default-1-5.3.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_37-default-1-5.3.1.s390x",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_37-default-1-5.3.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-base-5.3.18-24.37.1.9.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-base-5.3.18-24.37.1.9.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-base-5.3.18-24.37.1.9.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-base-5.3.18-24.37.1.9.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-devel-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-devel-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-devel-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-devel-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-devel-5.3.18-24.37.1.noarch",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-macros-5.3.18-24.37.1.noarch",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-preempt-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-preempt-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-docs-5.3.18-24.37.1.noarch",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-obs-build-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-obs-build-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-obs-build-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-obs-build-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-preempt-devel-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-preempt-devel-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-source-5.3.18-24.37.1.noarch",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-syms-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-syms-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-syms-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-syms-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Module for Legacy 15 SP2:reiserfs-kmp-default-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise Module for Legacy 15 SP2:reiserfs-kmp-default-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise Module for Legacy 15 SP2:reiserfs-kmp-default-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise Module for Legacy 15 SP2:reiserfs-kmp-default-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP2:kernel-default-extra-5.3.18-24.37.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 5.5,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:cluster-md-kmp-default-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:cluster-md-kmp-default-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:cluster-md-kmp-default-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:cluster-md-kmp-default-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:dlm-kmp-default-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:dlm-kmp-default-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:dlm-kmp-default-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:dlm-kmp-default-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:gfs2-kmp-default-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:gfs2-kmp-default-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:gfs2-kmp-default-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:gfs2-kmp-default-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:ocfs2-kmp-default-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:ocfs2-kmp-default-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:ocfs2-kmp-default-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:ocfs2-kmp-default-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-devel-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-devel-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-devel-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_37-default-1-5.3.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_37-default-1-5.3.1.s390x",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_37-default-1-5.3.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-base-5.3.18-24.37.1.9.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-base-5.3.18-24.37.1.9.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-base-5.3.18-24.37.1.9.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-base-5.3.18-24.37.1.9.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-devel-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-devel-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-devel-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-devel-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-devel-5.3.18-24.37.1.noarch",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-macros-5.3.18-24.37.1.noarch",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-preempt-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-preempt-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-docs-5.3.18-24.37.1.noarch",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-obs-build-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-obs-build-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-obs-build-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-obs-build-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-preempt-devel-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-preempt-devel-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-source-5.3.18-24.37.1.noarch",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-syms-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-syms-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-syms-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-syms-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Module for Legacy 15 SP2:reiserfs-kmp-default-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise Module for Legacy 15 SP2:reiserfs-kmp-default-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise Module for Legacy 15 SP2:reiserfs-kmp-default-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise Module for Legacy 15 SP2:reiserfs-kmp-default-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP2:kernel-default-extra-5.3.18-24.37.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2020-11-14T07:22:03Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2020-25656"
+		},
+		{
+			"cve": "CVE-2020-25705",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2020-25705"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A flaw in ICMP packets in the Linux kernel may allow an attacker to quickly scan open UDP ports. This flaw allows an off-path remote attacker to effectively bypass source port UDP randomization. Software that relies on UDP source port randomization are indirectly affected as well on the Linux Based Products (RUGGEDCOM RM1224: All versions between v5.0 and v6.4, SCALANCE M-800: All versions between v5.0 and v6.4, SCALANCE S615: All versions between v5.0 and v6.4, SCALANCE SC-600: All versions prior to v2.1.3, SCALANCE W1750D: v8.3.0.1, v8.6.0, and v8.7.0, SIMATIC Cloud Connect 7: All versions, SIMATIC MV500 Family: All versions, SIMATIC NET CP 1243-1 (incl. SIPLUS variants): Versions 3.1.39 and later, SIMATIC NET CP 1243-7 LTE EU: Version",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise High Availability Extension 15 SP2:cluster-md-kmp-default-5.3.18-24.37.1.aarch64",
+					"SUSE Linux Enterprise High Availability Extension 15 SP2:cluster-md-kmp-default-5.3.18-24.37.1.ppc64le",
+					"SUSE Linux Enterprise High Availability Extension 15 SP2:cluster-md-kmp-default-5.3.18-24.37.1.s390x",
+					"SUSE Linux Enterprise High Availability Extension 15 SP2:cluster-md-kmp-default-5.3.18-24.37.1.x86_64",
+					"SUSE Linux Enterprise High Availability Extension 15 SP2:dlm-kmp-default-5.3.18-24.37.1.aarch64",
+					"SUSE Linux Enterprise High Availability Extension 15 SP2:dlm-kmp-default-5.3.18-24.37.1.ppc64le",
+					"SUSE Linux Enterprise High Availability Extension 15 SP2:dlm-kmp-default-5.3.18-24.37.1.s390x",
+					"SUSE Linux Enterprise High Availability Extension 15 SP2:dlm-kmp-default-5.3.18-24.37.1.x86_64",
+					"SUSE Linux Enterprise High Availability Extension 15 SP2:gfs2-kmp-default-5.3.18-24.37.1.aarch64",
+					"SUSE Linux Enterprise High Availability Extension 15 SP2:gfs2-kmp-default-5.3.18-24.37.1.ppc64le",
+					"SUSE Linux Enterprise High Availability Extension 15 SP2:gfs2-kmp-default-5.3.18-24.37.1.s390x",
+					"SUSE Linux Enterprise High Availability Extension 15 SP2:gfs2-kmp-default-5.3.18-24.37.1.x86_64",
+					"SUSE Linux Enterprise High Availability Extension 15 SP2:ocfs2-kmp-default-5.3.18-24.37.1.aarch64",
+					"SUSE Linux Enterprise High Availability Extension 15 SP2:ocfs2-kmp-default-5.3.18-24.37.1.ppc64le",
+					"SUSE Linux Enterprise High Availability Extension 15 SP2:ocfs2-kmp-default-5.3.18-24.37.1.s390x",
+					"SUSE Linux Enterprise High Availability Extension 15 SP2:ocfs2-kmp-default-5.3.18-24.37.1.x86_64",
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-5.3.18-24.37.1.ppc64le",
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-5.3.18-24.37.1.s390x",
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-5.3.18-24.37.1.x86_64",
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-devel-5.3.18-24.37.1.ppc64le",
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-devel-5.3.18-24.37.1.s390x",
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-devel-5.3.18-24.37.1.x86_64",
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_37-default-1-5.3.1.ppc64le",
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_37-default-1-5.3.1.s390x",
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_37-default-1-5.3.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-5.3.18-24.37.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-5.3.18-24.37.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-5.3.18-24.37.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-5.3.18-24.37.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-base-5.3.18-24.37.1.9.13.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-base-5.3.18-24.37.1.9.13.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-base-5.3.18-24.37.1.9.13.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-base-5.3.18-24.37.1.9.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-devel-5.3.18-24.37.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-devel-5.3.18-24.37.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-devel-5.3.18-24.37.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-devel-5.3.18-24.37.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-devel-5.3.18-24.37.1.noarch",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-macros-5.3.18-24.37.1.noarch",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-preempt-5.3.18-24.37.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-preempt-5.3.18-24.37.1.x86_64",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-docs-5.3.18-24.37.1.noarch",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-obs-build-5.3.18-24.37.1.aarch64",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-obs-build-5.3.18-24.37.1.ppc64le",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-obs-build-5.3.18-24.37.1.s390x",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-obs-build-5.3.18-24.37.1.x86_64",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-preempt-devel-5.3.18-24.37.1.aarch64",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-preempt-devel-5.3.18-24.37.1.x86_64",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-source-5.3.18-24.37.1.noarch",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-syms-5.3.18-24.37.1.aarch64",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-syms-5.3.18-24.37.1.ppc64le",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-syms-5.3.18-24.37.1.s390x",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-syms-5.3.18-24.37.1.x86_64",
+					"SUSE Linux Enterprise Module for Legacy 15 SP2:reiserfs-kmp-default-5.3.18-24.37.1.aarch64",
+					"SUSE Linux Enterprise Module for Legacy 15 SP2:reiserfs-kmp-default-5.3.18-24.37.1.ppc64le",
+					"SUSE Linux Enterprise Module for Legacy 15 SP2:reiserfs-kmp-default-5.3.18-24.37.1.s390x",
+					"SUSE Linux Enterprise Module for Legacy 15 SP2:reiserfs-kmp-default-5.3.18-24.37.1.x86_64",
+					"SUSE Linux Enterprise Workstation Extension 15 SP2:kernel-default-extra-5.3.18-24.37.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2020-25705",
+					"url": "https://www.suse.com/security/cve/CVE-2020-25705"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1175721 for CVE-2020-25705",
+					"url": "https://bugzilla.suse.com/1175721"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1178782 for CVE-2020-25705",
+					"url": "https://bugzilla.suse.com/1178782"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1178783 for CVE-2020-25705",
+					"url": "https://bugzilla.suse.com/1178783"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1191790 for CVE-2020-25705",
+					"url": "https://bugzilla.suse.com/1191790"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:cluster-md-kmp-default-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:cluster-md-kmp-default-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:cluster-md-kmp-default-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:cluster-md-kmp-default-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:dlm-kmp-default-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:dlm-kmp-default-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:dlm-kmp-default-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:dlm-kmp-default-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:gfs2-kmp-default-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:gfs2-kmp-default-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:gfs2-kmp-default-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:gfs2-kmp-default-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:ocfs2-kmp-default-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:ocfs2-kmp-default-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:ocfs2-kmp-default-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:ocfs2-kmp-default-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-devel-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-devel-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-devel-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_37-default-1-5.3.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_37-default-1-5.3.1.s390x",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_37-default-1-5.3.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-base-5.3.18-24.37.1.9.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-base-5.3.18-24.37.1.9.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-base-5.3.18-24.37.1.9.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-base-5.3.18-24.37.1.9.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-devel-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-devel-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-devel-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-devel-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-devel-5.3.18-24.37.1.noarch",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-macros-5.3.18-24.37.1.noarch",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-preempt-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-preempt-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-docs-5.3.18-24.37.1.noarch",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-obs-build-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-obs-build-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-obs-build-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-obs-build-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-preempt-devel-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-preempt-devel-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-source-5.3.18-24.37.1.noarch",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-syms-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-syms-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-syms-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-syms-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Module for Legacy 15 SP2:reiserfs-kmp-default-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise Module for Legacy 15 SP2:reiserfs-kmp-default-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise Module for Legacy 15 SP2:reiserfs-kmp-default-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise Module for Legacy 15 SP2:reiserfs-kmp-default-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP2:kernel-default-extra-5.3.18-24.37.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.4,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:cluster-md-kmp-default-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:cluster-md-kmp-default-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:cluster-md-kmp-default-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:cluster-md-kmp-default-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:dlm-kmp-default-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:dlm-kmp-default-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:dlm-kmp-default-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:dlm-kmp-default-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:gfs2-kmp-default-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:gfs2-kmp-default-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:gfs2-kmp-default-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:gfs2-kmp-default-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:ocfs2-kmp-default-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:ocfs2-kmp-default-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:ocfs2-kmp-default-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:ocfs2-kmp-default-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-devel-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-devel-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-devel-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_37-default-1-5.3.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_37-default-1-5.3.1.s390x",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_37-default-1-5.3.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-base-5.3.18-24.37.1.9.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-base-5.3.18-24.37.1.9.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-base-5.3.18-24.37.1.9.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-base-5.3.18-24.37.1.9.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-devel-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-devel-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-devel-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-devel-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-devel-5.3.18-24.37.1.noarch",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-macros-5.3.18-24.37.1.noarch",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-preempt-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-preempt-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-docs-5.3.18-24.37.1.noarch",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-obs-build-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-obs-build-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-obs-build-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-obs-build-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-preempt-devel-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-preempt-devel-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-source-5.3.18-24.37.1.noarch",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-syms-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-syms-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-syms-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-syms-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Module for Legacy 15 SP2:reiserfs-kmp-default-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise Module for Legacy 15 SP2:reiserfs-kmp-default-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise Module for Legacy 15 SP2:reiserfs-kmp-default-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise Module for Legacy 15 SP2:reiserfs-kmp-default-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP2:kernel-default-extra-5.3.18-24.37.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2020-11-14T07:22:03Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2020-25705"
+		},
+		{
+			"cve": "CVE-2020-8694",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2020-8694"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Insufficient access control in the Linux kernel driver for some Intel(R) Processors may allow an authenticated user to potentially enable information disclosure via local access.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise High Availability Extension 15 SP2:cluster-md-kmp-default-5.3.18-24.37.1.aarch64",
+					"SUSE Linux Enterprise High Availability Extension 15 SP2:cluster-md-kmp-default-5.3.18-24.37.1.ppc64le",
+					"SUSE Linux Enterprise High Availability Extension 15 SP2:cluster-md-kmp-default-5.3.18-24.37.1.s390x",
+					"SUSE Linux Enterprise High Availability Extension 15 SP2:cluster-md-kmp-default-5.3.18-24.37.1.x86_64",
+					"SUSE Linux Enterprise High Availability Extension 15 SP2:dlm-kmp-default-5.3.18-24.37.1.aarch64",
+					"SUSE Linux Enterprise High Availability Extension 15 SP2:dlm-kmp-default-5.3.18-24.37.1.ppc64le",
+					"SUSE Linux Enterprise High Availability Extension 15 SP2:dlm-kmp-default-5.3.18-24.37.1.s390x",
+					"SUSE Linux Enterprise High Availability Extension 15 SP2:dlm-kmp-default-5.3.18-24.37.1.x86_64",
+					"SUSE Linux Enterprise High Availability Extension 15 SP2:gfs2-kmp-default-5.3.18-24.37.1.aarch64",
+					"SUSE Linux Enterprise High Availability Extension 15 SP2:gfs2-kmp-default-5.3.18-24.37.1.ppc64le",
+					"SUSE Linux Enterprise High Availability Extension 15 SP2:gfs2-kmp-default-5.3.18-24.37.1.s390x",
+					"SUSE Linux Enterprise High Availability Extension 15 SP2:gfs2-kmp-default-5.3.18-24.37.1.x86_64",
+					"SUSE Linux Enterprise High Availability Extension 15 SP2:ocfs2-kmp-default-5.3.18-24.37.1.aarch64",
+					"SUSE Linux Enterprise High Availability Extension 15 SP2:ocfs2-kmp-default-5.3.18-24.37.1.ppc64le",
+					"SUSE Linux Enterprise High Availability Extension 15 SP2:ocfs2-kmp-default-5.3.18-24.37.1.s390x",
+					"SUSE Linux Enterprise High Availability Extension 15 SP2:ocfs2-kmp-default-5.3.18-24.37.1.x86_64",
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-5.3.18-24.37.1.ppc64le",
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-5.3.18-24.37.1.s390x",
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-5.3.18-24.37.1.x86_64",
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-devel-5.3.18-24.37.1.ppc64le",
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-devel-5.3.18-24.37.1.s390x",
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-devel-5.3.18-24.37.1.x86_64",
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_37-default-1-5.3.1.ppc64le",
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_37-default-1-5.3.1.s390x",
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_37-default-1-5.3.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-5.3.18-24.37.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-5.3.18-24.37.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-5.3.18-24.37.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-5.3.18-24.37.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-base-5.3.18-24.37.1.9.13.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-base-5.3.18-24.37.1.9.13.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-base-5.3.18-24.37.1.9.13.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-base-5.3.18-24.37.1.9.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-devel-5.3.18-24.37.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-devel-5.3.18-24.37.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-devel-5.3.18-24.37.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-devel-5.3.18-24.37.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-devel-5.3.18-24.37.1.noarch",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-macros-5.3.18-24.37.1.noarch",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-preempt-5.3.18-24.37.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-preempt-5.3.18-24.37.1.x86_64",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-docs-5.3.18-24.37.1.noarch",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-obs-build-5.3.18-24.37.1.aarch64",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-obs-build-5.3.18-24.37.1.ppc64le",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-obs-build-5.3.18-24.37.1.s390x",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-obs-build-5.3.18-24.37.1.x86_64",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-preempt-devel-5.3.18-24.37.1.aarch64",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-preempt-devel-5.3.18-24.37.1.x86_64",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-source-5.3.18-24.37.1.noarch",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-syms-5.3.18-24.37.1.aarch64",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-syms-5.3.18-24.37.1.ppc64le",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-syms-5.3.18-24.37.1.s390x",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-syms-5.3.18-24.37.1.x86_64",
+					"SUSE Linux Enterprise Module for Legacy 15 SP2:reiserfs-kmp-default-5.3.18-24.37.1.aarch64",
+					"SUSE Linux Enterprise Module for Legacy 15 SP2:reiserfs-kmp-default-5.3.18-24.37.1.ppc64le",
+					"SUSE Linux Enterprise Module for Legacy 15 SP2:reiserfs-kmp-default-5.3.18-24.37.1.s390x",
+					"SUSE Linux Enterprise Module for Legacy 15 SP2:reiserfs-kmp-default-5.3.18-24.37.1.x86_64",
+					"SUSE Linux Enterprise Workstation Extension 15 SP2:kernel-default-extra-5.3.18-24.37.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2020-8694",
+					"url": "https://www.suse.com/security/cve/CVE-2020-8694"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1170415 for CVE-2020-8694",
+					"url": "https://bugzilla.suse.com/1170415"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1170446 for CVE-2020-8694",
+					"url": "https://bugzilla.suse.com/1170446"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1178591 for CVE-2020-8694",
+					"url": "https://bugzilla.suse.com/1178591"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1178700 for CVE-2020-8694",
+					"url": "https://bugzilla.suse.com/1178700"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1179661 for CVE-2020-8694",
+					"url": "https://bugzilla.suse.com/1179661"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:cluster-md-kmp-default-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:cluster-md-kmp-default-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:cluster-md-kmp-default-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:cluster-md-kmp-default-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:dlm-kmp-default-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:dlm-kmp-default-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:dlm-kmp-default-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:dlm-kmp-default-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:gfs2-kmp-default-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:gfs2-kmp-default-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:gfs2-kmp-default-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:gfs2-kmp-default-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:ocfs2-kmp-default-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:ocfs2-kmp-default-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:ocfs2-kmp-default-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:ocfs2-kmp-default-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-devel-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-devel-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-devel-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_37-default-1-5.3.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_37-default-1-5.3.1.s390x",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_37-default-1-5.3.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-base-5.3.18-24.37.1.9.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-base-5.3.18-24.37.1.9.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-base-5.3.18-24.37.1.9.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-base-5.3.18-24.37.1.9.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-devel-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-devel-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-devel-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-devel-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-devel-5.3.18-24.37.1.noarch",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-macros-5.3.18-24.37.1.noarch",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-preempt-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-preempt-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-docs-5.3.18-24.37.1.noarch",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-obs-build-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-obs-build-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-obs-build-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-obs-build-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-preempt-devel-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-preempt-devel-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-source-5.3.18-24.37.1.noarch",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-syms-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-syms-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-syms-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-syms-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Module for Legacy 15 SP2:reiserfs-kmp-default-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise Module for Legacy 15 SP2:reiserfs-kmp-default-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise Module for Legacy 15 SP2:reiserfs-kmp-default-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise Module for Legacy 15 SP2:reiserfs-kmp-default-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP2:kernel-default-extra-5.3.18-24.37.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 5.1,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:L/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:cluster-md-kmp-default-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:cluster-md-kmp-default-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:cluster-md-kmp-default-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:cluster-md-kmp-default-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:dlm-kmp-default-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:dlm-kmp-default-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:dlm-kmp-default-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:dlm-kmp-default-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:gfs2-kmp-default-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:gfs2-kmp-default-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:gfs2-kmp-default-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:gfs2-kmp-default-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:ocfs2-kmp-default-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:ocfs2-kmp-default-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:ocfs2-kmp-default-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise High Availability Extension 15 SP2:ocfs2-kmp-default-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-devel-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-devel-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-default-livepatch-devel-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_37-default-1-5.3.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_37-default-1-5.3.1.s390x",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_37-default-1-5.3.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-base-5.3.18-24.37.1.9.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-base-5.3.18-24.37.1.9.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-base-5.3.18-24.37.1.9.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-base-5.3.18-24.37.1.9.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-devel-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-devel-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-devel-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-default-devel-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-devel-5.3.18-24.37.1.noarch",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-macros-5.3.18-24.37.1.noarch",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-preempt-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:kernel-preempt-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-docs-5.3.18-24.37.1.noarch",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-obs-build-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-obs-build-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-obs-build-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-obs-build-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-preempt-devel-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-preempt-devel-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-source-5.3.18-24.37.1.noarch",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-syms-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-syms-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-syms-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP2:kernel-syms-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Module for Legacy 15 SP2:reiserfs-kmp-default-5.3.18-24.37.1.aarch64",
+						"SUSE Linux Enterprise Module for Legacy 15 SP2:reiserfs-kmp-default-5.3.18-24.37.1.ppc64le",
+						"SUSE Linux Enterprise Module for Legacy 15 SP2:reiserfs-kmp-default-5.3.18-24.37.1.s390x",
+						"SUSE Linux Enterprise Module for Legacy 15 SP2:reiserfs-kmp-default-5.3.18-24.37.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP2:kernel-default-extra-5.3.18-24.37.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2020-11-14T07:22:03Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2020-8694"
+		}
+	]
+}

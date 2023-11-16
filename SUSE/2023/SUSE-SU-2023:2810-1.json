@@ -1,0 +1,2026 @@
+{
+	"document": {
+		"aggregate_severity": {
+			"namespace": "https://www.suse.com/support/security/rating/",
+			"text": "important"
+		},
+		"category": "csaf_security_advisory",
+		"csaf_version": "2.0",
+		"distribution": {
+			"text": "Copyright 2023 SUSE LLC. All rights reserved.",
+			"tlp": {
+				"label": "WHITE",
+				"url": "https://www.first.org/tlp/"
+			}
+		},
+		"lang": "en",
+		"notes": [
+			{
+				"category": "summary",
+				"text": "Security update for the Linux Kernel",
+				"title": "Title of the patch"
+			},
+			{
+				"category": "description",
+				"text": "\nThe SUSE Linux Enterprise 15 SP3 RT kernel was updated to receive various security and bugfixes.\n\n\nThe following security bugs were fixed:\n\n- CVE-2023-3090: Fixed a heap out-of-bounds write in the ipvlan network driver (bsc#1212842).\n- CVE-2023-3358: Fixed a NULL pointer dereference flaw in the Integrated Sensor Hub (ISH) driver (bsc#1212606).\n- CVE-2023-35828: Fixed a use-after-free flaw in renesas_usb3_remove in drivers/usb/gadget/udc/renesas_usb3.c (bsc#1212513).\n- CVE-2023-1249: Fixed a use-after-free flaw in the core dump subsystem that allowed a local user to crash the system (bsc#1209039).\n- CVE-2023-2002: Fixed a flaw that allowed an attacker to unauthorized execution of management commands, compromising the confidentiality, integrity, and availability of Bluetooth communication (bsc#1210533).\n- CVE-2023-3268: Fixed an out of bounds (OOB) memory access flaw in relay_file_read_start_pos in kernel/relay.c (bsc#1212502).\n- CVE-2023-35824: Fixed a use-after-free in dm1105_remove in drivers/media/pci/dm1105/dm1105.c (bsc#1212501).\n- CVE-2023-35823: Fixed a use-after-free flaw in saa7134_finidev in drivers/media/pci/saa7134/saa7134-core.c (bsc#1212494).\n- CVE-2023-35788: Fixed an out-of-bounds write in the flower classifier code via TCA_FLOWER_KEY_ENC_OPTS_GENEVE packets in fl_set_geneve_opt in net/sched/cls_flower.c (bsc#1212504).\n- CVE-2023-3161: Fixed shift-out-of-bounds in fbcon_set_font() (bsc#1212154).\n- CVE-2023-3141: Fixed a use-after-free flaw in r592_remove in drivers/memstick/host/r592.c, that allowed local attackers to crash the system at device disconnect (bsc#1212129).\n- CVE-2023-3159: Fixed use-after-free issue in driver/firewire in outbound_phy_packet_callback (bsc#1212128).\n- CVE-2023-1077: Fixed a type confusion in pick_next_rt_entity(), that could cause memory corruption (bsc#1208600).\n\nThe following non-security bugs were fixed:\n\n- Drivers: hv: vmbus: Optimize vmbus_on_event (bsc#1211622).\n- Drivers: vmbus: Check for channel allocation before looking up relids (git-fixes).\n- Drop dvb-core fix patch due to bug (bsc#1205758).\n- Fix missing top level chapter numbers on SLE12 SP5 (bsc#1212158).\n- Fix usrmerge error (boo#1211796)\n- Remove obsolete KMP obsoletes (bsc#1210469).\n- Replace mkinitrd dependency with dracut (bsc#1202353). Also update mkinitrd refrences in documentation and comments.\n- cifs: do not include page data when checking signature (bsc#1200217).\n- cifs: fix negotiate context parsing (bsc#1210301).\n- cifs: fix open leaks in open_cached_dir() (bsc#1209342).\n- google/gve:fix repeated words in comments (bsc#1211519).\n- gve: Adding a new AdminQ command to verify driver (bsc#1211519).\n- gve: Cache link_speed value from device (bsc#1211519).\n- gve: Fix GFP flags when allocing pages (bsc#1211519).\n- gve: Fix error return code in gve_prefill_rx_pages() (bsc#1211519).\n- gve: Fix spelling mistake 'droping' -> 'dropping' (bsc#1211519).\n- gve: Handle alternate miss completions (bsc#1211519).\n- gve: Reduce alloc and copy costs in the GQ rx path (bsc#1211519).\n- gve: Remove the code of clearing PBA bit (bsc#1211519).\n- gve: Secure enough bytes in the first TX desc for all TCP pkts (bsc#1211519).\n- gve: enhance no queue page list detection (bsc#1211519).\n- ipv6: sr: fix out-of-bounds read when setting HMAC data (bsc#1211592).\n- k-m-s: Drop Linux 2.6 support\n- kernel-binary: install expoline.o (boo#1210791 bsc#1211089)\n- keys: Fix linking a duplicate key to a keyring's assoc_array (bsc#1207088).\n- rpm/kernel-binary.spec.in: Add Provides of kernel-preempt (jsc#SLE-18857) For smooth migration with the former kernel-preempt user, kernel-default provides kernel-preempt now when CONFIG_PREEMPT_DYNAMIC is defined.\n- rpm/kernel-binary.spec.in: Fix compatibility wth newer rpm\n- rpm/kernel-binary.spec.in: Fix missing kernel-preempt-devel and KMP Provides (bsc#1199046)\n- rpm/kernel-docs.spec.in: pass PYTHON=python3 to fix build error (bsc#1160435)\n- s390,dcssblk,dax: Add dax zero_page_range operation to dcssblk driver (bsc#1199636).\n- sunrpc: Ensure the transport backchannel association (bsc#1211203).\n- usrmerge: Compatibility with earlier rpm (boo#1211796)\n- vmxnet3: use gro callback when UPT is enabled (bsc#1209739).\n- x86/build: Avoid relocation information in final vmlinux (bsc#1187829).\n",
+				"title": "Description of the patch"
+			},
+			{
+				"category": "details",
+				"text": "SUSE-2023-2810,SUSE-SLE-Module-RT-15-SP3-2023-2810,SUSE-SUSE-MicroOS-5.1-2023-2810,SUSE-SUSE-MicroOS-5.2-2023-2810",
+				"title": "Patchnames"
+			},
+			{
+				"category": "legal_disclaimer",
+				"text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+				"title": "Terms of use"
+			}
+		],
+		"publisher": {
+			"category": "vendor",
+			"contact_details": "https://www.suse.com/support/security/contact/",
+			"name": "SUSE Product Security Team",
+			"namespace": "https://www.suse.com/"
+		},
+		"references": [
+			{
+				"category": "self",
+				"summary": "URL for SUSE-SU-2023:2810-1",
+				"url": "https://www.suse.com/support/update/announcement/2023/suse-su-20232810-1/"
+			},
+			{
+				"category": "external",
+				"summary": "SUSE ratings",
+				"url": "https://www.suse.com/support/security/rating/"
+			},
+			{
+				"category": "self",
+				"summary": "URL of this CSAF notice",
+				"url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2023_2810-1.json"
+			},
+			{
+				"category": "self",
+				"summary": "E-Mail link for SUSE-SU-2023:2810-1",
+				"url": "https://lists.suse.com/pipermail/sle-updates/2023-July/030273.html"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1160435",
+				"url": "https://bugzilla.suse.com/1160435"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1172073",
+				"url": "https://bugzilla.suse.com/1172073"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1187829",
+				"url": "https://bugzilla.suse.com/1187829"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1191731",
+				"url": "https://bugzilla.suse.com/1191731"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1199046",
+				"url": "https://bugzilla.suse.com/1199046"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1199636",
+				"url": "https://bugzilla.suse.com/1199636"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1200217",
+				"url": "https://bugzilla.suse.com/1200217"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1202353",
+				"url": "https://bugzilla.suse.com/1202353"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1205758",
+				"url": "https://bugzilla.suse.com/1205758"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1207088",
+				"url": "https://bugzilla.suse.com/1207088"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1208600",
+				"url": "https://bugzilla.suse.com/1208600"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1209039",
+				"url": "https://bugzilla.suse.com/1209039"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1209342",
+				"url": "https://bugzilla.suse.com/1209342"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1209739",
+				"url": "https://bugzilla.suse.com/1209739"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1210301",
+				"url": "https://bugzilla.suse.com/1210301"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1210469",
+				"url": "https://bugzilla.suse.com/1210469"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1210533",
+				"url": "https://bugzilla.suse.com/1210533"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1210791",
+				"url": "https://bugzilla.suse.com/1210791"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1211089",
+				"url": "https://bugzilla.suse.com/1211089"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1211203",
+				"url": "https://bugzilla.suse.com/1211203"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1211519",
+				"url": "https://bugzilla.suse.com/1211519"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1211592",
+				"url": "https://bugzilla.suse.com/1211592"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1211622",
+				"url": "https://bugzilla.suse.com/1211622"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1211796",
+				"url": "https://bugzilla.suse.com/1211796"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1212128",
+				"url": "https://bugzilla.suse.com/1212128"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1212129",
+				"url": "https://bugzilla.suse.com/1212129"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1212154",
+				"url": "https://bugzilla.suse.com/1212154"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1212158",
+				"url": "https://bugzilla.suse.com/1212158"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1212494",
+				"url": "https://bugzilla.suse.com/1212494"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1212501",
+				"url": "https://bugzilla.suse.com/1212501"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1212502",
+				"url": "https://bugzilla.suse.com/1212502"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1212504",
+				"url": "https://bugzilla.suse.com/1212504"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1212513",
+				"url": "https://bugzilla.suse.com/1212513"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1212606",
+				"url": "https://bugzilla.suse.com/1212606"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1212842",
+				"url": "https://bugzilla.suse.com/1212842"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2023-1077 page",
+				"url": "https://www.suse.com/security/cve/CVE-2023-1077/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2023-1249 page",
+				"url": "https://www.suse.com/security/cve/CVE-2023-1249/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2023-2002 page",
+				"url": "https://www.suse.com/security/cve/CVE-2023-2002/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2023-3090 page",
+				"url": "https://www.suse.com/security/cve/CVE-2023-3090/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2023-3141 page",
+				"url": "https://www.suse.com/security/cve/CVE-2023-3141/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2023-3159 page",
+				"url": "https://www.suse.com/security/cve/CVE-2023-3159/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2023-3161 page",
+				"url": "https://www.suse.com/security/cve/CVE-2023-3161/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2023-3268 page",
+				"url": "https://www.suse.com/security/cve/CVE-2023-3268/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2023-3358 page",
+				"url": "https://www.suse.com/security/cve/CVE-2023-3358/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2023-35788 page",
+				"url": "https://www.suse.com/security/cve/CVE-2023-35788/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2023-35823 page",
+				"url": "https://www.suse.com/security/cve/CVE-2023-35823/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2023-35824 page",
+				"url": "https://www.suse.com/security/cve/CVE-2023-35824/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2023-35828 page",
+				"url": "https://www.suse.com/security/cve/CVE-2023-35828/"
+			}
+		],
+		"title": "Security update for the Linux Kernel",
+		"tracking": {
+			"current_release_date": "2023-07-12T09:34:43Z",
+			"generator": {
+				"date": "2023-07-12T09:34:43Z",
+				"engine": {
+					"name": "cve-database.git:bin/generate-csaf.pl",
+					"version": "1"
+				}
+			},
+			"id": "SUSE-SU-2023:2810-1",
+			"initial_release_date": "2023-07-12T09:34:43Z",
+			"revision_history": [
+				{
+					"date": "2023-07-12T09:34:43Z",
+					"number": "1",
+					"summary": "Current version"
+				}
+			],
+			"status": "final",
+			"version": "1"
+		}
+	},
+	"product_tree": {
+		"branches": [
+			{
+				"branches": [
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "kernel-devel-rt-5.3.18-150300.135.1.noarch",
+								"product": {
+									"name": "kernel-devel-rt-5.3.18-150300.135.1.noarch",
+									"product_id": "kernel-devel-rt-5.3.18-150300.135.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-source-rt-5.3.18-150300.135.1.noarch",
+								"product": {
+									"name": "kernel-source-rt-5.3.18-150300.135.1.noarch",
+									"product_id": "kernel-source-rt-5.3.18-150300.135.1.noarch"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "noarch"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "cluster-md-kmp-rt-5.3.18-150300.135.1.x86_64",
+								"product": {
+									"name": "cluster-md-kmp-rt-5.3.18-150300.135.1.x86_64",
+									"product_id": "cluster-md-kmp-rt-5.3.18-150300.135.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "cluster-md-kmp-rt_debug-5.3.18-150300.135.1.x86_64",
+								"product": {
+									"name": "cluster-md-kmp-rt_debug-5.3.18-150300.135.1.x86_64",
+									"product_id": "cluster-md-kmp-rt_debug-5.3.18-150300.135.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "dlm-kmp-rt-5.3.18-150300.135.1.x86_64",
+								"product": {
+									"name": "dlm-kmp-rt-5.3.18-150300.135.1.x86_64",
+									"product_id": "dlm-kmp-rt-5.3.18-150300.135.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "dlm-kmp-rt_debug-5.3.18-150300.135.1.x86_64",
+								"product": {
+									"name": "dlm-kmp-rt_debug-5.3.18-150300.135.1.x86_64",
+									"product_id": "dlm-kmp-rt_debug-5.3.18-150300.135.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "gfs2-kmp-rt-5.3.18-150300.135.1.x86_64",
+								"product": {
+									"name": "gfs2-kmp-rt-5.3.18-150300.135.1.x86_64",
+									"product_id": "gfs2-kmp-rt-5.3.18-150300.135.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "gfs2-kmp-rt_debug-5.3.18-150300.135.1.x86_64",
+								"product": {
+									"name": "gfs2-kmp-rt_debug-5.3.18-150300.135.1.x86_64",
+									"product_id": "gfs2-kmp-rt_debug-5.3.18-150300.135.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-rt-5.3.18-150300.135.1.x86_64",
+								"product": {
+									"name": "kernel-rt-5.3.18-150300.135.1.x86_64",
+									"product_id": "kernel-rt-5.3.18-150300.135.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-rt-devel-5.3.18-150300.135.1.x86_64",
+								"product": {
+									"name": "kernel-rt-devel-5.3.18-150300.135.1.x86_64",
+									"product_id": "kernel-rt-devel-5.3.18-150300.135.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-rt-extra-5.3.18-150300.135.1.x86_64",
+								"product": {
+									"name": "kernel-rt-extra-5.3.18-150300.135.1.x86_64",
+									"product_id": "kernel-rt-extra-5.3.18-150300.135.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-rt-livepatch-devel-5.3.18-150300.135.1.x86_64",
+								"product": {
+									"name": "kernel-rt-livepatch-devel-5.3.18-150300.135.1.x86_64",
+									"product_id": "kernel-rt-livepatch-devel-5.3.18-150300.135.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-rt-optional-5.3.18-150300.135.1.x86_64",
+								"product": {
+									"name": "kernel-rt-optional-5.3.18-150300.135.1.x86_64",
+									"product_id": "kernel-rt-optional-5.3.18-150300.135.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-rt_debug-5.3.18-150300.135.1.x86_64",
+								"product": {
+									"name": "kernel-rt_debug-5.3.18-150300.135.1.x86_64",
+									"product_id": "kernel-rt_debug-5.3.18-150300.135.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-rt_debug-devel-5.3.18-150300.135.1.x86_64",
+								"product": {
+									"name": "kernel-rt_debug-devel-5.3.18-150300.135.1.x86_64",
+									"product_id": "kernel-rt_debug-devel-5.3.18-150300.135.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-rt_debug-extra-5.3.18-150300.135.1.x86_64",
+								"product": {
+									"name": "kernel-rt_debug-extra-5.3.18-150300.135.1.x86_64",
+									"product_id": "kernel-rt_debug-extra-5.3.18-150300.135.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-rt_debug-livepatch-devel-5.3.18-150300.135.1.x86_64",
+								"product": {
+									"name": "kernel-rt_debug-livepatch-devel-5.3.18-150300.135.1.x86_64",
+									"product_id": "kernel-rt_debug-livepatch-devel-5.3.18-150300.135.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-rt_debug-optional-5.3.18-150300.135.1.x86_64",
+								"product": {
+									"name": "kernel-rt_debug-optional-5.3.18-150300.135.1.x86_64",
+									"product_id": "kernel-rt_debug-optional-5.3.18-150300.135.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-syms-rt-5.3.18-150300.135.1.x86_64",
+								"product": {
+									"name": "kernel-syms-rt-5.3.18-150300.135.1.x86_64",
+									"product_id": "kernel-syms-rt-5.3.18-150300.135.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kselftests-kmp-rt-5.3.18-150300.135.1.x86_64",
+								"product": {
+									"name": "kselftests-kmp-rt-5.3.18-150300.135.1.x86_64",
+									"product_id": "kselftests-kmp-rt-5.3.18-150300.135.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kselftests-kmp-rt_debug-5.3.18-150300.135.1.x86_64",
+								"product": {
+									"name": "kselftests-kmp-rt_debug-5.3.18-150300.135.1.x86_64",
+									"product_id": "kselftests-kmp-rt_debug-5.3.18-150300.135.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "ocfs2-kmp-rt-5.3.18-150300.135.1.x86_64",
+								"product": {
+									"name": "ocfs2-kmp-rt-5.3.18-150300.135.1.x86_64",
+									"product_id": "ocfs2-kmp-rt-5.3.18-150300.135.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "ocfs2-kmp-rt_debug-5.3.18-150300.135.1.x86_64",
+								"product": {
+									"name": "ocfs2-kmp-rt_debug-5.3.18-150300.135.1.x86_64",
+									"product_id": "ocfs2-kmp-rt_debug-5.3.18-150300.135.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "reiserfs-kmp-rt-5.3.18-150300.135.1.x86_64",
+								"product": {
+									"name": "reiserfs-kmp-rt-5.3.18-150300.135.1.x86_64",
+									"product_id": "reiserfs-kmp-rt-5.3.18-150300.135.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "reiserfs-kmp-rt_debug-5.3.18-150300.135.1.x86_64",
+								"product": {
+									"name": "reiserfs-kmp-rt_debug-5.3.18-150300.135.1.x86_64",
+									"product_id": "reiserfs-kmp-rt_debug-5.3.18-150300.135.1.x86_64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "x86_64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_name",
+								"name": "SUSE Real Time Module 15 SP3",
+								"product": {
+									"name": "SUSE Real Time Module 15 SP3",
+									"product_id": "SUSE Real Time Module 15 SP3",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-module-rt:15:sp3"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Micro 5.1",
+								"product": {
+									"name": "SUSE Linux Enterprise Micro 5.1",
+									"product_id": "SUSE Linux Enterprise Micro 5.1",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:suse-microos:5.1"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Micro 5.2",
+								"product": {
+									"name": "SUSE Linux Enterprise Micro 5.2",
+									"product_id": "SUSE Linux Enterprise Micro 5.2",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:suse-microos:5.2"
+									}
+								}
+							}
+						],
+						"category": "product_family",
+						"name": "SUSE Linux Enterprise"
+					}
+				],
+				"category": "vendor",
+				"name": "SUSE"
+			}
+		],
+		"relationships": [
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "cluster-md-kmp-rt-5.3.18-150300.135.1.x86_64 as component of SUSE Real Time Module 15 SP3",
+					"product_id": "SUSE Real Time Module 15 SP3:cluster-md-kmp-rt-5.3.18-150300.135.1.x86_64"
+				},
+				"product_reference": "cluster-md-kmp-rt-5.3.18-150300.135.1.x86_64",
+				"relates_to_product_reference": "SUSE Real Time Module 15 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "dlm-kmp-rt-5.3.18-150300.135.1.x86_64 as component of SUSE Real Time Module 15 SP3",
+					"product_id": "SUSE Real Time Module 15 SP3:dlm-kmp-rt-5.3.18-150300.135.1.x86_64"
+				},
+				"product_reference": "dlm-kmp-rt-5.3.18-150300.135.1.x86_64",
+				"relates_to_product_reference": "SUSE Real Time Module 15 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "gfs2-kmp-rt-5.3.18-150300.135.1.x86_64 as component of SUSE Real Time Module 15 SP3",
+					"product_id": "SUSE Real Time Module 15 SP3:gfs2-kmp-rt-5.3.18-150300.135.1.x86_64"
+				},
+				"product_reference": "gfs2-kmp-rt-5.3.18-150300.135.1.x86_64",
+				"relates_to_product_reference": "SUSE Real Time Module 15 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-devel-rt-5.3.18-150300.135.1.noarch as component of SUSE Real Time Module 15 SP3",
+					"product_id": "SUSE Real Time Module 15 SP3:kernel-devel-rt-5.3.18-150300.135.1.noarch"
+				},
+				"product_reference": "kernel-devel-rt-5.3.18-150300.135.1.noarch",
+				"relates_to_product_reference": "SUSE Real Time Module 15 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-rt-5.3.18-150300.135.1.x86_64 as component of SUSE Real Time Module 15 SP3",
+					"product_id": "SUSE Real Time Module 15 SP3:kernel-rt-5.3.18-150300.135.1.x86_64"
+				},
+				"product_reference": "kernel-rt-5.3.18-150300.135.1.x86_64",
+				"relates_to_product_reference": "SUSE Real Time Module 15 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-rt-devel-5.3.18-150300.135.1.x86_64 as component of SUSE Real Time Module 15 SP3",
+					"product_id": "SUSE Real Time Module 15 SP3:kernel-rt-devel-5.3.18-150300.135.1.x86_64"
+				},
+				"product_reference": "kernel-rt-devel-5.3.18-150300.135.1.x86_64",
+				"relates_to_product_reference": "SUSE Real Time Module 15 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-rt_debug-devel-5.3.18-150300.135.1.x86_64 as component of SUSE Real Time Module 15 SP3",
+					"product_id": "SUSE Real Time Module 15 SP3:kernel-rt_debug-devel-5.3.18-150300.135.1.x86_64"
+				},
+				"product_reference": "kernel-rt_debug-devel-5.3.18-150300.135.1.x86_64",
+				"relates_to_product_reference": "SUSE Real Time Module 15 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-source-rt-5.3.18-150300.135.1.noarch as component of SUSE Real Time Module 15 SP3",
+					"product_id": "SUSE Real Time Module 15 SP3:kernel-source-rt-5.3.18-150300.135.1.noarch"
+				},
+				"product_reference": "kernel-source-rt-5.3.18-150300.135.1.noarch",
+				"relates_to_product_reference": "SUSE Real Time Module 15 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-syms-rt-5.3.18-150300.135.1.x86_64 as component of SUSE Real Time Module 15 SP3",
+					"product_id": "SUSE Real Time Module 15 SP3:kernel-syms-rt-5.3.18-150300.135.1.x86_64"
+				},
+				"product_reference": "kernel-syms-rt-5.3.18-150300.135.1.x86_64",
+				"relates_to_product_reference": "SUSE Real Time Module 15 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ocfs2-kmp-rt-5.3.18-150300.135.1.x86_64 as component of SUSE Real Time Module 15 SP3",
+					"product_id": "SUSE Real Time Module 15 SP3:ocfs2-kmp-rt-5.3.18-150300.135.1.x86_64"
+				},
+				"product_reference": "ocfs2-kmp-rt-5.3.18-150300.135.1.x86_64",
+				"relates_to_product_reference": "SUSE Real Time Module 15 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-rt-5.3.18-150300.135.1.x86_64 as component of SUSE Linux Enterprise Micro 5.1",
+					"product_id": "SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.135.1.x86_64"
+				},
+				"product_reference": "kernel-rt-5.3.18-150300.135.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Micro 5.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-rt-5.3.18-150300.135.1.x86_64 as component of SUSE Linux Enterprise Micro 5.2",
+					"product_id": "SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.135.1.x86_64"
+				},
+				"product_reference": "kernel-rt-5.3.18-150300.135.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Micro 5.2"
+			}
+		]
+	},
+	"vulnerabilities": [
+		{
+			"cve": "CVE-2023-1077",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2023-1077"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "In the Linux kernel, pick_next_rt_entity() may return a type confused entry, not detected by the BUG_ON condition, as the confused entry will not be NULL, but list_head.The buggy error condition would lead to a type confused entry with the list head,which would then be used as a type confused sched_rt_entity,causing memory corruption.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:cluster-md-kmp-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:dlm-kmp-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:gfs2-kmp-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:kernel-devel-rt-5.3.18-150300.135.1.noarch",
+					"SUSE Real Time Module 15 SP3:kernel-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:kernel-rt-devel-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:kernel-rt_debug-devel-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:kernel-source-rt-5.3.18-150300.135.1.noarch",
+					"SUSE Real Time Module 15 SP3:kernel-syms-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:ocfs2-kmp-rt-5.3.18-150300.135.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2023-1077",
+					"url": "https://www.suse.com/security/cve/CVE-2023-1077"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1208600 for CVE-2023-1077",
+					"url": "https://bugzilla.suse.com/1208600"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1208839 for CVE-2023-1077",
+					"url": "https://bugzilla.suse.com/1208839"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1213841 for CVE-2023-1077",
+					"url": "https://bugzilla.suse.com/1213841"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1213842 for CVE-2023-1077",
+					"url": "https://bugzilla.suse.com/1213842"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:cluster-md-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:dlm-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:gfs2-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-devel-rt-5.3.18-150300.135.1.noarch",
+						"SUSE Real Time Module 15 SP3:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-rt-devel-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-rt_debug-devel-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-source-rt-5.3.18-150300.135.1.noarch",
+						"SUSE Real Time Module 15 SP3:kernel-syms-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:ocfs2-kmp-rt-5.3.18-150300.135.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:cluster-md-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:dlm-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:gfs2-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-devel-rt-5.3.18-150300.135.1.noarch",
+						"SUSE Real Time Module 15 SP3:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-rt-devel-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-rt_debug-devel-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-source-rt-5.3.18-150300.135.1.noarch",
+						"SUSE Real Time Module 15 SP3:kernel-syms-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:ocfs2-kmp-rt-5.3.18-150300.135.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2023-07-12T09:34:43Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2023-1077"
+		},
+		{
+			"cve": "CVE-2023-1249",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2023-1249"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A use-after-free flaw was found in the Linux kernel’s core dump subsystem. This flaw allows a local user to crash the system. Only if patch 390031c94211 (\"coredump: Use the vma snapshot in fill_files_note\") not applied yet, then kernel could be affected.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:cluster-md-kmp-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:dlm-kmp-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:gfs2-kmp-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:kernel-devel-rt-5.3.18-150300.135.1.noarch",
+					"SUSE Real Time Module 15 SP3:kernel-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:kernel-rt-devel-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:kernel-rt_debug-devel-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:kernel-source-rt-5.3.18-150300.135.1.noarch",
+					"SUSE Real Time Module 15 SP3:kernel-syms-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:ocfs2-kmp-rt-5.3.18-150300.135.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2023-1249",
+					"url": "https://www.suse.com/security/cve/CVE-2023-1249"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1209039 for CVE-2023-1249",
+					"url": "https://bugzilla.suse.com/1209039"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:cluster-md-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:dlm-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:gfs2-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-devel-rt-5.3.18-150300.135.1.noarch",
+						"SUSE Real Time Module 15 SP3:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-rt-devel-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-rt_debug-devel-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-source-rt-5.3.18-150300.135.1.noarch",
+						"SUSE Real Time Module 15 SP3:kernel-syms-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:ocfs2-kmp-rt-5.3.18-150300.135.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 5.3,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:L/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:cluster-md-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:dlm-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:gfs2-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-devel-rt-5.3.18-150300.135.1.noarch",
+						"SUSE Real Time Module 15 SP3:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-rt-devel-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-rt_debug-devel-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-source-rt-5.3.18-150300.135.1.noarch",
+						"SUSE Real Time Module 15 SP3:kernel-syms-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:ocfs2-kmp-rt-5.3.18-150300.135.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2023-07-12T09:34:43Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2023-1249"
+		},
+		{
+			"cve": "CVE-2023-2002",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2023-2002"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A vulnerability was found in the HCI sockets implementation due to a missing capability check in net/bluetooth/hci_sock.c in the Linux Kernel. This flaw allows an attacker to unauthorized execution of management commands, compromising the confidentiality, integrity, and availability of Bluetooth communication.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:cluster-md-kmp-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:dlm-kmp-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:gfs2-kmp-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:kernel-devel-rt-5.3.18-150300.135.1.noarch",
+					"SUSE Real Time Module 15 SP3:kernel-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:kernel-rt-devel-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:kernel-rt_debug-devel-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:kernel-source-rt-5.3.18-150300.135.1.noarch",
+					"SUSE Real Time Module 15 SP3:kernel-syms-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:ocfs2-kmp-rt-5.3.18-150300.135.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2023-2002",
+					"url": "https://www.suse.com/security/cve/CVE-2023-2002"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1210533 for CVE-2023-2002",
+					"url": "https://bugzilla.suse.com/1210533"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1210566 for CVE-2023-2002",
+					"url": "https://bugzilla.suse.com/1210566"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:cluster-md-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:dlm-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:gfs2-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-devel-rt-5.3.18-150300.135.1.noarch",
+						"SUSE Real Time Module 15 SP3:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-rt-devel-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-rt_debug-devel-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-source-rt-5.3.18-150300.135.1.noarch",
+						"SUSE Real Time Module 15 SP3:kernel-syms-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:ocfs2-kmp-rt-5.3.18-150300.135.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.8,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:cluster-md-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:dlm-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:gfs2-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-devel-rt-5.3.18-150300.135.1.noarch",
+						"SUSE Real Time Module 15 SP3:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-rt-devel-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-rt_debug-devel-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-source-rt-5.3.18-150300.135.1.noarch",
+						"SUSE Real Time Module 15 SP3:kernel-syms-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:ocfs2-kmp-rt-5.3.18-150300.135.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2023-07-12T09:34:43Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2023-2002"
+		},
+		{
+			"cve": "CVE-2023-3090",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2023-3090"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A heap out-of-bounds write vulnerability in the Linux Kernel ipvlan network driver can be exploited to achieve local privilege escalation.\n\nThe out-of-bounds write is caused by missing skb->cb  initialization in the ipvlan network driver. The vulnerability is reachable if CONFIG_IPVLAN is enabled.\n\n\nWe recommend upgrading past commit 90cbed5247439a966b645b34eb0a2e037836ea8e.\n\n",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:cluster-md-kmp-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:dlm-kmp-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:gfs2-kmp-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:kernel-devel-rt-5.3.18-150300.135.1.noarch",
+					"SUSE Real Time Module 15 SP3:kernel-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:kernel-rt-devel-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:kernel-rt_debug-devel-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:kernel-source-rt-5.3.18-150300.135.1.noarch",
+					"SUSE Real Time Module 15 SP3:kernel-syms-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:ocfs2-kmp-rt-5.3.18-150300.135.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2023-3090",
+					"url": "https://www.suse.com/security/cve/CVE-2023-3090"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1212842 for CVE-2023-3090",
+					"url": "https://bugzilla.suse.com/1212842"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1212849 for CVE-2023-3090",
+					"url": "https://bugzilla.suse.com/1212849"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1214128 for CVE-2023-3090",
+					"url": "https://bugzilla.suse.com/1214128"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:cluster-md-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:dlm-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:gfs2-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-devel-rt-5.3.18-150300.135.1.noarch",
+						"SUSE Real Time Module 15 SP3:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-rt-devel-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-rt_debug-devel-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-source-rt-5.3.18-150300.135.1.noarch",
+						"SUSE Real Time Module 15 SP3:kernel-syms-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:ocfs2-kmp-rt-5.3.18-150300.135.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.8,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:cluster-md-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:dlm-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:gfs2-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-devel-rt-5.3.18-150300.135.1.noarch",
+						"SUSE Real Time Module 15 SP3:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-rt-devel-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-rt_debug-devel-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-source-rt-5.3.18-150300.135.1.noarch",
+						"SUSE Real Time Module 15 SP3:kernel-syms-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:ocfs2-kmp-rt-5.3.18-150300.135.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2023-07-12T09:34:43Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2023-3090"
+		},
+		{
+			"cve": "CVE-2023-3141",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2023-3141"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A use-after-free flaw was found in r592_remove in drivers/memstick/host/r592.c in media access in the Linux Kernel. This flaw allows a local attacker to crash the system at device disconnect, possibly leading to a kernel information leak.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:cluster-md-kmp-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:dlm-kmp-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:gfs2-kmp-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:kernel-devel-rt-5.3.18-150300.135.1.noarch",
+					"SUSE Real Time Module 15 SP3:kernel-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:kernel-rt-devel-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:kernel-rt_debug-devel-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:kernel-source-rt-5.3.18-150300.135.1.noarch",
+					"SUSE Real Time Module 15 SP3:kernel-syms-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:ocfs2-kmp-rt-5.3.18-150300.135.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2023-3141",
+					"url": "https://www.suse.com/security/cve/CVE-2023-3141"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1212129 for CVE-2023-3141",
+					"url": "https://bugzilla.suse.com/1212129"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1215674 for CVE-2023-3141",
+					"url": "https://bugzilla.suse.com/1215674"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:cluster-md-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:dlm-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:gfs2-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-devel-rt-5.3.18-150300.135.1.noarch",
+						"SUSE Real Time Module 15 SP3:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-rt-devel-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-rt_debug-devel-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-source-rt-5.3.18-150300.135.1.noarch",
+						"SUSE Real Time Module 15 SP3:kernel-syms-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:ocfs2-kmp-rt-5.3.18-150300.135.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 6.1,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:cluster-md-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:dlm-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:gfs2-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-devel-rt-5.3.18-150300.135.1.noarch",
+						"SUSE Real Time Module 15 SP3:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-rt-devel-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-rt_debug-devel-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-source-rt-5.3.18-150300.135.1.noarch",
+						"SUSE Real Time Module 15 SP3:kernel-syms-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:ocfs2-kmp-rt-5.3.18-150300.135.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2023-07-12T09:34:43Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2023-3141"
+		},
+		{
+			"cve": "CVE-2023-3159",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2023-3159"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A use after free issue was discovered in driver/firewire in outbound_phy_packet_callback in the Linux Kernel. In this flaw a local attacker with special privilege may cause a use after free problem when queue_event() fails.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:cluster-md-kmp-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:dlm-kmp-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:gfs2-kmp-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:kernel-devel-rt-5.3.18-150300.135.1.noarch",
+					"SUSE Real Time Module 15 SP3:kernel-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:kernel-rt-devel-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:kernel-rt_debug-devel-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:kernel-source-rt-5.3.18-150300.135.1.noarch",
+					"SUSE Real Time Module 15 SP3:kernel-syms-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:ocfs2-kmp-rt-5.3.18-150300.135.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2023-3159",
+					"url": "https://www.suse.com/security/cve/CVE-2023-3159"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1212128 for CVE-2023-3159",
+					"url": "https://bugzilla.suse.com/1212128"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1212347 for CVE-2023-3159",
+					"url": "https://bugzilla.suse.com/1212347"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1213842 for CVE-2023-3159",
+					"url": "https://bugzilla.suse.com/1213842"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1214128 for CVE-2023-3159",
+					"url": "https://bugzilla.suse.com/1214128"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1215674 for CVE-2023-3159",
+					"url": "https://bugzilla.suse.com/1215674"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:cluster-md-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:dlm-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:gfs2-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-devel-rt-5.3.18-150300.135.1.noarch",
+						"SUSE Real Time Module 15 SP3:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-rt-devel-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-rt_debug-devel-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-source-rt-5.3.18-150300.135.1.noarch",
+						"SUSE Real Time Module 15 SP3:kernel-syms-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:ocfs2-kmp-rt-5.3.18-150300.135.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.8,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:cluster-md-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:dlm-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:gfs2-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-devel-rt-5.3.18-150300.135.1.noarch",
+						"SUSE Real Time Module 15 SP3:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-rt-devel-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-rt_debug-devel-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-source-rt-5.3.18-150300.135.1.noarch",
+						"SUSE Real Time Module 15 SP3:kernel-syms-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:ocfs2-kmp-rt-5.3.18-150300.135.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2023-07-12T09:34:43Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2023-3159"
+		},
+		{
+			"cve": "CVE-2023-3161",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2023-3161"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A flaw was found in the Framebuffer Console (fbcon) in the Linux Kernel. When providing font->width and font->height greater than 32 to fbcon_set_font, since there are no checks in place, a shift-out-of-bounds occurs leading to undefined behavior and possible denial of service.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:cluster-md-kmp-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:dlm-kmp-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:gfs2-kmp-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:kernel-devel-rt-5.3.18-150300.135.1.noarch",
+					"SUSE Real Time Module 15 SP3:kernel-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:kernel-rt-devel-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:kernel-rt_debug-devel-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:kernel-source-rt-5.3.18-150300.135.1.noarch",
+					"SUSE Real Time Module 15 SP3:kernel-syms-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:ocfs2-kmp-rt-5.3.18-150300.135.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2023-3161",
+					"url": "https://www.suse.com/security/cve/CVE-2023-3161"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1212154 for CVE-2023-3161",
+					"url": "https://bugzilla.suse.com/1212154"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1215674 for CVE-2023-3161",
+					"url": "https://bugzilla.suse.com/1215674"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:cluster-md-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:dlm-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:gfs2-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-devel-rt-5.3.18-150300.135.1.noarch",
+						"SUSE Real Time Module 15 SP3:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-rt-devel-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-rt_debug-devel-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-source-rt-5.3.18-150300.135.1.noarch",
+						"SUSE Real Time Module 15 SP3:kernel-syms-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:ocfs2-kmp-rt-5.3.18-150300.135.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 5.5,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:cluster-md-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:dlm-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:gfs2-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-devel-rt-5.3.18-150300.135.1.noarch",
+						"SUSE Real Time Module 15 SP3:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-rt-devel-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-rt_debug-devel-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-source-rt-5.3.18-150300.135.1.noarch",
+						"SUSE Real Time Module 15 SP3:kernel-syms-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:ocfs2-kmp-rt-5.3.18-150300.135.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2023-07-12T09:34:43Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2023-3161"
+		},
+		{
+			"cve": "CVE-2023-3268",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2023-3268"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "An out of bounds (OOB) memory access flaw was found in the Linux kernel in relay_file_read_start_pos in kernel/relay.c in the relayfs. This flaw could allow a local attacker to crash the system or leak kernel internal information.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:cluster-md-kmp-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:dlm-kmp-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:gfs2-kmp-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:kernel-devel-rt-5.3.18-150300.135.1.noarch",
+					"SUSE Real Time Module 15 SP3:kernel-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:kernel-rt-devel-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:kernel-rt_debug-devel-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:kernel-source-rt-5.3.18-150300.135.1.noarch",
+					"SUSE Real Time Module 15 SP3:kernel-syms-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:ocfs2-kmp-rt-5.3.18-150300.135.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2023-3268",
+					"url": "https://www.suse.com/security/cve/CVE-2023-3268"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1212502 for CVE-2023-3268",
+					"url": "https://bugzilla.suse.com/1212502"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1215674 for CVE-2023-3268",
+					"url": "https://bugzilla.suse.com/1215674"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:cluster-md-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:dlm-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:gfs2-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-devel-rt-5.3.18-150300.135.1.noarch",
+						"SUSE Real Time Module 15 SP3:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-rt-devel-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-rt_debug-devel-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-source-rt-5.3.18-150300.135.1.noarch",
+						"SUSE Real Time Module 15 SP3:kernel-syms-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:ocfs2-kmp-rt-5.3.18-150300.135.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 6.1,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:L",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:cluster-md-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:dlm-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:gfs2-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-devel-rt-5.3.18-150300.135.1.noarch",
+						"SUSE Real Time Module 15 SP3:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-rt-devel-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-rt_debug-devel-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-source-rt-5.3.18-150300.135.1.noarch",
+						"SUSE Real Time Module 15 SP3:kernel-syms-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:ocfs2-kmp-rt-5.3.18-150300.135.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2023-07-12T09:34:43Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2023-3268"
+		},
+		{
+			"cve": "CVE-2023-3358",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2023-3358"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A null pointer dereference was found in the Linux kernel's Integrated Sensor Hub (ISH) driver. This issue could allow a local user to crash the system.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:cluster-md-kmp-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:dlm-kmp-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:gfs2-kmp-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:kernel-devel-rt-5.3.18-150300.135.1.noarch",
+					"SUSE Real Time Module 15 SP3:kernel-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:kernel-rt-devel-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:kernel-rt_debug-devel-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:kernel-source-rt-5.3.18-150300.135.1.noarch",
+					"SUSE Real Time Module 15 SP3:kernel-syms-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:ocfs2-kmp-rt-5.3.18-150300.135.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2023-3358",
+					"url": "https://www.suse.com/security/cve/CVE-2023-3358"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1212606 for CVE-2023-3358",
+					"url": "https://bugzilla.suse.com/1212606"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:cluster-md-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:dlm-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:gfs2-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-devel-rt-5.3.18-150300.135.1.noarch",
+						"SUSE Real Time Module 15 SP3:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-rt-devel-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-rt_debug-devel-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-source-rt-5.3.18-150300.135.1.noarch",
+						"SUSE Real Time Module 15 SP3:kernel-syms-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:ocfs2-kmp-rt-5.3.18-150300.135.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 4.7,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:cluster-md-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:dlm-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:gfs2-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-devel-rt-5.3.18-150300.135.1.noarch",
+						"SUSE Real Time Module 15 SP3:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-rt-devel-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-rt_debug-devel-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-source-rt-5.3.18-150300.135.1.noarch",
+						"SUSE Real Time Module 15 SP3:kernel-syms-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:ocfs2-kmp-rt-5.3.18-150300.135.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2023-07-12T09:34:43Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2023-3358"
+		},
+		{
+			"cve": "CVE-2023-35788",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2023-35788"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "An issue was discovered in fl_set_geneve_opt in net/sched/cls_flower.c in the Linux kernel before 6.3.7. It allows an out-of-bounds write in the flower classifier code via TCA_FLOWER_KEY_ENC_OPTS_GENEVE packets. This may result in denial of service or privilege escalation.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:cluster-md-kmp-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:dlm-kmp-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:gfs2-kmp-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:kernel-devel-rt-5.3.18-150300.135.1.noarch",
+					"SUSE Real Time Module 15 SP3:kernel-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:kernel-rt-devel-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:kernel-rt_debug-devel-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:kernel-source-rt-5.3.18-150300.135.1.noarch",
+					"SUSE Real Time Module 15 SP3:kernel-syms-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:ocfs2-kmp-rt-5.3.18-150300.135.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2023-35788",
+					"url": "https://www.suse.com/security/cve/CVE-2023-35788"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1212504 for CVE-2023-35788",
+					"url": "https://bugzilla.suse.com/1212504"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1212509 for CVE-2023-35788",
+					"url": "https://bugzilla.suse.com/1212509"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:cluster-md-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:dlm-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:gfs2-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-devel-rt-5.3.18-150300.135.1.noarch",
+						"SUSE Real Time Module 15 SP3:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-rt-devel-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-rt_debug-devel-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-source-rt-5.3.18-150300.135.1.noarch",
+						"SUSE Real Time Module 15 SP3:kernel-syms-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:ocfs2-kmp-rt-5.3.18-150300.135.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.4,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:cluster-md-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:dlm-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:gfs2-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-devel-rt-5.3.18-150300.135.1.noarch",
+						"SUSE Real Time Module 15 SP3:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-rt-devel-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-rt_debug-devel-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-source-rt-5.3.18-150300.135.1.noarch",
+						"SUSE Real Time Module 15 SP3:kernel-syms-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:ocfs2-kmp-rt-5.3.18-150300.135.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2023-07-12T09:34:43Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2023-35788"
+		},
+		{
+			"cve": "CVE-2023-35823",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2023-35823"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "An issue was discovered in the Linux kernel before 6.3.2. A use-after-free was found in saa7134_finidev in drivers/media/pci/saa7134/saa7134-core.c.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:cluster-md-kmp-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:dlm-kmp-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:gfs2-kmp-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:kernel-devel-rt-5.3.18-150300.135.1.noarch",
+					"SUSE Real Time Module 15 SP3:kernel-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:kernel-rt-devel-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:kernel-rt_debug-devel-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:kernel-source-rt-5.3.18-150300.135.1.noarch",
+					"SUSE Real Time Module 15 SP3:kernel-syms-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:ocfs2-kmp-rt-5.3.18-150300.135.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2023-35823",
+					"url": "https://www.suse.com/security/cve/CVE-2023-35823"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1212494 for CVE-2023-35823",
+					"url": "https://bugzilla.suse.com/1212494"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:cluster-md-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:dlm-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:gfs2-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-devel-rt-5.3.18-150300.135.1.noarch",
+						"SUSE Real Time Module 15 SP3:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-rt-devel-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-rt_debug-devel-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-source-rt-5.3.18-150300.135.1.noarch",
+						"SUSE Real Time Module 15 SP3:kernel-syms-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:ocfs2-kmp-rt-5.3.18-150300.135.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 4.7,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:cluster-md-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:dlm-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:gfs2-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-devel-rt-5.3.18-150300.135.1.noarch",
+						"SUSE Real Time Module 15 SP3:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-rt-devel-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-rt_debug-devel-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-source-rt-5.3.18-150300.135.1.noarch",
+						"SUSE Real Time Module 15 SP3:kernel-syms-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:ocfs2-kmp-rt-5.3.18-150300.135.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2023-07-12T09:34:43Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2023-35823"
+		},
+		{
+			"cve": "CVE-2023-35824",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2023-35824"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "An issue was discovered in the Linux kernel before 6.3.2. A use-after-free was found in dm1105_remove in drivers/media/pci/dm1105/dm1105.c.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:cluster-md-kmp-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:dlm-kmp-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:gfs2-kmp-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:kernel-devel-rt-5.3.18-150300.135.1.noarch",
+					"SUSE Real Time Module 15 SP3:kernel-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:kernel-rt-devel-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:kernel-rt_debug-devel-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:kernel-source-rt-5.3.18-150300.135.1.noarch",
+					"SUSE Real Time Module 15 SP3:kernel-syms-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:ocfs2-kmp-rt-5.3.18-150300.135.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2023-35824",
+					"url": "https://www.suse.com/security/cve/CVE-2023-35824"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1212501 for CVE-2023-35824",
+					"url": "https://bugzilla.suse.com/1212501"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1215674 for CVE-2023-35824",
+					"url": "https://bugzilla.suse.com/1215674"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:cluster-md-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:dlm-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:gfs2-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-devel-rt-5.3.18-150300.135.1.noarch",
+						"SUSE Real Time Module 15 SP3:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-rt-devel-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-rt_debug-devel-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-source-rt-5.3.18-150300.135.1.noarch",
+						"SUSE Real Time Module 15 SP3:kernel-syms-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:ocfs2-kmp-rt-5.3.18-150300.135.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 4.7,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:cluster-md-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:dlm-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:gfs2-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-devel-rt-5.3.18-150300.135.1.noarch",
+						"SUSE Real Time Module 15 SP3:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-rt-devel-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-rt_debug-devel-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-source-rt-5.3.18-150300.135.1.noarch",
+						"SUSE Real Time Module 15 SP3:kernel-syms-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:ocfs2-kmp-rt-5.3.18-150300.135.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2023-07-12T09:34:43Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2023-35824"
+		},
+		{
+			"cve": "CVE-2023-35828",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2023-35828"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "An issue was discovered in the Linux kernel before 6.3.2. A use-after-free was found in renesas_usb3_remove in drivers/usb/gadget/udc/renesas_usb3.c.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:cluster-md-kmp-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:dlm-kmp-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:gfs2-kmp-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:kernel-devel-rt-5.3.18-150300.135.1.noarch",
+					"SUSE Real Time Module 15 SP3:kernel-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:kernel-rt-devel-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:kernel-rt_debug-devel-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:kernel-source-rt-5.3.18-150300.135.1.noarch",
+					"SUSE Real Time Module 15 SP3:kernel-syms-rt-5.3.18-150300.135.1.x86_64",
+					"SUSE Real Time Module 15 SP3:ocfs2-kmp-rt-5.3.18-150300.135.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2023-35828",
+					"url": "https://www.suse.com/security/cve/CVE-2023-35828"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1212513 for CVE-2023-35828",
+					"url": "https://bugzilla.suse.com/1212513"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:cluster-md-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:dlm-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:gfs2-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-devel-rt-5.3.18-150300.135.1.noarch",
+						"SUSE Real Time Module 15 SP3:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-rt-devel-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-rt_debug-devel-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-source-rt-5.3.18-150300.135.1.noarch",
+						"SUSE Real Time Module 15 SP3:kernel-syms-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:ocfs2-kmp-rt-5.3.18-150300.135.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 6.7,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:cluster-md-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:dlm-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:gfs2-kmp-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-devel-rt-5.3.18-150300.135.1.noarch",
+						"SUSE Real Time Module 15 SP3:kernel-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-rt-devel-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-rt_debug-devel-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:kernel-source-rt-5.3.18-150300.135.1.noarch",
+						"SUSE Real Time Module 15 SP3:kernel-syms-rt-5.3.18-150300.135.1.x86_64",
+						"SUSE Real Time Module 15 SP3:ocfs2-kmp-rt-5.3.18-150300.135.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2023-07-12T09:34:43Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2023-35828"
+		}
+	]
+}

@@ -1,0 +1,2017 @@
+{
+	"document": {
+		"aggregate_severity": {
+			"namespace": "https://www.suse.com/support/security/rating/",
+			"text": "critical"
+		},
+		"category": "csaf_security_advisory",
+		"csaf_version": "2.0",
+		"distribution": {
+			"text": "Copyright 2023 SUSE LLC. All rights reserved.",
+			"tlp": {
+				"label": "WHITE",
+				"url": "https://www.first.org/tlp/"
+			}
+		},
+		"lang": "en",
+		"notes": [
+			{
+				"category": "summary",
+				"text": "Security update for MozillaThunderbird",
+				"title": "Title of the patch"
+			},
+			{
+				"category": "description",
+				"text": "This update for MozillaThunderbird fixes the following issues:\n\nSecurity fixes:\n- CVE-2023-5217: Fixed a heap buffer overflow in libvpx. (bsc#1215814)\n- CVE-2023-5168: Out-of-bounds write in FilterNodeD2D1. (bsc#1215575)\n- CVE-2023-5169: Out-of-bounds write in PathOps. (bsc#1215575)\n- CVE-2023-5171: Use-after-free in Ion Compiler. (bsc#1215575)\n- CVE-2023-5174: Double-free in process spawning on Windows. (bsc#1215575)\n- CVE-2023-5176: Memory safety bugs fixed in Firefox 118, Firefox ESR 115.3, and Thunderbird 115.3. (bsc#1215575)\n\nOther fixes:\n\n- Mozilla Thunderbird 115.3.1\n  * fixed: In Unified Folders view, some folders had incorrect\n    unified folder parent (bmo#1852525)\n  * fixed: 'Edit message as new' did not restore encrypted\n    subject from selected message (bmo#1788534)\n  * fixed: Importing some CalDAV calendars with yearly recurrence\n    events caused Thunderbird to freeze (bmo#1850732)\n  * fixed: Security fixes\n  MFSA 2023-44 (bsc#1215814)\n  * CVE-2023-5217 (bmo#1855550)\n    Heap buffer overflow in libvpx\n- Mozilla Thunderbird 115.3\n  * fixed: Thunderbird could not import profiles with hostname\n    ending in dot ('.') (bmo#1825374)\n  * fixed: Message header was occasionally missing in message\n    preview (bmo#1840943)\n  * fixed: Setting an existing folder's type flag did not add\n    descendant folders to the Unified Folders view (bmo#1848904)\n  * fixed: Thunderbird did not always delete all temporary mail\n    files, sometimes preventing messages from being sent\n    (bmo#673703)\n  * fixed: Status bar in Message Compose window could not be\n    hidden (bmo#1806860)\n  * fixed: Message header was intermittently missing from message\n    preview (bmo#1840943)\n  * fixed: OAuth2 did not work on some profiles created in\n    Thunderbird 102.6.1 or earlier (bmo#1814823)\n  * fixed: In Vertical View, decrypted subject lines were\n    displayed as ellipsis ('...') in message list (bmo#1831764)\n  * fixed: Condensed address preference\n    (mail.showCondensedAddresses) did not show condensed\n    addresses in message list (bmo#1831280)\n  * fixed: Spam folder could not be assigned non-ASCII names with\n    IMAP UTF-8 enabled (bmo#1816332)\n  * fixed: Message header was not displayed until images finished\n    loading, causing noticeable delay for messages containing\n    large images (bmo#1851871)\n  * fixed: Large SVG favicons did not display on RSS feeds\n    (bmo#1853895)\n  * fixed: Context menu items did not display a hover background\n    color (bmo#1852732)\n  * fixed: Security fixes\n  MFSA 2023-43 (bsc#1215575)\n  * CVE-2023-5168 (bmo#1846683)\n    Out-of-bounds write in FilterNodeD2D1\n  * CVE-2023-5169 (bmo#1846685)\n    Out-of-bounds write in PathOps\n  * CVE-2023-5171 (bmo#1851599)\n    Use-after-free in Ion Compiler\n  * CVE-2023-5174 (bmo#1848454)\n    Double-free in process spawning on Windows\n  * CVE-2023-5176 (bmo#1836353, bmo#1842674, bmo#1843824,\n    bmo#1843962, bmo#1848890, bmo#1850180, bmo#1850983,\n    bmo#1851195)\n    Memory safety bugs fixed in Firefox 118, Firefox ESR 115.3,\n    and Thunderbird 115.3\n- Add patch mozilla-fix-broken-ffmpeg.patch to fix broken build\n  with newer binutils (bsc#1215309)\n- Fix i586 build by reducing debug info to -g1. (bsc#1210168)\n- Mozilla Thunderbird 115.2.3\n  * changed: Card view and vertical layout are now default for\n    new profiles (bmo#1849000)\n  * fixed: Go - Folder menu was disabled (bmo#1849919)\n  * fixed: 'Tools' menu was blank when opened from compose window\n    on macOS (bmo#1848155)\n  * fixed: Deleting an attachment from a message on an IMAP\n    server corrupted the local copy when configured with 'mark as\n    deleted' (bmo#1135434)\n  * fixed: Manually entered passwords were not remembered for\n    OAuth-authenticated accounts such as Yahoo mail (bmo#1673446)\n  * fixed: Quick Filter's 'Keep filters applied' did not persist\n    after restarting Thunderbird (bmo#1846880,bmo#1849221)\n  * fixed: Top-level Quick Filter settings did not persist after\n    restart (bmo#1849249)\n  * fixed: Notifications for new messages with non-ASCII\n    characters in the subject were garbled (bmo#1842384)\n  * fixed: 'Mark Thread As Read' did not work when some messages\n    in thread were already read (bmo#1850850)\n  * fixed: New Groups tab in NNTP subscribe dialog id not work as\n    expected (bmo#1848366)\n  * fixed: Negative values were allowed in 'Share for files\n    larger than' field (bmo#1850281)\n  * fixed: Thunderbird sometimes crashed when deleting a parent\n    folder with subfolders (bmo#1851293)\n  * fixed: 'Send Message Error' appeared intermittently while\n    Thunderbird was idle (bmo#1801668)\n  * fixed: Focused but not selected messages were missing visual\n    indication of focus in card view (bmo#1844263)\n  * fixed: Notification dot did not disappear from taskbar icon\n    on Windows after messages had already been read (bmo#1824889)\n  * fixed: Multiple selected messages could not be opened\n    simultaneously if selection included more than 19 messages\n    (bmo#1851563)\n  * fixed: Email replies received via BCC incorrectly populated\n    From field with default identity (bmo#1851512)\n  * fixed: User was not always notified of message send failures\n    in outbox (bmo#1851542)\n  * fixed: Tag dialog did not close properly after editing tag\n    (bmo#1852414)\n  * fixed: Newsgroup field in compose window did not autocomplete\n    with suggested newsgroup names (bmo#1670457)\n  * fixed: Canceling newsgroup messages did not check if sender\n    matched user's own identity (bmo#1823274)\n  * fixed: Event dialog with several invitees expanded beyond\n    screen height (bmo#1848261)\n  * fixed: Message check boxes were partially obstructed in\n    message list (bmo#1850760)\n  * unresolved: Some folders missing from Unified Folders ()\n",
+				"title": "Description of the patch"
+			},
+			{
+				"category": "details",
+				"text": "SUSE-2023-4016,SUSE-SLE-Module-Packagehub-Subpackages-15-SP4-2023-4016,SUSE-SLE-Module-Packagehub-Subpackages-15-SP5-2023-4016,SUSE-SLE-Product-WE-15-SP4-2023-4016,SUSE-SLE-Product-WE-15-SP5-2023-4016,openSUSE-SLE-15.4-2023-4016,openSUSE-SLE-15.5-2023-4016",
+				"title": "Patchnames"
+			},
+			{
+				"category": "legal_disclaimer",
+				"text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+				"title": "Terms of use"
+			}
+		],
+		"publisher": {
+			"category": "vendor",
+			"contact_details": "https://www.suse.com/support/security/contact/",
+			"name": "SUSE Product Security Team",
+			"namespace": "https://www.suse.com/"
+		},
+		"references": [
+			{
+				"category": "self",
+				"summary": "URL for SUSE-SU-2023:4016-1",
+				"url": "https://www.suse.com/support/update/announcement/2023/suse-su-20234016-1/"
+			},
+			{
+				"category": "external",
+				"summary": "SUSE ratings",
+				"url": "https://www.suse.com/support/security/rating/"
+			},
+			{
+				"category": "self",
+				"summary": "URL of this CSAF notice",
+				"url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2023_4016-1.json"
+			},
+			{
+				"category": "self",
+				"summary": "E-Mail link for SUSE-SU-2023:4016-1",
+				"url": "https://lists.suse.com/pipermail/sle-security-updates/2023-October/016575.html"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1210168",
+				"url": "https://bugzilla.suse.com/1210168"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1215309",
+				"url": "https://bugzilla.suse.com/1215309"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1215575",
+				"url": "https://bugzilla.suse.com/1215575"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1215814",
+				"url": "https://bugzilla.suse.com/1215814"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2023-5168 page",
+				"url": "https://www.suse.com/security/cve/CVE-2023-5168/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2023-5169 page",
+				"url": "https://www.suse.com/security/cve/CVE-2023-5169/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2023-5171 page",
+				"url": "https://www.suse.com/security/cve/CVE-2023-5171/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2023-5174 page",
+				"url": "https://www.suse.com/security/cve/CVE-2023-5174/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2023-5176 page",
+				"url": "https://www.suse.com/security/cve/CVE-2023-5176/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2023-5217 page",
+				"url": "https://www.suse.com/security/cve/CVE-2023-5217/"
+			}
+		],
+		"title": "Security update for MozillaThunderbird",
+		"tracking": {
+			"current_release_date": "2023-10-09T17:22:59Z",
+			"generator": {
+				"date": "2023-10-09T17:22:59Z",
+				"engine": {
+					"name": "cve-database.git:bin/generate-csaf.pl",
+					"version": "1"
+				}
+			},
+			"id": "SUSE-SU-2023:4016-1",
+			"initial_release_date": "2023-10-09T17:22:59Z",
+			"revision_history": [
+				{
+					"date": "2023-10-09T17:22:59Z",
+					"number": "1",
+					"summary": "Current version"
+				}
+			],
+			"status": "final",
+			"version": "1"
+		}
+	},
+	"product_tree": {
+		"branches": [
+			{
+				"branches": [
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+								"product": {
+									"name": "MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+									"product_id": "MozillaThunderbird-115.3.1-150200.8.133.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+								"product": {
+									"name": "MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+									"product_id": "MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+								"product": {
+									"name": "MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+									"product_id": "MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "aarch64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "MozillaThunderbird-115.3.1-150200.8.133.1.i686",
+								"product": {
+									"name": "MozillaThunderbird-115.3.1-150200.8.133.1.i686",
+									"product_id": "MozillaThunderbird-115.3.1-150200.8.133.1.i686"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.i686",
+								"product": {
+									"name": "MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.i686",
+									"product_id": "MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.i686"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.i686",
+								"product": {
+									"name": "MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.i686",
+									"product_id": "MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.i686"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "i686"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+								"product": {
+									"name": "MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+									"product_id": "MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+								"product": {
+									"name": "MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+									"product_id": "MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+								"product": {
+									"name": "MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+									"product_id": "MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "ppc64le"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+								"product": {
+									"name": "MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+									"product_id": "MozillaThunderbird-115.3.1-150200.8.133.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+								"product": {
+									"name": "MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+									"product_id": "MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+								"product": {
+									"name": "MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+									"product_id": "MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "s390x"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+								"product": {
+									"name": "MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+									"product_id": "MozillaThunderbird-115.3.1-150200.8.133.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+								"product": {
+									"name": "MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+									"product_id": "MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+								"product": {
+									"name": "MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+									"product_id": "MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "x86_64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Module for Package Hub 15 SP4",
+								"product": {
+									"name": "SUSE Linux Enterprise Module for Package Hub 15 SP4",
+									"product_id": "SUSE Linux Enterprise Module for Package Hub 15 SP4",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:packagehub:15:sp4"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Module for Package Hub 15 SP5",
+								"product": {
+									"name": "SUSE Linux Enterprise Module for Package Hub 15 SP5",
+									"product_id": "SUSE Linux Enterprise Module for Package Hub 15 SP5",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:packagehub:15:sp5"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Workstation Extension 15 SP4",
+								"product": {
+									"name": "SUSE Linux Enterprise Workstation Extension 15 SP4",
+									"product_id": "SUSE Linux Enterprise Workstation Extension 15 SP4",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-we:15:sp4"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Workstation Extension 15 SP5",
+								"product": {
+									"name": "SUSE Linux Enterprise Workstation Extension 15 SP5",
+									"product_id": "SUSE Linux Enterprise Workstation Extension 15 SP5",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-we:15:sp5"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "openSUSE Leap 15.4",
+								"product": {
+									"name": "openSUSE Leap 15.4",
+									"product_id": "openSUSE Leap 15.4",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:opensuse:leap:15.4"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "openSUSE Leap 15.5",
+								"product": {
+									"name": "openSUSE Leap 15.5",
+									"product_id": "openSUSE Leap 15.5",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:opensuse:leap:15.5"
+									}
+								}
+							}
+						],
+						"category": "product_family",
+						"name": "SUSE Linux Enterprise"
+					}
+				],
+				"category": "vendor",
+				"name": "SUSE"
+			}
+		],
+		"relationships": [
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "MozillaThunderbird-115.3.1-150200.8.133.1.aarch64 as component of SUSE Linux Enterprise Module for Package Hub 15 SP4",
+					"product_id": "SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64"
+				},
+				"product_reference": "MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Package Hub 15 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le as component of SUSE Linux Enterprise Module for Package Hub 15 SP4",
+					"product_id": "SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le"
+				},
+				"product_reference": "MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Package Hub 15 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "MozillaThunderbird-115.3.1-150200.8.133.1.s390x as component of SUSE Linux Enterprise Module for Package Hub 15 SP4",
+					"product_id": "SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.s390x"
+				},
+				"product_reference": "MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Package Hub 15 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64 as component of SUSE Linux Enterprise Module for Package Hub 15 SP4",
+					"product_id": "SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64"
+				},
+				"product_reference": "MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Package Hub 15 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le as component of SUSE Linux Enterprise Module for Package Hub 15 SP4",
+					"product_id": "SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le"
+				},
+				"product_reference": "MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Package Hub 15 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x as component of SUSE Linux Enterprise Module for Package Hub 15 SP4",
+					"product_id": "SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x"
+				},
+				"product_reference": "MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Package Hub 15 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64 as component of SUSE Linux Enterprise Module for Package Hub 15 SP4",
+					"product_id": "SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64"
+				},
+				"product_reference": "MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Package Hub 15 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le as component of SUSE Linux Enterprise Module for Package Hub 15 SP4",
+					"product_id": "SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le"
+				},
+				"product_reference": "MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Package Hub 15 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x as component of SUSE Linux Enterprise Module for Package Hub 15 SP4",
+					"product_id": "SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x"
+				},
+				"product_reference": "MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Package Hub 15 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "MozillaThunderbird-115.3.1-150200.8.133.1.aarch64 as component of SUSE Linux Enterprise Module for Package Hub 15 SP5",
+					"product_id": "SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64"
+				},
+				"product_reference": "MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Package Hub 15 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le as component of SUSE Linux Enterprise Module for Package Hub 15 SP5",
+					"product_id": "SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le"
+				},
+				"product_reference": "MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Package Hub 15 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "MozillaThunderbird-115.3.1-150200.8.133.1.s390x as component of SUSE Linux Enterprise Module for Package Hub 15 SP5",
+					"product_id": "SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.s390x"
+				},
+				"product_reference": "MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Package Hub 15 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64 as component of SUSE Linux Enterprise Module for Package Hub 15 SP5",
+					"product_id": "SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64"
+				},
+				"product_reference": "MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Package Hub 15 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le as component of SUSE Linux Enterprise Module for Package Hub 15 SP5",
+					"product_id": "SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le"
+				},
+				"product_reference": "MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Package Hub 15 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x as component of SUSE Linux Enterprise Module for Package Hub 15 SP5",
+					"product_id": "SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x"
+				},
+				"product_reference": "MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Package Hub 15 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64 as component of SUSE Linux Enterprise Module for Package Hub 15 SP5",
+					"product_id": "SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64"
+				},
+				"product_reference": "MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Package Hub 15 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le as component of SUSE Linux Enterprise Module for Package Hub 15 SP5",
+					"product_id": "SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le"
+				},
+				"product_reference": "MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Package Hub 15 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x as component of SUSE Linux Enterprise Module for Package Hub 15 SP5",
+					"product_id": "SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x"
+				},
+				"product_reference": "MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Package Hub 15 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "MozillaThunderbird-115.3.1-150200.8.133.1.x86_64 as component of SUSE Linux Enterprise Workstation Extension 15 SP4",
+					"product_id": "SUSE Linux Enterprise Workstation Extension 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64"
+				},
+				"product_reference": "MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Workstation Extension 15 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64 as component of SUSE Linux Enterprise Workstation Extension 15 SP4",
+					"product_id": "SUSE Linux Enterprise Workstation Extension 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64"
+				},
+				"product_reference": "MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Workstation Extension 15 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64 as component of SUSE Linux Enterprise Workstation Extension 15 SP4",
+					"product_id": "SUSE Linux Enterprise Workstation Extension 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64"
+				},
+				"product_reference": "MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Workstation Extension 15 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "MozillaThunderbird-115.3.1-150200.8.133.1.x86_64 as component of SUSE Linux Enterprise Workstation Extension 15 SP5",
+					"product_id": "SUSE Linux Enterprise Workstation Extension 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64"
+				},
+				"product_reference": "MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Workstation Extension 15 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64 as component of SUSE Linux Enterprise Workstation Extension 15 SP5",
+					"product_id": "SUSE Linux Enterprise Workstation Extension 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64"
+				},
+				"product_reference": "MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Workstation Extension 15 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64 as component of SUSE Linux Enterprise Workstation Extension 15 SP5",
+					"product_id": "SUSE Linux Enterprise Workstation Extension 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64"
+				},
+				"product_reference": "MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Workstation Extension 15 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "MozillaThunderbird-115.3.1-150200.8.133.1.aarch64 as component of openSUSE Leap 15.4",
+					"product_id": "openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64"
+				},
+				"product_reference": "MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+				"relates_to_product_reference": "openSUSE Leap 15.4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le as component of openSUSE Leap 15.4",
+					"product_id": "openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le"
+				},
+				"product_reference": "MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+				"relates_to_product_reference": "openSUSE Leap 15.4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "MozillaThunderbird-115.3.1-150200.8.133.1.s390x as component of openSUSE Leap 15.4",
+					"product_id": "openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.s390x"
+				},
+				"product_reference": "MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+				"relates_to_product_reference": "openSUSE Leap 15.4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "MozillaThunderbird-115.3.1-150200.8.133.1.x86_64 as component of openSUSE Leap 15.4",
+					"product_id": "openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64"
+				},
+				"product_reference": "MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+				"relates_to_product_reference": "openSUSE Leap 15.4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64 as component of openSUSE Leap 15.4",
+					"product_id": "openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64"
+				},
+				"product_reference": "MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+				"relates_to_product_reference": "openSUSE Leap 15.4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le as component of openSUSE Leap 15.4",
+					"product_id": "openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le"
+				},
+				"product_reference": "MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+				"relates_to_product_reference": "openSUSE Leap 15.4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x as component of openSUSE Leap 15.4",
+					"product_id": "openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x"
+				},
+				"product_reference": "MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+				"relates_to_product_reference": "openSUSE Leap 15.4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64 as component of openSUSE Leap 15.4",
+					"product_id": "openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64"
+				},
+				"product_reference": "MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+				"relates_to_product_reference": "openSUSE Leap 15.4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64 as component of openSUSE Leap 15.4",
+					"product_id": "openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64"
+				},
+				"product_reference": "MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+				"relates_to_product_reference": "openSUSE Leap 15.4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le as component of openSUSE Leap 15.4",
+					"product_id": "openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le"
+				},
+				"product_reference": "MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+				"relates_to_product_reference": "openSUSE Leap 15.4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x as component of openSUSE Leap 15.4",
+					"product_id": "openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x"
+				},
+				"product_reference": "MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+				"relates_to_product_reference": "openSUSE Leap 15.4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64 as component of openSUSE Leap 15.4",
+					"product_id": "openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64"
+				},
+				"product_reference": "MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+				"relates_to_product_reference": "openSUSE Leap 15.4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "MozillaThunderbird-115.3.1-150200.8.133.1.aarch64 as component of openSUSE Leap 15.5",
+					"product_id": "openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64"
+				},
+				"product_reference": "MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+				"relates_to_product_reference": "openSUSE Leap 15.5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le as component of openSUSE Leap 15.5",
+					"product_id": "openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le"
+				},
+				"product_reference": "MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+				"relates_to_product_reference": "openSUSE Leap 15.5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "MozillaThunderbird-115.3.1-150200.8.133.1.s390x as component of openSUSE Leap 15.5",
+					"product_id": "openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.s390x"
+				},
+				"product_reference": "MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+				"relates_to_product_reference": "openSUSE Leap 15.5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "MozillaThunderbird-115.3.1-150200.8.133.1.x86_64 as component of openSUSE Leap 15.5",
+					"product_id": "openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64"
+				},
+				"product_reference": "MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+				"relates_to_product_reference": "openSUSE Leap 15.5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64 as component of openSUSE Leap 15.5",
+					"product_id": "openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64"
+				},
+				"product_reference": "MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+				"relates_to_product_reference": "openSUSE Leap 15.5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le as component of openSUSE Leap 15.5",
+					"product_id": "openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le"
+				},
+				"product_reference": "MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+				"relates_to_product_reference": "openSUSE Leap 15.5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x as component of openSUSE Leap 15.5",
+					"product_id": "openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x"
+				},
+				"product_reference": "MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+				"relates_to_product_reference": "openSUSE Leap 15.5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64 as component of openSUSE Leap 15.5",
+					"product_id": "openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64"
+				},
+				"product_reference": "MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+				"relates_to_product_reference": "openSUSE Leap 15.5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64 as component of openSUSE Leap 15.5",
+					"product_id": "openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64"
+				},
+				"product_reference": "MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+				"relates_to_product_reference": "openSUSE Leap 15.5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le as component of openSUSE Leap 15.5",
+					"product_id": "openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le"
+				},
+				"product_reference": "MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+				"relates_to_product_reference": "openSUSE Leap 15.5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x as component of openSUSE Leap 15.5",
+					"product_id": "openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x"
+				},
+				"product_reference": "MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+				"relates_to_product_reference": "openSUSE Leap 15.5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64 as component of openSUSE Leap 15.5",
+					"product_id": "openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64"
+				},
+				"product_reference": "MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+				"relates_to_product_reference": "openSUSE Leap 15.5"
+			}
+		]
+	},
+	"vulnerabilities": [
+		{
+			"cve": "CVE-2023-5168",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2023-5168"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A compromised content process could have provided malicious data to `FilterNodeD2D1` resulting in an out-of-bounds write, leading to a potentially exploitable crash in a privileged process.\n*This bug only affects Firefox on Windows. Other operating systems are unaffected.* This vulnerability affects Firefox < 118, Firefox ESR < 115.3, and Thunderbird < 115.3.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+					"SUSE Linux Enterprise Workstation Extension 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+					"SUSE Linux Enterprise Workstation Extension 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+					"SUSE Linux Enterprise Workstation Extension 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+					"SUSE Linux Enterprise Workstation Extension 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+					"SUSE Linux Enterprise Workstation Extension 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+					"SUSE Linux Enterprise Workstation Extension 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+					"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+					"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+					"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+					"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+					"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+					"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+					"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+					"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+					"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+					"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+					"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+					"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+					"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+					"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+					"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+					"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+					"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+					"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+					"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+					"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+					"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+					"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+					"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+					"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2023-5168",
+					"url": "https://www.suse.com/security/cve/CVE-2023-5168"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Workstation Extension 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 9.8,
+						"baseSeverity": "CRITICAL",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Workstation Extension 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2023-10-09T17:22:59Z",
+					"details": "critical"
+				}
+			],
+			"title": "CVE-2023-5168"
+		},
+		{
+			"cve": "CVE-2023-5169",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2023-5169"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A compromised content process could have provided malicious data in a `PathRecording` resulting in an out-of-bounds write, leading to a potentially exploitable crash in a privileged process. This vulnerability affects Firefox < 118, Firefox ESR < 115.3, and Thunderbird < 115.3.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+					"SUSE Linux Enterprise Workstation Extension 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+					"SUSE Linux Enterprise Workstation Extension 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+					"SUSE Linux Enterprise Workstation Extension 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+					"SUSE Linux Enterprise Workstation Extension 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+					"SUSE Linux Enterprise Workstation Extension 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+					"SUSE Linux Enterprise Workstation Extension 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+					"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+					"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+					"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+					"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+					"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+					"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+					"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+					"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+					"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+					"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+					"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+					"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+					"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+					"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+					"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+					"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+					"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+					"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+					"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+					"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+					"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+					"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+					"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+					"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2023-5169",
+					"url": "https://www.suse.com/security/cve/CVE-2023-5169"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Workstation Extension 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 6.5,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Workstation Extension 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2023-10-09T17:22:59Z",
+					"details": "critical"
+				}
+			],
+			"title": "CVE-2023-5169"
+		},
+		{
+			"cve": "CVE-2023-5171",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2023-5171"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "During Ion compilation, a Garbage Collection could have resulted in a use-after-free condition, allowing an attacker to write two NUL bytes, and cause a potentially exploitable crash. This vulnerability affects Firefox < 118, Firefox ESR < 115.3, and Thunderbird < 115.3.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+					"SUSE Linux Enterprise Workstation Extension 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+					"SUSE Linux Enterprise Workstation Extension 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+					"SUSE Linux Enterprise Workstation Extension 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+					"SUSE Linux Enterprise Workstation Extension 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+					"SUSE Linux Enterprise Workstation Extension 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+					"SUSE Linux Enterprise Workstation Extension 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+					"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+					"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+					"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+					"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+					"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+					"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+					"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+					"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+					"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+					"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+					"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+					"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+					"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+					"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+					"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+					"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+					"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+					"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+					"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+					"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+					"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+					"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+					"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+					"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2023-5171",
+					"url": "https://www.suse.com/security/cve/CVE-2023-5171"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Workstation Extension 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 6.5,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Workstation Extension 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2023-10-09T17:22:59Z",
+					"details": "critical"
+				}
+			],
+			"title": "CVE-2023-5171"
+		},
+		{
+			"cve": "CVE-2023-5174",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2023-5174"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "If Windows failed to duplicate a handle during process creation, the sandbox code may have inadvertently freed a pointer twice, resulting in a use-after-free and a potentially exploitable crash.\n*This bug only affects Firefox on Windows when run in non-standard configurations (such as using `runas`). Other operating systems are unaffected.* This vulnerability affects Firefox < 118, Firefox ESR < 115.3, and Thunderbird < 115.3.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+					"SUSE Linux Enterprise Workstation Extension 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+					"SUSE Linux Enterprise Workstation Extension 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+					"SUSE Linux Enterprise Workstation Extension 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+					"SUSE Linux Enterprise Workstation Extension 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+					"SUSE Linux Enterprise Workstation Extension 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+					"SUSE Linux Enterprise Workstation Extension 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+					"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+					"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+					"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+					"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+					"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+					"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+					"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+					"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+					"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+					"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+					"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+					"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+					"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+					"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+					"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+					"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+					"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+					"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+					"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+					"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+					"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+					"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+					"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+					"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2023-5174",
+					"url": "https://www.suse.com/security/cve/CVE-2023-5174"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Workstation Extension 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 9.8,
+						"baseSeverity": "CRITICAL",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Workstation Extension 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2023-10-09T17:22:59Z",
+					"details": "critical"
+				}
+			],
+			"title": "CVE-2023-5174"
+		},
+		{
+			"cve": "CVE-2023-5176",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2023-5176"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Memory safety bugs present in Firefox 117, Firefox ESR 115.2, and Thunderbird 115.2. Some of these bugs showed evidence of memory corruption and we presume that with enough effort some of these could have been exploited to run arbitrary code. This vulnerability affects Firefox < 118, Firefox ESR < 115.3, and Thunderbird < 115.3.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+					"SUSE Linux Enterprise Workstation Extension 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+					"SUSE Linux Enterprise Workstation Extension 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+					"SUSE Linux Enterprise Workstation Extension 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+					"SUSE Linux Enterprise Workstation Extension 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+					"SUSE Linux Enterprise Workstation Extension 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+					"SUSE Linux Enterprise Workstation Extension 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+					"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+					"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+					"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+					"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+					"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+					"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+					"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+					"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+					"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+					"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+					"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+					"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+					"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+					"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+					"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+					"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+					"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+					"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+					"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+					"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+					"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+					"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+					"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+					"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2023-5176",
+					"url": "https://www.suse.com/security/cve/CVE-2023-5176"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Workstation Extension 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 9.8,
+						"baseSeverity": "CRITICAL",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Workstation Extension 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2023-10-09T17:22:59Z",
+					"details": "critical"
+				}
+			],
+			"title": "CVE-2023-5176"
+		},
+		{
+			"cve": "CVE-2023-5217",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2023-5217"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Heap buffer overflow in vp8 encoding in libvpx in Google Chrome prior to 117.0.5938.132 and libvpx 1.13.1 allowed a remote attacker to potentially exploit heap corruption via a crafted HTML page. (Chromium security severity: High)",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+					"SUSE Linux Enterprise Workstation Extension 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+					"SUSE Linux Enterprise Workstation Extension 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+					"SUSE Linux Enterprise Workstation Extension 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+					"SUSE Linux Enterprise Workstation Extension 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+					"SUSE Linux Enterprise Workstation Extension 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+					"SUSE Linux Enterprise Workstation Extension 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+					"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+					"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+					"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+					"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+					"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+					"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+					"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+					"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+					"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+					"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+					"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+					"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+					"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+					"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+					"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+					"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+					"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+					"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+					"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+					"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+					"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+					"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+					"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+					"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2023-5217",
+					"url": "https://www.suse.com/security/cve/CVE-2023-5217"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1215776 for CVE-2023-5217",
+					"url": "https://bugzilla.suse.com/1215776"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1215778 for CVE-2023-5217",
+					"url": "https://bugzilla.suse.com/1215778"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1215814 for CVE-2023-5217",
+					"url": "https://bugzilla.suse.com/1215814"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Workstation Extension 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 8.4,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+						"SUSE Linux Enterprise Workstation Extension 15 SP4:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP5:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.4:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.4:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.5:MozillaThunderbird-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-common-115.3.1-150200.8.133.1.x86_64",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.aarch64",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.ppc64le",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.s390x",
+						"openSUSE Leap 15.5:MozillaThunderbird-translations-other-115.3.1-150200.8.133.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2023-10-09T17:22:59Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2023-5217"
+		}
+	]
+}

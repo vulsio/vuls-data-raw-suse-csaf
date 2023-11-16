@@ -1,0 +1,2610 @@
+{
+	"document": {
+		"aggregate_severity": {
+			"namespace": "https://www.suse.com/support/security/rating/",
+			"text": "moderate"
+		},
+		"category": "csaf_security_advisory",
+		"csaf_version": "2.0",
+		"distribution": {
+			"text": "Copyright 2023 SUSE LLC. All rights reserved.",
+			"tlp": {
+				"label": "WHITE",
+				"url": "https://www.first.org/tlp/"
+			}
+		},
+		"lang": "en",
+		"notes": [
+			{
+				"category": "summary",
+				"text": "Security update for freetype2",
+				"title": "Title of the patch"
+			},
+			{
+				"category": "description",
+				"text": "freetype2 was updated to fix 20 security issues.\n\nThese security issues were fixed:\n- CVE-2014-9663: The tt_cmap4_validate function in sfnt/ttcmap.c in FreeType before 2.5.4 validates a certain length field before that field's value is completely calculated, which allowed remote attackers to cause a denial of service (out-of-bounds read) or possibly have unspecified other impact via a crafted cmap SFNT table (bnc#916865).\n- CVE-2014-9662: cff/cf2ft.c in FreeType before 2.5.4 did not validate the return values of point-allocation functions, which allowed remote attackers to cause a denial of service (heap-based buffer overflow) or possibly have unspecified other impact via a crafted OTF font (bnc#916860).\n- CVE-2014-9661: type42/t42parse.c in FreeType before 2.5.4 did not consider that scanning can be incomplete without triggering an error, which allowed remote attackers to cause a denial of service (use-after-free) or possibly have unspecified other impact via a crafted Type42 font (bnc#916859).\n- CVE-2014-9660: The _bdf_parse_glyphs function in bdf/bdflib.c in FreeType before 2.5.4 did not properly handle a missing ENDCHAR record, which allowed remote attackers to cause a denial of service (NULL pointer dereference) or possibly have unspecified other impact via a crafted BDF font (bnc#916858).\n- CVE-2014-9667: sfnt/ttload.c in FreeType before 2.5.4 proceeds with offset+length calculations without restricting the values, which allowed remote attackers to cause a denial of service (integer overflow and out-of-bounds read) or possibly have unspecified other impact via a crafted SFNT table (bnc#916861).\n- CVE-2014-9666: The tt_sbit_decoder_init function in sfnt/ttsbit.c in FreeType before 2.5.4 proceeds with a count-to-size association without restricting the count value, which allowed remote attackers to cause a denial of service (integer overflow and out-of-bounds read) or possibly have unspecified other impact via a crafted embedded bitmap (bnc#916862).\n- CVE-2014-9665: The Load_SBit_Png function in sfnt/pngshim.c in FreeType before 2.5.4 did not restrict the rows and pitch values of PNG data, which allowed remote attackers to cause a denial of service (integer overflow and heap-based buffer overflow) or possibly have unspecified other impact by embedding a PNG file in a .ttf font file (bnc#916863).\n- CVE-2014-9664: FreeType before 2.5.4 did not check for the end of the data during certain parsing actions, which allowed remote attackers to cause a denial of service (out-of-bounds read) or possibly have unspecified other impact via a crafted Type42 font, related to type42/t42parse.c and type1/t1load.c (bnc#916864).\n- CVE-2014-9669: Multiple integer overflows in sfnt/ttcmap.c in FreeType before 2.5.4 allowed remote attackers to cause a denial of service (out-of-bounds read or memory corruption) or possibly have unspecified other impact via a crafted cmap SFNT table (bnc#916870).\n- CVE-2014-9668: The woff_open_font function in sfnt/sfobjs.c in FreeType before 2.5.4 proceeds with offset+length calculations without restricting length values, which allowed remote attackers to cause a denial of service (integer overflow and heap-based buffer overflow) or possibly have unspecified other impact via a crafted Web Open Font Format (WOFF) file (bnc#916868).\n- CVE-2014-9656: The tt_sbit_decoder_load_image function in sfnt/ttsbit.c in FreeType before 2.5.4 did not properly check for an integer overflow, which allowed remote attackers to cause a denial of service (out-of-bounds read) or possibly have unspecified other impact via a crafted OpenType font (bnc#916847).\n- CVE-2014-9658: The tt_face_load_kern function in sfnt/ttkern.c in FreeType before 2.5.4 enforces an incorrect minimum table length, which allowed remote attackers to cause a denial of service (out-of-bounds read) or possibly have unspecified other impact via a crafted TrueType font (bnc#916857).\n- CVE-2014-9659: cff/cf2intrp.c in the CFF CharString interpreter in FreeType before 2.5.4 proceeds with additional hints after the hint mask has been computed, which allowed remote attackers to execute arbitrary code or cause a denial of service (stack-based buffer overflow) via a crafted OpenType font.  NOTE: this vulnerability exists because of an incomplete fix for CVE-2014-2240 (bnc#916867).\n- CVE-2014-9674: The Mac_Read_POST_Resource function in base/ftobjs.c in FreeType before 2.5.4 proceeds with adding to length values without validating the original values, which allowed remote attackers to cause a denial of service (integer overflow and heap-based buffer overflow) or possibly have unspecified other impact via a crafted Mac font (bnc#916879).\n- CVE-2014-9675: bdf/bdflib.c in FreeType before 2.5.4 identifies property names by only verifying that an initial substring is present, which allowed remote attackers to discover heap pointer values and bypass the ASLR protection mechanism via a crafted BDF font (bnc#916881).\n- CVE-2014-9657: The tt_face_load_hdmx function in truetype/ttpload.c in FreeType before 2.5.4 did not establish a minimum record size, which allowed remote attackers to cause a denial of service (out-of-bounds read) or possibly have unspecified other impact via a crafted TrueType font (bnc#916856).\n- CVE-2014-9670: Multiple integer signedness errors in the pcf_get_encodings function in pcf/pcfread.c in FreeType before 2.5.4 allowed remote attackers to cause a denial of service (integer overflow, NULL pointer dereference, and application crash) via a crafted PCF file that specifies negative values for the first column and first row (bnc#916871).\n- CVE-2014-9671: Off-by-one error in the pcf_get_properties function in pcf/pcfread.c in FreeType before 2.5.4 allowed remote attackers to cause a denial of service (NULL pointer dereference and application crash) via a crafted PCF file with a 0xffffffff size value that is improperly incremented (bnc#916872).\n- CVE-2014-9672: Array index error in the parse_fond function in base/ftmac.c in FreeType before 2.5.4 allowed remote attackers to cause a denial of service (out-of-bounds read) or obtain sensitive information from process memory via a crafted FOND resource in a Mac font file (bnc#916873).\n- CVE-2014-9673: Integer signedness error in the Mac_Read_POST_Resource function in base/ftobjs.c in FreeType before 2.5.4 allowed remote attackers to cause a denial of service (heap-based buffer overflow) or possibly have unspecified other impact via a crafted Mac font (bnc#916874).\n  ",
+				"title": "Description of the patch"
+			},
+			{
+				"category": "details",
+				"text": "SUSE-SLE-DESKTOP-12-2015-111,SUSE-SLE-SDK-12-2015-111,SUSE-SLE-SERVER-12-2015-111",
+				"title": "Patchnames"
+			},
+			{
+				"category": "legal_disclaimer",
+				"text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+				"title": "Terms of use"
+			}
+		],
+		"publisher": {
+			"category": "vendor",
+			"contact_details": "https://www.suse.com/support/security/contact/",
+			"name": "SUSE Product Security Team",
+			"namespace": "https://www.suse.com/"
+		},
+		"references": [
+			{
+				"category": "self",
+				"summary": "URL for SUSE-SU-2015:0455-1",
+				"url": "https://www.suse.com/support/update/announcement/2015/suse-su-20150455-1/"
+			},
+			{
+				"category": "external",
+				"summary": "SUSE ratings",
+				"url": "https://www.suse.com/support/security/rating/"
+			},
+			{
+				"category": "self",
+				"summary": "URL of this CSAF notice",
+				"url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2015_0455-1.json"
+			},
+			{
+				"category": "self",
+				"summary": "E-Mail link for SUSE-SU-2015:0455-1",
+				"url": "https://lists.suse.com/pipermail/sle-security-updates/2015-March/001274.html"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 916847",
+				"url": "https://bugzilla.suse.com/916847"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 916856",
+				"url": "https://bugzilla.suse.com/916856"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 916857",
+				"url": "https://bugzilla.suse.com/916857"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 916858",
+				"url": "https://bugzilla.suse.com/916858"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 916859",
+				"url": "https://bugzilla.suse.com/916859"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 916860",
+				"url": "https://bugzilla.suse.com/916860"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 916861",
+				"url": "https://bugzilla.suse.com/916861"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 916862",
+				"url": "https://bugzilla.suse.com/916862"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 916863",
+				"url": "https://bugzilla.suse.com/916863"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 916864",
+				"url": "https://bugzilla.suse.com/916864"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 916865",
+				"url": "https://bugzilla.suse.com/916865"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 916867",
+				"url": "https://bugzilla.suse.com/916867"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 916868",
+				"url": "https://bugzilla.suse.com/916868"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 916870",
+				"url": "https://bugzilla.suse.com/916870"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 916871",
+				"url": "https://bugzilla.suse.com/916871"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 916872",
+				"url": "https://bugzilla.suse.com/916872"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 916873",
+				"url": "https://bugzilla.suse.com/916873"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 916874",
+				"url": "https://bugzilla.suse.com/916874"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 916879",
+				"url": "https://bugzilla.suse.com/916879"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 916881",
+				"url": "https://bugzilla.suse.com/916881"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2014-2240 page",
+				"url": "https://www.suse.com/security/cve/CVE-2014-2240/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2014-9656 page",
+				"url": "https://www.suse.com/security/cve/CVE-2014-9656/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2014-9657 page",
+				"url": "https://www.suse.com/security/cve/CVE-2014-9657/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2014-9658 page",
+				"url": "https://www.suse.com/security/cve/CVE-2014-9658/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2014-9659 page",
+				"url": "https://www.suse.com/security/cve/CVE-2014-9659/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2014-9660 page",
+				"url": "https://www.suse.com/security/cve/CVE-2014-9660/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2014-9661 page",
+				"url": "https://www.suse.com/security/cve/CVE-2014-9661/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2014-9662 page",
+				"url": "https://www.suse.com/security/cve/CVE-2014-9662/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2014-9663 page",
+				"url": "https://www.suse.com/security/cve/CVE-2014-9663/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2014-9664 page",
+				"url": "https://www.suse.com/security/cve/CVE-2014-9664/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2014-9665 page",
+				"url": "https://www.suse.com/security/cve/CVE-2014-9665/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2014-9666 page",
+				"url": "https://www.suse.com/security/cve/CVE-2014-9666/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2014-9667 page",
+				"url": "https://www.suse.com/security/cve/CVE-2014-9667/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2014-9668 page",
+				"url": "https://www.suse.com/security/cve/CVE-2014-9668/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2014-9669 page",
+				"url": "https://www.suse.com/security/cve/CVE-2014-9669/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2014-9670 page",
+				"url": "https://www.suse.com/security/cve/CVE-2014-9670/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2014-9671 page",
+				"url": "https://www.suse.com/security/cve/CVE-2014-9671/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2014-9672 page",
+				"url": "https://www.suse.com/security/cve/CVE-2014-9672/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2014-9673 page",
+				"url": "https://www.suse.com/security/cve/CVE-2014-9673/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2014-9674 page",
+				"url": "https://www.suse.com/security/cve/CVE-2014-9674/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2014-9675 page",
+				"url": "https://www.suse.com/security/cve/CVE-2014-9675/"
+			}
+		],
+		"title": "Security update for freetype2",
+		"tracking": {
+			"current_release_date": "2015-03-02T13:17:38Z",
+			"generator": {
+				"date": "2015-03-02T13:17:38Z",
+				"engine": {
+					"name": "cve-database.git:bin/generate-csaf.pl",
+					"version": "1"
+				}
+			},
+			"id": "SUSE-SU-2015:0455-1",
+			"initial_release_date": "2015-03-02T13:17:38Z",
+			"revision_history": [
+				{
+					"date": "2015-03-02T13:17:38Z",
+					"number": "1",
+					"summary": "Current version"
+				}
+			],
+			"status": "final",
+			"version": "1"
+		}
+	},
+	"product_tree": {
+		"branches": [
+			{
+				"branches": [
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "freetype2-devel-2.5.3-5.1.ppc64le",
+								"product": {
+									"name": "freetype2-devel-2.5.3-5.1.ppc64le",
+									"product_id": "freetype2-devel-2.5.3-5.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "ft2demos-2.5.3-5.1.ppc64le",
+								"product": {
+									"name": "ft2demos-2.5.3-5.1.ppc64le",
+									"product_id": "ft2demos-2.5.3-5.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libfreetype6-2.5.3-5.1.ppc64le",
+								"product": {
+									"name": "libfreetype6-2.5.3-5.1.ppc64le",
+									"product_id": "libfreetype6-2.5.3-5.1.ppc64le"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "ppc64le"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "freetype2-devel-2.5.3-5.1.s390x",
+								"product": {
+									"name": "freetype2-devel-2.5.3-5.1.s390x",
+									"product_id": "freetype2-devel-2.5.3-5.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "ft2demos-2.5.3-5.1.s390x",
+								"product": {
+									"name": "ft2demos-2.5.3-5.1.s390x",
+									"product_id": "ft2demos-2.5.3-5.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libfreetype6-2.5.3-5.1.s390x",
+								"product": {
+									"name": "libfreetype6-2.5.3-5.1.s390x",
+									"product_id": "libfreetype6-2.5.3-5.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libfreetype6-32bit-2.5.3-5.1.s390x",
+								"product": {
+									"name": "libfreetype6-32bit-2.5.3-5.1.s390x",
+									"product_id": "libfreetype6-32bit-2.5.3-5.1.s390x"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "s390x"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "ft2demos-2.5.3-5.1.x86_64",
+								"product": {
+									"name": "ft2demos-2.5.3-5.1.x86_64",
+									"product_id": "ft2demos-2.5.3-5.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libfreetype6-2.5.3-5.1.x86_64",
+								"product": {
+									"name": "libfreetype6-2.5.3-5.1.x86_64",
+									"product_id": "libfreetype6-2.5.3-5.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libfreetype6-32bit-2.5.3-5.1.x86_64",
+								"product": {
+									"name": "libfreetype6-32bit-2.5.3-5.1.x86_64",
+									"product_id": "libfreetype6-32bit-2.5.3-5.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "freetype2-devel-2.5.3-5.1.x86_64",
+								"product": {
+									"name": "freetype2-devel-2.5.3-5.1.x86_64",
+									"product_id": "freetype2-devel-2.5.3-5.1.x86_64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "x86_64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Desktop 12",
+								"product": {
+									"name": "SUSE Linux Enterprise Desktop 12",
+									"product_id": "SUSE Linux Enterprise Desktop 12",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sled:12"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Software Development Kit 12",
+								"product": {
+									"name": "SUSE Linux Enterprise Software Development Kit 12",
+									"product_id": "SUSE Linux Enterprise Software Development Kit 12",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-sdk:12"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server 12",
+								"product": {
+									"name": "SUSE Linux Enterprise Server 12",
+									"product_id": "SUSE Linux Enterprise Server 12",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sles:12"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server for SAP Applications 12",
+								"product": {
+									"name": "SUSE Linux Enterprise Server for SAP Applications 12",
+									"product_id": "SUSE Linux Enterprise Server for SAP Applications 12",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sles_sap:12"
+									}
+								}
+							}
+						],
+						"category": "product_family",
+						"name": "SUSE Linux Enterprise"
+					}
+				],
+				"category": "vendor",
+				"name": "SUSE"
+			}
+		],
+		"relationships": [
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ft2demos-2.5.3-5.1.x86_64 as component of SUSE Linux Enterprise Desktop 12",
+					"product_id": "SUSE Linux Enterprise Desktop 12:ft2demos-2.5.3-5.1.x86_64"
+				},
+				"product_reference": "ft2demos-2.5.3-5.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Desktop 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libfreetype6-2.5.3-5.1.x86_64 as component of SUSE Linux Enterprise Desktop 12",
+					"product_id": "SUSE Linux Enterprise Desktop 12:libfreetype6-2.5.3-5.1.x86_64"
+				},
+				"product_reference": "libfreetype6-2.5.3-5.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Desktop 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libfreetype6-32bit-2.5.3-5.1.x86_64 as component of SUSE Linux Enterprise Desktop 12",
+					"product_id": "SUSE Linux Enterprise Desktop 12:libfreetype6-32bit-2.5.3-5.1.x86_64"
+				},
+				"product_reference": "libfreetype6-32bit-2.5.3-5.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Desktop 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "freetype2-devel-2.5.3-5.1.ppc64le as component of SUSE Linux Enterprise Software Development Kit 12",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.ppc64le"
+				},
+				"product_reference": "freetype2-devel-2.5.3-5.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "freetype2-devel-2.5.3-5.1.s390x as component of SUSE Linux Enterprise Software Development Kit 12",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.s390x"
+				},
+				"product_reference": "freetype2-devel-2.5.3-5.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "freetype2-devel-2.5.3-5.1.x86_64 as component of SUSE Linux Enterprise Software Development Kit 12",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.x86_64"
+				},
+				"product_reference": "freetype2-devel-2.5.3-5.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ft2demos-2.5.3-5.1.ppc64le as component of SUSE Linux Enterprise Server 12",
+					"product_id": "SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.ppc64le"
+				},
+				"product_reference": "ft2demos-2.5.3-5.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ft2demos-2.5.3-5.1.s390x as component of SUSE Linux Enterprise Server 12",
+					"product_id": "SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.s390x"
+				},
+				"product_reference": "ft2demos-2.5.3-5.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ft2demos-2.5.3-5.1.x86_64 as component of SUSE Linux Enterprise Server 12",
+					"product_id": "SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.x86_64"
+				},
+				"product_reference": "ft2demos-2.5.3-5.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libfreetype6-2.5.3-5.1.ppc64le as component of SUSE Linux Enterprise Server 12",
+					"product_id": "SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.ppc64le"
+				},
+				"product_reference": "libfreetype6-2.5.3-5.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libfreetype6-2.5.3-5.1.s390x as component of SUSE Linux Enterprise Server 12",
+					"product_id": "SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.s390x"
+				},
+				"product_reference": "libfreetype6-2.5.3-5.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libfreetype6-2.5.3-5.1.x86_64 as component of SUSE Linux Enterprise Server 12",
+					"product_id": "SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.x86_64"
+				},
+				"product_reference": "libfreetype6-2.5.3-5.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libfreetype6-32bit-2.5.3-5.1.s390x as component of SUSE Linux Enterprise Server 12",
+					"product_id": "SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.s390x"
+				},
+				"product_reference": "libfreetype6-32bit-2.5.3-5.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libfreetype6-32bit-2.5.3-5.1.x86_64 as component of SUSE Linux Enterprise Server 12",
+					"product_id": "SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.x86_64"
+				},
+				"product_reference": "libfreetype6-32bit-2.5.3-5.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ft2demos-2.5.3-5.1.ppc64le as component of SUSE Linux Enterprise Server for SAP Applications 12",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.ppc64le"
+				},
+				"product_reference": "ft2demos-2.5.3-5.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ft2demos-2.5.3-5.1.s390x as component of SUSE Linux Enterprise Server for SAP Applications 12",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.s390x"
+				},
+				"product_reference": "ft2demos-2.5.3-5.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ft2demos-2.5.3-5.1.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 12",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.x86_64"
+				},
+				"product_reference": "ft2demos-2.5.3-5.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libfreetype6-2.5.3-5.1.ppc64le as component of SUSE Linux Enterprise Server for SAP Applications 12",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.ppc64le"
+				},
+				"product_reference": "libfreetype6-2.5.3-5.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libfreetype6-2.5.3-5.1.s390x as component of SUSE Linux Enterprise Server for SAP Applications 12",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.s390x"
+				},
+				"product_reference": "libfreetype6-2.5.3-5.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libfreetype6-2.5.3-5.1.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 12",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.x86_64"
+				},
+				"product_reference": "libfreetype6-2.5.3-5.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libfreetype6-32bit-2.5.3-5.1.s390x as component of SUSE Linux Enterprise Server for SAP Applications 12",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.s390x"
+				},
+				"product_reference": "libfreetype6-32bit-2.5.3-5.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libfreetype6-32bit-2.5.3-5.1.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 12",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.x86_64"
+				},
+				"product_reference": "libfreetype6-32bit-2.5.3-5.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12"
+			}
+		]
+	},
+	"vulnerabilities": [
+		{
+			"cve": "CVE-2014-2240",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2014-2240"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Stack-based buffer overflow in the cf2_hintmap_build function in cff/cf2hints.c in FreeType before 2.5.3 allows remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via a large number of stem hints in a font file.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Desktop 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2014-2240",
+					"url": "https://www.suse.com/security/cve/CVE-2014-2240"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 867620 for CVE-2014-2240",
+					"url": "https://bugzilla.suse.com/867620"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 916867 for CVE-2014-2240",
+					"url": "https://bugzilla.suse.com/916867"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2015-03-02T13:17:38Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2014-2240"
+		},
+		{
+			"cve": "CVE-2014-9656",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2014-9656"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The tt_sbit_decoder_load_image function in sfnt/ttsbit.c in FreeType before 2.5.4 does not properly check for an integer overflow, which allows remote attackers to cause a denial of service (out-of-bounds read) or possibly have unspecified other impact via a crafted OpenType font.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Desktop 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2014-9656",
+					"url": "https://www.suse.com/security/cve/CVE-2014-9656"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 916847 for CVE-2014-9656",
+					"url": "https://bugzilla.suse.com/916847"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2015-03-02T13:17:38Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2014-9656"
+		},
+		{
+			"cve": "CVE-2014-9657",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2014-9657"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The tt_face_load_hdmx function in truetype/ttpload.c in FreeType before 2.5.4 does not establish a minimum record size, which allows remote attackers to cause a denial of service (out-of-bounds read) or possibly have unspecified other impact via a crafted TrueType font.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Desktop 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2014-9657",
+					"url": "https://www.suse.com/security/cve/CVE-2014-9657"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 916856 for CVE-2014-9657",
+					"url": "https://bugzilla.suse.com/916856"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2015-03-02T13:17:38Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2014-9657"
+		},
+		{
+			"cve": "CVE-2014-9658",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2014-9658"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The tt_face_load_kern function in sfnt/ttkern.c in FreeType before 2.5.4 enforces an incorrect minimum table length, which allows remote attackers to cause a denial of service (out-of-bounds read) or possibly have unspecified other impact via a crafted TrueType font.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Desktop 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2014-9658",
+					"url": "https://www.suse.com/security/cve/CVE-2014-9658"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 916857 for CVE-2014-9658",
+					"url": "https://bugzilla.suse.com/916857"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2015-03-02T13:17:38Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2014-9658"
+		},
+		{
+			"cve": "CVE-2014-9659",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2014-9659"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "cff/cf2intrp.c in the CFF CharString interpreter in FreeType before 2.5.4 proceeds with additional hints after the hint mask has been computed, which allows remote attackers to execute arbitrary code or cause a denial of service (stack-based buffer overflow) via a crafted OpenType font.  NOTE: this vulnerability exists because of an incomplete fix for CVE-2014-2240.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Desktop 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2014-9659",
+					"url": "https://www.suse.com/security/cve/CVE-2014-9659"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 916867 for CVE-2014-9659",
+					"url": "https://bugzilla.suse.com/916867"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2015-03-02T13:17:38Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2014-9659"
+		},
+		{
+			"cve": "CVE-2014-9660",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2014-9660"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The _bdf_parse_glyphs function in bdf/bdflib.c in FreeType before 2.5.4 does not properly handle a missing ENDCHAR record, which allows remote attackers to cause a denial of service (NULL pointer dereference) or possibly have unspecified other impact via a crafted BDF font.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Desktop 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2014-9660",
+					"url": "https://www.suse.com/security/cve/CVE-2014-9660"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 916858 for CVE-2014-9660",
+					"url": "https://bugzilla.suse.com/916858"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2015-03-02T13:17:38Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2014-9660"
+		},
+		{
+			"cve": "CVE-2014-9661",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2014-9661"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "type42/t42parse.c in FreeType before 2.5.4 does not consider that scanning can be incomplete without triggering an error, which allows remote attackers to cause a denial of service (use-after-free) or possibly have unspecified other impact via a crafted Type42 font.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Desktop 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2014-9661",
+					"url": "https://www.suse.com/security/cve/CVE-2014-9661"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 916859 for CVE-2014-9661",
+					"url": "https://bugzilla.suse.com/916859"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2015-03-02T13:17:38Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2014-9661"
+		},
+		{
+			"cve": "CVE-2014-9662",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2014-9662"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "cff/cf2ft.c in FreeType before 2.5.4 does not validate the return values of point-allocation functions, which allows remote attackers to cause a denial of service (heap-based buffer overflow) or possibly have unspecified other impact via a crafted OTF font.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Desktop 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2014-9662",
+					"url": "https://www.suse.com/security/cve/CVE-2014-9662"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 916860 for CVE-2014-9662",
+					"url": "https://bugzilla.suse.com/916860"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2015-03-02T13:17:38Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2014-9662"
+		},
+		{
+			"cve": "CVE-2014-9663",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2014-9663"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The tt_cmap4_validate function in sfnt/ttcmap.c in FreeType before 2.5.4 validates a certain length field before that field's value is completely calculated, which allows remote attackers to cause a denial of service (out-of-bounds read) or possibly have unspecified other impact via a crafted cmap SFNT table.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Desktop 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2014-9663",
+					"url": "https://www.suse.com/security/cve/CVE-2014-9663"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 916865 for CVE-2014-9663",
+					"url": "https://bugzilla.suse.com/916865"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2015-03-02T13:17:38Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2014-9663"
+		},
+		{
+			"cve": "CVE-2014-9664",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2014-9664"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "FreeType before 2.5.4 does not check for the end of the data during certain parsing actions, which allows remote attackers to cause a denial of service (out-of-bounds read) or possibly have unspecified other impact via a crafted Type42 font, related to type42/t42parse.c and type1/t1load.c.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Desktop 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2014-9664",
+					"url": "https://www.suse.com/security/cve/CVE-2014-9664"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 916864 for CVE-2014-9664",
+					"url": "https://bugzilla.suse.com/916864"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2015-03-02T13:17:38Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2014-9664"
+		},
+		{
+			"cve": "CVE-2014-9665",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2014-9665"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The Load_SBit_Png function in sfnt/pngshim.c in FreeType before 2.5.4 does not restrict the rows and pitch values of PNG data, which allows remote attackers to cause a denial of service (integer overflow and heap-based buffer overflow) or possibly have unspecified other impact by embedding a PNG file in a .ttf font file.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Desktop 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2014-9665",
+					"url": "https://www.suse.com/security/cve/CVE-2014-9665"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 916863 for CVE-2014-9665",
+					"url": "https://bugzilla.suse.com/916863"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2015-03-02T13:17:38Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2014-9665"
+		},
+		{
+			"cve": "CVE-2014-9666",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2014-9666"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The tt_sbit_decoder_init function in sfnt/ttsbit.c in FreeType before 2.5.4 proceeds with a count-to-size association without restricting the count value, which allows remote attackers to cause a denial of service (integer overflow and out-of-bounds read) or possibly have unspecified other impact via a crafted embedded bitmap.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Desktop 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2014-9666",
+					"url": "https://www.suse.com/security/cve/CVE-2014-9666"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 916862 for CVE-2014-9666",
+					"url": "https://bugzilla.suse.com/916862"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2015-03-02T13:17:38Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2014-9666"
+		},
+		{
+			"cve": "CVE-2014-9667",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2014-9667"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "sfnt/ttload.c in FreeType before 2.5.4 proceeds with offset+length calculations without restricting the values, which allows remote attackers to cause a denial of service (integer overflow and out-of-bounds read) or possibly have unspecified other impact via a crafted SFNT table.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Desktop 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2014-9667",
+					"url": "https://www.suse.com/security/cve/CVE-2014-9667"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 916861 for CVE-2014-9667",
+					"url": "https://bugzilla.suse.com/916861"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2015-03-02T13:17:38Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2014-9667"
+		},
+		{
+			"cve": "CVE-2014-9668",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2014-9668"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The woff_open_font function in sfnt/sfobjs.c in FreeType before 2.5.4 proceeds with offset+length calculations without restricting length values, which allows remote attackers to cause a denial of service (integer overflow and heap-based buffer overflow) or possibly have unspecified other impact via a crafted Web Open Font Format (WOFF) file.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Desktop 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2014-9668",
+					"url": "https://www.suse.com/security/cve/CVE-2014-9668"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 916868 for CVE-2014-9668",
+					"url": "https://bugzilla.suse.com/916868"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2015-03-02T13:17:38Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2014-9668"
+		},
+		{
+			"cve": "CVE-2014-9669",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2014-9669"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Multiple integer overflows in sfnt/ttcmap.c in FreeType before 2.5.4 allow remote attackers to cause a denial of service (out-of-bounds read or memory corruption) or possibly have unspecified other impact via a crafted cmap SFNT table.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Desktop 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2014-9669",
+					"url": "https://www.suse.com/security/cve/CVE-2014-9669"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 916870 for CVE-2014-9669",
+					"url": "https://bugzilla.suse.com/916870"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2015-03-02T13:17:38Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2014-9669"
+		},
+		{
+			"cve": "CVE-2014-9670",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2014-9670"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Multiple integer signedness errors in the pcf_get_encodings function in pcf/pcfread.c in FreeType before 2.5.4 allow remote attackers to cause a denial of service (integer overflow, NULL pointer dereference, and application crash) via a crafted PCF file that specifies negative values for the first column and first row.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Desktop 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2014-9670",
+					"url": "https://www.suse.com/security/cve/CVE-2014-9670"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 916871 for CVE-2014-9670",
+					"url": "https://bugzilla.suse.com/916871"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 933247 for CVE-2014-9670",
+					"url": "https://bugzilla.suse.com/933247"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2015-03-02T13:17:38Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2014-9670"
+		},
+		{
+			"cve": "CVE-2014-9671",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2014-9671"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Off-by-one error in the pcf_get_properties function in pcf/pcfread.c in FreeType before 2.5.4 allows remote attackers to cause a denial of service (NULL pointer dereference and application crash) via a crafted PCF file with a 0xffffffff size value that is improperly incremented.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Desktop 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2014-9671",
+					"url": "https://www.suse.com/security/cve/CVE-2014-9671"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 916872 for CVE-2014-9671",
+					"url": "https://bugzilla.suse.com/916872"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 933247 for CVE-2014-9671",
+					"url": "https://bugzilla.suse.com/933247"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2015-03-02T13:17:38Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2014-9671"
+		},
+		{
+			"cve": "CVE-2014-9672",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2014-9672"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Array index error in the parse_fond function in base/ftmac.c in FreeType before 2.5.4 allows remote attackers to cause a denial of service (out-of-bounds read) or obtain sensitive information from process memory via a crafted FOND resource in a Mac font file.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Desktop 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2014-9672",
+					"url": "https://www.suse.com/security/cve/CVE-2014-9672"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 916873 for CVE-2014-9672",
+					"url": "https://bugzilla.suse.com/916873"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2015-03-02T13:17:38Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2014-9672"
+		},
+		{
+			"cve": "CVE-2014-9673",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2014-9673"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Integer signedness error in the Mac_Read_POST_Resource function in base/ftobjs.c in FreeType before 2.5.4 allows remote attackers to cause a denial of service (heap-based buffer overflow) or possibly have unspecified other impact via a crafted Mac font.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Desktop 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2014-9673",
+					"url": "https://www.suse.com/security/cve/CVE-2014-9673"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 916874 for CVE-2014-9673",
+					"url": "https://bugzilla.suse.com/916874"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2015-03-02T13:17:38Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2014-9673"
+		},
+		{
+			"cve": "CVE-2014-9674",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2014-9674"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The Mac_Read_POST_Resource function in base/ftobjs.c in FreeType before 2.5.4 proceeds with adding to length values without validating the original values, which allows remote attackers to cause a denial of service (integer overflow and heap-based buffer overflow) or possibly have unspecified other impact via a crafted Mac font.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Desktop 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2014-9674",
+					"url": "https://www.suse.com/security/cve/CVE-2014-9674"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 916879 for CVE-2014-9674",
+					"url": "https://bugzilla.suse.com/916879"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2015-03-02T13:17:38Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2014-9674"
+		},
+		{
+			"cve": "CVE-2014-9675",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2014-9675"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "bdf/bdflib.c in FreeType before 2.5.4 identifies property names by only verifying that an initial substring is present, which allows remote attackers to discover heap pointer values and bypass the ASLR protection mechanism via a crafted BDF font.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Desktop 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.ppc64le",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2014-9675",
+					"url": "https://www.suse.com/security/cve/CVE-2014-9675"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 916881 for CVE-2014-9675",
+					"url": "https://bugzilla.suse.com/916881"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ft2demos-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:libfreetype6-32bit-2.5.3-5.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12:freetype2-devel-2.5.3-5.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2015-03-02T13:17:38Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2014-9675"
+		}
+	]
+}

@@ -1,0 +1,2611 @@
+{
+	"document": {
+		"aggregate_severity": {
+			"namespace": "https://www.suse.com/support/security/rating/",
+			"text": "important"
+		},
+		"category": "csaf_security_advisory",
+		"csaf_version": "2.0",
+		"distribution": {
+			"text": "Copyright 2023 SUSE LLC. All rights reserved.",
+			"tlp": {
+				"label": "WHITE",
+				"url": "https://www.first.org/tlp/"
+			}
+		},
+		"lang": "en",
+		"notes": [
+			{
+				"category": "summary",
+				"text": "Security update for the Linux Kernel (Live Patch 29 for SLE 12)",
+				"title": "Title of the patch"
+			},
+			{
+				"category": "description",
+				"text": "This update for the Linux Kernel 3.12.61-52_106 fixes several issues.\n\nThe following security issues were fixed:\n\n- CVE-2018-17182: The vmacache_flush_all function in mm/vmacache.c mishandled sequence number overflows. An attacker can trigger a use-after-free (and possibly gain privileges) via certain thread creation, map, unmap, invalidation, and dereference operations (bsc#1110233).\n- CVE-2018-14634: An unprivileged local user with access to SUID (or otherwise privileged) binary could use this flaw to escalate their privileges on the system. Kernel versions 2.6.x, 3.10.x and 4.14.x are believed to be vulnerable (bsc#1108963).\n- CVE-2018-14633: A security flaw was found in the chap_server_compute_md5() function in the ISCSI target code in a way an authentication request from an ISCSI initiator is processed. An unauthenticated remote attacker can cause a stack buffer overflow and smash up to 17 bytes of the stack. The attack requires the iSCSI target to be enabled on the victim host. Depending on how the target's code was built (i.e. depending on a compiler, compile flags and hardware architecture) an attack may lead to a system crash and thus to a denial-of-service or possibly to a non-authorized access to data exported by an iSCSI target. Due to the nature of the flaw, privilege escalation cannot be fully ruled out, although we believe it is highly unlikely. (bsc#1107832).\n",
+				"title": "Description of the patch"
+			},
+			{
+				"category": "details",
+				"text": "SUSE-SLE-SERVER-12-2018-2308,SUSE-SLE-SERVER-12-2018-2309,SUSE-SLE-SERVER-12-2018-2310,SUSE-SLE-SERVER-12-2018-2311,SUSE-SLE-SERVER-12-2018-2312,SUSE-SLE-SERVER-12-2018-2313,SUSE-SLE-SERVER-12-2018-2314,SUSE-SLE-SERVER-12-2018-2315,SUSE-SLE-SERVER-12-2018-2316,SUSE-SLE-SERVER-12-2018-2317",
+				"title": "Patchnames"
+			},
+			{
+				"category": "legal_disclaimer",
+				"text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+				"title": "Terms of use"
+			}
+		],
+		"publisher": {
+			"category": "vendor",
+			"contact_details": "https://www.suse.com/support/security/contact/",
+			"name": "SUSE Product Security Team",
+			"namespace": "https://www.suse.com/"
+		},
+		"references": [
+			{
+				"category": "self",
+				"summary": "URL for SUSE-SU-2018:3238-1",
+				"url": "https://www.suse.com/support/update/announcement/2018/suse-su-20183238-1/"
+			},
+			{
+				"category": "external",
+				"summary": "SUSE ratings",
+				"url": "https://www.suse.com/support/security/rating/"
+			},
+			{
+				"category": "self",
+				"summary": "URL of this CSAF notice",
+				"url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2018_3238-1.json"
+			},
+			{
+				"category": "self",
+				"summary": "E-Mail link for SUSE-SU-2018:3238-1",
+				"url": "https://lists.suse.com/pipermail/sle-security-updates/2018-October/004742.html"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1107832",
+				"url": "https://bugzilla.suse.com/1107832"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1108963",
+				"url": "https://bugzilla.suse.com/1108963"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1110233",
+				"url": "https://bugzilla.suse.com/1110233"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2018-14633 page",
+				"url": "https://www.suse.com/security/cve/CVE-2018-14633/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2018-14634 page",
+				"url": "https://www.suse.com/security/cve/CVE-2018-14634/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2018-17182 page",
+				"url": "https://www.suse.com/security/cve/CVE-2018-17182/"
+			}
+		],
+		"title": "Security update for the Linux Kernel (Live Patch 29 for SLE 12)",
+		"tracking": {
+			"current_release_date": "2018-10-18T19:02:45Z",
+			"generator": {
+				"date": "2018-10-18T19:02:45Z",
+				"engine": {
+					"name": "cve-database.git:bin/generate-csaf.pl",
+					"version": "1"
+				}
+			},
+			"id": "SUSE-SU-2018:3238-1",
+			"initial_release_date": "2018-10-18T19:02:45Z",
+			"revision_history": [
+				{
+					"date": "2018-10-18T19:02:45Z",
+					"number": "1",
+					"summary": "Current version"
+				}
+			],
+			"status": "final",
+			"version": "1"
+		}
+	},
+	"product_tree": {
+		"branches": [
+			{
+				"branches": [
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "kgraft-patch-3_12_61-52_119-default-9-2.1.x86_64",
+								"product": {
+									"name": "kgraft-patch-3_12_61-52_119-default-9-2.1.x86_64",
+									"product_id": "kgraft-patch-3_12_61-52_119-default-9-2.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kgraft-patch-3_12_61-52_119-xen-9-2.1.x86_64",
+								"product": {
+									"name": "kgraft-patch-3_12_61-52_119-xen-9-2.1.x86_64",
+									"product_id": "kgraft-patch-3_12_61-52_119-xen-9-2.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kgraft-patch-3_12_61-52_111-default-9-2.1.x86_64",
+								"product": {
+									"name": "kgraft-patch-3_12_61-52_111-default-9-2.1.x86_64",
+									"product_id": "kgraft-patch-3_12_61-52_111-default-9-2.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kgraft-patch-3_12_61-52_111-xen-9-2.1.x86_64",
+								"product": {
+									"name": "kgraft-patch-3_12_61-52_111-xen-9-2.1.x86_64",
+									"product_id": "kgraft-patch-3_12_61-52_111-xen-9-2.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kgraft-patch-3_12_61-52_125-default-8-2.1.x86_64",
+								"product": {
+									"name": "kgraft-patch-3_12_61-52_125-default-8-2.1.x86_64",
+									"product_id": "kgraft-patch-3_12_61-52_125-default-8-2.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kgraft-patch-3_12_61-52_125-xen-8-2.1.x86_64",
+								"product": {
+									"name": "kgraft-patch-3_12_61-52_125-xen-8-2.1.x86_64",
+									"product_id": "kgraft-patch-3_12_61-52_125-xen-8-2.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kgraft-patch-3_12_61-52_122-default-9-2.1.x86_64",
+								"product": {
+									"name": "kgraft-patch-3_12_61-52_122-default-9-2.1.x86_64",
+									"product_id": "kgraft-patch-3_12_61-52_122-default-9-2.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kgraft-patch-3_12_61-52_122-xen-9-2.1.x86_64",
+								"product": {
+									"name": "kgraft-patch-3_12_61-52_122-xen-9-2.1.x86_64",
+									"product_id": "kgraft-patch-3_12_61-52_122-xen-9-2.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kgraft-patch-3_12_61-52_133-default-5-2.1.x86_64",
+								"product": {
+									"name": "kgraft-patch-3_12_61-52_133-default-5-2.1.x86_64",
+									"product_id": "kgraft-patch-3_12_61-52_133-default-5-2.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kgraft-patch-3_12_61-52_133-xen-5-2.1.x86_64",
+								"product": {
+									"name": "kgraft-patch-3_12_61-52_133-xen-5-2.1.x86_64",
+									"product_id": "kgraft-patch-3_12_61-52_133-xen-5-2.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kgraft-patch-3_12_61-52_128-default-6-2.1.x86_64",
+								"product": {
+									"name": "kgraft-patch-3_12_61-52_128-default-6-2.1.x86_64",
+									"product_id": "kgraft-patch-3_12_61-52_128-default-6-2.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kgraft-patch-3_12_61-52_128-xen-6-2.1.x86_64",
+								"product": {
+									"name": "kgraft-patch-3_12_61-52_128-xen-6-2.1.x86_64",
+									"product_id": "kgraft-patch-3_12_61-52_128-xen-6-2.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kgraft-patch-3_12_61-52_141-default-4-2.1.x86_64",
+								"product": {
+									"name": "kgraft-patch-3_12_61-52_141-default-4-2.1.x86_64",
+									"product_id": "kgraft-patch-3_12_61-52_141-default-4-2.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kgraft-patch-3_12_61-52_141-xen-4-2.1.x86_64",
+								"product": {
+									"name": "kgraft-patch-3_12_61-52_141-xen-4-2.1.x86_64",
+									"product_id": "kgraft-patch-3_12_61-52_141-xen-4-2.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kgraft-patch-3_12_61-52_136-default-5-2.1.x86_64",
+								"product": {
+									"name": "kgraft-patch-3_12_61-52_136-default-5-2.1.x86_64",
+									"product_id": "kgraft-patch-3_12_61-52_136-default-5-2.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kgraft-patch-3_12_61-52_136-xen-5-2.1.x86_64",
+								"product": {
+									"name": "kgraft-patch-3_12_61-52_136-xen-5-2.1.x86_64",
+									"product_id": "kgraft-patch-3_12_61-52_136-xen-5-2.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kgraft-patch-3_12_61-52_101-default-10-2.1.x86_64",
+								"product": {
+									"name": "kgraft-patch-3_12_61-52_101-default-10-2.1.x86_64",
+									"product_id": "kgraft-patch-3_12_61-52_101-default-10-2.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kgraft-patch-3_12_61-52_101-xen-10-2.1.x86_64",
+								"product": {
+									"name": "kgraft-patch-3_12_61-52_101-xen-10-2.1.x86_64",
+									"product_id": "kgraft-patch-3_12_61-52_101-xen-10-2.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kgraft-patch-3_12_61-52_106-default-10-2.1.x86_64",
+								"product": {
+									"name": "kgraft-patch-3_12_61-52_106-default-10-2.1.x86_64",
+									"product_id": "kgraft-patch-3_12_61-52_106-default-10-2.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kgraft-patch-3_12_61-52_106-xen-10-2.1.x86_64",
+								"product": {
+									"name": "kgraft-patch-3_12_61-52_106-xen-10-2.1.x86_64",
+									"product_id": "kgraft-patch-3_12_61-52_106-xen-10-2.1.x86_64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "x86_64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server 12-LTSS",
+								"product": {
+									"name": "SUSE Linux Enterprise Server 12-LTSS",
+									"product_id": "SUSE Linux Enterprise Server 12-LTSS",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sles-ltss:12"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server 12-LTSS",
+								"product": {
+									"name": "SUSE Linux Enterprise Server 12-LTSS",
+									"product_id": "SUSE Linux Enterprise Server 12-LTSS",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sles-ltss:12"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server 12-LTSS",
+								"product": {
+									"name": "SUSE Linux Enterprise Server 12-LTSS",
+									"product_id": "SUSE Linux Enterprise Server 12-LTSS",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sles-ltss:12"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server 12-LTSS",
+								"product": {
+									"name": "SUSE Linux Enterprise Server 12-LTSS",
+									"product_id": "SUSE Linux Enterprise Server 12-LTSS",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sles-ltss:12"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server 12-LTSS",
+								"product": {
+									"name": "SUSE Linux Enterprise Server 12-LTSS",
+									"product_id": "SUSE Linux Enterprise Server 12-LTSS",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sles-ltss:12"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server 12-LTSS",
+								"product": {
+									"name": "SUSE Linux Enterprise Server 12-LTSS",
+									"product_id": "SUSE Linux Enterprise Server 12-LTSS",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sles-ltss:12"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server 12-LTSS",
+								"product": {
+									"name": "SUSE Linux Enterprise Server 12-LTSS",
+									"product_id": "SUSE Linux Enterprise Server 12-LTSS",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sles-ltss:12"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server 12-LTSS",
+								"product": {
+									"name": "SUSE Linux Enterprise Server 12-LTSS",
+									"product_id": "SUSE Linux Enterprise Server 12-LTSS",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sles-ltss:12"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server 12-LTSS",
+								"product": {
+									"name": "SUSE Linux Enterprise Server 12-LTSS",
+									"product_id": "SUSE Linux Enterprise Server 12-LTSS",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sles-ltss:12"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server 12-LTSS",
+								"product": {
+									"name": "SUSE Linux Enterprise Server 12-LTSS",
+									"product_id": "SUSE Linux Enterprise Server 12-LTSS",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sles-ltss:12"
+									}
+								}
+							}
+						],
+						"category": "product_family",
+						"name": "SUSE Linux Enterprise"
+					}
+				],
+				"category": "vendor",
+				"name": "SUSE"
+			}
+		],
+		"relationships": [
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_119-default-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_119-default-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_119-default-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_119-xen-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_119-xen-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_119-xen-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_111-default-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_111-default-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_111-default-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_111-xen-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_111-xen-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_111-xen-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_125-default-8-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_125-default-8-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_125-default-8-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_125-xen-8-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_125-xen-8-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_125-xen-8-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_122-default-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_122-default-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_122-default-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_122-xen-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_122-xen-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_122-xen-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_133-default-5-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_133-default-5-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_133-default-5-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_133-xen-5-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_133-xen-5-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_133-xen-5-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_128-default-6-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-default-6-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_128-default-6-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_128-xen-6-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-xen-6-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_128-xen-6-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_141-default-4-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_141-default-4-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_141-default-4-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_141-xen-4-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_141-xen-4-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_141-xen-4-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_136-default-5-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_136-default-5-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_136-default-5-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_136-xen-5-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_136-xen-5-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_136-xen-5-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_101-default-10-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_101-default-10-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_101-default-10-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_101-xen-10-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_101-xen-10-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_101-xen-10-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_106-default-10-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_106-default-10-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_106-default-10-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_106-xen-10-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_106-xen-10-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_106-xen-10-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_119-default-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_119-default-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_119-default-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_119-xen-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_119-xen-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_119-xen-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_111-default-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_111-default-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_111-default-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_111-xen-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_111-xen-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_111-xen-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_125-default-8-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_125-default-8-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_125-default-8-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_125-xen-8-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_125-xen-8-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_125-xen-8-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_122-default-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_122-default-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_122-default-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_122-xen-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_122-xen-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_122-xen-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_133-default-5-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_133-default-5-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_133-default-5-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_133-xen-5-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_133-xen-5-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_133-xen-5-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_128-default-6-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-default-6-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_128-default-6-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_128-xen-6-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-xen-6-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_128-xen-6-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_141-default-4-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_141-default-4-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_141-default-4-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_141-xen-4-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_141-xen-4-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_141-xen-4-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_136-default-5-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_136-default-5-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_136-default-5-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_136-xen-5-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_136-xen-5-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_136-xen-5-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_101-default-10-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_101-default-10-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_101-default-10-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_101-xen-10-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_101-xen-10-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_101-xen-10-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_106-default-10-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_106-default-10-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_106-default-10-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_106-xen-10-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_106-xen-10-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_106-xen-10-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_119-default-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_119-default-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_119-default-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_119-xen-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_119-xen-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_119-xen-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_111-default-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_111-default-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_111-default-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_111-xen-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_111-xen-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_111-xen-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_125-default-8-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_125-default-8-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_125-default-8-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_125-xen-8-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_125-xen-8-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_125-xen-8-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_122-default-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_122-default-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_122-default-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_122-xen-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_122-xen-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_122-xen-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_133-default-5-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_133-default-5-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_133-default-5-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_133-xen-5-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_133-xen-5-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_133-xen-5-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_128-default-6-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-default-6-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_128-default-6-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_128-xen-6-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-xen-6-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_128-xen-6-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_141-default-4-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_141-default-4-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_141-default-4-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_141-xen-4-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_141-xen-4-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_141-xen-4-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_136-default-5-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_136-default-5-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_136-default-5-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_136-xen-5-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_136-xen-5-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_136-xen-5-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_101-default-10-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_101-default-10-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_101-default-10-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_101-xen-10-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_101-xen-10-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_101-xen-10-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_106-default-10-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_106-default-10-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_106-default-10-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_106-xen-10-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_106-xen-10-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_106-xen-10-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_119-default-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_119-default-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_119-default-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_119-xen-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_119-xen-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_119-xen-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_111-default-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_111-default-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_111-default-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_111-xen-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_111-xen-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_111-xen-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_125-default-8-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_125-default-8-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_125-default-8-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_125-xen-8-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_125-xen-8-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_125-xen-8-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_122-default-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_122-default-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_122-default-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_122-xen-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_122-xen-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_122-xen-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_133-default-5-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_133-default-5-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_133-default-5-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_133-xen-5-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_133-xen-5-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_133-xen-5-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_128-default-6-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-default-6-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_128-default-6-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_128-xen-6-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-xen-6-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_128-xen-6-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_141-default-4-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_141-default-4-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_141-default-4-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_141-xen-4-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_141-xen-4-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_141-xen-4-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_136-default-5-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_136-default-5-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_136-default-5-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_136-xen-5-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_136-xen-5-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_136-xen-5-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_101-default-10-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_101-default-10-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_101-default-10-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_101-xen-10-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_101-xen-10-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_101-xen-10-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_106-default-10-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_106-default-10-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_106-default-10-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_106-xen-10-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_106-xen-10-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_106-xen-10-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_119-default-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_119-default-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_119-default-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_119-xen-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_119-xen-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_119-xen-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_111-default-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_111-default-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_111-default-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_111-xen-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_111-xen-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_111-xen-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_125-default-8-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_125-default-8-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_125-default-8-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_125-xen-8-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_125-xen-8-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_125-xen-8-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_122-default-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_122-default-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_122-default-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_122-xen-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_122-xen-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_122-xen-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_133-default-5-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_133-default-5-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_133-default-5-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_133-xen-5-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_133-xen-5-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_133-xen-5-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_128-default-6-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-default-6-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_128-default-6-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_128-xen-6-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-xen-6-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_128-xen-6-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_141-default-4-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_141-default-4-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_141-default-4-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_141-xen-4-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_141-xen-4-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_141-xen-4-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_136-default-5-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_136-default-5-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_136-default-5-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_136-xen-5-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_136-xen-5-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_136-xen-5-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_101-default-10-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_101-default-10-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_101-default-10-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_101-xen-10-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_101-xen-10-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_101-xen-10-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_106-default-10-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_106-default-10-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_106-default-10-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_106-xen-10-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_106-xen-10-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_106-xen-10-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_119-default-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_119-default-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_119-default-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_119-xen-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_119-xen-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_119-xen-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_111-default-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_111-default-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_111-default-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_111-xen-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_111-xen-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_111-xen-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_125-default-8-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_125-default-8-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_125-default-8-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_125-xen-8-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_125-xen-8-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_125-xen-8-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_122-default-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_122-default-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_122-default-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_122-xen-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_122-xen-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_122-xen-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_133-default-5-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_133-default-5-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_133-default-5-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_133-xen-5-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_133-xen-5-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_133-xen-5-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_128-default-6-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-default-6-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_128-default-6-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_128-xen-6-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-xen-6-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_128-xen-6-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_141-default-4-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_141-default-4-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_141-default-4-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_141-xen-4-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_141-xen-4-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_141-xen-4-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_136-default-5-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_136-default-5-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_136-default-5-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_136-xen-5-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_136-xen-5-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_136-xen-5-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_101-default-10-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_101-default-10-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_101-default-10-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_101-xen-10-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_101-xen-10-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_101-xen-10-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_106-default-10-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_106-default-10-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_106-default-10-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_106-xen-10-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_106-xen-10-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_106-xen-10-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_119-default-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_119-default-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_119-default-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_119-xen-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_119-xen-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_119-xen-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_111-default-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_111-default-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_111-default-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_111-xen-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_111-xen-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_111-xen-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_125-default-8-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_125-default-8-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_125-default-8-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_125-xen-8-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_125-xen-8-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_125-xen-8-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_122-default-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_122-default-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_122-default-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_122-xen-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_122-xen-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_122-xen-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_133-default-5-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_133-default-5-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_133-default-5-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_133-xen-5-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_133-xen-5-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_133-xen-5-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_128-default-6-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-default-6-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_128-default-6-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_128-xen-6-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-xen-6-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_128-xen-6-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_141-default-4-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_141-default-4-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_141-default-4-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_141-xen-4-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_141-xen-4-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_141-xen-4-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_136-default-5-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_136-default-5-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_136-default-5-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_136-xen-5-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_136-xen-5-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_136-xen-5-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_101-default-10-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_101-default-10-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_101-default-10-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_101-xen-10-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_101-xen-10-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_101-xen-10-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_106-default-10-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_106-default-10-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_106-default-10-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_106-xen-10-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_106-xen-10-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_106-xen-10-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_119-default-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_119-default-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_119-default-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_119-xen-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_119-xen-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_119-xen-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_111-default-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_111-default-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_111-default-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_111-xen-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_111-xen-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_111-xen-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_125-default-8-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_125-default-8-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_125-default-8-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_125-xen-8-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_125-xen-8-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_125-xen-8-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_122-default-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_122-default-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_122-default-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_122-xen-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_122-xen-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_122-xen-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_133-default-5-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_133-default-5-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_133-default-5-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_133-xen-5-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_133-xen-5-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_133-xen-5-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_128-default-6-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-default-6-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_128-default-6-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_128-xen-6-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-xen-6-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_128-xen-6-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_141-default-4-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_141-default-4-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_141-default-4-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_141-xen-4-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_141-xen-4-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_141-xen-4-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_136-default-5-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_136-default-5-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_136-default-5-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_136-xen-5-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_136-xen-5-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_136-xen-5-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_101-default-10-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_101-default-10-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_101-default-10-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_101-xen-10-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_101-xen-10-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_101-xen-10-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_106-default-10-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_106-default-10-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_106-default-10-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_106-xen-10-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_106-xen-10-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_106-xen-10-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_119-default-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_119-default-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_119-default-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_119-xen-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_119-xen-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_119-xen-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_111-default-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_111-default-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_111-default-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_111-xen-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_111-xen-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_111-xen-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_125-default-8-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_125-default-8-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_125-default-8-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_125-xen-8-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_125-xen-8-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_125-xen-8-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_122-default-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_122-default-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_122-default-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_122-xen-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_122-xen-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_122-xen-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_133-default-5-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_133-default-5-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_133-default-5-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_133-xen-5-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_133-xen-5-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_133-xen-5-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_128-default-6-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-default-6-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_128-default-6-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_128-xen-6-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-xen-6-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_128-xen-6-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_141-default-4-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_141-default-4-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_141-default-4-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_141-xen-4-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_141-xen-4-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_141-xen-4-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_136-default-5-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_136-default-5-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_136-default-5-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_136-xen-5-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_136-xen-5-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_136-xen-5-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_101-default-10-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_101-default-10-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_101-default-10-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_101-xen-10-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_101-xen-10-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_101-xen-10-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_106-default-10-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_106-default-10-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_106-default-10-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_106-xen-10-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_106-xen-10-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_106-xen-10-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_119-default-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_119-default-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_119-default-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_119-xen-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_119-xen-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_119-xen-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_111-default-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_111-default-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_111-default-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_111-xen-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_111-xen-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_111-xen-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_125-default-8-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_125-default-8-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_125-default-8-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_125-xen-8-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_125-xen-8-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_125-xen-8-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_122-default-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_122-default-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_122-default-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_122-xen-9-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_122-xen-9-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_122-xen-9-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_133-default-5-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_133-default-5-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_133-default-5-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_133-xen-5-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_133-xen-5-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_133-xen-5-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_128-default-6-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-default-6-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_128-default-6-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_128-xen-6-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-xen-6-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_128-xen-6-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_141-default-4-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_141-default-4-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_141-default-4-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_141-xen-4-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_141-xen-4-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_141-xen-4-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_136-default-5-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_136-default-5-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_136-default-5-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_136-xen-5-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_136-xen-5-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_136-xen-5-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_101-default-10-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_101-default-10-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_101-default-10-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_101-xen-10-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_101-xen-10-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_101-xen-10-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_106-default-10-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_106-default-10-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_106-default-10-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-3_12_61-52_106-xen-10-2.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_106-xen-10-2.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-3_12_61-52_106-xen-10-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			}
+		]
+	},
+	"vulnerabilities": [
+		{
+			"cve": "CVE-2018-14633",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2018-14633"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A security flaw was found in the chap_server_compute_md5() function in the ISCSI target code in the Linux kernel in a way an authentication request from an ISCSI initiator is processed. An unauthenticated remote attacker can cause a stack buffer overflow and smash up to 17 bytes of the stack. The attack requires the iSCSI target to be enabled on the victim host. Depending on how the target's code was built (i.e. depending on a compiler, compile flags and hardware architecture) an attack may lead to a system crash and thus to a denial-of-service or possibly to a non-authorized access to data exported by an iSCSI target. Due to the nature of the flaw, privilege escalation cannot be fully ruled out, although we believe it is highly unlikely. Kernel versions 4.18.x, 4.14.x and 3.10.x are believed to be vulnerable.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_101-default-10-2.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_101-xen-10-2.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_106-default-10-2.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_106-xen-10-2.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_111-default-9-2.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_111-xen-9-2.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_119-default-9-2.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_119-xen-9-2.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_122-default-9-2.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_122-xen-9-2.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_125-default-8-2.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_125-xen-8-2.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-default-6-2.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-xen-6-2.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_133-default-5-2.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_133-xen-5-2.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_136-default-5-2.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_136-xen-5-2.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_141-default-4-2.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_141-xen-4-2.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2018-14633",
+					"url": "https://www.suse.com/security/cve/CVE-2018-14633"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1107829 for CVE-2018-14633",
+					"url": "https://bugzilla.suse.com/1107829"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1107832 for CVE-2018-14633",
+					"url": "https://bugzilla.suse.com/1107832"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_101-default-10-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_101-xen-10-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_106-default-10-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_106-xen-10-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_111-default-9-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_111-xen-9-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_119-default-9-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_119-xen-9-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_122-default-9-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_122-xen-9-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_125-default-8-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_125-xen-8-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-default-6-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-xen-6-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_133-default-5-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_133-xen-5-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_136-default-5-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_136-xen-5-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_141-default-4-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_141-xen-4-2.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 8.8,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_101-default-10-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_101-xen-10-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_106-default-10-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_106-xen-10-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_111-default-9-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_111-xen-9-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_119-default-9-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_119-xen-9-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_122-default-9-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_122-xen-9-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_125-default-8-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_125-xen-8-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-default-6-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-xen-6-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_133-default-5-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_133-xen-5-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_136-default-5-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_136-xen-5-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_141-default-4-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_141-xen-4-2.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-10-18T19:02:45Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2018-14633"
+		},
+		{
+			"cve": "CVE-2018-14634",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2018-14634"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "An integer overflow flaw was found in the Linux kernel's create_elf_tables() function. An unprivileged local user with access to SUID (or otherwise privileged) binary could use this flaw to escalate their privileges on the system. Kernel versions 2.6.x, 3.10.x and 4.14.x are believed to be vulnerable.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_101-default-10-2.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_101-xen-10-2.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_106-default-10-2.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_106-xen-10-2.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_111-default-9-2.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_111-xen-9-2.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_119-default-9-2.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_119-xen-9-2.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_122-default-9-2.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_122-xen-9-2.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_125-default-8-2.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_125-xen-8-2.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-default-6-2.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-xen-6-2.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_133-default-5-2.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_133-xen-5-2.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_136-default-5-2.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_136-xen-5-2.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_141-default-4-2.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_141-xen-4-2.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2018-14634",
+					"url": "https://www.suse.com/security/cve/CVE-2018-14634"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1108912 for CVE-2018-14634",
+					"url": "https://bugzilla.suse.com/1108912"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1108963 for CVE-2018-14634",
+					"url": "https://bugzilla.suse.com/1108963"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1115893 for CVE-2018-14634",
+					"url": "https://bugzilla.suse.com/1115893"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1120323 for CVE-2018-14634",
+					"url": "https://bugzilla.suse.com/1120323"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1122265 for CVE-2018-14634",
+					"url": "https://bugzilla.suse.com/1122265"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1188063 for CVE-2018-14634",
+					"url": "https://bugzilla.suse.com/1188063"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_101-default-10-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_101-xen-10-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_106-default-10-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_106-xen-10-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_111-default-9-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_111-xen-9-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_119-default-9-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_119-xen-9-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_122-default-9-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_122-xen-9-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_125-default-8-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_125-xen-8-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-default-6-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-xen-6-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_133-default-5-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_133-xen-5-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_136-default-5-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_136-xen-5-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_141-default-4-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_141-xen-4-2.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.8,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_101-default-10-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_101-xen-10-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_106-default-10-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_106-xen-10-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_111-default-9-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_111-xen-9-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_119-default-9-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_119-xen-9-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_122-default-9-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_122-xen-9-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_125-default-8-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_125-xen-8-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-default-6-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-xen-6-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_133-default-5-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_133-xen-5-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_136-default-5-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_136-xen-5-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_141-default-4-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_141-xen-4-2.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-10-18T19:02:45Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2018-14634"
+		},
+		{
+			"cve": "CVE-2018-17182",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2018-17182"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "An issue was discovered in the Linux kernel through 4.18.8. The vmacache_flush_all function in mm/vmacache.c mishandles sequence number overflows. An attacker can trigger a use-after-free (and possibly gain privileges) via certain thread creation, map, unmap, invalidation, and dereference operations.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_101-default-10-2.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_101-xen-10-2.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_106-default-10-2.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_106-xen-10-2.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_111-default-9-2.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_111-xen-9-2.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_119-default-9-2.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_119-xen-9-2.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_122-default-9-2.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_122-xen-9-2.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_125-default-8-2.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_125-xen-8-2.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-default-6-2.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-xen-6-2.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_133-default-5-2.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_133-xen-5-2.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_136-default-5-2.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_136-xen-5-2.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_141-default-4-2.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_141-xen-4-2.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2018-17182",
+					"url": "https://www.suse.com/security/cve/CVE-2018-17182"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1108399 for CVE-2018-17182",
+					"url": "https://bugzilla.suse.com/1108399"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1110233 for CVE-2018-17182",
+					"url": "https://bugzilla.suse.com/1110233"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_101-default-10-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_101-xen-10-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_106-default-10-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_106-xen-10-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_111-default-9-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_111-xen-9-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_119-default-9-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_119-xen-9-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_122-default-9-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_122-xen-9-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_125-default-8-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_125-xen-8-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-default-6-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-xen-6-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_133-default-5-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_133-xen-5-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_136-default-5-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_136-xen-5-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_141-default-4-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_141-xen-4-2.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.0/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_101-default-10-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_101-xen-10-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_106-default-10-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_106-xen-10-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_111-default-9-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_111-xen-9-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_119-default-9-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_119-xen-9-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_122-default-9-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_122-xen-9-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_125-default-8-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_125-xen-8-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-default-6-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_128-xen-6-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_133-default-5-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_133-xen-5-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_136-default-5-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_136-xen-5-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_141-default-4-2.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:kgraft-patch-3_12_61-52_141-xen-4-2.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-10-18T19:02:45Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2018-17182"
+		}
+	]
+}

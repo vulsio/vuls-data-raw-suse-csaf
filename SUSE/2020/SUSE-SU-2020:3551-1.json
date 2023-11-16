@@ -1,0 +1,2681 @@
+{
+	"document": {
+		"aggregate_severity": {
+			"namespace": "https://www.suse.com/support/security/rating/",
+			"text": "moderate"
+		},
+		"category": "csaf_security_advisory",
+		"csaf_version": "2.0",
+		"distribution": {
+			"text": "Copyright 2023 SUSE LLC. All rights reserved.",
+			"tlp": {
+				"label": "WHITE",
+				"url": "https://www.first.org/tlp/"
+			}
+		},
+		"lang": "en",
+		"notes": [
+			{
+				"category": "summary",
+				"text": "Security update for libssh2_org",
+				"title": "Title of the patch"
+			},
+			{
+				"category": "description",
+				"text": "This update for libssh2_org fixes the following issues:\n\n- Version update to 1.9.0: [bsc#1178083, jsc#SLE-16922]\n   Enhancements and bugfixes:\n    * adds ECDSA keys and host key support when using OpenSSL\n    * adds ED25519 key and host key support when using OpenSSL 1.1.1\n    * adds OpenSSH style key file reading\n    * adds AES CTR mode support when using WinCNG\n    * adds PEM passphrase protected file support for Libgcrypt and WinCNG\n    * adds SHA256 hostkey fingerprint\n    * adds libssh2_agent_get_identity_path() and libssh2_agent_set_identity_path()\n    * adds explicit zeroing of sensitive data in memory\n    * adds additional bounds checks to network buffer reads\n    * adds the ability to use the server default permissions when creating sftp directories\n    * adds support for building with OpenSSL no engine flag\n    * adds support for building with LibreSSL\n    * increased sftp packet size to 256k\n    * fixed oversized packet handling in sftp\n    * fixed building with OpenSSL 1.1\n    * fixed a possible crash if sftp stat gets an unexpected response\n    * fixed incorrect parsing of the KEX preference string value\n    * fixed conditional RSA and AES-CTR support\n    * fixed a small memory leak during the key exchange process\n    * fixed a possible memory leak of the ssh banner string\n    * fixed various small memory leaks in the backends\n    * fixed possible out of bounds read when parsing public keys from the server\n    * fixed possible out of bounds read when parsing invalid PEM files\n    * no longer null terminates the scp remote exec command\n    * now handle errors when diffie hellman key pair generation fails\n    * improved building instructions\n    * improved unit tests\n\n- Version update to 1.8.2: [bsc#1130103]\n   Bug fixes:\n    * Fixed the misapplied userauth patch that broke 1.8.1\n    * moved the MAX size declarations from the public header",
+				"title": "Description of the patch"
+			},
+			{
+				"category": "details",
+				"text": "SUSE-2020-3551,SUSE-SLE-Module-Basesystem-15-SP1-2020-3551,SUSE-SLE-Module-Basesystem-15-SP2-2020-3551,SUSE-SLE-Product-HPC-15-2020-3551,SUSE-SLE-Product-SLES-15-2020-3551,SUSE-SLE-Product-SLES_SAP-15-2020-3551",
+				"title": "Patchnames"
+			},
+			{
+				"category": "legal_disclaimer",
+				"text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+				"title": "Terms of use"
+			}
+		],
+		"publisher": {
+			"category": "vendor",
+			"contact_details": "https://www.suse.com/support/security/contact/",
+			"name": "SUSE Product Security Team",
+			"namespace": "https://www.suse.com/"
+		},
+		"references": [
+			{
+				"category": "self",
+				"summary": "URL for SUSE-SU-2020:3551-1",
+				"url": "https://www.suse.com/support/update/announcement/2020/suse-su-20203551-1/"
+			},
+			{
+				"category": "external",
+				"summary": "SUSE ratings",
+				"url": "https://www.suse.com/support/security/rating/"
+			},
+			{
+				"category": "self",
+				"summary": "URL of this CSAF notice",
+				"url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2020_3551-1.json"
+			},
+			{
+				"category": "self",
+				"summary": "E-Mail link for SUSE-SU-2020:3551-1",
+				"url": "https://lists.suse.com/pipermail/sle-security-updates/2020-November/007887.html"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1130103",
+				"url": "https://bugzilla.suse.com/1130103"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1178083",
+				"url": "https://bugzilla.suse.com/1178083"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2019-17498 page",
+				"url": "https://www.suse.com/security/cve/CVE-2019-17498/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2019-3855 page",
+				"url": "https://www.suse.com/security/cve/CVE-2019-3855/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2019-3856 page",
+				"url": "https://www.suse.com/security/cve/CVE-2019-3856/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2019-3857 page",
+				"url": "https://www.suse.com/security/cve/CVE-2019-3857/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2019-3858 page",
+				"url": "https://www.suse.com/security/cve/CVE-2019-3858/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2019-3859 page",
+				"url": "https://www.suse.com/security/cve/CVE-2019-3859/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2019-3860 page",
+				"url": "https://www.suse.com/security/cve/CVE-2019-3860/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2019-3861 page",
+				"url": "https://www.suse.com/security/cve/CVE-2019-3861/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2019-3862 page",
+				"url": "https://www.suse.com/security/cve/CVE-2019-3862/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2019-3863 page",
+				"url": "https://www.suse.com/security/cve/CVE-2019-3863/"
+			}
+		],
+		"title": "Security update for libssh2_org",
+		"tracking": {
+			"current_release_date": "2020-11-27T13:54:59Z",
+			"generator": {
+				"date": "2020-11-27T13:54:59Z",
+				"engine": {
+					"name": "cve-database.git:bin/generate-csaf.pl",
+					"version": "1"
+				}
+			},
+			"id": "SUSE-SU-2020:3551-1",
+			"initial_release_date": "2020-11-27T13:54:59Z",
+			"revision_history": [
+				{
+					"date": "2020-11-27T13:54:59Z",
+					"number": "1",
+					"summary": "Current version"
+				}
+			],
+			"status": "final",
+			"version": "1"
+		}
+	},
+	"product_tree": {
+		"branches": [
+			{
+				"branches": [
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "libssh2-1-1.9.0-4.13.1.aarch64",
+								"product": {
+									"name": "libssh2-1-1.9.0-4.13.1.aarch64",
+									"product_id": "libssh2-1-1.9.0-4.13.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libssh2-devel-1.9.0-4.13.1.aarch64",
+								"product": {
+									"name": "libssh2-devel-1.9.0-4.13.1.aarch64",
+									"product_id": "libssh2-devel-1.9.0-4.13.1.aarch64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "aarch64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "libssh2-1-64bit-1.9.0-4.13.1.aarch64_ilp32",
+								"product": {
+									"name": "libssh2-1-64bit-1.9.0-4.13.1.aarch64_ilp32",
+									"product_id": "libssh2-1-64bit-1.9.0-4.13.1.aarch64_ilp32"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "aarch64_ilp32"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "libssh2-1-1.9.0-4.13.1.i586",
+								"product": {
+									"name": "libssh2-1-1.9.0-4.13.1.i586",
+									"product_id": "libssh2-1-1.9.0-4.13.1.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libssh2-devel-1.9.0-4.13.1.i586",
+								"product": {
+									"name": "libssh2-devel-1.9.0-4.13.1.i586",
+									"product_id": "libssh2-devel-1.9.0-4.13.1.i586"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "i586"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "libssh2-1-1.9.0-4.13.1.ppc64le",
+								"product": {
+									"name": "libssh2-1-1.9.0-4.13.1.ppc64le",
+									"product_id": "libssh2-1-1.9.0-4.13.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libssh2-devel-1.9.0-4.13.1.ppc64le",
+								"product": {
+									"name": "libssh2-devel-1.9.0-4.13.1.ppc64le",
+									"product_id": "libssh2-devel-1.9.0-4.13.1.ppc64le"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "ppc64le"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "libssh2-1-1.9.0-4.13.1.s390x",
+								"product": {
+									"name": "libssh2-1-1.9.0-4.13.1.s390x",
+									"product_id": "libssh2-1-1.9.0-4.13.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libssh2-devel-1.9.0-4.13.1.s390x",
+								"product": {
+									"name": "libssh2-devel-1.9.0-4.13.1.s390x",
+									"product_id": "libssh2-devel-1.9.0-4.13.1.s390x"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "s390x"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "libssh2-1-1.9.0-4.13.1.x86_64",
+								"product": {
+									"name": "libssh2-1-1.9.0-4.13.1.x86_64",
+									"product_id": "libssh2-1-1.9.0-4.13.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+								"product": {
+									"name": "libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+									"product_id": "libssh2-1-32bit-1.9.0-4.13.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libssh2-devel-1.9.0-4.13.1.x86_64",
+								"product": {
+									"name": "libssh2-devel-1.9.0-4.13.1.x86_64",
+									"product_id": "libssh2-devel-1.9.0-4.13.1.x86_64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "x86_64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Module for Basesystem 15 SP1",
+								"product": {
+									"name": "SUSE Linux Enterprise Module for Basesystem 15 SP1",
+									"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-module-basesystem:15:sp1"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Module for Basesystem 15 SP2",
+								"product": {
+									"name": "SUSE Linux Enterprise Module for Basesystem 15 SP2",
+									"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP2",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-module-basesystem:15:sp2"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise High Performance Computing 15-ESPOS",
+								"product": {
+									"name": "SUSE Linux Enterprise High Performance Computing 15-ESPOS",
+									"product_id": "SUSE Linux Enterprise High Performance Computing 15-ESPOS",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle_hpc-espos:15"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise High Performance Computing 15-LTSS",
+								"product": {
+									"name": "SUSE Linux Enterprise High Performance Computing 15-LTSS",
+									"product_id": "SUSE Linux Enterprise High Performance Computing 15-LTSS",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle_hpc-ltss:15"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server 15-LTSS",
+								"product": {
+									"name": "SUSE Linux Enterprise Server 15-LTSS",
+									"product_id": "SUSE Linux Enterprise Server 15-LTSS",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sles-ltss:15"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server for SAP Applications 15",
+								"product": {
+									"name": "SUSE Linux Enterprise Server for SAP Applications 15",
+									"product_id": "SUSE Linux Enterprise Server for SAP Applications 15",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sles_sap:15"
+									}
+								}
+							}
+						],
+						"category": "product_family",
+						"name": "SUSE Linux Enterprise"
+					}
+				],
+				"category": "vendor",
+				"name": "SUSE"
+			}
+		],
+		"relationships": [
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libssh2-1-1.9.0-4.13.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.aarch64"
+				},
+				"product_reference": "libssh2-1-1.9.0-4.13.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libssh2-1-1.9.0-4.13.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.ppc64le"
+				},
+				"product_reference": "libssh2-1-1.9.0-4.13.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libssh2-1-1.9.0-4.13.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.s390x"
+				},
+				"product_reference": "libssh2-1-1.9.0-4.13.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libssh2-1-1.9.0-4.13.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.x86_64"
+				},
+				"product_reference": "libssh2-1-1.9.0-4.13.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libssh2-1-32bit-1.9.0-4.13.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-32bit-1.9.0-4.13.1.x86_64"
+				},
+				"product_reference": "libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libssh2-devel-1.9.0-4.13.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.aarch64"
+				},
+				"product_reference": "libssh2-devel-1.9.0-4.13.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libssh2-devel-1.9.0-4.13.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.ppc64le"
+				},
+				"product_reference": "libssh2-devel-1.9.0-4.13.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libssh2-devel-1.9.0-4.13.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.s390x"
+				},
+				"product_reference": "libssh2-devel-1.9.0-4.13.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libssh2-devel-1.9.0-4.13.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.x86_64"
+				},
+				"product_reference": "libssh2-devel-1.9.0-4.13.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libssh2-1-1.9.0-4.13.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.aarch64"
+				},
+				"product_reference": "libssh2-1-1.9.0-4.13.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libssh2-1-1.9.0-4.13.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.ppc64le"
+				},
+				"product_reference": "libssh2-1-1.9.0-4.13.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libssh2-1-1.9.0-4.13.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.s390x"
+				},
+				"product_reference": "libssh2-1-1.9.0-4.13.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libssh2-1-1.9.0-4.13.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.x86_64"
+				},
+				"product_reference": "libssh2-1-1.9.0-4.13.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libssh2-1-32bit-1.9.0-4.13.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-32bit-1.9.0-4.13.1.x86_64"
+				},
+				"product_reference": "libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libssh2-devel-1.9.0-4.13.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.aarch64"
+				},
+				"product_reference": "libssh2-devel-1.9.0-4.13.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libssh2-devel-1.9.0-4.13.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.ppc64le"
+				},
+				"product_reference": "libssh2-devel-1.9.0-4.13.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libssh2-devel-1.9.0-4.13.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.s390x"
+				},
+				"product_reference": "libssh2-devel-1.9.0-4.13.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libssh2-devel-1.9.0-4.13.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP2",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.x86_64"
+				},
+				"product_reference": "libssh2-devel-1.9.0-4.13.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libssh2-1-1.9.0-4.13.1.aarch64 as component of SUSE Linux Enterprise High Performance Computing 15-ESPOS",
+					"product_id": "SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.aarch64"
+				},
+				"product_reference": "libssh2-1-1.9.0-4.13.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15-ESPOS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libssh2-1-1.9.0-4.13.1.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15-ESPOS",
+					"product_id": "SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.x86_64"
+				},
+				"product_reference": "libssh2-1-1.9.0-4.13.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15-ESPOS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libssh2-1-32bit-1.9.0-4.13.1.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15-ESPOS",
+					"product_id": "SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-32bit-1.9.0-4.13.1.x86_64"
+				},
+				"product_reference": "libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15-ESPOS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libssh2-devel-1.9.0-4.13.1.aarch64 as component of SUSE Linux Enterprise High Performance Computing 15-ESPOS",
+					"product_id": "SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.aarch64"
+				},
+				"product_reference": "libssh2-devel-1.9.0-4.13.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15-ESPOS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libssh2-devel-1.9.0-4.13.1.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15-ESPOS",
+					"product_id": "SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.x86_64"
+				},
+				"product_reference": "libssh2-devel-1.9.0-4.13.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15-ESPOS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libssh2-1-1.9.0-4.13.1.aarch64 as component of SUSE Linux Enterprise High Performance Computing 15-LTSS",
+					"product_id": "SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64"
+				},
+				"product_reference": "libssh2-1-1.9.0-4.13.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libssh2-1-1.9.0-4.13.1.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15-LTSS",
+					"product_id": "SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64"
+				},
+				"product_reference": "libssh2-1-1.9.0-4.13.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libssh2-1-32bit-1.9.0-4.13.1.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15-LTSS",
+					"product_id": "SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64"
+				},
+				"product_reference": "libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libssh2-devel-1.9.0-4.13.1.aarch64 as component of SUSE Linux Enterprise High Performance Computing 15-LTSS",
+					"product_id": "SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64"
+				},
+				"product_reference": "libssh2-devel-1.9.0-4.13.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libssh2-devel-1.9.0-4.13.1.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15-LTSS",
+					"product_id": "SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64"
+				},
+				"product_reference": "libssh2-devel-1.9.0-4.13.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libssh2-1-1.9.0-4.13.1.aarch64 as component of SUSE Linux Enterprise Server 15-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64"
+				},
+				"product_reference": "libssh2-1-1.9.0-4.13.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 15-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libssh2-1-1.9.0-4.13.1.ppc64le as component of SUSE Linux Enterprise Server 15-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.ppc64le"
+				},
+				"product_reference": "libssh2-1-1.9.0-4.13.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 15-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libssh2-1-1.9.0-4.13.1.s390x as component of SUSE Linux Enterprise Server 15-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.s390x"
+				},
+				"product_reference": "libssh2-1-1.9.0-4.13.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 15-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libssh2-1-1.9.0-4.13.1.x86_64 as component of SUSE Linux Enterprise Server 15-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64"
+				},
+				"product_reference": "libssh2-1-1.9.0-4.13.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 15-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libssh2-1-32bit-1.9.0-4.13.1.x86_64 as component of SUSE Linux Enterprise Server 15-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64"
+				},
+				"product_reference": "libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 15-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libssh2-devel-1.9.0-4.13.1.aarch64 as component of SUSE Linux Enterprise Server 15-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64"
+				},
+				"product_reference": "libssh2-devel-1.9.0-4.13.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 15-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libssh2-devel-1.9.0-4.13.1.ppc64le as component of SUSE Linux Enterprise Server 15-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.ppc64le"
+				},
+				"product_reference": "libssh2-devel-1.9.0-4.13.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 15-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libssh2-devel-1.9.0-4.13.1.s390x as component of SUSE Linux Enterprise Server 15-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.s390x"
+				},
+				"product_reference": "libssh2-devel-1.9.0-4.13.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 15-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libssh2-devel-1.9.0-4.13.1.x86_64 as component of SUSE Linux Enterprise Server 15-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64"
+				},
+				"product_reference": "libssh2-devel-1.9.0-4.13.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 15-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libssh2-1-1.9.0-4.13.1.ppc64le as component of SUSE Linux Enterprise Server for SAP Applications 15",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.ppc64le"
+				},
+				"product_reference": "libssh2-1-1.9.0-4.13.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libssh2-1-1.9.0-4.13.1.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 15",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.x86_64"
+				},
+				"product_reference": "libssh2-1-1.9.0-4.13.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libssh2-1-32bit-1.9.0-4.13.1.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 15",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-32bit-1.9.0-4.13.1.x86_64"
+				},
+				"product_reference": "libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libssh2-devel-1.9.0-4.13.1.ppc64le as component of SUSE Linux Enterprise Server for SAP Applications 15",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.ppc64le"
+				},
+				"product_reference": "libssh2-devel-1.9.0-4.13.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libssh2-devel-1.9.0-4.13.1.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 15",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.x86_64"
+				},
+				"product_reference": "libssh2-devel-1.9.0-4.13.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15"
+			}
+		]
+	},
+	"vulnerabilities": [
+		{
+			"cve": "CVE-2019-17498",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2019-17498"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "In libssh2 v1.9.0 and earlier versions, the SSH_MSG_DISCONNECT logic in packet.c has an integer overflow in a bounds check, enabling an attacker to specify an arbitrary (out-of-bounds) offset for a subsequent memory read. A crafted SSH server may be able to disclose sensitive information or cause a denial of service condition on the client system when a user connects to the server.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2019-17498",
+					"url": "https://www.suse.com/security/cve/CVE-2019-17498"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1154862 for CVE-2019-17498",
+					"url": "https://bugzilla.suse.com/1154862"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1171566 for CVE-2019-17498",
+					"url": "https://bugzilla.suse.com/1171566"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 5.4,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:N/A:L",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2020-11-27T13:54:59Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2019-17498"
+		},
+		{
+			"cve": "CVE-2019-3855",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2019-3855"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "An integer overflow flaw which could lead to an out of bounds write was discovered in libssh2 before 1.8.1 in the way packets are read from the server. A remote attacker who compromises a SSH server may be able to execute code on the client system when a user connects to the server.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2019-3855",
+					"url": "https://www.suse.com/security/cve/CVE-2019-3855"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1128471 for CVE-2019-3855",
+					"url": "https://bugzilla.suse.com/1128471"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1134329 for CVE-2019-3855",
+					"url": "https://bugzilla.suse.com/1134329"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1135434 for CVE-2019-3855",
+					"url": "https://bugzilla.suse.com/1135434"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1141850 for CVE-2019-3855",
+					"url": "https://bugzilla.suse.com/1141850"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 3.5,
+						"baseSeverity": "LOW",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:L/UI:R/S:U/C:N/I:N/A:L",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2020-11-27T13:54:59Z",
+					"details": "low"
+				}
+			],
+			"title": "CVE-2019-3855"
+		},
+		{
+			"cve": "CVE-2019-3856",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2019-3856"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "An integer overflow flaw, which could lead to an out of bounds write, was discovered in libssh2 before 1.8.1 in the way keyboard prompt requests are parsed. A remote attacker who compromises a SSH server may be able to execute code on the client system when a user connects to the server.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2019-3856",
+					"url": "https://www.suse.com/security/cve/CVE-2019-3856"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1128472 for CVE-2019-3856",
+					"url": "https://bugzilla.suse.com/1128472"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1135434 for CVE-2019-3856",
+					"url": "https://bugzilla.suse.com/1135434"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 3.5,
+						"baseSeverity": "LOW",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:L/UI:R/S:U/C:N/I:N/A:L",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2020-11-27T13:54:59Z",
+					"details": "low"
+				}
+			],
+			"title": "CVE-2019-3856"
+		},
+		{
+			"cve": "CVE-2019-3857",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2019-3857"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "An integer overflow flaw which could lead to an out of bounds write was discovered in libssh2 before 1.8.1 in the way SSH_MSG_CHANNEL_REQUEST packets with an exit signal are parsed. A remote attacker who compromises a SSH server may be able to execute code on the client system when a user connects to the server.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2019-3857",
+					"url": "https://www.suse.com/security/cve/CVE-2019-3857"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1128474 for CVE-2019-3857",
+					"url": "https://bugzilla.suse.com/1128474"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1135434 for CVE-2019-3857",
+					"url": "https://bugzilla.suse.com/1135434"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 3.5,
+						"baseSeverity": "LOW",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:L/UI:R/S:U/C:N/I:N/A:L",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2020-11-27T13:54:59Z",
+					"details": "low"
+				}
+			],
+			"title": "CVE-2019-3857"
+		},
+		{
+			"cve": "CVE-2019-3858",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2019-3858"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "An out of bounds read flaw was discovered in libssh2 before 1.8.1 when a specially crafted SFTP packet is received from the server. A remote attacker who compromises a SSH server may be able to cause a Denial of Service or read data in the client memory.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2019-3858",
+					"url": "https://www.suse.com/security/cve/CVE-2019-3858"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1128476 for CVE-2019-3858",
+					"url": "https://bugzilla.suse.com/1128476"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1135434 for CVE-2019-3858",
+					"url": "https://bugzilla.suse.com/1135434"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 4.6,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:L/UI:R/S:U/C:L/I:N/A:L",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2020-11-27T13:54:59Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2019-3858"
+		},
+		{
+			"cve": "CVE-2019-3859",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2019-3859"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "An out of bounds read flaw was discovered in libssh2 before 1.8.1 in the _libssh2_packet_require and _libssh2_packet_requirev functions. A remote attacker who compromises a SSH server may be able to cause a Denial of Service or read data in the client memory.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2019-3859",
+					"url": "https://www.suse.com/security/cve/CVE-2019-3859"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1128480 for CVE-2019-3859",
+					"url": "https://bugzilla.suse.com/1128480"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1130103 for CVE-2019-3859",
+					"url": "https://bugzilla.suse.com/1130103"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1135434 for CVE-2019-3859",
+					"url": "https://bugzilla.suse.com/1135434"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 3.5,
+						"baseSeverity": "LOW",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:L/UI:R/S:U/C:N/I:N/A:L",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2020-11-27T13:54:59Z",
+					"details": "low"
+				}
+			],
+			"title": "CVE-2019-3859"
+		},
+		{
+			"cve": "CVE-2019-3860",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2019-3860"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "An out of bounds read flaw was discovered in libssh2 before 1.8.1 in the way SFTP packets with empty payloads are parsed. A remote attacker who compromises a SSH server may be able to cause a Denial of Service or read data in the client memory.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2019-3860",
+					"url": "https://www.suse.com/security/cve/CVE-2019-3860"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1128481 for CVE-2019-3860",
+					"url": "https://bugzilla.suse.com/1128481"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1135434 for CVE-2019-3860",
+					"url": "https://bugzilla.suse.com/1135434"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1136570 for CVE-2019-3860",
+					"url": "https://bugzilla.suse.com/1136570"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 3.5,
+						"baseSeverity": "LOW",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:L/UI:R/S:U/C:N/I:N/A:L",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2020-11-27T13:54:59Z",
+					"details": "low"
+				}
+			],
+			"title": "CVE-2019-3860"
+		},
+		{
+			"cve": "CVE-2019-3861",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2019-3861"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "An out of bounds read flaw was discovered in libssh2 before 1.8.1 in the way SSH packets with a padding length value greater than the packet length are parsed. A remote attacker who compromises a SSH server may be able to cause a Denial of Service or read data in the client memory.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2019-3861",
+					"url": "https://www.suse.com/security/cve/CVE-2019-3861"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1128490 for CVE-2019-3861",
+					"url": "https://bugzilla.suse.com/1128490"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1135434 for CVE-2019-3861",
+					"url": "https://bugzilla.suse.com/1135434"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 3.5,
+						"baseSeverity": "LOW",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:L/UI:R/S:U/C:N/I:L/A:N",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2020-11-27T13:54:59Z",
+					"details": "low"
+				}
+			],
+			"title": "CVE-2019-3861"
+		},
+		{
+			"cve": "CVE-2019-3862",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2019-3862"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "An out of bounds read flaw was discovered in libssh2 before 1.8.1 in the way SSH_MSG_CHANNEL_REQUEST packets with an exit status message and no payload are parsed. A remote attacker who compromises a SSH server may be able to cause a Denial of Service or read data in the client memory.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2019-3862",
+					"url": "https://www.suse.com/security/cve/CVE-2019-3862"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1128492 for CVE-2019-3862",
+					"url": "https://bugzilla.suse.com/1128492"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1135434 for CVE-2019-3862",
+					"url": "https://bugzilla.suse.com/1135434"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 3.5,
+						"baseSeverity": "LOW",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:L/UI:R/S:U/C:N/I:N/A:L",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2020-11-27T13:54:59Z",
+					"details": "low"
+				}
+			],
+			"title": "CVE-2019-3862"
+		},
+		{
+			"cve": "CVE-2019-3863",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2019-3863"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A flaw was found in libssh2 before 1.8.1. A server could send a multiple keyboard interactive response messages whose total length are greater than unsigned char max characters. This value is used as an index to copy memory causing in an out of bounds memory write error.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.s390x",
+					"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2019-3863",
+					"url": "https://www.suse.com/security/cve/CVE-2019-3863"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1128493 for CVE-2019-3863",
+					"url": "https://bugzilla.suse.com/1128493"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1130103 for CVE-2019-3863",
+					"url": "https://bugzilla.suse.com/1130103"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1135434 for CVE-2019-3863",
+					"url": "https://bugzilla.suse.com/1135434"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 3.5,
+						"baseSeverity": "LOW",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:L/UI:R/S:U/C:N/I:N/A:L",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-ESPOS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP2:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.aarch64",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.s390x",
+						"SUSE Linux Enterprise Server 15-LTSS:libssh2-devel-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-1-32bit-1.9.0-4.13.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15:libssh2-devel-1.9.0-4.13.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2020-11-27T13:54:59Z",
+					"details": "low"
+				}
+			],
+			"title": "CVE-2019-3863"
+		}
+	]
+}

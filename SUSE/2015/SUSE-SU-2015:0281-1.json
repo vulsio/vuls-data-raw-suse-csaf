@@ -1,0 +1,706 @@
+{
+	"document": {
+		"aggregate_severity": {
+			"namespace": "https://www.suse.com/support/security/rating/",
+			"text": "moderate"
+		},
+		"category": "csaf_security_advisory",
+		"csaf_version": "2.0",
+		"distribution": {
+			"text": "Copyright 2023 SUSE LLC. All rights reserved.",
+			"tlp": {
+				"label": "WHITE",
+				"url": "https://www.first.org/tlp/"
+			}
+		},
+		"lang": "en",
+		"notes": [
+			{
+				"category": "summary",
+				"text": "Security update for strongswan",
+				"title": "Title of the patch"
+			},
+			{
+				"category": "description",
+				"text": "This strongswan update fixes the following security and non security\nissues.\n\n- Disallow brainpool elliptic curve groups in fips mode (bnc#856322).\n- Applied an upstream fix for a denial-of-service vulnerability,\n  which can be triggered by an IKEv2 Key Exchange payload, that\n  contains the Diffie-Hellman group 1025 (bsc#910491,CVE-2014-9221).\n- Adjusted whilelist of approved algorithms in fips mode (bsc#856322).\n- Updated strongswan-hmac package description (bsc#856322).\n- Disabled explicit gpg validation; osc source_validator does it.\n- Guarded fipscheck and hmac package in the spec file for >13.1.\n- Added generation of fips hmac hash files using fipshmac utility\n  and a _fipscheck script to verify binaries/libraries/plugings\n  shipped in the strongswan-hmac package.\n  With enabled fips in the kernel, the ipsec script will call it\n  before any action or in a enforced/manual 'ipsec _fipscheck' call.\n  Added config file to load openssl and kernel af-alg plugins, but\n  not all the other modules which provide further/alternative algs.\n  Applied a filter disallowing non-approved algorithms in fips mode.\n  (fate#316931,bnc#856322).\n- Fixed file list in the optional (disabled) strongswan-test package.\n- Fixed build of the strongswan built-in integrity checksum library\n  and enabled building it only on architectures tested to work.\n- Fix to use bug number 897048 instead 856322 in last changes entry.\n- Applied an upstream patch reverting to store algorithms in the\n  registration order again as ordering them by identifier caused\n  weaker algorithms to be proposed first by default (bsc#897512).",
+				"title": "Description of the patch"
+			},
+			{
+				"category": "details",
+				"text": "SUSE-SLE-DESKTOP-12-2015-71,SUSE-SLE-SERVER-12-2015-71",
+				"title": "Patchnames"
+			},
+			{
+				"category": "legal_disclaimer",
+				"text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+				"title": "Terms of use"
+			}
+		],
+		"publisher": {
+			"category": "vendor",
+			"contact_details": "https://www.suse.com/support/security/contact/",
+			"name": "SUSE Product Security Team",
+			"namespace": "https://www.suse.com/"
+		},
+		"references": [
+			{
+				"category": "self",
+				"summary": "URL for SUSE-SU-2015:0281-1",
+				"url": "https://www.suse.com/support/update/announcement/2015/suse-su-20150281-1/"
+			},
+			{
+				"category": "external",
+				"summary": "SUSE ratings",
+				"url": "https://www.suse.com/support/security/rating/"
+			},
+			{
+				"category": "self",
+				"summary": "URL of this CSAF notice",
+				"url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2015_0281-1.json"
+			},
+			{
+				"category": "self",
+				"summary": "E-Mail link for SUSE-SU-2015:0281-1",
+				"url": "https://lists.suse.com/pipermail/sle-security-updates/2015-February/001221.html"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 856322",
+				"url": "https://bugzilla.suse.com/856322"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 897048",
+				"url": "https://bugzilla.suse.com/897048"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 897512",
+				"url": "https://bugzilla.suse.com/897512"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 910491",
+				"url": "https://bugzilla.suse.com/910491"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2014-9221 page",
+				"url": "https://www.suse.com/security/cve/CVE-2014-9221/"
+			}
+		],
+		"title": "Security update for strongswan",
+		"tracking": {
+			"current_release_date": "2015-01-28T11:41:44Z",
+			"generator": {
+				"date": "2015-01-28T11:41:44Z",
+				"engine": {
+					"name": "cve-database.git:bin/generate-csaf.pl",
+					"version": "1"
+				}
+			},
+			"id": "SUSE-SU-2015:0281-1",
+			"initial_release_date": "2015-01-28T11:41:44Z",
+			"revision_history": [
+				{
+					"date": "2015-01-28T11:41:44Z",
+					"number": "1",
+					"summary": "Current version"
+				}
+			],
+			"status": "final",
+			"version": "1"
+		}
+	},
+	"product_tree": {
+		"branches": [
+			{
+				"branches": [
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "strongswan-doc-5.1.3-9.1.noarch",
+								"product": {
+									"name": "strongswan-doc-5.1.3-9.1.noarch",
+									"product_id": "strongswan-doc-5.1.3-9.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "strongswan-doc-5.1.3-9.2.noarch",
+								"product": {
+									"name": "strongswan-doc-5.1.3-9.2.noarch",
+									"product_id": "strongswan-doc-5.1.3-9.2.noarch"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "noarch"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "strongswan-5.1.3-9.2.ppc64le",
+								"product": {
+									"name": "strongswan-5.1.3-9.2.ppc64le",
+									"product_id": "strongswan-5.1.3-9.2.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "strongswan-hmac-5.1.3-9.2.ppc64le",
+								"product": {
+									"name": "strongswan-hmac-5.1.3-9.2.ppc64le",
+									"product_id": "strongswan-hmac-5.1.3-9.2.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "strongswan-ipsec-5.1.3-9.2.ppc64le",
+								"product": {
+									"name": "strongswan-ipsec-5.1.3-9.2.ppc64le",
+									"product_id": "strongswan-ipsec-5.1.3-9.2.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "strongswan-libs0-5.1.3-9.2.ppc64le",
+								"product": {
+									"name": "strongswan-libs0-5.1.3-9.2.ppc64le",
+									"product_id": "strongswan-libs0-5.1.3-9.2.ppc64le"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "ppc64le"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "strongswan-5.1.3-9.2.s390x",
+								"product": {
+									"name": "strongswan-5.1.3-9.2.s390x",
+									"product_id": "strongswan-5.1.3-9.2.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "strongswan-hmac-5.1.3-9.2.s390x",
+								"product": {
+									"name": "strongswan-hmac-5.1.3-9.2.s390x",
+									"product_id": "strongswan-hmac-5.1.3-9.2.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "strongswan-ipsec-5.1.3-9.2.s390x",
+								"product": {
+									"name": "strongswan-ipsec-5.1.3-9.2.s390x",
+									"product_id": "strongswan-ipsec-5.1.3-9.2.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "strongswan-libs0-5.1.3-9.2.s390x",
+								"product": {
+									"name": "strongswan-libs0-5.1.3-9.2.s390x",
+									"product_id": "strongswan-libs0-5.1.3-9.2.s390x"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "s390x"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "strongswan-5.1.3-9.1.x86_64",
+								"product": {
+									"name": "strongswan-5.1.3-9.1.x86_64",
+									"product_id": "strongswan-5.1.3-9.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "strongswan-ipsec-5.1.3-9.1.x86_64",
+								"product": {
+									"name": "strongswan-ipsec-5.1.3-9.1.x86_64",
+									"product_id": "strongswan-ipsec-5.1.3-9.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "strongswan-libs0-5.1.3-9.1.x86_64",
+								"product": {
+									"name": "strongswan-libs0-5.1.3-9.1.x86_64",
+									"product_id": "strongswan-libs0-5.1.3-9.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "strongswan-5.1.3-9.2.x86_64",
+								"product": {
+									"name": "strongswan-5.1.3-9.2.x86_64",
+									"product_id": "strongswan-5.1.3-9.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "strongswan-hmac-5.1.3-9.2.x86_64",
+								"product": {
+									"name": "strongswan-hmac-5.1.3-9.2.x86_64",
+									"product_id": "strongswan-hmac-5.1.3-9.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "strongswan-ipsec-5.1.3-9.2.x86_64",
+								"product": {
+									"name": "strongswan-ipsec-5.1.3-9.2.x86_64",
+									"product_id": "strongswan-ipsec-5.1.3-9.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "strongswan-libs0-5.1.3-9.2.x86_64",
+								"product": {
+									"name": "strongswan-libs0-5.1.3-9.2.x86_64",
+									"product_id": "strongswan-libs0-5.1.3-9.2.x86_64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "x86_64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Desktop 12",
+								"product": {
+									"name": "SUSE Linux Enterprise Desktop 12",
+									"product_id": "SUSE Linux Enterprise Desktop 12",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sled:12"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server 12",
+								"product": {
+									"name": "SUSE Linux Enterprise Server 12",
+									"product_id": "SUSE Linux Enterprise Server 12",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sles:12"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server for SAP Applications 12",
+								"product": {
+									"name": "SUSE Linux Enterprise Server for SAP Applications 12",
+									"product_id": "SUSE Linux Enterprise Server for SAP Applications 12",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sles_sap:12"
+									}
+								}
+							}
+						],
+						"category": "product_family",
+						"name": "SUSE Linux Enterprise"
+					}
+				],
+				"category": "vendor",
+				"name": "SUSE"
+			}
+		],
+		"relationships": [
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "strongswan-5.1.3-9.1.x86_64 as component of SUSE Linux Enterprise Desktop 12",
+					"product_id": "SUSE Linux Enterprise Desktop 12:strongswan-5.1.3-9.1.x86_64"
+				},
+				"product_reference": "strongswan-5.1.3-9.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Desktop 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "strongswan-doc-5.1.3-9.1.noarch as component of SUSE Linux Enterprise Desktop 12",
+					"product_id": "SUSE Linux Enterprise Desktop 12:strongswan-doc-5.1.3-9.1.noarch"
+				},
+				"product_reference": "strongswan-doc-5.1.3-9.1.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Desktop 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "strongswan-ipsec-5.1.3-9.1.x86_64 as component of SUSE Linux Enterprise Desktop 12",
+					"product_id": "SUSE Linux Enterprise Desktop 12:strongswan-ipsec-5.1.3-9.1.x86_64"
+				},
+				"product_reference": "strongswan-ipsec-5.1.3-9.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Desktop 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "strongswan-libs0-5.1.3-9.1.x86_64 as component of SUSE Linux Enterprise Desktop 12",
+					"product_id": "SUSE Linux Enterprise Desktop 12:strongswan-libs0-5.1.3-9.1.x86_64"
+				},
+				"product_reference": "strongswan-libs0-5.1.3-9.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Desktop 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "strongswan-5.1.3-9.2.ppc64le as component of SUSE Linux Enterprise Server 12",
+					"product_id": "SUSE Linux Enterprise Server 12:strongswan-5.1.3-9.2.ppc64le"
+				},
+				"product_reference": "strongswan-5.1.3-9.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "strongswan-5.1.3-9.2.s390x as component of SUSE Linux Enterprise Server 12",
+					"product_id": "SUSE Linux Enterprise Server 12:strongswan-5.1.3-9.2.s390x"
+				},
+				"product_reference": "strongswan-5.1.3-9.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "strongswan-5.1.3-9.2.x86_64 as component of SUSE Linux Enterprise Server 12",
+					"product_id": "SUSE Linux Enterprise Server 12:strongswan-5.1.3-9.2.x86_64"
+				},
+				"product_reference": "strongswan-5.1.3-9.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "strongswan-doc-5.1.3-9.2.noarch as component of SUSE Linux Enterprise Server 12",
+					"product_id": "SUSE Linux Enterprise Server 12:strongswan-doc-5.1.3-9.2.noarch"
+				},
+				"product_reference": "strongswan-doc-5.1.3-9.2.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "strongswan-hmac-5.1.3-9.2.ppc64le as component of SUSE Linux Enterprise Server 12",
+					"product_id": "SUSE Linux Enterprise Server 12:strongswan-hmac-5.1.3-9.2.ppc64le"
+				},
+				"product_reference": "strongswan-hmac-5.1.3-9.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "strongswan-hmac-5.1.3-9.2.s390x as component of SUSE Linux Enterprise Server 12",
+					"product_id": "SUSE Linux Enterprise Server 12:strongswan-hmac-5.1.3-9.2.s390x"
+				},
+				"product_reference": "strongswan-hmac-5.1.3-9.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "strongswan-hmac-5.1.3-9.2.x86_64 as component of SUSE Linux Enterprise Server 12",
+					"product_id": "SUSE Linux Enterprise Server 12:strongswan-hmac-5.1.3-9.2.x86_64"
+				},
+				"product_reference": "strongswan-hmac-5.1.3-9.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "strongswan-ipsec-5.1.3-9.2.ppc64le as component of SUSE Linux Enterprise Server 12",
+					"product_id": "SUSE Linux Enterprise Server 12:strongswan-ipsec-5.1.3-9.2.ppc64le"
+				},
+				"product_reference": "strongswan-ipsec-5.1.3-9.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "strongswan-ipsec-5.1.3-9.2.s390x as component of SUSE Linux Enterprise Server 12",
+					"product_id": "SUSE Linux Enterprise Server 12:strongswan-ipsec-5.1.3-9.2.s390x"
+				},
+				"product_reference": "strongswan-ipsec-5.1.3-9.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "strongswan-ipsec-5.1.3-9.2.x86_64 as component of SUSE Linux Enterprise Server 12",
+					"product_id": "SUSE Linux Enterprise Server 12:strongswan-ipsec-5.1.3-9.2.x86_64"
+				},
+				"product_reference": "strongswan-ipsec-5.1.3-9.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "strongswan-libs0-5.1.3-9.2.ppc64le as component of SUSE Linux Enterprise Server 12",
+					"product_id": "SUSE Linux Enterprise Server 12:strongswan-libs0-5.1.3-9.2.ppc64le"
+				},
+				"product_reference": "strongswan-libs0-5.1.3-9.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "strongswan-libs0-5.1.3-9.2.s390x as component of SUSE Linux Enterprise Server 12",
+					"product_id": "SUSE Linux Enterprise Server 12:strongswan-libs0-5.1.3-9.2.s390x"
+				},
+				"product_reference": "strongswan-libs0-5.1.3-9.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "strongswan-libs0-5.1.3-9.2.x86_64 as component of SUSE Linux Enterprise Server 12",
+					"product_id": "SUSE Linux Enterprise Server 12:strongswan-libs0-5.1.3-9.2.x86_64"
+				},
+				"product_reference": "strongswan-libs0-5.1.3-9.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "strongswan-5.1.3-9.2.ppc64le as component of SUSE Linux Enterprise Server for SAP Applications 12",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12:strongswan-5.1.3-9.2.ppc64le"
+				},
+				"product_reference": "strongswan-5.1.3-9.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "strongswan-5.1.3-9.2.s390x as component of SUSE Linux Enterprise Server for SAP Applications 12",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12:strongswan-5.1.3-9.2.s390x"
+				},
+				"product_reference": "strongswan-5.1.3-9.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "strongswan-5.1.3-9.2.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 12",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12:strongswan-5.1.3-9.2.x86_64"
+				},
+				"product_reference": "strongswan-5.1.3-9.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "strongswan-doc-5.1.3-9.2.noarch as component of SUSE Linux Enterprise Server for SAP Applications 12",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12:strongswan-doc-5.1.3-9.2.noarch"
+				},
+				"product_reference": "strongswan-doc-5.1.3-9.2.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "strongswan-hmac-5.1.3-9.2.ppc64le as component of SUSE Linux Enterprise Server for SAP Applications 12",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12:strongswan-hmac-5.1.3-9.2.ppc64le"
+				},
+				"product_reference": "strongswan-hmac-5.1.3-9.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "strongswan-hmac-5.1.3-9.2.s390x as component of SUSE Linux Enterprise Server for SAP Applications 12",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12:strongswan-hmac-5.1.3-9.2.s390x"
+				},
+				"product_reference": "strongswan-hmac-5.1.3-9.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "strongswan-hmac-5.1.3-9.2.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 12",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12:strongswan-hmac-5.1.3-9.2.x86_64"
+				},
+				"product_reference": "strongswan-hmac-5.1.3-9.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "strongswan-ipsec-5.1.3-9.2.ppc64le as component of SUSE Linux Enterprise Server for SAP Applications 12",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12:strongswan-ipsec-5.1.3-9.2.ppc64le"
+				},
+				"product_reference": "strongswan-ipsec-5.1.3-9.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "strongswan-ipsec-5.1.3-9.2.s390x as component of SUSE Linux Enterprise Server for SAP Applications 12",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12:strongswan-ipsec-5.1.3-9.2.s390x"
+				},
+				"product_reference": "strongswan-ipsec-5.1.3-9.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "strongswan-ipsec-5.1.3-9.2.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 12",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12:strongswan-ipsec-5.1.3-9.2.x86_64"
+				},
+				"product_reference": "strongswan-ipsec-5.1.3-9.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "strongswan-libs0-5.1.3-9.2.ppc64le as component of SUSE Linux Enterprise Server for SAP Applications 12",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12:strongswan-libs0-5.1.3-9.2.ppc64le"
+				},
+				"product_reference": "strongswan-libs0-5.1.3-9.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "strongswan-libs0-5.1.3-9.2.s390x as component of SUSE Linux Enterprise Server for SAP Applications 12",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12:strongswan-libs0-5.1.3-9.2.s390x"
+				},
+				"product_reference": "strongswan-libs0-5.1.3-9.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "strongswan-libs0-5.1.3-9.2.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 12",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12:strongswan-libs0-5.1.3-9.2.x86_64"
+				},
+				"product_reference": "strongswan-libs0-5.1.3-9.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12"
+			}
+		]
+	},
+	"vulnerabilities": [
+		{
+			"cve": "CVE-2014-9221",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2014-9221"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "strongSwan 4.5.x through 5.2.x before 5.2.1 allows remote attackers to cause a denial of service (invalid pointer dereference) via a crafted IKEv2 Key Exchange (KE) message with Diffie-Hellman (DH) group 1025.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Desktop 12:strongswan-5.1.3-9.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12:strongswan-doc-5.1.3-9.1.noarch",
+					"SUSE Linux Enterprise Desktop 12:strongswan-ipsec-5.1.3-9.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12:strongswan-libs0-5.1.3-9.1.x86_64",
+					"SUSE Linux Enterprise Server 12:strongswan-5.1.3-9.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:strongswan-5.1.3-9.2.s390x",
+					"SUSE Linux Enterprise Server 12:strongswan-5.1.3-9.2.x86_64",
+					"SUSE Linux Enterprise Server 12:strongswan-doc-5.1.3-9.2.noarch",
+					"SUSE Linux Enterprise Server 12:strongswan-hmac-5.1.3-9.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:strongswan-hmac-5.1.3-9.2.s390x",
+					"SUSE Linux Enterprise Server 12:strongswan-hmac-5.1.3-9.2.x86_64",
+					"SUSE Linux Enterprise Server 12:strongswan-ipsec-5.1.3-9.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:strongswan-ipsec-5.1.3-9.2.s390x",
+					"SUSE Linux Enterprise Server 12:strongswan-ipsec-5.1.3-9.2.x86_64",
+					"SUSE Linux Enterprise Server 12:strongswan-libs0-5.1.3-9.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:strongswan-libs0-5.1.3-9.2.s390x",
+					"SUSE Linux Enterprise Server 12:strongswan-libs0-5.1.3-9.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:strongswan-5.1.3-9.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:strongswan-5.1.3-9.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:strongswan-5.1.3-9.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:strongswan-doc-5.1.3-9.2.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12:strongswan-hmac-5.1.3-9.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:strongswan-hmac-5.1.3-9.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:strongswan-hmac-5.1.3-9.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:strongswan-ipsec-5.1.3-9.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:strongswan-ipsec-5.1.3-9.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:strongswan-ipsec-5.1.3-9.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:strongswan-libs0-5.1.3-9.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:strongswan-libs0-5.1.3-9.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:strongswan-libs0-5.1.3-9.2.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2014-9221",
+					"url": "https://www.suse.com/security/cve/CVE-2014-9221"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 910491 for CVE-2014-9221",
+					"url": "https://bugzilla.suse.com/910491"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12:strongswan-5.1.3-9.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12:strongswan-doc-5.1.3-9.1.noarch",
+						"SUSE Linux Enterprise Desktop 12:strongswan-ipsec-5.1.3-9.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12:strongswan-libs0-5.1.3-9.1.x86_64",
+						"SUSE Linux Enterprise Server 12:strongswan-5.1.3-9.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:strongswan-5.1.3-9.2.s390x",
+						"SUSE Linux Enterprise Server 12:strongswan-5.1.3-9.2.x86_64",
+						"SUSE Linux Enterprise Server 12:strongswan-doc-5.1.3-9.2.noarch",
+						"SUSE Linux Enterprise Server 12:strongswan-hmac-5.1.3-9.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:strongswan-hmac-5.1.3-9.2.s390x",
+						"SUSE Linux Enterprise Server 12:strongswan-hmac-5.1.3-9.2.x86_64",
+						"SUSE Linux Enterprise Server 12:strongswan-ipsec-5.1.3-9.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:strongswan-ipsec-5.1.3-9.2.s390x",
+						"SUSE Linux Enterprise Server 12:strongswan-ipsec-5.1.3-9.2.x86_64",
+						"SUSE Linux Enterprise Server 12:strongswan-libs0-5.1.3-9.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:strongswan-libs0-5.1.3-9.2.s390x",
+						"SUSE Linux Enterprise Server 12:strongswan-libs0-5.1.3-9.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:strongswan-5.1.3-9.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:strongswan-5.1.3-9.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:strongswan-5.1.3-9.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:strongswan-doc-5.1.3-9.2.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12:strongswan-hmac-5.1.3-9.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:strongswan-hmac-5.1.3-9.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:strongswan-hmac-5.1.3-9.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:strongswan-ipsec-5.1.3-9.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:strongswan-ipsec-5.1.3-9.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:strongswan-ipsec-5.1.3-9.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:strongswan-libs0-5.1.3-9.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:strongswan-libs0-5.1.3-9.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:strongswan-libs0-5.1.3-9.2.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2015-01-28T11:41:44Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2014-9221"
+		}
+	]
+}

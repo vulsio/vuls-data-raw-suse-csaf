@@ -1,0 +1,1000 @@
+{
+	"document": {
+		"aggregate_severity": {
+			"namespace": "https://www.suse.com/support/security/rating/",
+			"text": "low"
+		},
+		"category": "csaf_security_advisory",
+		"csaf_version": "2.0",
+		"distribution": {
+			"text": "Copyright 2023 SUSE LLC. All rights reserved.",
+			"tlp": {
+				"label": "WHITE",
+				"url": "https://www.first.org/tlp/"
+			}
+		},
+		"lang": "en",
+		"notes": [
+			{
+				"category": "summary",
+				"text": "Security update for openstack and python-oslo.utils",
+				"title": "Title of the patch"
+			},
+			{
+				"category": "description",
+				"text": "\nThis update provides the following fixes provided from the upstream OpenStack-project:\n\n- openstack-suse:\n  + do not copy upstream python requirements to the package, we rely on Requires; upstream requirements.txt introduce version caps which we do not follow (bnc#920573)\n\n- openstack-sahara:\n  + Fix getting heat stack in Sahara\n  + Fixed scaling with new node group with auto sg\n  + Open all ports for private network for auto SG\n  + Fix for getting auth url for hadoop-swift\n  + Fixed auto security group cleanup in case of creation error\n  + Add list of open ports for Cloudera plugin\n  + Add missed files for migrations in MANIFEST.in\n  + Include launch_command.py in MANIFEST.in\n  + Fix requires\n\n- openstack-keystone:\n  + Updated hybrid backend to include fix for bsc#935892\n  + Deal with PEP-0476 certificate chaining checking\n  + Backport fixes for v3 API sample policy file (lp#1381809 and lp#1392155).\n  + Install v3 sample policy into the doc directory\n  + Update hybrid backend to include latest fixes for v3 protocol (bsc#928718)\n  + backend_argument should be marked secret\n  + Work with pymongo 3.0\n  + Speed up memcache lock\n  + Fix up _ldap_res_to_model for ldap identity backend\n  + Don't try to convert LDAP attributes to boolean\n  + Fix the wrong update logic of catalog kvs driver\n  + Do parameter check before updating endpoint_group\n  + Correct initialization order for logging to use eventlet locks\n  + Fix the syntax issue on creating table `endpoint_group`\n\n- openstack-heat:\n  + Add env storing for loaded environments\n  + Fix block_device_mapping property validation when using get_attr\n  + Add default_client_name in Nova::FloatingIPAssoc\n  + Fix cloud-init Python syntax for Python < 2.6\n  + Allow lists and strings for Json parameters via provider resources\n  + RandomString physical_resource_id as id not the string\n  + Authenticate the domain user with id instead of username\n  + Tell stevedore not to force verify requirements\n  + Use properties.data when testing for 'provided by the user'\n  + Ship /usr/lib/heat directory in openstack-heat-engine subpackage, since that's where plugin are loaded from.\n  + Create openstack-heat-plugin-heat_docker subpackage to ship the heat_docker plugin.\n  + Fix update on failed stack\n  + Enable https for keystone while creating stack user\n  + Change the engine-listener topic\n  + Just to delete the stack when adopt rollback\n  + Release stack lock when successfully acquire\n  + Add dependency on Router External Gateway property\n  + Use only FIP dependencies from graph\n  + Add dependency hidden on router_interface\n  + Update heat.conf.sample\n  + Upgrade requirements for kombu and greenlet to Juno versions (bnc#920573)\n  + Stop patching oslo.messaging private bits\n\n- openstack-glance:\n  + Eventlet green threads not released back to pool\n  + Replace assert statements with proper control-flow\n  + Fix intermittent unit test failures\n  + Initiate deletion of image files if the import was interrupted to prevent denial of service (bnc#918784, CVE-2014-9684)\n\n- openstack-cinder:\n  + Remove nonexistent LIO terminate_connection call\n  + Disallow backing files when uploading volumes to image\n  + LVM: Pass volume size in MiB to copy_volume() during volume migration\n  + Remove iscsi_helper calls from base iscsi driver\n  + Fix exceptions logging in iSCSI targets\n  + Delete the temporary volume if migration fails\n  + Get the 'consumer' in a correct way for retyping with qos-specs\n  + Fix re-export of iscsi volume when using lioadm\n  + Revert 'Add support for customized cluster name'\n  + Failed to discovery when iscsi multipath and CHAP both enabled\n  + Add support for customized cluster name\n  + Only use operational LIFs for iscsi target details\n  + Clear migration_status from a destination volume if migration fails\n  + Deal with PEP-0476 certificate chaining checking\n\n- openstack-ceilometer:\n  + Ensure unique list of consumers created\n  + Add bandwidth to measurements\n  + Rely on VM UUID to fetch metrics in libvirt\n  + Retry to connect database when DB2 or mongodb is restarted\n  + Use alarm's evaluation periods in sufficient test\n  + [MongoDB] Fix bug with reconnection to new master node\n  + Fix the value of query_spec.maxSample to advoid to be zero\n  + Fix issue when ceilometer-expirer is called from the wrong user via cronjob and the resulting logs end up having wrong ownership. See also bsc#930574\n  + Metering data ttl sql backend breaks resource metadata\n  + Stop mocking os.path in test_setup_events_default_config\n  + Move the cron job to collector package (bnc#926596) \n  + Catch exception when evaluate single alarm\n    \n- python-oslo.utils:\n  + Update to version 1.4.0\n    * Add a stopwatch + split for duration(s)\n    * Allow providing a logger to save_and_reraise_exception\n    * Utility API to generate EUI-64 IPv6 address\n    * Add a eventlet utils helper module\n    * Add microsecond support to iso8601_from_timestamp\n    * Update Oslo imports to remove namespace package\n    * Add TimeFixture\n    * Add microsecond support to timeutils.utcnow_ts()\n\n- python-oslo.i18n:\n  + Update to version 1.3.1\n    * Remove deprecation warning (bnc#931204)\n    * Correct the translation domain for loading messages\n    * Workflow documentation is now in infra-manual\n    * Imported Translations from Transifex\n    * Activate pep8 check that _ is imported\n    * Make clear in docs to use _LE() when using LOG.exception()\n    * Support building wheels (PEP-427)\n\n- python-six:\n  + Update to version 1.9.0\n    * Support the `flush` parameter to `six.print_`.\n    * Add the `python_2_unicode_compatible` decorator.\n    * Ensure `six.wraps` respects the *updated* and *assigned* arguments.\n    * Fix `six.moves` race condition in multi-threaded code.\n    * Add `six.view(keys|values|itmes)`, which provide dictionary views on Python 2.7+.\n    * Fix add_metaclass when the class has __slots__ containing '__weakref__' or '__dict__'.\n    * Always accept *updated* and *assigned* arguments for wraps().\n    * Fix import six on Python 3.4 with a custom loader.\n",
+				"title": "Description of the patch"
+			},
+			{
+				"category": "details",
+				"text": "sleclo50sp3-openstack-201507-12074",
+				"title": "Patchnames"
+			},
+			{
+				"category": "legal_disclaimer",
+				"text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+				"title": "Terms of use"
+			}
+		],
+		"publisher": {
+			"category": "vendor",
+			"contact_details": "https://www.suse.com/support/security/contact/",
+			"name": "SUSE Product Security Team",
+			"namespace": "https://www.suse.com/"
+		},
+		"references": [
+			{
+				"category": "self",
+				"summary": "URL for SUSE-SU-2015:1515-1",
+				"url": "https://www.suse.com/support/update/announcement/2015/suse-su-20151515-1/"
+			},
+			{
+				"category": "external",
+				"summary": "SUSE ratings",
+				"url": "https://www.suse.com/support/security/rating/"
+			},
+			{
+				"category": "self",
+				"summary": "URL of this CSAF notice",
+				"url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2015_1515-1.json"
+			},
+			{
+				"category": "self",
+				"summary": "E-Mail link for SUSE-SU-2015:1515-1",
+				"url": "https://lists.suse.com/pipermail/sle-security-updates/2015-September/001581.html"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 918784",
+				"url": "https://bugzilla.suse.com/918784"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 920573",
+				"url": "https://bugzilla.suse.com/920573"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 926596",
+				"url": "https://bugzilla.suse.com/926596"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 928718",
+				"url": "https://bugzilla.suse.com/928718"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 930574",
+				"url": "https://bugzilla.suse.com/930574"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 931204",
+				"url": "https://bugzilla.suse.com/931204"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 935892",
+				"url": "https://bugzilla.suse.com/935892"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2014-9684 page",
+				"url": "https://www.suse.com/security/cve/CVE-2014-9684/"
+			}
+		],
+		"title": "Security update for openstack and python-oslo.utils",
+		"tracking": {
+			"current_release_date": "2015-08-25T08:34:56Z",
+			"generator": {
+				"date": "2015-08-25T08:34:56Z",
+				"engine": {
+					"name": "cve-database.git:bin/generate-csaf.pl",
+					"version": "1"
+				}
+			},
+			"id": "SUSE-SU-2015:1515-1",
+			"initial_release_date": "2015-08-25T08:34:56Z",
+			"revision_history": [
+				{
+					"date": "2015-08-25T08:34:56Z",
+					"number": "1",
+					"summary": "Current version"
+				}
+			],
+			"status": "final",
+			"version": "1"
+		}
+	},
+	"product_tree": {
+		"branches": [
+			{
+				"branches": [
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "openstack-ceilometer-doc-2014.2.4.dev18-9.11.noarch",
+								"product": {
+									"name": "openstack-ceilometer-doc-2014.2.4.dev18-9.11.noarch",
+									"product_id": "openstack-ceilometer-doc-2014.2.4.dev18-9.11.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openstack-cinder-doc-2014.2.4.dev19-9.12.noarch",
+								"product": {
+									"name": "openstack-cinder-doc-2014.2.4.dev19-9.12.noarch",
+									"product_id": "openstack-cinder-doc-2014.2.4.dev19-9.12.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openstack-glance-doc-2014.2.4.dev5-9.7.noarch",
+								"product": {
+									"name": "openstack-glance-doc-2014.2.4.dev5-9.7.noarch",
+									"product_id": "openstack-glance-doc-2014.2.4.dev5-9.7.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openstack-heat-doc-2014.2.4.dev13-9.8.noarch",
+								"product": {
+									"name": "openstack-heat-doc-2014.2.4.dev13-9.8.noarch",
+									"product_id": "openstack-heat-doc-2014.2.4.dev13-9.8.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openstack-keystone-doc-2014.2.4.dev5-11.12.noarch",
+								"product": {
+									"name": "openstack-keystone-doc-2014.2.4.dev5-11.12.noarch",
+									"product_id": "openstack-keystone-doc-2014.2.4.dev5-11.12.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openstack-sahara-doc-2014.2.4.dev3-9.5.noarch",
+								"product": {
+									"name": "openstack-sahara-doc-2014.2.4.dev3-9.5.noarch",
+									"product_id": "openstack-sahara-doc-2014.2.4.dev3-9.5.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openstack-suse-sudo-2014.2-9.2.noarch",
+								"product": {
+									"name": "openstack-suse-sudo-2014.2-9.2.noarch",
+									"product_id": "openstack-suse-sudo-2014.2-9.2.noarch"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "noarch"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "openstack-ceilometer-2014.2.4.dev18-9.7.x86_64",
+								"product": {
+									"name": "openstack-ceilometer-2014.2.4.dev18-9.7.x86_64",
+									"product_id": "openstack-ceilometer-2014.2.4.dev18-9.7.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openstack-ceilometer-agent-central-2014.2.4.dev18-9.7.x86_64",
+								"product": {
+									"name": "openstack-ceilometer-agent-central-2014.2.4.dev18-9.7.x86_64",
+									"product_id": "openstack-ceilometer-agent-central-2014.2.4.dev18-9.7.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openstack-ceilometer-agent-compute-2014.2.4.dev18-9.7.x86_64",
+								"product": {
+									"name": "openstack-ceilometer-agent-compute-2014.2.4.dev18-9.7.x86_64",
+									"product_id": "openstack-ceilometer-agent-compute-2014.2.4.dev18-9.7.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openstack-ceilometer-agent-ipmi-2014.2.4.dev18-9.7.x86_64",
+								"product": {
+									"name": "openstack-ceilometer-agent-ipmi-2014.2.4.dev18-9.7.x86_64",
+									"product_id": "openstack-ceilometer-agent-ipmi-2014.2.4.dev18-9.7.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openstack-ceilometer-agent-notification-2014.2.4.dev18-9.7.x86_64",
+								"product": {
+									"name": "openstack-ceilometer-agent-notification-2014.2.4.dev18-9.7.x86_64",
+									"product_id": "openstack-ceilometer-agent-notification-2014.2.4.dev18-9.7.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openstack-ceilometer-alarm-evaluator-2014.2.4.dev18-9.7.x86_64",
+								"product": {
+									"name": "openstack-ceilometer-alarm-evaluator-2014.2.4.dev18-9.7.x86_64",
+									"product_id": "openstack-ceilometer-alarm-evaluator-2014.2.4.dev18-9.7.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openstack-ceilometer-alarm-notifier-2014.2.4.dev18-9.7.x86_64",
+								"product": {
+									"name": "openstack-ceilometer-alarm-notifier-2014.2.4.dev18-9.7.x86_64",
+									"product_id": "openstack-ceilometer-alarm-notifier-2014.2.4.dev18-9.7.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openstack-ceilometer-api-2014.2.4.dev18-9.7.x86_64",
+								"product": {
+									"name": "openstack-ceilometer-api-2014.2.4.dev18-9.7.x86_64",
+									"product_id": "openstack-ceilometer-api-2014.2.4.dev18-9.7.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openstack-ceilometer-collector-2014.2.4.dev18-9.7.x86_64",
+								"product": {
+									"name": "openstack-ceilometer-collector-2014.2.4.dev18-9.7.x86_64",
+									"product_id": "openstack-ceilometer-collector-2014.2.4.dev18-9.7.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openstack-cinder-2014.2.4.dev19-9.7.x86_64",
+								"product": {
+									"name": "openstack-cinder-2014.2.4.dev19-9.7.x86_64",
+									"product_id": "openstack-cinder-2014.2.4.dev19-9.7.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openstack-cinder-api-2014.2.4.dev19-9.7.x86_64",
+								"product": {
+									"name": "openstack-cinder-api-2014.2.4.dev19-9.7.x86_64",
+									"product_id": "openstack-cinder-api-2014.2.4.dev19-9.7.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openstack-cinder-backup-2014.2.4.dev19-9.7.x86_64",
+								"product": {
+									"name": "openstack-cinder-backup-2014.2.4.dev19-9.7.x86_64",
+									"product_id": "openstack-cinder-backup-2014.2.4.dev19-9.7.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openstack-cinder-scheduler-2014.2.4.dev19-9.7.x86_64",
+								"product": {
+									"name": "openstack-cinder-scheduler-2014.2.4.dev19-9.7.x86_64",
+									"product_id": "openstack-cinder-scheduler-2014.2.4.dev19-9.7.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openstack-cinder-volume-2014.2.4.dev19-9.7.x86_64",
+								"product": {
+									"name": "openstack-cinder-volume-2014.2.4.dev19-9.7.x86_64",
+									"product_id": "openstack-cinder-volume-2014.2.4.dev19-9.7.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openstack-glance-2014.2.4.dev5-9.5.x86_64",
+								"product": {
+									"name": "openstack-glance-2014.2.4.dev5-9.5.x86_64",
+									"product_id": "openstack-glance-2014.2.4.dev5-9.5.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openstack-heat-2014.2.4.dev13-9.6.x86_64",
+								"product": {
+									"name": "openstack-heat-2014.2.4.dev13-9.6.x86_64",
+									"product_id": "openstack-heat-2014.2.4.dev13-9.6.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openstack-heat-api-2014.2.4.dev13-9.6.x86_64",
+								"product": {
+									"name": "openstack-heat-api-2014.2.4.dev13-9.6.x86_64",
+									"product_id": "openstack-heat-api-2014.2.4.dev13-9.6.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openstack-heat-api-cfn-2014.2.4.dev13-9.6.x86_64",
+								"product": {
+									"name": "openstack-heat-api-cfn-2014.2.4.dev13-9.6.x86_64",
+									"product_id": "openstack-heat-api-cfn-2014.2.4.dev13-9.6.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openstack-heat-api-cloudwatch-2014.2.4.dev13-9.6.x86_64",
+								"product": {
+									"name": "openstack-heat-api-cloudwatch-2014.2.4.dev13-9.6.x86_64",
+									"product_id": "openstack-heat-api-cloudwatch-2014.2.4.dev13-9.6.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openstack-heat-engine-2014.2.4.dev13-9.6.x86_64",
+								"product": {
+									"name": "openstack-heat-engine-2014.2.4.dev13-9.6.x86_64",
+									"product_id": "openstack-heat-engine-2014.2.4.dev13-9.6.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openstack-keystone-2014.2.4.dev5-11.8.x86_64",
+								"product": {
+									"name": "openstack-keystone-2014.2.4.dev5-11.8.x86_64",
+									"product_id": "openstack-keystone-2014.2.4.dev5-11.8.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openstack-sahara-2014.2.4.dev3-9.5.x86_64",
+								"product": {
+									"name": "openstack-sahara-2014.2.4.dev3-9.5.x86_64",
+									"product_id": "openstack-sahara-2014.2.4.dev3-9.5.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openstack-sahara-api-2014.2.4.dev3-9.5.x86_64",
+								"product": {
+									"name": "openstack-sahara-api-2014.2.4.dev3-9.5.x86_64",
+									"product_id": "openstack-sahara-api-2014.2.4.dev3-9.5.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openstack-sahara-engine-2014.2.4.dev3-9.5.x86_64",
+								"product": {
+									"name": "openstack-sahara-engine-2014.2.4.dev3-9.5.x86_64",
+									"product_id": "openstack-sahara-engine-2014.2.4.dev3-9.5.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "python-ceilometer-2014.2.4.dev18-9.7.x86_64",
+								"product": {
+									"name": "python-ceilometer-2014.2.4.dev18-9.7.x86_64",
+									"product_id": "python-ceilometer-2014.2.4.dev18-9.7.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "python-cinder-2014.2.4.dev19-9.7.x86_64",
+								"product": {
+									"name": "python-cinder-2014.2.4.dev19-9.7.x86_64",
+									"product_id": "python-cinder-2014.2.4.dev19-9.7.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "python-glance-2014.2.4.dev5-9.5.x86_64",
+								"product": {
+									"name": "python-glance-2014.2.4.dev5-9.5.x86_64",
+									"product_id": "python-glance-2014.2.4.dev5-9.5.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "python-heat-2014.2.4.dev13-9.6.x86_64",
+								"product": {
+									"name": "python-heat-2014.2.4.dev13-9.6.x86_64",
+									"product_id": "python-heat-2014.2.4.dev13-9.6.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "python-keystone-2014.2.4.dev5-11.8.x86_64",
+								"product": {
+									"name": "python-keystone-2014.2.4.dev5-11.8.x86_64",
+									"product_id": "python-keystone-2014.2.4.dev5-11.8.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "python-oslo.i18n-1.3.1-9.6.x86_64",
+								"product": {
+									"name": "python-oslo.i18n-1.3.1-9.6.x86_64",
+									"product_id": "python-oslo.i18n-1.3.1-9.6.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "python-oslo.utils-1.4.0-14.2.x86_64",
+								"product": {
+									"name": "python-oslo.utils-1.4.0-14.2.x86_64",
+									"product_id": "python-oslo.utils-1.4.0-14.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "python-oslotest-1.2.0-2.5.x86_64",
+								"product": {
+									"name": "python-oslotest-1.2.0-2.5.x86_64",
+									"product_id": "python-oslotest-1.2.0-2.5.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "python-sahara-2014.2.4.dev3-9.5.x86_64",
+								"product": {
+									"name": "python-sahara-2014.2.4.dev3-9.5.x86_64",
+									"product_id": "python-sahara-2014.2.4.dev3-9.5.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "python-six-1.9.0-9.2.x86_64",
+								"product": {
+									"name": "python-six-1.9.0-9.2.x86_64",
+									"product_id": "python-six-1.9.0-9.2.x86_64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "x86_64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_name",
+								"name": "SUSE OpenStack Cloud 5",
+								"product": {
+									"name": "SUSE OpenStack Cloud 5",
+									"product_id": "SUSE OpenStack Cloud 5",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:cloud:5"
+									}
+								}
+							}
+						],
+						"category": "product_family",
+						"name": "SUSE Linux Enterprise"
+					}
+				],
+				"category": "vendor",
+				"name": "SUSE"
+			}
+		],
+		"relationships": [
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openstack-ceilometer-2014.2.4.dev18-9.7.x86_64 as component of SUSE OpenStack Cloud 5",
+					"product_id": "SUSE OpenStack Cloud 5:openstack-ceilometer-2014.2.4.dev18-9.7.x86_64"
+				},
+				"product_reference": "openstack-ceilometer-2014.2.4.dev18-9.7.x86_64",
+				"relates_to_product_reference": "SUSE OpenStack Cloud 5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openstack-ceilometer-agent-central-2014.2.4.dev18-9.7.x86_64 as component of SUSE OpenStack Cloud 5",
+					"product_id": "SUSE OpenStack Cloud 5:openstack-ceilometer-agent-central-2014.2.4.dev18-9.7.x86_64"
+				},
+				"product_reference": "openstack-ceilometer-agent-central-2014.2.4.dev18-9.7.x86_64",
+				"relates_to_product_reference": "SUSE OpenStack Cloud 5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openstack-ceilometer-agent-compute-2014.2.4.dev18-9.7.x86_64 as component of SUSE OpenStack Cloud 5",
+					"product_id": "SUSE OpenStack Cloud 5:openstack-ceilometer-agent-compute-2014.2.4.dev18-9.7.x86_64"
+				},
+				"product_reference": "openstack-ceilometer-agent-compute-2014.2.4.dev18-9.7.x86_64",
+				"relates_to_product_reference": "SUSE OpenStack Cloud 5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openstack-ceilometer-agent-ipmi-2014.2.4.dev18-9.7.x86_64 as component of SUSE OpenStack Cloud 5",
+					"product_id": "SUSE OpenStack Cloud 5:openstack-ceilometer-agent-ipmi-2014.2.4.dev18-9.7.x86_64"
+				},
+				"product_reference": "openstack-ceilometer-agent-ipmi-2014.2.4.dev18-9.7.x86_64",
+				"relates_to_product_reference": "SUSE OpenStack Cloud 5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openstack-ceilometer-agent-notification-2014.2.4.dev18-9.7.x86_64 as component of SUSE OpenStack Cloud 5",
+					"product_id": "SUSE OpenStack Cloud 5:openstack-ceilometer-agent-notification-2014.2.4.dev18-9.7.x86_64"
+				},
+				"product_reference": "openstack-ceilometer-agent-notification-2014.2.4.dev18-9.7.x86_64",
+				"relates_to_product_reference": "SUSE OpenStack Cloud 5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openstack-ceilometer-alarm-evaluator-2014.2.4.dev18-9.7.x86_64 as component of SUSE OpenStack Cloud 5",
+					"product_id": "SUSE OpenStack Cloud 5:openstack-ceilometer-alarm-evaluator-2014.2.4.dev18-9.7.x86_64"
+				},
+				"product_reference": "openstack-ceilometer-alarm-evaluator-2014.2.4.dev18-9.7.x86_64",
+				"relates_to_product_reference": "SUSE OpenStack Cloud 5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openstack-ceilometer-alarm-notifier-2014.2.4.dev18-9.7.x86_64 as component of SUSE OpenStack Cloud 5",
+					"product_id": "SUSE OpenStack Cloud 5:openstack-ceilometer-alarm-notifier-2014.2.4.dev18-9.7.x86_64"
+				},
+				"product_reference": "openstack-ceilometer-alarm-notifier-2014.2.4.dev18-9.7.x86_64",
+				"relates_to_product_reference": "SUSE OpenStack Cloud 5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openstack-ceilometer-api-2014.2.4.dev18-9.7.x86_64 as component of SUSE OpenStack Cloud 5",
+					"product_id": "SUSE OpenStack Cloud 5:openstack-ceilometer-api-2014.2.4.dev18-9.7.x86_64"
+				},
+				"product_reference": "openstack-ceilometer-api-2014.2.4.dev18-9.7.x86_64",
+				"relates_to_product_reference": "SUSE OpenStack Cloud 5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openstack-ceilometer-collector-2014.2.4.dev18-9.7.x86_64 as component of SUSE OpenStack Cloud 5",
+					"product_id": "SUSE OpenStack Cloud 5:openstack-ceilometer-collector-2014.2.4.dev18-9.7.x86_64"
+				},
+				"product_reference": "openstack-ceilometer-collector-2014.2.4.dev18-9.7.x86_64",
+				"relates_to_product_reference": "SUSE OpenStack Cloud 5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openstack-ceilometer-doc-2014.2.4.dev18-9.11.noarch as component of SUSE OpenStack Cloud 5",
+					"product_id": "SUSE OpenStack Cloud 5:openstack-ceilometer-doc-2014.2.4.dev18-9.11.noarch"
+				},
+				"product_reference": "openstack-ceilometer-doc-2014.2.4.dev18-9.11.noarch",
+				"relates_to_product_reference": "SUSE OpenStack Cloud 5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openstack-cinder-2014.2.4.dev19-9.7.x86_64 as component of SUSE OpenStack Cloud 5",
+					"product_id": "SUSE OpenStack Cloud 5:openstack-cinder-2014.2.4.dev19-9.7.x86_64"
+				},
+				"product_reference": "openstack-cinder-2014.2.4.dev19-9.7.x86_64",
+				"relates_to_product_reference": "SUSE OpenStack Cloud 5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openstack-cinder-api-2014.2.4.dev19-9.7.x86_64 as component of SUSE OpenStack Cloud 5",
+					"product_id": "SUSE OpenStack Cloud 5:openstack-cinder-api-2014.2.4.dev19-9.7.x86_64"
+				},
+				"product_reference": "openstack-cinder-api-2014.2.4.dev19-9.7.x86_64",
+				"relates_to_product_reference": "SUSE OpenStack Cloud 5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openstack-cinder-backup-2014.2.4.dev19-9.7.x86_64 as component of SUSE OpenStack Cloud 5",
+					"product_id": "SUSE OpenStack Cloud 5:openstack-cinder-backup-2014.2.4.dev19-9.7.x86_64"
+				},
+				"product_reference": "openstack-cinder-backup-2014.2.4.dev19-9.7.x86_64",
+				"relates_to_product_reference": "SUSE OpenStack Cloud 5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openstack-cinder-doc-2014.2.4.dev19-9.12.noarch as component of SUSE OpenStack Cloud 5",
+					"product_id": "SUSE OpenStack Cloud 5:openstack-cinder-doc-2014.2.4.dev19-9.12.noarch"
+				},
+				"product_reference": "openstack-cinder-doc-2014.2.4.dev19-9.12.noarch",
+				"relates_to_product_reference": "SUSE OpenStack Cloud 5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openstack-cinder-scheduler-2014.2.4.dev19-9.7.x86_64 as component of SUSE OpenStack Cloud 5",
+					"product_id": "SUSE OpenStack Cloud 5:openstack-cinder-scheduler-2014.2.4.dev19-9.7.x86_64"
+				},
+				"product_reference": "openstack-cinder-scheduler-2014.2.4.dev19-9.7.x86_64",
+				"relates_to_product_reference": "SUSE OpenStack Cloud 5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openstack-cinder-volume-2014.2.4.dev19-9.7.x86_64 as component of SUSE OpenStack Cloud 5",
+					"product_id": "SUSE OpenStack Cloud 5:openstack-cinder-volume-2014.2.4.dev19-9.7.x86_64"
+				},
+				"product_reference": "openstack-cinder-volume-2014.2.4.dev19-9.7.x86_64",
+				"relates_to_product_reference": "SUSE OpenStack Cloud 5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openstack-glance-2014.2.4.dev5-9.5.x86_64 as component of SUSE OpenStack Cloud 5",
+					"product_id": "SUSE OpenStack Cloud 5:openstack-glance-2014.2.4.dev5-9.5.x86_64"
+				},
+				"product_reference": "openstack-glance-2014.2.4.dev5-9.5.x86_64",
+				"relates_to_product_reference": "SUSE OpenStack Cloud 5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openstack-glance-doc-2014.2.4.dev5-9.7.noarch as component of SUSE OpenStack Cloud 5",
+					"product_id": "SUSE OpenStack Cloud 5:openstack-glance-doc-2014.2.4.dev5-9.7.noarch"
+				},
+				"product_reference": "openstack-glance-doc-2014.2.4.dev5-9.7.noarch",
+				"relates_to_product_reference": "SUSE OpenStack Cloud 5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openstack-heat-2014.2.4.dev13-9.6.x86_64 as component of SUSE OpenStack Cloud 5",
+					"product_id": "SUSE OpenStack Cloud 5:openstack-heat-2014.2.4.dev13-9.6.x86_64"
+				},
+				"product_reference": "openstack-heat-2014.2.4.dev13-9.6.x86_64",
+				"relates_to_product_reference": "SUSE OpenStack Cloud 5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openstack-heat-api-2014.2.4.dev13-9.6.x86_64 as component of SUSE OpenStack Cloud 5",
+					"product_id": "SUSE OpenStack Cloud 5:openstack-heat-api-2014.2.4.dev13-9.6.x86_64"
+				},
+				"product_reference": "openstack-heat-api-2014.2.4.dev13-9.6.x86_64",
+				"relates_to_product_reference": "SUSE OpenStack Cloud 5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openstack-heat-api-cfn-2014.2.4.dev13-9.6.x86_64 as component of SUSE OpenStack Cloud 5",
+					"product_id": "SUSE OpenStack Cloud 5:openstack-heat-api-cfn-2014.2.4.dev13-9.6.x86_64"
+				},
+				"product_reference": "openstack-heat-api-cfn-2014.2.4.dev13-9.6.x86_64",
+				"relates_to_product_reference": "SUSE OpenStack Cloud 5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openstack-heat-api-cloudwatch-2014.2.4.dev13-9.6.x86_64 as component of SUSE OpenStack Cloud 5",
+					"product_id": "SUSE OpenStack Cloud 5:openstack-heat-api-cloudwatch-2014.2.4.dev13-9.6.x86_64"
+				},
+				"product_reference": "openstack-heat-api-cloudwatch-2014.2.4.dev13-9.6.x86_64",
+				"relates_to_product_reference": "SUSE OpenStack Cloud 5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openstack-heat-doc-2014.2.4.dev13-9.8.noarch as component of SUSE OpenStack Cloud 5",
+					"product_id": "SUSE OpenStack Cloud 5:openstack-heat-doc-2014.2.4.dev13-9.8.noarch"
+				},
+				"product_reference": "openstack-heat-doc-2014.2.4.dev13-9.8.noarch",
+				"relates_to_product_reference": "SUSE OpenStack Cloud 5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openstack-heat-engine-2014.2.4.dev13-9.6.x86_64 as component of SUSE OpenStack Cloud 5",
+					"product_id": "SUSE OpenStack Cloud 5:openstack-heat-engine-2014.2.4.dev13-9.6.x86_64"
+				},
+				"product_reference": "openstack-heat-engine-2014.2.4.dev13-9.6.x86_64",
+				"relates_to_product_reference": "SUSE OpenStack Cloud 5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openstack-keystone-2014.2.4.dev5-11.8.x86_64 as component of SUSE OpenStack Cloud 5",
+					"product_id": "SUSE OpenStack Cloud 5:openstack-keystone-2014.2.4.dev5-11.8.x86_64"
+				},
+				"product_reference": "openstack-keystone-2014.2.4.dev5-11.8.x86_64",
+				"relates_to_product_reference": "SUSE OpenStack Cloud 5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openstack-keystone-doc-2014.2.4.dev5-11.12.noarch as component of SUSE OpenStack Cloud 5",
+					"product_id": "SUSE OpenStack Cloud 5:openstack-keystone-doc-2014.2.4.dev5-11.12.noarch"
+				},
+				"product_reference": "openstack-keystone-doc-2014.2.4.dev5-11.12.noarch",
+				"relates_to_product_reference": "SUSE OpenStack Cloud 5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openstack-sahara-2014.2.4.dev3-9.5.x86_64 as component of SUSE OpenStack Cloud 5",
+					"product_id": "SUSE OpenStack Cloud 5:openstack-sahara-2014.2.4.dev3-9.5.x86_64"
+				},
+				"product_reference": "openstack-sahara-2014.2.4.dev3-9.5.x86_64",
+				"relates_to_product_reference": "SUSE OpenStack Cloud 5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openstack-sahara-api-2014.2.4.dev3-9.5.x86_64 as component of SUSE OpenStack Cloud 5",
+					"product_id": "SUSE OpenStack Cloud 5:openstack-sahara-api-2014.2.4.dev3-9.5.x86_64"
+				},
+				"product_reference": "openstack-sahara-api-2014.2.4.dev3-9.5.x86_64",
+				"relates_to_product_reference": "SUSE OpenStack Cloud 5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openstack-sahara-doc-2014.2.4.dev3-9.5.noarch as component of SUSE OpenStack Cloud 5",
+					"product_id": "SUSE OpenStack Cloud 5:openstack-sahara-doc-2014.2.4.dev3-9.5.noarch"
+				},
+				"product_reference": "openstack-sahara-doc-2014.2.4.dev3-9.5.noarch",
+				"relates_to_product_reference": "SUSE OpenStack Cloud 5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openstack-sahara-engine-2014.2.4.dev3-9.5.x86_64 as component of SUSE OpenStack Cloud 5",
+					"product_id": "SUSE OpenStack Cloud 5:openstack-sahara-engine-2014.2.4.dev3-9.5.x86_64"
+				},
+				"product_reference": "openstack-sahara-engine-2014.2.4.dev3-9.5.x86_64",
+				"relates_to_product_reference": "SUSE OpenStack Cloud 5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openstack-suse-sudo-2014.2-9.2.noarch as component of SUSE OpenStack Cloud 5",
+					"product_id": "SUSE OpenStack Cloud 5:openstack-suse-sudo-2014.2-9.2.noarch"
+				},
+				"product_reference": "openstack-suse-sudo-2014.2-9.2.noarch",
+				"relates_to_product_reference": "SUSE OpenStack Cloud 5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "python-ceilometer-2014.2.4.dev18-9.7.x86_64 as component of SUSE OpenStack Cloud 5",
+					"product_id": "SUSE OpenStack Cloud 5:python-ceilometer-2014.2.4.dev18-9.7.x86_64"
+				},
+				"product_reference": "python-ceilometer-2014.2.4.dev18-9.7.x86_64",
+				"relates_to_product_reference": "SUSE OpenStack Cloud 5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "python-cinder-2014.2.4.dev19-9.7.x86_64 as component of SUSE OpenStack Cloud 5",
+					"product_id": "SUSE OpenStack Cloud 5:python-cinder-2014.2.4.dev19-9.7.x86_64"
+				},
+				"product_reference": "python-cinder-2014.2.4.dev19-9.7.x86_64",
+				"relates_to_product_reference": "SUSE OpenStack Cloud 5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "python-glance-2014.2.4.dev5-9.5.x86_64 as component of SUSE OpenStack Cloud 5",
+					"product_id": "SUSE OpenStack Cloud 5:python-glance-2014.2.4.dev5-9.5.x86_64"
+				},
+				"product_reference": "python-glance-2014.2.4.dev5-9.5.x86_64",
+				"relates_to_product_reference": "SUSE OpenStack Cloud 5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "python-heat-2014.2.4.dev13-9.6.x86_64 as component of SUSE OpenStack Cloud 5",
+					"product_id": "SUSE OpenStack Cloud 5:python-heat-2014.2.4.dev13-9.6.x86_64"
+				},
+				"product_reference": "python-heat-2014.2.4.dev13-9.6.x86_64",
+				"relates_to_product_reference": "SUSE OpenStack Cloud 5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "python-keystone-2014.2.4.dev5-11.8.x86_64 as component of SUSE OpenStack Cloud 5",
+					"product_id": "SUSE OpenStack Cloud 5:python-keystone-2014.2.4.dev5-11.8.x86_64"
+				},
+				"product_reference": "python-keystone-2014.2.4.dev5-11.8.x86_64",
+				"relates_to_product_reference": "SUSE OpenStack Cloud 5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "python-oslo.i18n-1.3.1-9.6.x86_64 as component of SUSE OpenStack Cloud 5",
+					"product_id": "SUSE OpenStack Cloud 5:python-oslo.i18n-1.3.1-9.6.x86_64"
+				},
+				"product_reference": "python-oslo.i18n-1.3.1-9.6.x86_64",
+				"relates_to_product_reference": "SUSE OpenStack Cloud 5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "python-oslo.utils-1.4.0-14.2.x86_64 as component of SUSE OpenStack Cloud 5",
+					"product_id": "SUSE OpenStack Cloud 5:python-oslo.utils-1.4.0-14.2.x86_64"
+				},
+				"product_reference": "python-oslo.utils-1.4.0-14.2.x86_64",
+				"relates_to_product_reference": "SUSE OpenStack Cloud 5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "python-oslotest-1.2.0-2.5.x86_64 as component of SUSE OpenStack Cloud 5",
+					"product_id": "SUSE OpenStack Cloud 5:python-oslotest-1.2.0-2.5.x86_64"
+				},
+				"product_reference": "python-oslotest-1.2.0-2.5.x86_64",
+				"relates_to_product_reference": "SUSE OpenStack Cloud 5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "python-sahara-2014.2.4.dev3-9.5.x86_64 as component of SUSE OpenStack Cloud 5",
+					"product_id": "SUSE OpenStack Cloud 5:python-sahara-2014.2.4.dev3-9.5.x86_64"
+				},
+				"product_reference": "python-sahara-2014.2.4.dev3-9.5.x86_64",
+				"relates_to_product_reference": "SUSE OpenStack Cloud 5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "python-six-1.9.0-9.2.x86_64 as component of SUSE OpenStack Cloud 5",
+					"product_id": "SUSE OpenStack Cloud 5:python-six-1.9.0-9.2.x86_64"
+				},
+				"product_reference": "python-six-1.9.0-9.2.x86_64",
+				"relates_to_product_reference": "SUSE OpenStack Cloud 5"
+			}
+		]
+	},
+	"vulnerabilities": [
+		{
+			"cve": "CVE-2014-9684",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2014-9684"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "OpenStack Image Registry and Delivery Service (Glance) 2014.2 through 2014.2.2 does not properly remove images, which allows remote authenticated users to cause a denial of service (disk consumption) by creating a large number of images using the task v2 API and then deleting them before the uploads finish, a different vulnerability than CVE-2015-1881.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE OpenStack Cloud 5:openstack-ceilometer-2014.2.4.dev18-9.7.x86_64",
+					"SUSE OpenStack Cloud 5:openstack-ceilometer-agent-central-2014.2.4.dev18-9.7.x86_64",
+					"SUSE OpenStack Cloud 5:openstack-ceilometer-agent-compute-2014.2.4.dev18-9.7.x86_64",
+					"SUSE OpenStack Cloud 5:openstack-ceilometer-agent-ipmi-2014.2.4.dev18-9.7.x86_64",
+					"SUSE OpenStack Cloud 5:openstack-ceilometer-agent-notification-2014.2.4.dev18-9.7.x86_64",
+					"SUSE OpenStack Cloud 5:openstack-ceilometer-alarm-evaluator-2014.2.4.dev18-9.7.x86_64",
+					"SUSE OpenStack Cloud 5:openstack-ceilometer-alarm-notifier-2014.2.4.dev18-9.7.x86_64",
+					"SUSE OpenStack Cloud 5:openstack-ceilometer-api-2014.2.4.dev18-9.7.x86_64",
+					"SUSE OpenStack Cloud 5:openstack-ceilometer-collector-2014.2.4.dev18-9.7.x86_64",
+					"SUSE OpenStack Cloud 5:openstack-ceilometer-doc-2014.2.4.dev18-9.11.noarch",
+					"SUSE OpenStack Cloud 5:openstack-cinder-2014.2.4.dev19-9.7.x86_64",
+					"SUSE OpenStack Cloud 5:openstack-cinder-api-2014.2.4.dev19-9.7.x86_64",
+					"SUSE OpenStack Cloud 5:openstack-cinder-backup-2014.2.4.dev19-9.7.x86_64",
+					"SUSE OpenStack Cloud 5:openstack-cinder-doc-2014.2.4.dev19-9.12.noarch",
+					"SUSE OpenStack Cloud 5:openstack-cinder-scheduler-2014.2.4.dev19-9.7.x86_64",
+					"SUSE OpenStack Cloud 5:openstack-cinder-volume-2014.2.4.dev19-9.7.x86_64",
+					"SUSE OpenStack Cloud 5:openstack-glance-2014.2.4.dev5-9.5.x86_64",
+					"SUSE OpenStack Cloud 5:openstack-glance-doc-2014.2.4.dev5-9.7.noarch",
+					"SUSE OpenStack Cloud 5:openstack-heat-2014.2.4.dev13-9.6.x86_64",
+					"SUSE OpenStack Cloud 5:openstack-heat-api-2014.2.4.dev13-9.6.x86_64",
+					"SUSE OpenStack Cloud 5:openstack-heat-api-cfn-2014.2.4.dev13-9.6.x86_64",
+					"SUSE OpenStack Cloud 5:openstack-heat-api-cloudwatch-2014.2.4.dev13-9.6.x86_64",
+					"SUSE OpenStack Cloud 5:openstack-heat-doc-2014.2.4.dev13-9.8.noarch",
+					"SUSE OpenStack Cloud 5:openstack-heat-engine-2014.2.4.dev13-9.6.x86_64",
+					"SUSE OpenStack Cloud 5:openstack-keystone-2014.2.4.dev5-11.8.x86_64",
+					"SUSE OpenStack Cloud 5:openstack-keystone-doc-2014.2.4.dev5-11.12.noarch",
+					"SUSE OpenStack Cloud 5:openstack-sahara-2014.2.4.dev3-9.5.x86_64",
+					"SUSE OpenStack Cloud 5:openstack-sahara-api-2014.2.4.dev3-9.5.x86_64",
+					"SUSE OpenStack Cloud 5:openstack-sahara-doc-2014.2.4.dev3-9.5.noarch",
+					"SUSE OpenStack Cloud 5:openstack-sahara-engine-2014.2.4.dev3-9.5.x86_64",
+					"SUSE OpenStack Cloud 5:openstack-suse-sudo-2014.2-9.2.noarch",
+					"SUSE OpenStack Cloud 5:python-ceilometer-2014.2.4.dev18-9.7.x86_64",
+					"SUSE OpenStack Cloud 5:python-cinder-2014.2.4.dev19-9.7.x86_64",
+					"SUSE OpenStack Cloud 5:python-glance-2014.2.4.dev5-9.5.x86_64",
+					"SUSE OpenStack Cloud 5:python-heat-2014.2.4.dev13-9.6.x86_64",
+					"SUSE OpenStack Cloud 5:python-keystone-2014.2.4.dev5-11.8.x86_64",
+					"SUSE OpenStack Cloud 5:python-oslo.i18n-1.3.1-9.6.x86_64",
+					"SUSE OpenStack Cloud 5:python-oslo.utils-1.4.0-14.2.x86_64",
+					"SUSE OpenStack Cloud 5:python-oslotest-1.2.0-2.5.x86_64",
+					"SUSE OpenStack Cloud 5:python-sahara-2014.2.4.dev3-9.5.x86_64",
+					"SUSE OpenStack Cloud 5:python-six-1.9.0-9.2.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2014-9684",
+					"url": "https://www.suse.com/security/cve/CVE-2014-9684"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 918784 for CVE-2014-9684",
+					"url": "https://bugzilla.suse.com/918784"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE OpenStack Cloud 5:openstack-ceilometer-2014.2.4.dev18-9.7.x86_64",
+						"SUSE OpenStack Cloud 5:openstack-ceilometer-agent-central-2014.2.4.dev18-9.7.x86_64",
+						"SUSE OpenStack Cloud 5:openstack-ceilometer-agent-compute-2014.2.4.dev18-9.7.x86_64",
+						"SUSE OpenStack Cloud 5:openstack-ceilometer-agent-ipmi-2014.2.4.dev18-9.7.x86_64",
+						"SUSE OpenStack Cloud 5:openstack-ceilometer-agent-notification-2014.2.4.dev18-9.7.x86_64",
+						"SUSE OpenStack Cloud 5:openstack-ceilometer-alarm-evaluator-2014.2.4.dev18-9.7.x86_64",
+						"SUSE OpenStack Cloud 5:openstack-ceilometer-alarm-notifier-2014.2.4.dev18-9.7.x86_64",
+						"SUSE OpenStack Cloud 5:openstack-ceilometer-api-2014.2.4.dev18-9.7.x86_64",
+						"SUSE OpenStack Cloud 5:openstack-ceilometer-collector-2014.2.4.dev18-9.7.x86_64",
+						"SUSE OpenStack Cloud 5:openstack-ceilometer-doc-2014.2.4.dev18-9.11.noarch",
+						"SUSE OpenStack Cloud 5:openstack-cinder-2014.2.4.dev19-9.7.x86_64",
+						"SUSE OpenStack Cloud 5:openstack-cinder-api-2014.2.4.dev19-9.7.x86_64",
+						"SUSE OpenStack Cloud 5:openstack-cinder-backup-2014.2.4.dev19-9.7.x86_64",
+						"SUSE OpenStack Cloud 5:openstack-cinder-doc-2014.2.4.dev19-9.12.noarch",
+						"SUSE OpenStack Cloud 5:openstack-cinder-scheduler-2014.2.4.dev19-9.7.x86_64",
+						"SUSE OpenStack Cloud 5:openstack-cinder-volume-2014.2.4.dev19-9.7.x86_64",
+						"SUSE OpenStack Cloud 5:openstack-glance-2014.2.4.dev5-9.5.x86_64",
+						"SUSE OpenStack Cloud 5:openstack-glance-doc-2014.2.4.dev5-9.7.noarch",
+						"SUSE OpenStack Cloud 5:openstack-heat-2014.2.4.dev13-9.6.x86_64",
+						"SUSE OpenStack Cloud 5:openstack-heat-api-2014.2.4.dev13-9.6.x86_64",
+						"SUSE OpenStack Cloud 5:openstack-heat-api-cfn-2014.2.4.dev13-9.6.x86_64",
+						"SUSE OpenStack Cloud 5:openstack-heat-api-cloudwatch-2014.2.4.dev13-9.6.x86_64",
+						"SUSE OpenStack Cloud 5:openstack-heat-doc-2014.2.4.dev13-9.8.noarch",
+						"SUSE OpenStack Cloud 5:openstack-heat-engine-2014.2.4.dev13-9.6.x86_64",
+						"SUSE OpenStack Cloud 5:openstack-keystone-2014.2.4.dev5-11.8.x86_64",
+						"SUSE OpenStack Cloud 5:openstack-keystone-doc-2014.2.4.dev5-11.12.noarch",
+						"SUSE OpenStack Cloud 5:openstack-sahara-2014.2.4.dev3-9.5.x86_64",
+						"SUSE OpenStack Cloud 5:openstack-sahara-api-2014.2.4.dev3-9.5.x86_64",
+						"SUSE OpenStack Cloud 5:openstack-sahara-doc-2014.2.4.dev3-9.5.noarch",
+						"SUSE OpenStack Cloud 5:openstack-sahara-engine-2014.2.4.dev3-9.5.x86_64",
+						"SUSE OpenStack Cloud 5:openstack-suse-sudo-2014.2-9.2.noarch",
+						"SUSE OpenStack Cloud 5:python-ceilometer-2014.2.4.dev18-9.7.x86_64",
+						"SUSE OpenStack Cloud 5:python-cinder-2014.2.4.dev19-9.7.x86_64",
+						"SUSE OpenStack Cloud 5:python-glance-2014.2.4.dev5-9.5.x86_64",
+						"SUSE OpenStack Cloud 5:python-heat-2014.2.4.dev13-9.6.x86_64",
+						"SUSE OpenStack Cloud 5:python-keystone-2014.2.4.dev5-11.8.x86_64",
+						"SUSE OpenStack Cloud 5:python-oslo.i18n-1.3.1-9.6.x86_64",
+						"SUSE OpenStack Cloud 5:python-oslo.utils-1.4.0-14.2.x86_64",
+						"SUSE OpenStack Cloud 5:python-oslotest-1.2.0-2.5.x86_64",
+						"SUSE OpenStack Cloud 5:python-sahara-2014.2.4.dev3-9.5.x86_64",
+						"SUSE OpenStack Cloud 5:python-six-1.9.0-9.2.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2015-08-25T08:34:56Z",
+					"details": "low"
+				}
+			],
+			"title": "CVE-2014-9684"
+		}
+	]
+}

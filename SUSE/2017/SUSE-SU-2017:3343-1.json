@@ -1,0 +1,2147 @@
+{
+	"document": {
+		"aggregate_severity": {
+			"namespace": "https://www.suse.com/support/security/rating/",
+			"text": "important"
+		},
+		"category": "csaf_security_advisory",
+		"csaf_version": "2.0",
+		"distribution": {
+			"text": "Copyright 2023 SUSE LLC. All rights reserved.",
+			"tlp": {
+				"label": "WHITE",
+				"url": "https://www.first.org/tlp/"
+			}
+		},
+		"lang": "en",
+		"notes": [
+			{
+				"category": "summary",
+				"text": "Security update for openssl",
+				"title": "Title of the patch"
+			},
+			{
+				"category": "description",
+				"text": "This update for openssl fixes the following issues:\n\n- OpenSSL Security Advisory [07 Dec 2017]\n  * CVE-2017-3737: OpenSSL 1.0.2 (starting from version 1.0.2b) introduced an \\'error state\\' mechanism. The intent was that if a fatal error occurred during a handshake then OpenSSL would move into the error state and would immediately fail if you attempted to continue the handshake. This works as designed for the explicit handshake functions (SSL_do_handshake(), SSL_accept() and SSL_connect()), however due to a bug it does not work correctly if SSL_read() or SSL_write() is called directly. In that scenario, if the handshake fails then a fatal error will be returned in the initial function call. If SSL_read()/SSL_write() is subsequently called by the application for the same SSL object then it will succeed and the data is passed without being decrypted/encrypted directly from the SSL/TLS record layer. In order to exploit this issue an application bug would have to be present that resulted in a call to SSL_read()/SSL_write() being issued after having already received a fatal error. OpenSSL version 1.0.2b-1.0.2m are affected. Fixed in OpenSSL 1.0.2n. OpenSSL 1.1.0 is not affected. (bsc#1071905)\n  * CVE-2017-3738: There is an overflow bug in the AVX2 Montgomery multiplication procedure used in exponentiation with 1024-bit moduli. No EC algorithms are affected. Analysis suggests that attacks against RSA and DSA as a result of this defect would be very difficult to perform and are not believed likely. Attacks against DH1024 are considered just feasible, because most of the work necessary to deduce information about a private key may be performed offline. The amount of resources required for such an attack would be significant. However, for an attack on TLS to be meaningful, the server would have to share the DH1024 private key among multiple clients, which is no longer an option since CVE-2016-0701. This only affects processors that support the AVX2 but not ADX extensions like Intel Haswell (4th generation). Note: The impact from this issue is similar to CVE-2017-3736, CVE-2017-3732 and CVE-2015-3193. (bsc#1071906)\n",
+				"title": "Description of the patch"
+			},
+			{
+				"category": "details",
+				"text": "SUSE-CAASP-ALL-2017-2097,SUSE-OpenStack-Cloud-Magnum-Orchestration-7-2017-2097,SUSE-SLE-DESKTOP-12-SP2-2017-2097,SUSE-SLE-DESKTOP-12-SP3-2017-2097,SUSE-SLE-RPI-12-SP2-2017-2097,SUSE-SLE-SDK-12-SP2-2017-2097,SUSE-SLE-SDK-12-SP3-2017-2097,SUSE-SLE-SERVER-12-SP2-2017-2097,SUSE-SLE-SERVER-12-SP3-2017-2097",
+				"title": "Patchnames"
+			},
+			{
+				"category": "legal_disclaimer",
+				"text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+				"title": "Terms of use"
+			}
+		],
+		"publisher": {
+			"category": "vendor",
+			"contact_details": "https://www.suse.com/support/security/contact/",
+			"name": "SUSE Product Security Team",
+			"namespace": "https://www.suse.com/"
+		},
+		"references": [
+			{
+				"category": "self",
+				"summary": "URL for SUSE-SU-2017:3343-1",
+				"url": "https://www.suse.com/support/update/announcement/2017/suse-su-20173343-1/"
+			},
+			{
+				"category": "external",
+				"summary": "SUSE ratings",
+				"url": "https://www.suse.com/support/security/rating/"
+			},
+			{
+				"category": "self",
+				"summary": "URL of this CSAF notice",
+				"url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2017_3343-1.json"
+			},
+			{
+				"category": "self",
+				"summary": "E-Mail link for SUSE-SU-2017:3343-1",
+				"url": "https://lists.opensuse.org/opensuse-security-announce/2017-12/msg00074.html"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1071905",
+				"url": "https://bugzilla.suse.com/1071905"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1071906",
+				"url": "https://bugzilla.suse.com/1071906"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2017-3737 page",
+				"url": "https://www.suse.com/security/cve/CVE-2017-3737/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2017-3738 page",
+				"url": "https://www.suse.com/security/cve/CVE-2017-3738/"
+			}
+		],
+		"title": "Security update for openssl",
+		"tracking": {
+			"current_release_date": "2017-12-16T00:59:29Z",
+			"generator": {
+				"date": "2017-12-16T00:59:29Z",
+				"engine": {
+					"name": "cve-database.git:bin/generate-csaf.pl",
+					"version": "1"
+				}
+			},
+			"id": "SUSE-SU-2017:3343-1",
+			"initial_release_date": "2017-12-16T00:59:29Z",
+			"revision_history": [
+				{
+					"date": "2017-12-16T00:59:29Z",
+					"number": "1",
+					"summary": "Current version"
+				}
+			],
+			"status": "final",
+			"version": "1"
+		}
+	},
+	"product_tree": {
+		"branches": [
+			{
+				"branches": [
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "libopenssl-devel-1.0.2j-60.20.2.aarch64",
+								"product": {
+									"name": "libopenssl-devel-1.0.2j-60.20.2.aarch64",
+									"product_id": "libopenssl-devel-1.0.2j-60.20.2.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libopenssl1_0_0-1.0.2j-60.20.2.aarch64",
+								"product": {
+									"name": "libopenssl1_0_0-1.0.2j-60.20.2.aarch64",
+									"product_id": "libopenssl1_0_0-1.0.2j-60.20.2.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libopenssl1_0_0-hmac-1.0.2j-60.20.2.aarch64",
+								"product": {
+									"name": "libopenssl1_0_0-hmac-1.0.2j-60.20.2.aarch64",
+									"product_id": "libopenssl1_0_0-hmac-1.0.2j-60.20.2.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openssl-1.0.2j-60.20.2.aarch64",
+								"product": {
+									"name": "openssl-1.0.2j-60.20.2.aarch64",
+									"product_id": "openssl-1.0.2j-60.20.2.aarch64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "aarch64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "openssl-doc-1.0.2j-60.20.2.noarch",
+								"product": {
+									"name": "openssl-doc-1.0.2j-60.20.2.noarch",
+									"product_id": "openssl-doc-1.0.2j-60.20.2.noarch"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "noarch"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "libopenssl-devel-1.0.2j-60.20.2.ppc64le",
+								"product": {
+									"name": "libopenssl-devel-1.0.2j-60.20.2.ppc64le",
+									"product_id": "libopenssl-devel-1.0.2j-60.20.2.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libopenssl1_0_0-1.0.2j-60.20.2.ppc64le",
+								"product": {
+									"name": "libopenssl1_0_0-1.0.2j-60.20.2.ppc64le",
+									"product_id": "libopenssl1_0_0-1.0.2j-60.20.2.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libopenssl1_0_0-hmac-1.0.2j-60.20.2.ppc64le",
+								"product": {
+									"name": "libopenssl1_0_0-hmac-1.0.2j-60.20.2.ppc64le",
+									"product_id": "libopenssl1_0_0-hmac-1.0.2j-60.20.2.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openssl-1.0.2j-60.20.2.ppc64le",
+								"product": {
+									"name": "openssl-1.0.2j-60.20.2.ppc64le",
+									"product_id": "openssl-1.0.2j-60.20.2.ppc64le"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "ppc64le"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "libopenssl-devel-1.0.2j-60.20.2.s390x",
+								"product": {
+									"name": "libopenssl-devel-1.0.2j-60.20.2.s390x",
+									"product_id": "libopenssl-devel-1.0.2j-60.20.2.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libopenssl1_0_0-1.0.2j-60.20.2.s390x",
+								"product": {
+									"name": "libopenssl1_0_0-1.0.2j-60.20.2.s390x",
+									"product_id": "libopenssl1_0_0-1.0.2j-60.20.2.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libopenssl1_0_0-32bit-1.0.2j-60.20.2.s390x",
+								"product": {
+									"name": "libopenssl1_0_0-32bit-1.0.2j-60.20.2.s390x",
+									"product_id": "libopenssl1_0_0-32bit-1.0.2j-60.20.2.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libopenssl1_0_0-hmac-1.0.2j-60.20.2.s390x",
+								"product": {
+									"name": "libopenssl1_0_0-hmac-1.0.2j-60.20.2.s390x",
+									"product_id": "libopenssl1_0_0-hmac-1.0.2j-60.20.2.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.s390x",
+								"product": {
+									"name": "libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.s390x",
+									"product_id": "libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openssl-1.0.2j-60.20.2.s390x",
+								"product": {
+									"name": "openssl-1.0.2j-60.20.2.s390x",
+									"product_id": "openssl-1.0.2j-60.20.2.s390x"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "s390x"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "libopenssl-devel-1.0.2j-60.20.2.x86_64",
+								"product": {
+									"name": "libopenssl-devel-1.0.2j-60.20.2.x86_64",
+									"product_id": "libopenssl-devel-1.0.2j-60.20.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libopenssl1_0_0-1.0.2j-60.20.2.x86_64",
+								"product": {
+									"name": "libopenssl1_0_0-1.0.2j-60.20.2.x86_64",
+									"product_id": "libopenssl1_0_0-1.0.2j-60.20.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libopenssl1_0_0-32bit-1.0.2j-60.20.2.x86_64",
+								"product": {
+									"name": "libopenssl1_0_0-32bit-1.0.2j-60.20.2.x86_64",
+									"product_id": "libopenssl1_0_0-32bit-1.0.2j-60.20.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openssl-1.0.2j-60.20.2.x86_64",
+								"product": {
+									"name": "openssl-1.0.2j-60.20.2.x86_64",
+									"product_id": "openssl-1.0.2j-60.20.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libopenssl1_0_0-hmac-1.0.2j-60.20.2.x86_64",
+								"product": {
+									"name": "libopenssl1_0_0-hmac-1.0.2j-60.20.2.x86_64",
+									"product_id": "libopenssl1_0_0-hmac-1.0.2j-60.20.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.x86_64",
+								"product": {
+									"name": "libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.x86_64",
+									"product_id": "libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.x86_64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "x86_64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Desktop 12 SP2",
+								"product": {
+									"name": "SUSE Linux Enterprise Desktop 12 SP2",
+									"product_id": "SUSE Linux Enterprise Desktop 12 SP2",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sled:12:sp2"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Desktop 12 SP3",
+								"product": {
+									"name": "SUSE Linux Enterprise Desktop 12 SP3",
+									"product_id": "SUSE Linux Enterprise Desktop 12 SP3",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sled:12:sp3"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server for Raspberry Pi 12 SP2",
+								"product": {
+									"name": "SUSE Linux Enterprise Server for Raspberry Pi 12 SP2",
+									"product_id": "SUSE Linux Enterprise Server for Raspberry Pi 12 SP2",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sles:12:sp2"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Software Development Kit 12 SP2",
+								"product": {
+									"name": "SUSE Linux Enterprise Software Development Kit 12 SP2",
+									"product_id": "SUSE Linux Enterprise Software Development Kit 12 SP2",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-sdk:12:sp2"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Software Development Kit 12 SP3",
+								"product": {
+									"name": "SUSE Linux Enterprise Software Development Kit 12 SP3",
+									"product_id": "SUSE Linux Enterprise Software Development Kit 12 SP3",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-sdk:12:sp3"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server 12 SP2",
+								"product": {
+									"name": "SUSE Linux Enterprise Server 12 SP2",
+									"product_id": "SUSE Linux Enterprise Server 12 SP2",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sles:12:sp2"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server for SAP Applications 12 SP2",
+								"product": {
+									"name": "SUSE Linux Enterprise Server for SAP Applications 12 SP2",
+									"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP2",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sles_sap:12:sp2"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server 12 SP3",
+								"product": {
+									"name": "SUSE Linux Enterprise Server 12 SP3",
+									"product_id": "SUSE Linux Enterprise Server 12 SP3",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sles:12:sp3"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+								"product": {
+									"name": "SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+									"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sles_sap:12:sp3"
+									}
+								}
+							}
+						],
+						"category": "product_family",
+						"name": "SUSE Linux Enterprise"
+					}
+				],
+				"category": "vendor",
+				"name": "SUSE"
+			}
+		],
+		"relationships": [
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl-devel-1.0.2j-60.20.2.x86_64 as component of SUSE Linux Enterprise Desktop 12 SP2",
+					"product_id": "SUSE Linux Enterprise Desktop 12 SP2:libopenssl-devel-1.0.2j-60.20.2.x86_64"
+				},
+				"product_reference": "libopenssl-devel-1.0.2j-60.20.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Desktop 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl1_0_0-1.0.2j-60.20.2.x86_64 as component of SUSE Linux Enterprise Desktop 12 SP2",
+					"product_id": "SUSE Linux Enterprise Desktop 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.x86_64"
+				},
+				"product_reference": "libopenssl1_0_0-1.0.2j-60.20.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Desktop 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl1_0_0-32bit-1.0.2j-60.20.2.x86_64 as component of SUSE Linux Enterprise Desktop 12 SP2",
+					"product_id": "SUSE Linux Enterprise Desktop 12 SP2:libopenssl1_0_0-32bit-1.0.2j-60.20.2.x86_64"
+				},
+				"product_reference": "libopenssl1_0_0-32bit-1.0.2j-60.20.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Desktop 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openssl-1.0.2j-60.20.2.x86_64 as component of SUSE Linux Enterprise Desktop 12 SP2",
+					"product_id": "SUSE Linux Enterprise Desktop 12 SP2:openssl-1.0.2j-60.20.2.x86_64"
+				},
+				"product_reference": "openssl-1.0.2j-60.20.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Desktop 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl-devel-1.0.2j-60.20.2.x86_64 as component of SUSE Linux Enterprise Desktop 12 SP3",
+					"product_id": "SUSE Linux Enterprise Desktop 12 SP3:libopenssl-devel-1.0.2j-60.20.2.x86_64"
+				},
+				"product_reference": "libopenssl-devel-1.0.2j-60.20.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Desktop 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl1_0_0-1.0.2j-60.20.2.x86_64 as component of SUSE Linux Enterprise Desktop 12 SP3",
+					"product_id": "SUSE Linux Enterprise Desktop 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.x86_64"
+				},
+				"product_reference": "libopenssl1_0_0-1.0.2j-60.20.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Desktop 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl1_0_0-32bit-1.0.2j-60.20.2.x86_64 as component of SUSE Linux Enterprise Desktop 12 SP3",
+					"product_id": "SUSE Linux Enterprise Desktop 12 SP3:libopenssl1_0_0-32bit-1.0.2j-60.20.2.x86_64"
+				},
+				"product_reference": "libopenssl1_0_0-32bit-1.0.2j-60.20.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Desktop 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openssl-1.0.2j-60.20.2.x86_64 as component of SUSE Linux Enterprise Desktop 12 SP3",
+					"product_id": "SUSE Linux Enterprise Desktop 12 SP3:openssl-1.0.2j-60.20.2.x86_64"
+				},
+				"product_reference": "openssl-1.0.2j-60.20.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Desktop 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl-devel-1.0.2j-60.20.2.aarch64 as component of SUSE Linux Enterprise Server for Raspberry Pi 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:libopenssl-devel-1.0.2j-60.20.2.aarch64"
+				},
+				"product_reference": "libopenssl-devel-1.0.2j-60.20.2.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for Raspberry Pi 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl1_0_0-1.0.2j-60.20.2.aarch64 as component of SUSE Linux Enterprise Server for Raspberry Pi 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.aarch64"
+				},
+				"product_reference": "libopenssl1_0_0-1.0.2j-60.20.2.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for Raspberry Pi 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl1_0_0-hmac-1.0.2j-60.20.2.aarch64 as component of SUSE Linux Enterprise Server for Raspberry Pi 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.aarch64"
+				},
+				"product_reference": "libopenssl1_0_0-hmac-1.0.2j-60.20.2.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for Raspberry Pi 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openssl-1.0.2j-60.20.2.aarch64 as component of SUSE Linux Enterprise Server for Raspberry Pi 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:openssl-1.0.2j-60.20.2.aarch64"
+				},
+				"product_reference": "openssl-1.0.2j-60.20.2.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for Raspberry Pi 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openssl-doc-1.0.2j-60.20.2.noarch as component of SUSE Linux Enterprise Server for Raspberry Pi 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:openssl-doc-1.0.2j-60.20.2.noarch"
+				},
+				"product_reference": "openssl-doc-1.0.2j-60.20.2.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for Raspberry Pi 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl-devel-1.0.2j-60.20.2.aarch64 as component of SUSE Linux Enterprise Software Development Kit 12 SP2",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 12 SP2:libopenssl-devel-1.0.2j-60.20.2.aarch64"
+				},
+				"product_reference": "libopenssl-devel-1.0.2j-60.20.2.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl-devel-1.0.2j-60.20.2.ppc64le as component of SUSE Linux Enterprise Software Development Kit 12 SP2",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 12 SP2:libopenssl-devel-1.0.2j-60.20.2.ppc64le"
+				},
+				"product_reference": "libopenssl-devel-1.0.2j-60.20.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl-devel-1.0.2j-60.20.2.s390x as component of SUSE Linux Enterprise Software Development Kit 12 SP2",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 12 SP2:libopenssl-devel-1.0.2j-60.20.2.s390x"
+				},
+				"product_reference": "libopenssl-devel-1.0.2j-60.20.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl-devel-1.0.2j-60.20.2.x86_64 as component of SUSE Linux Enterprise Software Development Kit 12 SP2",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 12 SP2:libopenssl-devel-1.0.2j-60.20.2.x86_64"
+				},
+				"product_reference": "libopenssl-devel-1.0.2j-60.20.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl-devel-1.0.2j-60.20.2.aarch64 as component of SUSE Linux Enterprise Software Development Kit 12 SP3",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 12 SP3:libopenssl-devel-1.0.2j-60.20.2.aarch64"
+				},
+				"product_reference": "libopenssl-devel-1.0.2j-60.20.2.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl-devel-1.0.2j-60.20.2.ppc64le as component of SUSE Linux Enterprise Software Development Kit 12 SP3",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 12 SP3:libopenssl-devel-1.0.2j-60.20.2.ppc64le"
+				},
+				"product_reference": "libopenssl-devel-1.0.2j-60.20.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl-devel-1.0.2j-60.20.2.s390x as component of SUSE Linux Enterprise Software Development Kit 12 SP3",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 12 SP3:libopenssl-devel-1.0.2j-60.20.2.s390x"
+				},
+				"product_reference": "libopenssl-devel-1.0.2j-60.20.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl-devel-1.0.2j-60.20.2.x86_64 as component of SUSE Linux Enterprise Software Development Kit 12 SP3",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 12 SP3:libopenssl-devel-1.0.2j-60.20.2.x86_64"
+				},
+				"product_reference": "libopenssl-devel-1.0.2j-60.20.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl-devel-1.0.2j-60.20.2.aarch64 as component of SUSE Linux Enterprise Server 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server 12 SP2:libopenssl-devel-1.0.2j-60.20.2.aarch64"
+				},
+				"product_reference": "libopenssl-devel-1.0.2j-60.20.2.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl-devel-1.0.2j-60.20.2.ppc64le as component of SUSE Linux Enterprise Server 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server 12 SP2:libopenssl-devel-1.0.2j-60.20.2.ppc64le"
+				},
+				"product_reference": "libopenssl-devel-1.0.2j-60.20.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl-devel-1.0.2j-60.20.2.s390x as component of SUSE Linux Enterprise Server 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server 12 SP2:libopenssl-devel-1.0.2j-60.20.2.s390x"
+				},
+				"product_reference": "libopenssl-devel-1.0.2j-60.20.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl-devel-1.0.2j-60.20.2.x86_64 as component of SUSE Linux Enterprise Server 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server 12 SP2:libopenssl-devel-1.0.2j-60.20.2.x86_64"
+				},
+				"product_reference": "libopenssl-devel-1.0.2j-60.20.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl1_0_0-1.0.2j-60.20.2.aarch64 as component of SUSE Linux Enterprise Server 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.aarch64"
+				},
+				"product_reference": "libopenssl1_0_0-1.0.2j-60.20.2.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl1_0_0-1.0.2j-60.20.2.ppc64le as component of SUSE Linux Enterprise Server 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.ppc64le"
+				},
+				"product_reference": "libopenssl1_0_0-1.0.2j-60.20.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl1_0_0-1.0.2j-60.20.2.s390x as component of SUSE Linux Enterprise Server 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.s390x"
+				},
+				"product_reference": "libopenssl1_0_0-1.0.2j-60.20.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl1_0_0-1.0.2j-60.20.2.x86_64 as component of SUSE Linux Enterprise Server 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.x86_64"
+				},
+				"product_reference": "libopenssl1_0_0-1.0.2j-60.20.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl1_0_0-32bit-1.0.2j-60.20.2.s390x as component of SUSE Linux Enterprise Server 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-32bit-1.0.2j-60.20.2.s390x"
+				},
+				"product_reference": "libopenssl1_0_0-32bit-1.0.2j-60.20.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl1_0_0-32bit-1.0.2j-60.20.2.x86_64 as component of SUSE Linux Enterprise Server 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-32bit-1.0.2j-60.20.2.x86_64"
+				},
+				"product_reference": "libopenssl1_0_0-32bit-1.0.2j-60.20.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl1_0_0-hmac-1.0.2j-60.20.2.aarch64 as component of SUSE Linux Enterprise Server 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.aarch64"
+				},
+				"product_reference": "libopenssl1_0_0-hmac-1.0.2j-60.20.2.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl1_0_0-hmac-1.0.2j-60.20.2.ppc64le as component of SUSE Linux Enterprise Server 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.ppc64le"
+				},
+				"product_reference": "libopenssl1_0_0-hmac-1.0.2j-60.20.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl1_0_0-hmac-1.0.2j-60.20.2.s390x as component of SUSE Linux Enterprise Server 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.s390x"
+				},
+				"product_reference": "libopenssl1_0_0-hmac-1.0.2j-60.20.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl1_0_0-hmac-1.0.2j-60.20.2.x86_64 as component of SUSE Linux Enterprise Server 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.x86_64"
+				},
+				"product_reference": "libopenssl1_0_0-hmac-1.0.2j-60.20.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.s390x as component of SUSE Linux Enterprise Server 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.s390x"
+				},
+				"product_reference": "libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.x86_64 as component of SUSE Linux Enterprise Server 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.x86_64"
+				},
+				"product_reference": "libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openssl-1.0.2j-60.20.2.aarch64 as component of SUSE Linux Enterprise Server 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server 12 SP2:openssl-1.0.2j-60.20.2.aarch64"
+				},
+				"product_reference": "openssl-1.0.2j-60.20.2.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openssl-1.0.2j-60.20.2.ppc64le as component of SUSE Linux Enterprise Server 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server 12 SP2:openssl-1.0.2j-60.20.2.ppc64le"
+				},
+				"product_reference": "openssl-1.0.2j-60.20.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openssl-1.0.2j-60.20.2.s390x as component of SUSE Linux Enterprise Server 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server 12 SP2:openssl-1.0.2j-60.20.2.s390x"
+				},
+				"product_reference": "openssl-1.0.2j-60.20.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openssl-1.0.2j-60.20.2.x86_64 as component of SUSE Linux Enterprise Server 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server 12 SP2:openssl-1.0.2j-60.20.2.x86_64"
+				},
+				"product_reference": "openssl-1.0.2j-60.20.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openssl-doc-1.0.2j-60.20.2.noarch as component of SUSE Linux Enterprise Server 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server 12 SP2:openssl-doc-1.0.2j-60.20.2.noarch"
+				},
+				"product_reference": "openssl-doc-1.0.2j-60.20.2.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl-devel-1.0.2j-60.20.2.aarch64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl-devel-1.0.2j-60.20.2.aarch64"
+				},
+				"product_reference": "libopenssl-devel-1.0.2j-60.20.2.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl-devel-1.0.2j-60.20.2.ppc64le as component of SUSE Linux Enterprise Server for SAP Applications 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl-devel-1.0.2j-60.20.2.ppc64le"
+				},
+				"product_reference": "libopenssl-devel-1.0.2j-60.20.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl-devel-1.0.2j-60.20.2.s390x as component of SUSE Linux Enterprise Server for SAP Applications 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl-devel-1.0.2j-60.20.2.s390x"
+				},
+				"product_reference": "libopenssl-devel-1.0.2j-60.20.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl-devel-1.0.2j-60.20.2.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl-devel-1.0.2j-60.20.2.x86_64"
+				},
+				"product_reference": "libopenssl-devel-1.0.2j-60.20.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl1_0_0-1.0.2j-60.20.2.aarch64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.aarch64"
+				},
+				"product_reference": "libopenssl1_0_0-1.0.2j-60.20.2.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl1_0_0-1.0.2j-60.20.2.ppc64le as component of SUSE Linux Enterprise Server for SAP Applications 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.ppc64le"
+				},
+				"product_reference": "libopenssl1_0_0-1.0.2j-60.20.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl1_0_0-1.0.2j-60.20.2.s390x as component of SUSE Linux Enterprise Server for SAP Applications 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.s390x"
+				},
+				"product_reference": "libopenssl1_0_0-1.0.2j-60.20.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl1_0_0-1.0.2j-60.20.2.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.x86_64"
+				},
+				"product_reference": "libopenssl1_0_0-1.0.2j-60.20.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl1_0_0-32bit-1.0.2j-60.20.2.s390x as component of SUSE Linux Enterprise Server for SAP Applications 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-32bit-1.0.2j-60.20.2.s390x"
+				},
+				"product_reference": "libopenssl1_0_0-32bit-1.0.2j-60.20.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl1_0_0-32bit-1.0.2j-60.20.2.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-32bit-1.0.2j-60.20.2.x86_64"
+				},
+				"product_reference": "libopenssl1_0_0-32bit-1.0.2j-60.20.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl1_0_0-hmac-1.0.2j-60.20.2.aarch64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.aarch64"
+				},
+				"product_reference": "libopenssl1_0_0-hmac-1.0.2j-60.20.2.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl1_0_0-hmac-1.0.2j-60.20.2.ppc64le as component of SUSE Linux Enterprise Server for SAP Applications 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.ppc64le"
+				},
+				"product_reference": "libopenssl1_0_0-hmac-1.0.2j-60.20.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl1_0_0-hmac-1.0.2j-60.20.2.s390x as component of SUSE Linux Enterprise Server for SAP Applications 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.s390x"
+				},
+				"product_reference": "libopenssl1_0_0-hmac-1.0.2j-60.20.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl1_0_0-hmac-1.0.2j-60.20.2.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.x86_64"
+				},
+				"product_reference": "libopenssl1_0_0-hmac-1.0.2j-60.20.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.s390x as component of SUSE Linux Enterprise Server for SAP Applications 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.s390x"
+				},
+				"product_reference": "libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.x86_64"
+				},
+				"product_reference": "libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openssl-1.0.2j-60.20.2.aarch64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP2:openssl-1.0.2j-60.20.2.aarch64"
+				},
+				"product_reference": "openssl-1.0.2j-60.20.2.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openssl-1.0.2j-60.20.2.ppc64le as component of SUSE Linux Enterprise Server for SAP Applications 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP2:openssl-1.0.2j-60.20.2.ppc64le"
+				},
+				"product_reference": "openssl-1.0.2j-60.20.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openssl-1.0.2j-60.20.2.s390x as component of SUSE Linux Enterprise Server for SAP Applications 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP2:openssl-1.0.2j-60.20.2.s390x"
+				},
+				"product_reference": "openssl-1.0.2j-60.20.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openssl-1.0.2j-60.20.2.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP2:openssl-1.0.2j-60.20.2.x86_64"
+				},
+				"product_reference": "openssl-1.0.2j-60.20.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openssl-doc-1.0.2j-60.20.2.noarch as component of SUSE Linux Enterprise Server for SAP Applications 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP2:openssl-doc-1.0.2j-60.20.2.noarch"
+				},
+				"product_reference": "openssl-doc-1.0.2j-60.20.2.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl-devel-1.0.2j-60.20.2.aarch64 as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:libopenssl-devel-1.0.2j-60.20.2.aarch64"
+				},
+				"product_reference": "libopenssl-devel-1.0.2j-60.20.2.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl-devel-1.0.2j-60.20.2.ppc64le as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:libopenssl-devel-1.0.2j-60.20.2.ppc64le"
+				},
+				"product_reference": "libopenssl-devel-1.0.2j-60.20.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl-devel-1.0.2j-60.20.2.s390x as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:libopenssl-devel-1.0.2j-60.20.2.s390x"
+				},
+				"product_reference": "libopenssl-devel-1.0.2j-60.20.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl-devel-1.0.2j-60.20.2.x86_64 as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:libopenssl-devel-1.0.2j-60.20.2.x86_64"
+				},
+				"product_reference": "libopenssl-devel-1.0.2j-60.20.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl1_0_0-1.0.2j-60.20.2.aarch64 as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.aarch64"
+				},
+				"product_reference": "libopenssl1_0_0-1.0.2j-60.20.2.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl1_0_0-1.0.2j-60.20.2.ppc64le as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.ppc64le"
+				},
+				"product_reference": "libopenssl1_0_0-1.0.2j-60.20.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl1_0_0-1.0.2j-60.20.2.s390x as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.s390x"
+				},
+				"product_reference": "libopenssl1_0_0-1.0.2j-60.20.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl1_0_0-1.0.2j-60.20.2.x86_64 as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.x86_64"
+				},
+				"product_reference": "libopenssl1_0_0-1.0.2j-60.20.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl1_0_0-32bit-1.0.2j-60.20.2.s390x as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-32bit-1.0.2j-60.20.2.s390x"
+				},
+				"product_reference": "libopenssl1_0_0-32bit-1.0.2j-60.20.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl1_0_0-32bit-1.0.2j-60.20.2.x86_64 as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-32bit-1.0.2j-60.20.2.x86_64"
+				},
+				"product_reference": "libopenssl1_0_0-32bit-1.0.2j-60.20.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl1_0_0-hmac-1.0.2j-60.20.2.aarch64 as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-hmac-1.0.2j-60.20.2.aarch64"
+				},
+				"product_reference": "libopenssl1_0_0-hmac-1.0.2j-60.20.2.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl1_0_0-hmac-1.0.2j-60.20.2.ppc64le as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-hmac-1.0.2j-60.20.2.ppc64le"
+				},
+				"product_reference": "libopenssl1_0_0-hmac-1.0.2j-60.20.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl1_0_0-hmac-1.0.2j-60.20.2.s390x as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-hmac-1.0.2j-60.20.2.s390x"
+				},
+				"product_reference": "libopenssl1_0_0-hmac-1.0.2j-60.20.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl1_0_0-hmac-1.0.2j-60.20.2.x86_64 as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-hmac-1.0.2j-60.20.2.x86_64"
+				},
+				"product_reference": "libopenssl1_0_0-hmac-1.0.2j-60.20.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.s390x as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.s390x"
+				},
+				"product_reference": "libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.x86_64 as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.x86_64"
+				},
+				"product_reference": "libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openssl-1.0.2j-60.20.2.aarch64 as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:openssl-1.0.2j-60.20.2.aarch64"
+				},
+				"product_reference": "openssl-1.0.2j-60.20.2.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openssl-1.0.2j-60.20.2.ppc64le as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:openssl-1.0.2j-60.20.2.ppc64le"
+				},
+				"product_reference": "openssl-1.0.2j-60.20.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openssl-1.0.2j-60.20.2.s390x as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:openssl-1.0.2j-60.20.2.s390x"
+				},
+				"product_reference": "openssl-1.0.2j-60.20.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openssl-1.0.2j-60.20.2.x86_64 as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:openssl-1.0.2j-60.20.2.x86_64"
+				},
+				"product_reference": "openssl-1.0.2j-60.20.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openssl-doc-1.0.2j-60.20.2.noarch as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:openssl-doc-1.0.2j-60.20.2.noarch"
+				},
+				"product_reference": "openssl-doc-1.0.2j-60.20.2.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl-devel-1.0.2j-60.20.2.aarch64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl-devel-1.0.2j-60.20.2.aarch64"
+				},
+				"product_reference": "libopenssl-devel-1.0.2j-60.20.2.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl-devel-1.0.2j-60.20.2.ppc64le as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl-devel-1.0.2j-60.20.2.ppc64le"
+				},
+				"product_reference": "libopenssl-devel-1.0.2j-60.20.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl-devel-1.0.2j-60.20.2.s390x as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl-devel-1.0.2j-60.20.2.s390x"
+				},
+				"product_reference": "libopenssl-devel-1.0.2j-60.20.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl-devel-1.0.2j-60.20.2.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl-devel-1.0.2j-60.20.2.x86_64"
+				},
+				"product_reference": "libopenssl-devel-1.0.2j-60.20.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl1_0_0-1.0.2j-60.20.2.aarch64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.aarch64"
+				},
+				"product_reference": "libopenssl1_0_0-1.0.2j-60.20.2.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl1_0_0-1.0.2j-60.20.2.ppc64le as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.ppc64le"
+				},
+				"product_reference": "libopenssl1_0_0-1.0.2j-60.20.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl1_0_0-1.0.2j-60.20.2.s390x as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.s390x"
+				},
+				"product_reference": "libopenssl1_0_0-1.0.2j-60.20.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl1_0_0-1.0.2j-60.20.2.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.x86_64"
+				},
+				"product_reference": "libopenssl1_0_0-1.0.2j-60.20.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl1_0_0-32bit-1.0.2j-60.20.2.s390x as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-32bit-1.0.2j-60.20.2.s390x"
+				},
+				"product_reference": "libopenssl1_0_0-32bit-1.0.2j-60.20.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl1_0_0-32bit-1.0.2j-60.20.2.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-32bit-1.0.2j-60.20.2.x86_64"
+				},
+				"product_reference": "libopenssl1_0_0-32bit-1.0.2j-60.20.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl1_0_0-hmac-1.0.2j-60.20.2.aarch64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-hmac-1.0.2j-60.20.2.aarch64"
+				},
+				"product_reference": "libopenssl1_0_0-hmac-1.0.2j-60.20.2.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl1_0_0-hmac-1.0.2j-60.20.2.ppc64le as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-hmac-1.0.2j-60.20.2.ppc64le"
+				},
+				"product_reference": "libopenssl1_0_0-hmac-1.0.2j-60.20.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl1_0_0-hmac-1.0.2j-60.20.2.s390x as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-hmac-1.0.2j-60.20.2.s390x"
+				},
+				"product_reference": "libopenssl1_0_0-hmac-1.0.2j-60.20.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl1_0_0-hmac-1.0.2j-60.20.2.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-hmac-1.0.2j-60.20.2.x86_64"
+				},
+				"product_reference": "libopenssl1_0_0-hmac-1.0.2j-60.20.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.s390x as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.s390x"
+				},
+				"product_reference": "libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.x86_64"
+				},
+				"product_reference": "libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openssl-1.0.2j-60.20.2.aarch64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:openssl-1.0.2j-60.20.2.aarch64"
+				},
+				"product_reference": "openssl-1.0.2j-60.20.2.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openssl-1.0.2j-60.20.2.ppc64le as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:openssl-1.0.2j-60.20.2.ppc64le"
+				},
+				"product_reference": "openssl-1.0.2j-60.20.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openssl-1.0.2j-60.20.2.s390x as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:openssl-1.0.2j-60.20.2.s390x"
+				},
+				"product_reference": "openssl-1.0.2j-60.20.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openssl-1.0.2j-60.20.2.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:openssl-1.0.2j-60.20.2.x86_64"
+				},
+				"product_reference": "openssl-1.0.2j-60.20.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openssl-doc-1.0.2j-60.20.2.noarch as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:openssl-doc-1.0.2j-60.20.2.noarch"
+				},
+				"product_reference": "openssl-doc-1.0.2j-60.20.2.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			}
+		]
+	},
+	"vulnerabilities": [
+		{
+			"cve": "CVE-2017-3737",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2017-3737"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "OpenSSL 1.0.2 (starting from version 1.0.2b) introduced an \"error state\" mechanism. The intent was that if a fatal error occurred during a handshake then OpenSSL would move into the error state and would immediately fail if you attempted to continue the handshake. This works as designed for the explicit handshake functions (SSL_do_handshake(), SSL_accept() and SSL_connect()), however due to a bug it does not work correctly if SSL_read() or SSL_write() is called directly. In that scenario, if the handshake fails then a fatal error will be returned in the initial function call. If SSL_read()/SSL_write() is subsequently called by the application for the same SSL object then it will succeed and the data is passed without being decrypted/encrypted directly from the SSL/TLS record layer. In order to exploit this issue an application bug would have to be present that resulted in a call to SSL_read()/SSL_write() being issued after having already received a fatal error. OpenSSL version 1.0.2b-1.0.2m are affected. Fixed in OpenSSL 1.0.2n. OpenSSL 1.1.0 is not affected.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Desktop 12 SP2:libopenssl-devel-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12 SP2:libopenssl1_0_0-32bit-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12 SP2:openssl-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12 SP3:libopenssl-devel-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12 SP3:libopenssl1_0_0-32bit-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12 SP3:openssl-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Server 12 SP2:libopenssl-devel-1.0.2j-60.20.2.aarch64",
+					"SUSE Linux Enterprise Server 12 SP2:libopenssl-devel-1.0.2j-60.20.2.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP2:libopenssl-devel-1.0.2j-60.20.2.s390x",
+					"SUSE Linux Enterprise Server 12 SP2:libopenssl-devel-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.aarch64",
+					"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.s390x",
+					"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-32bit-1.0.2j-60.20.2.s390x",
+					"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-32bit-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.aarch64",
+					"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.s390x",
+					"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.s390x",
+					"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Server 12 SP2:openssl-1.0.2j-60.20.2.aarch64",
+					"SUSE Linux Enterprise Server 12 SP2:openssl-1.0.2j-60.20.2.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP2:openssl-1.0.2j-60.20.2.s390x",
+					"SUSE Linux Enterprise Server 12 SP2:openssl-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Server 12 SP2:openssl-doc-1.0.2j-60.20.2.noarch",
+					"SUSE Linux Enterprise Server 12 SP3:libopenssl-devel-1.0.2j-60.20.2.aarch64",
+					"SUSE Linux Enterprise Server 12 SP3:libopenssl-devel-1.0.2j-60.20.2.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP3:libopenssl-devel-1.0.2j-60.20.2.s390x",
+					"SUSE Linux Enterprise Server 12 SP3:libopenssl-devel-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.aarch64",
+					"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.s390x",
+					"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-32bit-1.0.2j-60.20.2.s390x",
+					"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-32bit-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-hmac-1.0.2j-60.20.2.aarch64",
+					"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-hmac-1.0.2j-60.20.2.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-hmac-1.0.2j-60.20.2.s390x",
+					"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-hmac-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.s390x",
+					"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Server 12 SP3:openssl-1.0.2j-60.20.2.aarch64",
+					"SUSE Linux Enterprise Server 12 SP3:openssl-1.0.2j-60.20.2.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP3:openssl-1.0.2j-60.20.2.s390x",
+					"SUSE Linux Enterprise Server 12 SP3:openssl-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Server 12 SP3:openssl-doc-1.0.2j-60.20.2.noarch",
+					"SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:libopenssl-devel-1.0.2j-60.20.2.aarch64",
+					"SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.aarch64",
+					"SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.aarch64",
+					"SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:openssl-1.0.2j-60.20.2.aarch64",
+					"SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:openssl-doc-1.0.2j-60.20.2.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl-devel-1.0.2j-60.20.2.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl-devel-1.0.2j-60.20.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl-devel-1.0.2j-60.20.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl-devel-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-32bit-1.0.2j-60.20.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-32bit-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:openssl-1.0.2j-60.20.2.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:openssl-1.0.2j-60.20.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:openssl-1.0.2j-60.20.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:openssl-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:openssl-doc-1.0.2j-60.20.2.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl-devel-1.0.2j-60.20.2.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl-devel-1.0.2j-60.20.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl-devel-1.0.2j-60.20.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl-devel-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-32bit-1.0.2j-60.20.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-32bit-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-hmac-1.0.2j-60.20.2.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-hmac-1.0.2j-60.20.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-hmac-1.0.2j-60.20.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-hmac-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:openssl-1.0.2j-60.20.2.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:openssl-1.0.2j-60.20.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:openssl-1.0.2j-60.20.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:openssl-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:openssl-doc-1.0.2j-60.20.2.noarch",
+					"SUSE Linux Enterprise Software Development Kit 12 SP2:libopenssl-devel-1.0.2j-60.20.2.aarch64",
+					"SUSE Linux Enterprise Software Development Kit 12 SP2:libopenssl-devel-1.0.2j-60.20.2.ppc64le",
+					"SUSE Linux Enterprise Software Development Kit 12 SP2:libopenssl-devel-1.0.2j-60.20.2.s390x",
+					"SUSE Linux Enterprise Software Development Kit 12 SP2:libopenssl-devel-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 12 SP3:libopenssl-devel-1.0.2j-60.20.2.aarch64",
+					"SUSE Linux Enterprise Software Development Kit 12 SP3:libopenssl-devel-1.0.2j-60.20.2.ppc64le",
+					"SUSE Linux Enterprise Software Development Kit 12 SP3:libopenssl-devel-1.0.2j-60.20.2.s390x",
+					"SUSE Linux Enterprise Software Development Kit 12 SP3:libopenssl-devel-1.0.2j-60.20.2.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2017-3737",
+					"url": "https://www.suse.com/security/cve/CVE-2017-3737"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1071905 for CVE-2017-3737",
+					"url": "https://bugzilla.suse.com/1071905"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1072322 for CVE-2017-3737",
+					"url": "https://bugzilla.suse.com/1072322"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1076369 for CVE-2017-3737",
+					"url": "https://bugzilla.suse.com/1076369"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1089987 for CVE-2017-3737",
+					"url": "https://bugzilla.suse.com/1089987"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1089997 for CVE-2017-3737",
+					"url": "https://bugzilla.suse.com/1089997"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12 SP2:libopenssl-devel-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP2:libopenssl1_0_0-32bit-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP2:openssl-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP3:libopenssl-devel-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP3:libopenssl1_0_0-32bit-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP3:openssl-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl-devel-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl-devel-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl-devel-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl-devel-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-32bit-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-32bit-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP2:openssl-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP2:openssl-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP2:openssl-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP2:openssl-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP2:openssl-doc-1.0.2j-60.20.2.noarch",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl-devel-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl-devel-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl-devel-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl-devel-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-32bit-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-32bit-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-hmac-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-hmac-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-hmac-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-hmac-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:openssl-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:openssl-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:openssl-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:openssl-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:openssl-doc-1.0.2j-60.20.2.noarch",
+						"SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:libopenssl-devel-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:openssl-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:openssl-doc-1.0.2j-60.20.2.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl-devel-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl-devel-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl-devel-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl-devel-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-32bit-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-32bit-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:openssl-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:openssl-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:openssl-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:openssl-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:openssl-doc-1.0.2j-60.20.2.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl-devel-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl-devel-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl-devel-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl-devel-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-32bit-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-32bit-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-hmac-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-hmac-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-hmac-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-hmac-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:openssl-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:openssl-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:openssl-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:openssl-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:openssl-doc-1.0.2j-60.20.2.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12 SP2:libopenssl-devel-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP2:libopenssl-devel-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12 SP2:libopenssl-devel-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12 SP2:libopenssl-devel-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libopenssl-devel-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libopenssl-devel-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libopenssl-devel-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libopenssl-devel-1.0.2j-60.20.2.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 5.9,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Desktop 12 SP2:libopenssl-devel-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP2:libopenssl1_0_0-32bit-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP2:openssl-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP3:libopenssl-devel-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP3:libopenssl1_0_0-32bit-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP3:openssl-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl-devel-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl-devel-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl-devel-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl-devel-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-32bit-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-32bit-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP2:openssl-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP2:openssl-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP2:openssl-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP2:openssl-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP2:openssl-doc-1.0.2j-60.20.2.noarch",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl-devel-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl-devel-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl-devel-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl-devel-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-32bit-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-32bit-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-hmac-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-hmac-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-hmac-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-hmac-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:openssl-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:openssl-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:openssl-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:openssl-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:openssl-doc-1.0.2j-60.20.2.noarch",
+						"SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:libopenssl-devel-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:openssl-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:openssl-doc-1.0.2j-60.20.2.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl-devel-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl-devel-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl-devel-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl-devel-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-32bit-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-32bit-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:openssl-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:openssl-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:openssl-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:openssl-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:openssl-doc-1.0.2j-60.20.2.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl-devel-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl-devel-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl-devel-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl-devel-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-32bit-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-32bit-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-hmac-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-hmac-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-hmac-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-hmac-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:openssl-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:openssl-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:openssl-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:openssl-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:openssl-doc-1.0.2j-60.20.2.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12 SP2:libopenssl-devel-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP2:libopenssl-devel-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12 SP2:libopenssl-devel-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12 SP2:libopenssl-devel-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libopenssl-devel-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libopenssl-devel-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libopenssl-devel-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libopenssl-devel-1.0.2j-60.20.2.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2017-12-16T00:59:29Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2017-3737"
+		},
+		{
+			"cve": "CVE-2017-3738",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2017-3738"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "There is an overflow bug in the AVX2 Montgomery multiplication procedure used in exponentiation with 1024-bit moduli. No EC algorithms are affected. Analysis suggests that attacks against RSA and DSA as a result of this defect would be very difficult to perform and are not believed likely. Attacks against DH1024 are considered just feasible, because most of the work necessary to deduce information about a private key may be performed offline. The amount of resources required for such an attack would be significant. However, for an attack on TLS to be meaningful, the server would have to share the DH1024 private key among multiple clients, which is no longer an option since CVE-2016-0701. This only affects processors that support the AVX2 but not ADX extensions like Intel Haswell (4th generation). Note: The impact from this issue is similar to CVE-2017-3736, CVE-2017-3732 and CVE-2015-3193. OpenSSL version 1.0.2-1.0.2m and 1.1.0-1.1.0g are affected. Fixed in OpenSSL 1.0.2n. Due to the low severity of this issue we are not issuing a new release of OpenSSL 1.1.0 at this time. The fix will be included in OpenSSL 1.1.0h when it becomes available. The fix is also available in commit e502cc86d in the OpenSSL git repository.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Desktop 12 SP2:libopenssl-devel-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12 SP2:libopenssl1_0_0-32bit-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12 SP2:openssl-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12 SP3:libopenssl-devel-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12 SP3:libopenssl1_0_0-32bit-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12 SP3:openssl-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Server 12 SP2:libopenssl-devel-1.0.2j-60.20.2.aarch64",
+					"SUSE Linux Enterprise Server 12 SP2:libopenssl-devel-1.0.2j-60.20.2.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP2:libopenssl-devel-1.0.2j-60.20.2.s390x",
+					"SUSE Linux Enterprise Server 12 SP2:libopenssl-devel-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.aarch64",
+					"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.s390x",
+					"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-32bit-1.0.2j-60.20.2.s390x",
+					"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-32bit-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.aarch64",
+					"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.s390x",
+					"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.s390x",
+					"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Server 12 SP2:openssl-1.0.2j-60.20.2.aarch64",
+					"SUSE Linux Enterprise Server 12 SP2:openssl-1.0.2j-60.20.2.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP2:openssl-1.0.2j-60.20.2.s390x",
+					"SUSE Linux Enterprise Server 12 SP2:openssl-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Server 12 SP2:openssl-doc-1.0.2j-60.20.2.noarch",
+					"SUSE Linux Enterprise Server 12 SP3:libopenssl-devel-1.0.2j-60.20.2.aarch64",
+					"SUSE Linux Enterprise Server 12 SP3:libopenssl-devel-1.0.2j-60.20.2.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP3:libopenssl-devel-1.0.2j-60.20.2.s390x",
+					"SUSE Linux Enterprise Server 12 SP3:libopenssl-devel-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.aarch64",
+					"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.s390x",
+					"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-32bit-1.0.2j-60.20.2.s390x",
+					"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-32bit-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-hmac-1.0.2j-60.20.2.aarch64",
+					"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-hmac-1.0.2j-60.20.2.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-hmac-1.0.2j-60.20.2.s390x",
+					"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-hmac-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.s390x",
+					"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Server 12 SP3:openssl-1.0.2j-60.20.2.aarch64",
+					"SUSE Linux Enterprise Server 12 SP3:openssl-1.0.2j-60.20.2.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP3:openssl-1.0.2j-60.20.2.s390x",
+					"SUSE Linux Enterprise Server 12 SP3:openssl-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Server 12 SP3:openssl-doc-1.0.2j-60.20.2.noarch",
+					"SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:libopenssl-devel-1.0.2j-60.20.2.aarch64",
+					"SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.aarch64",
+					"SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.aarch64",
+					"SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:openssl-1.0.2j-60.20.2.aarch64",
+					"SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:openssl-doc-1.0.2j-60.20.2.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl-devel-1.0.2j-60.20.2.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl-devel-1.0.2j-60.20.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl-devel-1.0.2j-60.20.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl-devel-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-32bit-1.0.2j-60.20.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-32bit-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:openssl-1.0.2j-60.20.2.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:openssl-1.0.2j-60.20.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:openssl-1.0.2j-60.20.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:openssl-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:openssl-doc-1.0.2j-60.20.2.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl-devel-1.0.2j-60.20.2.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl-devel-1.0.2j-60.20.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl-devel-1.0.2j-60.20.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl-devel-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-32bit-1.0.2j-60.20.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-32bit-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-hmac-1.0.2j-60.20.2.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-hmac-1.0.2j-60.20.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-hmac-1.0.2j-60.20.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-hmac-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:openssl-1.0.2j-60.20.2.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:openssl-1.0.2j-60.20.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:openssl-1.0.2j-60.20.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:openssl-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:openssl-doc-1.0.2j-60.20.2.noarch",
+					"SUSE Linux Enterprise Software Development Kit 12 SP2:libopenssl-devel-1.0.2j-60.20.2.aarch64",
+					"SUSE Linux Enterprise Software Development Kit 12 SP2:libopenssl-devel-1.0.2j-60.20.2.ppc64le",
+					"SUSE Linux Enterprise Software Development Kit 12 SP2:libopenssl-devel-1.0.2j-60.20.2.s390x",
+					"SUSE Linux Enterprise Software Development Kit 12 SP2:libopenssl-devel-1.0.2j-60.20.2.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 12 SP3:libopenssl-devel-1.0.2j-60.20.2.aarch64",
+					"SUSE Linux Enterprise Software Development Kit 12 SP3:libopenssl-devel-1.0.2j-60.20.2.ppc64le",
+					"SUSE Linux Enterprise Software Development Kit 12 SP3:libopenssl-devel-1.0.2j-60.20.2.s390x",
+					"SUSE Linux Enterprise Software Development Kit 12 SP3:libopenssl-devel-1.0.2j-60.20.2.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2017-3738",
+					"url": "https://www.suse.com/security/cve/CVE-2017-3738"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1071906 for CVE-2017-3738",
+					"url": "https://bugzilla.suse.com/1071906"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1097757 for CVE-2017-3738",
+					"url": "https://bugzilla.suse.com/1097757"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12 SP2:libopenssl-devel-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP2:libopenssl1_0_0-32bit-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP2:openssl-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP3:libopenssl-devel-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP3:libopenssl1_0_0-32bit-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP3:openssl-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl-devel-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl-devel-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl-devel-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl-devel-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-32bit-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-32bit-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP2:openssl-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP2:openssl-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP2:openssl-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP2:openssl-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP2:openssl-doc-1.0.2j-60.20.2.noarch",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl-devel-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl-devel-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl-devel-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl-devel-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-32bit-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-32bit-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-hmac-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-hmac-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-hmac-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-hmac-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:openssl-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:openssl-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:openssl-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:openssl-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:openssl-doc-1.0.2j-60.20.2.noarch",
+						"SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:libopenssl-devel-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:openssl-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:openssl-doc-1.0.2j-60.20.2.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl-devel-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl-devel-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl-devel-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl-devel-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-32bit-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-32bit-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:openssl-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:openssl-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:openssl-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:openssl-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:openssl-doc-1.0.2j-60.20.2.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl-devel-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl-devel-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl-devel-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl-devel-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-32bit-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-32bit-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-hmac-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-hmac-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-hmac-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-hmac-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:openssl-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:openssl-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:openssl-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:openssl-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:openssl-doc-1.0.2j-60.20.2.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12 SP2:libopenssl-devel-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP2:libopenssl-devel-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12 SP2:libopenssl-devel-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12 SP2:libopenssl-devel-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libopenssl-devel-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libopenssl-devel-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libopenssl-devel-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libopenssl-devel-1.0.2j-60.20.2.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 5.9,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Desktop 12 SP2:libopenssl-devel-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP2:libopenssl1_0_0-32bit-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP2:openssl-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP3:libopenssl-devel-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP3:libopenssl1_0_0-32bit-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP3:openssl-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl-devel-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl-devel-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl-devel-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl-devel-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-32bit-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-32bit-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP2:libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP2:openssl-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP2:openssl-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP2:openssl-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP2:openssl-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP2:openssl-doc-1.0.2j-60.20.2.noarch",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl-devel-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl-devel-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl-devel-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl-devel-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-32bit-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-32bit-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-hmac-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-hmac-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-hmac-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-hmac-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:openssl-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:openssl-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:openssl-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:openssl-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:openssl-doc-1.0.2j-60.20.2.noarch",
+						"SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:libopenssl-devel-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:openssl-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:openssl-doc-1.0.2j-60.20.2.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl-devel-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl-devel-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl-devel-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl-devel-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-32bit-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-32bit-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-hmac-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:openssl-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:openssl-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:openssl-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:openssl-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:openssl-doc-1.0.2j-60.20.2.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl-devel-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl-devel-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl-devel-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl-devel-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-32bit-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-32bit-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-hmac-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-hmac-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-hmac-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-hmac-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libopenssl1_0_0-hmac-32bit-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:openssl-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:openssl-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:openssl-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:openssl-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:openssl-doc-1.0.2j-60.20.2.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12 SP2:libopenssl-devel-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP2:libopenssl-devel-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12 SP2:libopenssl-devel-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12 SP2:libopenssl-devel-1.0.2j-60.20.2.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libopenssl-devel-1.0.2j-60.20.2.aarch64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libopenssl-devel-1.0.2j-60.20.2.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libopenssl-devel-1.0.2j-60.20.2.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libopenssl-devel-1.0.2j-60.20.2.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2017-12-16T00:59:29Z",
+					"details": "low"
+				}
+			],
+			"title": "CVE-2017-3738"
+		}
+	]
+}
