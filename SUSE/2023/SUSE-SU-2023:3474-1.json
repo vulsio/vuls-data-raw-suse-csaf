@@ -1,0 +1,1387 @@
+{
+	"document": {
+		"aggregate_severity": {
+			"namespace": "https://www.suse.com/support/security/rating/",
+			"text": "important"
+		},
+		"category": "csaf_security_advisory",
+		"csaf_version": "2.0",
+		"distribution": {
+			"text": "Copyright 2024 SUSE LLC. All rights reserved.",
+			"tlp": {
+				"label": "WHITE",
+				"url": "https://www.first.org/tlp/"
+			}
+		},
+		"lang": "en",
+		"notes": [
+			{
+				"category": "summary",
+				"text": "Recommended update for SUSE Manager Server 4.2",
+				"title": "Title of the patch"
+			},
+			{
+				"category": "description",
+				"text": "This update fixes the following issues:\n\nhub-xmlrpc-api:\n\n- Security fix:\n  * CVE-2023-29409: Restrict RSA keys in certificates to less than or equal to 8192 bits to avoid DoSing client/server\n    while validating signatures for extremely large RSA keys. (bsc#1213880)\n    + There are no direct source changes. The CVE on hub-xmlrpc-api is fixed rebuilding the sources with the patched Go\n      version.\n\nspacecmd:\n\n- Version 4.2.24-1\n  * Update translations\n\nspacewalk-backend:\n\n- Version 4.2.29-1\n  * Use a constant to get the product name in python code rather than reading rhn.conf (bsc#1212943)\n  * Only show missing /root/.curlrc error with log_level = 5 (bsc#1212507)\n\nspacewalk-java:\n\n- Version 4.2.55-1\n  * Set swap memory value if available\n  * Set primary FQDN to hostname if none is set (bsc#1209156, bsc#1214333)\n- Version 4.2.54-1\n  * Consider venv-salt-minion package update as a Salt update to prevent backtraces on\n    upgrading salt with itself (bsc#1211884)\n- Version 4.2.53-1\n  * Fix 'more then one method candidate found' for API function (bsc#1211100)\n  * Fixed a bug that caused the tab Autoinstallation to hide when clicking on Power\n    Management Management/Operations on SSM -> Provisioning\n  * Update copyright year (bsc#1212106)\n  * Disable jinja processing for the roster file (bsc#1211650)\n- Version 4.2.52-1\n  * Update jetty-util to version 9.4.51\n- Version 4.2.51-1\n  * Update version of Tomcat build dependencies\n\nspacewalk-reports:\n\n- Version 4.2.8-1\n  * Drop Python2 compatibility (bsc#1212589)\n\nspacewalk-setup:\n\n- Version 4.2.13-1\n  * Drop usage of salt.ext.six in embedded_diskspace_check\n\nspacewalk-utils:\n\n- Version 4.2.20-1\n  * Drop Python2 compatibility\n\nspacewalk-web:\n\n- Version 4.2.36-1\n  * Update translation\n  * Fix VHM CPU and RAM display when 0 (bsc#1175823)\n  * Fix parsing error when showing notification message details (bsc#1211469)\n\nsusemanager:\n    \n- Version 4.2.44-1\n  * Require LTSS channels for SUSE Linux Enterprise 15 SP1/SP2/SP3 and SUSE Manager Proxy 4.2 (bsc#1214187)    \n- Version 4.2.43-1\n  * Add missing Salt 3006.0 dependencies to bootstrap repo definitions (bsc#1212700)\n  * Make mgr-salt-ssh to properly fix HOME environment to avoid issues with gitfs (bsc#1210994)\n\nsusemanager-doc-indexes:\n\n- Typo correction for Cobbler buildiso command in Client Configuration Guide\n- Replaced plain text with dedicated attribute for AutoYaST\n- Added a note about Oracle Unbreakable Linux Network mirroring requirements in \n  Client Configuration Guide (bsc#1212032)\n- Added SUSE Linux Enterprise 15 SP5 and openSUSE Leap 15.5 \n  as supported clients in the Client Configuration Guide\n- Fixed missing tables of content in the Reference Guide (bsc#1208577)\n- Fixed instruction for Single sign-on implementation example in the Administration Guide (bsc#1210103)\n- Removed reference to non-exitent files in Reference Guide (bsc#1208528)\n\nsusemanager-docs_en:\n\n- Typo correction for Cobbler buildiso command in Client Configuration Guide\n- Replaced plain text with dedicated attribute for AutoYaST\n- Added a note about Oracle Unbreakable Linux Network mirroring \n  requirements in Client Configuration Guide (bsc#1212032)\n- Added SUSE Linux Enterprise 15 SP5 and openSUSE Leap 15.5 \n  as supported clients in the Client Configuration Guide\n- Fixed missing tables of content in the Reference Guide (bsc#1208577)\n- Fixed instruction for Single sign-on implementation example in the Administration Guide (bsc#1210103)\n- Removed reference to non-exitent files in Reference Guide (bsc#1208528)\n\nsusemanager-schema:\n\n- Version 4.2.29-1\n  * Add schema directory for susemanager-schema-4.2.29\n\nsusemanager-sls:\n\n- Version 4.2.35-1\n  * Do not disable salt-minion on salt-ssh managed clients\n  * Use venv-salt-minion instead of salt for docker states (bsc#1212416)\n\nHow to apply this update:\n\n1. Log in as root user to the SUSE Manager Server.\n2. Stop the Spacewalk service:\n`spacewalk-service stop`\n3. Apply the patch using either zypper patch or YaST Online Update.\n4. Start the Spacewalk service:\n`spacewalk-service start`\n",
+				"title": "Description of the patch"
+			},
+			{
+				"category": "details",
+				"text": "SUSE-2023-3474,SUSE-SLE-Module-SUSE-Manager-Proxy-4.2-2023-3474,SUSE-SLE-Module-SUSE-Manager-Server-4.2-2023-3474",
+				"title": "Patchnames"
+			},
+			{
+				"category": "legal_disclaimer",
+				"text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+				"title": "Terms of use"
+			}
+		],
+		"publisher": {
+			"category": "vendor",
+			"contact_details": "https://www.suse.com/support/security/contact/",
+			"name": "SUSE Product Security Team",
+			"namespace": "https://www.suse.com/"
+		},
+		"references": [
+			{
+				"category": "external",
+				"summary": "SUSE ratings",
+				"url": "https://www.suse.com/support/security/rating/"
+			},
+			{
+				"category": "self",
+				"summary": "URL of this CSAF notice",
+				"url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2023_3474-1.json"
+			},
+			{
+				"category": "self",
+				"summary": "URL for SUSE-SU-2023:3474-1",
+				"url": "https://www.suse.com/support/update/announcement/2023/suse-su-20233474-1/"
+			},
+			{
+				"category": "self",
+				"summary": "E-Mail link for SUSE-SU-2023:3474-1",
+				"url": "https://lists.suse.com/pipermail/sle-security-updates/2024-February/018039.html"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1175823",
+				"url": "https://bugzilla.suse.com/1175823"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1208528",
+				"url": "https://bugzilla.suse.com/1208528"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1208577",
+				"url": "https://bugzilla.suse.com/1208577"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1209156",
+				"url": "https://bugzilla.suse.com/1209156"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1210103",
+				"url": "https://bugzilla.suse.com/1210103"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1210994",
+				"url": "https://bugzilla.suse.com/1210994"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1211100",
+				"url": "https://bugzilla.suse.com/1211100"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1211469",
+				"url": "https://bugzilla.suse.com/1211469"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1211650",
+				"url": "https://bugzilla.suse.com/1211650"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1211884",
+				"url": "https://bugzilla.suse.com/1211884"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1212032",
+				"url": "https://bugzilla.suse.com/1212032"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1212106",
+				"url": "https://bugzilla.suse.com/1212106"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1212416",
+				"url": "https://bugzilla.suse.com/1212416"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1212507",
+				"url": "https://bugzilla.suse.com/1212507"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1212589",
+				"url": "https://bugzilla.suse.com/1212589"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1212700",
+				"url": "https://bugzilla.suse.com/1212700"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1212943",
+				"url": "https://bugzilla.suse.com/1212943"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1213880",
+				"url": "https://bugzilla.suse.com/1213880"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1214187",
+				"url": "https://bugzilla.suse.com/1214187"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1214333",
+				"url": "https://bugzilla.suse.com/1214333"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2023-29409 page",
+				"url": "https://www.suse.com/security/cve/CVE-2023-29409/"
+			}
+		],
+		"title": "Recommended update for SUSE Manager Server 4.2",
+		"tracking": {
+			"current_release_date": "2023-08-29T09:38:52Z",
+			"generator": {
+				"date": "2023-08-29T09:38:52Z",
+				"engine": {
+					"name": "cve-database.git:bin/generate-csaf.pl",
+					"version": "1"
+				}
+			},
+			"id": "SUSE-SU-2023:3474-1",
+			"initial_release_date": "2023-08-29T09:38:52Z",
+			"revision_history": [
+				{
+					"date": "2023-08-29T09:38:52Z",
+					"number": "1",
+					"summary": "Current version"
+				}
+			],
+			"status": "final",
+			"version": "1"
+		}
+	},
+	"product_tree": {
+		"branches": [
+			{
+				"branches": [
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "hub-xmlrpc-api-0.7-150300.3.14.2.aarch64",
+								"product": {
+									"name": "hub-xmlrpc-api-0.7-150300.3.14.2.aarch64",
+									"product_id": "hub-xmlrpc-api-0.7-150300.3.14.2.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "inter-server-sync-0.3.0-150300.8.36.1.aarch64",
+								"product": {
+									"name": "inter-server-sync-0.3.0-150300.8.36.1.aarch64",
+									"product_id": "inter-server-sync-0.3.0-150300.8.36.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-4.2.44-150300.3.59.1.aarch64",
+								"product": {
+									"name": "susemanager-4.2.44-150300.3.59.1.aarch64",
+									"product_id": "susemanager-4.2.44-150300.3.59.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-tools-4.2.44-150300.3.59.1.aarch64",
+								"product": {
+									"name": "susemanager-tools-4.2.44-150300.3.59.1.aarch64",
+									"product_id": "susemanager-tools-4.2.44-150300.3.59.1.aarch64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "aarch64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "spacecmd-4.2.24-150300.4.42.3.noarch",
+								"product": {
+									"name": "spacecmd-4.2.24-150300.4.42.3.noarch",
+									"product_id": "spacecmd-4.2.24-150300.4.42.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-backend-4.2.29-150300.4.44.5.noarch",
+								"product": {
+									"name": "spacewalk-backend-4.2.29-150300.4.44.5.noarch",
+									"product_id": "spacewalk-backend-4.2.29-150300.4.44.5.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-backend-app-4.2.29-150300.4.44.5.noarch",
+								"product": {
+									"name": "spacewalk-backend-app-4.2.29-150300.4.44.5.noarch",
+									"product_id": "spacewalk-backend-app-4.2.29-150300.4.44.5.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-backend-applet-4.2.29-150300.4.44.5.noarch",
+								"product": {
+									"name": "spacewalk-backend-applet-4.2.29-150300.4.44.5.noarch",
+									"product_id": "spacewalk-backend-applet-4.2.29-150300.4.44.5.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-backend-cdn-4.2.29-150300.4.44.5.noarch",
+								"product": {
+									"name": "spacewalk-backend-cdn-4.2.29-150300.4.44.5.noarch",
+									"product_id": "spacewalk-backend-cdn-4.2.29-150300.4.44.5.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-backend-config-files-4.2.29-150300.4.44.5.noarch",
+								"product": {
+									"name": "spacewalk-backend-config-files-4.2.29-150300.4.44.5.noarch",
+									"product_id": "spacewalk-backend-config-files-4.2.29-150300.4.44.5.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-backend-config-files-common-4.2.29-150300.4.44.5.noarch",
+								"product": {
+									"name": "spacewalk-backend-config-files-common-4.2.29-150300.4.44.5.noarch",
+									"product_id": "spacewalk-backend-config-files-common-4.2.29-150300.4.44.5.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-backend-config-files-tool-4.2.29-150300.4.44.5.noarch",
+								"product": {
+									"name": "spacewalk-backend-config-files-tool-4.2.29-150300.4.44.5.noarch",
+									"product_id": "spacewalk-backend-config-files-tool-4.2.29-150300.4.44.5.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-backend-iss-4.2.29-150300.4.44.5.noarch",
+								"product": {
+									"name": "spacewalk-backend-iss-4.2.29-150300.4.44.5.noarch",
+									"product_id": "spacewalk-backend-iss-4.2.29-150300.4.44.5.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-backend-iss-export-4.2.29-150300.4.44.5.noarch",
+								"product": {
+									"name": "spacewalk-backend-iss-export-4.2.29-150300.4.44.5.noarch",
+									"product_id": "spacewalk-backend-iss-export-4.2.29-150300.4.44.5.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-backend-package-push-server-4.2.29-150300.4.44.5.noarch",
+								"product": {
+									"name": "spacewalk-backend-package-push-server-4.2.29-150300.4.44.5.noarch",
+									"product_id": "spacewalk-backend-package-push-server-4.2.29-150300.4.44.5.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-backend-server-4.2.29-150300.4.44.5.noarch",
+								"product": {
+									"name": "spacewalk-backend-server-4.2.29-150300.4.44.5.noarch",
+									"product_id": "spacewalk-backend-server-4.2.29-150300.4.44.5.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-backend-sql-4.2.29-150300.4.44.5.noarch",
+								"product": {
+									"name": "spacewalk-backend-sql-4.2.29-150300.4.44.5.noarch",
+									"product_id": "spacewalk-backend-sql-4.2.29-150300.4.44.5.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-backend-sql-postgresql-4.2.29-150300.4.44.5.noarch",
+								"product": {
+									"name": "spacewalk-backend-sql-postgresql-4.2.29-150300.4.44.5.noarch",
+									"product_id": "spacewalk-backend-sql-postgresql-4.2.29-150300.4.44.5.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-backend-tools-4.2.29-150300.4.44.5.noarch",
+								"product": {
+									"name": "spacewalk-backend-tools-4.2.29-150300.4.44.5.noarch",
+									"product_id": "spacewalk-backend-tools-4.2.29-150300.4.44.5.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-backend-xml-export-libs-4.2.29-150300.4.44.5.noarch",
+								"product": {
+									"name": "spacewalk-backend-xml-export-libs-4.2.29-150300.4.44.5.noarch",
+									"product_id": "spacewalk-backend-xml-export-libs-4.2.29-150300.4.44.5.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-backend-xmlrpc-4.2.29-150300.4.44.5.noarch",
+								"product": {
+									"name": "spacewalk-backend-xmlrpc-4.2.29-150300.4.44.5.noarch",
+									"product_id": "spacewalk-backend-xmlrpc-4.2.29-150300.4.44.5.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-base-4.2.36-150300.3.47.5.noarch",
+								"product": {
+									"name": "spacewalk-base-4.2.36-150300.3.47.5.noarch",
+									"product_id": "spacewalk-base-4.2.36-150300.3.47.5.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-base-minimal-4.2.36-150300.3.47.5.noarch",
+								"product": {
+									"name": "spacewalk-base-minimal-4.2.36-150300.3.47.5.noarch",
+									"product_id": "spacewalk-base-minimal-4.2.36-150300.3.47.5.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-base-minimal-config-4.2.36-150300.3.47.5.noarch",
+								"product": {
+									"name": "spacewalk-base-minimal-config-4.2.36-150300.3.47.5.noarch",
+									"product_id": "spacewalk-base-minimal-config-4.2.36-150300.3.47.5.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-dobby-4.2.36-150300.3.47.5.noarch",
+								"product": {
+									"name": "spacewalk-dobby-4.2.36-150300.3.47.5.noarch",
+									"product_id": "spacewalk-dobby-4.2.36-150300.3.47.5.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-html-4.2.36-150300.3.47.5.noarch",
+								"product": {
+									"name": "spacewalk-html-4.2.36-150300.3.47.5.noarch",
+									"product_id": "spacewalk-html-4.2.36-150300.3.47.5.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-html-debug-4.2.36-150300.3.47.5.noarch",
+								"product": {
+									"name": "spacewalk-html-debug-4.2.36-150300.3.47.5.noarch",
+									"product_id": "spacewalk-html-debug-4.2.36-150300.3.47.5.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-java-4.2.55-150300.3.73.2.noarch",
+								"product": {
+									"name": "spacewalk-java-4.2.55-150300.3.73.2.noarch",
+									"product_id": "spacewalk-java-4.2.55-150300.3.73.2.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-java-apidoc-sources-4.2.55-150300.3.73.2.noarch",
+								"product": {
+									"name": "spacewalk-java-apidoc-sources-4.2.55-150300.3.73.2.noarch",
+									"product_id": "spacewalk-java-apidoc-sources-4.2.55-150300.3.73.2.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-java-config-4.2.55-150300.3.73.2.noarch",
+								"product": {
+									"name": "spacewalk-java-config-4.2.55-150300.3.73.2.noarch",
+									"product_id": "spacewalk-java-config-4.2.55-150300.3.73.2.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-java-lib-4.2.55-150300.3.73.2.noarch",
+								"product": {
+									"name": "spacewalk-java-lib-4.2.55-150300.3.73.2.noarch",
+									"product_id": "spacewalk-java-lib-4.2.55-150300.3.73.2.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-java-postgresql-4.2.55-150300.3.73.2.noarch",
+								"product": {
+									"name": "spacewalk-java-postgresql-4.2.55-150300.3.73.2.noarch",
+									"product_id": "spacewalk-java-postgresql-4.2.55-150300.3.73.2.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-reports-4.2.8-150300.3.12.3.noarch",
+								"product": {
+									"name": "spacewalk-reports-4.2.8-150300.3.12.3.noarch",
+									"product_id": "spacewalk-reports-4.2.8-150300.3.12.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-setup-4.2.13-150300.3.21.3.noarch",
+								"product": {
+									"name": "spacewalk-setup-4.2.13-150300.3.21.3.noarch",
+									"product_id": "spacewalk-setup-4.2.13-150300.3.21.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-taskomatic-4.2.55-150300.3.73.2.noarch",
+								"product": {
+									"name": "spacewalk-taskomatic-4.2.55-150300.3.73.2.noarch",
+									"product_id": "spacewalk-taskomatic-4.2.55-150300.3.73.2.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-utils-4.2.20-150300.3.27.3.noarch",
+								"product": {
+									"name": "spacewalk-utils-4.2.20-150300.3.27.3.noarch",
+									"product_id": "spacewalk-utils-4.2.20-150300.3.27.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-utils-extras-4.2.20-150300.3.27.3.noarch",
+								"product": {
+									"name": "spacewalk-utils-extras-4.2.20-150300.3.27.3.noarch",
+									"product_id": "spacewalk-utils-extras-4.2.20-150300.3.27.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-doc-indexes-4.2-150300.12.48.5.noarch",
+								"product": {
+									"name": "susemanager-doc-indexes-4.2-150300.12.48.5.noarch",
+									"product_id": "susemanager-doc-indexes-4.2-150300.12.48.5.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-docs_en-4.2-150300.12.48.3.noarch",
+								"product": {
+									"name": "susemanager-docs_en-4.2-150300.12.48.3.noarch",
+									"product_id": "susemanager-docs_en-4.2-150300.12.48.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-docs_en-pdf-4.2-150300.12.48.3.noarch",
+								"product": {
+									"name": "susemanager-docs_en-pdf-4.2-150300.12.48.3.noarch",
+									"product_id": "susemanager-docs_en-pdf-4.2-150300.12.48.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-schema-4.2.29-150300.3.41.5.noarch",
+								"product": {
+									"name": "susemanager-schema-4.2.29-150300.3.41.5.noarch",
+									"product_id": "susemanager-schema-4.2.29-150300.3.41.5.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-schema-sanity-4.2.29-150300.3.41.5.noarch",
+								"product": {
+									"name": "susemanager-schema-sanity-4.2.29-150300.3.41.5.noarch",
+									"product_id": "susemanager-schema-sanity-4.2.29-150300.3.41.5.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-sls-4.2.35-150300.3.54.3.noarch",
+								"product": {
+									"name": "susemanager-sls-4.2.35-150300.3.54.3.noarch",
+									"product_id": "susemanager-sls-4.2.35-150300.3.54.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "uyuni-config-modules-4.2.35-150300.3.54.3.noarch",
+								"product": {
+									"name": "uyuni-config-modules-4.2.35-150300.3.54.3.noarch",
+									"product_id": "uyuni-config-modules-4.2.35-150300.3.54.3.noarch"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "noarch"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "hub-xmlrpc-api-0.7-150300.3.14.2.ppc64le",
+								"product": {
+									"name": "hub-xmlrpc-api-0.7-150300.3.14.2.ppc64le",
+									"product_id": "hub-xmlrpc-api-0.7-150300.3.14.2.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "inter-server-sync-0.3.0-150300.8.36.1.ppc64le",
+								"product": {
+									"name": "inter-server-sync-0.3.0-150300.8.36.1.ppc64le",
+									"product_id": "inter-server-sync-0.3.0-150300.8.36.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-4.2.44-150300.3.59.1.ppc64le",
+								"product": {
+									"name": "susemanager-4.2.44-150300.3.59.1.ppc64le",
+									"product_id": "susemanager-4.2.44-150300.3.59.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-tools-4.2.44-150300.3.59.1.ppc64le",
+								"product": {
+									"name": "susemanager-tools-4.2.44-150300.3.59.1.ppc64le",
+									"product_id": "susemanager-tools-4.2.44-150300.3.59.1.ppc64le"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "ppc64le"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "hub-xmlrpc-api-0.7-150300.3.14.2.s390x",
+								"product": {
+									"name": "hub-xmlrpc-api-0.7-150300.3.14.2.s390x",
+									"product_id": "hub-xmlrpc-api-0.7-150300.3.14.2.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "inter-server-sync-0.3.0-150300.8.36.1.s390x",
+								"product": {
+									"name": "inter-server-sync-0.3.0-150300.8.36.1.s390x",
+									"product_id": "inter-server-sync-0.3.0-150300.8.36.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-4.2.44-150300.3.59.1.s390x",
+								"product": {
+									"name": "susemanager-4.2.44-150300.3.59.1.s390x",
+									"product_id": "susemanager-4.2.44-150300.3.59.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-tools-4.2.44-150300.3.59.1.s390x",
+								"product": {
+									"name": "susemanager-tools-4.2.44-150300.3.59.1.s390x",
+									"product_id": "susemanager-tools-4.2.44-150300.3.59.1.s390x"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "s390x"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "hub-xmlrpc-api-0.7-150300.3.14.2.x86_64",
+								"product": {
+									"name": "hub-xmlrpc-api-0.7-150300.3.14.2.x86_64",
+									"product_id": "hub-xmlrpc-api-0.7-150300.3.14.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "inter-server-sync-0.3.0-150300.8.36.1.x86_64",
+								"product": {
+									"name": "inter-server-sync-0.3.0-150300.8.36.1.x86_64",
+									"product_id": "inter-server-sync-0.3.0-150300.8.36.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-4.2.44-150300.3.59.1.x86_64",
+								"product": {
+									"name": "susemanager-4.2.44-150300.3.59.1.x86_64",
+									"product_id": "susemanager-4.2.44-150300.3.59.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-tools-4.2.44-150300.3.59.1.x86_64",
+								"product": {
+									"name": "susemanager-tools-4.2.44-150300.3.59.1.x86_64",
+									"product_id": "susemanager-tools-4.2.44-150300.3.59.1.x86_64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "x86_64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_name",
+								"name": "SUSE Manager Proxy Module 4.2",
+								"product": {
+									"name": "SUSE Manager Proxy Module 4.2",
+									"product_id": "SUSE Manager Proxy Module 4.2",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-module-suse-manager-proxy:4.2"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Manager Server Module 4.2",
+								"product": {
+									"name": "SUSE Manager Server Module 4.2",
+									"product_id": "SUSE Manager Server Module 4.2",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-module-suse-manager-server:4.2"
+									}
+								}
+							}
+						],
+						"category": "product_family",
+						"name": "SUSE Linux Enterprise"
+					}
+				],
+				"category": "vendor",
+				"name": "SUSE"
+			}
+		],
+		"relationships": [
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacecmd-4.2.24-150300.4.42.3.noarch as component of SUSE Manager Proxy Module 4.2",
+					"product_id": "SUSE Manager Proxy Module 4.2:spacecmd-4.2.24-150300.4.42.3.noarch"
+				},
+				"product_reference": "spacecmd-4.2.24-150300.4.42.3.noarch",
+				"relates_to_product_reference": "SUSE Manager Proxy Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-backend-4.2.29-150300.4.44.5.noarch as component of SUSE Manager Proxy Module 4.2",
+					"product_id": "SUSE Manager Proxy Module 4.2:spacewalk-backend-4.2.29-150300.4.44.5.noarch"
+				},
+				"product_reference": "spacewalk-backend-4.2.29-150300.4.44.5.noarch",
+				"relates_to_product_reference": "SUSE Manager Proxy Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-base-minimal-4.2.36-150300.3.47.5.noarch as component of SUSE Manager Proxy Module 4.2",
+					"product_id": "SUSE Manager Proxy Module 4.2:spacewalk-base-minimal-4.2.36-150300.3.47.5.noarch"
+				},
+				"product_reference": "spacewalk-base-minimal-4.2.36-150300.3.47.5.noarch",
+				"relates_to_product_reference": "SUSE Manager Proxy Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-base-minimal-config-4.2.36-150300.3.47.5.noarch as component of SUSE Manager Proxy Module 4.2",
+					"product_id": "SUSE Manager Proxy Module 4.2:spacewalk-base-minimal-config-4.2.36-150300.3.47.5.noarch"
+				},
+				"product_reference": "spacewalk-base-minimal-config-4.2.36-150300.3.47.5.noarch",
+				"relates_to_product_reference": "SUSE Manager Proxy Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "hub-xmlrpc-api-0.7-150300.3.14.2.ppc64le as component of SUSE Manager Server Module 4.2",
+					"product_id": "SUSE Manager Server Module 4.2:hub-xmlrpc-api-0.7-150300.3.14.2.ppc64le"
+				},
+				"product_reference": "hub-xmlrpc-api-0.7-150300.3.14.2.ppc64le",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "hub-xmlrpc-api-0.7-150300.3.14.2.s390x as component of SUSE Manager Server Module 4.2",
+					"product_id": "SUSE Manager Server Module 4.2:hub-xmlrpc-api-0.7-150300.3.14.2.s390x"
+				},
+				"product_reference": "hub-xmlrpc-api-0.7-150300.3.14.2.s390x",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "hub-xmlrpc-api-0.7-150300.3.14.2.x86_64 as component of SUSE Manager Server Module 4.2",
+					"product_id": "SUSE Manager Server Module 4.2:hub-xmlrpc-api-0.7-150300.3.14.2.x86_64"
+				},
+				"product_reference": "hub-xmlrpc-api-0.7-150300.3.14.2.x86_64",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "inter-server-sync-0.3.0-150300.8.36.1.ppc64le as component of SUSE Manager Server Module 4.2",
+					"product_id": "SUSE Manager Server Module 4.2:inter-server-sync-0.3.0-150300.8.36.1.ppc64le"
+				},
+				"product_reference": "inter-server-sync-0.3.0-150300.8.36.1.ppc64le",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "inter-server-sync-0.3.0-150300.8.36.1.s390x as component of SUSE Manager Server Module 4.2",
+					"product_id": "SUSE Manager Server Module 4.2:inter-server-sync-0.3.0-150300.8.36.1.s390x"
+				},
+				"product_reference": "inter-server-sync-0.3.0-150300.8.36.1.s390x",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "inter-server-sync-0.3.0-150300.8.36.1.x86_64 as component of SUSE Manager Server Module 4.2",
+					"product_id": "SUSE Manager Server Module 4.2:inter-server-sync-0.3.0-150300.8.36.1.x86_64"
+				},
+				"product_reference": "inter-server-sync-0.3.0-150300.8.36.1.x86_64",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacecmd-4.2.24-150300.4.42.3.noarch as component of SUSE Manager Server Module 4.2",
+					"product_id": "SUSE Manager Server Module 4.2:spacecmd-4.2.24-150300.4.42.3.noarch"
+				},
+				"product_reference": "spacecmd-4.2.24-150300.4.42.3.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-backend-4.2.29-150300.4.44.5.noarch as component of SUSE Manager Server Module 4.2",
+					"product_id": "SUSE Manager Server Module 4.2:spacewalk-backend-4.2.29-150300.4.44.5.noarch"
+				},
+				"product_reference": "spacewalk-backend-4.2.29-150300.4.44.5.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-backend-app-4.2.29-150300.4.44.5.noarch as component of SUSE Manager Server Module 4.2",
+					"product_id": "SUSE Manager Server Module 4.2:spacewalk-backend-app-4.2.29-150300.4.44.5.noarch"
+				},
+				"product_reference": "spacewalk-backend-app-4.2.29-150300.4.44.5.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-backend-applet-4.2.29-150300.4.44.5.noarch as component of SUSE Manager Server Module 4.2",
+					"product_id": "SUSE Manager Server Module 4.2:spacewalk-backend-applet-4.2.29-150300.4.44.5.noarch"
+				},
+				"product_reference": "spacewalk-backend-applet-4.2.29-150300.4.44.5.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-backend-config-files-4.2.29-150300.4.44.5.noarch as component of SUSE Manager Server Module 4.2",
+					"product_id": "SUSE Manager Server Module 4.2:spacewalk-backend-config-files-4.2.29-150300.4.44.5.noarch"
+				},
+				"product_reference": "spacewalk-backend-config-files-4.2.29-150300.4.44.5.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-backend-config-files-common-4.2.29-150300.4.44.5.noarch as component of SUSE Manager Server Module 4.2",
+					"product_id": "SUSE Manager Server Module 4.2:spacewalk-backend-config-files-common-4.2.29-150300.4.44.5.noarch"
+				},
+				"product_reference": "spacewalk-backend-config-files-common-4.2.29-150300.4.44.5.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-backend-config-files-tool-4.2.29-150300.4.44.5.noarch as component of SUSE Manager Server Module 4.2",
+					"product_id": "SUSE Manager Server Module 4.2:spacewalk-backend-config-files-tool-4.2.29-150300.4.44.5.noarch"
+				},
+				"product_reference": "spacewalk-backend-config-files-tool-4.2.29-150300.4.44.5.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-backend-iss-4.2.29-150300.4.44.5.noarch as component of SUSE Manager Server Module 4.2",
+					"product_id": "SUSE Manager Server Module 4.2:spacewalk-backend-iss-4.2.29-150300.4.44.5.noarch"
+				},
+				"product_reference": "spacewalk-backend-iss-4.2.29-150300.4.44.5.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-backend-iss-export-4.2.29-150300.4.44.5.noarch as component of SUSE Manager Server Module 4.2",
+					"product_id": "SUSE Manager Server Module 4.2:spacewalk-backend-iss-export-4.2.29-150300.4.44.5.noarch"
+				},
+				"product_reference": "spacewalk-backend-iss-export-4.2.29-150300.4.44.5.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-backend-package-push-server-4.2.29-150300.4.44.5.noarch as component of SUSE Manager Server Module 4.2",
+					"product_id": "SUSE Manager Server Module 4.2:spacewalk-backend-package-push-server-4.2.29-150300.4.44.5.noarch"
+				},
+				"product_reference": "spacewalk-backend-package-push-server-4.2.29-150300.4.44.5.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-backend-server-4.2.29-150300.4.44.5.noarch as component of SUSE Manager Server Module 4.2",
+					"product_id": "SUSE Manager Server Module 4.2:spacewalk-backend-server-4.2.29-150300.4.44.5.noarch"
+				},
+				"product_reference": "spacewalk-backend-server-4.2.29-150300.4.44.5.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-backend-sql-4.2.29-150300.4.44.5.noarch as component of SUSE Manager Server Module 4.2",
+					"product_id": "SUSE Manager Server Module 4.2:spacewalk-backend-sql-4.2.29-150300.4.44.5.noarch"
+				},
+				"product_reference": "spacewalk-backend-sql-4.2.29-150300.4.44.5.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-backend-sql-postgresql-4.2.29-150300.4.44.5.noarch as component of SUSE Manager Server Module 4.2",
+					"product_id": "SUSE Manager Server Module 4.2:spacewalk-backend-sql-postgresql-4.2.29-150300.4.44.5.noarch"
+				},
+				"product_reference": "spacewalk-backend-sql-postgresql-4.2.29-150300.4.44.5.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-backend-tools-4.2.29-150300.4.44.5.noarch as component of SUSE Manager Server Module 4.2",
+					"product_id": "SUSE Manager Server Module 4.2:spacewalk-backend-tools-4.2.29-150300.4.44.5.noarch"
+				},
+				"product_reference": "spacewalk-backend-tools-4.2.29-150300.4.44.5.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-backend-xml-export-libs-4.2.29-150300.4.44.5.noarch as component of SUSE Manager Server Module 4.2",
+					"product_id": "SUSE Manager Server Module 4.2:spacewalk-backend-xml-export-libs-4.2.29-150300.4.44.5.noarch"
+				},
+				"product_reference": "spacewalk-backend-xml-export-libs-4.2.29-150300.4.44.5.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-backend-xmlrpc-4.2.29-150300.4.44.5.noarch as component of SUSE Manager Server Module 4.2",
+					"product_id": "SUSE Manager Server Module 4.2:spacewalk-backend-xmlrpc-4.2.29-150300.4.44.5.noarch"
+				},
+				"product_reference": "spacewalk-backend-xmlrpc-4.2.29-150300.4.44.5.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-base-4.2.36-150300.3.47.5.noarch as component of SUSE Manager Server Module 4.2",
+					"product_id": "SUSE Manager Server Module 4.2:spacewalk-base-4.2.36-150300.3.47.5.noarch"
+				},
+				"product_reference": "spacewalk-base-4.2.36-150300.3.47.5.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-base-minimal-4.2.36-150300.3.47.5.noarch as component of SUSE Manager Server Module 4.2",
+					"product_id": "SUSE Manager Server Module 4.2:spacewalk-base-minimal-4.2.36-150300.3.47.5.noarch"
+				},
+				"product_reference": "spacewalk-base-minimal-4.2.36-150300.3.47.5.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-base-minimal-config-4.2.36-150300.3.47.5.noarch as component of SUSE Manager Server Module 4.2",
+					"product_id": "SUSE Manager Server Module 4.2:spacewalk-base-minimal-config-4.2.36-150300.3.47.5.noarch"
+				},
+				"product_reference": "spacewalk-base-minimal-config-4.2.36-150300.3.47.5.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-html-4.2.36-150300.3.47.5.noarch as component of SUSE Manager Server Module 4.2",
+					"product_id": "SUSE Manager Server Module 4.2:spacewalk-html-4.2.36-150300.3.47.5.noarch"
+				},
+				"product_reference": "spacewalk-html-4.2.36-150300.3.47.5.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-java-4.2.55-150300.3.73.2.noarch as component of SUSE Manager Server Module 4.2",
+					"product_id": "SUSE Manager Server Module 4.2:spacewalk-java-4.2.55-150300.3.73.2.noarch"
+				},
+				"product_reference": "spacewalk-java-4.2.55-150300.3.73.2.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-java-config-4.2.55-150300.3.73.2.noarch as component of SUSE Manager Server Module 4.2",
+					"product_id": "SUSE Manager Server Module 4.2:spacewalk-java-config-4.2.55-150300.3.73.2.noarch"
+				},
+				"product_reference": "spacewalk-java-config-4.2.55-150300.3.73.2.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-java-lib-4.2.55-150300.3.73.2.noarch as component of SUSE Manager Server Module 4.2",
+					"product_id": "SUSE Manager Server Module 4.2:spacewalk-java-lib-4.2.55-150300.3.73.2.noarch"
+				},
+				"product_reference": "spacewalk-java-lib-4.2.55-150300.3.73.2.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-java-postgresql-4.2.55-150300.3.73.2.noarch as component of SUSE Manager Server Module 4.2",
+					"product_id": "SUSE Manager Server Module 4.2:spacewalk-java-postgresql-4.2.55-150300.3.73.2.noarch"
+				},
+				"product_reference": "spacewalk-java-postgresql-4.2.55-150300.3.73.2.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-reports-4.2.8-150300.3.12.3.noarch as component of SUSE Manager Server Module 4.2",
+					"product_id": "SUSE Manager Server Module 4.2:spacewalk-reports-4.2.8-150300.3.12.3.noarch"
+				},
+				"product_reference": "spacewalk-reports-4.2.8-150300.3.12.3.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-setup-4.2.13-150300.3.21.3.noarch as component of SUSE Manager Server Module 4.2",
+					"product_id": "SUSE Manager Server Module 4.2:spacewalk-setup-4.2.13-150300.3.21.3.noarch"
+				},
+				"product_reference": "spacewalk-setup-4.2.13-150300.3.21.3.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-taskomatic-4.2.55-150300.3.73.2.noarch as component of SUSE Manager Server Module 4.2",
+					"product_id": "SUSE Manager Server Module 4.2:spacewalk-taskomatic-4.2.55-150300.3.73.2.noarch"
+				},
+				"product_reference": "spacewalk-taskomatic-4.2.55-150300.3.73.2.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-utils-4.2.20-150300.3.27.3.noarch as component of SUSE Manager Server Module 4.2",
+					"product_id": "SUSE Manager Server Module 4.2:spacewalk-utils-4.2.20-150300.3.27.3.noarch"
+				},
+				"product_reference": "spacewalk-utils-4.2.20-150300.3.27.3.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-utils-extras-4.2.20-150300.3.27.3.noarch as component of SUSE Manager Server Module 4.2",
+					"product_id": "SUSE Manager Server Module 4.2:spacewalk-utils-extras-4.2.20-150300.3.27.3.noarch"
+				},
+				"product_reference": "spacewalk-utils-extras-4.2.20-150300.3.27.3.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "susemanager-4.2.44-150300.3.59.1.ppc64le as component of SUSE Manager Server Module 4.2",
+					"product_id": "SUSE Manager Server Module 4.2:susemanager-4.2.44-150300.3.59.1.ppc64le"
+				},
+				"product_reference": "susemanager-4.2.44-150300.3.59.1.ppc64le",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "susemanager-4.2.44-150300.3.59.1.s390x as component of SUSE Manager Server Module 4.2",
+					"product_id": "SUSE Manager Server Module 4.2:susemanager-4.2.44-150300.3.59.1.s390x"
+				},
+				"product_reference": "susemanager-4.2.44-150300.3.59.1.s390x",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "susemanager-4.2.44-150300.3.59.1.x86_64 as component of SUSE Manager Server Module 4.2",
+					"product_id": "SUSE Manager Server Module 4.2:susemanager-4.2.44-150300.3.59.1.x86_64"
+				},
+				"product_reference": "susemanager-4.2.44-150300.3.59.1.x86_64",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "susemanager-doc-indexes-4.2-150300.12.48.5.noarch as component of SUSE Manager Server Module 4.2",
+					"product_id": "SUSE Manager Server Module 4.2:susemanager-doc-indexes-4.2-150300.12.48.5.noarch"
+				},
+				"product_reference": "susemanager-doc-indexes-4.2-150300.12.48.5.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "susemanager-docs_en-4.2-150300.12.48.3.noarch as component of SUSE Manager Server Module 4.2",
+					"product_id": "SUSE Manager Server Module 4.2:susemanager-docs_en-4.2-150300.12.48.3.noarch"
+				},
+				"product_reference": "susemanager-docs_en-4.2-150300.12.48.3.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "susemanager-docs_en-pdf-4.2-150300.12.48.3.noarch as component of SUSE Manager Server Module 4.2",
+					"product_id": "SUSE Manager Server Module 4.2:susemanager-docs_en-pdf-4.2-150300.12.48.3.noarch"
+				},
+				"product_reference": "susemanager-docs_en-pdf-4.2-150300.12.48.3.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "susemanager-schema-4.2.29-150300.3.41.5.noarch as component of SUSE Manager Server Module 4.2",
+					"product_id": "SUSE Manager Server Module 4.2:susemanager-schema-4.2.29-150300.3.41.5.noarch"
+				},
+				"product_reference": "susemanager-schema-4.2.29-150300.3.41.5.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "susemanager-sls-4.2.35-150300.3.54.3.noarch as component of SUSE Manager Server Module 4.2",
+					"product_id": "SUSE Manager Server Module 4.2:susemanager-sls-4.2.35-150300.3.54.3.noarch"
+				},
+				"product_reference": "susemanager-sls-4.2.35-150300.3.54.3.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "susemanager-tools-4.2.44-150300.3.59.1.ppc64le as component of SUSE Manager Server Module 4.2",
+					"product_id": "SUSE Manager Server Module 4.2:susemanager-tools-4.2.44-150300.3.59.1.ppc64le"
+				},
+				"product_reference": "susemanager-tools-4.2.44-150300.3.59.1.ppc64le",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "susemanager-tools-4.2.44-150300.3.59.1.s390x as component of SUSE Manager Server Module 4.2",
+					"product_id": "SUSE Manager Server Module 4.2:susemanager-tools-4.2.44-150300.3.59.1.s390x"
+				},
+				"product_reference": "susemanager-tools-4.2.44-150300.3.59.1.s390x",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "susemanager-tools-4.2.44-150300.3.59.1.x86_64 as component of SUSE Manager Server Module 4.2",
+					"product_id": "SUSE Manager Server Module 4.2:susemanager-tools-4.2.44-150300.3.59.1.x86_64"
+				},
+				"product_reference": "susemanager-tools-4.2.44-150300.3.59.1.x86_64",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "uyuni-config-modules-4.2.35-150300.3.54.3.noarch as component of SUSE Manager Server Module 4.2",
+					"product_id": "SUSE Manager Server Module 4.2:uyuni-config-modules-4.2.35-150300.3.54.3.noarch"
+				},
+				"product_reference": "uyuni-config-modules-4.2.35-150300.3.54.3.noarch",
+				"relates_to_product_reference": "SUSE Manager Server Module 4.2"
+			}
+		]
+	},
+	"vulnerabilities": [
+		{
+			"cve": "CVE-2023-29409",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2023-29409"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Extremely large RSA keys in certificate chains can cause a client/server to expend significant CPU time verifying signatures. With fix, the size of RSA keys transmitted during handshakes is restricted to <= 8192 bits. Based on a survey of publicly trusted RSA keys, there are currently only three certificates in circulation with keys larger than this, and all three appear to be test certificates that are not actively deployed. It is possible there are larger keys in use in private PKIs, but we target the web PKI, so causing breakage here in the interests of increasing the default safety of users of crypto/tls seems reasonable.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Manager Proxy Module 4.2:spacecmd-4.2.24-150300.4.42.3.noarch",
+					"SUSE Manager Proxy Module 4.2:spacewalk-backend-4.2.29-150300.4.44.5.noarch",
+					"SUSE Manager Proxy Module 4.2:spacewalk-base-minimal-4.2.36-150300.3.47.5.noarch",
+					"SUSE Manager Proxy Module 4.2:spacewalk-base-minimal-config-4.2.36-150300.3.47.5.noarch",
+					"SUSE Manager Server Module 4.2:hub-xmlrpc-api-0.7-150300.3.14.2.ppc64le",
+					"SUSE Manager Server Module 4.2:hub-xmlrpc-api-0.7-150300.3.14.2.s390x",
+					"SUSE Manager Server Module 4.2:hub-xmlrpc-api-0.7-150300.3.14.2.x86_64",
+					"SUSE Manager Server Module 4.2:inter-server-sync-0.3.0-150300.8.36.1.ppc64le",
+					"SUSE Manager Server Module 4.2:inter-server-sync-0.3.0-150300.8.36.1.s390x",
+					"SUSE Manager Server Module 4.2:inter-server-sync-0.3.0-150300.8.36.1.x86_64",
+					"SUSE Manager Server Module 4.2:spacecmd-4.2.24-150300.4.42.3.noarch",
+					"SUSE Manager Server Module 4.2:spacewalk-backend-4.2.29-150300.4.44.5.noarch",
+					"SUSE Manager Server Module 4.2:spacewalk-backend-app-4.2.29-150300.4.44.5.noarch",
+					"SUSE Manager Server Module 4.2:spacewalk-backend-applet-4.2.29-150300.4.44.5.noarch",
+					"SUSE Manager Server Module 4.2:spacewalk-backend-config-files-4.2.29-150300.4.44.5.noarch",
+					"SUSE Manager Server Module 4.2:spacewalk-backend-config-files-common-4.2.29-150300.4.44.5.noarch",
+					"SUSE Manager Server Module 4.2:spacewalk-backend-config-files-tool-4.2.29-150300.4.44.5.noarch",
+					"SUSE Manager Server Module 4.2:spacewalk-backend-iss-4.2.29-150300.4.44.5.noarch",
+					"SUSE Manager Server Module 4.2:spacewalk-backend-iss-export-4.2.29-150300.4.44.5.noarch",
+					"SUSE Manager Server Module 4.2:spacewalk-backend-package-push-server-4.2.29-150300.4.44.5.noarch",
+					"SUSE Manager Server Module 4.2:spacewalk-backend-server-4.2.29-150300.4.44.5.noarch",
+					"SUSE Manager Server Module 4.2:spacewalk-backend-sql-4.2.29-150300.4.44.5.noarch",
+					"SUSE Manager Server Module 4.2:spacewalk-backend-sql-postgresql-4.2.29-150300.4.44.5.noarch",
+					"SUSE Manager Server Module 4.2:spacewalk-backend-tools-4.2.29-150300.4.44.5.noarch",
+					"SUSE Manager Server Module 4.2:spacewalk-backend-xml-export-libs-4.2.29-150300.4.44.5.noarch",
+					"SUSE Manager Server Module 4.2:spacewalk-backend-xmlrpc-4.2.29-150300.4.44.5.noarch",
+					"SUSE Manager Server Module 4.2:spacewalk-base-4.2.36-150300.3.47.5.noarch",
+					"SUSE Manager Server Module 4.2:spacewalk-base-minimal-4.2.36-150300.3.47.5.noarch",
+					"SUSE Manager Server Module 4.2:spacewalk-base-minimal-config-4.2.36-150300.3.47.5.noarch",
+					"SUSE Manager Server Module 4.2:spacewalk-html-4.2.36-150300.3.47.5.noarch",
+					"SUSE Manager Server Module 4.2:spacewalk-java-4.2.55-150300.3.73.2.noarch",
+					"SUSE Manager Server Module 4.2:spacewalk-java-config-4.2.55-150300.3.73.2.noarch",
+					"SUSE Manager Server Module 4.2:spacewalk-java-lib-4.2.55-150300.3.73.2.noarch",
+					"SUSE Manager Server Module 4.2:spacewalk-java-postgresql-4.2.55-150300.3.73.2.noarch",
+					"SUSE Manager Server Module 4.2:spacewalk-reports-4.2.8-150300.3.12.3.noarch",
+					"SUSE Manager Server Module 4.2:spacewalk-setup-4.2.13-150300.3.21.3.noarch",
+					"SUSE Manager Server Module 4.2:spacewalk-taskomatic-4.2.55-150300.3.73.2.noarch",
+					"SUSE Manager Server Module 4.2:spacewalk-utils-4.2.20-150300.3.27.3.noarch",
+					"SUSE Manager Server Module 4.2:spacewalk-utils-extras-4.2.20-150300.3.27.3.noarch",
+					"SUSE Manager Server Module 4.2:susemanager-4.2.44-150300.3.59.1.ppc64le",
+					"SUSE Manager Server Module 4.2:susemanager-4.2.44-150300.3.59.1.s390x",
+					"SUSE Manager Server Module 4.2:susemanager-4.2.44-150300.3.59.1.x86_64",
+					"SUSE Manager Server Module 4.2:susemanager-doc-indexes-4.2-150300.12.48.5.noarch",
+					"SUSE Manager Server Module 4.2:susemanager-docs_en-4.2-150300.12.48.3.noarch",
+					"SUSE Manager Server Module 4.2:susemanager-docs_en-pdf-4.2-150300.12.48.3.noarch",
+					"SUSE Manager Server Module 4.2:susemanager-schema-4.2.29-150300.3.41.5.noarch",
+					"SUSE Manager Server Module 4.2:susemanager-sls-4.2.35-150300.3.54.3.noarch",
+					"SUSE Manager Server Module 4.2:susemanager-tools-4.2.44-150300.3.59.1.ppc64le",
+					"SUSE Manager Server Module 4.2:susemanager-tools-4.2.44-150300.3.59.1.s390x",
+					"SUSE Manager Server Module 4.2:susemanager-tools-4.2.44-150300.3.59.1.x86_64",
+					"SUSE Manager Server Module 4.2:uyuni-config-modules-4.2.35-150300.3.54.3.noarch"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2023-29409",
+					"url": "https://www.suse.com/security/cve/CVE-2023-29409"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1213880 for CVE-2023-29409",
+					"url": "https://bugzilla.suse.com/1213880"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Manager Proxy Module 4.2:spacecmd-4.2.24-150300.4.42.3.noarch",
+						"SUSE Manager Proxy Module 4.2:spacewalk-backend-4.2.29-150300.4.44.5.noarch",
+						"SUSE Manager Proxy Module 4.2:spacewalk-base-minimal-4.2.36-150300.3.47.5.noarch",
+						"SUSE Manager Proxy Module 4.2:spacewalk-base-minimal-config-4.2.36-150300.3.47.5.noarch",
+						"SUSE Manager Server Module 4.2:hub-xmlrpc-api-0.7-150300.3.14.2.ppc64le",
+						"SUSE Manager Server Module 4.2:hub-xmlrpc-api-0.7-150300.3.14.2.s390x",
+						"SUSE Manager Server Module 4.2:hub-xmlrpc-api-0.7-150300.3.14.2.x86_64",
+						"SUSE Manager Server Module 4.2:inter-server-sync-0.3.0-150300.8.36.1.ppc64le",
+						"SUSE Manager Server Module 4.2:inter-server-sync-0.3.0-150300.8.36.1.s390x",
+						"SUSE Manager Server Module 4.2:inter-server-sync-0.3.0-150300.8.36.1.x86_64",
+						"SUSE Manager Server Module 4.2:spacecmd-4.2.24-150300.4.42.3.noarch",
+						"SUSE Manager Server Module 4.2:spacewalk-backend-4.2.29-150300.4.44.5.noarch",
+						"SUSE Manager Server Module 4.2:spacewalk-backend-app-4.2.29-150300.4.44.5.noarch",
+						"SUSE Manager Server Module 4.2:spacewalk-backend-applet-4.2.29-150300.4.44.5.noarch",
+						"SUSE Manager Server Module 4.2:spacewalk-backend-config-files-4.2.29-150300.4.44.5.noarch",
+						"SUSE Manager Server Module 4.2:spacewalk-backend-config-files-common-4.2.29-150300.4.44.5.noarch",
+						"SUSE Manager Server Module 4.2:spacewalk-backend-config-files-tool-4.2.29-150300.4.44.5.noarch",
+						"SUSE Manager Server Module 4.2:spacewalk-backend-iss-4.2.29-150300.4.44.5.noarch",
+						"SUSE Manager Server Module 4.2:spacewalk-backend-iss-export-4.2.29-150300.4.44.5.noarch",
+						"SUSE Manager Server Module 4.2:spacewalk-backend-package-push-server-4.2.29-150300.4.44.5.noarch",
+						"SUSE Manager Server Module 4.2:spacewalk-backend-server-4.2.29-150300.4.44.5.noarch",
+						"SUSE Manager Server Module 4.2:spacewalk-backend-sql-4.2.29-150300.4.44.5.noarch",
+						"SUSE Manager Server Module 4.2:spacewalk-backend-sql-postgresql-4.2.29-150300.4.44.5.noarch",
+						"SUSE Manager Server Module 4.2:spacewalk-backend-tools-4.2.29-150300.4.44.5.noarch",
+						"SUSE Manager Server Module 4.2:spacewalk-backend-xml-export-libs-4.2.29-150300.4.44.5.noarch",
+						"SUSE Manager Server Module 4.2:spacewalk-backend-xmlrpc-4.2.29-150300.4.44.5.noarch",
+						"SUSE Manager Server Module 4.2:spacewalk-base-4.2.36-150300.3.47.5.noarch",
+						"SUSE Manager Server Module 4.2:spacewalk-base-minimal-4.2.36-150300.3.47.5.noarch",
+						"SUSE Manager Server Module 4.2:spacewalk-base-minimal-config-4.2.36-150300.3.47.5.noarch",
+						"SUSE Manager Server Module 4.2:spacewalk-html-4.2.36-150300.3.47.5.noarch",
+						"SUSE Manager Server Module 4.2:spacewalk-java-4.2.55-150300.3.73.2.noarch",
+						"SUSE Manager Server Module 4.2:spacewalk-java-config-4.2.55-150300.3.73.2.noarch",
+						"SUSE Manager Server Module 4.2:spacewalk-java-lib-4.2.55-150300.3.73.2.noarch",
+						"SUSE Manager Server Module 4.2:spacewalk-java-postgresql-4.2.55-150300.3.73.2.noarch",
+						"SUSE Manager Server Module 4.2:spacewalk-reports-4.2.8-150300.3.12.3.noarch",
+						"SUSE Manager Server Module 4.2:spacewalk-setup-4.2.13-150300.3.21.3.noarch",
+						"SUSE Manager Server Module 4.2:spacewalk-taskomatic-4.2.55-150300.3.73.2.noarch",
+						"SUSE Manager Server Module 4.2:spacewalk-utils-4.2.20-150300.3.27.3.noarch",
+						"SUSE Manager Server Module 4.2:spacewalk-utils-extras-4.2.20-150300.3.27.3.noarch",
+						"SUSE Manager Server Module 4.2:susemanager-4.2.44-150300.3.59.1.ppc64le",
+						"SUSE Manager Server Module 4.2:susemanager-4.2.44-150300.3.59.1.s390x",
+						"SUSE Manager Server Module 4.2:susemanager-4.2.44-150300.3.59.1.x86_64",
+						"SUSE Manager Server Module 4.2:susemanager-doc-indexes-4.2-150300.12.48.5.noarch",
+						"SUSE Manager Server Module 4.2:susemanager-docs_en-4.2-150300.12.48.3.noarch",
+						"SUSE Manager Server Module 4.2:susemanager-docs_en-pdf-4.2-150300.12.48.3.noarch",
+						"SUSE Manager Server Module 4.2:susemanager-schema-4.2.29-150300.3.41.5.noarch",
+						"SUSE Manager Server Module 4.2:susemanager-sls-4.2.35-150300.3.54.3.noarch",
+						"SUSE Manager Server Module 4.2:susemanager-tools-4.2.44-150300.3.59.1.ppc64le",
+						"SUSE Manager Server Module 4.2:susemanager-tools-4.2.44-150300.3.59.1.s390x",
+						"SUSE Manager Server Module 4.2:susemanager-tools-4.2.44-150300.3.59.1.x86_64",
+						"SUSE Manager Server Module 4.2:uyuni-config-modules-4.2.35-150300.3.54.3.noarch"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.5,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Manager Proxy Module 4.2:spacecmd-4.2.24-150300.4.42.3.noarch",
+						"SUSE Manager Proxy Module 4.2:spacewalk-backend-4.2.29-150300.4.44.5.noarch",
+						"SUSE Manager Proxy Module 4.2:spacewalk-base-minimal-4.2.36-150300.3.47.5.noarch",
+						"SUSE Manager Proxy Module 4.2:spacewalk-base-minimal-config-4.2.36-150300.3.47.5.noarch",
+						"SUSE Manager Server Module 4.2:hub-xmlrpc-api-0.7-150300.3.14.2.ppc64le",
+						"SUSE Manager Server Module 4.2:hub-xmlrpc-api-0.7-150300.3.14.2.s390x",
+						"SUSE Manager Server Module 4.2:hub-xmlrpc-api-0.7-150300.3.14.2.x86_64",
+						"SUSE Manager Server Module 4.2:inter-server-sync-0.3.0-150300.8.36.1.ppc64le",
+						"SUSE Manager Server Module 4.2:inter-server-sync-0.3.0-150300.8.36.1.s390x",
+						"SUSE Manager Server Module 4.2:inter-server-sync-0.3.0-150300.8.36.1.x86_64",
+						"SUSE Manager Server Module 4.2:spacecmd-4.2.24-150300.4.42.3.noarch",
+						"SUSE Manager Server Module 4.2:spacewalk-backend-4.2.29-150300.4.44.5.noarch",
+						"SUSE Manager Server Module 4.2:spacewalk-backend-app-4.2.29-150300.4.44.5.noarch",
+						"SUSE Manager Server Module 4.2:spacewalk-backend-applet-4.2.29-150300.4.44.5.noarch",
+						"SUSE Manager Server Module 4.2:spacewalk-backend-config-files-4.2.29-150300.4.44.5.noarch",
+						"SUSE Manager Server Module 4.2:spacewalk-backend-config-files-common-4.2.29-150300.4.44.5.noarch",
+						"SUSE Manager Server Module 4.2:spacewalk-backend-config-files-tool-4.2.29-150300.4.44.5.noarch",
+						"SUSE Manager Server Module 4.2:spacewalk-backend-iss-4.2.29-150300.4.44.5.noarch",
+						"SUSE Manager Server Module 4.2:spacewalk-backend-iss-export-4.2.29-150300.4.44.5.noarch",
+						"SUSE Manager Server Module 4.2:spacewalk-backend-package-push-server-4.2.29-150300.4.44.5.noarch",
+						"SUSE Manager Server Module 4.2:spacewalk-backend-server-4.2.29-150300.4.44.5.noarch",
+						"SUSE Manager Server Module 4.2:spacewalk-backend-sql-4.2.29-150300.4.44.5.noarch",
+						"SUSE Manager Server Module 4.2:spacewalk-backend-sql-postgresql-4.2.29-150300.4.44.5.noarch",
+						"SUSE Manager Server Module 4.2:spacewalk-backend-tools-4.2.29-150300.4.44.5.noarch",
+						"SUSE Manager Server Module 4.2:spacewalk-backend-xml-export-libs-4.2.29-150300.4.44.5.noarch",
+						"SUSE Manager Server Module 4.2:spacewalk-backend-xmlrpc-4.2.29-150300.4.44.5.noarch",
+						"SUSE Manager Server Module 4.2:spacewalk-base-4.2.36-150300.3.47.5.noarch",
+						"SUSE Manager Server Module 4.2:spacewalk-base-minimal-4.2.36-150300.3.47.5.noarch",
+						"SUSE Manager Server Module 4.2:spacewalk-base-minimal-config-4.2.36-150300.3.47.5.noarch",
+						"SUSE Manager Server Module 4.2:spacewalk-html-4.2.36-150300.3.47.5.noarch",
+						"SUSE Manager Server Module 4.2:spacewalk-java-4.2.55-150300.3.73.2.noarch",
+						"SUSE Manager Server Module 4.2:spacewalk-java-config-4.2.55-150300.3.73.2.noarch",
+						"SUSE Manager Server Module 4.2:spacewalk-java-lib-4.2.55-150300.3.73.2.noarch",
+						"SUSE Manager Server Module 4.2:spacewalk-java-postgresql-4.2.55-150300.3.73.2.noarch",
+						"SUSE Manager Server Module 4.2:spacewalk-reports-4.2.8-150300.3.12.3.noarch",
+						"SUSE Manager Server Module 4.2:spacewalk-setup-4.2.13-150300.3.21.3.noarch",
+						"SUSE Manager Server Module 4.2:spacewalk-taskomatic-4.2.55-150300.3.73.2.noarch",
+						"SUSE Manager Server Module 4.2:spacewalk-utils-4.2.20-150300.3.27.3.noarch",
+						"SUSE Manager Server Module 4.2:spacewalk-utils-extras-4.2.20-150300.3.27.3.noarch",
+						"SUSE Manager Server Module 4.2:susemanager-4.2.44-150300.3.59.1.ppc64le",
+						"SUSE Manager Server Module 4.2:susemanager-4.2.44-150300.3.59.1.s390x",
+						"SUSE Manager Server Module 4.2:susemanager-4.2.44-150300.3.59.1.x86_64",
+						"SUSE Manager Server Module 4.2:susemanager-doc-indexes-4.2-150300.12.48.5.noarch",
+						"SUSE Manager Server Module 4.2:susemanager-docs_en-4.2-150300.12.48.3.noarch",
+						"SUSE Manager Server Module 4.2:susemanager-docs_en-pdf-4.2-150300.12.48.3.noarch",
+						"SUSE Manager Server Module 4.2:susemanager-schema-4.2.29-150300.3.41.5.noarch",
+						"SUSE Manager Server Module 4.2:susemanager-sls-4.2.35-150300.3.54.3.noarch",
+						"SUSE Manager Server Module 4.2:susemanager-tools-4.2.44-150300.3.59.1.ppc64le",
+						"SUSE Manager Server Module 4.2:susemanager-tools-4.2.44-150300.3.59.1.s390x",
+						"SUSE Manager Server Module 4.2:susemanager-tools-4.2.44-150300.3.59.1.x86_64",
+						"SUSE Manager Server Module 4.2:uyuni-config-modules-4.2.35-150300.3.54.3.noarch"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2023-08-29T09:38:52Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2023-29409"
+		}
+	]
+}

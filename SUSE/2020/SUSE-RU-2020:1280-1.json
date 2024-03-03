@@ -1,0 +1,2550 @@
+{
+	"document": {
+		"aggregate_severity": {
+			"namespace": "https://www.suse.com/support/security/rating/",
+			"text": "moderate"
+		},
+		"category": "csaf_security_advisory",
+		"csaf_version": "2.0",
+		"distribution": {
+			"text": "Copyright 2024 SUSE LLC. All rights reserved.",
+			"tlp": {
+				"label": "WHITE",
+				"url": "https://www.first.org/tlp/"
+			}
+		},
+		"lang": "en",
+		"notes": [
+			{
+				"category": "summary",
+				"text": "Recommended update for postgresql, postgresql10, postgresql12",
+				"title": "Title of the patch"
+			},
+			{
+				"category": "description",
+				"text": "This update for postgresql, postgresql10, postgresql12 fixes the following issues:\n\nChanges in the postgresql wrapper package:\n\n- Sync ownership of /run/postgresql in the file list with tmpfiles.\n- Use the correct content for .bash_profile (bsc#1153168).\n- Stop shipping SUSEfirewall2 config files (bsc#1151591).\n- Use /run/postgresql instead of /var/run/postgresql in %ghost and\n  postgresql-tmpfiles.conf to avoid rpmlint warnings and errors.\n- add /var/run/postgresql to the filelist. as %ghost for systemd\n  systems and directly for non systemd systems\n\nChanges in postgresql10:\n\n- packaging changed to no longer build the libraries,\n  these now come from postgresql12.\n\nChanges in postgresql12:\n\nInitial package for the postgresql 12 branch\n\nhttps://www.postgresql.org/about/news/1976/\n\n- Update to 12.2 (CVE-2020-1720)\n  https://www.postgresql.org/about/news/2011/\n  https://www.postgresql.org/docs/12/release-12-2.html\n\n- Avoid the dependency from the devel package to the main package.\n  devel packages are exclusive, thus ecpg does not require\n  update-alternatives.\n\n- Remove unused build dependencies from the client libs package:\n  LVM, icu, selinux, systemd.\n\n- Update to 12.1\n\n  https://www.postgresql.org/docs/12/release-12-1.html\n  https://www.postgresql.org/about/news/1994/\n\n- add requires to the server-devel package for the libs that are\n  returned by pg_config --libs\n\npython-psycopg2 was updated to 2.8.4 to allow working with postgresql12.\n\n",
+				"title": "Description of the patch"
+			},
+			{
+				"category": "details",
+				"text": "SUSE-2020-1280,SUSE-SLE-Module-Basesystem-15-SP1-2020-1280,SUSE-SLE-Module-Development-Tools-OBS-15-SP1-2020-1280,SUSE-SLE-Module-Server-Applications-15-SP1-2020-1280",
+				"title": "Patchnames"
+			},
+			{
+				"category": "legal_disclaimer",
+				"text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+				"title": "Terms of use"
+			}
+		],
+		"publisher": {
+			"category": "vendor",
+			"contact_details": "https://www.suse.com/support/security/contact/",
+			"name": "SUSE Product Security Team",
+			"namespace": "https://www.suse.com/"
+		},
+		"references": [
+			{
+				"category": "external",
+				"summary": "SUSE ratings",
+				"url": "https://www.suse.com/support/security/rating/"
+			},
+			{
+				"category": "self",
+				"summary": "URL of this CSAF notice",
+				"url": "https://ftp.suse.com/pub/projects/security/csaf/suse-ru-2020_1280-1.json"
+			},
+			{
+				"category": "self",
+				"summary": "URL for SUSE-RU-2020:1280-1",
+				"url": "https://www.suse.com/support/update/announcement//suse-ru-20201280-1/"
+			},
+			{
+				"category": "self",
+				"summary": "E-Mail link for SUSE-RU-2020:1280-1",
+				"url": "https://lists.suse.com/pipermail/sle-updates/2020-May/014698.html"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1138034",
+				"url": "https://bugzilla.suse.com/1138034"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1151591",
+				"url": "https://bugzilla.suse.com/1151591"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1153168",
+				"url": "https://bugzilla.suse.com/1153168"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1163985",
+				"url": "https://bugzilla.suse.com/1163985"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1167541",
+				"url": "https://bugzilla.suse.com/1167541"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2019-10164 page",
+				"url": "https://www.suse.com/security/cve/CVE-2019-10164/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2020-1720 page",
+				"url": "https://www.suse.com/security/cve/CVE-2020-1720/"
+			}
+		],
+		"title": "Recommended update for postgresql, postgresql10, postgresql12",
+		"tracking": {
+			"current_release_date": "2020-05-14T12:28:08Z",
+			"generator": {
+				"date": "2020-05-14T12:28:08Z",
+				"engine": {
+					"name": "cve-database.git:bin/generate-csaf.pl",
+					"version": "1"
+				}
+			},
+			"id": "SUSE-RU-2020:1280-1",
+			"initial_release_date": "2020-05-14T12:28:08Z",
+			"revision_history": [
+				{
+					"date": "2020-05-14T12:28:08Z",
+					"number": "1",
+					"summary": "Current version"
+				}
+			],
+			"status": "final",
+			"version": "1"
+		}
+	},
+	"product_tree": {
+		"branches": [
+			{
+				"branches": [
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "libecpg6-12.2-3.5.2.aarch64",
+								"product": {
+									"name": "libecpg6-12.2-3.5.2.aarch64",
+									"product_id": "libecpg6-12.2-3.5.2.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libpq5-12.2-3.5.2.aarch64",
+								"product": {
+									"name": "libpq5-12.2-3.5.2.aarch64",
+									"product_id": "libpq5-12.2-3.5.2.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql10-10.12-8.13.10.aarch64",
+								"product": {
+									"name": "postgresql10-10.12-8.13.10.aarch64",
+									"product_id": "postgresql10-10.12-8.13.10.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql10-contrib-10.12-8.13.10.aarch64",
+								"product": {
+									"name": "postgresql10-contrib-10.12-8.13.10.aarch64",
+									"product_id": "postgresql10-contrib-10.12-8.13.10.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql10-devel-10.12-8.13.9.aarch64",
+								"product": {
+									"name": "postgresql10-devel-10.12-8.13.9.aarch64",
+									"product_id": "postgresql10-devel-10.12-8.13.9.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql10-plperl-10.12-8.13.10.aarch64",
+								"product": {
+									"name": "postgresql10-plperl-10.12-8.13.10.aarch64",
+									"product_id": "postgresql10-plperl-10.12-8.13.10.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql10-plpython-10.12-8.13.10.aarch64",
+								"product": {
+									"name": "postgresql10-plpython-10.12-8.13.10.aarch64",
+									"product_id": "postgresql10-plpython-10.12-8.13.10.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql10-pltcl-10.12-8.13.10.aarch64",
+								"product": {
+									"name": "postgresql10-pltcl-10.12-8.13.10.aarch64",
+									"product_id": "postgresql10-pltcl-10.12-8.13.10.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql10-server-10.12-8.13.10.aarch64",
+								"product": {
+									"name": "postgresql10-server-10.12-8.13.10.aarch64",
+									"product_id": "postgresql10-server-10.12-8.13.10.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql10-test-10.12-8.13.10.aarch64",
+								"product": {
+									"name": "postgresql10-test-10.12-8.13.10.aarch64",
+									"product_id": "postgresql10-test-10.12-8.13.10.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql12-12.2-3.5.2.aarch64",
+								"product": {
+									"name": "postgresql12-12.2-3.5.2.aarch64",
+									"product_id": "postgresql12-12.2-3.5.2.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql12-contrib-12.2-3.5.2.aarch64",
+								"product": {
+									"name": "postgresql12-contrib-12.2-3.5.2.aarch64",
+									"product_id": "postgresql12-contrib-12.2-3.5.2.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql12-devel-12.2-3.5.2.aarch64",
+								"product": {
+									"name": "postgresql12-devel-12.2-3.5.2.aarch64",
+									"product_id": "postgresql12-devel-12.2-3.5.2.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql12-plperl-12.2-3.5.2.aarch64",
+								"product": {
+									"name": "postgresql12-plperl-12.2-3.5.2.aarch64",
+									"product_id": "postgresql12-plperl-12.2-3.5.2.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql12-plpython-12.2-3.5.2.aarch64",
+								"product": {
+									"name": "postgresql12-plpython-12.2-3.5.2.aarch64",
+									"product_id": "postgresql12-plpython-12.2-3.5.2.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql12-pltcl-12.2-3.5.2.aarch64",
+								"product": {
+									"name": "postgresql12-pltcl-12.2-3.5.2.aarch64",
+									"product_id": "postgresql12-pltcl-12.2-3.5.2.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql12-server-12.2-3.5.2.aarch64",
+								"product": {
+									"name": "postgresql12-server-12.2-3.5.2.aarch64",
+									"product_id": "postgresql12-server-12.2-3.5.2.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql12-server-devel-12.2-3.5.2.aarch64",
+								"product": {
+									"name": "postgresql12-server-devel-12.2-3.5.2.aarch64",
+									"product_id": "postgresql12-server-devel-12.2-3.5.2.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql12-test-12.2-3.5.2.aarch64",
+								"product": {
+									"name": "postgresql12-test-12.2-3.5.2.aarch64",
+									"product_id": "postgresql12-test-12.2-3.5.2.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "python2-psycopg2-2.8.4-5.4.6.aarch64",
+								"product": {
+									"name": "python2-psycopg2-2.8.4-5.4.6.aarch64",
+									"product_id": "python2-psycopg2-2.8.4-5.4.6.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "python3-psycopg2-2.8.4-5.4.6.aarch64",
+								"product": {
+									"name": "python3-psycopg2-2.8.4-5.4.6.aarch64",
+									"product_id": "python3-psycopg2-2.8.4-5.4.6.aarch64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "aarch64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "libecpg6-64bit-12.2-3.5.2.aarch64_ilp32",
+								"product": {
+									"name": "libecpg6-64bit-12.2-3.5.2.aarch64_ilp32",
+									"product_id": "libecpg6-64bit-12.2-3.5.2.aarch64_ilp32"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libpq5-64bit-12.2-3.5.2.aarch64_ilp32",
+								"product": {
+									"name": "libpq5-64bit-12.2-3.5.2.aarch64_ilp32",
+									"product_id": "libpq5-64bit-12.2-3.5.2.aarch64_ilp32"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "aarch64_ilp32"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "libecpg6-12.2-3.5.2.i586",
+								"product": {
+									"name": "libecpg6-12.2-3.5.2.i586",
+									"product_id": "libecpg6-12.2-3.5.2.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libpq5-12.2-3.5.2.i586",
+								"product": {
+									"name": "libpq5-12.2-3.5.2.i586",
+									"product_id": "libpq5-12.2-3.5.2.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql10-10.12-8.13.10.i586",
+								"product": {
+									"name": "postgresql10-10.12-8.13.10.i586",
+									"product_id": "postgresql10-10.12-8.13.10.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql10-contrib-10.12-8.13.10.i586",
+								"product": {
+									"name": "postgresql10-contrib-10.12-8.13.10.i586",
+									"product_id": "postgresql10-contrib-10.12-8.13.10.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql10-devel-10.12-8.13.9.i586",
+								"product": {
+									"name": "postgresql10-devel-10.12-8.13.9.i586",
+									"product_id": "postgresql10-devel-10.12-8.13.9.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql10-plperl-10.12-8.13.10.i586",
+								"product": {
+									"name": "postgresql10-plperl-10.12-8.13.10.i586",
+									"product_id": "postgresql10-plperl-10.12-8.13.10.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql10-plpython-10.12-8.13.10.i586",
+								"product": {
+									"name": "postgresql10-plpython-10.12-8.13.10.i586",
+									"product_id": "postgresql10-plpython-10.12-8.13.10.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql10-pltcl-10.12-8.13.10.i586",
+								"product": {
+									"name": "postgresql10-pltcl-10.12-8.13.10.i586",
+									"product_id": "postgresql10-pltcl-10.12-8.13.10.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql10-server-10.12-8.13.10.i586",
+								"product": {
+									"name": "postgresql10-server-10.12-8.13.10.i586",
+									"product_id": "postgresql10-server-10.12-8.13.10.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql10-test-10.12-8.13.10.i586",
+								"product": {
+									"name": "postgresql10-test-10.12-8.13.10.i586",
+									"product_id": "postgresql10-test-10.12-8.13.10.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql12-12.2-3.5.2.i586",
+								"product": {
+									"name": "postgresql12-12.2-3.5.2.i586",
+									"product_id": "postgresql12-12.2-3.5.2.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql12-contrib-12.2-3.5.2.i586",
+								"product": {
+									"name": "postgresql12-contrib-12.2-3.5.2.i586",
+									"product_id": "postgresql12-contrib-12.2-3.5.2.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql12-devel-12.2-3.5.2.i586",
+								"product": {
+									"name": "postgresql12-devel-12.2-3.5.2.i586",
+									"product_id": "postgresql12-devel-12.2-3.5.2.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql12-plperl-12.2-3.5.2.i586",
+								"product": {
+									"name": "postgresql12-plperl-12.2-3.5.2.i586",
+									"product_id": "postgresql12-plperl-12.2-3.5.2.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql12-plpython-12.2-3.5.2.i586",
+								"product": {
+									"name": "postgresql12-plpython-12.2-3.5.2.i586",
+									"product_id": "postgresql12-plpython-12.2-3.5.2.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql12-pltcl-12.2-3.5.2.i586",
+								"product": {
+									"name": "postgresql12-pltcl-12.2-3.5.2.i586",
+									"product_id": "postgresql12-pltcl-12.2-3.5.2.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql12-server-12.2-3.5.2.i586",
+								"product": {
+									"name": "postgresql12-server-12.2-3.5.2.i586",
+									"product_id": "postgresql12-server-12.2-3.5.2.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql12-server-devel-12.2-3.5.2.i586",
+								"product": {
+									"name": "postgresql12-server-devel-12.2-3.5.2.i586",
+									"product_id": "postgresql12-server-devel-12.2-3.5.2.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql12-test-12.2-3.5.2.i586",
+								"product": {
+									"name": "postgresql12-test-12.2-3.5.2.i586",
+									"product_id": "postgresql12-test-12.2-3.5.2.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "python2-psycopg2-2.8.4-5.4.6.i586",
+								"product": {
+									"name": "python2-psycopg2-2.8.4-5.4.6.i586",
+									"product_id": "python2-psycopg2-2.8.4-5.4.6.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "python3-psycopg2-2.8.4-5.4.6.i586",
+								"product": {
+									"name": "python3-psycopg2-2.8.4-5.4.6.i586",
+									"product_id": "python3-psycopg2-2.8.4-5.4.6.i586"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "i586"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "postgresql-12-8.11.3.noarch",
+								"product": {
+									"name": "postgresql-12-8.11.3.noarch",
+									"product_id": "postgresql-12-8.11.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql-contrib-12-8.11.3.noarch",
+								"product": {
+									"name": "postgresql-contrib-12-8.11.3.noarch",
+									"product_id": "postgresql-contrib-12-8.11.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql-devel-12-8.11.3.noarch",
+								"product": {
+									"name": "postgresql-devel-12-8.11.3.noarch",
+									"product_id": "postgresql-devel-12-8.11.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql-docs-12-8.11.3.noarch",
+								"product": {
+									"name": "postgresql-docs-12-8.11.3.noarch",
+									"product_id": "postgresql-docs-12-8.11.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql-llvmjit-12-8.11.3.noarch",
+								"product": {
+									"name": "postgresql-llvmjit-12-8.11.3.noarch",
+									"product_id": "postgresql-llvmjit-12-8.11.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql-plperl-12-8.11.3.noarch",
+								"product": {
+									"name": "postgresql-plperl-12-8.11.3.noarch",
+									"product_id": "postgresql-plperl-12-8.11.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql-plpython-12-8.11.3.noarch",
+								"product": {
+									"name": "postgresql-plpython-12-8.11.3.noarch",
+									"product_id": "postgresql-plpython-12-8.11.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql-pltcl-12-8.11.3.noarch",
+								"product": {
+									"name": "postgresql-pltcl-12-8.11.3.noarch",
+									"product_id": "postgresql-pltcl-12-8.11.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql-server-12-8.11.3.noarch",
+								"product": {
+									"name": "postgresql-server-12-8.11.3.noarch",
+									"product_id": "postgresql-server-12-8.11.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql-server-devel-12-8.11.3.noarch",
+								"product": {
+									"name": "postgresql-server-devel-12-8.11.3.noarch",
+									"product_id": "postgresql-server-devel-12-8.11.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql-test-12-8.11.3.noarch",
+								"product": {
+									"name": "postgresql-test-12-8.11.3.noarch",
+									"product_id": "postgresql-test-12-8.11.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql10-docs-10.12-8.13.10.noarch",
+								"product": {
+									"name": "postgresql10-docs-10.12-8.13.10.noarch",
+									"product_id": "postgresql10-docs-10.12-8.13.10.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql12-docs-12.2-3.5.2.noarch",
+								"product": {
+									"name": "postgresql12-docs-12.2-3.5.2.noarch",
+									"product_id": "postgresql12-docs-12.2-3.5.2.noarch"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "noarch"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "libecpg6-12.2-3.5.2.ppc64le",
+								"product": {
+									"name": "libecpg6-12.2-3.5.2.ppc64le",
+									"product_id": "libecpg6-12.2-3.5.2.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libpq5-12.2-3.5.2.ppc64le",
+								"product": {
+									"name": "libpq5-12.2-3.5.2.ppc64le",
+									"product_id": "libpq5-12.2-3.5.2.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql10-10.12-8.13.10.ppc64le",
+								"product": {
+									"name": "postgresql10-10.12-8.13.10.ppc64le",
+									"product_id": "postgresql10-10.12-8.13.10.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql10-contrib-10.12-8.13.10.ppc64le",
+								"product": {
+									"name": "postgresql10-contrib-10.12-8.13.10.ppc64le",
+									"product_id": "postgresql10-contrib-10.12-8.13.10.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql10-devel-10.12-8.13.9.ppc64le",
+								"product": {
+									"name": "postgresql10-devel-10.12-8.13.9.ppc64le",
+									"product_id": "postgresql10-devel-10.12-8.13.9.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql10-plperl-10.12-8.13.10.ppc64le",
+								"product": {
+									"name": "postgresql10-plperl-10.12-8.13.10.ppc64le",
+									"product_id": "postgresql10-plperl-10.12-8.13.10.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql10-plpython-10.12-8.13.10.ppc64le",
+								"product": {
+									"name": "postgresql10-plpython-10.12-8.13.10.ppc64le",
+									"product_id": "postgresql10-plpython-10.12-8.13.10.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql10-pltcl-10.12-8.13.10.ppc64le",
+								"product": {
+									"name": "postgresql10-pltcl-10.12-8.13.10.ppc64le",
+									"product_id": "postgresql10-pltcl-10.12-8.13.10.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql10-server-10.12-8.13.10.ppc64le",
+								"product": {
+									"name": "postgresql10-server-10.12-8.13.10.ppc64le",
+									"product_id": "postgresql10-server-10.12-8.13.10.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql10-test-10.12-8.13.10.ppc64le",
+								"product": {
+									"name": "postgresql10-test-10.12-8.13.10.ppc64le",
+									"product_id": "postgresql10-test-10.12-8.13.10.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql12-12.2-3.5.2.ppc64le",
+								"product": {
+									"name": "postgresql12-12.2-3.5.2.ppc64le",
+									"product_id": "postgresql12-12.2-3.5.2.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql12-contrib-12.2-3.5.2.ppc64le",
+								"product": {
+									"name": "postgresql12-contrib-12.2-3.5.2.ppc64le",
+									"product_id": "postgresql12-contrib-12.2-3.5.2.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql12-devel-12.2-3.5.2.ppc64le",
+								"product": {
+									"name": "postgresql12-devel-12.2-3.5.2.ppc64le",
+									"product_id": "postgresql12-devel-12.2-3.5.2.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql12-plperl-12.2-3.5.2.ppc64le",
+								"product": {
+									"name": "postgresql12-plperl-12.2-3.5.2.ppc64le",
+									"product_id": "postgresql12-plperl-12.2-3.5.2.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql12-plpython-12.2-3.5.2.ppc64le",
+								"product": {
+									"name": "postgresql12-plpython-12.2-3.5.2.ppc64le",
+									"product_id": "postgresql12-plpython-12.2-3.5.2.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql12-pltcl-12.2-3.5.2.ppc64le",
+								"product": {
+									"name": "postgresql12-pltcl-12.2-3.5.2.ppc64le",
+									"product_id": "postgresql12-pltcl-12.2-3.5.2.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql12-server-12.2-3.5.2.ppc64le",
+								"product": {
+									"name": "postgresql12-server-12.2-3.5.2.ppc64le",
+									"product_id": "postgresql12-server-12.2-3.5.2.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql12-server-devel-12.2-3.5.2.ppc64le",
+								"product": {
+									"name": "postgresql12-server-devel-12.2-3.5.2.ppc64le",
+									"product_id": "postgresql12-server-devel-12.2-3.5.2.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql12-test-12.2-3.5.2.ppc64le",
+								"product": {
+									"name": "postgresql12-test-12.2-3.5.2.ppc64le",
+									"product_id": "postgresql12-test-12.2-3.5.2.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "python2-psycopg2-2.8.4-5.4.6.ppc64le",
+								"product": {
+									"name": "python2-psycopg2-2.8.4-5.4.6.ppc64le",
+									"product_id": "python2-psycopg2-2.8.4-5.4.6.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "python3-psycopg2-2.8.4-5.4.6.ppc64le",
+								"product": {
+									"name": "python3-psycopg2-2.8.4-5.4.6.ppc64le",
+									"product_id": "python3-psycopg2-2.8.4-5.4.6.ppc64le"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "ppc64le"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "libecpg6-12.2-3.5.2.s390x",
+								"product": {
+									"name": "libecpg6-12.2-3.5.2.s390x",
+									"product_id": "libecpg6-12.2-3.5.2.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libpq5-12.2-3.5.2.s390x",
+								"product": {
+									"name": "libpq5-12.2-3.5.2.s390x",
+									"product_id": "libpq5-12.2-3.5.2.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql10-10.12-8.13.10.s390x",
+								"product": {
+									"name": "postgresql10-10.12-8.13.10.s390x",
+									"product_id": "postgresql10-10.12-8.13.10.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql10-contrib-10.12-8.13.10.s390x",
+								"product": {
+									"name": "postgresql10-contrib-10.12-8.13.10.s390x",
+									"product_id": "postgresql10-contrib-10.12-8.13.10.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql10-devel-10.12-8.13.9.s390x",
+								"product": {
+									"name": "postgresql10-devel-10.12-8.13.9.s390x",
+									"product_id": "postgresql10-devel-10.12-8.13.9.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql10-plperl-10.12-8.13.10.s390x",
+								"product": {
+									"name": "postgresql10-plperl-10.12-8.13.10.s390x",
+									"product_id": "postgresql10-plperl-10.12-8.13.10.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql10-plpython-10.12-8.13.10.s390x",
+								"product": {
+									"name": "postgresql10-plpython-10.12-8.13.10.s390x",
+									"product_id": "postgresql10-plpython-10.12-8.13.10.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql10-pltcl-10.12-8.13.10.s390x",
+								"product": {
+									"name": "postgresql10-pltcl-10.12-8.13.10.s390x",
+									"product_id": "postgresql10-pltcl-10.12-8.13.10.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql10-server-10.12-8.13.10.s390x",
+								"product": {
+									"name": "postgresql10-server-10.12-8.13.10.s390x",
+									"product_id": "postgresql10-server-10.12-8.13.10.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql10-test-10.12-8.13.10.s390x",
+								"product": {
+									"name": "postgresql10-test-10.12-8.13.10.s390x",
+									"product_id": "postgresql10-test-10.12-8.13.10.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql12-12.2-3.5.2.s390x",
+								"product": {
+									"name": "postgresql12-12.2-3.5.2.s390x",
+									"product_id": "postgresql12-12.2-3.5.2.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql12-contrib-12.2-3.5.2.s390x",
+								"product": {
+									"name": "postgresql12-contrib-12.2-3.5.2.s390x",
+									"product_id": "postgresql12-contrib-12.2-3.5.2.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql12-devel-12.2-3.5.2.s390x",
+								"product": {
+									"name": "postgresql12-devel-12.2-3.5.2.s390x",
+									"product_id": "postgresql12-devel-12.2-3.5.2.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql12-plperl-12.2-3.5.2.s390x",
+								"product": {
+									"name": "postgresql12-plperl-12.2-3.5.2.s390x",
+									"product_id": "postgresql12-plperl-12.2-3.5.2.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql12-plpython-12.2-3.5.2.s390x",
+								"product": {
+									"name": "postgresql12-plpython-12.2-3.5.2.s390x",
+									"product_id": "postgresql12-plpython-12.2-3.5.2.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql12-pltcl-12.2-3.5.2.s390x",
+								"product": {
+									"name": "postgresql12-pltcl-12.2-3.5.2.s390x",
+									"product_id": "postgresql12-pltcl-12.2-3.5.2.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql12-server-12.2-3.5.2.s390x",
+								"product": {
+									"name": "postgresql12-server-12.2-3.5.2.s390x",
+									"product_id": "postgresql12-server-12.2-3.5.2.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql12-server-devel-12.2-3.5.2.s390x",
+								"product": {
+									"name": "postgresql12-server-devel-12.2-3.5.2.s390x",
+									"product_id": "postgresql12-server-devel-12.2-3.5.2.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql12-test-12.2-3.5.2.s390x",
+								"product": {
+									"name": "postgresql12-test-12.2-3.5.2.s390x",
+									"product_id": "postgresql12-test-12.2-3.5.2.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "python2-psycopg2-2.8.4-5.4.6.s390x",
+								"product": {
+									"name": "python2-psycopg2-2.8.4-5.4.6.s390x",
+									"product_id": "python2-psycopg2-2.8.4-5.4.6.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "python3-psycopg2-2.8.4-5.4.6.s390x",
+								"product": {
+									"name": "python3-psycopg2-2.8.4-5.4.6.s390x",
+									"product_id": "python3-psycopg2-2.8.4-5.4.6.s390x"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "s390x"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "libecpg6-12.2-3.5.2.x86_64",
+								"product": {
+									"name": "libecpg6-12.2-3.5.2.x86_64",
+									"product_id": "libecpg6-12.2-3.5.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libecpg6-32bit-12.2-3.5.2.x86_64",
+								"product": {
+									"name": "libecpg6-32bit-12.2-3.5.2.x86_64",
+									"product_id": "libecpg6-32bit-12.2-3.5.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libpq5-12.2-3.5.2.x86_64",
+								"product": {
+									"name": "libpq5-12.2-3.5.2.x86_64",
+									"product_id": "libpq5-12.2-3.5.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libpq5-32bit-12.2-3.5.2.x86_64",
+								"product": {
+									"name": "libpq5-32bit-12.2-3.5.2.x86_64",
+									"product_id": "libpq5-32bit-12.2-3.5.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql10-10.12-8.13.10.x86_64",
+								"product": {
+									"name": "postgresql10-10.12-8.13.10.x86_64",
+									"product_id": "postgresql10-10.12-8.13.10.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql10-contrib-10.12-8.13.10.x86_64",
+								"product": {
+									"name": "postgresql10-contrib-10.12-8.13.10.x86_64",
+									"product_id": "postgresql10-contrib-10.12-8.13.10.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql10-devel-10.12-8.13.9.x86_64",
+								"product": {
+									"name": "postgresql10-devel-10.12-8.13.9.x86_64",
+									"product_id": "postgresql10-devel-10.12-8.13.9.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql10-plperl-10.12-8.13.10.x86_64",
+								"product": {
+									"name": "postgresql10-plperl-10.12-8.13.10.x86_64",
+									"product_id": "postgresql10-plperl-10.12-8.13.10.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql10-plpython-10.12-8.13.10.x86_64",
+								"product": {
+									"name": "postgresql10-plpython-10.12-8.13.10.x86_64",
+									"product_id": "postgresql10-plpython-10.12-8.13.10.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql10-pltcl-10.12-8.13.10.x86_64",
+								"product": {
+									"name": "postgresql10-pltcl-10.12-8.13.10.x86_64",
+									"product_id": "postgresql10-pltcl-10.12-8.13.10.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql10-server-10.12-8.13.10.x86_64",
+								"product": {
+									"name": "postgresql10-server-10.12-8.13.10.x86_64",
+									"product_id": "postgresql10-server-10.12-8.13.10.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql10-test-10.12-8.13.10.x86_64",
+								"product": {
+									"name": "postgresql10-test-10.12-8.13.10.x86_64",
+									"product_id": "postgresql10-test-10.12-8.13.10.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql12-12.2-3.5.2.x86_64",
+								"product": {
+									"name": "postgresql12-12.2-3.5.2.x86_64",
+									"product_id": "postgresql12-12.2-3.5.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql12-contrib-12.2-3.5.2.x86_64",
+								"product": {
+									"name": "postgresql12-contrib-12.2-3.5.2.x86_64",
+									"product_id": "postgresql12-contrib-12.2-3.5.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql12-devel-12.2-3.5.2.x86_64",
+								"product": {
+									"name": "postgresql12-devel-12.2-3.5.2.x86_64",
+									"product_id": "postgresql12-devel-12.2-3.5.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql12-plperl-12.2-3.5.2.x86_64",
+								"product": {
+									"name": "postgresql12-plperl-12.2-3.5.2.x86_64",
+									"product_id": "postgresql12-plperl-12.2-3.5.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql12-plpython-12.2-3.5.2.x86_64",
+								"product": {
+									"name": "postgresql12-plpython-12.2-3.5.2.x86_64",
+									"product_id": "postgresql12-plpython-12.2-3.5.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql12-pltcl-12.2-3.5.2.x86_64",
+								"product": {
+									"name": "postgresql12-pltcl-12.2-3.5.2.x86_64",
+									"product_id": "postgresql12-pltcl-12.2-3.5.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql12-server-12.2-3.5.2.x86_64",
+								"product": {
+									"name": "postgresql12-server-12.2-3.5.2.x86_64",
+									"product_id": "postgresql12-server-12.2-3.5.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql12-server-devel-12.2-3.5.2.x86_64",
+								"product": {
+									"name": "postgresql12-server-devel-12.2-3.5.2.x86_64",
+									"product_id": "postgresql12-server-devel-12.2-3.5.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "postgresql12-test-12.2-3.5.2.x86_64",
+								"product": {
+									"name": "postgresql12-test-12.2-3.5.2.x86_64",
+									"product_id": "postgresql12-test-12.2-3.5.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "python2-psycopg2-2.8.4-5.4.6.x86_64",
+								"product": {
+									"name": "python2-psycopg2-2.8.4-5.4.6.x86_64",
+									"product_id": "python2-psycopg2-2.8.4-5.4.6.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "python3-psycopg2-2.8.4-5.4.6.x86_64",
+								"product": {
+									"name": "python3-psycopg2-2.8.4-5.4.6.x86_64",
+									"product_id": "python3-psycopg2-2.8.4-5.4.6.x86_64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "x86_64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Module for Basesystem 15 SP1",
+								"product": {
+									"name": "SUSE Linux Enterprise Module for Basesystem 15 SP1",
+									"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-module-basesystem:15:sp1"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Module for Server Applications 15 SP1",
+								"product": {
+									"name": "SUSE Linux Enterprise Module for Server Applications 15 SP1",
+									"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-module-server-applications:15:sp1"
+									}
+								}
+							}
+						],
+						"category": "product_family",
+						"name": "SUSE Linux Enterprise"
+					}
+				],
+				"category": "vendor",
+				"name": "SUSE"
+			}
+		],
+		"relationships": [
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libpq5-12.2-3.5.2.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:libpq5-12.2-3.5.2.aarch64"
+				},
+				"product_reference": "libpq5-12.2-3.5.2.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libpq5-12.2-3.5.2.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:libpq5-12.2-3.5.2.ppc64le"
+				},
+				"product_reference": "libpq5-12.2-3.5.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libpq5-12.2-3.5.2.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:libpq5-12.2-3.5.2.s390x"
+				},
+				"product_reference": "libpq5-12.2-3.5.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libpq5-12.2-3.5.2.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:libpq5-12.2-3.5.2.x86_64"
+				},
+				"product_reference": "libpq5-12.2-3.5.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql-12-8.11.3.noarch as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql-12-8.11.3.noarch"
+				},
+				"product_reference": "postgresql-12-8.11.3.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql10-10.12-8.13.10.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql10-10.12-8.13.10.aarch64"
+				},
+				"product_reference": "postgresql10-10.12-8.13.10.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql10-10.12-8.13.10.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql10-10.12-8.13.10.ppc64le"
+				},
+				"product_reference": "postgresql10-10.12-8.13.10.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql10-10.12-8.13.10.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql10-10.12-8.13.10.s390x"
+				},
+				"product_reference": "postgresql10-10.12-8.13.10.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql10-10.12-8.13.10.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql10-10.12-8.13.10.x86_64"
+				},
+				"product_reference": "postgresql10-10.12-8.13.10.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql12-12.2-3.5.2.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql12-12.2-3.5.2.aarch64"
+				},
+				"product_reference": "postgresql12-12.2-3.5.2.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql12-12.2-3.5.2.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql12-12.2-3.5.2.ppc64le"
+				},
+				"product_reference": "postgresql12-12.2-3.5.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql12-12.2-3.5.2.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql12-12.2-3.5.2.s390x"
+				},
+				"product_reference": "postgresql12-12.2-3.5.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql12-12.2-3.5.2.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql12-12.2-3.5.2.x86_64"
+				},
+				"product_reference": "postgresql12-12.2-3.5.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "python3-psycopg2-2.8.4-5.4.6.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-psycopg2-2.8.4-5.4.6.aarch64"
+				},
+				"product_reference": "python3-psycopg2-2.8.4-5.4.6.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "python3-psycopg2-2.8.4-5.4.6.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-psycopg2-2.8.4-5.4.6.ppc64le"
+				},
+				"product_reference": "python3-psycopg2-2.8.4-5.4.6.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "python3-psycopg2-2.8.4-5.4.6.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-psycopg2-2.8.4-5.4.6.s390x"
+				},
+				"product_reference": "python3-psycopg2-2.8.4-5.4.6.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "python3-psycopg2-2.8.4-5.4.6.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-psycopg2-2.8.4-5.4.6.x86_64"
+				},
+				"product_reference": "python3-psycopg2-2.8.4-5.4.6.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libecpg6-12.2-3.5.2.aarch64 as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:libecpg6-12.2-3.5.2.aarch64"
+				},
+				"product_reference": "libecpg6-12.2-3.5.2.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libecpg6-12.2-3.5.2.ppc64le as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:libecpg6-12.2-3.5.2.ppc64le"
+				},
+				"product_reference": "libecpg6-12.2-3.5.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libecpg6-12.2-3.5.2.s390x as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:libecpg6-12.2-3.5.2.s390x"
+				},
+				"product_reference": "libecpg6-12.2-3.5.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libecpg6-12.2-3.5.2.x86_64 as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:libecpg6-12.2-3.5.2.x86_64"
+				},
+				"product_reference": "libecpg6-12.2-3.5.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql-contrib-12-8.11.3.noarch as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql-contrib-12-8.11.3.noarch"
+				},
+				"product_reference": "postgresql-contrib-12-8.11.3.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql-devel-12-8.11.3.noarch as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql-devel-12-8.11.3.noarch"
+				},
+				"product_reference": "postgresql-devel-12-8.11.3.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql-docs-12-8.11.3.noarch as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql-docs-12-8.11.3.noarch"
+				},
+				"product_reference": "postgresql-docs-12-8.11.3.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql-plperl-12-8.11.3.noarch as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql-plperl-12-8.11.3.noarch"
+				},
+				"product_reference": "postgresql-plperl-12-8.11.3.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql-plpython-12-8.11.3.noarch as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql-plpython-12-8.11.3.noarch"
+				},
+				"product_reference": "postgresql-plpython-12-8.11.3.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql-pltcl-12-8.11.3.noarch as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql-pltcl-12-8.11.3.noarch"
+				},
+				"product_reference": "postgresql-pltcl-12-8.11.3.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql-server-12-8.11.3.noarch as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql-server-12-8.11.3.noarch"
+				},
+				"product_reference": "postgresql-server-12-8.11.3.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql-server-devel-12-8.11.3.noarch as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql-server-devel-12-8.11.3.noarch"
+				},
+				"product_reference": "postgresql-server-devel-12-8.11.3.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql10-contrib-10.12-8.13.10.aarch64 as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-contrib-10.12-8.13.10.aarch64"
+				},
+				"product_reference": "postgresql10-contrib-10.12-8.13.10.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql10-contrib-10.12-8.13.10.ppc64le as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-contrib-10.12-8.13.10.ppc64le"
+				},
+				"product_reference": "postgresql10-contrib-10.12-8.13.10.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql10-contrib-10.12-8.13.10.s390x as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-contrib-10.12-8.13.10.s390x"
+				},
+				"product_reference": "postgresql10-contrib-10.12-8.13.10.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql10-contrib-10.12-8.13.10.x86_64 as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-contrib-10.12-8.13.10.x86_64"
+				},
+				"product_reference": "postgresql10-contrib-10.12-8.13.10.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql10-devel-10.12-8.13.9.aarch64 as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-devel-10.12-8.13.9.aarch64"
+				},
+				"product_reference": "postgresql10-devel-10.12-8.13.9.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql10-devel-10.12-8.13.9.ppc64le as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-devel-10.12-8.13.9.ppc64le"
+				},
+				"product_reference": "postgresql10-devel-10.12-8.13.9.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql10-devel-10.12-8.13.9.s390x as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-devel-10.12-8.13.9.s390x"
+				},
+				"product_reference": "postgresql10-devel-10.12-8.13.9.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql10-devel-10.12-8.13.9.x86_64 as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-devel-10.12-8.13.9.x86_64"
+				},
+				"product_reference": "postgresql10-devel-10.12-8.13.9.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql10-docs-10.12-8.13.10.noarch as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-docs-10.12-8.13.10.noarch"
+				},
+				"product_reference": "postgresql10-docs-10.12-8.13.10.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql10-plperl-10.12-8.13.10.aarch64 as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-plperl-10.12-8.13.10.aarch64"
+				},
+				"product_reference": "postgresql10-plperl-10.12-8.13.10.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql10-plperl-10.12-8.13.10.ppc64le as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-plperl-10.12-8.13.10.ppc64le"
+				},
+				"product_reference": "postgresql10-plperl-10.12-8.13.10.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql10-plperl-10.12-8.13.10.s390x as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-plperl-10.12-8.13.10.s390x"
+				},
+				"product_reference": "postgresql10-plperl-10.12-8.13.10.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql10-plperl-10.12-8.13.10.x86_64 as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-plperl-10.12-8.13.10.x86_64"
+				},
+				"product_reference": "postgresql10-plperl-10.12-8.13.10.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql10-plpython-10.12-8.13.10.aarch64 as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-plpython-10.12-8.13.10.aarch64"
+				},
+				"product_reference": "postgresql10-plpython-10.12-8.13.10.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql10-plpython-10.12-8.13.10.ppc64le as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-plpython-10.12-8.13.10.ppc64le"
+				},
+				"product_reference": "postgresql10-plpython-10.12-8.13.10.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql10-plpython-10.12-8.13.10.s390x as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-plpython-10.12-8.13.10.s390x"
+				},
+				"product_reference": "postgresql10-plpython-10.12-8.13.10.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql10-plpython-10.12-8.13.10.x86_64 as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-plpython-10.12-8.13.10.x86_64"
+				},
+				"product_reference": "postgresql10-plpython-10.12-8.13.10.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql10-pltcl-10.12-8.13.10.aarch64 as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-pltcl-10.12-8.13.10.aarch64"
+				},
+				"product_reference": "postgresql10-pltcl-10.12-8.13.10.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql10-pltcl-10.12-8.13.10.ppc64le as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-pltcl-10.12-8.13.10.ppc64le"
+				},
+				"product_reference": "postgresql10-pltcl-10.12-8.13.10.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql10-pltcl-10.12-8.13.10.s390x as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-pltcl-10.12-8.13.10.s390x"
+				},
+				"product_reference": "postgresql10-pltcl-10.12-8.13.10.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql10-pltcl-10.12-8.13.10.x86_64 as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-pltcl-10.12-8.13.10.x86_64"
+				},
+				"product_reference": "postgresql10-pltcl-10.12-8.13.10.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql10-server-10.12-8.13.10.aarch64 as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-server-10.12-8.13.10.aarch64"
+				},
+				"product_reference": "postgresql10-server-10.12-8.13.10.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql10-server-10.12-8.13.10.ppc64le as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-server-10.12-8.13.10.ppc64le"
+				},
+				"product_reference": "postgresql10-server-10.12-8.13.10.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql10-server-10.12-8.13.10.s390x as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-server-10.12-8.13.10.s390x"
+				},
+				"product_reference": "postgresql10-server-10.12-8.13.10.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql10-server-10.12-8.13.10.x86_64 as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-server-10.12-8.13.10.x86_64"
+				},
+				"product_reference": "postgresql10-server-10.12-8.13.10.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql12-contrib-12.2-3.5.2.aarch64 as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-contrib-12.2-3.5.2.aarch64"
+				},
+				"product_reference": "postgresql12-contrib-12.2-3.5.2.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql12-contrib-12.2-3.5.2.ppc64le as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-contrib-12.2-3.5.2.ppc64le"
+				},
+				"product_reference": "postgresql12-contrib-12.2-3.5.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql12-contrib-12.2-3.5.2.s390x as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-contrib-12.2-3.5.2.s390x"
+				},
+				"product_reference": "postgresql12-contrib-12.2-3.5.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql12-contrib-12.2-3.5.2.x86_64 as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-contrib-12.2-3.5.2.x86_64"
+				},
+				"product_reference": "postgresql12-contrib-12.2-3.5.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql12-devel-12.2-3.5.2.aarch64 as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-devel-12.2-3.5.2.aarch64"
+				},
+				"product_reference": "postgresql12-devel-12.2-3.5.2.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql12-devel-12.2-3.5.2.ppc64le as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-devel-12.2-3.5.2.ppc64le"
+				},
+				"product_reference": "postgresql12-devel-12.2-3.5.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql12-devel-12.2-3.5.2.s390x as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-devel-12.2-3.5.2.s390x"
+				},
+				"product_reference": "postgresql12-devel-12.2-3.5.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql12-devel-12.2-3.5.2.x86_64 as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-devel-12.2-3.5.2.x86_64"
+				},
+				"product_reference": "postgresql12-devel-12.2-3.5.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql12-docs-12.2-3.5.2.noarch as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-docs-12.2-3.5.2.noarch"
+				},
+				"product_reference": "postgresql12-docs-12.2-3.5.2.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql12-plperl-12.2-3.5.2.aarch64 as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-plperl-12.2-3.5.2.aarch64"
+				},
+				"product_reference": "postgresql12-plperl-12.2-3.5.2.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql12-plperl-12.2-3.5.2.ppc64le as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-plperl-12.2-3.5.2.ppc64le"
+				},
+				"product_reference": "postgresql12-plperl-12.2-3.5.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql12-plperl-12.2-3.5.2.s390x as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-plperl-12.2-3.5.2.s390x"
+				},
+				"product_reference": "postgresql12-plperl-12.2-3.5.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql12-plperl-12.2-3.5.2.x86_64 as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-plperl-12.2-3.5.2.x86_64"
+				},
+				"product_reference": "postgresql12-plperl-12.2-3.5.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql12-plpython-12.2-3.5.2.aarch64 as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-plpython-12.2-3.5.2.aarch64"
+				},
+				"product_reference": "postgresql12-plpython-12.2-3.5.2.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql12-plpython-12.2-3.5.2.ppc64le as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-plpython-12.2-3.5.2.ppc64le"
+				},
+				"product_reference": "postgresql12-plpython-12.2-3.5.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql12-plpython-12.2-3.5.2.s390x as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-plpython-12.2-3.5.2.s390x"
+				},
+				"product_reference": "postgresql12-plpython-12.2-3.5.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql12-plpython-12.2-3.5.2.x86_64 as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-plpython-12.2-3.5.2.x86_64"
+				},
+				"product_reference": "postgresql12-plpython-12.2-3.5.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql12-pltcl-12.2-3.5.2.aarch64 as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-pltcl-12.2-3.5.2.aarch64"
+				},
+				"product_reference": "postgresql12-pltcl-12.2-3.5.2.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql12-pltcl-12.2-3.5.2.ppc64le as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-pltcl-12.2-3.5.2.ppc64le"
+				},
+				"product_reference": "postgresql12-pltcl-12.2-3.5.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql12-pltcl-12.2-3.5.2.s390x as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-pltcl-12.2-3.5.2.s390x"
+				},
+				"product_reference": "postgresql12-pltcl-12.2-3.5.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql12-pltcl-12.2-3.5.2.x86_64 as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-pltcl-12.2-3.5.2.x86_64"
+				},
+				"product_reference": "postgresql12-pltcl-12.2-3.5.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql12-server-12.2-3.5.2.aarch64 as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-server-12.2-3.5.2.aarch64"
+				},
+				"product_reference": "postgresql12-server-12.2-3.5.2.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql12-server-12.2-3.5.2.ppc64le as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-server-12.2-3.5.2.ppc64le"
+				},
+				"product_reference": "postgresql12-server-12.2-3.5.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql12-server-12.2-3.5.2.s390x as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-server-12.2-3.5.2.s390x"
+				},
+				"product_reference": "postgresql12-server-12.2-3.5.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql12-server-12.2-3.5.2.x86_64 as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-server-12.2-3.5.2.x86_64"
+				},
+				"product_reference": "postgresql12-server-12.2-3.5.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql12-server-devel-12.2-3.5.2.aarch64 as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-server-devel-12.2-3.5.2.aarch64"
+				},
+				"product_reference": "postgresql12-server-devel-12.2-3.5.2.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql12-server-devel-12.2-3.5.2.ppc64le as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-server-devel-12.2-3.5.2.ppc64le"
+				},
+				"product_reference": "postgresql12-server-devel-12.2-3.5.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql12-server-devel-12.2-3.5.2.s390x as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-server-devel-12.2-3.5.2.s390x"
+				},
+				"product_reference": "postgresql12-server-devel-12.2-3.5.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "postgresql12-server-devel-12.2-3.5.2.x86_64 as component of SUSE Linux Enterprise Module for Server Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-server-devel-12.2-3.5.2.x86_64"
+				},
+				"product_reference": "postgresql12-server-devel-12.2-3.5.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP1"
+			}
+		]
+	},
+	"vulnerabilities": [
+		{
+			"cve": "CVE-2019-10164",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2019-10164"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "PostgreSQL versions 10.x before 10.9 and versions 11.x before 11.4 are vulnerable to a stack-based buffer overflow. Any authenticated user can overflow a stack-based buffer by changing the user's own password to a purpose-crafted value. This often suffices to execute arbitrary code as the PostgreSQL operating system account.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libpq5-12.2-3.5.2.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libpq5-12.2-3.5.2.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libpq5-12.2-3.5.2.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libpq5-12.2-3.5.2.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql-12-8.11.3.noarch",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql10-10.12-8.13.10.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql10-10.12-8.13.10.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql10-10.12-8.13.10.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql10-10.12-8.13.10.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql12-12.2-3.5.2.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql12-12.2-3.5.2.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql12-12.2-3.5.2.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql12-12.2-3.5.2.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-psycopg2-2.8.4-5.4.6.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-psycopg2-2.8.4-5.4.6.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-psycopg2-2.8.4-5.4.6.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-psycopg2-2.8.4-5.4.6.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:libecpg6-12.2-3.5.2.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:libecpg6-12.2-3.5.2.ppc64le",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:libecpg6-12.2-3.5.2.s390x",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:libecpg6-12.2-3.5.2.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql-contrib-12-8.11.3.noarch",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql-devel-12-8.11.3.noarch",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql-docs-12-8.11.3.noarch",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql-plperl-12-8.11.3.noarch",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql-plpython-12-8.11.3.noarch",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql-pltcl-12-8.11.3.noarch",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql-server-12-8.11.3.noarch",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql-server-devel-12-8.11.3.noarch",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-contrib-10.12-8.13.10.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-contrib-10.12-8.13.10.ppc64le",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-contrib-10.12-8.13.10.s390x",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-contrib-10.12-8.13.10.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-devel-10.12-8.13.9.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-devel-10.12-8.13.9.ppc64le",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-devel-10.12-8.13.9.s390x",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-devel-10.12-8.13.9.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-docs-10.12-8.13.10.noarch",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-plperl-10.12-8.13.10.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-plperl-10.12-8.13.10.ppc64le",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-plperl-10.12-8.13.10.s390x",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-plperl-10.12-8.13.10.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-plpython-10.12-8.13.10.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-plpython-10.12-8.13.10.ppc64le",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-plpython-10.12-8.13.10.s390x",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-plpython-10.12-8.13.10.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-pltcl-10.12-8.13.10.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-pltcl-10.12-8.13.10.ppc64le",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-pltcl-10.12-8.13.10.s390x",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-pltcl-10.12-8.13.10.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-server-10.12-8.13.10.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-server-10.12-8.13.10.ppc64le",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-server-10.12-8.13.10.s390x",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-server-10.12-8.13.10.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-contrib-12.2-3.5.2.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-contrib-12.2-3.5.2.ppc64le",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-contrib-12.2-3.5.2.s390x",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-contrib-12.2-3.5.2.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-devel-12.2-3.5.2.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-devel-12.2-3.5.2.ppc64le",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-devel-12.2-3.5.2.s390x",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-devel-12.2-3.5.2.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-docs-12.2-3.5.2.noarch",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-plperl-12.2-3.5.2.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-plperl-12.2-3.5.2.ppc64le",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-plperl-12.2-3.5.2.s390x",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-plperl-12.2-3.5.2.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-plpython-12.2-3.5.2.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-plpython-12.2-3.5.2.ppc64le",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-plpython-12.2-3.5.2.s390x",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-plpython-12.2-3.5.2.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-pltcl-12.2-3.5.2.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-pltcl-12.2-3.5.2.ppc64le",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-pltcl-12.2-3.5.2.s390x",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-pltcl-12.2-3.5.2.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-server-12.2-3.5.2.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-server-12.2-3.5.2.ppc64le",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-server-12.2-3.5.2.s390x",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-server-12.2-3.5.2.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-server-devel-12.2-3.5.2.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-server-devel-12.2-3.5.2.ppc64le",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-server-devel-12.2-3.5.2.s390x",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-server-devel-12.2-3.5.2.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2019-10164",
+					"url": "https://www.suse.com/security/cve/CVE-2019-10164"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1138034 for CVE-2019-10164",
+					"url": "https://bugzilla.suse.com/1138034"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libpq5-12.2-3.5.2.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libpq5-12.2-3.5.2.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libpq5-12.2-3.5.2.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libpq5-12.2-3.5.2.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql-12-8.11.3.noarch",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql10-10.12-8.13.10.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql10-10.12-8.13.10.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql10-10.12-8.13.10.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql10-10.12-8.13.10.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql12-12.2-3.5.2.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql12-12.2-3.5.2.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql12-12.2-3.5.2.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql12-12.2-3.5.2.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-psycopg2-2.8.4-5.4.6.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-psycopg2-2.8.4-5.4.6.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-psycopg2-2.8.4-5.4.6.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-psycopg2-2.8.4-5.4.6.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:libecpg6-12.2-3.5.2.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:libecpg6-12.2-3.5.2.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:libecpg6-12.2-3.5.2.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:libecpg6-12.2-3.5.2.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql-contrib-12-8.11.3.noarch",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql-devel-12-8.11.3.noarch",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql-docs-12-8.11.3.noarch",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql-plperl-12-8.11.3.noarch",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql-plpython-12-8.11.3.noarch",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql-pltcl-12-8.11.3.noarch",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql-server-12-8.11.3.noarch",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql-server-devel-12-8.11.3.noarch",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-contrib-10.12-8.13.10.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-contrib-10.12-8.13.10.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-contrib-10.12-8.13.10.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-contrib-10.12-8.13.10.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-devel-10.12-8.13.9.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-devel-10.12-8.13.9.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-devel-10.12-8.13.9.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-devel-10.12-8.13.9.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-docs-10.12-8.13.10.noarch",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-plperl-10.12-8.13.10.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-plperl-10.12-8.13.10.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-plperl-10.12-8.13.10.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-plperl-10.12-8.13.10.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-plpython-10.12-8.13.10.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-plpython-10.12-8.13.10.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-plpython-10.12-8.13.10.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-plpython-10.12-8.13.10.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-pltcl-10.12-8.13.10.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-pltcl-10.12-8.13.10.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-pltcl-10.12-8.13.10.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-pltcl-10.12-8.13.10.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-server-10.12-8.13.10.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-server-10.12-8.13.10.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-server-10.12-8.13.10.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-server-10.12-8.13.10.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-contrib-12.2-3.5.2.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-contrib-12.2-3.5.2.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-contrib-12.2-3.5.2.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-contrib-12.2-3.5.2.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-devel-12.2-3.5.2.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-devel-12.2-3.5.2.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-devel-12.2-3.5.2.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-devel-12.2-3.5.2.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-docs-12.2-3.5.2.noarch",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-plperl-12.2-3.5.2.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-plperl-12.2-3.5.2.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-plperl-12.2-3.5.2.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-plperl-12.2-3.5.2.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-plpython-12.2-3.5.2.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-plpython-12.2-3.5.2.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-plpython-12.2-3.5.2.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-plpython-12.2-3.5.2.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-pltcl-12.2-3.5.2.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-pltcl-12.2-3.5.2.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-pltcl-12.2-3.5.2.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-pltcl-12.2-3.5.2.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-server-12.2-3.5.2.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-server-12.2-3.5.2.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-server-12.2-3.5.2.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-server-12.2-3.5.2.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-server-devel-12.2-3.5.2.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-server-devel-12.2-3.5.2.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-server-devel-12.2-3.5.2.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-server-devel-12.2-3.5.2.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 8.8,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libpq5-12.2-3.5.2.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libpq5-12.2-3.5.2.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libpq5-12.2-3.5.2.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libpq5-12.2-3.5.2.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql-12-8.11.3.noarch",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql10-10.12-8.13.10.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql10-10.12-8.13.10.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql10-10.12-8.13.10.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql10-10.12-8.13.10.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql12-12.2-3.5.2.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql12-12.2-3.5.2.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql12-12.2-3.5.2.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql12-12.2-3.5.2.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-psycopg2-2.8.4-5.4.6.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-psycopg2-2.8.4-5.4.6.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-psycopg2-2.8.4-5.4.6.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-psycopg2-2.8.4-5.4.6.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:libecpg6-12.2-3.5.2.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:libecpg6-12.2-3.5.2.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:libecpg6-12.2-3.5.2.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:libecpg6-12.2-3.5.2.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql-contrib-12-8.11.3.noarch",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql-devel-12-8.11.3.noarch",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql-docs-12-8.11.3.noarch",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql-plperl-12-8.11.3.noarch",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql-plpython-12-8.11.3.noarch",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql-pltcl-12-8.11.3.noarch",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql-server-12-8.11.3.noarch",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql-server-devel-12-8.11.3.noarch",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-contrib-10.12-8.13.10.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-contrib-10.12-8.13.10.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-contrib-10.12-8.13.10.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-contrib-10.12-8.13.10.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-devel-10.12-8.13.9.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-devel-10.12-8.13.9.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-devel-10.12-8.13.9.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-devel-10.12-8.13.9.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-docs-10.12-8.13.10.noarch",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-plperl-10.12-8.13.10.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-plperl-10.12-8.13.10.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-plperl-10.12-8.13.10.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-plperl-10.12-8.13.10.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-plpython-10.12-8.13.10.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-plpython-10.12-8.13.10.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-plpython-10.12-8.13.10.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-plpython-10.12-8.13.10.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-pltcl-10.12-8.13.10.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-pltcl-10.12-8.13.10.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-pltcl-10.12-8.13.10.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-pltcl-10.12-8.13.10.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-server-10.12-8.13.10.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-server-10.12-8.13.10.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-server-10.12-8.13.10.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-server-10.12-8.13.10.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-contrib-12.2-3.5.2.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-contrib-12.2-3.5.2.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-contrib-12.2-3.5.2.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-contrib-12.2-3.5.2.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-devel-12.2-3.5.2.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-devel-12.2-3.5.2.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-devel-12.2-3.5.2.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-devel-12.2-3.5.2.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-docs-12.2-3.5.2.noarch",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-plperl-12.2-3.5.2.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-plperl-12.2-3.5.2.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-plperl-12.2-3.5.2.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-plperl-12.2-3.5.2.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-plpython-12.2-3.5.2.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-plpython-12.2-3.5.2.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-plpython-12.2-3.5.2.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-plpython-12.2-3.5.2.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-pltcl-12.2-3.5.2.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-pltcl-12.2-3.5.2.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-pltcl-12.2-3.5.2.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-pltcl-12.2-3.5.2.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-server-12.2-3.5.2.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-server-12.2-3.5.2.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-server-12.2-3.5.2.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-server-12.2-3.5.2.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-server-devel-12.2-3.5.2.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-server-devel-12.2-3.5.2.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-server-devel-12.2-3.5.2.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-server-devel-12.2-3.5.2.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2020-05-14T12:28:08Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2019-10164"
+		},
+		{
+			"cve": "CVE-2020-1720",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2020-1720"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A flaw was found in PostgreSQL's \"ALTER ... DEPENDS ON EXTENSION\", where sub-commands did not perform authorization checks. An authenticated attacker could use this flaw in certain configurations to perform drop objects such as function, triggers, et al., leading to database corruption. This issue affects PostgreSQL versions before 12.2, before 11.7, before 10.12 and before 9.6.17.",
+					"title": "Vulnerability description"
+				}
+			],
+			"product_status": {
+				"fixed": [
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libpq5-12.2-3.5.2.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libpq5-12.2-3.5.2.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libpq5-12.2-3.5.2.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libpq5-12.2-3.5.2.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql-12-8.11.3.noarch",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql10-10.12-8.13.10.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql10-10.12-8.13.10.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql10-10.12-8.13.10.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql10-10.12-8.13.10.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql12-12.2-3.5.2.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql12-12.2-3.5.2.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql12-12.2-3.5.2.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql12-12.2-3.5.2.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-psycopg2-2.8.4-5.4.6.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-psycopg2-2.8.4-5.4.6.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-psycopg2-2.8.4-5.4.6.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-psycopg2-2.8.4-5.4.6.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:libecpg6-12.2-3.5.2.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:libecpg6-12.2-3.5.2.ppc64le",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:libecpg6-12.2-3.5.2.s390x",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:libecpg6-12.2-3.5.2.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql-contrib-12-8.11.3.noarch",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql-devel-12-8.11.3.noarch",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql-docs-12-8.11.3.noarch",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql-plperl-12-8.11.3.noarch",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql-plpython-12-8.11.3.noarch",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql-pltcl-12-8.11.3.noarch",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql-server-12-8.11.3.noarch",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql-server-devel-12-8.11.3.noarch",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-contrib-10.12-8.13.10.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-contrib-10.12-8.13.10.ppc64le",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-contrib-10.12-8.13.10.s390x",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-contrib-10.12-8.13.10.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-devel-10.12-8.13.9.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-devel-10.12-8.13.9.ppc64le",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-devel-10.12-8.13.9.s390x",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-devel-10.12-8.13.9.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-docs-10.12-8.13.10.noarch",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-plperl-10.12-8.13.10.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-plperl-10.12-8.13.10.ppc64le",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-plperl-10.12-8.13.10.s390x",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-plperl-10.12-8.13.10.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-plpython-10.12-8.13.10.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-plpython-10.12-8.13.10.ppc64le",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-plpython-10.12-8.13.10.s390x",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-plpython-10.12-8.13.10.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-pltcl-10.12-8.13.10.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-pltcl-10.12-8.13.10.ppc64le",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-pltcl-10.12-8.13.10.s390x",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-pltcl-10.12-8.13.10.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-server-10.12-8.13.10.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-server-10.12-8.13.10.ppc64le",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-server-10.12-8.13.10.s390x",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-server-10.12-8.13.10.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-contrib-12.2-3.5.2.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-contrib-12.2-3.5.2.ppc64le",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-contrib-12.2-3.5.2.s390x",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-contrib-12.2-3.5.2.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-devel-12.2-3.5.2.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-devel-12.2-3.5.2.ppc64le",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-devel-12.2-3.5.2.s390x",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-devel-12.2-3.5.2.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-docs-12.2-3.5.2.noarch",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-plperl-12.2-3.5.2.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-plperl-12.2-3.5.2.ppc64le",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-plperl-12.2-3.5.2.s390x",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-plperl-12.2-3.5.2.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-plpython-12.2-3.5.2.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-plpython-12.2-3.5.2.ppc64le",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-plpython-12.2-3.5.2.s390x",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-plpython-12.2-3.5.2.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-pltcl-12.2-3.5.2.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-pltcl-12.2-3.5.2.ppc64le",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-pltcl-12.2-3.5.2.s390x",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-pltcl-12.2-3.5.2.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-server-12.2-3.5.2.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-server-12.2-3.5.2.ppc64le",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-server-12.2-3.5.2.s390x",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-server-12.2-3.5.2.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-server-devel-12.2-3.5.2.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-server-devel-12.2-3.5.2.ppc64le",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-server-devel-12.2-3.5.2.s390x",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-server-devel-12.2-3.5.2.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2020-1720",
+					"url": "https://www.suse.com/security/cve/CVE-2020-1720"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1163985 for CVE-2020-1720",
+					"url": "https://bugzilla.suse.com/1163985"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libpq5-12.2-3.5.2.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libpq5-12.2-3.5.2.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libpq5-12.2-3.5.2.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libpq5-12.2-3.5.2.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql-12-8.11.3.noarch",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql10-10.12-8.13.10.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql10-10.12-8.13.10.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql10-10.12-8.13.10.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql10-10.12-8.13.10.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql12-12.2-3.5.2.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql12-12.2-3.5.2.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql12-12.2-3.5.2.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql12-12.2-3.5.2.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-psycopg2-2.8.4-5.4.6.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-psycopg2-2.8.4-5.4.6.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-psycopg2-2.8.4-5.4.6.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-psycopg2-2.8.4-5.4.6.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:libecpg6-12.2-3.5.2.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:libecpg6-12.2-3.5.2.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:libecpg6-12.2-3.5.2.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:libecpg6-12.2-3.5.2.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql-contrib-12-8.11.3.noarch",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql-devel-12-8.11.3.noarch",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql-docs-12-8.11.3.noarch",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql-plperl-12-8.11.3.noarch",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql-plpython-12-8.11.3.noarch",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql-pltcl-12-8.11.3.noarch",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql-server-12-8.11.3.noarch",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql-server-devel-12-8.11.3.noarch",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-contrib-10.12-8.13.10.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-contrib-10.12-8.13.10.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-contrib-10.12-8.13.10.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-contrib-10.12-8.13.10.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-devel-10.12-8.13.9.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-devel-10.12-8.13.9.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-devel-10.12-8.13.9.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-devel-10.12-8.13.9.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-docs-10.12-8.13.10.noarch",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-plperl-10.12-8.13.10.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-plperl-10.12-8.13.10.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-plperl-10.12-8.13.10.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-plperl-10.12-8.13.10.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-plpython-10.12-8.13.10.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-plpython-10.12-8.13.10.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-plpython-10.12-8.13.10.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-plpython-10.12-8.13.10.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-pltcl-10.12-8.13.10.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-pltcl-10.12-8.13.10.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-pltcl-10.12-8.13.10.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-pltcl-10.12-8.13.10.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-server-10.12-8.13.10.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-server-10.12-8.13.10.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-server-10.12-8.13.10.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-server-10.12-8.13.10.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-contrib-12.2-3.5.2.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-contrib-12.2-3.5.2.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-contrib-12.2-3.5.2.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-contrib-12.2-3.5.2.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-devel-12.2-3.5.2.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-devel-12.2-3.5.2.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-devel-12.2-3.5.2.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-devel-12.2-3.5.2.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-docs-12.2-3.5.2.noarch",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-plperl-12.2-3.5.2.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-plperl-12.2-3.5.2.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-plperl-12.2-3.5.2.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-plperl-12.2-3.5.2.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-plpython-12.2-3.5.2.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-plpython-12.2-3.5.2.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-plpython-12.2-3.5.2.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-plpython-12.2-3.5.2.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-pltcl-12.2-3.5.2.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-pltcl-12.2-3.5.2.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-pltcl-12.2-3.5.2.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-pltcl-12.2-3.5.2.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-server-12.2-3.5.2.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-server-12.2-3.5.2.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-server-12.2-3.5.2.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-server-12.2-3.5.2.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-server-devel-12.2-3.5.2.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-server-devel-12.2-3.5.2.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-server-devel-12.2-3.5.2.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-server-devel-12.2-3.5.2.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 4.2,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:L/A:L",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libpq5-12.2-3.5.2.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libpq5-12.2-3.5.2.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libpq5-12.2-3.5.2.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libpq5-12.2-3.5.2.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql-12-8.11.3.noarch",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql10-10.12-8.13.10.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql10-10.12-8.13.10.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql10-10.12-8.13.10.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql10-10.12-8.13.10.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql12-12.2-3.5.2.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql12-12.2-3.5.2.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql12-12.2-3.5.2.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:postgresql12-12.2-3.5.2.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-psycopg2-2.8.4-5.4.6.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-psycopg2-2.8.4-5.4.6.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-psycopg2-2.8.4-5.4.6.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-psycopg2-2.8.4-5.4.6.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:libecpg6-12.2-3.5.2.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:libecpg6-12.2-3.5.2.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:libecpg6-12.2-3.5.2.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:libecpg6-12.2-3.5.2.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql-contrib-12-8.11.3.noarch",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql-devel-12-8.11.3.noarch",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql-docs-12-8.11.3.noarch",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql-plperl-12-8.11.3.noarch",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql-plpython-12-8.11.3.noarch",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql-pltcl-12-8.11.3.noarch",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql-server-12-8.11.3.noarch",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql-server-devel-12-8.11.3.noarch",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-contrib-10.12-8.13.10.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-contrib-10.12-8.13.10.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-contrib-10.12-8.13.10.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-contrib-10.12-8.13.10.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-devel-10.12-8.13.9.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-devel-10.12-8.13.9.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-devel-10.12-8.13.9.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-devel-10.12-8.13.9.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-docs-10.12-8.13.10.noarch",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-plperl-10.12-8.13.10.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-plperl-10.12-8.13.10.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-plperl-10.12-8.13.10.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-plperl-10.12-8.13.10.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-plpython-10.12-8.13.10.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-plpython-10.12-8.13.10.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-plpython-10.12-8.13.10.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-plpython-10.12-8.13.10.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-pltcl-10.12-8.13.10.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-pltcl-10.12-8.13.10.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-pltcl-10.12-8.13.10.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-pltcl-10.12-8.13.10.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-server-10.12-8.13.10.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-server-10.12-8.13.10.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-server-10.12-8.13.10.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql10-server-10.12-8.13.10.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-contrib-12.2-3.5.2.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-contrib-12.2-3.5.2.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-contrib-12.2-3.5.2.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-contrib-12.2-3.5.2.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-devel-12.2-3.5.2.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-devel-12.2-3.5.2.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-devel-12.2-3.5.2.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-devel-12.2-3.5.2.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-docs-12.2-3.5.2.noarch",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-plperl-12.2-3.5.2.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-plperl-12.2-3.5.2.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-plperl-12.2-3.5.2.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-plperl-12.2-3.5.2.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-plpython-12.2-3.5.2.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-plpython-12.2-3.5.2.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-plpython-12.2-3.5.2.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-plpython-12.2-3.5.2.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-pltcl-12.2-3.5.2.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-pltcl-12.2-3.5.2.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-pltcl-12.2-3.5.2.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-pltcl-12.2-3.5.2.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-server-12.2-3.5.2.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-server-12.2-3.5.2.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-server-12.2-3.5.2.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-server-12.2-3.5.2.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-server-devel-12.2-3.5.2.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-server-devel-12.2-3.5.2.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-server-devel-12.2-3.5.2.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP1:postgresql12-server-devel-12.2-3.5.2.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2020-05-14T12:28:08Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2020-1720"
+		}
+	]
+}
