@@ -3439,7 +3439,7 @@
 				{
 					"category": "general",
 					"text": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -4057,7 +4057,7 @@
 				{
 					"category": "general",
 					"text": "In the Linux kernel, the following vulnerability has been resolved:\n\nfs/mount_setattr: always cleanup mount_kattr\n\nMake sure that finish_mount_kattr() is called after mount_kattr was\nsuccesfully built in both the success and failure case to prevent\nleaking any references we took when we built it.  We returned early if\npath lookup failed thereby risking to leak an additional reference we\ntook when building mount_kattr when an idmapped mount was requested.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -4675,7 +4675,7 @@
 				{
 					"category": "general",
 					"text": "In the Linux kernel, the following vulnerability has been resolved:\n\nNFC: st21nfca: Fix memory leak in device probe and remove\n\n'phy->pending_skb' is alloced when device probe, but forgot to free\nin the error handling path and remove path, this cause memory leak\nas follows:\n\nunreferenced object 0xffff88800bc06800 (size 512):\n  comm \"8\", pid 11775, jiffies 4295159829 (age 9.032s)\n  hex dump (first 32 bytes):\n    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................\n    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................\n  backtrace:\n    [<00000000d66c09ce>] __kmalloc_node_track_caller+0x1ed/0x450\n    [<00000000c93382b3>] kmalloc_reserve+0x37/0xd0\n    [<000000005fea522c>] __alloc_skb+0x124/0x380\n    [<0000000019f29f9a>] st21nfca_hci_i2c_probe+0x170/0x8f2\n\nFix it by freeing 'pending_skb' in error and remove.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -5293,7 +5293,7 @@
 				{
 					"category": "general",
 					"text": "In the Linux kernel, the following vulnerability has been resolved:\n\nInput: appletouch - initialize work before device registration\n\nSyzbot has reported warning in __flush_work(). This warning is caused by\nwork->func == NULL, which means missing work initialization.\n\nThis may happen, since input_dev->close() calls\ncancel_work_sync(&dev->work), but dev->work initalization happens _after_\ninput_register_device() call.\n\nSo this patch moves dev->work initialization before registering input\ndevice",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -5911,7 +5911,7 @@
 				{
 					"category": "general",
 					"text": "Information exposure through microarchitectural state after transient execution from some register files for some Intel(R) Atom(R) Processors may allow an authenticated user to potentially enable information disclosure via local access.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -6534,7 +6534,7 @@
 				{
 					"category": "general",
 					"text": "A use-after-free vulnerability in the Linux kernel's netfilter: nf_tables component can be exploited to achieve local privilege escalation.\n\nAddition and removal of rules from chain bindings within the same transaction causes leads to use-after-free.\n\nWe recommend upgrading past commit f15f29fd4779be8a418b66e9d52979bb6d6c2325.\n\n",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -7152,7 +7152,7 @@
 				{
 					"category": "general",
 					"text": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -7775,7 +7775,7 @@
 				{
 					"category": "general",
 					"text": "dm_table_create in drivers/md/dm-table.c in the Linux kernel through 6.7.4 can attempt to (in alloc_targets) allocate more than INT_MAX bytes, and crash, because of a missing check for struct dm_ioctl.target_count.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -8393,7 +8393,7 @@
 				{
 					"category": "general",
 					"text": "In the Linux kernel, the following vulnerability has been resolved:\n\nuio: Fix use-after-free in uio_open\n\ncore-1\t\t\t\tcore-2\n-------------------------------------------------------\nuio_unregister_device\t\tuio_open\n\t\t\t\tidev = idr_find()\ndevice_unregister(&idev->dev)\nput_device(&idev->dev)\nuio_device_release\n\t\t\t\tget_device(&idev->dev)\nkfree(idev)\nuio_free_minor(minor)\n\t\t\t\tuio_release\n\t\t\t\tput_device(&idev->dev)\n\t\t\t\tkfree(idev)\n-------------------------------------------------------\n\nIn the core-1 uio_unregister_device(), the device_unregister will kfree\nidev when the idev->dev kobject ref is 1. But after core-1\ndevice_unregister, put_device and before doing kfree, the core-2 may\nget_device. Then:\n1. After core-1 kfree idev, the core-2 will do use-after-free for idev.\n2. When core-2 do uio_release and put_device, the idev will be double\n   freed.\n\nTo address this issue, we can get idev atomic & inc idev reference with\nminor_lock.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -9011,7 +9011,7 @@
 				{
 					"category": "general",
 					"text": "In the Linux kernel, the following vulnerability has been resolved:\n\napparmor: avoid crash when parsed profile name is empty\n\nWhen processing a packed profile in unpack_profile() described like\n\n \"profile :ns::samba-dcerpcd /usr/lib*/samba/{,samba/}samba-dcerpcd {...}\"\n\na string \":samba-dcerpcd\" is unpacked as a fully-qualified name and then\npassed to aa_splitn_fqname().\n\naa_splitn_fqname() treats \":samba-dcerpcd\" as only containing a namespace.\nThus it returns NULL for tmpname, meanwhile tmpns is non-NULL. Later\naa_alloc_profile() crashes as the new profile name is NULL now.\n\ngeneral protection fault, probably for non-canonical address 0xdffffc0000000000: 0000 [#1] PREEMPT SMP KASAN NOPTI\nKASAN: null-ptr-deref in range [0x0000000000000000-0x0000000000000007]\nCPU: 6 PID: 1657 Comm: apparmor_parser Not tainted 6.7.0-rc2-dirty #16\nHardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.16.2-3-gd478f380-rebuilt.opensuse.org 04/01/2014\nRIP: 0010:strlen+0x1e/0xa0\nCall Trace:\n <TASK>\n ? strlen+0x1e/0xa0\n aa_policy_init+0x1bb/0x230\n aa_alloc_profile+0xb1/0x480\n unpack_profile+0x3bc/0x4960\n aa_unpack+0x309/0x15e0\n aa_replace_profiles+0x213/0x33c0\n policy_update+0x261/0x370\n profile_replace+0x20e/0x2a0\n vfs_write+0x2af/0xe00\n ksys_write+0x126/0x250\n do_syscall_64+0x46/0xf0\n entry_SYSCALL_64_after_hwframe+0x6e/0x76\n </TASK>\n---[ end trace 0000000000000000 ]---\nRIP: 0010:strlen+0x1e/0xa0\n\nIt seems such behaviour of aa_splitn_fqname() is expected and checked in\nother places where it is called (e.g. aa_remove_profiles). Well, there\nis an explicit comment \"a ns name without a following profile is allowed\"\ninside.\n\nAFAICS, nothing can prevent unpacked \"name\" to be in form like\n\":samba-dcerpcd\" - it is passed from userspace.\n\nDeny the whole profile set replacement in such case and inform user with\nEPROTO and an explaining message.\n\nFound by Linux Verification Center (linuxtesting.org).",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -9629,7 +9629,7 @@
 				{
 					"category": "general",
 					"text": "In the Linux kernel, the following vulnerability has been resolved:\n\nmedia: pvrusb2: fix use after free on context disconnection\n\nUpon module load, a kthread is created targeting the\npvr2_context_thread_func function, which may call pvr2_context_destroy\nand thus call kfree() on the context object. However, that might happen\nbefore the usb hub_event handler is able to notify the driver. This\npatch adds a sanity check before the invalid read reported by syzbot,\nwithin the context disconnection call stack.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -10252,7 +10252,7 @@
 				{
 					"category": "general",
 					"text": "In the Linux kernel, the following vulnerability has been resolved:\n\nbpf: Defer the free of inner map when necessary\n\nWhen updating or deleting an inner map in map array or map htab, the map\nmay still be accessed by non-sleepable program or sleepable program.\nHowever bpf_map_fd_put_ptr() decreases the ref-counter of the inner map\ndirectly through bpf_map_put(), if the ref-counter is the last one\n(which is true for most cases), the inner map will be freed by\nops->map_free() in a kworker. But for now, most .map_free() callbacks\ndon't use synchronize_rcu() or its variants to wait for the elapse of a\nRCU grace period, so after the invocation of ops->map_free completes,\nthe bpf program which is accessing the inner map may incur\nuse-after-free problem.\n\nFix the free of inner map by invoking bpf_map_free_deferred() after both\none RCU grace period and one tasks trace RCU grace period if the inner\nmap has been removed from the outer map before. The deferment is\naccomplished by using call_rcu() or call_rcu_tasks_trace() when\nreleasing the last ref-counter of bpf map. The newly-added rcu_head\nfield in bpf_map shares the same storage space with work field to\nreduce the size of bpf_map.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -10870,7 +10870,7 @@
 				{
 					"category": "general",
 					"text": "In the Linux kernel, the following vulnerability has been resolved:\n\ngfs2: Fix kernel NULL pointer dereference in gfs2_rgrp_dump\n\nSyzkaller has reported a NULL pointer dereference when accessing\nrgd->rd_rgl in gfs2_rgrp_dump().  This can happen when creating\nrgd->rd_gl fails in read_rindex_entry().  Add a NULL pointer check in\ngfs2_rgrp_dump() to prevent that.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -11488,7 +11488,7 @@
 				{
 					"category": "general",
 					"text": "In the Linux kernel, the following vulnerability has been resolved:\n\nmtd: Fix gluebi NULL pointer dereference caused by ftl notifier\n\nIf both ftl.ko and gluebi.ko are loaded, the notifier of ftl\ntriggers NULL pointer dereference when trying to access\n‘gluebi->desc’ in gluebi_read().\n\nubi_gluebi_init\n  ubi_register_volume_notifier\n    ubi_enumerate_volumes\n      ubi_notify_all\n        gluebi_notify    nb->notifier_call()\n          gluebi_create\n            mtd_device_register\n              mtd_device_parse_register\n                add_mtd_device\n                  blktrans_notify_add   not->add()\n                    ftl_add_mtd         tr->add_mtd()\n                      scan_header\n                        mtd_read\n                          mtd_read_oob\n                            mtd_read_oob_std\n                              gluebi_read   mtd->read()\n                                gluebi->desc - NULL\n\nDetailed reproduction information available at the Link [1],\n\nIn the normal case, obtain gluebi->desc in the gluebi_get_device(),\nand access gluebi->desc in the gluebi_read(). However,\ngluebi_get_device() is not executed in advance in the\nftl_add_mtd() process, which leads to NULL pointer dereference.\n\nThe solution for the gluebi module is to run jffs2 on the UBI\nvolume without considering working with ftl or mtdblock [2].\nTherefore, this problem can be avoided by preventing gluebi from\ncreating the mtdblock device after creating mtd partition of the\ntype MTD_UBIVOLUME.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -12106,7 +12106,7 @@
 				{
 					"category": "general",
 					"text": "In the Linux kernel, the following vulnerability has been resolved:\n\npowerpc/pseries/memhp: Fix access beyond end of drmem array\n\ndlpar_memory_remove_by_index() may access beyond the bounds of the\ndrmem lmb array when the LMB lookup fails to match an entry with the\ngiven DRC index. When the search fails, the cursor is left pointing to\n&drmem_info->lmbs[drmem_info->n_lmbs], which is one element past the\nlast valid entry in the array. The debug message at the end of the\nfunction then dereferences this pointer:\n\n        pr_debug(\"Failed to hot-remove memory at %llx\\n\",\n                 lmb->base_addr);\n\nThis was found by inspection and confirmed with KASAN:\n\n  pseries-hotplug-mem: Attempting to hot-remove LMB, drc index 1234\n  ==================================================================\n  BUG: KASAN: slab-out-of-bounds in dlpar_memory+0x298/0x1658\n  Read of size 8 at addr c000000364e97fd0 by task bash/949\n\n  dump_stack_lvl+0xa4/0xfc (unreliable)\n  print_report+0x214/0x63c\n  kasan_report+0x140/0x2e0\n  __asan_load8+0xa8/0xe0\n  dlpar_memory+0x298/0x1658\n  handle_dlpar_errorlog+0x130/0x1d0\n  dlpar_store+0x18c/0x3e0\n  kobj_attr_store+0x68/0xa0\n  sysfs_kf_write+0xc4/0x110\n  kernfs_fop_write_iter+0x26c/0x390\n  vfs_write+0x2d4/0x4e0\n  ksys_write+0xac/0x1a0\n  system_call_exception+0x268/0x530\n  system_call_vectored_common+0x15c/0x2ec\n\n  Allocated by task 1:\n   kasan_save_stack+0x48/0x80\n   kasan_set_track+0x34/0x50\n   kasan_save_alloc_info+0x34/0x50\n   __kasan_kmalloc+0xd0/0x120\n   __kmalloc+0x8c/0x320\n   kmalloc_array.constprop.0+0x48/0x5c\n   drmem_init+0x2a0/0x41c\n   do_one_initcall+0xe0/0x5c0\n   kernel_init_freeable+0x4ec/0x5a0\n   kernel_init+0x30/0x1e0\n   ret_from_kernel_user_thread+0x14/0x1c\n\n  The buggy address belongs to the object at c000000364e80000\n   which belongs to the cache kmalloc-128k of size 131072\n  The buggy address is located 0 bytes to the right of\n   allocated 98256-byte region [c000000364e80000, c000000364e97fd0)\n\n  ==================================================================\n  pseries-hotplug-mem: Failed to hot-remove memory at 0\n\nLog failed lookups with a separate message and dereference the\ncursor only when it points to a valid entry.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -12724,7 +12724,7 @@
 				{
 					"category": "general",
 					"text": "In the Linux kernel, the following vulnerability has been resolved:\n\nbpf: Fix accesses to uninit stack slots\n\nPrivileged programs are supposed to be able to read uninitialized stack\nmemory (ever since 6715df8d5) but, before this patch, these accesses\nwere permitted inconsistently. In particular, accesses were permitted\nabove state->allocated_stack, but not below it. In other words, if the\nstack was already \"large enough\", the access was permitted, but\notherwise the access was rejected instead of being allowed to \"grow the\nstack\". This undesired rejection was happening in two places:\n- in check_stack_slot_within_bounds()\n- in check_stack_range_initialized()\nThis patch arranges for these accesses to be permitted. A bunch of tests\nthat were relying on the old rejection had to change; all of them were\nchanged to add also run unprivileged, in which case the old behavior\npersists. One tests couldn't be updated - global_func16 - because it\ncan't run unprivileged for other reasons.\n\nThis patch also fixes the tracking of the stack size for variable-offset\nreads. This second fix is bundled in the same commit as the first one\nbecause they're inter-related. Before this patch, writes to the stack\nusing registers containing a variable offset (as opposed to registers\nwith fixed, known values) were not properly contributing to the\nfunction's needed stack size. As a result, it was possible for a program\nto verify, but then to attempt to read out-of-bounds data at runtime\nbecause a too small stack had been allocated for it.\n\nEach function tracks the size of the stack it needs in\nbpf_subprog_info.stack_depth, which is maintained by\nupdate_stack_depth(). For regular memory accesses, check_mem_access()\nwas calling update_state_depth() but it was passing in only the fixed\npart of the offset register, ignoring the variable offset. This was\nincorrect; the minimum possible value of that register should be used\ninstead.\n\nThis tracking is now fixed by centralizing the tracking of stack size in\ngrow_stack_state(), and by lifting the calls to grow_stack_state() to\ncheck_stack_access_within_bounds() as suggested by Andrii. The code is\nnow simpler and more convincingly tracks the correct maximum stack size.\ncheck_stack_range_initialized() can now rely on enough stack having been\nallocated for the access; this helps with the fix for the first issue.\n\nA few tests were changed to also check the stack depth computation. The\none that fails without this patch is verifier_var_off:stack_write_priv_vs_unpriv.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -13342,7 +13342,7 @@
 				{
 					"category": "general",
 					"text": "In the Linux kernel, the following vulnerability has been resolved:\n\nserial: imx: fix tx statemachine deadlock\n\nWhen using the serial port as RS485 port, the tx statemachine is used to\ncontrol the RTS pin to drive the RS485 transceiver TX_EN pin. When the\nTTY port is closed in the middle of a transmission (for instance during\nuserland application crash), imx_uart_shutdown disables the interface\nand disables the Transmission Complete interrupt. afer that,\nimx_uart_stop_tx bails on an incomplete transmission, to be retriggered\nby the TC interrupt. This interrupt is disabled and therefore the tx\nstatemachine never transitions out of SEND. The statemachine is in\ndeadlock now, and the TX_EN remains low, making the interface useless.\n\nimx_uart_stop_tx now checks for incomplete transmission AND whether TC\ninterrupts are enabled before bailing to be retriggered. This makes sure\nthe state machine handling is reached, and is properly set to\nWAIT_AFTER_SEND.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -13960,7 +13960,7 @@
 				{
 					"category": "general",
 					"text": "In the Linux kernel, the following vulnerability has been resolved:\n\nserial: 8250: omap: Don't skip resource freeing if pm_runtime_resume_and_get() failed\n\nReturning an error code from .remove() makes the driver core emit the\nlittle helpful error message:\n\n\tremove callback returned a non-zero value. This will be ignored.\n\nand then remove the device anyhow. So all resources that were not freed\nare leaked in this case. Skipping serial8250_unregister_port() has the\npotential to keep enough of the UART around to trigger a use-after-free.\n\nSo replace the error return (and with it the little helpful error\nmessage) by a more useful error message and continue to cleanup.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -14578,7 +14578,7 @@
 				{
 					"category": "general",
 					"text": "In the Linux kernel, the following vulnerability has been resolved:\n\nefivarfs: force RO when remounting if SetVariable is not supported\n\nIf SetVariable at runtime is not supported by the firmware we never assign\na callback for that function. At the same time mount the efivarfs as\nRO so no one can call that.  However, we never check the permission flags\nwhen someone remounts the filesystem as RW. As a result this leads to a\ncrash looking like this:\n\n$ mount -o remount,rw /sys/firmware/efi/efivars\n$ efi-updatevar -f PK.auth PK\n\n[  303.279166] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000000\n[  303.280482] Mem abort info:\n[  303.280854]   ESR = 0x0000000086000004\n[  303.281338]   EC = 0x21: IABT (current EL), IL = 32 bits\n[  303.282016]   SET = 0, FnV = 0\n[  303.282414]   EA = 0, S1PTW = 0\n[  303.282821]   FSC = 0x04: level 0 translation fault\n[  303.283771] user pgtable: 4k pages, 48-bit VAs, pgdp=000000004258c000\n[  303.284913] [0000000000000000] pgd=0000000000000000, p4d=0000000000000000\n[  303.286076] Internal error: Oops: 0000000086000004 [#1] PREEMPT SMP\n[  303.286936] Modules linked in: qrtr tpm_tis tpm_tis_core crct10dif_ce arm_smccc_trng rng_core drm fuse ip_tables x_tables ipv6\n[  303.288586] CPU: 1 PID: 755 Comm: efi-updatevar Not tainted 6.3.0-rc1-00108-gc7d0c4695c68 #1\n[  303.289748] Hardware name: Unknown Unknown Product/Unknown Product, BIOS 2023.04-00627-g88336918701d 04/01/2023\n[  303.291150] pstate: 60400005 (nZCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)\n[  303.292123] pc : 0x0\n[  303.292443] lr : efivar_set_variable_locked+0x74/0xec\n[  303.293156] sp : ffff800008673c10\n[  303.293619] x29: ffff800008673c10 x28: ffff0000037e8000 x27: 0000000000000000\n[  303.294592] x26: 0000000000000800 x25: ffff000002467400 x24: 0000000000000027\n[  303.295572] x23: ffffd49ea9832000 x22: ffff0000020c9800 x21: ffff000002467000\n[  303.296566] x20: 0000000000000001 x19: 00000000000007fc x18: 0000000000000000\n[  303.297531] x17: 0000000000000000 x16: 0000000000000000 x15: 0000aaaac807ab54\n[  303.298495] x14: ed37489f673633c0 x13: 71c45c606de13f80 x12: 47464259e219acf4\n[  303.299453] x11: ffff000002af7b01 x10: 0000000000000003 x9 : 0000000000000002\n[  303.300431] x8 : 0000000000000010 x7 : ffffd49ea8973230 x6 : 0000000000a85201\n[  303.301412] x5 : 0000000000000000 x4 : ffff0000020c9800 x3 : 00000000000007fc\n[  303.302370] x2 : 0000000000000027 x1 : ffff000002467400 x0 : ffff000002467000\n[  303.303341] Call trace:\n[  303.303679]  0x0\n[  303.303938]  efivar_entry_set_get_size+0x98/0x16c\n[  303.304585]  efivarfs_file_write+0xd0/0x1a4\n[  303.305148]  vfs_write+0xc4/0x2e4\n[  303.305601]  ksys_write+0x70/0x104\n[  303.306073]  __arm64_sys_write+0x1c/0x28\n[  303.306622]  invoke_syscall+0x48/0x114\n[  303.307156]  el0_svc_common.constprop.0+0x44/0xec\n[  303.307803]  do_el0_svc+0x38/0x98\n[  303.308268]  el0_svc+0x2c/0x84\n[  303.308702]  el0t_64_sync_handler+0xf4/0x120\n[  303.309293]  el0t_64_sync+0x190/0x194\n[  303.309794] Code: ???????? ???????? ???????? ???????? (????????)\n[  303.310612] ---[ end trace 0000000000000000 ]---\n\nFix this by adding a .reconfigure() function to the fs operations which\nwe can use to check the requested flags and deny anything that's not RO\nif the firmware doesn't implement SetVariable at runtime.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -15196,7 +15196,7 @@
 				{
 					"category": "general",
 					"text": "In the Linux kernel, the following vulnerability has been resolved:\n\nEDAC/thunderx: Fix possible out-of-bounds string access\n\nEnabling -Wstringop-overflow globally exposes a warning for a common bug\nin the usage of strncat():\n\n  drivers/edac/thunderx_edac.c: In function 'thunderx_ocx_com_threaded_isr':\n  drivers/edac/thunderx_edac.c:1136:17: error: 'strncat' specified bound 1024 equals destination size [-Werror=stringop-overflow=]\n   1136 |                 strncat(msg, other, OCX_MESSAGE_SIZE);\n        |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n   ...\n   1145 |                                 strncat(msg, other, OCX_MESSAGE_SIZE);\n   ...\n   1150 |                                 strncat(msg, other, OCX_MESSAGE_SIZE);\n\n   ...\n\nApparently the author of this driver expected strncat() to behave the\nway that strlcat() does, which uses the size of the destination buffer\nas its third argument rather than the length of the source buffer. The\nresult is that there is no check on the size of the allocated buffer.\n\nChange it to strlcat().\n\n  [ bp: Trim compiler output, fixup commit message. ]",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -15814,7 +15814,7 @@
 				{
 					"category": "general",
 					"text": "In the Linux kernel, the following vulnerability has been resolved:\n\nInput: powermate - fix use-after-free in powermate_config_complete\n\nsyzbot has found a use-after-free bug [1] in the powermate driver. This\nhappens when the device is disconnected, which leads to a memory free from\nthe powermate_device struct.  When an asynchronous control message\ncompletes after the kfree and its callback is invoked, the lock does not\nexist anymore and hence the bug.\n\nUse usb_kill_urb() on pm->config to cancel any in-progress requests upon\ndevice disconnection.\n\n[1] https://syzkaller.appspot.com/bug?extid=0434ac83f907a1dbdd1e",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -16432,7 +16432,7 @@
 				{
 					"category": "general",
 					"text": "In the Linux kernel, the following vulnerability has been resolved:\n\nHID: logitech-hidpp: Fix kernel crash on receiver USB disconnect\n\nhidpp_connect_event() has *four* time-of-check vs time-of-use (TOCTOU)\nraces when it races with itself.\n\nhidpp_connect_event() primarily runs from a workqueue but it also runs\non probe() and if a \"device-connected\" packet is received by the hw\nwhen the thread running hidpp_connect_event() from probe() is waiting on\nthe hw, then a second thread running hidpp_connect_event() will be\nstarted from the workqueue.\n\nThis opens the following races (note the below code is simplified):\n\n1. Retrieving + printing the protocol (harmless race):\n\n\tif (!hidpp->protocol_major) {\n\t\thidpp_root_get_protocol_version()\n\t\thidpp->protocol_major = response.rap.params[0];\n\t}\n\nWe can actually see this race hit in the dmesg in the abrt output\nattached to rhbz#2227968:\n\n[ 3064.624215] logitech-hidpp-device 0003:046D:4071.0049: HID++ 4.5 device connected.\n[ 3064.658184] logitech-hidpp-device 0003:046D:4071.0049: HID++ 4.5 device connected.\n\nTesting with extra logging added has shown that after this the 2 threads\ntake turn grabbing the hw access mutex (send_mutex) so they ping-pong\nthrough all the other TOCTOU cases managing to hit all of them:\n\n2. Updating the name to the HIDPP name (harmless race):\n\n\tif (hidpp->name == hdev->name) {\n\t\t...\n\t\thidpp->name = new_name;\n\t}\n\n3. Initializing the power_supply class for the battery (problematic!):\n\nhidpp_initialize_battery()\n{\n        if (hidpp->battery.ps)\n                return 0;\n\n\tprobe_battery(); /* Blocks, threads take turns executing this */\n\n\thidpp->battery.desc.properties =\n\t\tdevm_kmemdup(dev, hidpp_battery_props, cnt, GFP_KERNEL);\n\n\thidpp->battery.ps =\n\t\tdevm_power_supply_register(&hidpp->hid_dev->dev,\n\t\t\t\t\t   &hidpp->battery.desc, cfg);\n}\n\n4. Creating delayed input_device (potentially problematic):\n\n\tif (hidpp->delayed_input)\n\t\treturn;\n\n\thidpp->delayed_input = hidpp_allocate_input(hdev);\n\nThe really big problem here is 3. Hitting the race leads to the following\nsequence:\n\n\thidpp->battery.desc.properties =\n\t\tdevm_kmemdup(dev, hidpp_battery_props, cnt, GFP_KERNEL);\n\n\thidpp->battery.ps =\n\t\tdevm_power_supply_register(&hidpp->hid_dev->dev,\n\t\t\t\t\t   &hidpp->battery.desc, cfg);\n\n\t...\n\n\thidpp->battery.desc.properties =\n\t\tdevm_kmemdup(dev, hidpp_battery_props, cnt, GFP_KERNEL);\n\n\thidpp->battery.ps =\n\t\tdevm_power_supply_register(&hidpp->hid_dev->dev,\n\t\t\t\t\t   &hidpp->battery.desc, cfg);\n\nSo now we have registered 2 power supplies for the same battery,\nwhich looks a bit weird from userspace's pov but this is not even\nthe really big problem.\n\nNotice how:\n\n1. This is all devm-maganaged\n2. The hidpp->battery.desc struct is shared between the 2 power supplies\n3. hidpp->battery.desc.properties points to the result from the second\n   devm_kmemdup()\n\nThis causes a use after free scenario on USB disconnect of the receiver:\n1. The last registered power supply class device gets unregistered\n2. The memory from the last devm_kmemdup() call gets freed,\n   hidpp->battery.desc.properties now points to freed memory\n3. The first registered power supply class device gets unregistered,\n   this involves sending a remove uevent to userspace which invokes\n   power_supply_uevent() to fill the uevent data\n4. power_supply_uevent() uses hidpp->battery.desc.properties which\n   now points to freed memory leading to backtraces like this one:\n\nSep 22 20:01:35 eric kernel: BUG: unable to handle page fault for address: ffffb2140e017f08\n...\nSep 22 20:01:35 eric kernel: Workqueue: usb_hub_wq hub_event\nSep 22 20:01:35 eric kernel: RIP: 0010:power_supply_uevent+0xee/0x1d0\n...\nSep 22 20:01:35 eric kernel:  ? asm_exc_page_fault+0x26/0x30\nSep 22 20:01:35 eric kernel:  ? power_supply_uevent+0xee/0x1d0\nSep 22 20:01:35 eric kernel:  ? power_supply_uevent+0x10d/0x1d0\nSep 22 20:01:35 eric kernel:  dev_uevent+0x10f/0x2d0\nSep 22 20:01:35 eric kernel:  kobject_uevent_env+0x291/0x680\nSep 22 20:01:35 eric kernel:  \n---truncated---",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -17050,7 +17050,7 @@
 				{
 					"category": "general",
 					"text": "A use-after-free vulnerability in the Linux kernel's netfilter: nf_tables component can be exploited to achieve local privilege escalation.\n\nThe function nft_pipapo_walk did not skip inactive elements during set walk which could lead double deactivations of PIPAPO (Pile Packet Policies) elements, leading to use-after-free.\n\nWe recommend upgrading past commit 317eb9685095678f2c9f5a8189de698c5354316a.\n\n",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -17668,7 +17668,7 @@
 				{
 					"category": "general",
 					"text": "A flaw was found in the Netfilter subsystem in the Linux kernel. The issue is in the nft_byteorder_eval() function, where the code iterates through a loop and writes to the `dst` array. On each iteration, 8 bytes are written, but `dst` is an array of u32, so each element only has space for 4 bytes. That means every iteration overwrites part of the previous element corrupting this array of u32. This flaw allows a local user to cause a denial of service or potentially break NetFilter functionality.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -18286,7 +18286,7 @@
 				{
 					"category": "general",
 					"text": "A vulnerability was reported in the Open vSwitch sub-component in the Linux Kernel. The flaw occurs when a recursive operation of code push recursively calls into the code block. The OVS module does not validate the stack depth, pushing too many frames and causing a stack overflow. As a result, this can lead to a crash or other related issues.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -18904,7 +18904,7 @@
 				{
 					"category": "general",
 					"text": "In rds_recv_track_latency in net/rds/af_rds.c in the Linux kernel through 6.7.1, there is an off-by-one error for an RDS_MSG_RX_DGRAM_TRACE_MAX comparison, resulting in out-of-bounds access.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -19522,7 +19522,7 @@
 				{
 					"category": "general",
 					"text": "In btrfs_get_root_ref in fs/btrfs/disk-io.c in the Linux kernel through 6.7.1, there can be an assertion failure and crash because a subvolume can be read out too soon after its root item is inserted upon subvolume creation.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -20140,7 +20140,7 @@
 				{
 					"category": "general",
 					"text": "copy_params in drivers/md/dm-ioctl.c in the Linux kernel through 6.7.1 can attempt to allocate more than INT_MAX bytes, and crash, because of a missing param_kernel->data_size check. This is related to ctl_ioctl.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -20758,7 +20758,7 @@
 				{
 					"category": "general",
 					"text": "In the Linux kernel before 6.6.7, an untrusted VMM can trigger int80 syscall handling at any given point. This is related to arch/x86/coco/tdx/tdx.c and arch/x86/mm/mem_encrypt_amd.c.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -21381,7 +21381,7 @@
 				{
 					"category": "general",
 					"text": "In the Linux kernel, the following vulnerability has been resolved:\n\ntls: fix race between tx work scheduling and socket close\n\nSimilarly to previous commit, the submitting thread (recvmsg/sendmsg)\nmay exit as soon as the async crypto handler calls complete().\nReorder scheduling the work before calling complete().\nThis seems more logical in the first place, as it's\nthe inverse order of what the submitting thread will do.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -22004,7 +22004,7 @@
 				{
 					"category": "general",
 					"text": "In the Linux kernel, the following vulnerability has been resolved:\n\nmlxsw: spectrum_acl_tcam: Fix stack corruption\n\nWhen tc filters are first added to a net device, the corresponding local\nport gets bound to an ACL group in the device. The group contains a list\nof ACLs. In turn, each ACL points to a different TCAM region where the\nfilters are stored. During forwarding, the ACLs are sequentially\nevaluated until a match is found.\n\nOne reason to place filters in different regions is when they are added\nwith decreasing priorities and in an alternating order so that two\nconsecutive filters can never fit in the same region because of their\nkey usage.\n\nIn Spectrum-2 and newer ASICs the firmware started to report that the\nmaximum number of ACLs in a group is more than 16, but the layout of the\nregister that configures ACL groups (PAGT) was not updated to account\nfor that. It is therefore possible to hit stack corruption [1] in the\nrare case where more than 16 ACLs in a group are required.\n\nFix by limiting the maximum ACL group size to the minimum between what\nthe firmware reports and the maximum ACLs that fit in the PAGT register.\n\nAdd a test case to make sure the machine does not crash when this\ncondition is hit.\n\n[1]\nKernel panic - not syncing: stack-protector: Kernel stack is corrupted in: mlxsw_sp_acl_tcam_group_update+0x116/0x120\n[...]\n dump_stack_lvl+0x36/0x50\n panic+0x305/0x330\n __stack_chk_fail+0x15/0x20\n mlxsw_sp_acl_tcam_group_update+0x116/0x120\n mlxsw_sp_acl_tcam_group_region_attach+0x69/0x110\n mlxsw_sp_acl_tcam_vchunk_get+0x492/0xa20\n mlxsw_sp_acl_tcam_ventry_add+0x25/0xe0\n mlxsw_sp_acl_rule_add+0x47/0x240\n mlxsw_sp_flower_replace+0x1a9/0x1d0\n tc_setup_cb_add+0xdc/0x1c0\n fl_hw_replace_filter+0x146/0x1f0\n fl_change+0xc17/0x1360\n tc_new_tfilter+0x472/0xb90\n rtnetlink_rcv_msg+0x313/0x3b0\n netlink_rcv_skb+0x58/0x100\n netlink_unicast+0x244/0x390\n netlink_sendmsg+0x1e4/0x440\n ____sys_sendmsg+0x164/0x260\n ___sys_sendmsg+0x9a/0xe0\n __sys_sendmsg+0x7a/0xc0\n do_syscall_64+0x40/0xe0\n entry_SYSCALL_64_after_hwframe+0x63/0x6b",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -22622,7 +22622,7 @@
 				{
 					"category": "general",
 					"text": "In the Linux kernel, the following vulnerability has been resolved:\n\nbpf: Reject variable offset alu on PTR_TO_FLOW_KEYS\n\nFor PTR_TO_FLOW_KEYS, check_flow_keys_access() only uses fixed off\nfor validation. However, variable offset ptr alu is not prohibited\nfor this ptr kind. So the variable offset is not checked.\n\nThe following prog is accepted:\n\n  func#0 @0\n  0: R1=ctx() R10=fp0\n  0: (bf) r6 = r1                       ; R1=ctx() R6_w=ctx()\n  1: (79) r7 = *(u64 *)(r6 +144)        ; R6_w=ctx() R7_w=flow_keys()\n  2: (b7) r8 = 1024                     ; R8_w=1024\n  3: (37) r8 /= 1                       ; R8_w=scalar()\n  4: (57) r8 &= 1024                    ; R8_w=scalar(smin=smin32=0,\n  smax=umax=smax32=umax32=1024,var_off=(0x0; 0x400))\n  5: (0f) r7 += r8\n  mark_precise: frame0: last_idx 5 first_idx 0 subseq_idx -1\n  mark_precise: frame0: regs=r8 stack= before 4: (57) r8 &= 1024\n  mark_precise: frame0: regs=r8 stack= before 3: (37) r8 /= 1\n  mark_precise: frame0: regs=r8 stack= before 2: (b7) r8 = 1024\n  6: R7_w=flow_keys(smin=smin32=0,smax=umax=smax32=umax32=1024,var_off\n  =(0x0; 0x400)) R8_w=scalar(smin=smin32=0,smax=umax=smax32=umax32=1024,\n  var_off=(0x0; 0x400))\n  6: (79) r0 = *(u64 *)(r7 +0)          ; R0_w=scalar()\n  7: (95) exit\n\nThis prog loads flow_keys to r7, and adds the variable offset r8\nto r7, and finally causes out-of-bounds access:\n\n  BUG: unable to handle page fault for address: ffffc90014c80038\n  [...]\n  Call Trace:\n   <TASK>\n   bpf_dispatcher_nop_func include/linux/bpf.h:1231 [inline]\n   __bpf_prog_run include/linux/filter.h:651 [inline]\n   bpf_prog_run include/linux/filter.h:658 [inline]\n   bpf_prog_run_pin_on_cpu include/linux/filter.h:675 [inline]\n   bpf_flow_dissect+0x15f/0x350 net/core/flow_dissector.c:991\n   bpf_prog_test_run_flow_dissector+0x39d/0x620 net/bpf/test_run.c:1359\n   bpf_prog_test_run kernel/bpf/syscall.c:4107 [inline]\n   __sys_bpf+0xf8f/0x4560 kernel/bpf/syscall.c:5475\n   __do_sys_bpf kernel/bpf/syscall.c:5561 [inline]\n   __se_sys_bpf kernel/bpf/syscall.c:5559 [inline]\n   __x64_sys_bpf+0x73/0xb0 kernel/bpf/syscall.c:5559\n   do_syscall_x64 arch/x86/entry/common.c:52 [inline]\n   do_syscall_64+0x3f/0x110 arch/x86/entry/common.c:83\n   entry_SYSCALL_64_after_hwframe+0x63/0x6b\n\nFix this by rejecting ptr alu with variable offset on flow_keys.\nApplying the patch rejects the program with \"R7 pointer arithmetic\non flow_keys prohibited\".",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -23240,7 +23240,7 @@
 				{
 					"category": "general",
 					"text": "In the Linux kernel, the following vulnerability has been resolved:\n\nbpf: Fix re-attachment branch in bpf_tracing_prog_attach\n\nThe following case can cause a crash due to missing attach_btf:\n\n1) load rawtp program\n2) load fentry program with rawtp as target_fd\n3) create tracing link for fentry program with target_fd = 0\n4) repeat 3\n\nIn the end we have:\n\n- prog->aux->dst_trampoline == NULL\n- tgt_prog == NULL (because we did not provide target_fd to link_create)\n- prog->aux->attach_btf == NULL (the program was loaded with attach_prog_fd=X)\n- the program was loaded for tgt_prog but we have no way to find out which one\n\n    BUG: kernel NULL pointer dereference, address: 0000000000000058\n    Call Trace:\n     <TASK>\n     ? __die+0x20/0x70\n     ? page_fault_oops+0x15b/0x430\n     ? fixup_exception+0x22/0x330\n     ? exc_page_fault+0x6f/0x170\n     ? asm_exc_page_fault+0x22/0x30\n     ? bpf_tracing_prog_attach+0x279/0x560\n     ? btf_obj_id+0x5/0x10\n     bpf_tracing_prog_attach+0x439/0x560\n     __sys_bpf+0x1cf4/0x2de0\n     __x64_sys_bpf+0x1c/0x30\n     do_syscall_64+0x41/0xf0\n     entry_SYSCALL_64_after_hwframe+0x6e/0x76\n\nReturn -EINVAL in this situation.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -23858,7 +23858,7 @@
 				{
 					"category": "general",
 					"text": "In the Linux kernel, the following vulnerability has been resolved:\n\ni2c: i801: Fix block process call transactions\n\nAccording to the Intel datasheets, software must reset the block\nbuffer index twice for block process call transactions: once before\nwriting the outgoing data to the buffer, and once again before\nreading the incoming data from the buffer.\n\nThe driver is currently missing the second reset, causing the wrong\nportion of the block buffer to be read.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -24476,7 +24476,7 @@
 				{
 					"category": "general",
 					"text": "In the Linux kernel, the following vulnerability has been resolved:\n\nmlxsw: spectrum_acl_tcam: Fix NULL pointer dereference in error path\n\nWhen calling mlxsw_sp_acl_tcam_region_destroy() from an error path after\nfailing to attach the region to an ACL group, we hit a NULL pointer\ndereference upon 'region->group->tcam' [1].\n\nFix by retrieving the 'tcam' pointer using mlxsw_sp_acl_to_tcam().\n\n[1]\nBUG: kernel NULL pointer dereference, address: 0000000000000000\n[...]\nRIP: 0010:mlxsw_sp_acl_tcam_region_destroy+0xa0/0xd0\n[...]\nCall Trace:\n mlxsw_sp_acl_tcam_vchunk_get+0x88b/0xa20\n mlxsw_sp_acl_tcam_ventry_add+0x25/0xe0\n mlxsw_sp_acl_rule_add+0x47/0x240\n mlxsw_sp_flower_replace+0x1a9/0x1d0\n tc_setup_cb_add+0xdc/0x1c0\n fl_hw_replace_filter+0x146/0x1f0\n fl_change+0xc17/0x1360\n tc_new_tfilter+0x472/0xb90\n rtnetlink_rcv_msg+0x313/0x3b0\n netlink_rcv_skb+0x58/0x100\n netlink_unicast+0x244/0x390\n netlink_sendmsg+0x1e4/0x440\n ____sys_sendmsg+0x164/0x260\n ___sys_sendmsg+0x9a/0xe0\n __sys_sendmsg+0x7a/0xc0\n do_syscall_64+0x40/0xe0\n entry_SYSCALL_64_after_hwframe+0x63/0x6b",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -25094,7 +25094,7 @@
 				{
 					"category": "general",
 					"text": "In the Linux kernel, the following vulnerability has been resolved:\n\nKVM: arm64: vgic-its: Avoid potential UAF in LPI translation cache\n\nThere is a potential UAF scenario in the case of an LPI translation\ncache hit racing with an operation that invalidates the cache, such\nas a DISCARD ITS command. The root of the problem is that\nvgic_its_check_cache() does not elevate the refcount on the vgic_irq\nbefore dropping the lock that serializes refcount changes.\n\nHave vgic_its_check_cache() raise the refcount on the returned vgic_irq\nand add the corresponding decrement after queueing the interrupt.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -25717,7 +25717,7 @@
 				{
 					"category": "general",
 					"text": "In the Linux kernel, the following vulnerability has been resolved:\n\nsched/membarrier: reduce the ability to hammer on sys_membarrier\n\nOn some systems, sys_membarrier can be very expensive, causing overall\nslowdowns for everything.  So put a lock on the path in order to\nserialize the accesses to prevent the ability for this to be called at\ntoo high of a frequency and saturate the machine.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -26335,7 +26335,7 @@
 				{
 					"category": "general",
 					"text": "In the Linux kernel, the following vulnerability has been resolved:\n\nx86/fpu: Stop relying on userspace for info to fault in xsave buffer\n\nBefore this change, the expected size of the user space buffer was\ntaken from fx_sw->xstate_size. fx_sw->xstate_size can be changed\nfrom user-space, so it is possible construct a sigreturn frame where:\n\n * fx_sw->xstate_size is smaller than the size required by valid bits in\n   fx_sw->xfeatures.\n * user-space unmaps parts of the sigrame fpu buffer so that not all of\n   the buffer required by xrstor is accessible.\n\nIn this case, xrstor tries to restore and accesses the unmapped area\nwhich results in a fault. But fault_in_readable succeeds because buf +\nfx_sw->xstate_size is within the still mapped area, so it goes back and\ntries xrstor again. It will spin in this loop forever.\n\nInstead, fault in the maximum size which can be touched by XRSTOR (taken\nfrom fpstate->user_size).\n\n[ dhansen: tweak subject / changelog ]",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -26953,7 +26953,7 @@
 				{
 					"category": "general",
 					"text": "In the Linux kernel, the following vulnerability has been resolved:\n\ntomoyo: fix UAF write bug in tomoyo_write_control()\n\nSince tomoyo_write_control() updates head->write_buf when write()\nof long lines is requested, we need to fetch head->write_buf after\nhead->io_sem is held.  Otherwise, concurrent write() requests can\ncause use-after-free-write and double-free problems.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
