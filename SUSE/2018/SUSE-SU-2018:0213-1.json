@@ -925,7 +925,7 @@
 				{
 					"category": "general",
 					"text": "The Linux Kernel versions 2.6.38 through 4.14 have a problematic use of pmd_mkdirty() in the touch_pmd() function inside the THP implementation. touch_pmd() can be reached by get_user_pages(). In such case, the pmd will become dirty. This scenario breaks the new can_follow_write_pmd()'s logic - pmd can become dirty without going through a COW cycle. This bug is not as severe as the original \"Dirty cow\" because an ext4 file (or any other regular file) cannot be mapped using THP. Nevertheless, it does allow us to overwrite read-only huge pages. For example, the zero huge page and sealed shmem files can be overwritten (since their mapping can be populated using THP). Note that after the first write page-fault to the zero page, it will be replaced with a new fresh (and zeroed) thp.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -1026,7 +1026,7 @@
 				{
 					"category": "general",
 					"text": "The Linux kernel version 3.3-rc1 and later is affected by a vulnerability lies in the processing of incoming L2CAP commands - ConfigRequest, and ConfigResponse messages. This info leak is a result of uninitialized stack variables that may be returned to an attacker in their uninitialized state. By manipulating the code flows that precede the handling of these configuration messages, an attacker can also gain some control over which data will be held in the uninitialized stack variables. This can allow him to bypass KASLR, and stack canaries protection - as both pointers and stack canaries may be leaked in this manner. Combining this vulnerability (for example) with the previously disclosed RCE vulnerability in L2CAP configuration parsing (CVE-2017-1000251) may allow an attacker to exploit the RCE against kernels which were built with the above mitigations. These are the specifics of this vulnerability: In the function l2cap_parse_conf_rsp and in the function l2cap_parse_conf_req the following variable is declared without initialization: struct l2cap_conf_efs efs; In addition, when parsing input configuration parameters in both of these functions, the switch case for handling EFS elements may skip the memcpy call that will write to the efs variable: ... case L2CAP_CONF_EFS: if (olen == sizeof(efs)) memcpy(&efs, (void *)val, olen); ... The olen in the above if is attacker controlled, and regardless of that if, in both of these functions the efs variable would eventually be added to the outgoing configuration request that is being built: l2cap_add_conf_opt(&ptr, L2CAP_CONF_EFS, sizeof(efs), (unsigned long) &efs); So by sending a configuration request, or response, that contains an L2CAP_CONF_EFS element, but with an element length that is not sizeof(efs) - the memcpy to the uninitialized efs variable can be avoided, and the uninitialized variable would be returned to the attacker (16 bytes).",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -1122,7 +1122,7 @@
 				{
 					"category": "general",
 					"text": "net/xfrm/xfrm_policy.c in the Linux kernel through 4.12.3, when CONFIG_XFRM_MIGRATE is enabled, does not ensure that the dir value of xfrm_userpolicy_id is XFRM_POLICY_MAX or less, which allows local users to cause a denial of service (out-of-bounds access) or possibly have unspecified other impact via an XFRM_MSG_MIGRATE xfrm Netlink message.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -1228,7 +1228,7 @@
 				{
 					"category": "general",
 					"text": "The assoc_array_insert_into_terminal_node function in lib/assoc_array.c in the Linux kernel before 4.13.11 mishandles node splitting, which allows local users to cause a denial of service (NULL pointer dereference and panic) via a crafted application, as demonstrated by the keyring key type, and key addition and link creation operations.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -1324,7 +1324,7 @@
 				{
 					"category": "general",
 					"text": "The sctp_do_peeloff function in net/sctp/socket.c in the Linux kernel before 4.14 does not check whether the intended netns is used in a peel-off action, which allows local users to cause a denial of service (use-after-free and system crash) or possibly have unspecified other impact via crafted system calls.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -1425,7 +1425,7 @@
 				{
 					"category": "general",
 					"text": "sound/core/seq_device.c in the Linux kernel before 4.13.4 allows local users to cause a denial of service (snd_rawmidi_dev_seq_free use-after-free and system crash) or possibly have unspecified other impact via a crafted USB device.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -1526,7 +1526,7 @@
 				{
 					"category": "general",
 					"text": "The cx231xx_usb_probe function in drivers/media/usb/cx231xx/cx231xx-cards.c in the Linux kernel through 4.13.11 allows local users to cause a denial of service (NULL pointer dereference and system crash) or possibly have unspecified other impact via a crafted USB device.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -1632,7 +1632,7 @@
 				{
 					"category": "general",
 					"text": "The imon_probe function in drivers/media/rc/imon.c in the Linux kernel through 4.13.11 allows local users to cause a denial of service (NULL pointer dereference and system crash) or possibly have unspecified other impact via a crafted USB device.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -1738,7 +1738,7 @@
 				{
 					"category": "general",
 					"text": "The ims_pcu_get_cdc_union_desc function in drivers/input/misc/ims-pcu.c in the Linux kernel through 4.13.11 allows local users to cause a denial of service (ims_pcu_parse_cdc_data out-of-bounds read and system crash) or possibly have unspecified other impact via a crafted USB device.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -1844,7 +1844,7 @@
 				{
 					"category": "general",
 					"text": "drivers/media/usb/dvb-usb/dib0700_devices.c in the Linux kernel through 4.13.11 allows local users to cause a denial of service (BUG and system crash) or possibly have unspecified other impact via a crafted USB device.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -1945,7 +1945,7 @@
 				{
 					"category": "general",
 					"text": "The XFRM dump policy implementation in net/xfrm/xfrm_user.c in the Linux kernel before 4.13.11 allows local users to gain privileges or cause a denial of service (use-after-free) via a crafted SO_RCVBUF setsockopt system call in conjunction with XFRM_MSG_GETPOLICY Netlink messages.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -2056,7 +2056,7 @@
 				{
 					"category": "general",
 					"text": "The walk_hugetlb_range function in mm/pagewalk.c in the Linux kernel before 4.14.2 mishandles holes in hugetlb ranges, which allows local users to obtain sensitive information from uninitialized kernel memory via crafted use of the mincore() system call.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -2152,7 +2152,7 @@
 				{
 					"category": "general",
 					"text": "net/netfilter/nfnetlink_cthelper.c in the Linux kernel through 4.14.4 does not require the CAP_NET_ADMIN capability for new, get, and del operations, which allows local users to bypass intended access restrictions because the nfnl_cthelper_list data structure is shared across all net namespaces.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -2248,7 +2248,7 @@
 				{
 					"category": "general",
 					"text": "The __netlink_deliver_tap_skb function in net/netlink/af_netlink.c in the Linux kernel through 4.14.4, when CONFIG_NLMON is enabled, does not restrict observations of Netlink messages to a single net namespace, which allows local users to obtain sensitive information by leveraging the CAP_NET_ADMIN capability to sniff an nlmon interface for all Netlink activity on the system.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -2344,7 +2344,7 @@
 				{
 					"category": "general",
 					"text": "net/netfilter/xt_osf.c in the Linux kernel through 4.14.4 does not require the CAP_NET_ADMIN capability for add_callback and remove_callback operations, which allows local users to bypass intended access restrictions because the xt_osf_fingers data structure is shared across all net namespaces.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -2450,7 +2450,7 @@
 				{
 					"category": "general",
 					"text": "The Salsa20 encryption algorithm in the Linux kernel before 4.14.8 does not correctly handle zero-length inputs, allowing a local attacker able to use the AF_ALG-based skcipher interface (CONFIG_CRYPTO_USER_API_SKCIPHER) to cause a denial of service (uninitialized-memory free and kernel crash) or have unspecified other impact by executing a crafted sequence of system calls that use the blkcipher_walk API. Both the generic implementation (crypto/salsa20_generic.c) and x86 implementation (arch/x86/crypto/salsa20_glue.c) of Salsa20 were vulnerable.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -2556,7 +2556,7 @@
 				{
 					"category": "general",
 					"text": "The HMAC implementation (crypto/hmac.c) in the Linux kernel before 4.14.8 does not validate that the underlying cryptographic hash algorithm is unkeyed, allowing a local attacker able to use the AF_ALG-based hash interface (CONFIG_CRYPTO_USER_API_HASH) and the SHA-3 hash algorithm (CONFIG_CRYPTO_SHA3) to cause a kernel stack buffer overflow by executing a crafted sequence of system calls that encounter a missing SHA-3 initialization.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -2662,7 +2662,7 @@
 				{
 					"category": "general",
 					"text": "Systems with microprocessors utilizing speculative execution and indirect branch prediction may allow unauthorized disclosure of information to an attacker with local user access via a side-channel analysis.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -2898,7 +2898,7 @@
 				{
 					"category": "general",
 					"text": "Systems with microprocessors utilizing speculative execution and branch prediction may allow unauthorized disclosure of information to an attacker with local user access via a side-channel analysis.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -3064,7 +3064,7 @@
 				{
 					"category": "general",
 					"text": "Systems with microprocessors utilizing speculative execution and indirect branch prediction may allow unauthorized disclosure of information to an attacker with local user access via a side-channel analysis of the data cache.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -3215,7 +3215,7 @@
 				{
 					"category": "general",
 					"text": "In the Linux kernel before version 4.12, Kerberos 5 tickets decoded when using the RXRPC keys incorrectly assumes the size of a field. This could lead to the size-remaining variable wrapping and the data pointer going over the end of the buffer. This could possibly lead to memory corruption and possible privilege escalation.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -3316,7 +3316,7 @@
 				{
 					"category": "general",
 					"text": "The dccp_disconnect function in net/dccp/proto.c in the Linux kernel through 4.14.3 allows local users to gain privileges or cause a denial of service (use-after-free) via an AF_UNSPEC connect system call during the DCCP_LISTEN state.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {

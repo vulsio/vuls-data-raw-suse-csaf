@@ -560,7 +560,7 @@
 				{
 					"category": "general",
 					"text": "slirp.c in libslirp through 4.3.1 has a buffer over-read because it tries to read a certain amount of header data even if that exceeds the total packet length.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -702,7 +702,7 @@
 				{
 					"category": "general",
 					"text": "An issue was discovered in Xen through 4.14.x. Neither xenstore implementation does any permission checks when reporting a xenstore watch event. A guest administrator can watch the root xenstored node, which will cause notifications for every created, modified, and deleted key. A guest administrator can also use the special watches, which will cause a notification every time a domain is created and destroyed. Data may include: number, type, and domids of other VMs; existence and domids of driver domains; numbers of virtual interfaces, block devices, vcpus; existence of virtual framebuffers and their backend style (e.g., existence of VNC service); Xen VM UUIDs for other domains; timing information about domain creation and device setup; and some hints at the backend provisioning of VMs and their devices. The watch events do not contain values stored in xenstore, only key names. A guest administrator can observe non-sensitive domain and device lifecycle events relating to other guests. This information allows some insight into overall system configuration (including the number and general nature of other guests), and configuration of other guests (including the number and general nature of other guests' devices). This information might be commercially interesting or might make other attacks easier. There is not believed to be exposure of sensitive data. Specifically, there is no exposure of VNC passwords, port numbers, pathnames in host and guest filesystems, cryptographic keys, or within-guest data.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -839,7 +839,7 @@
 				{
 					"category": "general",
 					"text": "An issue was discovered in Xen through 4.14.x. Access rights of Xenstore nodes are per domid. Unfortunately, existing granted access rights are not removed when a domain is being destroyed. This means that a new domain created with the same domid will inherit the access rights to Xenstore nodes from the previous domain(s) with the same domid. Because all Xenstore entries of a guest below /local/domain/<domid> are being deleted by Xen tools when a guest is destroyed, only Xenstore entries of other guests still running are affected. For example, a newly created guest domain might be able to read sensitive information that had belonged to a previously existing guest domain. Both Xenstore implementations (C and Ocaml) are vulnerable.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -981,7 +981,7 @@
 				{
 					"category": "general",
 					"text": "An issue was discovered in Xen through 4.14.x. Xenstored and guests communicate via a shared memory page using a specific protocol. When a guest violates this protocol, xenstored will drop the connection to that guest. Unfortunately, this is done by just removing the guest from xenstored's internal management, resulting in the same actions as if the guest had been destroyed, including sending an @releaseDomain event. @releaseDomain events do not say that the guest has been removed. All watchers of this event must look at the states of all guests to find the guest that has been removed. When an @releaseDomain is generated due to a domain xenstored protocol violation, because the guest is still running, the watchers will not react. Later, when the guest is actually destroyed, xenstored will no longer have it stored in its internal data base, so no further @releaseDomain event will be sent. This can lead to a zombie domain; memory mappings of that guest's memory will not be removed, due to the missing event. This zombie domain will be cleaned up only after another domain is destroyed, as that will trigger another @releaseDomain event. If the device model of the guest that violated the Xenstore protocol is running in a stub-domain, a use-after-free case could happen in xenstored, after having removed the guest from its internal data base, possibly resulting in a crash of xenstored. A malicious guest can block resources of the host for a period after its own death. Guests with a stub domain device model can eventually crash xenstored, resulting in a more serious denial of service (the prevention of any further domain management operations). Only the C variant of Xenstore is affected; the Ocaml variant is not affected. Only HVM guests with a stubdom device model can cause a serious DoS.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -1118,7 +1118,7 @@
 				{
 					"category": "general",
 					"text": "An issue was discovered in Xen through 4.14.x. When a Xenstore watch fires, the xenstore client that registered the watch will receive a Xenstore message containing the path of the modified Xenstore entry that triggered the watch, and the tag that was specified when registering the watch. Any communication with xenstored is done via Xenstore messages, consisting of a message header and the payload. The payload length is limited to 4096 bytes. Any request to xenstored resulting in a response with a payload longer than 4096 bytes will result in an error. When registering a watch, the payload length limit applies to the combined length of the watched path and the specified tag. Because watches for a specific path are also triggered for all nodes below that path, the payload of a watch event message can be longer than the payload needed to register the watch. A malicious guest that registers a watch using a very large tag (i.e., with a registration operation payload length close to the 4096 byte limit) can cause the generation of watch events with a payload length larger than 4096 bytes, by writing to Xenstore entries below the watched path. This will result in an error condition in xenstored. This error can result in a NULL pointer dereference, leading to a crash of xenstored. A malicious guest administrator can cause xenstored to crash, leading to a denial of service. Following a xenstored crash, domains may continue to run, but management operations will be impossible. Only C xenstored is affected, oxenstored is not affected.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -1255,7 +1255,7 @@
 				{
 					"category": "general",
 					"text": "An issue was discovered in Xen through 4.14.x. When they require assistance from the device model, x86 HVM guests must be temporarily de-scheduled. The device model will signal Xen when it has completed its operation, via an event channel, so that the relevant vCPU is rescheduled. If the device model were to signal Xen without having actually completed the operation, the de-schedule / re-schedule cycle would repeat. If, in addition, Xen is resignalled very quickly, the re-schedule may occur before the de-schedule was fully complete, triggering a shortcut. This potentially repeating process uses ordinary recursive function calls, and thus could result in a stack overflow. A malicious or buggy stubdomain serving a HVM guest can cause Xen to crash, resulting in a Denial of Service (DoS) to the entire host. Only x86 systems are affected. Arm systems are not affected. Only x86 stubdomains serving HVM guests can exploit the vulnerability.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -1392,7 +1392,7 @@
 				{
 					"category": "general",
 					"text": "An issue was discovered in Xen through 4.14.x. Recording of the per-vCPU control block mapping maintained by Xen and that of pointers into the control block is reversed. The consumer assumes, seeing the former initialized, that the latter are also ready for use. Malicious or buggy guest kernels can mount a Denial of Service (DoS) attack affecting the entire system.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -1524,7 +1524,7 @@
 				{
 					"category": "general",
 					"text": "An issue was discovered in Xen through 4.14.x. A bounds check common to most operation time functions specific to FIFO event channels depends on the CPU observing consistent state. While the producer side uses appropriately ordered writes, the consumer side isn't protected against re-ordered reads, and may hence end up de-referencing a NULL pointer. Malicious or buggy guest kernels can mount a Denial of Service (DoS) attack affecting the entire system. Only Arm systems may be vulnerable. Whether a system is vulnerable depends on the specific CPU. x86 systems are not vulnerable.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {

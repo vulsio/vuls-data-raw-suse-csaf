@@ -502,7 +502,7 @@
 				{
 					"category": "general",
 					"text": "PCI devices with RMRRs not deassigned correctly Certain PCI devices in a system might be assigned Reserved Memory Regions (specified via Reserved Memory Region Reporting, \"RMRR\"). These are typically used for platform tasks such as legacy USB emulation. If such a device is passed through to a guest, then on guest shutdown the device is not properly deassigned. The IOMMU configuration for these devices which are not properly deassigned ends up pointing to a freed data structure, including the IO Pagetables. Subsequent DMA or interrupts from the device will have unpredictable behaviour, ranging from IOMMU faults to memory corruption.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -604,7 +604,7 @@
 				{
 					"category": "general",
 					"text": "PoD operations on misaligned GFNs T[his CNA information record relates to multiple CVEs; the text explains which aspects/vulnerabilities correspond to which CVE.] x86 HVM and PVH guests may be started in populate-on-demand (PoD) mode, to provide a way for them to later easily have more memory assigned. Guests are permitted to control certain P2M aspects of individual pages via hypercalls. These hypercalls may act on ranges of pages specified via page orders (resulting in a power-of-2 number of pages). The implementation of some of these hypercalls for PoD does not enforce the base page frame number to be suitably aligned for the specified order, yet some code involved in PoD handling actually makes such an assumption. These operations are XENMEM_decrease_reservation (CVE-2021-28704) and XENMEM_populate_physmap (CVE-2021-28707), the latter usable only by domains controlling the guest, i.e. a de-privileged qemu or a stub domain. (Patch 1, combining the fix to both these two issues.) In addition handling of XENMEM_decrease_reservation can also trigger a host crash when the specified page order is neither 4k nor 2M nor 1G (CVE-2021-28708, patch 2).",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -706,7 +706,7 @@
 				{
 					"category": "general",
 					"text": "issues with partially successful P2M updates on x86 T[his CNA information record relates to multiple CVEs; the text explains which aspects/vulnerabilities correspond to which CVE.] x86 HVM and PVH guests may be started in populate-on-demand (PoD) mode, to provide a way for them to later easily have more memory assigned. Guests are permitted to control certain P2M aspects of individual pages via hypercalls. These hypercalls may act on ranges of pages specified via page orders (resulting in a power-of-2 number of pages). In some cases the hypervisor carries out the requests by splitting them into smaller chunks. Error handling in certain PoD cases has been insufficient in that in particular partial success of some operations was not properly accounted for. There are two code paths affected - page removal (CVE-2021-28705) and insertion of new pages (CVE-2021-28709). (We provide one patch which combines the fix to both issues.)",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -808,7 +808,7 @@
 				{
 					"category": "general",
 					"text": "guests may exceed their designated memory limit When a guest is permitted to have close to 16TiB of memory, it may be able to issue hypercalls to increase its memory allocation beyond the administrator established limit. This is a result of a calculation done with 32-bit precision, which may overflow. It would then only be the overflowed (and hence small) number which gets compared against the established upper bound.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -910,7 +910,7 @@
 				{
 					"category": "general",
 					"text": "PoD operations on misaligned GFNs T[his CNA information record relates to multiple CVEs; the text explains which aspects/vulnerabilities correspond to which CVE.] x86 HVM and PVH guests may be started in populate-on-demand (PoD) mode, to provide a way for them to later easily have more memory assigned. Guests are permitted to control certain P2M aspects of individual pages via hypercalls. These hypercalls may act on ranges of pages specified via page orders (resulting in a power-of-2 number of pages). The implementation of some of these hypercalls for PoD does not enforce the base page frame number to be suitably aligned for the specified order, yet some code involved in PoD handling actually makes such an assumption. These operations are XENMEM_decrease_reservation (CVE-2021-28704) and XENMEM_populate_physmap (CVE-2021-28707), the latter usable only by domains controlling the guest, i.e. a de-privileged qemu or a stub domain. (Patch 1, combining the fix to both these two issues.) In addition handling of XENMEM_decrease_reservation can also trigger a host crash when the specified page order is neither 4k nor 2M nor 1G (CVE-2021-28708, patch 2).",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -1007,7 +1007,7 @@
 				{
 					"category": "general",
 					"text": "PoD operations on misaligned GFNs T[his CNA information record relates to multiple CVEs; the text explains which aspects/vulnerabilities correspond to which CVE.] x86 HVM and PVH guests may be started in populate-on-demand (PoD) mode, to provide a way for them to later easily have more memory assigned. Guests are permitted to control certain P2M aspects of individual pages via hypercalls. These hypercalls may act on ranges of pages specified via page orders (resulting in a power-of-2 number of pages). The implementation of some of these hypercalls for PoD does not enforce the base page frame number to be suitably aligned for the specified order, yet some code involved in PoD handling actually makes such an assumption. These operations are XENMEM_decrease_reservation (CVE-2021-28704) and XENMEM_populate_physmap (CVE-2021-28707), the latter usable only by domains controlling the guest, i.e. a de-privileged qemu or a stub domain. (Patch 1, combining the fix to both these two issues.) In addition handling of XENMEM_decrease_reservation can also trigger a host crash when the specified page order is neither 4k nor 2M nor 1G (CVE-2021-28708, patch 2).",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -1104,7 +1104,7 @@
 				{
 					"category": "general",
 					"text": "issues with partially successful P2M updates on x86 T[his CNA information record relates to multiple CVEs; the text explains which aspects/vulnerabilities correspond to which CVE.] x86 HVM and PVH guests may be started in populate-on-demand (PoD) mode, to provide a way for them to later easily have more memory assigned. Guests are permitted to control certain P2M aspects of individual pages via hypercalls. These hypercalls may act on ranges of pages specified via page orders (resulting in a power-of-2 number of pages). In some cases the hypervisor carries out the requests by splitting them into smaller chunks. Error handling in certain PoD cases has been insufficient in that in particular partial success of some operations was not properly accounted for. There are two code paths affected - page removal (CVE-2021-28705) and insertion of new pages (CVE-2021-28709). (We provide one patch which combines the fix to both issues.)",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {

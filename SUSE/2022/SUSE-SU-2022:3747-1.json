@@ -982,7 +982,7 @@
 				{
 					"category": "general",
 					"text": "client_golang is the instrumentation library for Go applications in Prometheus, and the promhttp package in client_golang provides tooling around HTTP servers and clients. In client_golang prior to version 1.11.1, HTTP server is susceptible to a Denial of Service through unbounded cardinality, and potential memory exhaustion, when handling requests with non-standard HTTP methods. In order to be affected, an instrumented software must use any of `promhttp.InstrumentHandler*` middleware except `RequestsInFlight`; not filter any specific methods (e.g GET) before middleware; pass metric with `method` label name to our middleware; and not have any firewall/LB/proxy that filters away requests with unknown `method`. client_golang version 1.11.1 contains a patch for this issue. Several workarounds are available, including removing the `method` label name from counter/gauge used in the InstrumentHandler; turning off affected promhttp handlers; adding custom middleware before promhttp handler that will sanitize the request method given by Go http.Request; and using a reverse proxy or web application firewall, configured to only allow a limited set of methods.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -1180,7 +1180,7 @@
 				{
 					"category": "general",
 					"text": "Grafana is an open-source platform for monitoring and observability. Versions on the 8.x and 9.x branch prior to 9.0.3, 8.5.9, 8.4.10, and 8.3.10 are vulnerable to stored cross-site scripting via the Unified Alerting feature of Grafana. An attacker can exploit this vulnerability to escalate privilege from editor to admin by tricking an authenticated admin to click on a link. Versions 9.0.3, 8.5.9, 8.4.10, and 8.3.10 contain a patch. As a workaround, it is possible to disable alerting or use legacy alerting.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -1378,7 +1378,7 @@
 				{
 					"category": "general",
 					"text": "Grafana is an open-source platform for monitoring and observability. In versions 5.3 until 9.0.3, 8.5.9, 8.4.10, and 8.3.10, it is possible for a malicious user who has authorization to log into a Grafana instance via a configured OAuth IdP which provides a login name to take over the account of another user in that Grafana instance. This can occur when the malicious user is authorized to log in to Grafana via OAuth, the malicious user's external user id is not already associated with an account in Grafana, the malicious user's email address is not already associated with an account in Grafana, and the malicious user knows the Grafana username of the target user. If these conditions are met, the malicious user can set their username in the OAuth provider to that of the target user, then go through the OAuth flow to log in to Grafana. Due to the way that external and internal user accounts are linked together during login, if the conditions above are all met then the malicious user will be able to log in to the target user's Grafana account. Versions 9.0.3, 8.5.9, 8.4.10, and 8.3.10 contain a patch for this issue. As a workaround, concerned users can disable OAuth login to their Grafana instance, or ensure that all users authorized to log in via OAuth have a corresponding user account in Grafana linked to their email address.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {

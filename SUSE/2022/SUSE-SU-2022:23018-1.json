@@ -661,7 +661,7 @@
 				{
 					"category": "general",
 					"text": "An information disclosure vulnerability was found in containers/podman in versions before 2.0.5. When using the deprecated Varlink API or the Docker-compatible REST API, if multiple containers are created in a short duration, the environment variables from the first container will get leaked into subsequent containers. An attacker who has control over the subsequent containers could use this flaw to gain access to sensitive information stored in such variables.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -808,7 +808,7 @@
 				{
 					"category": "general",
 					"text": "In containerd (an industry-standard container runtime) before version 1.2.14 there is a credential leaking vulnerability. If a container image manifest in the OCI Image format or Docker Image V2 Schema 2 format includes a URL for the location of a specific image layer (otherwise known as a “foreign layer”), the default containerd resolver will follow that URL to attempt to download it. In v1.2.x but not 1.3.0 or later, the default containerd resolver will provide its authentication credentials if the server where the URL is located presents an HTTP 401 status code along with registry-specific HTTP headers. If an attacker publishes a public image with a manifest that directs one of the layers to be fetched from a web server they control and they trick a user or system into pulling the image, they can obtain the credentials used for pulling that image. In some cases, this may be the user's username and password for the registry. In other cases, this may be the credentials attached to the cloud virtual instance which can grant access to other cloud resources in the account. The default containerd resolver is used by the cri-containerd plugin (which can be used by Kubernetes), the ctr development tool, and other client programs that have explicitly linked against it. This vulnerability has been fixed in containerd 1.2.14. containerd 1.3 and later are not affected. If you are using containerd 1.3 or later, you are not affected. If you are using cri-containerd in the 1.2 series or prior, you should ensure you only pull images from trusted sources. Other container runtimes built on top of containerd but not using the default resolver (such as Docker) are not affected.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -955,7 +955,7 @@
 				{
 					"category": "general",
 					"text": "Rootless containers run with Podman, receive all traffic with a source IP address of 127.0.0.1 (including from remote hosts). This impacts containerized applications that trust localhost (127.0.01) connections by default and do not require authentication. This issue affects Podman 1.8.0 onwards.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -1102,7 +1102,7 @@
 				{
 					"category": "general",
 					"text": "A deadlock vulnerability was found in 'github.com/containers/storage' in versions before 1.28.1. When a container image is processed, each layer is unpacked using `tar`. If one of those layers is not a valid `tar` archive this causes an error leading to an unexpected situation where the code indefinitely waits for the tar unpacked stream, which never finishes. An attacker could use this vulnerability to craft a malicious image, which when downloaded and stored by an application using containers/storage, would then cause a deadlock leading to a Denial of Service (DoS).",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -1249,7 +1249,7 @@
 				{
 					"category": "general",
 					"text": "An information disclosure flaw was found in Buildah, when building containers using chroot isolation. Running processes in container builds (e.g. Dockerfile RUN commands) can access environment variables from parent and grandparent processes. When run in a container in a CI/CD environment, environment variables may include sensitive information that was shared with the container in order to be used only by Buildah itself (e.g. container registry credentials).",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -1396,7 +1396,7 @@
 				{
 					"category": "general",
 					"text": "A flaw was found in podman. The `podman machine` function (used to create and manage Podman virtual machine containing a Podman process) spawns a `gvproxy` process on the host system. The `gvproxy` API is accessible on port 7777 on all IP addresses on the host. If that port is open on the host's firewall, an attacker can potentially use the `gvproxy` API to forward ports on the host to ports in the VM, making private services on the VM accessible to the network. This issue could be also used to interrupt the host's services by forwarding all ports to the VM.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -1543,7 +1543,7 @@
 				{
 					"category": "general",
 					"text": "The OCI Distribution Spec project defines an API protocol to facilitate and standardize the distribution of content. In the OCI Distribution Specification version 1.0.0 and prior, the Content-Type header alone was used to determine the type of document during push and pull operations. Documents that contain both “manifests” and “layers” fields could be interpreted as either a manifest or an index in the absence of an accompanying Content-Type header. If a Content-Type header changed between two pulls of the same digest, a client may interpret the resulting content differently. The OCI Distribution Specification has been updated to require that a mediaType value present in a manifest or index match the Content-Type header used during the push and pull operations. Clients pulling from a registry may distrust the Content-Type header and reject an ambiguous document that contains both “manifests” and “layers” fields or “manifests” and “config” fields if they are unable to update to version 1.0.1 of the spec.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {

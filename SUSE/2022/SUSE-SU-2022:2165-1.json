@@ -553,7 +553,7 @@
 				{
 					"category": "general",
 					"text": "runc is a CLI tool for spawning and running containers on Linux according to the OCI specification. A bug was found in runc prior to version 1.1.2 where `runc exec --cap` created processes with non-empty inheritable Linux process capabilities, creating an atypical Linux environment and enabling programs with inheritable file capabilities to elevate those capabilities to the permitted set during execve(2). This bug did not affect the container security sandbox as the inheritable set never contained more capabilities than were included in the container's bounding set. This bug has been fixed in runc 1.1.2. This fix changes `runc exec --cap` behavior such that the additional capabilities granted to the process being executed (as specified via `--cap` arguments) do not include inheritable capabilities. In addition, `runc spec` is changed to not set any inheritable capabilities in the created example OCI spec (`config.json`) file.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -640,7 +640,7 @@
 				{
 					"category": "general",
 					"text": "containerd is an open source container runtime. A bug was found in the containerd's CRI implementation where programs inside a container can cause the containerd daemon to consume memory without bound during invocation of the `ExecSync` API. This can cause containerd to consume all available memory on the computer, denying service to other legitimate workloads. Kubernetes and crictl can both be configured to use containerd's CRI implementation; `ExecSync` may be used when running probes or when executing processes via an \"exec\" facility. This bug has been fixed in containerd 1.6.6 and 1.5.13. Users should update to these versions to resolve the issue. Users unable to upgrade should ensure that only trusted images and commands are used.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {

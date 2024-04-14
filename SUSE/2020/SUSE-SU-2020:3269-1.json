@@ -340,7 +340,7 @@
 				{
 					"category": "general",
 					"text": "Waitress through version 1.3.1 implemented a \"MAY\" part of the RFC7230 which states: \"Although the line terminator for the start-line and header fields is the sequence CRLF, a recipient MAY recognize a single LF as a line terminator and ignore any preceding CR.\" Unfortunately if a front-end server does not parse header fields with an LF the same way as it does those with a CRLF it can lead to the front-end and the back-end server parsing the same HTTP message in two different ways. This can lead to a potential for HTTP request smuggling/splitting whereby Waitress may see two requests while the front-end server only sees a single HTTP message. This issue is fixed in Waitress 1.4.0.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -424,7 +424,7 @@
 				{
 					"category": "general",
 					"text": "Waitress through version 1.3.1 would parse the Transfer-Encoding header and only look for a single string value, if that value was not chunked it would fall through and use the Content-Length header instead. According to the HTTP standard Transfer-Encoding should be a comma separated list, with the inner-most encoding first, followed by any further transfer codings, ending with chunked. Requests sent with: \"Transfer-Encoding: gzip, chunked\" would incorrectly get ignored, and the request would use a Content-Length header instead to determine the body size of the HTTP message. This could allow for Waitress to treat a single request as multiple requests in the case of HTTP pipelining. This issue is fixed in Waitress 1.4.0.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -508,7 +508,7 @@
 				{
 					"category": "general",
 					"text": "In Waitress through version 1.4.0, if a proxy server is used in front of waitress, an invalid request may be sent by an attacker that bypasses the front-end and is parsed differently by waitress leading to a potential for HTTP request smuggling. Specially crafted requests containing special whitespace characters in the Transfer-Encoding header would get parsed by Waitress as being a chunked request, but a front-end server would use the Content-Length instead as the Transfer-Encoding header is considered invalid due to containing invalid characters. If a front-end server does HTTP pipelining to a backend Waitress server this could lead to HTTP request splitting which may lead to potential cache poisoning or unexpected information disclosure. This issue is fixed in Waitress 1.4.1 through more strict HTTP field validation.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -592,7 +592,7 @@
 				{
 					"category": "general",
 					"text": "Waitress through version 1.3.1 allows request smuggling by sending the Content-Length header twice. Waitress would header fold a double Content-Length header and due to being unable to cast the now comma separated value to an integer would set the Content-Length to 0 internally. If two Content-Length headers are sent in a single request, Waitress would treat the request as having no body, thereby treating the body of the request as a new request in HTTP pipelining. This issue is fixed in Waitress 1.4.0.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {

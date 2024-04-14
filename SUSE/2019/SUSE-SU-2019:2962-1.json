@@ -535,7 +535,7 @@
 				{
 					"category": "general",
 					"text": "Improper invalidation for page table updates by a virtual guest operating system for multiple Intel(R) Processors may allow an authenticated user to potentially enable denial of service of the host system via local access.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -681,7 +681,7 @@
 				{
 					"category": "general",
 					"text": "TSX Asynchronous Abort condition on some CPUs utilizing speculative execution may allow an authenticated user to potentially enable information disclosure via a side channel with local access.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -817,7 +817,7 @@
 				{
 					"category": "general",
 					"text": "An issue was discovered in Xen through 4.12.x allowing x86 PV guest OS users to cause a denial of service via a VCPUOP_initialise hypercall. hypercall_create_continuation() is a variadic function which uses a printf-like format string to interpret its parameters. Error handling for a bad format character was done using BUG(), which crashes Xen. One path, via the VCPUOP_initialise hypercall, has a bad format character. The BUG() can be hit if VCPUOP_initialise executes for a sufficiently long period of time for a continuation to be created. Malicious guests may cause a hypervisor crash, resulting in a Denial of Service (DoS). Xen versions 4.6 and newer are vulnerable. Xen versions 4.5 and earlier are not vulnerable. Only x86 PV guests can exploit the vulnerability. HVM and PVH guests, and guests on ARM systems, cannot exploit the vulnerability.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -928,7 +928,7 @@
 				{
 					"category": "general",
 					"text": "An issue was discovered in Xen through 4.12.x allowing x86 PV guest OS users to gain host OS privileges by leveraging race conditions in pagetable promotion and demotion operations. There are issues with restartable PV type change operations. To avoid using shadow pagetables for PV guests, Xen exposes the actual hardware pagetables to the guest. In order to prevent the guest from modifying these page tables directly, Xen keeps track of how pages are used using a type system; pages must be \"promoted\" before being used as a pagetable, and \"demoted\" before being used for any other type. Xen also allows for \"recursive\" promotions: i.e., an operating system promoting a page to an L4 pagetable may end up causing pages to be promoted to L3s, which may in turn cause pages to be promoted to L2s, and so on. These operations may take an arbitrarily large amount of time, and so must be re-startable. Unfortunately, making recursive pagetable promotion and demotion operations restartable is incredibly complicated, and the code contains several races which, if triggered, can cause Xen to drop or retain extra type counts, potentially allowing guests to get write access to in-use pagetables. A malicious PV guest administrator may be able to escalate their privilege to that of the host. All x86 systems with untrusted PV guests are vulnerable. HVM and PVH guests cannot exercise this vulnerability.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -1044,7 +1044,7 @@
 				{
 					"category": "general",
 					"text": "An issue was discovered in Xen through 4.12.x allowing attackers to gain host OS privileges via DMA in a situation where an untrusted domain has access to a physical device. This occurs because passed through PCI devices may corrupt host memory after deassignment. When a PCI device is assigned to an untrusted domain, it is possible for that domain to program the device to DMA to an arbitrary address. The IOMMU is used to protect the host from malicious DMA by making sure that the device addresses can only target memory assigned to the guest. However, when the guest domain is torn down, or the device is deassigned, the device is assigned back to dom0, thus allowing any in-flight DMA to potentially target critical host data. An untrusted domain with access to a physical device can DMA into host memory, leading to privilege escalation. Only systems where guests are given direct access to physical devices capable of DMA (PCI pass-through) are vulnerable. Systems which do not use PCI pass-through are not vulnerable.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -1155,7 +1155,7 @@
 				{
 					"category": "general",
 					"text": "An issue was discovered in Xen through 4.12.x allowing 32-bit PV guest OS users to gain guest OS privileges by installing and using descriptors. There is missing descriptor table limit checking in x86 PV emulation. When emulating certain PV guest operations, descriptor table accesses are performed by the emulating code. Such accesses should respect the guest specified limits, unless otherwise guaranteed to fail in such a case. Without this, emulation of 32-bit guest user mode calls through call gates would allow guest user mode to install and then use descriptors of their choice, as long as the guest kernel did not itself install an LDT. (Most OSes don't install any LDT by default). 32-bit PV guest user mode can elevate its privileges to that of the guest kernel. Xen versions from at least 3.2 onwards are affected. Only 32-bit PV guest user mode can leverage this vulnerability. HVM, PVH, as well as 64-bit PV guests cannot leverage this vulnerability. Arm systems are unaffected.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {

@@ -192,7 +192,7 @@
 				{
 					"category": "general",
 					"text": "The ZlibDecoders in Netty 4.1.x before 4.1.46 allow for unbounded memory allocation while decoding a ZlibEncoded byte stream. An attacker could send a large ZlibEncoded byte stream to the Netty server, forcing the server to allocate all of its free memory to a single decoder.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -260,7 +260,7 @@
 				{
 					"category": "general",
 					"text": "Netty is an open-source, asynchronous event-driven network application framework for rapid development of maintainable high performance protocol servers & clients. In Netty before version 4.1.59.Final there is a vulnerability on Unix-like systems involving an insecure temp file. When netty's multipart decoders are used local information disclosure can occur via the local system temporary directory if temporary storing uploads on the disk is enabled. On unix-like systems, the temporary directory is shared between all user. As such, writing to this directory using APIs that do not explicitly set the file/directory permissions can lead to information disclosure. Of note, this does not impact modern MacOS Operating Systems. The method \"File.createTempFile\" on unix-like systems creates a random file, but, by default will create this file with the permissions \"-rw-r--r--\". Thus, if sensitive information is written to this file, other local users can read this information. This is the case in netty's \"AbstractDiskHttpData\" is vulnerable. This has been fixed in version 4.1.59.Final. As a workaround, one may specify your own \"java.io.tmpdir\" when you start the JVM or use \"DefaultHttpDataFactory.setBaseDir(...)\" to set the directory to something that is only readable by the current user.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -328,7 +328,7 @@
 				{
 					"category": "general",
 					"text": "The Bzip2 decompression decoder function doesn't allow setting size restrictions on the decompressed output data (which affects the allocation size used during decompression). All users of Bzip2Decoder are affected. The malicious input can trigger an OOME and so a DoS attack",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
@@ -391,7 +391,7 @@
 				{
 					"category": "general",
 					"text": "The Snappy frame decoder function doesn't restrict the chunk length which may lead to excessive memory usage. Beside this it also may buffer reserved skippable chunks until the whole chunk was received which may lead to excessive memory usage as well. This vulnerability can be triggered by supplying malicious input that decompresses to a very big size (via a network stream or a file) or by sending a huge skippable chunk.",
-					"title": "Vulnerability description"
+					"title": "CVE description"
 				}
 			],
 			"product_status": {
