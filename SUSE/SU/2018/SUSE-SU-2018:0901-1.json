@@ -1,0 +1,1130 @@
+{
+	"document": {
+		"aggregate_severity": {
+			"namespace": "https://www.suse.com/support/security/rating/",
+			"text": "important"
+		},
+		"category": "csaf_security_advisory",
+		"csaf_version": "2.0",
+		"distribution": {
+			"text": "Copyright 2024 SUSE LLC. All rights reserved.",
+			"tlp": {
+				"label": "WHITE",
+				"url": "https://www.first.org/tlp/"
+			}
+		},
+		"lang": "en",
+		"notes": [
+			{
+				"category": "summary",
+				"text": "Security update for apache2",
+				"title": "Title of the patch"
+			},
+			{
+				"category": "description",
+				"text": "This update for apache2 fixes the following issues:\n\n\n  * CVE-2018-1283:  when mod_session is configured to forward its session data to CGI applications \n                    (SessionEnv on, not the default), a remote user may influence their content by \n                    using a \\'Session\\' header leading to unexpected behavior [bsc#1086814].\n\n  * CVE-2018-1301: due to an out of bound access after a size limit being reached by reading the HTTP header, \n                   a specially crafted request could lead to remote denial of service. [bsc#1086817]\n  \n  * CVE-2018-1303: a specially crafted HTTP request header could lead to crash due to an out of bound read \n                   while preparing data to be cached in shared memory.[bsc#1086813]\n  \n  * CVE-2017-15715: a regular expression could match '$' to a newline character in a malicious filename, \n                    rather than matching only the end of the filename. leading to corruption of uploaded files.[bsc#1086774]\n  \n  * CVE-2018-1312: when generating an HTTP Digest authentication challenge, the nonce sent to prevent \n                   reply attacks was not correctly generated using a pseudo-random seed. \n                   In a cluster of servers using a common Digest authentication configuration, \n                   HTTP requests could be replayed across servers by an attacker without detection. [bsc#1086775]\n  \n  * CVE-2017-15710: mod_authnz_ldap, if configured with AuthLDAPCharsetConfig, \n                    uses the Accept-Language header value to lookup the right charset encoding when verifying the \n                    user's credentials. If the header value is not present in the charset conversion table, \n                    a fallback mechanism is used to truncate it to a two characters value to allow a quick retry \n                    (for example, 'en-US' is truncated to 'en'). \n                    A header value of less than two characters forces an out of bound write of one NUL byte to a \n                   memory location that is not part of the string. In the worst case, quite unlikely, the process \n                   would crash which could be used as a Denial of Service attack. In the more likely case, this memory \n                   is already reserved for future use and the issue has no effect at all. [bsc#1086820]\n  \n * gensslcert: fall back to 'localhost' as hostname [bsc#1057406]\n",
+				"title": "Description of the patch"
+			},
+			{
+				"category": "details",
+				"text": "SUSE-SLE-SERVER-12-2018-602",
+				"title": "Patchnames"
+			},
+			{
+				"category": "legal_disclaimer",
+				"text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+				"title": "Terms of use"
+			}
+		],
+		"publisher": {
+			"category": "vendor",
+			"contact_details": "https://www.suse.com/support/security/contact/",
+			"name": "SUSE Product Security Team",
+			"namespace": "https://www.suse.com/"
+		},
+		"references": [
+			{
+				"category": "external",
+				"summary": "SUSE ratings",
+				"url": "https://www.suse.com/support/security/rating/"
+			},
+			{
+				"category": "self",
+				"summary": "URL of this CSAF notice",
+				"url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2018_0901-1.json"
+			},
+			{
+				"category": "self",
+				"summary": "URL for SUSE-SU-2018:0901-1",
+				"url": "https://www.suse.com/support/update/announcement/2018/suse-su-20180901-1/"
+			},
+			{
+				"category": "self",
+				"summary": "E-Mail link for SUSE-SU-2018:0901-1",
+				"url": "https://lists.suse.com/pipermail/sle-security-updates/2018-April/003877.html"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1057406",
+				"url": "https://bugzilla.suse.com/1057406"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1086774",
+				"url": "https://bugzilla.suse.com/1086774"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1086775",
+				"url": "https://bugzilla.suse.com/1086775"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1086813",
+				"url": "https://bugzilla.suse.com/1086813"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1086814",
+				"url": "https://bugzilla.suse.com/1086814"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1086817",
+				"url": "https://bugzilla.suse.com/1086817"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1086820",
+				"url": "https://bugzilla.suse.com/1086820"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2017-15710 page",
+				"url": "https://www.suse.com/security/cve/CVE-2017-15710/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2017-15715 page",
+				"url": "https://www.suse.com/security/cve/CVE-2017-15715/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2018-1283 page",
+				"url": "https://www.suse.com/security/cve/CVE-2018-1283/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2018-1301 page",
+				"url": "https://www.suse.com/security/cve/CVE-2018-1301/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2018-1303 page",
+				"url": "https://www.suse.com/security/cve/CVE-2018-1303/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2018-1312 page",
+				"url": "https://www.suse.com/security/cve/CVE-2018-1312/"
+			}
+		],
+		"title": "Security update for apache2",
+		"tracking": {
+			"current_release_date": "2018-04-08T19:40:13Z",
+			"generator": {
+				"date": "2018-04-08T19:40:13Z",
+				"engine": {
+					"name": "cve-database.git:bin/generate-csaf.pl",
+					"version": "1"
+				}
+			},
+			"id": "SUSE-SU-2018:0901-1",
+			"initial_release_date": "2018-04-08T19:40:13Z",
+			"revision_history": [
+				{
+					"date": "2018-04-08T19:40:13Z",
+					"number": "1",
+					"summary": "Current version"
+				}
+			],
+			"status": "final",
+			"version": "1"
+		}
+	},
+	"product_tree": {
+		"branches": [
+			{
+				"branches": [
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "apache2-doc-2.4.10-14.31.1.noarch",
+								"product": {
+									"name": "apache2-doc-2.4.10-14.31.1.noarch",
+									"product_id": "apache2-doc-2.4.10-14.31.1.noarch"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "noarch"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "apache2-2.4.10-14.31.1.ppc64le",
+								"product": {
+									"name": "apache2-2.4.10-14.31.1.ppc64le",
+									"product_id": "apache2-2.4.10-14.31.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "apache2-example-pages-2.4.10-14.31.1.ppc64le",
+								"product": {
+									"name": "apache2-example-pages-2.4.10-14.31.1.ppc64le",
+									"product_id": "apache2-example-pages-2.4.10-14.31.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "apache2-prefork-2.4.10-14.31.1.ppc64le",
+								"product": {
+									"name": "apache2-prefork-2.4.10-14.31.1.ppc64le",
+									"product_id": "apache2-prefork-2.4.10-14.31.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "apache2-utils-2.4.10-14.31.1.ppc64le",
+								"product": {
+									"name": "apache2-utils-2.4.10-14.31.1.ppc64le",
+									"product_id": "apache2-utils-2.4.10-14.31.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "apache2-worker-2.4.10-14.31.1.ppc64le",
+								"product": {
+									"name": "apache2-worker-2.4.10-14.31.1.ppc64le",
+									"product_id": "apache2-worker-2.4.10-14.31.1.ppc64le"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "ppc64le"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "apache2-2.4.10-14.31.1.s390x",
+								"product": {
+									"name": "apache2-2.4.10-14.31.1.s390x",
+									"product_id": "apache2-2.4.10-14.31.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "apache2-example-pages-2.4.10-14.31.1.s390x",
+								"product": {
+									"name": "apache2-example-pages-2.4.10-14.31.1.s390x",
+									"product_id": "apache2-example-pages-2.4.10-14.31.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "apache2-prefork-2.4.10-14.31.1.s390x",
+								"product": {
+									"name": "apache2-prefork-2.4.10-14.31.1.s390x",
+									"product_id": "apache2-prefork-2.4.10-14.31.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "apache2-utils-2.4.10-14.31.1.s390x",
+								"product": {
+									"name": "apache2-utils-2.4.10-14.31.1.s390x",
+									"product_id": "apache2-utils-2.4.10-14.31.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "apache2-worker-2.4.10-14.31.1.s390x",
+								"product": {
+									"name": "apache2-worker-2.4.10-14.31.1.s390x",
+									"product_id": "apache2-worker-2.4.10-14.31.1.s390x"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "s390x"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "apache2-2.4.10-14.31.1.x86_64",
+								"product": {
+									"name": "apache2-2.4.10-14.31.1.x86_64",
+									"product_id": "apache2-2.4.10-14.31.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "apache2-example-pages-2.4.10-14.31.1.x86_64",
+								"product": {
+									"name": "apache2-example-pages-2.4.10-14.31.1.x86_64",
+									"product_id": "apache2-example-pages-2.4.10-14.31.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "apache2-prefork-2.4.10-14.31.1.x86_64",
+								"product": {
+									"name": "apache2-prefork-2.4.10-14.31.1.x86_64",
+									"product_id": "apache2-prefork-2.4.10-14.31.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "apache2-utils-2.4.10-14.31.1.x86_64",
+								"product": {
+									"name": "apache2-utils-2.4.10-14.31.1.x86_64",
+									"product_id": "apache2-utils-2.4.10-14.31.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "apache2-worker-2.4.10-14.31.1.x86_64",
+								"product": {
+									"name": "apache2-worker-2.4.10-14.31.1.x86_64",
+									"product_id": "apache2-worker-2.4.10-14.31.1.x86_64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "x86_64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server 12-LTSS",
+								"product": {
+									"name": "SUSE Linux Enterprise Server 12-LTSS",
+									"product_id": "SUSE Linux Enterprise Server 12-LTSS",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sles-ltss:12"
+									}
+								}
+							}
+						],
+						"category": "product_family",
+						"name": "SUSE Linux Enterprise"
+					}
+				],
+				"category": "vendor",
+				"name": "SUSE"
+			}
+		],
+		"relationships": [
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-2.4.10-14.31.1.ppc64le as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:apache2-2.4.10-14.31.1.ppc64le"
+				},
+				"product_reference": "apache2-2.4.10-14.31.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-2.4.10-14.31.1.s390x as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:apache2-2.4.10-14.31.1.s390x"
+				},
+				"product_reference": "apache2-2.4.10-14.31.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-2.4.10-14.31.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:apache2-2.4.10-14.31.1.x86_64"
+				},
+				"product_reference": "apache2-2.4.10-14.31.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-doc-2.4.10-14.31.1.noarch as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:apache2-doc-2.4.10-14.31.1.noarch"
+				},
+				"product_reference": "apache2-doc-2.4.10-14.31.1.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-example-pages-2.4.10-14.31.1.ppc64le as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:apache2-example-pages-2.4.10-14.31.1.ppc64le"
+				},
+				"product_reference": "apache2-example-pages-2.4.10-14.31.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-example-pages-2.4.10-14.31.1.s390x as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:apache2-example-pages-2.4.10-14.31.1.s390x"
+				},
+				"product_reference": "apache2-example-pages-2.4.10-14.31.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-example-pages-2.4.10-14.31.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:apache2-example-pages-2.4.10-14.31.1.x86_64"
+				},
+				"product_reference": "apache2-example-pages-2.4.10-14.31.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-prefork-2.4.10-14.31.1.ppc64le as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:apache2-prefork-2.4.10-14.31.1.ppc64le"
+				},
+				"product_reference": "apache2-prefork-2.4.10-14.31.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-prefork-2.4.10-14.31.1.s390x as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:apache2-prefork-2.4.10-14.31.1.s390x"
+				},
+				"product_reference": "apache2-prefork-2.4.10-14.31.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-prefork-2.4.10-14.31.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:apache2-prefork-2.4.10-14.31.1.x86_64"
+				},
+				"product_reference": "apache2-prefork-2.4.10-14.31.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-utils-2.4.10-14.31.1.ppc64le as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:apache2-utils-2.4.10-14.31.1.ppc64le"
+				},
+				"product_reference": "apache2-utils-2.4.10-14.31.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-utils-2.4.10-14.31.1.s390x as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:apache2-utils-2.4.10-14.31.1.s390x"
+				},
+				"product_reference": "apache2-utils-2.4.10-14.31.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-utils-2.4.10-14.31.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:apache2-utils-2.4.10-14.31.1.x86_64"
+				},
+				"product_reference": "apache2-utils-2.4.10-14.31.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-worker-2.4.10-14.31.1.ppc64le as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:apache2-worker-2.4.10-14.31.1.ppc64le"
+				},
+				"product_reference": "apache2-worker-2.4.10-14.31.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-worker-2.4.10-14.31.1.s390x as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:apache2-worker-2.4.10-14.31.1.s390x"
+				},
+				"product_reference": "apache2-worker-2.4.10-14.31.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-worker-2.4.10-14.31.1.x86_64 as component of SUSE Linux Enterprise Server 12-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 12-LTSS:apache2-worker-2.4.10-14.31.1.x86_64"
+				},
+				"product_reference": "apache2-worker-2.4.10-14.31.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12-LTSS"
+			}
+		]
+	},
+	"vulnerabilities": [
+		{
+			"cve": "CVE-2017-15710",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2017-15710"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "In Apache httpd 2.0.23 to 2.0.65, 2.2.0 to 2.2.34, and 2.4.0 to 2.4.29, mod_authnz_ldap, if configured with AuthLDAPCharsetConfig, uses the Accept-Language header value to lookup the right charset encoding when verifying the user's credentials. If the header value is not present in the charset conversion table, a fallback mechanism is used to truncate it to a two characters value to allow a quick retry (for example, 'en-US' is truncated to 'en'). A header value of less than two characters forces an out of bound write of one NUL byte to a memory location that is not part of the string. In the worst case, quite unlikely, the process would crash which could be used as a Denial of Service attack. In the more likely case, this memory is already reserved for future use and the issue has no effect at all.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-2.4.10-14.31.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-2.4.10-14.31.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-2.4.10-14.31.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-doc-2.4.10-14.31.1.noarch",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-example-pages-2.4.10-14.31.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-example-pages-2.4.10-14.31.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-example-pages-2.4.10-14.31.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-prefork-2.4.10-14.31.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-prefork-2.4.10-14.31.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-prefork-2.4.10-14.31.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-utils-2.4.10-14.31.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-utils-2.4.10-14.31.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-utils-2.4.10-14.31.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-worker-2.4.10-14.31.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-worker-2.4.10-14.31.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-worker-2.4.10-14.31.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2017-15710",
+					"url": "https://www.suse.com/security/cve/CVE-2017-15710"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1086776 for CVE-2017-15710",
+					"url": "https://bugzilla.suse.com/1086776"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-2.4.10-14.31.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-doc-2.4.10-14.31.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-example-pages-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-example-pages-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-example-pages-2.4.10-14.31.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-prefork-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-prefork-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-prefork-2.4.10-14.31.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-utils-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-utils-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-utils-2.4.10-14.31.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-worker-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-worker-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-worker-2.4.10-14.31.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 5.3,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-2.4.10-14.31.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-doc-2.4.10-14.31.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-example-pages-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-example-pages-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-example-pages-2.4.10-14.31.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-prefork-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-prefork-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-prefork-2.4.10-14.31.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-utils-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-utils-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-utils-2.4.10-14.31.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-worker-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-worker-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-worker-2.4.10-14.31.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-04-08T19:40:13Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2017-15710"
+		},
+		{
+			"cve": "CVE-2017-15715",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2017-15715"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "In Apache httpd 2.4.0 to 2.4.29, the expression specified in <FilesMatch> could match '$' to a newline character in a malicious filename, rather than matching only the end of the filename. This could be exploited in environments where uploads of some files are are externally blocked, but only by matching the trailing portion of the filename.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-2.4.10-14.31.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-2.4.10-14.31.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-2.4.10-14.31.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-doc-2.4.10-14.31.1.noarch",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-example-pages-2.4.10-14.31.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-example-pages-2.4.10-14.31.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-example-pages-2.4.10-14.31.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-prefork-2.4.10-14.31.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-prefork-2.4.10-14.31.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-prefork-2.4.10-14.31.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-utils-2.4.10-14.31.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-utils-2.4.10-14.31.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-utils-2.4.10-14.31.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-worker-2.4.10-14.31.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-worker-2.4.10-14.31.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-worker-2.4.10-14.31.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2017-15715",
+					"url": "https://www.suse.com/security/cve/CVE-2017-15715"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1086774 for CVE-2017-15715",
+					"url": "https://bugzilla.suse.com/1086774"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-2.4.10-14.31.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-doc-2.4.10-14.31.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-example-pages-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-example-pages-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-example-pages-2.4.10-14.31.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-prefork-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-prefork-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-prefork-2.4.10-14.31.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-utils-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-utils-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-utils-2.4.10-14.31.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-worker-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-worker-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-worker-2.4.10-14.31.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 4.3,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:L",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-2.4.10-14.31.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-doc-2.4.10-14.31.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-example-pages-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-example-pages-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-example-pages-2.4.10-14.31.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-prefork-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-prefork-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-prefork-2.4.10-14.31.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-utils-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-utils-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-utils-2.4.10-14.31.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-worker-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-worker-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-worker-2.4.10-14.31.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-04-08T19:40:13Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2017-15715"
+		},
+		{
+			"cve": "CVE-2018-1283",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2018-1283"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "In Apache httpd 2.4.0 to 2.4.29, when mod_session is configured to forward its session data to CGI applications (SessionEnv on, not the default), a remote user may influence their content by using a \"Session\" header. This comes from the \"HTTP_SESSION\" variable name used by mod_session to forward its data to CGIs, since the prefix \"HTTP_\" is also used by the Apache HTTP Server to pass HTTP header fields, per CGI specifications.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-2.4.10-14.31.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-2.4.10-14.31.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-2.4.10-14.31.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-doc-2.4.10-14.31.1.noarch",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-example-pages-2.4.10-14.31.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-example-pages-2.4.10-14.31.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-example-pages-2.4.10-14.31.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-prefork-2.4.10-14.31.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-prefork-2.4.10-14.31.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-prefork-2.4.10-14.31.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-utils-2.4.10-14.31.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-utils-2.4.10-14.31.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-utils-2.4.10-14.31.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-worker-2.4.10-14.31.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-worker-2.4.10-14.31.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-worker-2.4.10-14.31.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2018-1283",
+					"url": "https://www.suse.com/security/cve/CVE-2018-1283"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1086814 for CVE-2018-1283",
+					"url": "https://bugzilla.suse.com/1086814"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-2.4.10-14.31.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-doc-2.4.10-14.31.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-example-pages-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-example-pages-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-example-pages-2.4.10-14.31.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-prefork-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-prefork-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-prefork-2.4.10-14.31.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-utils-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-utils-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-utils-2.4.10-14.31.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-worker-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-worker-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-worker-2.4.10-14.31.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.5,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.0/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-2.4.10-14.31.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-doc-2.4.10-14.31.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-example-pages-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-example-pages-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-example-pages-2.4.10-14.31.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-prefork-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-prefork-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-prefork-2.4.10-14.31.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-utils-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-utils-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-utils-2.4.10-14.31.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-worker-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-worker-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-worker-2.4.10-14.31.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-04-08T19:40:13Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2018-1283"
+		},
+		{
+			"cve": "CVE-2018-1301",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2018-1301"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A specially crafted request could have crashed the Apache HTTP Server prior to version 2.4.30, due to an out of bound access after a size limit is reached by reading the HTTP header. This vulnerability is considered very hard if not impossible to trigger in non-debug mode (both log and build level), so it is classified as low risk for common server usage.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-2.4.10-14.31.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-2.4.10-14.31.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-2.4.10-14.31.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-doc-2.4.10-14.31.1.noarch",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-example-pages-2.4.10-14.31.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-example-pages-2.4.10-14.31.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-example-pages-2.4.10-14.31.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-prefork-2.4.10-14.31.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-prefork-2.4.10-14.31.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-prefork-2.4.10-14.31.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-utils-2.4.10-14.31.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-utils-2.4.10-14.31.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-utils-2.4.10-14.31.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-worker-2.4.10-14.31.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-worker-2.4.10-14.31.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-worker-2.4.10-14.31.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2018-1301",
+					"url": "https://www.suse.com/security/cve/CVE-2018-1301"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1086817 for CVE-2018-1301",
+					"url": "https://bugzilla.suse.com/1086817"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-2.4.10-14.31.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-doc-2.4.10-14.31.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-example-pages-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-example-pages-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-example-pages-2.4.10-14.31.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-prefork-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-prefork-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-prefork-2.4.10-14.31.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-utils-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-utils-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-utils-2.4.10-14.31.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-worker-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-worker-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-worker-2.4.10-14.31.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.5,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-2.4.10-14.31.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-doc-2.4.10-14.31.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-example-pages-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-example-pages-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-example-pages-2.4.10-14.31.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-prefork-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-prefork-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-prefork-2.4.10-14.31.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-utils-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-utils-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-utils-2.4.10-14.31.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-worker-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-worker-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-worker-2.4.10-14.31.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-04-08T19:40:13Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2018-1301"
+		},
+		{
+			"cve": "CVE-2018-1303",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2018-1303"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A specially crafted HTTP request header could have crashed the Apache HTTP Server prior to version 2.4.30 due to an out of bound read while preparing data to be cached in shared memory. It could be used as a Denial of Service attack against users of mod_cache_socache. The vulnerability is considered as low risk since mod_cache_socache is not widely used, mod_cache_disk is not concerned by this vulnerability.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-2.4.10-14.31.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-2.4.10-14.31.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-2.4.10-14.31.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-doc-2.4.10-14.31.1.noarch",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-example-pages-2.4.10-14.31.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-example-pages-2.4.10-14.31.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-example-pages-2.4.10-14.31.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-prefork-2.4.10-14.31.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-prefork-2.4.10-14.31.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-prefork-2.4.10-14.31.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-utils-2.4.10-14.31.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-utils-2.4.10-14.31.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-utils-2.4.10-14.31.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-worker-2.4.10-14.31.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-worker-2.4.10-14.31.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-worker-2.4.10-14.31.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2018-1303",
+					"url": "https://www.suse.com/security/cve/CVE-2018-1303"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1086813 for CVE-2018-1303",
+					"url": "https://bugzilla.suse.com/1086813"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-2.4.10-14.31.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-doc-2.4.10-14.31.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-example-pages-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-example-pages-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-example-pages-2.4.10-14.31.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-prefork-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-prefork-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-prefork-2.4.10-14.31.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-utils-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-utils-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-utils-2.4.10-14.31.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-worker-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-worker-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-worker-2.4.10-14.31.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.5,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-2.4.10-14.31.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-doc-2.4.10-14.31.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-example-pages-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-example-pages-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-example-pages-2.4.10-14.31.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-prefork-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-prefork-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-prefork-2.4.10-14.31.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-utils-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-utils-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-utils-2.4.10-14.31.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-worker-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-worker-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-worker-2.4.10-14.31.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-04-08T19:40:13Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2018-1303"
+		},
+		{
+			"cve": "CVE-2018-1312",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2018-1312"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "In Apache httpd 2.2.0 to 2.4.29, when generating an HTTP Digest authentication challenge, the nonce sent to prevent reply attacks was not correctly generated using a pseudo-random seed. In a cluster of servers using a common Digest authentication configuration, HTTP requests could be replayed across servers by an attacker without detection.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-2.4.10-14.31.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-2.4.10-14.31.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-2.4.10-14.31.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-doc-2.4.10-14.31.1.noarch",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-example-pages-2.4.10-14.31.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-example-pages-2.4.10-14.31.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-example-pages-2.4.10-14.31.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-prefork-2.4.10-14.31.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-prefork-2.4.10-14.31.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-prefork-2.4.10-14.31.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-utils-2.4.10-14.31.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-utils-2.4.10-14.31.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-utils-2.4.10-14.31.1.x86_64",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-worker-2.4.10-14.31.1.ppc64le",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-worker-2.4.10-14.31.1.s390x",
+					"SUSE Linux Enterprise Server 12-LTSS:apache2-worker-2.4.10-14.31.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2018-1312",
+					"url": "https://www.suse.com/security/cve/CVE-2018-1312"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1086775 for CVE-2018-1312",
+					"url": "https://bugzilla.suse.com/1086775"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-2.4.10-14.31.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-doc-2.4.10-14.31.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-example-pages-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-example-pages-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-example-pages-2.4.10-14.31.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-prefork-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-prefork-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-prefork-2.4.10-14.31.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-utils-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-utils-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-utils-2.4.10-14.31.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-worker-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-worker-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-worker-2.4.10-14.31.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 5.9,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-2.4.10-14.31.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-doc-2.4.10-14.31.1.noarch",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-example-pages-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-example-pages-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-example-pages-2.4.10-14.31.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-prefork-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-prefork-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-prefork-2.4.10-14.31.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-utils-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-utils-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-utils-2.4.10-14.31.1.x86_64",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-worker-2.4.10-14.31.1.ppc64le",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-worker-2.4.10-14.31.1.s390x",
+						"SUSE Linux Enterprise Server 12-LTSS:apache2-worker-2.4.10-14.31.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-04-08T19:40:13Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2018-1312"
+		}
+	]
+}

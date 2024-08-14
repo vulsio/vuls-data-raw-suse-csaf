@@ -1,0 +1,1371 @@
+{
+	"document": {
+		"aggregate_severity": {
+			"namespace": "https://www.suse.com/support/security/rating/",
+			"text": "important"
+		},
+		"category": "csaf_security_advisory",
+		"csaf_version": "2.0",
+		"distribution": {
+			"text": "Copyright 2024 SUSE LLC. All rights reserved.",
+			"tlp": {
+				"label": "WHITE",
+				"url": "https://www.first.org/tlp/"
+			}
+		},
+		"lang": "en",
+		"notes": [
+			{
+				"category": "summary",
+				"text": "Security update for the Linux Kernel",
+				"title": "Title of the patch"
+			},
+			{
+				"category": "description",
+				"text": "\nThe SUSE Linux Enterprise 11 SP4 kernel was updated to receive various security and bugfixes.\n\nThis new feature was added:\n\n- Btrfs: Remove empty block groups in the background\n\nThe following security bugs were fixed:\n\n- : Prevent disclosure of FPU registers (including XMM and AVX\n  registers) between processes. These registers might contain encryption keys\n  when doing SSE accelerated AES enc/decryption (bsc#1087086)\n- : Systems with microprocessors utilizing speculative execution\n  and speculative execution of memory reads the addresses of all prior memory\n  writes are known may have allowed unauthorized disclosure of information to an\n  attacker with local user access via a side-channel analysis, aka Speculative\n  Store Bypass (SSB), Variant 4 (bsc#1087082)\n- : Prevent vulnerability in modify_user_hw_breakpoint() that\n  could have caused a crash and possibly memory corruption (bsc#1089895)\n- : The do_get_mempolicy function allowed local users to cause a\n  denial of service (use-after-free) or possibly have unspecified other impact\n  via crafted system calls (bnc#1091755).\n\nThe following non-security bugs were fixed:\n\n- ALSA: timer: Fix pause event notification (bsc#973378).\n- Avoid quadratic search when freeing delegations (bsc#1084760).\n- Btrfs: Avoid trucating page or punching hole in a already existed hole (bsc#1088998).\n- Btrfs: Avoid truncate tailing page if fallocate range does not exceed inode size (bsc#1094424).\n- Btrfs: Fix lost-data-profile caused by auto removing bg\n- Btrfs: Fix misuse of chunk mutex\n- Btrfs: Fix out-of-space bug (bsc#1089231).\n- Btrfs: Set relative data on clear btrfs_block_group_cache->pinned\n- Btrfs: Use ref_cnt for set_block_group_ro() (bsc#1089239).\n- Btrfs: add alloc_fs_devices and switch to it (bsc#1089205).\n- Btrfs: add btrfs_alloc_device and switch to it (bsc#1089204).\n- Btrfs: add missing discards when unpinning extents with -o discard\n- Btrfs: add missing inode update when punching hole (bsc#1089006).\n- Btrfs: add support for asserts (bsc#1089207).\n- Btrfs: avoid syncing log in the fast fsync path when not necessary (bsc#1089010).\n- Btrfs: btrfs_issue_discard ensure offset/length are aligned to sector boundaries\n- Btrfs: check pending chunks when shrinking fs to avoid corruption (bsc#1089235).\n- Btrfs: cleanup backref search commit root flag stuff (bsc#1089200).\n- Btrfs: do not leak transaction in btrfs_sync_file() (bsc#1089210).\n- Btrfs: do not mix the ordered extents of all files together during logging the inodes (bsc#1089214).\n- Btrfs: do not remove extents and xattrs when logging new names (bsc#1089005).\n- Btrfs: eliminate races in worker stopping code (bsc#1089211).\n- Btrfs: ensure deletion from pinned_chunks list is protected\n- Btrfs: fix -ENOSPC on block group removal\n- Btrfs: fix -ENOSPC when finishing block group creation\n- Btrfs: fix NULL pointer crash when running balance and scrub concurrently (bsc#1089220).\n- Btrfs: fix chunk allocation regression leading to transaction abort (bsc#1089236).\n- Btrfs: fix crash caused by block group removal\n- Btrfs: fix data loss in the fast fsync path (bsc#1089007).\n- Btrfs: fix deadlock caused by fsync when logging directory entries (bsc#1093194).\n- Btrfs: fix directory inconsistency after fsync log replay (bsc#1089001).\n- Btrfs: fix directory recovery from fsync log (bsc#1088999).\n- Btrfs: fix empty symlink after creating symlink and fsync parent dir (bsc#1093195).\n- Btrfs: fix file loss on log replay after renaming a file and fsync (bsc#1093196).\n- Btrfs: fix file/data loss caused by fsync after rename and new inode (bsc#1089241).\n- Btrfs: fix find_free_dev_extent() malfunction in case device tree has hole (bsc#1089232).\n- Btrfs: fix fitrim discarding device area reserved for boot loader's use\n- Btrfs: fix freeing used extent after removing empty block group\n- Btrfs: fix freeing used extents after removing empty block group\n- Btrfs: fix fs mapping extent map leak (bsc#1089229).\n- Btrfs: fix fsync data loss after a ranged fsync (bsc#1089221).\n- Btrfs: fix fsync data loss after adding hard link to inode (bsc#1089004).\n- Btrfs: fix fsync data loss after append write (bsc#1089238).\n- Btrfs: fix fsync log replay for inodes with a mix of regular refs and extrefs (bsc#1089003).\n- Btrfs: fix fsync race leading to invalid data after log replay (bsc#1089000).\n- Btrfs: fix fsync when extend references are added to an inode (bsc#1089002).\n- Btrfs: fix fsync xattr loss in the fast fsync path (bsc#1094423).\n- Btrfs: fix invalid extent maps due to hole punching (bsc#1094425).\n- Btrfs: fix kernel oops while reading compressed data (bsc#1089192).\n- Btrfs: fix log replay failure after linking special file and fsync (bsc#1089016).\n- Btrfs: fix memory leak after block remove + trimming\n- Btrfs: fix metadata inconsistencies after directory fsync (bsc#1093197).\n- Btrfs: fix race between balance and unused block group deletion (bsc#1089237).\n- Btrfs: fix race between fs trimming and block group remove/allocation\n- Btrfs: fix race between scrub and block group deletion\n- Btrfs: fix race between transaction commit and empty block group removal \n- Btrfs: fix race conditions in BTRFS_IOC_FS_INFO ioctl (bsc#1089206).\n- Btrfs: fix racy system chunk allocation when setting block group ro (bsc#1089233).\n- Btrfs: fix regression in raid level conversion (bsc#1089234).\n- Btrfs: fix skipped error handle when log sync failed (bsc#1089217).\n- Btrfs: fix stale dir entries after removing a link and fsync (bsc#1089011).\n- Btrfs: fix the number of transaction units needed to remove a block group\n- Btrfs: fix the skipped transaction commit during the file sync (bsc#1089216).\n- Btrfs: fix uninitialized variable warning in __extent_writepage Fixes fs/btrfs/extent_io.c:2861: warning: 'ret' may be used uninitialized in this function\n- Btrfs: fix unprotected alloc list insertion during the finishing procedure of replace (bsc#1089215).\n- Btrfs: fix unprotected assignment of the target device (bsc#1089222).\n- Btrfs: fix unprotected deletion from pending_chunks list\n- Btrfs: fix unprotected device list access when getting the fs information (bsc#1089228).\n- Btrfs: fix unprotected device's variants on 32bits machine (bsc#1089227).\n- Btrfs: fix unprotected device->bytes_used update (bsc#1089225).\n- Btrfs: fix unreplayable log after snapshot delete + parent dir fsync (bsc#1089240).\n- Btrfs: fix up read_tree_block to return proper error (bsc#1080837).\n- Btrfs: fix wrong device bytes_used in the super block (bsc#1089224).\n- Btrfs: fix wrong disk size when writing super blocks (bsc#1089223).\n- Btrfs: fix xattr loss after power failure (bsc#1094436).\n- Btrfs: handle non-fatal errors in btrfs_qgroup_inherit() (bsc#1089013).\n- Btrfs: initialize the seq counter in struct btrfs_device (bsc#1094437).\n- Btrfs: iterate over unused chunk space in FITRIM\n- Btrfs: make btrfs_issue_discard return bytes discarded\n- Btrfs: make btrfs_search_forward return with nodes unlocked (bsc#1094422).\n- Btrfs: make sure to copy everything if we rename (bsc#1088997).\n- Btrfs: make the chunk allocator completely tree lockless (bsc#1089202).\n- Btrfs: move btrfs_truncate_page to btrfs_cont_expand instead of btrfs_truncate (bsc#1089201).\n- Btrfs: nuke write_super from comments (bsc#1089199).\n- Btrfs: only drop modified extents if we logged the whole inode (bsc#1089213).\n- Btrfs: only update disk_i_size as we remove extents (bsc#1089209).\n- Btrfs: qgroup: return EINVAL if level of parent is not higher than child's (bsc#1089012).\n- Btrfs: remove deleted xattrs on fsync log replay (bsc#1089008).\n- Btrfs: remove empty block groups automatically\n- Btrfs: remove non-sense btrfs_error_discard_extent() function (bsc#1089230).\n- Btrfs: remove parameter blocksize from read_tree_block (bsc#1080837).\n- Btrfs: remove transaction from send (bsc#1089218).\n- Btrfs: remove unnecessary locking of cleaner_mutex to avoid deadlock\n- Btrfs: remove unused max_key arg from btrfs_search_forward (bsc#1094421).\n- Btrfs: return an error from btrfs_wait_ordered_range (bsc#1089212).\n- Btrfs: set inode's logged_trans/last_log_commit after ranged fsync (bsc#1093198).\n- Btrfs: skip superblocks during discard\n- Btrfs: stop refusing the relocation of chunk 0 (bsc#1089208).\n- Btrfs: update free_chunk_space during allocting a new chunk (bsc#1089226).\n- Btrfs: use global reserve when deleting unused block group after ENOSPC\n- Btrfs: use nodesize everywhere, kill leafsize (bsc#1080837).\n- Btrfs: wait ordered range before doing direct io (bsc#1089203).\n- Fix for bsc#1092497\n- HID: roccat: prevent an out of bounds read in kovaplus_profile_activated() (bsc#1087092).\n- IB/mlx4: Convert slave port before building address-handle (bug#919382).\n- KABI protect struct _lowcore (bsc#1089386).\n- KVM: x86: Sync back MSR_IA32_SPEC_CTRL to VCPU data structure (bsc#1096242, bsc#1096281).\n- NFS: add nostatflush mount option (bsc#1065726).\n- NFS: allow flush-on-stat to be disabled (bsc#1065726).\n- Refresh patches.arch/14.1-x86-retpoline-fill-rsb-on-context-switch-for-affected-cpus.patch. Fix bnc#1097948.\n- Revert 'NFS: allow flush-on-stat to be disabled (bsc#1065726).' \n- USB: Accept bulk endpoints with 1024-byte maxpacket (bsc#1090888).\n- USB: hub: fix SS hub-descriptor handling (bsc#1092372).\n- Update config files, add Spectre mitigation for s390x (bnc#1089386, ).\n- Update s390 config files (bsc#1089386).\n- Xen counterparts of eager FPU implementation.\n- balloon: do not BUG() when balloon is empty (bsc#1083347).\n- cifs: fix crash due to race in hmac(md5) handling (bsc#1091671).\n- config.sh: set BUGZILLA_PRODUCT for SLE11-SP4\n- constraints: ppc64 does not build with 2.5G memory\n- fanotify: fix logic of events on child (bsc#1013018).\n- fs: btrfs: volumes.c: Fix for possible null pointer dereference (bsc#1089219).\n- ipc/msg: Fix faulty parsing of msgctl args (bsc#1093600,bsc#1072689).\n- kABI: work around BPF SSBD removal (bsc#1087082).\n- kernel: Fix memory leak on EP11 target list processing (bnc#1096746, ).\n- kvm/powerpc: Add new ioctl to retreive server MMU infos (bsc#1094244).\n- kvm/x86: fix icebp instruction handling (bsc#1087088).\n- mm, page_alloc: do not break __GFP_THISNODE by zonelist reset (bsc#1079152, VM Functionality).\n- mmc: jz4740: Fix race condition in IRQ mask update (bsc#1090888).\n- module: Fix locking in symbol_put_addr() (bsc#1097445).\n- netfront: make req_prod check properly deal with index wraps (bsc#1046610).\n- ocfs2/dlm: Fix up kABI in dlm_ctxt (bsc#1070404).\n- ocfs2/dlm: wait for dlm recovery done when migrating all lock resources (bsc#1013018).\n- powerpc, KVM: Split HVMODE_206 cpu feature bit into separate HV and architecture bits (bsc#1087082).\n- powerpc/64: Use barrier_nospec in syscall entry (bsc#1068032, bsc#1080157).\n- powerpc/64s: Add barrier_nospec (bsc#1068032, bsc#1080157).\n- powerpc/64s: Add support for ori barrier_nospec patching (bsc#1068032, bsc#1080157).\n- powerpc/64s: Enable barrier_nospec based on firmware settings (bsc#1068032, bsc#1080157).\n- powerpc/64s: Enhance the information in cpu_show_meltdown() (bsc#1068032, bsc#1075088, bsc#1091815).\n- powerpc/64s: Enhance the information in cpu_show_spectre_v1() (bsc#1068032).\n- powerpc/64s: Fix compiler store ordering to SLB shadow area (bsc#1094244).\n- powerpc/64s: Fix section mismatch warnings from setup_rfi_flush() (bsc#1068032, bsc#1075087, bsc#1091041).\n- powerpc/64s: Improve RFI L1-D cache flush fallback (bsc#1068032, bsc#1075088, bsc#1091815).\n- powerpc/64s: Move cpu_show_meltdown() (bsc#1068032, bsc#1075088, bsc#1091815).\n- powerpc/64s: Patch barrier_nospec in modules (bsc#1068032, bsc#1080157).\n- powerpc/64s: Wire up cpu_show_spectre_v1() (bsc#1068032, bsc#1075088, bsc#1091815).\n- powerpc/64s: Wire up cpu_show_spectre_v2() (bsc#1068032, bsc#1075088, bsc#1091815).\n- powerpc/mm/hash: Add missing isync prior to kernel stack SLB switch (bsc#1094244).\n- powerpc/pseries: Add new H_GET_CPU_CHARACTERISTICS flags (bsc#1068032, bsc#1075088, bsc#1091815).\n- powerpc/pseries: Define MCE error event section (bsc#1094244).\n- powerpc/pseries: Display machine check error details (bsc#1094244).\n- powerpc/pseries: Dump and flush SLB contents on SLB MCE errors (bsc#1094244).\n- powerpc/pseries: Fix clearing of security feature flags (bsc#1068032, bsc#1075088, bsc#1091815).\n- powerpc/pseries: Restore default security feature flags on setup (bsc#1068032, bsc#1075088, bsc#1091815).\n- powerpc/pseries: Set or clear security feature flags (bsc#1068032, bsc#1075088, bsc#1091815).\n- powerpc/pseries: Use the security flags in pseries_setup_rfi_flush() (bsc#1068032, bsc#1075088, bsc#1091815).\n- powerpc/pseries: convert rtas_log_buf to linear allocation (bsc#1094244).\n- powerpc/rfi-flush: Always enable fallback flush on pseries (bsc#1068032, bsc#1075088, bsc#1091815).\n- powerpc/rfi-flush: Call setup_rfi_flush() after LPM migration (bsc#1068032, bsc#1075088, bsc#1091815).\n- powerpc/rfi-flush: Differentiate enabled and patched flush types (bsc#1068032, bsc#1075088, bsc#1091815).\n- powerpc/rfi-flush: Make it possible to call setup_rfi_flush() again (bsc#1068032, bsc#1075088, bsc#1091815).\n- powerpc: Add security feature flags for Spectre/Meltdown (bsc#1068032, bsc#1075088, bsc#1091815).\n- powerpc: Fix /proc/cpuinfo revision for POWER9 DD2 (bsc#1093710).\n- powerpc: Move default security feature flags (bsc#1068032, bsc#1075088, bsc#1091815).\n- powerpc: Move local setup.h declarations to arch includes (bsc#1068032, bsc#1075088, bsc#1091815). \n- powerpc: Use barrier_nospec in copy_from_user() (bsc#1068032, bsc#1080157).\n- qla2xxx: Mask off Scope bits in retry delay (bsc#1068054).\n- s390/cio: update chpid descriptor after resource accessibility event (bnc#1091659, ).\n- s390/cpum_sf: ensure sample frequency of perf event attributes is non-zero (bnc#1096746, ).\n- s390/dasd: fix IO error for newly defined devices (bnc#1091659, ).\n- s390/dasd: fix failing path verification (bnc#1096746, ).\n- s390/qdio: fix access to uninitialized qdio_q fields (bnc#1091659, ).\n- s390/qeth: on channel error, reject further cmd requests (bnc#1088343, ).\n- s390: add automatic detection of the spectre defense (bnc#1089386, ).\n- s390: add optimized array_index_mask_nospec (bnc#1089386, ).\n- s390: add sysfs attributes for spectre (bnc#1089386, ).\n- s390: correct module section names for expoline code revert (bsc#1089386).\n- s390: correct nospec auto detection init order (bnc#1089386, ).\n- s390: do not bypass BPENTER for interrupt system calls (bnc#1089386, ).\n- s390: fix retpoline build on 31bit (bsc#1089386).\n- s390: improve cpu alternative handling for gmb and nobp (bnc#1089386, ).\n- s390: introduce execute-trampolines for branches (bnc#1089386, ).\n- s390: move nobp parameter functions to nospec-branch.c (bnc#1089386, ).\n- s390: report spectre mitigation via syslog (bnc#1089386, ).\n- s390: run user space and KVM guests with modified branch prediction (bnc#1089386, ).\n- s390: scrub registers on kernel entry and KVM exit (bnc#1089386, ).\n- series.conf: fix the header It was corrupted back in 2015.\n- trace: module: Maintain a valid user count (bsc#1097443).\n- tracing: Create seq_buf layer in trace_seq (bsc#1091815).\n- x86, mce: Fix mce_start_timer semantics (bsc#1090607).\n- x86/Xen: disable IBRS around CPU stopper function invocation (none so far).\n- x86/boot: Fix early command-line parsing when partial word matches (bsc#1096140).\n- x86/bugs: correctly force-disable IBRS on !SKL systems (bsc#1092497).\n- x86/bugs: make intel_rds_mask() honor X86_FEATURE_SSBD (bsc#1094019).\n- x86/bugs: spec_ctrl must be cleared from cpu_caps_set when being disabled (bsc#1096140).\n- x86/entry/64: Do not use IST entry for #BP stack (bsc#1087088).\n- x86/kaiser: export symbol kaiser_set_shadow_pgd() (bsc#1090630)\n- x86/kaiser: symbol kaiser_set_shadow_pgd() exported with non GPL\n- x86: Fix /proc/mtrr with base/size more than 44bits (bsc#1052351).\n- xen-netfront: fix req_prod check to avoid RX hang when index wraps (bsc#1046610).\n- xen/x86/entry/64: Do not use IST entry for #BP stack (bsc#1087088).\n- xfs: avoid xfs_buf hang in lookup node directory corruption (bsc#989401).\n- xfs: fix buffer use after free on IO error (bsc#1052943).\n- xfs: only update the last_sync_lsn when a transaction completes (bsc#989401).\n- xfs: prevent recursion in xfs_buf_iorequest (bsc#1052943).\n",
+				"title": "Description of the patch"
+			},
+			{
+				"category": "details",
+				"text": "slertesp4-kernel-source-13686",
+				"title": "Patchnames"
+			},
+			{
+				"category": "legal_disclaimer",
+				"text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+				"title": "Terms of use"
+			}
+		],
+		"publisher": {
+			"category": "vendor",
+			"contact_details": "https://www.suse.com/support/security/contact/",
+			"name": "SUSE Product Security Team",
+			"namespace": "https://www.suse.com/"
+		},
+		"references": [
+			{
+				"category": "external",
+				"summary": "SUSE ratings",
+				"url": "https://www.suse.com/support/security/rating/"
+			},
+			{
+				"category": "self",
+				"summary": "URL of this CSAF notice",
+				"url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2018_1846-1.json"
+			},
+			{
+				"category": "self",
+				"summary": "URL for SUSE-SU-2018:1846-1",
+				"url": "https://www.suse.com/support/update/announcement/2018/suse-su-20181846-1/"
+			},
+			{
+				"category": "self",
+				"summary": "E-Mail link for SUSE-SU-2018:1846-1",
+				"url": "https://lists.suse.com/pipermail/sle-security-updates/2018-June/004230.html"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1013018",
+				"url": "https://bugzilla.suse.com/1013018"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1046610",
+				"url": "https://bugzilla.suse.com/1046610"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1052351",
+				"url": "https://bugzilla.suse.com/1052351"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1052943",
+				"url": "https://bugzilla.suse.com/1052943"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1065726",
+				"url": "https://bugzilla.suse.com/1065726"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1068032",
+				"url": "https://bugzilla.suse.com/1068032"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1068054",
+				"url": "https://bugzilla.suse.com/1068054"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1070404",
+				"url": "https://bugzilla.suse.com/1070404"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1072689",
+				"url": "https://bugzilla.suse.com/1072689"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1075087",
+				"url": "https://bugzilla.suse.com/1075087"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1075088",
+				"url": "https://bugzilla.suse.com/1075088"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1079152",
+				"url": "https://bugzilla.suse.com/1079152"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1080157",
+				"url": "https://bugzilla.suse.com/1080157"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1080837",
+				"url": "https://bugzilla.suse.com/1080837"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1083347",
+				"url": "https://bugzilla.suse.com/1083347"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1084760",
+				"url": "https://bugzilla.suse.com/1084760"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1087082",
+				"url": "https://bugzilla.suse.com/1087082"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1087086",
+				"url": "https://bugzilla.suse.com/1087086"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1087088",
+				"url": "https://bugzilla.suse.com/1087088"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1087092",
+				"url": "https://bugzilla.suse.com/1087092"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1088343",
+				"url": "https://bugzilla.suse.com/1088343"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1088997",
+				"url": "https://bugzilla.suse.com/1088997"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1088998",
+				"url": "https://bugzilla.suse.com/1088998"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1088999",
+				"url": "https://bugzilla.suse.com/1088999"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089000",
+				"url": "https://bugzilla.suse.com/1089000"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089001",
+				"url": "https://bugzilla.suse.com/1089001"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089002",
+				"url": "https://bugzilla.suse.com/1089002"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089003",
+				"url": "https://bugzilla.suse.com/1089003"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089004",
+				"url": "https://bugzilla.suse.com/1089004"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089005",
+				"url": "https://bugzilla.suse.com/1089005"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089006",
+				"url": "https://bugzilla.suse.com/1089006"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089007",
+				"url": "https://bugzilla.suse.com/1089007"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089008",
+				"url": "https://bugzilla.suse.com/1089008"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089010",
+				"url": "https://bugzilla.suse.com/1089010"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089011",
+				"url": "https://bugzilla.suse.com/1089011"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089012",
+				"url": "https://bugzilla.suse.com/1089012"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089013",
+				"url": "https://bugzilla.suse.com/1089013"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089016",
+				"url": "https://bugzilla.suse.com/1089016"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089192",
+				"url": "https://bugzilla.suse.com/1089192"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089199",
+				"url": "https://bugzilla.suse.com/1089199"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089200",
+				"url": "https://bugzilla.suse.com/1089200"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089201",
+				"url": "https://bugzilla.suse.com/1089201"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089202",
+				"url": "https://bugzilla.suse.com/1089202"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089203",
+				"url": "https://bugzilla.suse.com/1089203"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089204",
+				"url": "https://bugzilla.suse.com/1089204"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089205",
+				"url": "https://bugzilla.suse.com/1089205"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089206",
+				"url": "https://bugzilla.suse.com/1089206"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089207",
+				"url": "https://bugzilla.suse.com/1089207"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089208",
+				"url": "https://bugzilla.suse.com/1089208"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089209",
+				"url": "https://bugzilla.suse.com/1089209"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089210",
+				"url": "https://bugzilla.suse.com/1089210"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089211",
+				"url": "https://bugzilla.suse.com/1089211"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089212",
+				"url": "https://bugzilla.suse.com/1089212"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089213",
+				"url": "https://bugzilla.suse.com/1089213"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089214",
+				"url": "https://bugzilla.suse.com/1089214"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089215",
+				"url": "https://bugzilla.suse.com/1089215"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089216",
+				"url": "https://bugzilla.suse.com/1089216"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089217",
+				"url": "https://bugzilla.suse.com/1089217"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089218",
+				"url": "https://bugzilla.suse.com/1089218"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089219",
+				"url": "https://bugzilla.suse.com/1089219"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089220",
+				"url": "https://bugzilla.suse.com/1089220"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089221",
+				"url": "https://bugzilla.suse.com/1089221"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089222",
+				"url": "https://bugzilla.suse.com/1089222"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089223",
+				"url": "https://bugzilla.suse.com/1089223"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089224",
+				"url": "https://bugzilla.suse.com/1089224"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089225",
+				"url": "https://bugzilla.suse.com/1089225"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089226",
+				"url": "https://bugzilla.suse.com/1089226"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089227",
+				"url": "https://bugzilla.suse.com/1089227"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089228",
+				"url": "https://bugzilla.suse.com/1089228"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089229",
+				"url": "https://bugzilla.suse.com/1089229"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089230",
+				"url": "https://bugzilla.suse.com/1089230"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089231",
+				"url": "https://bugzilla.suse.com/1089231"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089232",
+				"url": "https://bugzilla.suse.com/1089232"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089233",
+				"url": "https://bugzilla.suse.com/1089233"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089234",
+				"url": "https://bugzilla.suse.com/1089234"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089235",
+				"url": "https://bugzilla.suse.com/1089235"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089236",
+				"url": "https://bugzilla.suse.com/1089236"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089237",
+				"url": "https://bugzilla.suse.com/1089237"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089238",
+				"url": "https://bugzilla.suse.com/1089238"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089239",
+				"url": "https://bugzilla.suse.com/1089239"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089240",
+				"url": "https://bugzilla.suse.com/1089240"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089241",
+				"url": "https://bugzilla.suse.com/1089241"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089386",
+				"url": "https://bugzilla.suse.com/1089386"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1089895",
+				"url": "https://bugzilla.suse.com/1089895"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1090607",
+				"url": "https://bugzilla.suse.com/1090607"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1090630",
+				"url": "https://bugzilla.suse.com/1090630"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1090888",
+				"url": "https://bugzilla.suse.com/1090888"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1091041",
+				"url": "https://bugzilla.suse.com/1091041"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1091659",
+				"url": "https://bugzilla.suse.com/1091659"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1091671",
+				"url": "https://bugzilla.suse.com/1091671"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1091755",
+				"url": "https://bugzilla.suse.com/1091755"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1091815",
+				"url": "https://bugzilla.suse.com/1091815"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1092372",
+				"url": "https://bugzilla.suse.com/1092372"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1092497",
+				"url": "https://bugzilla.suse.com/1092497"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1093194",
+				"url": "https://bugzilla.suse.com/1093194"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1093195",
+				"url": "https://bugzilla.suse.com/1093195"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1093196",
+				"url": "https://bugzilla.suse.com/1093196"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1093197",
+				"url": "https://bugzilla.suse.com/1093197"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1093198",
+				"url": "https://bugzilla.suse.com/1093198"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1093600",
+				"url": "https://bugzilla.suse.com/1093600"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1093710",
+				"url": "https://bugzilla.suse.com/1093710"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1094019",
+				"url": "https://bugzilla.suse.com/1094019"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1094244",
+				"url": "https://bugzilla.suse.com/1094244"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1094421",
+				"url": "https://bugzilla.suse.com/1094421"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1094422",
+				"url": "https://bugzilla.suse.com/1094422"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1094423",
+				"url": "https://bugzilla.suse.com/1094423"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1094424",
+				"url": "https://bugzilla.suse.com/1094424"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1094425",
+				"url": "https://bugzilla.suse.com/1094425"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1094436",
+				"url": "https://bugzilla.suse.com/1094436"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1094437",
+				"url": "https://bugzilla.suse.com/1094437"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1096140",
+				"url": "https://bugzilla.suse.com/1096140"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1096242",
+				"url": "https://bugzilla.suse.com/1096242"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1096281",
+				"url": "https://bugzilla.suse.com/1096281"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1096746",
+				"url": "https://bugzilla.suse.com/1096746"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1097443",
+				"url": "https://bugzilla.suse.com/1097443"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1097445",
+				"url": "https://bugzilla.suse.com/1097445"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1097948",
+				"url": "https://bugzilla.suse.com/1097948"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 919382",
+				"url": "https://bugzilla.suse.com/919382"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 973378",
+				"url": "https://bugzilla.suse.com/973378"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 989401",
+				"url": "https://bugzilla.suse.com/989401"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2018-1000199 page",
+				"url": "https://www.suse.com/security/cve/CVE-2018-1000199/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2018-10675 page",
+				"url": "https://www.suse.com/security/cve/CVE-2018-10675/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2018-3639 page",
+				"url": "https://www.suse.com/security/cve/CVE-2018-3639/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2018-3665 page",
+				"url": "https://www.suse.com/security/cve/CVE-2018-3665/"
+			}
+		],
+		"title": "Security update for the Linux Kernel",
+		"tracking": {
+			"current_release_date": "2018-06-29T09:36:25Z",
+			"generator": {
+				"date": "2018-06-29T09:36:25Z",
+				"engine": {
+					"name": "cve-database.git:bin/generate-csaf.pl",
+					"version": "1"
+				}
+			},
+			"id": "SUSE-SU-2018:1846-1",
+			"initial_release_date": "2018-06-29T09:36:25Z",
+			"revision_history": [
+				{
+					"date": "2018-06-29T09:36:25Z",
+					"number": "1",
+					"summary": "Current version"
+				}
+			],
+			"status": "final",
+			"version": "1"
+		}
+	},
+	"product_tree": {
+		"branches": [
+			{
+				"branches": [
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "kernel-rt-3.0.101.rt130-69.27.1.x86_64",
+								"product": {
+									"name": "kernel-rt-3.0.101.rt130-69.27.1.x86_64",
+									"product_id": "kernel-rt-3.0.101.rt130-69.27.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-rt-base-3.0.101.rt130-69.27.1.x86_64",
+								"product": {
+									"name": "kernel-rt-base-3.0.101.rt130-69.27.1.x86_64",
+									"product_id": "kernel-rt-base-3.0.101.rt130-69.27.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-rt-devel-3.0.101.rt130-69.27.1.x86_64",
+								"product": {
+									"name": "kernel-rt-devel-3.0.101.rt130-69.27.1.x86_64",
+									"product_id": "kernel-rt-devel-3.0.101.rt130-69.27.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-rt_trace-3.0.101.rt130-69.27.1.x86_64",
+								"product": {
+									"name": "kernel-rt_trace-3.0.101.rt130-69.27.1.x86_64",
+									"product_id": "kernel-rt_trace-3.0.101.rt130-69.27.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-rt_trace-base-3.0.101.rt130-69.27.1.x86_64",
+								"product": {
+									"name": "kernel-rt_trace-base-3.0.101.rt130-69.27.1.x86_64",
+									"product_id": "kernel-rt_trace-base-3.0.101.rt130-69.27.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-rt_trace-devel-3.0.101.rt130-69.27.1.x86_64",
+								"product": {
+									"name": "kernel-rt_trace-devel-3.0.101.rt130-69.27.1.x86_64",
+									"product_id": "kernel-rt_trace-devel-3.0.101.rt130-69.27.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-source-rt-3.0.101.rt130-69.27.1.x86_64",
+								"product": {
+									"name": "kernel-source-rt-3.0.101.rt130-69.27.1.x86_64",
+									"product_id": "kernel-source-rt-3.0.101.rt130-69.27.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-syms-rt-3.0.101.rt130-69.27.1.x86_64",
+								"product": {
+									"name": "kernel-syms-rt-3.0.101.rt130-69.27.1.x86_64",
+									"product_id": "kernel-syms-rt-3.0.101.rt130-69.27.1.x86_64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "x86_64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Real Time 11 SP4",
+								"product": {
+									"name": "SUSE Linux Enterprise Real Time 11 SP4",
+									"product_id": "SUSE Linux Enterprise Real Time 11 SP4"
+								}
+							}
+						],
+						"category": "product_family",
+						"name": "SUSE Linux Enterprise"
+					}
+				],
+				"category": "vendor",
+				"name": "SUSE"
+			}
+		],
+		"relationships": [
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-rt-3.0.101.rt130-69.27.1.x86_64 as component of SUSE Linux Enterprise Real Time 11 SP4",
+					"product_id": "SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-3.0.101.rt130-69.27.1.x86_64"
+				},
+				"product_reference": "kernel-rt-3.0.101.rt130-69.27.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Real Time 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-rt-base-3.0.101.rt130-69.27.1.x86_64 as component of SUSE Linux Enterprise Real Time 11 SP4",
+					"product_id": "SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-base-3.0.101.rt130-69.27.1.x86_64"
+				},
+				"product_reference": "kernel-rt-base-3.0.101.rt130-69.27.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Real Time 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-rt-devel-3.0.101.rt130-69.27.1.x86_64 as component of SUSE Linux Enterprise Real Time 11 SP4",
+					"product_id": "SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-devel-3.0.101.rt130-69.27.1.x86_64"
+				},
+				"product_reference": "kernel-rt-devel-3.0.101.rt130-69.27.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Real Time 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-rt_trace-3.0.101.rt130-69.27.1.x86_64 as component of SUSE Linux Enterprise Real Time 11 SP4",
+					"product_id": "SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-3.0.101.rt130-69.27.1.x86_64"
+				},
+				"product_reference": "kernel-rt_trace-3.0.101.rt130-69.27.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Real Time 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-rt_trace-base-3.0.101.rt130-69.27.1.x86_64 as component of SUSE Linux Enterprise Real Time 11 SP4",
+					"product_id": "SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-base-3.0.101.rt130-69.27.1.x86_64"
+				},
+				"product_reference": "kernel-rt_trace-base-3.0.101.rt130-69.27.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Real Time 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-rt_trace-devel-3.0.101.rt130-69.27.1.x86_64 as component of SUSE Linux Enterprise Real Time 11 SP4",
+					"product_id": "SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-devel-3.0.101.rt130-69.27.1.x86_64"
+				},
+				"product_reference": "kernel-rt_trace-devel-3.0.101.rt130-69.27.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Real Time 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-source-rt-3.0.101.rt130-69.27.1.x86_64 as component of SUSE Linux Enterprise Real Time 11 SP4",
+					"product_id": "SUSE Linux Enterprise Real Time 11 SP4:kernel-source-rt-3.0.101.rt130-69.27.1.x86_64"
+				},
+				"product_reference": "kernel-source-rt-3.0.101.rt130-69.27.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Real Time 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-syms-rt-3.0.101.rt130-69.27.1.x86_64 as component of SUSE Linux Enterprise Real Time 11 SP4",
+					"product_id": "SUSE Linux Enterprise Real Time 11 SP4:kernel-syms-rt-3.0.101.rt130-69.27.1.x86_64"
+				},
+				"product_reference": "kernel-syms-rt-3.0.101.rt130-69.27.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Real Time 11 SP4"
+			}
+		]
+	},
+	"vulnerabilities": [
+		{
+			"cve": "CVE-2018-1000199",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2018-1000199"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The Linux Kernel version 3.18 contains a dangerous feature vulnerability in modify_user_hw_breakpoint() that can result in crash and possibly memory corruption. This attack appear to be exploitable via local code execution and the ability to use ptrace. This vulnerability appears to have been fixed in git commit f67b15037a7a50c57f72e69a6d59941ad90a0f0f.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-3.0.101.rt130-69.27.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-base-3.0.101.rt130-69.27.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-devel-3.0.101.rt130-69.27.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-3.0.101.rt130-69.27.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-base-3.0.101.rt130-69.27.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-devel-3.0.101.rt130-69.27.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-source-rt-3.0.101.rt130-69.27.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-syms-rt-3.0.101.rt130-69.27.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2018-1000199",
+					"url": "https://www.suse.com/security/cve/CVE-2018-1000199"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1089895 for CVE-2018-1000199",
+					"url": "https://bugzilla.suse.com/1089895"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1090036 for CVE-2018-1000199",
+					"url": "https://bugzilla.suse.com/1090036"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-3.0.101.rt130-69.27.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-base-3.0.101.rt130-69.27.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-devel-3.0.101.rt130-69.27.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-3.0.101.rt130-69.27.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-base-3.0.101.rt130-69.27.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-devel-3.0.101.rt130-69.27.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-source-rt-3.0.101.rt130-69.27.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-syms-rt-3.0.101.rt130-69.27.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.1,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.0/AV:L/AC:L/PR:N/UI:N/S:C/C:N/I:N/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-3.0.101.rt130-69.27.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-base-3.0.101.rt130-69.27.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-devel-3.0.101.rt130-69.27.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-3.0.101.rt130-69.27.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-base-3.0.101.rt130-69.27.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-devel-3.0.101.rt130-69.27.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-source-rt-3.0.101.rt130-69.27.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-syms-rt-3.0.101.rt130-69.27.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-06-29T09:36:25Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2018-1000199"
+		},
+		{
+			"cve": "CVE-2018-10675",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2018-10675"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The do_get_mempolicy function in mm/mempolicy.c in the Linux kernel before 4.12.9 allows local users to cause a denial of service (use-after-free) or possibly have unspecified other impact via crafted system calls.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-3.0.101.rt130-69.27.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-base-3.0.101.rt130-69.27.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-devel-3.0.101.rt130-69.27.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-3.0.101.rt130-69.27.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-base-3.0.101.rt130-69.27.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-devel-3.0.101.rt130-69.27.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-source-rt-3.0.101.rt130-69.27.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-syms-rt-3.0.101.rt130-69.27.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2018-10675",
+					"url": "https://www.suse.com/security/cve/CVE-2018-10675"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1087082 for CVE-2018-10675",
+					"url": "https://bugzilla.suse.com/1087082"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1091755 for CVE-2018-10675",
+					"url": "https://bugzilla.suse.com/1091755"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1115893 for CVE-2018-10675",
+					"url": "https://bugzilla.suse.com/1115893"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-3.0.101.rt130-69.27.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-base-3.0.101.rt130-69.27.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-devel-3.0.101.rt130-69.27.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-3.0.101.rt130-69.27.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-base-3.0.101.rt130-69.27.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-devel-3.0.101.rt130-69.27.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-source-rt-3.0.101.rt130-69.27.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-syms-rt-3.0.101.rt130-69.27.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 5.5,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-3.0.101.rt130-69.27.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-base-3.0.101.rt130-69.27.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-devel-3.0.101.rt130-69.27.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-3.0.101.rt130-69.27.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-base-3.0.101.rt130-69.27.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-devel-3.0.101.rt130-69.27.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-source-rt-3.0.101.rt130-69.27.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-syms-rt-3.0.101.rt130-69.27.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-06-29T09:36:25Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2018-10675"
+		},
+		{
+			"cve": "CVE-2018-3639",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2018-3639"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Systems with microprocessors utilizing speculative execution and speculative execution of memory reads before the addresses of all prior memory writes are known may allow unauthorized disclosure of information to an attacker with local user access via a side-channel analysis, aka Speculative Store Bypass (SSB), Variant 4.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-3.0.101.rt130-69.27.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-base-3.0.101.rt130-69.27.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-devel-3.0.101.rt130-69.27.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-3.0.101.rt130-69.27.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-base-3.0.101.rt130-69.27.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-devel-3.0.101.rt130-69.27.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-source-rt-3.0.101.rt130-69.27.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-syms-rt-3.0.101.rt130-69.27.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2018-3639",
+					"url": "https://www.suse.com/security/cve/CVE-2018-3639"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1074701 for CVE-2018-3639",
+					"url": "https://bugzilla.suse.com/1074701"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1085235 for CVE-2018-3639",
+					"url": "https://bugzilla.suse.com/1085235"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1085308 for CVE-2018-3639",
+					"url": "https://bugzilla.suse.com/1085308"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1087078 for CVE-2018-3639",
+					"url": "https://bugzilla.suse.com/1087078"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1087082 for CVE-2018-3639",
+					"url": "https://bugzilla.suse.com/1087082"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1092631 for CVE-2018-3639",
+					"url": "https://bugzilla.suse.com/1092631"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1092885 for CVE-2018-3639",
+					"url": "https://bugzilla.suse.com/1092885"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1094912 for CVE-2018-3639",
+					"url": "https://bugzilla.suse.com/1094912"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1098813 for CVE-2018-3639",
+					"url": "https://bugzilla.suse.com/1098813"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1100394 for CVE-2018-3639",
+					"url": "https://bugzilla.suse.com/1100394"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1102640 for CVE-2018-3639",
+					"url": "https://bugzilla.suse.com/1102640"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1105412 for CVE-2018-3639",
+					"url": "https://bugzilla.suse.com/1105412"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1111963 for CVE-2018-3639",
+					"url": "https://bugzilla.suse.com/1111963"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1172781 for CVE-2018-3639",
+					"url": "https://bugzilla.suse.com/1172781"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1172782 for CVE-2018-3639",
+					"url": "https://bugzilla.suse.com/1172782"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1172783 for CVE-2018-3639",
+					"url": "https://bugzilla.suse.com/1172783"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1173489 for CVE-2018-3639",
+					"url": "https://bugzilla.suse.com/1173489"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1178658 for CVE-2018-3639",
+					"url": "https://bugzilla.suse.com/1178658"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1201877 for CVE-2018-3639",
+					"url": "https://bugzilla.suse.com/1201877"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1215674 for CVE-2018-3639",
+					"url": "https://bugzilla.suse.com/1215674"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-3.0.101.rt130-69.27.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-base-3.0.101.rt130-69.27.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-devel-3.0.101.rt130-69.27.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-3.0.101.rt130-69.27.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-base-3.0.101.rt130-69.27.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-devel-3.0.101.rt130-69.27.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-source-rt-3.0.101.rt130-69.27.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-syms-rt-3.0.101.rt130-69.27.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 4.3,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.0/AV:L/AC:L/PR:N/UI:N/S:C/C:L/I:N/A:N",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-3.0.101.rt130-69.27.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-base-3.0.101.rt130-69.27.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-devel-3.0.101.rt130-69.27.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-3.0.101.rt130-69.27.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-base-3.0.101.rt130-69.27.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-devel-3.0.101.rt130-69.27.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-source-rt-3.0.101.rt130-69.27.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-syms-rt-3.0.101.rt130-69.27.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-06-29T09:36:25Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2018-3639"
+		},
+		{
+			"cve": "CVE-2018-3665",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2018-3665"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "System software utilizing Lazy FP state restore technique on systems using Intel Core-based microprocessors may potentially allow a local process to infer data from another process through a speculative execution side channel.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-3.0.101.rt130-69.27.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-base-3.0.101.rt130-69.27.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-devel-3.0.101.rt130-69.27.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-3.0.101.rt130-69.27.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-base-3.0.101.rt130-69.27.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-devel-3.0.101.rt130-69.27.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-source-rt-3.0.101.rt130-69.27.1.x86_64",
+					"SUSE Linux Enterprise Real Time 11 SP4:kernel-syms-rt-3.0.101.rt130-69.27.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2018-3665",
+					"url": "https://www.suse.com/security/cve/CVE-2018-3665"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1087078 for CVE-2018-3665",
+					"url": "https://bugzilla.suse.com/1087078"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1087082 for CVE-2018-3665",
+					"url": "https://bugzilla.suse.com/1087082"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1087086 for CVE-2018-3665",
+					"url": "https://bugzilla.suse.com/1087086"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1090338 for CVE-2018-3665",
+					"url": "https://bugzilla.suse.com/1090338"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1095241 for CVE-2018-3665",
+					"url": "https://bugzilla.suse.com/1095241"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1095242 for CVE-2018-3665",
+					"url": "https://bugzilla.suse.com/1095242"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1096740 for CVE-2018-3665",
+					"url": "https://bugzilla.suse.com/1096740"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1100091 for CVE-2018-3665",
+					"url": "https://bugzilla.suse.com/1100091"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1100555 for CVE-2018-3665",
+					"url": "https://bugzilla.suse.com/1100555"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1178658 for CVE-2018-3665",
+					"url": "https://bugzilla.suse.com/1178658"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-3.0.101.rt130-69.27.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-base-3.0.101.rt130-69.27.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-devel-3.0.101.rt130-69.27.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-3.0.101.rt130-69.27.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-base-3.0.101.rt130-69.27.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-devel-3.0.101.rt130-69.27.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-source-rt-3.0.101.rt130-69.27.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-syms-rt-3.0.101.rt130-69.27.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 4.3,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.0/AV:L/AC:L/PR:N/UI:N/S:C/C:L/I:N/A:N",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-3.0.101.rt130-69.27.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-base-3.0.101.rt130-69.27.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt-devel-3.0.101.rt130-69.27.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-3.0.101.rt130-69.27.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-base-3.0.101.rt130-69.27.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-rt_trace-devel-3.0.101.rt130-69.27.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-source-rt-3.0.101.rt130-69.27.1.x86_64",
+						"SUSE Linux Enterprise Real Time 11 SP4:kernel-syms-rt-3.0.101.rt130-69.27.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-06-29T09:36:25Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2018-3665"
+		}
+	]
+}

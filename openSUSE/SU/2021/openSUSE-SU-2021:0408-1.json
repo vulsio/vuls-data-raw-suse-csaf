@@ -1,0 +1,2214 @@
+{
+	"document": {
+		"aggregate_severity": {
+			"namespace": "https://www.suse.com/support/security/rating/",
+			"text": "important"
+		},
+		"category": "csaf_security_advisory",
+		"csaf_version": "2.0",
+		"distribution": {
+			"text": "Copyright 2024 SUSE LLC. All rights reserved.",
+			"tlp": {
+				"label": "WHITE",
+				"url": "https://www.first.org/tlp/"
+			}
+		},
+		"lang": "en",
+		"notes": [
+			{
+				"category": "summary",
+				"text": "Security update for openldap2",
+				"title": "Title of the patch"
+			},
+			{
+				"category": "description",
+				"text": "This update for openldap2 fixes the following issues:\n\n- bsc#1182408 CVE-2020-36230 - an assertion failure in slapd in the\n  X.509 DN parsing in decode.c ber_next_element, resulting in denial\n  of service.\n- bsc#1182411 CVE-2020-36229 - ldap_X509dn2bv crash in the X.509 DN\n  parsing in ad_keystring, resulting in denial of service.\n- bsc#1182412 CVE-2020-36228 - integer underflow leading to crash\n  in the Certificate List Exact Assertion processing, resulting in\n  denial of service.\n- bsc#1182413 CVE-2020-36227 - infinite loop in slapd with the\n  cancel_extop Cancel operation, resulting in denial of service.\n- bsc#1182416 CVE-2020-36225 - double free and slapd crash in the\n  saslAuthzTo processing, resulting in denial of service.\n- bsc#1182417 CVE-2020-36224 - invalid pointer free and slapd crash\n  in the saslAuthzTo processing, resulting in denial of service.\n- bsc#1182415 CVE-2020-36226 - memch->bv_len miscalculation and slapd\n  crash in the saslAuthzTo processing, resulting in denial of service.\n- bsc#1182419 CVE-2020-36222 - assertion failure in slapd in the\n  saslAuthzTo validation, resulting in denial of service.\n- bsc#1182420 CVE-2020-36221 - slapd crashes in the Certificate Exact\n  Assertion processing, resulting in denial of service (schema_init.c\n  serialNumberAndIssuerCheck).\n- bsc#1182418 CVE-2020-36223 - slapd crash in the Values Return Filter\n  control handling, resulting in denial of service (double free and\n  out-of-bounds read).\n- bsc#1182279 CVE-2021-27212 - an assertion failure in slapd can occur\n    in the issuerAndThisUpdateCheck function via a crafted packet,\n    resulting in a denial of service (daemon exit) via a short timestamp.\n    This is related to schema_init.c and checkTime.\n\nThis update was imported from the SUSE:SLE-15:Update update project.",
+				"title": "Description of the patch"
+			},
+			{
+				"category": "details",
+				"text": "openSUSE-2021-408",
+				"title": "Patchnames"
+			},
+			{
+				"category": "legal_disclaimer",
+				"text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+				"title": "Terms of use"
+			}
+		],
+		"publisher": {
+			"category": "vendor",
+			"contact_details": "https://www.suse.com/support/security/contact/",
+			"name": "SUSE Product Security Team",
+			"namespace": "https://www.suse.com/"
+		},
+		"references": [
+			{
+				"category": "external",
+				"summary": "SUSE ratings",
+				"url": "https://www.suse.com/support/security/rating/"
+			},
+			{
+				"category": "self",
+				"summary": "URL of this CSAF notice",
+				"url": "https://ftp.suse.com/pub/projects/security/csaf/opensuse-su-2021_0408-1.json"
+			},
+			{
+				"category": "self",
+				"summary": "URL for openSUSE-SU-2021:0408-1",
+				"url": "https://lists.opensuse.org/archives/list/security-announce@lists.opensuse.org/thread/34RGWB6WTBL4BEDA4UXHB5TDLT47DCUY/"
+			},
+			{
+				"category": "self",
+				"summary": "E-Mail link for openSUSE-SU-2021:0408-1",
+				"url": "https://lists.opensuse.org/archives/list/security-announce@lists.opensuse.org/thread/34RGWB6WTBL4BEDA4UXHB5TDLT47DCUY/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1182279",
+				"url": "https://bugzilla.suse.com/1182279"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1182408",
+				"url": "https://bugzilla.suse.com/1182408"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1182411",
+				"url": "https://bugzilla.suse.com/1182411"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1182412",
+				"url": "https://bugzilla.suse.com/1182412"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1182413",
+				"url": "https://bugzilla.suse.com/1182413"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1182415",
+				"url": "https://bugzilla.suse.com/1182415"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1182416",
+				"url": "https://bugzilla.suse.com/1182416"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1182417",
+				"url": "https://bugzilla.suse.com/1182417"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1182418",
+				"url": "https://bugzilla.suse.com/1182418"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1182419",
+				"url": "https://bugzilla.suse.com/1182419"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1182420",
+				"url": "https://bugzilla.suse.com/1182420"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2020-36221 page",
+				"url": "https://www.suse.com/security/cve/CVE-2020-36221/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2020-36222 page",
+				"url": "https://www.suse.com/security/cve/CVE-2020-36222/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2020-36223 page",
+				"url": "https://www.suse.com/security/cve/CVE-2020-36223/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2020-36224 page",
+				"url": "https://www.suse.com/security/cve/CVE-2020-36224/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2020-36225 page",
+				"url": "https://www.suse.com/security/cve/CVE-2020-36225/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2020-36226 page",
+				"url": "https://www.suse.com/security/cve/CVE-2020-36226/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2020-36227 page",
+				"url": "https://www.suse.com/security/cve/CVE-2020-36227/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2020-36228 page",
+				"url": "https://www.suse.com/security/cve/CVE-2020-36228/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2020-36229 page",
+				"url": "https://www.suse.com/security/cve/CVE-2020-36229/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2020-36230 page",
+				"url": "https://www.suse.com/security/cve/CVE-2020-36230/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2021-27212 page",
+				"url": "https://www.suse.com/security/cve/CVE-2021-27212/"
+			}
+		],
+		"title": "Security update for openldap2",
+		"tracking": {
+			"current_release_date": "2021-03-14T14:10:26Z",
+			"generator": {
+				"date": "2021-03-14T14:10:26Z",
+				"engine": {
+					"name": "cve-database.git:bin/generate-csaf.pl",
+					"version": "1"
+				}
+			},
+			"id": "openSUSE-SU-2021:0408-1",
+			"initial_release_date": "2021-03-14T14:10:26Z",
+			"revision_history": [
+				{
+					"date": "2021-03-14T14:10:26Z",
+					"number": "1",
+					"summary": "Current version"
+				}
+			],
+			"status": "final",
+			"version": "1"
+		}
+	},
+	"product_tree": {
+		"branches": [
+			{
+				"branches": [
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "libldap-2_4-2-2.4.46-lp152.14.18.1.i586",
+								"product": {
+									"name": "libldap-2_4-2-2.4.46-lp152.14.18.1.i586",
+									"product_id": "libldap-2_4-2-2.4.46-lp152.14.18.1.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openldap2-2.4.46-lp152.14.18.1.i586",
+								"product": {
+									"name": "openldap2-2.4.46-lp152.14.18.1.i586",
+									"product_id": "openldap2-2.4.46-lp152.14.18.1.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openldap2-back-meta-2.4.46-lp152.14.18.1.i586",
+								"product": {
+									"name": "openldap2-back-meta-2.4.46-lp152.14.18.1.i586",
+									"product_id": "openldap2-back-meta-2.4.46-lp152.14.18.1.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openldap2-back-perl-2.4.46-lp152.14.18.1.i586",
+								"product": {
+									"name": "openldap2-back-perl-2.4.46-lp152.14.18.1.i586",
+									"product_id": "openldap2-back-perl-2.4.46-lp152.14.18.1.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openldap2-back-sock-2.4.46-lp152.14.18.1.i586",
+								"product": {
+									"name": "openldap2-back-sock-2.4.46-lp152.14.18.1.i586",
+									"product_id": "openldap2-back-sock-2.4.46-lp152.14.18.1.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openldap2-back-sql-2.4.46-lp152.14.18.1.i586",
+								"product": {
+									"name": "openldap2-back-sql-2.4.46-lp152.14.18.1.i586",
+									"product_id": "openldap2-back-sql-2.4.46-lp152.14.18.1.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openldap2-client-2.4.46-lp152.14.18.1.i586",
+								"product": {
+									"name": "openldap2-client-2.4.46-lp152.14.18.1.i586",
+									"product_id": "openldap2-client-2.4.46-lp152.14.18.1.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openldap2-contrib-2.4.46-lp152.14.18.1.i586",
+								"product": {
+									"name": "openldap2-contrib-2.4.46-lp152.14.18.1.i586",
+									"product_id": "openldap2-contrib-2.4.46-lp152.14.18.1.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openldap2-devel-2.4.46-lp152.14.18.1.i586",
+								"product": {
+									"name": "openldap2-devel-2.4.46-lp152.14.18.1.i586",
+									"product_id": "openldap2-devel-2.4.46-lp152.14.18.1.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openldap2-devel-static-2.4.46-lp152.14.18.1.i586",
+								"product": {
+									"name": "openldap2-devel-static-2.4.46-lp152.14.18.1.i586",
+									"product_id": "openldap2-devel-static-2.4.46-lp152.14.18.1.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openldap2-ppolicy-check-password-1.2-lp152.14.18.1.i586",
+								"product": {
+									"name": "openldap2-ppolicy-check-password-1.2-lp152.14.18.1.i586",
+									"product_id": "openldap2-ppolicy-check-password-1.2-lp152.14.18.1.i586"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "i586"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "libldap-data-2.4.46-lp152.14.18.1.noarch",
+								"product": {
+									"name": "libldap-data-2.4.46-lp152.14.18.1.noarch",
+									"product_id": "libldap-data-2.4.46-lp152.14.18.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openldap2-doc-2.4.46-lp152.14.18.1.noarch",
+								"product": {
+									"name": "openldap2-doc-2.4.46-lp152.14.18.1.noarch",
+									"product_id": "openldap2-doc-2.4.46-lp152.14.18.1.noarch"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "noarch"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "libldap-2_4-2-2.4.46-lp152.14.18.1.x86_64",
+								"product": {
+									"name": "libldap-2_4-2-2.4.46-lp152.14.18.1.x86_64",
+									"product_id": "libldap-2_4-2-2.4.46-lp152.14.18.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libldap-2_4-2-32bit-2.4.46-lp152.14.18.1.x86_64",
+								"product": {
+									"name": "libldap-2_4-2-32bit-2.4.46-lp152.14.18.1.x86_64",
+									"product_id": "libldap-2_4-2-32bit-2.4.46-lp152.14.18.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openldap2-2.4.46-lp152.14.18.1.x86_64",
+								"product": {
+									"name": "openldap2-2.4.46-lp152.14.18.1.x86_64",
+									"product_id": "openldap2-2.4.46-lp152.14.18.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openldap2-back-meta-2.4.46-lp152.14.18.1.x86_64",
+								"product": {
+									"name": "openldap2-back-meta-2.4.46-lp152.14.18.1.x86_64",
+									"product_id": "openldap2-back-meta-2.4.46-lp152.14.18.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openldap2-back-perl-2.4.46-lp152.14.18.1.x86_64",
+								"product": {
+									"name": "openldap2-back-perl-2.4.46-lp152.14.18.1.x86_64",
+									"product_id": "openldap2-back-perl-2.4.46-lp152.14.18.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openldap2-back-sock-2.4.46-lp152.14.18.1.x86_64",
+								"product": {
+									"name": "openldap2-back-sock-2.4.46-lp152.14.18.1.x86_64",
+									"product_id": "openldap2-back-sock-2.4.46-lp152.14.18.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openldap2-back-sql-2.4.46-lp152.14.18.1.x86_64",
+								"product": {
+									"name": "openldap2-back-sql-2.4.46-lp152.14.18.1.x86_64",
+									"product_id": "openldap2-back-sql-2.4.46-lp152.14.18.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openldap2-client-2.4.46-lp152.14.18.1.x86_64",
+								"product": {
+									"name": "openldap2-client-2.4.46-lp152.14.18.1.x86_64",
+									"product_id": "openldap2-client-2.4.46-lp152.14.18.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openldap2-contrib-2.4.46-lp152.14.18.1.x86_64",
+								"product": {
+									"name": "openldap2-contrib-2.4.46-lp152.14.18.1.x86_64",
+									"product_id": "openldap2-contrib-2.4.46-lp152.14.18.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openldap2-devel-2.4.46-lp152.14.18.1.x86_64",
+								"product": {
+									"name": "openldap2-devel-2.4.46-lp152.14.18.1.x86_64",
+									"product_id": "openldap2-devel-2.4.46-lp152.14.18.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openldap2-devel-32bit-2.4.46-lp152.14.18.1.x86_64",
+								"product": {
+									"name": "openldap2-devel-32bit-2.4.46-lp152.14.18.1.x86_64",
+									"product_id": "openldap2-devel-32bit-2.4.46-lp152.14.18.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openldap2-devel-static-2.4.46-lp152.14.18.1.x86_64",
+								"product": {
+									"name": "openldap2-devel-static-2.4.46-lp152.14.18.1.x86_64",
+									"product_id": "openldap2-devel-static-2.4.46-lp152.14.18.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "openldap2-ppolicy-check-password-1.2-lp152.14.18.1.x86_64",
+								"product": {
+									"name": "openldap2-ppolicy-check-password-1.2-lp152.14.18.1.x86_64",
+									"product_id": "openldap2-ppolicy-check-password-1.2-lp152.14.18.1.x86_64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "x86_64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_name",
+								"name": "openSUSE Leap 15.2",
+								"product": {
+									"name": "openSUSE Leap 15.2",
+									"product_id": "openSUSE Leap 15.2",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:opensuse:leap:15.2"
+									}
+								}
+							}
+						],
+						"category": "product_family",
+						"name": "SUSE Linux Enterprise"
+					}
+				],
+				"category": "vendor",
+				"name": "SUSE"
+			}
+		],
+		"relationships": [
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libldap-2_4-2-2.4.46-lp152.14.18.1.i586 as component of openSUSE Leap 15.2",
+					"product_id": "openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.i586"
+				},
+				"product_reference": "libldap-2_4-2-2.4.46-lp152.14.18.1.i586",
+				"relates_to_product_reference": "openSUSE Leap 15.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libldap-2_4-2-2.4.46-lp152.14.18.1.x86_64 as component of openSUSE Leap 15.2",
+					"product_id": "openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.x86_64"
+				},
+				"product_reference": "libldap-2_4-2-2.4.46-lp152.14.18.1.x86_64",
+				"relates_to_product_reference": "openSUSE Leap 15.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libldap-2_4-2-32bit-2.4.46-lp152.14.18.1.x86_64 as component of openSUSE Leap 15.2",
+					"product_id": "openSUSE Leap 15.2:libldap-2_4-2-32bit-2.4.46-lp152.14.18.1.x86_64"
+				},
+				"product_reference": "libldap-2_4-2-32bit-2.4.46-lp152.14.18.1.x86_64",
+				"relates_to_product_reference": "openSUSE Leap 15.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libldap-data-2.4.46-lp152.14.18.1.noarch as component of openSUSE Leap 15.2",
+					"product_id": "openSUSE Leap 15.2:libldap-data-2.4.46-lp152.14.18.1.noarch"
+				},
+				"product_reference": "libldap-data-2.4.46-lp152.14.18.1.noarch",
+				"relates_to_product_reference": "openSUSE Leap 15.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openldap2-2.4.46-lp152.14.18.1.i586 as component of openSUSE Leap 15.2",
+					"product_id": "openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.i586"
+				},
+				"product_reference": "openldap2-2.4.46-lp152.14.18.1.i586",
+				"relates_to_product_reference": "openSUSE Leap 15.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openldap2-2.4.46-lp152.14.18.1.x86_64 as component of openSUSE Leap 15.2",
+					"product_id": "openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.x86_64"
+				},
+				"product_reference": "openldap2-2.4.46-lp152.14.18.1.x86_64",
+				"relates_to_product_reference": "openSUSE Leap 15.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openldap2-back-meta-2.4.46-lp152.14.18.1.i586 as component of openSUSE Leap 15.2",
+					"product_id": "openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.i586"
+				},
+				"product_reference": "openldap2-back-meta-2.4.46-lp152.14.18.1.i586",
+				"relates_to_product_reference": "openSUSE Leap 15.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openldap2-back-meta-2.4.46-lp152.14.18.1.x86_64 as component of openSUSE Leap 15.2",
+					"product_id": "openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.x86_64"
+				},
+				"product_reference": "openldap2-back-meta-2.4.46-lp152.14.18.1.x86_64",
+				"relates_to_product_reference": "openSUSE Leap 15.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openldap2-back-perl-2.4.46-lp152.14.18.1.i586 as component of openSUSE Leap 15.2",
+					"product_id": "openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.i586"
+				},
+				"product_reference": "openldap2-back-perl-2.4.46-lp152.14.18.1.i586",
+				"relates_to_product_reference": "openSUSE Leap 15.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openldap2-back-perl-2.4.46-lp152.14.18.1.x86_64 as component of openSUSE Leap 15.2",
+					"product_id": "openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.x86_64"
+				},
+				"product_reference": "openldap2-back-perl-2.4.46-lp152.14.18.1.x86_64",
+				"relates_to_product_reference": "openSUSE Leap 15.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openldap2-back-sock-2.4.46-lp152.14.18.1.i586 as component of openSUSE Leap 15.2",
+					"product_id": "openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.i586"
+				},
+				"product_reference": "openldap2-back-sock-2.4.46-lp152.14.18.1.i586",
+				"relates_to_product_reference": "openSUSE Leap 15.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openldap2-back-sock-2.4.46-lp152.14.18.1.x86_64 as component of openSUSE Leap 15.2",
+					"product_id": "openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.x86_64"
+				},
+				"product_reference": "openldap2-back-sock-2.4.46-lp152.14.18.1.x86_64",
+				"relates_to_product_reference": "openSUSE Leap 15.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openldap2-back-sql-2.4.46-lp152.14.18.1.i586 as component of openSUSE Leap 15.2",
+					"product_id": "openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.i586"
+				},
+				"product_reference": "openldap2-back-sql-2.4.46-lp152.14.18.1.i586",
+				"relates_to_product_reference": "openSUSE Leap 15.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openldap2-back-sql-2.4.46-lp152.14.18.1.x86_64 as component of openSUSE Leap 15.2",
+					"product_id": "openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.x86_64"
+				},
+				"product_reference": "openldap2-back-sql-2.4.46-lp152.14.18.1.x86_64",
+				"relates_to_product_reference": "openSUSE Leap 15.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openldap2-client-2.4.46-lp152.14.18.1.i586 as component of openSUSE Leap 15.2",
+					"product_id": "openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.i586"
+				},
+				"product_reference": "openldap2-client-2.4.46-lp152.14.18.1.i586",
+				"relates_to_product_reference": "openSUSE Leap 15.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openldap2-client-2.4.46-lp152.14.18.1.x86_64 as component of openSUSE Leap 15.2",
+					"product_id": "openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.x86_64"
+				},
+				"product_reference": "openldap2-client-2.4.46-lp152.14.18.1.x86_64",
+				"relates_to_product_reference": "openSUSE Leap 15.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openldap2-contrib-2.4.46-lp152.14.18.1.i586 as component of openSUSE Leap 15.2",
+					"product_id": "openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.i586"
+				},
+				"product_reference": "openldap2-contrib-2.4.46-lp152.14.18.1.i586",
+				"relates_to_product_reference": "openSUSE Leap 15.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openldap2-contrib-2.4.46-lp152.14.18.1.x86_64 as component of openSUSE Leap 15.2",
+					"product_id": "openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.x86_64"
+				},
+				"product_reference": "openldap2-contrib-2.4.46-lp152.14.18.1.x86_64",
+				"relates_to_product_reference": "openSUSE Leap 15.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openldap2-devel-2.4.46-lp152.14.18.1.i586 as component of openSUSE Leap 15.2",
+					"product_id": "openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.i586"
+				},
+				"product_reference": "openldap2-devel-2.4.46-lp152.14.18.1.i586",
+				"relates_to_product_reference": "openSUSE Leap 15.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openldap2-devel-2.4.46-lp152.14.18.1.x86_64 as component of openSUSE Leap 15.2",
+					"product_id": "openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.x86_64"
+				},
+				"product_reference": "openldap2-devel-2.4.46-lp152.14.18.1.x86_64",
+				"relates_to_product_reference": "openSUSE Leap 15.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openldap2-devel-32bit-2.4.46-lp152.14.18.1.x86_64 as component of openSUSE Leap 15.2",
+					"product_id": "openSUSE Leap 15.2:openldap2-devel-32bit-2.4.46-lp152.14.18.1.x86_64"
+				},
+				"product_reference": "openldap2-devel-32bit-2.4.46-lp152.14.18.1.x86_64",
+				"relates_to_product_reference": "openSUSE Leap 15.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openldap2-devel-static-2.4.46-lp152.14.18.1.i586 as component of openSUSE Leap 15.2",
+					"product_id": "openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.i586"
+				},
+				"product_reference": "openldap2-devel-static-2.4.46-lp152.14.18.1.i586",
+				"relates_to_product_reference": "openSUSE Leap 15.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openldap2-devel-static-2.4.46-lp152.14.18.1.x86_64 as component of openSUSE Leap 15.2",
+					"product_id": "openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.x86_64"
+				},
+				"product_reference": "openldap2-devel-static-2.4.46-lp152.14.18.1.x86_64",
+				"relates_to_product_reference": "openSUSE Leap 15.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openldap2-doc-2.4.46-lp152.14.18.1.noarch as component of openSUSE Leap 15.2",
+					"product_id": "openSUSE Leap 15.2:openldap2-doc-2.4.46-lp152.14.18.1.noarch"
+				},
+				"product_reference": "openldap2-doc-2.4.46-lp152.14.18.1.noarch",
+				"relates_to_product_reference": "openSUSE Leap 15.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openldap2-ppolicy-check-password-1.2-lp152.14.18.1.i586 as component of openSUSE Leap 15.2",
+					"product_id": "openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.i586"
+				},
+				"product_reference": "openldap2-ppolicy-check-password-1.2-lp152.14.18.1.i586",
+				"relates_to_product_reference": "openSUSE Leap 15.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "openldap2-ppolicy-check-password-1.2-lp152.14.18.1.x86_64 as component of openSUSE Leap 15.2",
+					"product_id": "openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.x86_64"
+				},
+				"product_reference": "openldap2-ppolicy-check-password-1.2-lp152.14.18.1.x86_64",
+				"relates_to_product_reference": "openSUSE Leap 15.2"
+			}
+		]
+	},
+	"vulnerabilities": [
+		{
+			"cve": "CVE-2020-36221",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2020-36221"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "An integer underflow was discovered in OpenLDAP before 2.4.57 leading to slapd crashes in the Certificate Exact Assertion processing, resulting in denial of service (schema_init.c serialNumberAndIssuerCheck).",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:libldap-2_4-2-32bit-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:libldap-data-2.4.46-lp152.14.18.1.noarch",
+					"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-devel-32bit-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-doc-2.4.46-lp152.14.18.1.noarch",
+					"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2020-36221",
+					"url": "https://www.suse.com/security/cve/CVE-2020-36221"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1182420 for CVE-2020-36221",
+					"url": "https://bugzilla.suse.com/1182420"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:libldap-2_4-2-32bit-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:libldap-data-2.4.46-lp152.14.18.1.noarch",
+						"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-32bit-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-doc-2.4.46-lp152.14.18.1.noarch",
+						"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.5,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:libldap-2_4-2-32bit-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:libldap-data-2.4.46-lp152.14.18.1.noarch",
+						"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-32bit-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-doc-2.4.46-lp152.14.18.1.noarch",
+						"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2021-03-14T14:10:26Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2020-36221"
+		},
+		{
+			"cve": "CVE-2020-36222",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2020-36222"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A flaw was discovered in OpenLDAP before 2.4.57 leading to an assertion failure in slapd in the saslAuthzTo validation, resulting in denial of service.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:libldap-2_4-2-32bit-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:libldap-data-2.4.46-lp152.14.18.1.noarch",
+					"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-devel-32bit-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-doc-2.4.46-lp152.14.18.1.noarch",
+					"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2020-36222",
+					"url": "https://www.suse.com/security/cve/CVE-2020-36222"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1182419 for CVE-2020-36222",
+					"url": "https://bugzilla.suse.com/1182419"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:libldap-2_4-2-32bit-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:libldap-data-2.4.46-lp152.14.18.1.noarch",
+						"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-32bit-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-doc-2.4.46-lp152.14.18.1.noarch",
+						"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.5,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:libldap-2_4-2-32bit-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:libldap-data-2.4.46-lp152.14.18.1.noarch",
+						"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-32bit-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-doc-2.4.46-lp152.14.18.1.noarch",
+						"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2021-03-14T14:10:26Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2020-36222"
+		},
+		{
+			"cve": "CVE-2020-36223",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2020-36223"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A flaw was discovered in OpenLDAP before 2.4.57 leading to a slapd crash in the Values Return Filter control handling, resulting in denial of service (double free and out-of-bounds read).",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:libldap-2_4-2-32bit-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:libldap-data-2.4.46-lp152.14.18.1.noarch",
+					"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-devel-32bit-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-doc-2.4.46-lp152.14.18.1.noarch",
+					"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2020-36223",
+					"url": "https://www.suse.com/security/cve/CVE-2020-36223"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1182418 for CVE-2020-36223",
+					"url": "https://bugzilla.suse.com/1182418"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:libldap-2_4-2-32bit-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:libldap-data-2.4.46-lp152.14.18.1.noarch",
+						"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-32bit-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-doc-2.4.46-lp152.14.18.1.noarch",
+						"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.5,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:libldap-2_4-2-32bit-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:libldap-data-2.4.46-lp152.14.18.1.noarch",
+						"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-32bit-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-doc-2.4.46-lp152.14.18.1.noarch",
+						"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2021-03-14T14:10:26Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2020-36223"
+		},
+		{
+			"cve": "CVE-2020-36224",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2020-36224"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A flaw was discovered in OpenLDAP before 2.4.57 leading to an invalid pointer free and slapd crash in the saslAuthzTo processing, resulting in denial of service.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:libldap-2_4-2-32bit-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:libldap-data-2.4.46-lp152.14.18.1.noarch",
+					"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-devel-32bit-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-doc-2.4.46-lp152.14.18.1.noarch",
+					"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2020-36224",
+					"url": "https://www.suse.com/security/cve/CVE-2020-36224"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1182417 for CVE-2020-36224",
+					"url": "https://bugzilla.suse.com/1182417"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:libldap-2_4-2-32bit-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:libldap-data-2.4.46-lp152.14.18.1.noarch",
+						"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-32bit-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-doc-2.4.46-lp152.14.18.1.noarch",
+						"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.5,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:libldap-2_4-2-32bit-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:libldap-data-2.4.46-lp152.14.18.1.noarch",
+						"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-32bit-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-doc-2.4.46-lp152.14.18.1.noarch",
+						"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2021-03-14T14:10:26Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2020-36224"
+		},
+		{
+			"cve": "CVE-2020-36225",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2020-36225"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A flaw was discovered in OpenLDAP before 2.4.57 leading to a double free and slapd crash in the saslAuthzTo processing, resulting in denial of service.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:libldap-2_4-2-32bit-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:libldap-data-2.4.46-lp152.14.18.1.noarch",
+					"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-devel-32bit-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-doc-2.4.46-lp152.14.18.1.noarch",
+					"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2020-36225",
+					"url": "https://www.suse.com/security/cve/CVE-2020-36225"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1182416 for CVE-2020-36225",
+					"url": "https://bugzilla.suse.com/1182416"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:libldap-2_4-2-32bit-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:libldap-data-2.4.46-lp152.14.18.1.noarch",
+						"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-32bit-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-doc-2.4.46-lp152.14.18.1.noarch",
+						"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.5,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:libldap-2_4-2-32bit-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:libldap-data-2.4.46-lp152.14.18.1.noarch",
+						"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-32bit-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-doc-2.4.46-lp152.14.18.1.noarch",
+						"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2021-03-14T14:10:26Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2020-36225"
+		},
+		{
+			"cve": "CVE-2020-36226",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2020-36226"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A flaw was discovered in OpenLDAP before 2.4.57 leading to a memch->bv_len miscalculation and slapd crash in the saslAuthzTo processing, resulting in denial of service.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:libldap-2_4-2-32bit-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:libldap-data-2.4.46-lp152.14.18.1.noarch",
+					"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-devel-32bit-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-doc-2.4.46-lp152.14.18.1.noarch",
+					"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2020-36226",
+					"url": "https://www.suse.com/security/cve/CVE-2020-36226"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1182415 for CVE-2020-36226",
+					"url": "https://bugzilla.suse.com/1182415"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:libldap-2_4-2-32bit-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:libldap-data-2.4.46-lp152.14.18.1.noarch",
+						"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-32bit-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-doc-2.4.46-lp152.14.18.1.noarch",
+						"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.5,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:libldap-2_4-2-32bit-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:libldap-data-2.4.46-lp152.14.18.1.noarch",
+						"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-32bit-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-doc-2.4.46-lp152.14.18.1.noarch",
+						"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2021-03-14T14:10:26Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2020-36226"
+		},
+		{
+			"cve": "CVE-2020-36227",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2020-36227"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A flaw was discovered in OpenLDAP before 2.4.57 leading to an infinite loop in slapd with the cancel_extop Cancel operation, resulting in denial of service.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:libldap-2_4-2-32bit-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:libldap-data-2.4.46-lp152.14.18.1.noarch",
+					"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-devel-32bit-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-doc-2.4.46-lp152.14.18.1.noarch",
+					"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2020-36227",
+					"url": "https://www.suse.com/security/cve/CVE-2020-36227"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1182413 for CVE-2020-36227",
+					"url": "https://bugzilla.suse.com/1182413"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:libldap-2_4-2-32bit-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:libldap-data-2.4.46-lp152.14.18.1.noarch",
+						"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-32bit-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-doc-2.4.46-lp152.14.18.1.noarch",
+						"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.5,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:libldap-2_4-2-32bit-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:libldap-data-2.4.46-lp152.14.18.1.noarch",
+						"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-32bit-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-doc-2.4.46-lp152.14.18.1.noarch",
+						"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2021-03-14T14:10:26Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2020-36227"
+		},
+		{
+			"cve": "CVE-2020-36228",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2020-36228"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "An integer underflow was discovered in OpenLDAP before 2.4.57 leading to a slapd crash in the Certificate List Exact Assertion processing, resulting in denial of service.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:libldap-2_4-2-32bit-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:libldap-data-2.4.46-lp152.14.18.1.noarch",
+					"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-devel-32bit-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-doc-2.4.46-lp152.14.18.1.noarch",
+					"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2020-36228",
+					"url": "https://www.suse.com/security/cve/CVE-2020-36228"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1182412 for CVE-2020-36228",
+					"url": "https://bugzilla.suse.com/1182412"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:libldap-2_4-2-32bit-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:libldap-data-2.4.46-lp152.14.18.1.noarch",
+						"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-32bit-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-doc-2.4.46-lp152.14.18.1.noarch",
+						"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.5,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:libldap-2_4-2-32bit-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:libldap-data-2.4.46-lp152.14.18.1.noarch",
+						"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-32bit-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-doc-2.4.46-lp152.14.18.1.noarch",
+						"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2021-03-14T14:10:26Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2020-36228"
+		},
+		{
+			"cve": "CVE-2020-36229",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2020-36229"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A flaw was discovered in ldap_X509dn2bv in OpenLDAP before 2.4.57 leading to a slapd crash in the X.509 DN parsing in ad_keystring, resulting in denial of service.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:libldap-2_4-2-32bit-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:libldap-data-2.4.46-lp152.14.18.1.noarch",
+					"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-devel-32bit-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-doc-2.4.46-lp152.14.18.1.noarch",
+					"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2020-36229",
+					"url": "https://www.suse.com/security/cve/CVE-2020-36229"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1182408 for CVE-2020-36229",
+					"url": "https://bugzilla.suse.com/1182408"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1182411 for CVE-2020-36229",
+					"url": "https://bugzilla.suse.com/1182411"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:libldap-2_4-2-32bit-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:libldap-data-2.4.46-lp152.14.18.1.noarch",
+						"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-32bit-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-doc-2.4.46-lp152.14.18.1.noarch",
+						"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.5,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:libldap-2_4-2-32bit-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:libldap-data-2.4.46-lp152.14.18.1.noarch",
+						"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-32bit-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-doc-2.4.46-lp152.14.18.1.noarch",
+						"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2021-03-14T14:10:26Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2020-36229"
+		},
+		{
+			"cve": "CVE-2020-36230",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2020-36230"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A flaw was discovered in OpenLDAP before 2.4.57 leading in an assertion failure in slapd in the X.509 DN parsing in decode.c ber_next_element, resulting in denial of service.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:libldap-2_4-2-32bit-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:libldap-data-2.4.46-lp152.14.18.1.noarch",
+					"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-devel-32bit-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-doc-2.4.46-lp152.14.18.1.noarch",
+					"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2020-36230",
+					"url": "https://www.suse.com/security/cve/CVE-2020-36230"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1182408 for CVE-2020-36230",
+					"url": "https://bugzilla.suse.com/1182408"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:libldap-2_4-2-32bit-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:libldap-data-2.4.46-lp152.14.18.1.noarch",
+						"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-32bit-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-doc-2.4.46-lp152.14.18.1.noarch",
+						"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.5,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:libldap-2_4-2-32bit-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:libldap-data-2.4.46-lp152.14.18.1.noarch",
+						"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-32bit-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-doc-2.4.46-lp152.14.18.1.noarch",
+						"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2021-03-14T14:10:26Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2020-36230"
+		},
+		{
+			"cve": "CVE-2021-27212",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2021-27212"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "In OpenLDAP through 2.4.57 and 2.5.x through 2.5.1alpha, an assertion failure in slapd can occur in the issuerAndThisUpdateCheck function via a crafted packet, resulting in a denial of service (daemon exit) via a short timestamp. This is related to schema_init.c and checkTime.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:libldap-2_4-2-32bit-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:libldap-data-2.4.46-lp152.14.18.1.noarch",
+					"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-devel-32bit-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.x86_64",
+					"openSUSE Leap 15.2:openldap2-doc-2.4.46-lp152.14.18.1.noarch",
+					"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.i586",
+					"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2021-27212",
+					"url": "https://www.suse.com/security/cve/CVE-2021-27212"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1182279 for CVE-2021-27212",
+					"url": "https://bugzilla.suse.com/1182279"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:libldap-2_4-2-32bit-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:libldap-data-2.4.46-lp152.14.18.1.noarch",
+						"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-32bit-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-doc-2.4.46-lp152.14.18.1.noarch",
+						"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.5,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:libldap-2_4-2-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:libldap-2_4-2-32bit-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:libldap-data-2.4.46-lp152.14.18.1.noarch",
+						"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-meta-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-perl-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-sock-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-back-sql-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-client-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-contrib-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-devel-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-32bit-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-devel-static-2.4.46-lp152.14.18.1.x86_64",
+						"openSUSE Leap 15.2:openldap2-doc-2.4.46-lp152.14.18.1.noarch",
+						"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.i586",
+						"openSUSE Leap 15.2:openldap2-ppolicy-check-password-1.2-lp152.14.18.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2021-03-14T14:10:26Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2021-27212"
+		}
+	]
+}

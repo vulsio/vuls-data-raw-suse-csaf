@@ -1,0 +1,1399 @@
+{
+	"document": {
+		"aggregate_severity": {
+			"namespace": "https://www.suse.com/support/security/rating/",
+			"text": "important"
+		},
+		"category": "csaf_security_advisory",
+		"csaf_version": "2.0",
+		"distribution": {
+			"text": "Copyright 2024 SUSE LLC. All rights reserved.",
+			"tlp": {
+				"label": "WHITE",
+				"url": "https://www.first.org/tlp/"
+			}
+		},
+		"lang": "en",
+		"notes": [
+			{
+				"category": "summary",
+				"text": "Security update for cyrus-imapd",
+				"title": "Title of the patch"
+			},
+			{
+				"category": "description",
+				"text": "\nThis update for cyrus-imapd fixes the following issues:\n\n- Previous versions of cyrus-imapd would not allow its users to disable old SSL\n  variants that are vulnerable to attacks like BEAST and POODLE. This patch\n  adds the configuration option 'tls_versions' to remedy that issue. Note that\n  users who upgrade an existing installation will *not* have their imapd.conf\n  file overwritten, i.e. their IMAP server will continue to support SSLv2 and\n  SSLv3 like before. To disable support for those protocols, edit imapd.conf\n  manually to include 'tls_versions: tls1_0 tls1_1 tls1_2'. New installations,\n  however, will have an imapd.conf file that contains these settings already,\n  i.e. newly installed IMAP servers do *not* support unsafe versions of SSL\n  unless that support is explicitly enabled by the user. (bsc#901748)\n\n- An integer overflow vulnerability in cyrus-imapd's urlfetch range checking\n  code was fixed. (CVE-2015-8076, CVE-2015-8077, CVE-2015-8078, bsc#981670,\n  bsc#954200, bsc#954201)\n\n- Support for Elliptic Curve Diffie–Hellman (ECDH) has been added to\n  cyrus-imapd. (bsc#860611)\n",
+				"title": "Description of the patch"
+			},
+			{
+				"category": "details",
+				"text": "sdksp4-cyrus-imapd-12589,slessp4-cyrus-imapd-12589",
+				"title": "Patchnames"
+			},
+			{
+				"category": "legal_disclaimer",
+				"text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+				"title": "Terms of use"
+			}
+		],
+		"publisher": {
+			"category": "vendor",
+			"contact_details": "https://www.suse.com/support/security/contact/",
+			"name": "SUSE Product Security Team",
+			"namespace": "https://www.suse.com/"
+		},
+		"references": [
+			{
+				"category": "external",
+				"summary": "SUSE ratings",
+				"url": "https://www.suse.com/support/security/rating/"
+			},
+			{
+				"category": "self",
+				"summary": "URL of this CSAF notice",
+				"url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2016_1459-1.json"
+			},
+			{
+				"category": "self",
+				"summary": "URL for SUSE-SU-2016:1459-1",
+				"url": "https://www.suse.com/support/update/announcement/2016/suse-su-20161459-1/"
+			},
+			{
+				"category": "self",
+				"summary": "E-Mail link for SUSE-SU-2016:1459-1",
+				"url": "https://lists.suse.com/pipermail/sle-security-updates/2016-June/002087.html"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 860611",
+				"url": "https://bugzilla.suse.com/860611"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 901748",
+				"url": "https://bugzilla.suse.com/901748"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 954200",
+				"url": "https://bugzilla.suse.com/954200"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 954201",
+				"url": "https://bugzilla.suse.com/954201"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 981670",
+				"url": "https://bugzilla.suse.com/981670"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2014-3566 page",
+				"url": "https://www.suse.com/security/cve/CVE-2014-3566/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-8076 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-8076/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-8077 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-8077/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-8078 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-8078/"
+			}
+		],
+		"title": "Security update for cyrus-imapd",
+		"tracking": {
+			"current_release_date": "2016-06-01T07:00:34Z",
+			"generator": {
+				"date": "2016-06-01T07:00:34Z",
+				"engine": {
+					"name": "cve-database.git:bin/generate-csaf.pl",
+					"version": "1"
+				}
+			},
+			"id": "SUSE-SU-2016:1459-1",
+			"initial_release_date": "2016-06-01T07:00:34Z",
+			"revision_history": [
+				{
+					"date": "2016-06-01T07:00:34Z",
+					"number": "1",
+					"summary": "Current version"
+				}
+			],
+			"status": "final",
+			"version": "1"
+		}
+	},
+	"product_tree": {
+		"branches": [
+			{
+				"branches": [
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "cyrus-imapd-devel-2.3.11-60.65.67.1.i586",
+								"product": {
+									"name": "cyrus-imapd-devel-2.3.11-60.65.67.1.i586",
+									"product_id": "cyrus-imapd-devel-2.3.11-60.65.67.1.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "perl-Cyrus-IMAP-2.3.11-60.65.67.1.i586",
+								"product": {
+									"name": "perl-Cyrus-IMAP-2.3.11-60.65.67.1.i586",
+									"product_id": "perl-Cyrus-IMAP-2.3.11-60.65.67.1.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.i586",
+								"product": {
+									"name": "perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.i586",
+									"product_id": "perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "cyrus-imapd-2.3.11-60.65.67.1.i586",
+								"product": {
+									"name": "cyrus-imapd-2.3.11-60.65.67.1.i586",
+									"product_id": "cyrus-imapd-2.3.11-60.65.67.1.i586"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "i586"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "cyrus-imapd-devel-2.3.11-60.65.67.1.ia64",
+								"product": {
+									"name": "cyrus-imapd-devel-2.3.11-60.65.67.1.ia64",
+									"product_id": "cyrus-imapd-devel-2.3.11-60.65.67.1.ia64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "cyrus-imapd-2.3.11-60.65.67.1.ia64",
+								"product": {
+									"name": "cyrus-imapd-2.3.11-60.65.67.1.ia64",
+									"product_id": "cyrus-imapd-2.3.11-60.65.67.1.ia64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "perl-Cyrus-IMAP-2.3.11-60.65.67.1.ia64",
+								"product": {
+									"name": "perl-Cyrus-IMAP-2.3.11-60.65.67.1.ia64",
+									"product_id": "perl-Cyrus-IMAP-2.3.11-60.65.67.1.ia64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.ia64",
+								"product": {
+									"name": "perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.ia64",
+									"product_id": "perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.ia64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "ia64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "cyrus-imapd-devel-2.3.11-60.65.67.1.ppc64",
+								"product": {
+									"name": "cyrus-imapd-devel-2.3.11-60.65.67.1.ppc64",
+									"product_id": "cyrus-imapd-devel-2.3.11-60.65.67.1.ppc64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "cyrus-imapd-2.3.11-60.65.67.1.ppc64",
+								"product": {
+									"name": "cyrus-imapd-2.3.11-60.65.67.1.ppc64",
+									"product_id": "cyrus-imapd-2.3.11-60.65.67.1.ppc64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "perl-Cyrus-IMAP-2.3.11-60.65.67.1.ppc64",
+								"product": {
+									"name": "perl-Cyrus-IMAP-2.3.11-60.65.67.1.ppc64",
+									"product_id": "perl-Cyrus-IMAP-2.3.11-60.65.67.1.ppc64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.ppc64",
+								"product": {
+									"name": "perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.ppc64",
+									"product_id": "perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.ppc64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "ppc64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "cyrus-imapd-devel-2.3.11-60.65.67.1.s390x",
+								"product": {
+									"name": "cyrus-imapd-devel-2.3.11-60.65.67.1.s390x",
+									"product_id": "cyrus-imapd-devel-2.3.11-60.65.67.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "cyrus-imapd-2.3.11-60.65.67.1.s390x",
+								"product": {
+									"name": "cyrus-imapd-2.3.11-60.65.67.1.s390x",
+									"product_id": "cyrus-imapd-2.3.11-60.65.67.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "perl-Cyrus-IMAP-2.3.11-60.65.67.1.s390x",
+								"product": {
+									"name": "perl-Cyrus-IMAP-2.3.11-60.65.67.1.s390x",
+									"product_id": "perl-Cyrus-IMAP-2.3.11-60.65.67.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.s390x",
+								"product": {
+									"name": "perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.s390x",
+									"product_id": "perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.s390x"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "s390x"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "cyrus-imapd-devel-2.3.11-60.65.67.1.x86_64",
+								"product": {
+									"name": "cyrus-imapd-devel-2.3.11-60.65.67.1.x86_64",
+									"product_id": "cyrus-imapd-devel-2.3.11-60.65.67.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "perl-Cyrus-IMAP-2.3.11-60.65.67.1.x86_64",
+								"product": {
+									"name": "perl-Cyrus-IMAP-2.3.11-60.65.67.1.x86_64",
+									"product_id": "perl-Cyrus-IMAP-2.3.11-60.65.67.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.x86_64",
+								"product": {
+									"name": "perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.x86_64",
+									"product_id": "perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "cyrus-imapd-2.3.11-60.65.67.1.x86_64",
+								"product": {
+									"name": "cyrus-imapd-2.3.11-60.65.67.1.x86_64",
+									"product_id": "cyrus-imapd-2.3.11-60.65.67.1.x86_64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "x86_64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Software Development Kit 11 SP4",
+								"product": {
+									"name": "SUSE Linux Enterprise Software Development Kit 11 SP4",
+									"product_id": "SUSE Linux Enterprise Software Development Kit 11 SP4",
+									"product_identification_helper": {
+										"cpe": "cpe:/a:suse:sle-sdk:11:sp4"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server 11 SP4",
+								"product": {
+									"name": "SUSE Linux Enterprise Server 11 SP4",
+									"product_id": "SUSE Linux Enterprise Server 11 SP4",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:suse_sles:11:sp4"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+								"product": {
+									"name": "SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+									"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sles_sap:11:sp4"
+									}
+								}
+							}
+						],
+						"category": "product_family",
+						"name": "SUSE Linux Enterprise"
+					}
+				],
+				"category": "vendor",
+				"name": "SUSE"
+			}
+		],
+		"relationships": [
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "cyrus-imapd-devel-2.3.11-60.65.67.1.i586 as component of SUSE Linux Enterprise Software Development Kit 11 SP4",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 11 SP4:cyrus-imapd-devel-2.3.11-60.65.67.1.i586"
+				},
+				"product_reference": "cyrus-imapd-devel-2.3.11-60.65.67.1.i586",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "cyrus-imapd-devel-2.3.11-60.65.67.1.ia64 as component of SUSE Linux Enterprise Software Development Kit 11 SP4",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 11 SP4:cyrus-imapd-devel-2.3.11-60.65.67.1.ia64"
+				},
+				"product_reference": "cyrus-imapd-devel-2.3.11-60.65.67.1.ia64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "cyrus-imapd-devel-2.3.11-60.65.67.1.ppc64 as component of SUSE Linux Enterprise Software Development Kit 11 SP4",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 11 SP4:cyrus-imapd-devel-2.3.11-60.65.67.1.ppc64"
+				},
+				"product_reference": "cyrus-imapd-devel-2.3.11-60.65.67.1.ppc64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "cyrus-imapd-devel-2.3.11-60.65.67.1.s390x as component of SUSE Linux Enterprise Software Development Kit 11 SP4",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 11 SP4:cyrus-imapd-devel-2.3.11-60.65.67.1.s390x"
+				},
+				"product_reference": "cyrus-imapd-devel-2.3.11-60.65.67.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "cyrus-imapd-devel-2.3.11-60.65.67.1.x86_64 as component of SUSE Linux Enterprise Software Development Kit 11 SP4",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 11 SP4:cyrus-imapd-devel-2.3.11-60.65.67.1.x86_64"
+				},
+				"product_reference": "cyrus-imapd-devel-2.3.11-60.65.67.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "perl-Cyrus-IMAP-2.3.11-60.65.67.1.i586 as component of SUSE Linux Enterprise Software Development Kit 11 SP4",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.i586"
+				},
+				"product_reference": "perl-Cyrus-IMAP-2.3.11-60.65.67.1.i586",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "perl-Cyrus-IMAP-2.3.11-60.65.67.1.x86_64 as component of SUSE Linux Enterprise Software Development Kit 11 SP4",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.x86_64"
+				},
+				"product_reference": "perl-Cyrus-IMAP-2.3.11-60.65.67.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.i586 as component of SUSE Linux Enterprise Software Development Kit 11 SP4",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.i586"
+				},
+				"product_reference": "perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.i586",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.x86_64 as component of SUSE Linux Enterprise Software Development Kit 11 SP4",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.x86_64"
+				},
+				"product_reference": "perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "cyrus-imapd-2.3.11-60.65.67.1.i586 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.i586"
+				},
+				"product_reference": "cyrus-imapd-2.3.11-60.65.67.1.i586",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "cyrus-imapd-2.3.11-60.65.67.1.ia64 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.ia64"
+				},
+				"product_reference": "cyrus-imapd-2.3.11-60.65.67.1.ia64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "cyrus-imapd-2.3.11-60.65.67.1.ppc64 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.ppc64"
+				},
+				"product_reference": "cyrus-imapd-2.3.11-60.65.67.1.ppc64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "cyrus-imapd-2.3.11-60.65.67.1.s390x as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.s390x"
+				},
+				"product_reference": "cyrus-imapd-2.3.11-60.65.67.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "cyrus-imapd-2.3.11-60.65.67.1.x86_64 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.x86_64"
+				},
+				"product_reference": "cyrus-imapd-2.3.11-60.65.67.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "perl-Cyrus-IMAP-2.3.11-60.65.67.1.i586 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.i586"
+				},
+				"product_reference": "perl-Cyrus-IMAP-2.3.11-60.65.67.1.i586",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "perl-Cyrus-IMAP-2.3.11-60.65.67.1.ia64 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.ia64"
+				},
+				"product_reference": "perl-Cyrus-IMAP-2.3.11-60.65.67.1.ia64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "perl-Cyrus-IMAP-2.3.11-60.65.67.1.ppc64 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.ppc64"
+				},
+				"product_reference": "perl-Cyrus-IMAP-2.3.11-60.65.67.1.ppc64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "perl-Cyrus-IMAP-2.3.11-60.65.67.1.s390x as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.s390x"
+				},
+				"product_reference": "perl-Cyrus-IMAP-2.3.11-60.65.67.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "perl-Cyrus-IMAP-2.3.11-60.65.67.1.x86_64 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.x86_64"
+				},
+				"product_reference": "perl-Cyrus-IMAP-2.3.11-60.65.67.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.i586 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.i586"
+				},
+				"product_reference": "perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.i586",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.ia64 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.ia64"
+				},
+				"product_reference": "perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.ia64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.ppc64 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.ppc64"
+				},
+				"product_reference": "perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.ppc64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.s390x as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.s390x"
+				},
+				"product_reference": "perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.x86_64 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.x86_64"
+				},
+				"product_reference": "perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "cyrus-imapd-2.3.11-60.65.67.1.i586 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.i586"
+				},
+				"product_reference": "cyrus-imapd-2.3.11-60.65.67.1.i586",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "cyrus-imapd-2.3.11-60.65.67.1.ia64 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.ia64"
+				},
+				"product_reference": "cyrus-imapd-2.3.11-60.65.67.1.ia64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "cyrus-imapd-2.3.11-60.65.67.1.ppc64 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.ppc64"
+				},
+				"product_reference": "cyrus-imapd-2.3.11-60.65.67.1.ppc64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "cyrus-imapd-2.3.11-60.65.67.1.s390x as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.s390x"
+				},
+				"product_reference": "cyrus-imapd-2.3.11-60.65.67.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "cyrus-imapd-2.3.11-60.65.67.1.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.x86_64"
+				},
+				"product_reference": "cyrus-imapd-2.3.11-60.65.67.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "perl-Cyrus-IMAP-2.3.11-60.65.67.1.i586 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.i586"
+				},
+				"product_reference": "perl-Cyrus-IMAP-2.3.11-60.65.67.1.i586",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "perl-Cyrus-IMAP-2.3.11-60.65.67.1.ia64 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.ia64"
+				},
+				"product_reference": "perl-Cyrus-IMAP-2.3.11-60.65.67.1.ia64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "perl-Cyrus-IMAP-2.3.11-60.65.67.1.ppc64 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.ppc64"
+				},
+				"product_reference": "perl-Cyrus-IMAP-2.3.11-60.65.67.1.ppc64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "perl-Cyrus-IMAP-2.3.11-60.65.67.1.s390x as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.s390x"
+				},
+				"product_reference": "perl-Cyrus-IMAP-2.3.11-60.65.67.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "perl-Cyrus-IMAP-2.3.11-60.65.67.1.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.x86_64"
+				},
+				"product_reference": "perl-Cyrus-IMAP-2.3.11-60.65.67.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.i586 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.i586"
+				},
+				"product_reference": "perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.i586",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.ia64 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.ia64"
+				},
+				"product_reference": "perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.ia64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.ppc64 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.ppc64"
+				},
+				"product_reference": "perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.ppc64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.s390x as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.s390x"
+				},
+				"product_reference": "perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.x86_64"
+				},
+				"product_reference": "perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			}
+		]
+	},
+	"vulnerabilities": [
+		{
+			"cve": "CVE-2014-3566",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2014-3566"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The SSL protocol 3.0, as used in OpenSSL through 1.0.1i and other products, uses nondeterministic CBC padding, which makes it easier for man-in-the-middle attackers to obtain cleartext data via a padding-oracle attack, aka the \"POODLE\" issue.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Server 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:cyrus-imapd-devel-2.3.11-60.65.67.1.i586",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:cyrus-imapd-devel-2.3.11-60.65.67.1.ia64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:cyrus-imapd-devel-2.3.11-60.65.67.1.ppc64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:cyrus-imapd-devel-2.3.11-60.65.67.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:cyrus-imapd-devel-2.3.11-60.65.67.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.i586",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.i586",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2014-3566",
+					"url": "https://www.suse.com/security/cve/CVE-2014-3566"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1011293 for CVE-2014-3566",
+					"url": "https://bugzilla.suse.com/1011293"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1031023 for CVE-2014-3566",
+					"url": "https://bugzilla.suse.com/1031023"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 901223 for CVE-2014-3566",
+					"url": "https://bugzilla.suse.com/901223"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 901254 for CVE-2014-3566",
+					"url": "https://bugzilla.suse.com/901254"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 901277 for CVE-2014-3566",
+					"url": "https://bugzilla.suse.com/901277"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 901748 for CVE-2014-3566",
+					"url": "https://bugzilla.suse.com/901748"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 901757 for CVE-2014-3566",
+					"url": "https://bugzilla.suse.com/901757"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 901759 for CVE-2014-3566",
+					"url": "https://bugzilla.suse.com/901759"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 901889 for CVE-2014-3566",
+					"url": "https://bugzilla.suse.com/901889"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 901968 for CVE-2014-3566",
+					"url": "https://bugzilla.suse.com/901968"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 902229 for CVE-2014-3566",
+					"url": "https://bugzilla.suse.com/902229"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 902233 for CVE-2014-3566",
+					"url": "https://bugzilla.suse.com/902233"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 902476 for CVE-2014-3566",
+					"url": "https://bugzilla.suse.com/902476"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 903405 for CVE-2014-3566",
+					"url": "https://bugzilla.suse.com/903405"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 903684 for CVE-2014-3566",
+					"url": "https://bugzilla.suse.com/903684"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 904889 for CVE-2014-3566",
+					"url": "https://bugzilla.suse.com/904889"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 905106 for CVE-2014-3566",
+					"url": "https://bugzilla.suse.com/905106"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 914041 for CVE-2014-3566",
+					"url": "https://bugzilla.suse.com/914041"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 994144 for CVE-2014-3566",
+					"url": "https://bugzilla.suse.com/994144"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Server 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:cyrus-imapd-devel-2.3.11-60.65.67.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:cyrus-imapd-devel-2.3.11-60.65.67.1.ia64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:cyrus-imapd-devel-2.3.11-60.65.67.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:cyrus-imapd-devel-2.3.11-60.65.67.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:cyrus-imapd-devel-2.3.11-60.65.67.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 3.4,
+						"baseSeverity": "LOW",
+						"vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:C/C:L/I:N/A:N",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Server 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:cyrus-imapd-devel-2.3.11-60.65.67.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:cyrus-imapd-devel-2.3.11-60.65.67.1.ia64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:cyrus-imapd-devel-2.3.11-60.65.67.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:cyrus-imapd-devel-2.3.11-60.65.67.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:cyrus-imapd-devel-2.3.11-60.65.67.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2016-06-01T07:00:34Z",
+					"details": "critical"
+				}
+			],
+			"title": "CVE-2014-3566"
+		},
+		{
+			"cve": "CVE-2015-8076",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-8076"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The index_urlfetch function in index.c in Cyrus IMAP 2.3.x before 2.3.19, 2.4.x before 2.4.18, 2.5.x before 2.5.4 allows remote attackers to obtain sensitive information or possibly have unspecified other impact via vectors related to the urlfetch range, which triggers an out-of-bounds heap read.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Server 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:cyrus-imapd-devel-2.3.11-60.65.67.1.i586",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:cyrus-imapd-devel-2.3.11-60.65.67.1.ia64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:cyrus-imapd-devel-2.3.11-60.65.67.1.ppc64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:cyrus-imapd-devel-2.3.11-60.65.67.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:cyrus-imapd-devel-2.3.11-60.65.67.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.i586",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.i586",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-8076",
+					"url": "https://www.suse.com/security/cve/CVE-2015-8076"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 954200 for CVE-2015-8076",
+					"url": "https://bugzilla.suse.com/954200"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 954201 for CVE-2015-8076",
+					"url": "https://bugzilla.suse.com/954201"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 981670 for CVE-2015-8076",
+					"url": "https://bugzilla.suse.com/981670"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Server 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:cyrus-imapd-devel-2.3.11-60.65.67.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:cyrus-imapd-devel-2.3.11-60.65.67.1.ia64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:cyrus-imapd-devel-2.3.11-60.65.67.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:cyrus-imapd-devel-2.3.11-60.65.67.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:cyrus-imapd-devel-2.3.11-60.65.67.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2016-06-01T07:00:34Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2015-8076"
+		},
+		{
+			"cve": "CVE-2015-8077",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-8077"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Integer overflow in the index_urlfetch function in imap/index.c in Cyrus IMAP 2.3.19, 2.4.18, and 2.5.6 allows remote attackers to have unspecified impact via vectors related to urlfetch range checks and the start_octet variable. NOTE: this vulnerability exists because of an incomplete fix for CVE-2015-8076.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Server 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:cyrus-imapd-devel-2.3.11-60.65.67.1.i586",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:cyrus-imapd-devel-2.3.11-60.65.67.1.ia64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:cyrus-imapd-devel-2.3.11-60.65.67.1.ppc64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:cyrus-imapd-devel-2.3.11-60.65.67.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:cyrus-imapd-devel-2.3.11-60.65.67.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.i586",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.i586",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-8077",
+					"url": "https://www.suse.com/security/cve/CVE-2015-8077"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 954200 for CVE-2015-8077",
+					"url": "https://bugzilla.suse.com/954200"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 954201 for CVE-2015-8077",
+					"url": "https://bugzilla.suse.com/954201"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 981670 for CVE-2015-8077",
+					"url": "https://bugzilla.suse.com/981670"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Server 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:cyrus-imapd-devel-2.3.11-60.65.67.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:cyrus-imapd-devel-2.3.11-60.65.67.1.ia64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:cyrus-imapd-devel-2.3.11-60.65.67.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:cyrus-imapd-devel-2.3.11-60.65.67.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:cyrus-imapd-devel-2.3.11-60.65.67.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2016-06-01T07:00:34Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2015-8077"
+		},
+		{
+			"cve": "CVE-2015-8078",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-8078"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Integer overflow in the index_urlfetch function in imap/index.c in Cyrus IMAP 2.3.19, 2.4.18, and 2.5.6 allows remote attackers to have unspecified impact via vectors related to urlfetch range checks and the section_offset variable. NOTE: this vulnerability exists because of an incomplete fix for CVE-2015-8076.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Server 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:cyrus-imapd-devel-2.3.11-60.65.67.1.i586",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:cyrus-imapd-devel-2.3.11-60.65.67.1.ia64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:cyrus-imapd-devel-2.3.11-60.65.67.1.ppc64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:cyrus-imapd-devel-2.3.11-60.65.67.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:cyrus-imapd-devel-2.3.11-60.65.67.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.i586",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.i586",
+					"SUSE Linux Enterprise Software Development Kit 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-8078",
+					"url": "https://www.suse.com/security/cve/CVE-2015-8078"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 954201 for CVE-2015-8078",
+					"url": "https://bugzilla.suse.com/954201"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 981670 for CVE-2015-8078",
+					"url": "https://bugzilla.suse.com/981670"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Server 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:cyrus-imapd-2.3.11-60.65.67.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:cyrus-imapd-devel-2.3.11-60.65.67.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:cyrus-imapd-devel-2.3.11-60.65.67.1.ia64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:cyrus-imapd-devel-2.3.11-60.65.67.1.ppc64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:cyrus-imapd-devel-2.3.11-60.65.67.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:cyrus-imapd-devel-2.3.11-60.65.67.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:perl-Cyrus-IMAP-2.3.11-60.65.67.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.i586",
+						"SUSE Linux Enterprise Software Development Kit 11 SP4:perl-Cyrus-SIEVE-managesieve-2.3.11-60.65.67.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2016-06-01T07:00:34Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2015-8078"
+		}
+	]
+}

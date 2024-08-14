@@ -1,0 +1,353 @@
+{
+	"document": {
+		"aggregate_severity": {
+			"namespace": "https://www.suse.com/support/security/rating/",
+			"text": "important"
+		},
+		"category": "csaf_security_advisory",
+		"csaf_version": "2.0",
+		"distribution": {
+			"text": "Copyright 2024 SUSE LLC. All rights reserved.",
+			"tlp": {
+				"label": "WHITE",
+				"url": "https://www.first.org/tlp/"
+			}
+		},
+		"lang": "en",
+		"notes": [
+			{
+				"category": "summary",
+				"text": "Security update for firejail",
+				"title": "Title of the patch"
+			},
+			{
+				"category": "description",
+				"text": "This update for firejail fixes the following issues:\n\nfirejail 0.9.64.4 is shipped to openSUSE Leap 15.2\n\n- CVE-2021-26910: Fixed root privilege escalation due to race condition (boo#1181990)\n\nUpdate to 0.9.64.4:\n\n* disabled overlayfs, pending multiple fixes\n* fixed launch firefox for open url in telegram-desktop.profile\n\nUpdate to 0.9.64.2:\n\n* allow --tmpfs inside $HOME for unprivileged users\n* --disable-usertmpfs compile time option\n* allow AF_BLUETOOTH via --protocol=bluetooth\n* setup guide for new users: contrib/firejail-welcome.sh\n* implement netns in profiles\n* added nolocal6.net IPv6 network filter\n* new profiles: spectacle, chromium-browser-privacy,\n  gtk-straw-viewer, gtk-youtube-viewer, gtk2-youtube-viewer,\n  gtk3-youtube-viewer, straw-viewer, lutris, dolphin-emu,\n  authenticator-rs, servo, npm, marker, yarn, lsar, unar, agetpkg,\n  mdr, shotwell, qnapi, new profiles: guvcview, pkglog, kdiff3, CoyIM.\n\nUpdate to version 0.9.64:\n\n* replaced --nowrap option with --wrap in firemon\n* The blocking action of seccomp filters has been changed from\n  killing the process to returning EPERM to the caller. To get the\n  previous behaviour, use --seccomp-error-action=kill or\n  syscall:kill syntax when constructing filters, or override in\n  /etc/firejail/firejail.config file.\n* Fine-grained D-Bus sandboxing with xdg-dbus-proxy.\n  xdg-dbus-proxy must be installed, if not D-Bus access will be allowed.\n  With this version nodbus is deprecated, in favor of dbus-user none and\n  dbus-system none and will be removed in a future version.\n* DHCP client support\n* firecfg only fix dektop-files if started with sudo\n* SELinux labeling support\n* custom 32-bit seccomp filter support\n* restrict ${RUNUSER} in several profiles\n* blacklist shells such as bash in several profiles\n* whitelist globbing\n* mkdir and mkfile support for /run/user directory\n* support ignore for include\n* --include on the command line\n* splitting up media players whitelists in whitelist-players.inc\n* new condition: HAS_NOSOUND\n* new profiles: gfeeds, firefox-x11, tvbrowser, rtv, clipgrab, muraster\n* new profiles: gnome-passwordsafe, bibtex, gummi, latex, mupdf-x11-curl\n* new profiles: pdflatex, tex, wpp, wpspdf, wps, et, multimc, mupdf-x11\n* new profiles: gnome-hexgl, com.github.johnfactotum.Foliate, mupdf-gl, mutool\n* new profiles: desktopeditors, impressive, planmaker18, planmaker18free\n* new profiles: presentations18, presentations18free, textmaker18, teams\n* new profiles: textmaker18free, xournal, gnome-screenshot, ripperX\n* new profiles: sound-juicer, com.github.dahenson.agenda, gnome-pomodoro\n* new profiles: gnome-todo, x2goclient, iagno, kmplayer, penguin-command\n* new profiles: frogatto, gnome-mines, gnome-nibbles, lightsoff, warmux\n* new profiles: ts3client_runscript.sh, ferdi, abiword, four-in-a-row\n* new profiles: gnome-mahjongg, gnome-robots, gnome-sudoku, gnome-taquin\n* new profiles: gnome-tetravex, blobwars, gravity-beams-and-evaporating-stars\n* new profiles: hyperrogue, jumpnbump-menu, jumpnbump, magicor, mindless\n* new profiles: mirrormagic, mrrescue, scorched3d-wrapper, scorchwentbonkers\n* new profiles: seahorse-adventures, wordwarvi, xbill, gnome-klotski\n* new profiles: swell-foop, fdns, five-or-more, steam-runtime\n* new profiles: nicotine, plv, mocp, apostrophe, quadrapassel, dino-im\n* new profiles: hitori, bijiben, gnote, gnubik, ZeGrapher, xonotic-sdl-wrapper\n* new profiles: gapplication, openarena_ded, element-desktop, cawbird\n* new profiles: freetube, strawberry, jitsi-meet-desktop\n* new profiles: homebank, mattermost-desktop, newsflash, com.gitlab.newsflash\n* new profiles: sushi, xfce4-screenshooter, org.gnome.NautilusPreviewer, lyx\n* new profiles: minitube, nuclear, mtpaint, minecraft-launcher, gnome-calendar\n* new profiles: vmware, git-cola, otter-browser, kazam, menulibre, musictube\n* new profiles: onboard, fractal, mirage, quaternion, spectral, man, psi\n* new profiles: smuxi-frontend-gnome, balsa, kube, trojita, youtube\n* new profiles: youtubemusic-nativefier, cola, dbus-send, notify-send\n* new profiles: qrencode, ytmdesktop, twitch\n* new profiles: xournalpp, chromium-freeworld, equalx\n\n- Make the AppArmor profile compatible with AppArmor 3.0 (add missing include <tunables/global>)\n\nUpdate to 0.9.62.4\n\n* fix AppArmor broken in the previous release\n* miscellaneous fixes\n\nUpdate to 0.9.62.2\n\n* fix CVE-2020-17367\n* fix CVE-2020-17368\n",
+				"title": "Description of the patch"
+			},
+			{
+				"category": "details",
+				"text": "openSUSE-2021-271",
+				"title": "Patchnames"
+			},
+			{
+				"category": "legal_disclaimer",
+				"text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+				"title": "Terms of use"
+			}
+		],
+		"publisher": {
+			"category": "vendor",
+			"contact_details": "https://www.suse.com/support/security/contact/",
+			"name": "SUSE Product Security Team",
+			"namespace": "https://www.suse.com/"
+		},
+		"references": [
+			{
+				"category": "external",
+				"summary": "SUSE ratings",
+				"url": "https://www.suse.com/support/security/rating/"
+			},
+			{
+				"category": "self",
+				"summary": "URL of this CSAF notice",
+				"url": "https://ftp.suse.com/pub/projects/security/csaf/opensuse-su-2021_0271-1.json"
+			},
+			{
+				"category": "self",
+				"summary": "URL for openSUSE-SU-2021:0271-1",
+				"url": "https://lists.opensuse.org/archives/list/security-announce@lists.opensuse.org/thread/JJKSV64EI6OP7AKHJQVLFPJPOUXRN47F/"
+			},
+			{
+				"category": "self",
+				"summary": "E-Mail link for openSUSE-SU-2021:0271-1",
+				"url": "https://lists.opensuse.org/archives/list/security-announce@lists.opensuse.org/thread/JJKSV64EI6OP7AKHJQVLFPJPOUXRN47F/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1181990",
+				"url": "https://bugzilla.suse.com/1181990"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2020-17367 page",
+				"url": "https://www.suse.com/security/cve/CVE-2020-17367/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2020-17368 page",
+				"url": "https://www.suse.com/security/cve/CVE-2020-17368/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2021-26910 page",
+				"url": "https://www.suse.com/security/cve/CVE-2021-26910/"
+			}
+		],
+		"title": "Security update for firejail",
+		"tracking": {
+			"current_release_date": "2021-02-10T17:03:36Z",
+			"generator": {
+				"date": "2021-02-10T17:03:36Z",
+				"engine": {
+					"name": "cve-database.git:bin/generate-csaf.pl",
+					"version": "1"
+				}
+			},
+			"id": "openSUSE-SU-2021:0271-1",
+			"initial_release_date": "2021-02-10T17:03:36Z",
+			"revision_history": [
+				{
+					"date": "2021-02-10T17:03:36Z",
+					"number": "1",
+					"summary": "Current version"
+				}
+			],
+			"status": "final",
+			"version": "1"
+		}
+	},
+	"product_tree": {
+		"branches": [
+			{
+				"branches": [
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "firejail-0.9.64.4-lp152.3.6.1.x86_64",
+								"product": {
+									"name": "firejail-0.9.64.4-lp152.3.6.1.x86_64",
+									"product_id": "firejail-0.9.64.4-lp152.3.6.1.x86_64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "x86_64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_name",
+								"name": "openSUSE Leap 15.2",
+								"product": {
+									"name": "openSUSE Leap 15.2",
+									"product_id": "openSUSE Leap 15.2",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:opensuse:leap:15.2"
+									}
+								}
+							}
+						],
+						"category": "product_family",
+						"name": "SUSE Linux Enterprise"
+					}
+				],
+				"category": "vendor",
+				"name": "SUSE"
+			}
+		],
+		"relationships": [
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "firejail-0.9.64.4-lp152.3.6.1.x86_64 as component of openSUSE Leap 15.2",
+					"product_id": "openSUSE Leap 15.2:firejail-0.9.64.4-lp152.3.6.1.x86_64"
+				},
+				"product_reference": "firejail-0.9.64.4-lp152.3.6.1.x86_64",
+				"relates_to_product_reference": "openSUSE Leap 15.2"
+			}
+		]
+	},
+	"vulnerabilities": [
+		{
+			"cve": "CVE-2020-17367",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2020-17367"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Firejail through 0.9.62 does not honor the -- end-of-options indicator after the --output option, which may lead to command injection.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"openSUSE Leap 15.2:firejail-0.9.64.4-lp152.3.6.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2020-17367",
+					"url": "https://www.suse.com/security/cve/CVE-2020-17367"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1174986 for CVE-2020-17367",
+					"url": "https://bugzilla.suse.com/1174986"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"openSUSE Leap 15.2:firejail-0.9.64.4-lp152.3.6.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.8,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"openSUSE Leap 15.2:firejail-0.9.64.4-lp152.3.6.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2021-02-10T17:03:36Z",
+					"details": "critical"
+				}
+			],
+			"title": "CVE-2020-17367"
+		},
+		{
+			"cve": "CVE-2020-17368",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2020-17368"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Firejail through 0.9.62 mishandles shell metacharacters during use of the --output or --output-stderr option, which may lead to command injection.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"openSUSE Leap 15.2:firejail-0.9.64.4-lp152.3.6.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2020-17368",
+					"url": "https://www.suse.com/security/cve/CVE-2020-17368"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1174986 for CVE-2020-17368",
+					"url": "https://bugzilla.suse.com/1174986"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"openSUSE Leap 15.2:firejail-0.9.64.4-lp152.3.6.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 9.8,
+						"baseSeverity": "CRITICAL",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"openSUSE Leap 15.2:firejail-0.9.64.4-lp152.3.6.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2021-02-10T17:03:36Z",
+					"details": "critical"
+				}
+			],
+			"title": "CVE-2020-17368"
+		},
+		{
+			"cve": "CVE-2021-26910",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2021-26910"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Firejail before 0.9.64.4 allows attackers to bypass intended access restrictions because there is a TOCTOU race condition between a stat operation and an OverlayFS mount operation.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"openSUSE Leap 15.2:firejail-0.9.64.4-lp152.3.6.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2021-26910",
+					"url": "https://www.suse.com/security/cve/CVE-2021-26910"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1181990 for CVE-2021-26910",
+					"url": "https://bugzilla.suse.com/1181990"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"openSUSE Leap 15.2:firejail-0.9.64.4-lp152.3.6.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"openSUSE Leap 15.2:firejail-0.9.64.4-lp152.3.6.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2021-02-10T17:03:36Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2021-26910"
+		}
+	]
+}

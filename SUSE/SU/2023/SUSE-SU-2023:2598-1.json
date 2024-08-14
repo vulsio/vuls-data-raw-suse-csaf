@@ -1,0 +1,999 @@
+{
+	"document": {
+		"aggregate_severity": {
+			"namespace": "https://www.suse.com/support/security/rating/",
+			"text": "important"
+		},
+		"category": "csaf_security_advisory",
+		"csaf_version": "2.0",
+		"distribution": {
+			"text": "Copyright 2024 SUSE LLC. All rights reserved.",
+			"tlp": {
+				"label": "WHITE",
+				"url": "https://www.first.org/tlp/"
+			}
+		},
+		"lang": "en",
+		"notes": [
+			{
+				"category": "summary",
+				"text": "Security update for golang-github-prometheus-prometheus",
+				"title": "Title of the patch"
+			},
+			{
+				"category": "description",
+				"text": "This update for golang-github-prometheus-prometheus fixes the following issues:\n\ngolang-github-prometheus-prometheus:\n\n- Security issues fixed in this version update to 2.37.6:\n  * CVE-2022-46146: Fix basic authentication bypass vulnerability (bsc#1208049, jsc#PED-3576)\n  * CVE-2022-41715: Update our regexp library to fix upstream (bsc#1204023)\n  * CVE-2022-41723: Fixed go issue to avoid quadratic complexity in HPACK decoding (bsc#1208298)\n- Other non-security bugs fixed and changes in this version update to 2.37.6:    \n  * [BUGFIX] TSDB: Turn off isolation for Head compaction to fix a memory leak.\n  * [BUGFIX] TSDB: Fix 'invalid magic number 0' error on Prometheus startup.\n  * [BUGFIX] Agent: Fix validation of flag options and prevent WAL from growing more than desired.\n  * [BUGFIX] Properly close file descriptor when logging unfinished queries.\n  * [BUGFIX] TSDB: In the WAL watcher metrics, expose the type='exemplar' label instead of type='unknown' for exemplar\n    records.\n  * [BUGFIX] Alerting: Fix Alertmanager targets not being updated when alerts were queued.\n  * [BUGFIX] Hetzner SD: Make authentication files relative to Prometheus config file.\n  * [BUGFIX] Promtool: Fix promtool check config not erroring properly on failures.\n  * [BUGFIX] Scrape: Keep relabeled scrape interval and timeout on reloads.\n  * [BUGFIX] TSDB: Don't increment prometheus_tsdb_compactions_failed_total when context is canceled.\n  * [BUGFIX] TSDB: Fix panic if series is not found when deleting series.\n  * [BUGFIX] TSDB: Increase prometheus_tsdb_mmap_chunk_corruptions_total on out of sequence errors.\n  * [BUGFIX] Uyuni SD: Make authentication files relative to Prometheus configuration file and fix default configuration\n    values.\n  * [BUGFIX] Fix serving of static assets like fonts and favicon.\n  * [BUGFIX] promtool: Add --lint-fatal option.\n  * [BUGFIX] Changing TotalQueryableSamples from int to int64.\n  * [BUGFIX] tsdb/agent: Ignore duplicate exemplars.\n  * [BUGFIX] TSDB: Fix chunk overflow appending samples at a variable rate.\n  * [BUGFIX] Stop rule manager before TSDB is stopped.\n  * [BUGFIX] Kubernetes SD: Explicitly include gcp auth from k8s.io.\n  * [BUGFIX] Fix OpenMetrics parser to sort uppercase labels correctly.\n  * [BUGFIX] UI: Fix scrape interval and duration tooltip not showing on target page.\n  * [BUGFIX] Tracing/GRPC: Set TLS credentials only when insecure is false.\n  * [BUGFIX] Agent: Fix ID collision when loading a WAL with multiple segments.\n  * [BUGFIX] Remote-write: Fix a deadlock between Batch and flushing the queue.\n  * [BUGFIX] PromQL: Properly return an error from histogram_quantile when metrics have the same labelset.\n  * [BUGFIX] UI: Fix bug that sets the range input to the resolution.\n  * [BUGFIX] TSDB: Fix a query panic when memory-snapshot-on-shutdown is enabled.\n  * [BUGFIX] Parser: Specify type in metadata parser errors.\n  * [BUGFIX] Scrape: Fix label limit changes not applying.\n  * [BUGFIX] Remote-write: Fix deadlock between adding to queue and getting batch.\n  * [BUGFIX] TSDB: Fix panic when m-mapping head chunks onto the disk.\n  * [BUGFIX] Azure SD: Fix a regression when public IP Address isn't set.\n  * [BUGFIX] Azure SD: Fix panic when public IP Address isn't set.\n  * [BUGFIX] Remote-write: Fix deadlock when stopping a shard.\n  * [BUGFIX] SD: Fix no such file or directory in K8s SD when not running inside K8s.\n  * [BUGFIX] Promtool: Make exit codes more consistent.\n  * [BUGFIX] Promtool: Fix flakiness of rule testing.\n  * [BUGFIX] Remote-write: Update prometheus_remote_storage_queue_highest_sent_timestamp_seconds metric when write\n    irrecoverably fails.\n  * [BUGFIX] Storage: Avoid panic in BufferedSeriesIterator.\n  * [BUGFIX] TSDB: CompactBlockMetas should produce correct mint/maxt for overlapping blocks.\n  * [BUGFIX] TSDB: Fix logging of exemplar storage size.\n  * [BUGFIX] UI: Fix overlapping click targets for the alert state checkboxes.\n  * [BUGFIX] UI: Fix Unhealthy filter on target page to actually display only Unhealthy targets.\n  * [BUGFIX] UI: Fix autocompletion when expression is empty.\n  * [BUGFIX] TSDB: Fix deadlock from simultaneous GC and write.\n  * [CHANGE] TSDB: Delete *.tmp WAL files when Prometheus starts.\n  * [CHANGE] promtool: Add new flag --lint (enabled by default) for the commands check rules and check config, resulting\n    in a new exit code (3) for linter errors.\n  * [CHANGE] UI: Classic UI removed.\n  * [CHANGE] Tracing: Migrate from Jaeger to OpenTelemetry based tracing.\n  * [CHANGE] PromQL: Promote negative offset and @ modifer to stable features.\n  * [CHANGE] Web: Promote remote-write-receiver to stable.\n  * [FEATURE] Nomad SD: New service discovery for Nomad built-in service discovery.\n  * [FEATURE] Add lowercase and uppercase relabel action.\n  * [FEATURE] SD: Add IONOS Cloud integration.\n  * [FEATURE] SD: Add Vultr integration.\n  * [FEATURE] SD: Add Linode SD failure count metric.\n  * [FEATURE] Add prometheus_ready metric.\n  * [FEATURE] Support for automatically setting the variable GOMAXPROCS to the container CPU limit. \n    Enable with the flag `--enable-feature=auto-gomaxprocs`.\n  * [FEATURE] PromQL: Extend statistics with total and peak number of samples in a query. \n    Additionally, per-step statistics are available with --enable-feature=promql-per-step-stats and using\n    stats=all in the query API. Enable with the flag `--enable-feature=per-step-stats`.\n  * [FEATURE] Config: Add stripPort template function.\n  * [FEATURE] Promtool: Add cardinality analysis to check metrics, enabled by flag --extended.\n  * [FEATURE] SD: Enable target discovery in own K8s namespace.\n  * [FEATURE] SD: Add provider ID label in K8s SD.\n  * [FEATURE] Web: Add limit field to the rules API.\n  * [ENHANCEMENT] Kubernetes SD: Allow attaching node labels for endpoint role.\n  * [ENHANCEMENT] PromQL: Optimise creation of signature with/without labels.\n  * [ENHANCEMENT] TSDB: Memory optimizations.\n  * [ENHANCEMENT] TSDB: Reduce sleep time when reading WAL.\n  * [ENHANCEMENT] OAuth2: Add appropriate timeouts and User-Agent header.\n  * [ENHANCEMENT] Add stripDomain to template function.\n  * [ENHANCEMENT] UI: Enable active search through dropped targets.\n  * [ENHANCEMENT] promtool: support matchers when querying label\n  * [ENHANCEMENT] Add agent mode identifier.\n  * [ENHANCEMENT] TSDB: more efficient sorting of postings read from WAL at startup.\n  * [ENHANCEMENT] Azure SD: Add metric to track Azure SD failures.\n  * [ENHANCEMENT] Azure SD: Add an optional resource_group configuration.\n  * [ENHANCEMENT] Kubernetes SD: Support discovery.k8s.io/v1\n    EndpointSlice (previously only discovery.k8s.io/v1beta1\n    EndpointSlice was supported).\n  * [ENHANCEMENT] Kubernetes SD: Allow attaching node metadata to discovered pods.\n  * [ENHANCEMENT] OAuth2: Support for using a proxy URL to fetch OAuth2 tokens.\n  * [ENHANCEMENT] Configuration: Add the ability to disable HTTP2.\n  * [ENHANCEMENT] Config: Support overriding minimum TLS version.\n  * [ENHANCEMENT] TSDB: Disable the chunk write queue by default and allow configuration with the experimental flag\n    `--storage.tsdb.head-chunks-write-queue-size`.\n  * [ENHANCEMENT] HTTP SD: Add a failure counter.\n  * [ENHANCEMENT] Azure SD: Set Prometheus User-Agent on requests.\n  * [ENHANCEMENT] Uyuni SD: Reduce the number of logins to Uyuni.\n  * [ENHANCEMENT] Scrape: Log when an invalid media type is encountered during a scrape.\n  * [ENHANCEMENT] Scrape: Accept application/openmetrics-text;version=1.0.0 in addition to version=0.0.1.\n  * [ENHANCEMENT] Remote-read: Add an option to not use external labels as selectors for remote read.\n  * [ENHANCEMENT] UI: Optimize the alerts page and add a search bar.\n  * [ENHANCEMENT] UI: Improve graph colors that were hard to see.\n  * [ENHANCEMENT] Config: Allow escaping of $ with $$ when using environment variables with external labels.\n  * [ENHANCEMENT] Remote-write: Avoid allocations by buffering concrete structs instead of interfaces.\n  * [ENHANCEMENT] Remote-write: Log time series details for out-of-order samples in remote write receiver.\n  * [ENHANCEMENT] Remote-write: Shard up more when backlogged.\n  * [ENHANCEMENT] TSDB: Use simpler map key to improve exemplar ingest performance.\n  * [ENHANCEMENT] TSDB: Avoid allocations when popping from the intersected postings heap.\n  * [ENHANCEMENT] TSDB: Make chunk writing non-blocking, avoiding latency spikes in remote-write.\n  * [ENHANCEMENT] TSDB: Improve label matching performance.\n  * [ENHANCEMENT] UI: Optimize the service discovery page and add a search bar.\n  * [ENHANCEMENT] UI: Optimize the target page and add a search bar.\n",
+				"title": "Description of the patch"
+			},
+			{
+				"category": "details",
+				"text": "SUSE-2023-2598,SUSE-SLE-Module-Packagehub-Subpackages-15-SP5-2023-2598,SUSE-SLE-Module-SUSE-Manager-Proxy-4.2-2023-2598,SUSE-SLE-Module-SUSE-Manager-Proxy-4.3-2023-2598,openSUSE-SLE-15.4-2023-2598,openSUSE-SLE-15.5-2023-2598",
+				"title": "Patchnames"
+			},
+			{
+				"category": "legal_disclaimer",
+				"text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+				"title": "Terms of use"
+			}
+		],
+		"publisher": {
+			"category": "vendor",
+			"contact_details": "https://www.suse.com/support/security/contact/",
+			"name": "SUSE Product Security Team",
+			"namespace": "https://www.suse.com/"
+		},
+		"references": [
+			{
+				"category": "external",
+				"summary": "SUSE ratings",
+				"url": "https://www.suse.com/support/security/rating/"
+			},
+			{
+				"category": "self",
+				"summary": "URL of this CSAF notice",
+				"url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2023_2598-1.json"
+			},
+			{
+				"category": "self",
+				"summary": "URL for SUSE-SU-2023:2598-1",
+				"url": "https://www.suse.com/support/update/announcement/2023/suse-su-20232598-1/"
+			},
+			{
+				"category": "self",
+				"summary": "E-Mail link for SUSE-SU-2023:2598-1",
+				"url": "https://lists.suse.com/pipermail/sle-updates/2024-February/034404.html"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1204023",
+				"url": "https://bugzilla.suse.com/1204023"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1208049",
+				"url": "https://bugzilla.suse.com/1208049"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1208298",
+				"url": "https://bugzilla.suse.com/1208298"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2022-41715 page",
+				"url": "https://www.suse.com/security/cve/CVE-2022-41715/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2022-41723 page",
+				"url": "https://www.suse.com/security/cve/CVE-2022-41723/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2022-46146 page",
+				"url": "https://www.suse.com/security/cve/CVE-2022-46146/"
+			}
+		],
+		"title": "Security update for golang-github-prometheus-prometheus",
+		"tracking": {
+			"current_release_date": "2023-06-21T13:17:39Z",
+			"generator": {
+				"date": "2023-06-21T13:17:39Z",
+				"engine": {
+					"name": "cve-database.git:bin/generate-csaf.pl",
+					"version": "1"
+				}
+			},
+			"id": "SUSE-SU-2023:2598-1",
+			"initial_release_date": "2023-06-21T13:17:39Z",
+			"revision_history": [
+				{
+					"date": "2023-06-21T13:17:39Z",
+					"number": "1",
+					"summary": "Current version"
+				}
+			],
+			"status": "final",
+			"version": "1"
+		}
+	},
+	"product_tree": {
+		"branches": [
+			{
+				"branches": [
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "firewalld-prometheus-config-0.1-150100.4.17.1.aarch64",
+								"product": {
+									"name": "firewalld-prometheus-config-0.1-150100.4.17.1.aarch64",
+									"product_id": "firewalld-prometheus-config-0.1-150100.4.17.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64",
+								"product": {
+									"name": "golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64",
+									"product_id": "golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "aarch64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "firewalld-prometheus-config-0.1-150100.4.17.1.i586",
+								"product": {
+									"name": "firewalld-prometheus-config-0.1-150100.4.17.1.i586",
+									"product_id": "firewalld-prometheus-config-0.1-150100.4.17.1.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.i586",
+								"product": {
+									"name": "golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.i586",
+									"product_id": "golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.i586"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "i586"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "firewalld-prometheus-config-0.1-150100.4.17.1.ppc64le",
+								"product": {
+									"name": "firewalld-prometheus-config-0.1-150100.4.17.1.ppc64le",
+									"product_id": "firewalld-prometheus-config-0.1-150100.4.17.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le",
+								"product": {
+									"name": "golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le",
+									"product_id": "golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "ppc64le"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "firewalld-prometheus-config-0.1-150100.4.17.1.s390x",
+								"product": {
+									"name": "firewalld-prometheus-config-0.1-150100.4.17.1.s390x",
+									"product_id": "firewalld-prometheus-config-0.1-150100.4.17.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x",
+								"product": {
+									"name": "golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x",
+									"product_id": "golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "s390x"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "firewalld-prometheus-config-0.1-150100.4.17.1.x86_64",
+								"product": {
+									"name": "firewalld-prometheus-config-0.1-150100.4.17.1.x86_64",
+									"product_id": "firewalld-prometheus-config-0.1-150100.4.17.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64",
+								"product": {
+									"name": "golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64",
+									"product_id": "golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "x86_64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Module for Package Hub 15 SP5",
+								"product": {
+									"name": "SUSE Linux Enterprise Module for Package Hub 15 SP5",
+									"product_id": "SUSE Linux Enterprise Module for Package Hub 15 SP5",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:packagehub:15:sp5"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Manager Proxy Module 4.2",
+								"product": {
+									"name": "SUSE Manager Proxy Module 4.2",
+									"product_id": "SUSE Manager Proxy Module 4.2",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-module-suse-manager-proxy:4.2"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Manager Proxy Module 4.3",
+								"product": {
+									"name": "SUSE Manager Proxy Module 4.3",
+									"product_id": "SUSE Manager Proxy Module 4.3",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-module-suse-manager-proxy:4.3"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "openSUSE Leap 15.4",
+								"product": {
+									"name": "openSUSE Leap 15.4",
+									"product_id": "openSUSE Leap 15.4",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:opensuse:leap:15.4"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "openSUSE Leap 15.5",
+								"product": {
+									"name": "openSUSE Leap 15.5",
+									"product_id": "openSUSE Leap 15.5",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:opensuse:leap:15.5"
+									}
+								}
+							}
+						],
+						"category": "product_family",
+						"name": "SUSE Linux Enterprise"
+					}
+				],
+				"category": "vendor",
+				"name": "SUSE"
+			}
+		],
+		"relationships": [
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64 as component of SUSE Linux Enterprise Module for Package Hub 15 SP5",
+					"product_id": "SUSE Linux Enterprise Module for Package Hub 15 SP5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64"
+				},
+				"product_reference": "golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Package Hub 15 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le as component of SUSE Linux Enterprise Module for Package Hub 15 SP5",
+					"product_id": "SUSE Linux Enterprise Module for Package Hub 15 SP5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le"
+				},
+				"product_reference": "golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Package Hub 15 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x as component of SUSE Linux Enterprise Module for Package Hub 15 SP5",
+					"product_id": "SUSE Linux Enterprise Module for Package Hub 15 SP5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x"
+				},
+				"product_reference": "golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Package Hub 15 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64 as component of SUSE Linux Enterprise Module for Package Hub 15 SP5",
+					"product_id": "SUSE Linux Enterprise Module for Package Hub 15 SP5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64"
+				},
+				"product_reference": "golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Package Hub 15 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64 as component of SUSE Manager Proxy Module 4.2",
+					"product_id": "SUSE Manager Proxy Module 4.2:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64"
+				},
+				"product_reference": "golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64",
+				"relates_to_product_reference": "SUSE Manager Proxy Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le as component of SUSE Manager Proxy Module 4.2",
+					"product_id": "SUSE Manager Proxy Module 4.2:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le"
+				},
+				"product_reference": "golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le",
+				"relates_to_product_reference": "SUSE Manager Proxy Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x as component of SUSE Manager Proxy Module 4.2",
+					"product_id": "SUSE Manager Proxy Module 4.2:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x"
+				},
+				"product_reference": "golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x",
+				"relates_to_product_reference": "SUSE Manager Proxy Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64 as component of SUSE Manager Proxy Module 4.2",
+					"product_id": "SUSE Manager Proxy Module 4.2:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64"
+				},
+				"product_reference": "golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64",
+				"relates_to_product_reference": "SUSE Manager Proxy Module 4.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64 as component of SUSE Manager Proxy Module 4.3",
+					"product_id": "SUSE Manager Proxy Module 4.3:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64"
+				},
+				"product_reference": "golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64",
+				"relates_to_product_reference": "SUSE Manager Proxy Module 4.3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le as component of SUSE Manager Proxy Module 4.3",
+					"product_id": "SUSE Manager Proxy Module 4.3:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le"
+				},
+				"product_reference": "golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le",
+				"relates_to_product_reference": "SUSE Manager Proxy Module 4.3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x as component of SUSE Manager Proxy Module 4.3",
+					"product_id": "SUSE Manager Proxy Module 4.3:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x"
+				},
+				"product_reference": "golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x",
+				"relates_to_product_reference": "SUSE Manager Proxy Module 4.3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64 as component of SUSE Manager Proxy Module 4.3",
+					"product_id": "SUSE Manager Proxy Module 4.3:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64"
+				},
+				"product_reference": "golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64",
+				"relates_to_product_reference": "SUSE Manager Proxy Module 4.3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "firewalld-prometheus-config-0.1-150100.4.17.1.aarch64 as component of openSUSE Leap 15.4",
+					"product_id": "openSUSE Leap 15.4:firewalld-prometheus-config-0.1-150100.4.17.1.aarch64"
+				},
+				"product_reference": "firewalld-prometheus-config-0.1-150100.4.17.1.aarch64",
+				"relates_to_product_reference": "openSUSE Leap 15.4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "firewalld-prometheus-config-0.1-150100.4.17.1.ppc64le as component of openSUSE Leap 15.4",
+					"product_id": "openSUSE Leap 15.4:firewalld-prometheus-config-0.1-150100.4.17.1.ppc64le"
+				},
+				"product_reference": "firewalld-prometheus-config-0.1-150100.4.17.1.ppc64le",
+				"relates_to_product_reference": "openSUSE Leap 15.4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "firewalld-prometheus-config-0.1-150100.4.17.1.s390x as component of openSUSE Leap 15.4",
+					"product_id": "openSUSE Leap 15.4:firewalld-prometheus-config-0.1-150100.4.17.1.s390x"
+				},
+				"product_reference": "firewalld-prometheus-config-0.1-150100.4.17.1.s390x",
+				"relates_to_product_reference": "openSUSE Leap 15.4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "firewalld-prometheus-config-0.1-150100.4.17.1.x86_64 as component of openSUSE Leap 15.4",
+					"product_id": "openSUSE Leap 15.4:firewalld-prometheus-config-0.1-150100.4.17.1.x86_64"
+				},
+				"product_reference": "firewalld-prometheus-config-0.1-150100.4.17.1.x86_64",
+				"relates_to_product_reference": "openSUSE Leap 15.4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64 as component of openSUSE Leap 15.4",
+					"product_id": "openSUSE Leap 15.4:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64"
+				},
+				"product_reference": "golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64",
+				"relates_to_product_reference": "openSUSE Leap 15.4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le as component of openSUSE Leap 15.4",
+					"product_id": "openSUSE Leap 15.4:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le"
+				},
+				"product_reference": "golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le",
+				"relates_to_product_reference": "openSUSE Leap 15.4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x as component of openSUSE Leap 15.4",
+					"product_id": "openSUSE Leap 15.4:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x"
+				},
+				"product_reference": "golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x",
+				"relates_to_product_reference": "openSUSE Leap 15.4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64 as component of openSUSE Leap 15.4",
+					"product_id": "openSUSE Leap 15.4:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64"
+				},
+				"product_reference": "golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64",
+				"relates_to_product_reference": "openSUSE Leap 15.4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "firewalld-prometheus-config-0.1-150100.4.17.1.aarch64 as component of openSUSE Leap 15.5",
+					"product_id": "openSUSE Leap 15.5:firewalld-prometheus-config-0.1-150100.4.17.1.aarch64"
+				},
+				"product_reference": "firewalld-prometheus-config-0.1-150100.4.17.1.aarch64",
+				"relates_to_product_reference": "openSUSE Leap 15.5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "firewalld-prometheus-config-0.1-150100.4.17.1.ppc64le as component of openSUSE Leap 15.5",
+					"product_id": "openSUSE Leap 15.5:firewalld-prometheus-config-0.1-150100.4.17.1.ppc64le"
+				},
+				"product_reference": "firewalld-prometheus-config-0.1-150100.4.17.1.ppc64le",
+				"relates_to_product_reference": "openSUSE Leap 15.5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "firewalld-prometheus-config-0.1-150100.4.17.1.s390x as component of openSUSE Leap 15.5",
+					"product_id": "openSUSE Leap 15.5:firewalld-prometheus-config-0.1-150100.4.17.1.s390x"
+				},
+				"product_reference": "firewalld-prometheus-config-0.1-150100.4.17.1.s390x",
+				"relates_to_product_reference": "openSUSE Leap 15.5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "firewalld-prometheus-config-0.1-150100.4.17.1.x86_64 as component of openSUSE Leap 15.5",
+					"product_id": "openSUSE Leap 15.5:firewalld-prometheus-config-0.1-150100.4.17.1.x86_64"
+				},
+				"product_reference": "firewalld-prometheus-config-0.1-150100.4.17.1.x86_64",
+				"relates_to_product_reference": "openSUSE Leap 15.5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64 as component of openSUSE Leap 15.5",
+					"product_id": "openSUSE Leap 15.5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64"
+				},
+				"product_reference": "golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64",
+				"relates_to_product_reference": "openSUSE Leap 15.5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le as component of openSUSE Leap 15.5",
+					"product_id": "openSUSE Leap 15.5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le"
+				},
+				"product_reference": "golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le",
+				"relates_to_product_reference": "openSUSE Leap 15.5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x as component of openSUSE Leap 15.5",
+					"product_id": "openSUSE Leap 15.5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x"
+				},
+				"product_reference": "golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x",
+				"relates_to_product_reference": "openSUSE Leap 15.5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64 as component of openSUSE Leap 15.5",
+					"product_id": "openSUSE Leap 15.5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64"
+				},
+				"product_reference": "golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64",
+				"relates_to_product_reference": "openSUSE Leap 15.5"
+			}
+		]
+	},
+	"vulnerabilities": [
+		{
+			"cve": "CVE-2022-41715",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2022-41715"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Programs which compile regular expressions from untrusted sources may be vulnerable to memory exhaustion or denial of service. The parsed regexp representation is linear in the size of the input, but in some cases the constant factor can be as high as 40,000, making relatively small regexps consume much larger amounts of memory. After fix, each regexp being parsed is limited to a 256 MB memory footprint. Regular expressions whose representation would use more space than that are rejected. Normal use of regular expressions is unaffected.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64",
+					"SUSE Manager Proxy Module 4.2:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64",
+					"SUSE Manager Proxy Module 4.2:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le",
+					"SUSE Manager Proxy Module 4.2:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x",
+					"SUSE Manager Proxy Module 4.2:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64",
+					"SUSE Manager Proxy Module 4.3:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64",
+					"SUSE Manager Proxy Module 4.3:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le",
+					"SUSE Manager Proxy Module 4.3:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x",
+					"SUSE Manager Proxy Module 4.3:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64",
+					"openSUSE Leap 15.4:firewalld-prometheus-config-0.1-150100.4.17.1.aarch64",
+					"openSUSE Leap 15.4:firewalld-prometheus-config-0.1-150100.4.17.1.ppc64le",
+					"openSUSE Leap 15.4:firewalld-prometheus-config-0.1-150100.4.17.1.s390x",
+					"openSUSE Leap 15.4:firewalld-prometheus-config-0.1-150100.4.17.1.x86_64",
+					"openSUSE Leap 15.4:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64",
+					"openSUSE Leap 15.4:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le",
+					"openSUSE Leap 15.4:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x",
+					"openSUSE Leap 15.4:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64",
+					"openSUSE Leap 15.5:firewalld-prometheus-config-0.1-150100.4.17.1.aarch64",
+					"openSUSE Leap 15.5:firewalld-prometheus-config-0.1-150100.4.17.1.ppc64le",
+					"openSUSE Leap 15.5:firewalld-prometheus-config-0.1-150100.4.17.1.s390x",
+					"openSUSE Leap 15.5:firewalld-prometheus-config-0.1-150100.4.17.1.x86_64",
+					"openSUSE Leap 15.5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64",
+					"openSUSE Leap 15.5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le",
+					"openSUSE Leap 15.5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x",
+					"openSUSE Leap 15.5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2022-41715",
+					"url": "https://www.suse.com/security/cve/CVE-2022-41715"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1204023 for CVE-2022-41715",
+					"url": "https://bugzilla.suse.com/1204023"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1208441 for CVE-2022-41715",
+					"url": "https://bugzilla.suse.com/1208441"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64",
+						"SUSE Manager Proxy Module 4.2:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64",
+						"SUSE Manager Proxy Module 4.2:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le",
+						"SUSE Manager Proxy Module 4.2:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x",
+						"SUSE Manager Proxy Module 4.2:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64",
+						"SUSE Manager Proxy Module 4.3:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64",
+						"SUSE Manager Proxy Module 4.3:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le",
+						"SUSE Manager Proxy Module 4.3:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x",
+						"SUSE Manager Proxy Module 4.3:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64",
+						"openSUSE Leap 15.4:firewalld-prometheus-config-0.1-150100.4.17.1.aarch64",
+						"openSUSE Leap 15.4:firewalld-prometheus-config-0.1-150100.4.17.1.ppc64le",
+						"openSUSE Leap 15.4:firewalld-prometheus-config-0.1-150100.4.17.1.s390x",
+						"openSUSE Leap 15.4:firewalld-prometheus-config-0.1-150100.4.17.1.x86_64",
+						"openSUSE Leap 15.4:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64",
+						"openSUSE Leap 15.4:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le",
+						"openSUSE Leap 15.4:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x",
+						"openSUSE Leap 15.4:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64",
+						"openSUSE Leap 15.5:firewalld-prometheus-config-0.1-150100.4.17.1.aarch64",
+						"openSUSE Leap 15.5:firewalld-prometheus-config-0.1-150100.4.17.1.ppc64le",
+						"openSUSE Leap 15.5:firewalld-prometheus-config-0.1-150100.4.17.1.s390x",
+						"openSUSE Leap 15.5:firewalld-prometheus-config-0.1-150100.4.17.1.x86_64",
+						"openSUSE Leap 15.5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64",
+						"openSUSE Leap 15.5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le",
+						"openSUSE Leap 15.5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x",
+						"openSUSE Leap 15.5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 6.2,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64",
+						"SUSE Manager Proxy Module 4.2:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64",
+						"SUSE Manager Proxy Module 4.2:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le",
+						"SUSE Manager Proxy Module 4.2:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x",
+						"SUSE Manager Proxy Module 4.2:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64",
+						"SUSE Manager Proxy Module 4.3:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64",
+						"SUSE Manager Proxy Module 4.3:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le",
+						"SUSE Manager Proxy Module 4.3:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x",
+						"SUSE Manager Proxy Module 4.3:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64",
+						"openSUSE Leap 15.4:firewalld-prometheus-config-0.1-150100.4.17.1.aarch64",
+						"openSUSE Leap 15.4:firewalld-prometheus-config-0.1-150100.4.17.1.ppc64le",
+						"openSUSE Leap 15.4:firewalld-prometheus-config-0.1-150100.4.17.1.s390x",
+						"openSUSE Leap 15.4:firewalld-prometheus-config-0.1-150100.4.17.1.x86_64",
+						"openSUSE Leap 15.4:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64",
+						"openSUSE Leap 15.4:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le",
+						"openSUSE Leap 15.4:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x",
+						"openSUSE Leap 15.4:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64",
+						"openSUSE Leap 15.5:firewalld-prometheus-config-0.1-150100.4.17.1.aarch64",
+						"openSUSE Leap 15.5:firewalld-prometheus-config-0.1-150100.4.17.1.ppc64le",
+						"openSUSE Leap 15.5:firewalld-prometheus-config-0.1-150100.4.17.1.s390x",
+						"openSUSE Leap 15.5:firewalld-prometheus-config-0.1-150100.4.17.1.x86_64",
+						"openSUSE Leap 15.5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64",
+						"openSUSE Leap 15.5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le",
+						"openSUSE Leap 15.5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x",
+						"openSUSE Leap 15.5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2023-06-21T13:17:39Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2022-41715"
+		},
+		{
+			"cve": "CVE-2022-41723",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2022-41723"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A maliciously crafted HTTP/2 stream could cause excessive CPU consumption in the HPACK decoder, sufficient to cause a denial of service from a small number of small requests.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64",
+					"SUSE Manager Proxy Module 4.2:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64",
+					"SUSE Manager Proxy Module 4.2:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le",
+					"SUSE Manager Proxy Module 4.2:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x",
+					"SUSE Manager Proxy Module 4.2:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64",
+					"SUSE Manager Proxy Module 4.3:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64",
+					"SUSE Manager Proxy Module 4.3:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le",
+					"SUSE Manager Proxy Module 4.3:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x",
+					"SUSE Manager Proxy Module 4.3:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64",
+					"openSUSE Leap 15.4:firewalld-prometheus-config-0.1-150100.4.17.1.aarch64",
+					"openSUSE Leap 15.4:firewalld-prometheus-config-0.1-150100.4.17.1.ppc64le",
+					"openSUSE Leap 15.4:firewalld-prometheus-config-0.1-150100.4.17.1.s390x",
+					"openSUSE Leap 15.4:firewalld-prometheus-config-0.1-150100.4.17.1.x86_64",
+					"openSUSE Leap 15.4:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64",
+					"openSUSE Leap 15.4:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le",
+					"openSUSE Leap 15.4:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x",
+					"openSUSE Leap 15.4:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64",
+					"openSUSE Leap 15.5:firewalld-prometheus-config-0.1-150100.4.17.1.aarch64",
+					"openSUSE Leap 15.5:firewalld-prometheus-config-0.1-150100.4.17.1.ppc64le",
+					"openSUSE Leap 15.5:firewalld-prometheus-config-0.1-150100.4.17.1.s390x",
+					"openSUSE Leap 15.5:firewalld-prometheus-config-0.1-150100.4.17.1.x86_64",
+					"openSUSE Leap 15.5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64",
+					"openSUSE Leap 15.5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le",
+					"openSUSE Leap 15.5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x",
+					"openSUSE Leap 15.5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2022-41723",
+					"url": "https://www.suse.com/security/cve/CVE-2022-41723"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1208270 for CVE-2022-41723",
+					"url": "https://bugzilla.suse.com/1208270"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1215588 for CVE-2022-41723",
+					"url": "https://bugzilla.suse.com/1215588"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64",
+						"SUSE Manager Proxy Module 4.2:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64",
+						"SUSE Manager Proxy Module 4.2:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le",
+						"SUSE Manager Proxy Module 4.2:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x",
+						"SUSE Manager Proxy Module 4.2:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64",
+						"SUSE Manager Proxy Module 4.3:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64",
+						"SUSE Manager Proxy Module 4.3:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le",
+						"SUSE Manager Proxy Module 4.3:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x",
+						"SUSE Manager Proxy Module 4.3:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64",
+						"openSUSE Leap 15.4:firewalld-prometheus-config-0.1-150100.4.17.1.aarch64",
+						"openSUSE Leap 15.4:firewalld-prometheus-config-0.1-150100.4.17.1.ppc64le",
+						"openSUSE Leap 15.4:firewalld-prometheus-config-0.1-150100.4.17.1.s390x",
+						"openSUSE Leap 15.4:firewalld-prometheus-config-0.1-150100.4.17.1.x86_64",
+						"openSUSE Leap 15.4:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64",
+						"openSUSE Leap 15.4:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le",
+						"openSUSE Leap 15.4:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x",
+						"openSUSE Leap 15.4:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64",
+						"openSUSE Leap 15.5:firewalld-prometheus-config-0.1-150100.4.17.1.aarch64",
+						"openSUSE Leap 15.5:firewalld-prometheus-config-0.1-150100.4.17.1.ppc64le",
+						"openSUSE Leap 15.5:firewalld-prometheus-config-0.1-150100.4.17.1.s390x",
+						"openSUSE Leap 15.5:firewalld-prometheus-config-0.1-150100.4.17.1.x86_64",
+						"openSUSE Leap 15.5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64",
+						"openSUSE Leap 15.5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le",
+						"openSUSE Leap 15.5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x",
+						"openSUSE Leap 15.5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.5,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64",
+						"SUSE Manager Proxy Module 4.2:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64",
+						"SUSE Manager Proxy Module 4.2:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le",
+						"SUSE Manager Proxy Module 4.2:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x",
+						"SUSE Manager Proxy Module 4.2:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64",
+						"SUSE Manager Proxy Module 4.3:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64",
+						"SUSE Manager Proxy Module 4.3:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le",
+						"SUSE Manager Proxy Module 4.3:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x",
+						"SUSE Manager Proxy Module 4.3:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64",
+						"openSUSE Leap 15.4:firewalld-prometheus-config-0.1-150100.4.17.1.aarch64",
+						"openSUSE Leap 15.4:firewalld-prometheus-config-0.1-150100.4.17.1.ppc64le",
+						"openSUSE Leap 15.4:firewalld-prometheus-config-0.1-150100.4.17.1.s390x",
+						"openSUSE Leap 15.4:firewalld-prometheus-config-0.1-150100.4.17.1.x86_64",
+						"openSUSE Leap 15.4:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64",
+						"openSUSE Leap 15.4:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le",
+						"openSUSE Leap 15.4:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x",
+						"openSUSE Leap 15.4:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64",
+						"openSUSE Leap 15.5:firewalld-prometheus-config-0.1-150100.4.17.1.aarch64",
+						"openSUSE Leap 15.5:firewalld-prometheus-config-0.1-150100.4.17.1.ppc64le",
+						"openSUSE Leap 15.5:firewalld-prometheus-config-0.1-150100.4.17.1.s390x",
+						"openSUSE Leap 15.5:firewalld-prometheus-config-0.1-150100.4.17.1.x86_64",
+						"openSUSE Leap 15.5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64",
+						"openSUSE Leap 15.5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le",
+						"openSUSE Leap 15.5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x",
+						"openSUSE Leap 15.5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2023-06-21T13:17:39Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2022-41723"
+		},
+		{
+			"cve": "CVE-2022-46146",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2022-46146"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Prometheus Exporter Toolkit is a utility package to build exporters. Prior to versions 0.7.2 and 0.8.2, if someone has access to a Prometheus web.yml file and users' bcrypted passwords, they can bypass security by poisoning the built-in authentication cache. Versions 0.7.2 and 0.8.2 contain a fix for the issue. There is no workaround, but attacker must have access to the hashed password to use this functionality.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64",
+					"SUSE Manager Proxy Module 4.2:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64",
+					"SUSE Manager Proxy Module 4.2:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le",
+					"SUSE Manager Proxy Module 4.2:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x",
+					"SUSE Manager Proxy Module 4.2:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64",
+					"SUSE Manager Proxy Module 4.3:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64",
+					"SUSE Manager Proxy Module 4.3:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le",
+					"SUSE Manager Proxy Module 4.3:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x",
+					"SUSE Manager Proxy Module 4.3:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64",
+					"openSUSE Leap 15.4:firewalld-prometheus-config-0.1-150100.4.17.1.aarch64",
+					"openSUSE Leap 15.4:firewalld-prometheus-config-0.1-150100.4.17.1.ppc64le",
+					"openSUSE Leap 15.4:firewalld-prometheus-config-0.1-150100.4.17.1.s390x",
+					"openSUSE Leap 15.4:firewalld-prometheus-config-0.1-150100.4.17.1.x86_64",
+					"openSUSE Leap 15.4:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64",
+					"openSUSE Leap 15.4:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le",
+					"openSUSE Leap 15.4:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x",
+					"openSUSE Leap 15.4:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64",
+					"openSUSE Leap 15.5:firewalld-prometheus-config-0.1-150100.4.17.1.aarch64",
+					"openSUSE Leap 15.5:firewalld-prometheus-config-0.1-150100.4.17.1.ppc64le",
+					"openSUSE Leap 15.5:firewalld-prometheus-config-0.1-150100.4.17.1.s390x",
+					"openSUSE Leap 15.5:firewalld-prometheus-config-0.1-150100.4.17.1.x86_64",
+					"openSUSE Leap 15.5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64",
+					"openSUSE Leap 15.5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le",
+					"openSUSE Leap 15.5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x",
+					"openSUSE Leap 15.5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2022-46146",
+					"url": "https://www.suse.com/security/cve/CVE-2022-46146"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1208046 for CVE-2022-46146",
+					"url": "https://bugzilla.suse.com/1208046"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64",
+						"SUSE Manager Proxy Module 4.2:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64",
+						"SUSE Manager Proxy Module 4.2:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le",
+						"SUSE Manager Proxy Module 4.2:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x",
+						"SUSE Manager Proxy Module 4.2:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64",
+						"SUSE Manager Proxy Module 4.3:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64",
+						"SUSE Manager Proxy Module 4.3:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le",
+						"SUSE Manager Proxy Module 4.3:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x",
+						"SUSE Manager Proxy Module 4.3:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64",
+						"openSUSE Leap 15.4:firewalld-prometheus-config-0.1-150100.4.17.1.aarch64",
+						"openSUSE Leap 15.4:firewalld-prometheus-config-0.1-150100.4.17.1.ppc64le",
+						"openSUSE Leap 15.4:firewalld-prometheus-config-0.1-150100.4.17.1.s390x",
+						"openSUSE Leap 15.4:firewalld-prometheus-config-0.1-150100.4.17.1.x86_64",
+						"openSUSE Leap 15.4:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64",
+						"openSUSE Leap 15.4:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le",
+						"openSUSE Leap 15.4:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x",
+						"openSUSE Leap 15.4:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64",
+						"openSUSE Leap 15.5:firewalld-prometheus-config-0.1-150100.4.17.1.aarch64",
+						"openSUSE Leap 15.5:firewalld-prometheus-config-0.1-150100.4.17.1.ppc64le",
+						"openSUSE Leap 15.5:firewalld-prometheus-config-0.1-150100.4.17.1.s390x",
+						"openSUSE Leap 15.5:firewalld-prometheus-config-0.1-150100.4.17.1.x86_64",
+						"openSUSE Leap 15.5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64",
+						"openSUSE Leap 15.5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le",
+						"openSUSE Leap 15.5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x",
+						"openSUSE Leap 15.5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 8.8,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64",
+						"SUSE Manager Proxy Module 4.2:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64",
+						"SUSE Manager Proxy Module 4.2:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le",
+						"SUSE Manager Proxy Module 4.2:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x",
+						"SUSE Manager Proxy Module 4.2:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64",
+						"SUSE Manager Proxy Module 4.3:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64",
+						"SUSE Manager Proxy Module 4.3:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le",
+						"SUSE Manager Proxy Module 4.3:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x",
+						"SUSE Manager Proxy Module 4.3:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64",
+						"openSUSE Leap 15.4:firewalld-prometheus-config-0.1-150100.4.17.1.aarch64",
+						"openSUSE Leap 15.4:firewalld-prometheus-config-0.1-150100.4.17.1.ppc64le",
+						"openSUSE Leap 15.4:firewalld-prometheus-config-0.1-150100.4.17.1.s390x",
+						"openSUSE Leap 15.4:firewalld-prometheus-config-0.1-150100.4.17.1.x86_64",
+						"openSUSE Leap 15.4:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64",
+						"openSUSE Leap 15.4:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le",
+						"openSUSE Leap 15.4:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x",
+						"openSUSE Leap 15.4:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64",
+						"openSUSE Leap 15.5:firewalld-prometheus-config-0.1-150100.4.17.1.aarch64",
+						"openSUSE Leap 15.5:firewalld-prometheus-config-0.1-150100.4.17.1.ppc64le",
+						"openSUSE Leap 15.5:firewalld-prometheus-config-0.1-150100.4.17.1.s390x",
+						"openSUSE Leap 15.5:firewalld-prometheus-config-0.1-150100.4.17.1.x86_64",
+						"openSUSE Leap 15.5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.aarch64",
+						"openSUSE Leap 15.5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.ppc64le",
+						"openSUSE Leap 15.5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.s390x",
+						"openSUSE Leap 15.5:golang-github-prometheus-prometheus-2.37.6-150100.4.17.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2023-06-21T13:17:39Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2022-46146"
+		}
+	]
+}

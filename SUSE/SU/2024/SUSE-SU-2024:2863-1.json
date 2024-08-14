@@ -1,0 +1,1238 @@
+{
+	"document": {
+		"aggregate_severity": {
+			"namespace": "https://www.suse.com/support/security/rating/",
+			"text": "important"
+		},
+		"category": "csaf_security_advisory",
+		"csaf_version": "2.0",
+		"distribution": {
+			"text": "Copyright 2024 SUSE LLC. All rights reserved.",
+			"tlp": {
+				"label": "WHITE",
+				"url": "https://www.first.org/tlp/"
+			}
+		},
+		"lang": "en",
+		"notes": [
+			{
+				"category": "summary",
+				"text": "Security update for bind",
+				"title": "Title of the patch"
+			},
+			{
+				"category": "description",
+				"text": "This update for bind fixes the following issues:\n\nUpdate to 9.16.50:\n\n- Bug Fixes:\n  * A regression in cache-cleaning code enabled memory use to grow\n    significantly more quickly than before, until the configured\n    max-cache-size limit was reached. This has been fixed.\n  * Using rndc flush inadvertently caused cache cleaning to become\n    less effective. This could ultimately lead to the configured\n    max-cache-size limit being exceeded and has now been fixed.\n  * The logic for cleaning up expired cached DNS records was\n    tweaked to be more aggressive. This change helps with enforcing\n    max-cache-ttl and max-ncache-ttl in a timely manner.\n  * It was possible to trigger a use-after-free assertion when the\n    overmem cache cleaning was initiated. This has been fixed.\n  New Features:\n  * Added RESOLVER.ARPA to the built in empty zones.\n- Security Fixes:\n  * It is possible to craft excessively large numbers of resource\n    record types for a given owner name, which has the effect of\n    slowing down database processing. This has been addressed by\n    adding a configurable limit to the number of records that can\n    be stored per name and type in a cache or zone database. The\n    default is 100, which can be tuned with the new\n    max-types-per-name option. (CVE-2024-1737, bsc#1228256)\n  * Validating DNS messages signed using the SIG(0) protocol (RFC\n    2931) could cause excessive CPU load, leading to a\n    denial-of-service condition. Support for SIG(0) message\n    validation was removed from this version of named.\n    (CVE-2024-1975, bsc#1228257)\n  * When looking up the NS records of parent zones as part of\n    looking up DS records, it was possible for named to trigger an\n    assertion failure if serve-stale was enabled. This has been\n    fixed. (CVE-2024-4076, bsc#1228258)\n",
+				"title": "Description of the patch"
+			},
+			{
+				"category": "details",
+				"text": "SUSE-2024-2863,SUSE-SLE-Product-HPC-15-SP4-ESPOS-2024-2863,SUSE-SLE-Product-HPC-15-SP4-LTSS-2024-2863,SUSE-SLE-Product-SLED-15-SP4-LTSS-2024-2863,SUSE-SLE-Product-SLES-15-SP4-LTSS-2024-2863,SUSE-SLE-Product-SLES_SAP-15-SP4-2024-2863,SUSE-SLE-Product-SUSE-Manager-Proxy-4.3-2024-2863,SUSE-SLE-Product-SUSE-Manager-Server-4.3-2024-2863",
+				"title": "Patchnames"
+			},
+			{
+				"category": "legal_disclaimer",
+				"text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+				"title": "Terms of use"
+			}
+		],
+		"publisher": {
+			"category": "vendor",
+			"contact_details": "https://www.suse.com/support/security/contact/",
+			"name": "SUSE Product Security Team",
+			"namespace": "https://www.suse.com/"
+		},
+		"references": [
+			{
+				"category": "external",
+				"summary": "SUSE ratings",
+				"url": "https://www.suse.com/support/security/rating/"
+			},
+			{
+				"category": "self",
+				"summary": "URL of this CSAF notice",
+				"url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2024_2863-1.json"
+			},
+			{
+				"category": "self",
+				"summary": "URL for SUSE-SU-2024:2863-1",
+				"url": "https://www.suse.com/support/update/announcement/2024/suse-su-20242863-1/"
+			},
+			{
+				"category": "self",
+				"summary": "E-Mail link for SUSE-SU-2024:2863-1",
+				"url": "https://lists.suse.com/pipermail/sle-updates/2024-August/036388.html"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1228256",
+				"url": "https://bugzilla.suse.com/1228256"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1228257",
+				"url": "https://bugzilla.suse.com/1228257"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1228258",
+				"url": "https://bugzilla.suse.com/1228258"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2024-1737 page",
+				"url": "https://www.suse.com/security/cve/CVE-2024-1737/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2024-1975 page",
+				"url": "https://www.suse.com/security/cve/CVE-2024-1975/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2024-4076 page",
+				"url": "https://www.suse.com/security/cve/CVE-2024-4076/"
+			}
+		],
+		"title": "Security update for bind",
+		"tracking": {
+			"current_release_date": "2024-08-09T07:21:18Z",
+			"generator": {
+				"date": "2024-08-09T07:21:18Z",
+				"engine": {
+					"name": "cve-database.git:bin/generate-csaf.pl",
+					"version": "1"
+				}
+			},
+			"id": "SUSE-SU-2024:2863-1",
+			"initial_release_date": "2024-08-09T07:21:18Z",
+			"revision_history": [
+				{
+					"date": "2024-08-09T07:21:18Z",
+					"number": "1",
+					"summary": "Current version"
+				}
+			],
+			"status": "final",
+			"version": "1"
+		}
+	},
+	"product_tree": {
+		"branches": [
+			{
+				"branches": [
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "bind-9.16.50-150400.5.43.1.aarch64",
+								"product": {
+									"name": "bind-9.16.50-150400.5.43.1.aarch64",
+									"product_id": "bind-9.16.50-150400.5.43.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "bind-utils-9.16.50-150400.5.43.1.aarch64",
+								"product": {
+									"name": "bind-utils-9.16.50-150400.5.43.1.aarch64",
+									"product_id": "bind-utils-9.16.50-150400.5.43.1.aarch64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "aarch64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "bind-9.16.50-150400.5.43.1.i586",
+								"product": {
+									"name": "bind-9.16.50-150400.5.43.1.i586",
+									"product_id": "bind-9.16.50-150400.5.43.1.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "bind-utils-9.16.50-150400.5.43.1.i586",
+								"product": {
+									"name": "bind-utils-9.16.50-150400.5.43.1.i586",
+									"product_id": "bind-utils-9.16.50-150400.5.43.1.i586"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "i586"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "bind-doc-9.16.50-150400.5.43.1.noarch",
+								"product": {
+									"name": "bind-doc-9.16.50-150400.5.43.1.noarch",
+									"product_id": "bind-doc-9.16.50-150400.5.43.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "python3-bind-9.16.50-150400.5.43.1.noarch",
+								"product": {
+									"name": "python3-bind-9.16.50-150400.5.43.1.noarch",
+									"product_id": "python3-bind-9.16.50-150400.5.43.1.noarch"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "noarch"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "bind-9.16.50-150400.5.43.1.ppc64le",
+								"product": {
+									"name": "bind-9.16.50-150400.5.43.1.ppc64le",
+									"product_id": "bind-9.16.50-150400.5.43.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "bind-utils-9.16.50-150400.5.43.1.ppc64le",
+								"product": {
+									"name": "bind-utils-9.16.50-150400.5.43.1.ppc64le",
+									"product_id": "bind-utils-9.16.50-150400.5.43.1.ppc64le"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "ppc64le"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "bind-9.16.50-150400.5.43.1.s390x",
+								"product": {
+									"name": "bind-9.16.50-150400.5.43.1.s390x",
+									"product_id": "bind-9.16.50-150400.5.43.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "bind-utils-9.16.50-150400.5.43.1.s390x",
+								"product": {
+									"name": "bind-utils-9.16.50-150400.5.43.1.s390x",
+									"product_id": "bind-utils-9.16.50-150400.5.43.1.s390x"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "s390x"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "bind-9.16.50-150400.5.43.1.x86_64",
+								"product": {
+									"name": "bind-9.16.50-150400.5.43.1.x86_64",
+									"product_id": "bind-9.16.50-150400.5.43.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "bind-utils-9.16.50-150400.5.43.1.x86_64",
+								"product": {
+									"name": "bind-utils-9.16.50-150400.5.43.1.x86_64",
+									"product_id": "bind-utils-9.16.50-150400.5.43.1.x86_64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "x86_64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS",
+								"product": {
+									"name": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS",
+									"product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle_hpc-espos:15:sp4"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS",
+								"product": {
+									"name": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS",
+									"product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle_hpc-ltss:15:sp4"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server 15 SP4-LTSS",
+								"product": {
+									"name": "SUSE Linux Enterprise Server 15 SP4-LTSS",
+									"product_id": "SUSE Linux Enterprise Server 15 SP4-LTSS",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sles-ltss:15:sp4"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server for SAP Applications 15 SP4",
+								"product": {
+									"name": "SUSE Linux Enterprise Server for SAP Applications 15 SP4",
+									"product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP4",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sles_sap:15:sp4"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Manager Proxy 4.3",
+								"product": {
+									"name": "SUSE Manager Proxy 4.3",
+									"product_id": "SUSE Manager Proxy 4.3",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:suse-manager-proxy:4.3"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Manager Server 4.3",
+								"product": {
+									"name": "SUSE Manager Server 4.3",
+									"product_id": "SUSE Manager Server 4.3",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:suse-manager-server:4.3"
+									}
+								}
+							}
+						],
+						"category": "product_family",
+						"name": "SUSE Linux Enterprise"
+					}
+				],
+				"category": "vendor",
+				"name": "SUSE"
+			}
+		],
+		"relationships": [
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "bind-9.16.50-150400.5.43.1.aarch64 as component of SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS",
+					"product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:bind-9.16.50-150400.5.43.1.aarch64"
+				},
+				"product_reference": "bind-9.16.50-150400.5.43.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "bind-9.16.50-150400.5.43.1.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS",
+					"product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:bind-9.16.50-150400.5.43.1.x86_64"
+				},
+				"product_reference": "bind-9.16.50-150400.5.43.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "bind-doc-9.16.50-150400.5.43.1.noarch as component of SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS",
+					"product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:bind-doc-9.16.50-150400.5.43.1.noarch"
+				},
+				"product_reference": "bind-doc-9.16.50-150400.5.43.1.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "bind-utils-9.16.50-150400.5.43.1.aarch64 as component of SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS",
+					"product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:bind-utils-9.16.50-150400.5.43.1.aarch64"
+				},
+				"product_reference": "bind-utils-9.16.50-150400.5.43.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "bind-utils-9.16.50-150400.5.43.1.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS",
+					"product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:bind-utils-9.16.50-150400.5.43.1.x86_64"
+				},
+				"product_reference": "bind-utils-9.16.50-150400.5.43.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "python3-bind-9.16.50-150400.5.43.1.noarch as component of SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS",
+					"product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:python3-bind-9.16.50-150400.5.43.1.noarch"
+				},
+				"product_reference": "python3-bind-9.16.50-150400.5.43.1.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "bind-9.16.50-150400.5.43.1.aarch64 as component of SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS",
+					"product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.aarch64"
+				},
+				"product_reference": "bind-9.16.50-150400.5.43.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "bind-9.16.50-150400.5.43.1.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS",
+					"product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.x86_64"
+				},
+				"product_reference": "bind-9.16.50-150400.5.43.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "bind-doc-9.16.50-150400.5.43.1.noarch as component of SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS",
+					"product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:bind-doc-9.16.50-150400.5.43.1.noarch"
+				},
+				"product_reference": "bind-doc-9.16.50-150400.5.43.1.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "bind-utils-9.16.50-150400.5.43.1.aarch64 as component of SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS",
+					"product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.aarch64"
+				},
+				"product_reference": "bind-utils-9.16.50-150400.5.43.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "bind-utils-9.16.50-150400.5.43.1.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS",
+					"product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.x86_64"
+				},
+				"product_reference": "bind-utils-9.16.50-150400.5.43.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "python3-bind-9.16.50-150400.5.43.1.noarch as component of SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS",
+					"product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:python3-bind-9.16.50-150400.5.43.1.noarch"
+				},
+				"product_reference": "python3-bind-9.16.50-150400.5.43.1.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "bind-9.16.50-150400.5.43.1.aarch64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.aarch64"
+				},
+				"product_reference": "bind-9.16.50-150400.5.43.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP4-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "bind-9.16.50-150400.5.43.1.ppc64le as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.ppc64le"
+				},
+				"product_reference": "bind-9.16.50-150400.5.43.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP4-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "bind-9.16.50-150400.5.43.1.s390x as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.s390x"
+				},
+				"product_reference": "bind-9.16.50-150400.5.43.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP4-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "bind-9.16.50-150400.5.43.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.x86_64"
+				},
+				"product_reference": "bind-9.16.50-150400.5.43.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP4-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "bind-doc-9.16.50-150400.5.43.1.noarch as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 15 SP4-LTSS:bind-doc-9.16.50-150400.5.43.1.noarch"
+				},
+				"product_reference": "bind-doc-9.16.50-150400.5.43.1.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP4-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "bind-utils-9.16.50-150400.5.43.1.aarch64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.aarch64"
+				},
+				"product_reference": "bind-utils-9.16.50-150400.5.43.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP4-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "bind-utils-9.16.50-150400.5.43.1.ppc64le as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.ppc64le"
+				},
+				"product_reference": "bind-utils-9.16.50-150400.5.43.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP4-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "bind-utils-9.16.50-150400.5.43.1.s390x as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.s390x"
+				},
+				"product_reference": "bind-utils-9.16.50-150400.5.43.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP4-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "bind-utils-9.16.50-150400.5.43.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.x86_64"
+				},
+				"product_reference": "bind-utils-9.16.50-150400.5.43.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP4-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "python3-bind-9.16.50-150400.5.43.1.noarch as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 15 SP4-LTSS:python3-bind-9.16.50-150400.5.43.1.noarch"
+				},
+				"product_reference": "python3-bind-9.16.50-150400.5.43.1.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP4-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "bind-9.16.50-150400.5.43.1.ppc64le as component of SUSE Linux Enterprise Server for SAP Applications 15 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP4:bind-9.16.50-150400.5.43.1.ppc64le"
+				},
+				"product_reference": "bind-9.16.50-150400.5.43.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "bind-9.16.50-150400.5.43.1.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 15 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP4:bind-9.16.50-150400.5.43.1.x86_64"
+				},
+				"product_reference": "bind-9.16.50-150400.5.43.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "bind-doc-9.16.50-150400.5.43.1.noarch as component of SUSE Linux Enterprise Server for SAP Applications 15 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP4:bind-doc-9.16.50-150400.5.43.1.noarch"
+				},
+				"product_reference": "bind-doc-9.16.50-150400.5.43.1.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "bind-utils-9.16.50-150400.5.43.1.ppc64le as component of SUSE Linux Enterprise Server for SAP Applications 15 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP4:bind-utils-9.16.50-150400.5.43.1.ppc64le"
+				},
+				"product_reference": "bind-utils-9.16.50-150400.5.43.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "bind-utils-9.16.50-150400.5.43.1.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 15 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP4:bind-utils-9.16.50-150400.5.43.1.x86_64"
+				},
+				"product_reference": "bind-utils-9.16.50-150400.5.43.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "python3-bind-9.16.50-150400.5.43.1.noarch as component of SUSE Linux Enterprise Server for SAP Applications 15 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP4:python3-bind-9.16.50-150400.5.43.1.noarch"
+				},
+				"product_reference": "python3-bind-9.16.50-150400.5.43.1.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "bind-9.16.50-150400.5.43.1.x86_64 as component of SUSE Manager Proxy 4.3",
+					"product_id": "SUSE Manager Proxy 4.3:bind-9.16.50-150400.5.43.1.x86_64"
+				},
+				"product_reference": "bind-9.16.50-150400.5.43.1.x86_64",
+				"relates_to_product_reference": "SUSE Manager Proxy 4.3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "bind-doc-9.16.50-150400.5.43.1.noarch as component of SUSE Manager Proxy 4.3",
+					"product_id": "SUSE Manager Proxy 4.3:bind-doc-9.16.50-150400.5.43.1.noarch"
+				},
+				"product_reference": "bind-doc-9.16.50-150400.5.43.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Proxy 4.3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "bind-utils-9.16.50-150400.5.43.1.x86_64 as component of SUSE Manager Proxy 4.3",
+					"product_id": "SUSE Manager Proxy 4.3:bind-utils-9.16.50-150400.5.43.1.x86_64"
+				},
+				"product_reference": "bind-utils-9.16.50-150400.5.43.1.x86_64",
+				"relates_to_product_reference": "SUSE Manager Proxy 4.3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "python3-bind-9.16.50-150400.5.43.1.noarch as component of SUSE Manager Proxy 4.3",
+					"product_id": "SUSE Manager Proxy 4.3:python3-bind-9.16.50-150400.5.43.1.noarch"
+				},
+				"product_reference": "python3-bind-9.16.50-150400.5.43.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Proxy 4.3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "bind-9.16.50-150400.5.43.1.ppc64le as component of SUSE Manager Server 4.3",
+					"product_id": "SUSE Manager Server 4.3:bind-9.16.50-150400.5.43.1.ppc64le"
+				},
+				"product_reference": "bind-9.16.50-150400.5.43.1.ppc64le",
+				"relates_to_product_reference": "SUSE Manager Server 4.3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "bind-9.16.50-150400.5.43.1.s390x as component of SUSE Manager Server 4.3",
+					"product_id": "SUSE Manager Server 4.3:bind-9.16.50-150400.5.43.1.s390x"
+				},
+				"product_reference": "bind-9.16.50-150400.5.43.1.s390x",
+				"relates_to_product_reference": "SUSE Manager Server 4.3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "bind-9.16.50-150400.5.43.1.x86_64 as component of SUSE Manager Server 4.3",
+					"product_id": "SUSE Manager Server 4.3:bind-9.16.50-150400.5.43.1.x86_64"
+				},
+				"product_reference": "bind-9.16.50-150400.5.43.1.x86_64",
+				"relates_to_product_reference": "SUSE Manager Server 4.3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "bind-doc-9.16.50-150400.5.43.1.noarch as component of SUSE Manager Server 4.3",
+					"product_id": "SUSE Manager Server 4.3:bind-doc-9.16.50-150400.5.43.1.noarch"
+				},
+				"product_reference": "bind-doc-9.16.50-150400.5.43.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 4.3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "bind-utils-9.16.50-150400.5.43.1.ppc64le as component of SUSE Manager Server 4.3",
+					"product_id": "SUSE Manager Server 4.3:bind-utils-9.16.50-150400.5.43.1.ppc64le"
+				},
+				"product_reference": "bind-utils-9.16.50-150400.5.43.1.ppc64le",
+				"relates_to_product_reference": "SUSE Manager Server 4.3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "bind-utils-9.16.50-150400.5.43.1.s390x as component of SUSE Manager Server 4.3",
+					"product_id": "SUSE Manager Server 4.3:bind-utils-9.16.50-150400.5.43.1.s390x"
+				},
+				"product_reference": "bind-utils-9.16.50-150400.5.43.1.s390x",
+				"relates_to_product_reference": "SUSE Manager Server 4.3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "bind-utils-9.16.50-150400.5.43.1.x86_64 as component of SUSE Manager Server 4.3",
+					"product_id": "SUSE Manager Server 4.3:bind-utils-9.16.50-150400.5.43.1.x86_64"
+				},
+				"product_reference": "bind-utils-9.16.50-150400.5.43.1.x86_64",
+				"relates_to_product_reference": "SUSE Manager Server 4.3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "python3-bind-9.16.50-150400.5.43.1.noarch as component of SUSE Manager Server 4.3",
+					"product_id": "SUSE Manager Server 4.3:python3-bind-9.16.50-150400.5.43.1.noarch"
+				},
+				"product_reference": "python3-bind-9.16.50-150400.5.43.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 4.3"
+			}
+		]
+	},
+	"vulnerabilities": [
+		{
+			"cve": "CVE-2024-1737",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2024-1737"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Resolver caches and authoritative zone databases that hold significant numbers of RRs for the same hostname (of any RTYPE) can suffer from degraded performance as content is being added or updated, and also when handling client queries for this name.\nThis issue affects BIND 9 versions 9.11.0 through 9.11.37, 9.16.0 through 9.16.50, 9.18.0 through 9.18.27, 9.19.0 through 9.19.24, 9.11.4-S1 through 9.11.37-S1, 9.16.8-S1 through 9.16.50-S1, and 9.18.11-S1 through 9.18.27-S1.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:bind-9.16.50-150400.5.43.1.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:bind-9.16.50-150400.5.43.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:bind-doc-9.16.50-150400.5.43.1.noarch",
+					"SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:bind-utils-9.16.50-150400.5.43.1.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:bind-utils-9.16.50-150400.5.43.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:python3-bind-9.16.50-150400.5.43.1.noarch",
+					"SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:bind-doc-9.16.50-150400.5.43.1.noarch",
+					"SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:python3-bind-9.16.50-150400.5.43.1.noarch",
+					"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.aarch64",
+					"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.ppc64le",
+					"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.s390x",
+					"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.x86_64",
+					"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-doc-9.16.50-150400.5.43.1.noarch",
+					"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.aarch64",
+					"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.ppc64le",
+					"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.s390x",
+					"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.x86_64",
+					"SUSE Linux Enterprise Server 15 SP4-LTSS:python3-bind-9.16.50-150400.5.43.1.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 15 SP4:bind-9.16.50-150400.5.43.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 15 SP4:bind-9.16.50-150400.5.43.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 15 SP4:bind-doc-9.16.50-150400.5.43.1.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 15 SP4:bind-utils-9.16.50-150400.5.43.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 15 SP4:bind-utils-9.16.50-150400.5.43.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 15 SP4:python3-bind-9.16.50-150400.5.43.1.noarch",
+					"SUSE Manager Proxy 4.3:bind-9.16.50-150400.5.43.1.x86_64",
+					"SUSE Manager Proxy 4.3:bind-doc-9.16.50-150400.5.43.1.noarch",
+					"SUSE Manager Proxy 4.3:bind-utils-9.16.50-150400.5.43.1.x86_64",
+					"SUSE Manager Proxy 4.3:python3-bind-9.16.50-150400.5.43.1.noarch",
+					"SUSE Manager Server 4.3:bind-9.16.50-150400.5.43.1.ppc64le",
+					"SUSE Manager Server 4.3:bind-9.16.50-150400.5.43.1.s390x",
+					"SUSE Manager Server 4.3:bind-9.16.50-150400.5.43.1.x86_64",
+					"SUSE Manager Server 4.3:bind-doc-9.16.50-150400.5.43.1.noarch",
+					"SUSE Manager Server 4.3:bind-utils-9.16.50-150400.5.43.1.ppc64le",
+					"SUSE Manager Server 4.3:bind-utils-9.16.50-150400.5.43.1.s390x",
+					"SUSE Manager Server 4.3:bind-utils-9.16.50-150400.5.43.1.x86_64",
+					"SUSE Manager Server 4.3:python3-bind-9.16.50-150400.5.43.1.noarch"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2024-1737",
+					"url": "https://www.suse.com/security/cve/CVE-2024-1737"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1228256 for CVE-2024-1737",
+					"url": "https://bugzilla.suse.com/1228256"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:bind-9.16.50-150400.5.43.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:bind-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:bind-doc-9.16.50-150400.5.43.1.noarch",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:bind-utils-9.16.50-150400.5.43.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:bind-utils-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:python3-bind-9.16.50-150400.5.43.1.noarch",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:bind-doc-9.16.50-150400.5.43.1.noarch",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:python3-bind-9.16.50-150400.5.43.1.noarch",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.aarch64",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.ppc64le",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.s390x",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-doc-9.16.50-150400.5.43.1.noarch",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.aarch64",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.ppc64le",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.s390x",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:python3-bind-9.16.50-150400.5.43.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP4:bind-9.16.50-150400.5.43.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP4:bind-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP4:bind-doc-9.16.50-150400.5.43.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP4:bind-utils-9.16.50-150400.5.43.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP4:bind-utils-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP4:python3-bind-9.16.50-150400.5.43.1.noarch",
+						"SUSE Manager Proxy 4.3:bind-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Manager Proxy 4.3:bind-doc-9.16.50-150400.5.43.1.noarch",
+						"SUSE Manager Proxy 4.3:bind-utils-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Manager Proxy 4.3:python3-bind-9.16.50-150400.5.43.1.noarch",
+						"SUSE Manager Server 4.3:bind-9.16.50-150400.5.43.1.ppc64le",
+						"SUSE Manager Server 4.3:bind-9.16.50-150400.5.43.1.s390x",
+						"SUSE Manager Server 4.3:bind-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Manager Server 4.3:bind-doc-9.16.50-150400.5.43.1.noarch",
+						"SUSE Manager Server 4.3:bind-utils-9.16.50-150400.5.43.1.ppc64le",
+						"SUSE Manager Server 4.3:bind-utils-9.16.50-150400.5.43.1.s390x",
+						"SUSE Manager Server 4.3:bind-utils-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Manager Server 4.3:python3-bind-9.16.50-150400.5.43.1.noarch"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.5,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:bind-9.16.50-150400.5.43.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:bind-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:bind-doc-9.16.50-150400.5.43.1.noarch",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:bind-utils-9.16.50-150400.5.43.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:bind-utils-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:python3-bind-9.16.50-150400.5.43.1.noarch",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:bind-doc-9.16.50-150400.5.43.1.noarch",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:python3-bind-9.16.50-150400.5.43.1.noarch",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.aarch64",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.ppc64le",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.s390x",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-doc-9.16.50-150400.5.43.1.noarch",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.aarch64",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.ppc64le",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.s390x",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:python3-bind-9.16.50-150400.5.43.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP4:bind-9.16.50-150400.5.43.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP4:bind-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP4:bind-doc-9.16.50-150400.5.43.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP4:bind-utils-9.16.50-150400.5.43.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP4:bind-utils-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP4:python3-bind-9.16.50-150400.5.43.1.noarch",
+						"SUSE Manager Proxy 4.3:bind-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Manager Proxy 4.3:bind-doc-9.16.50-150400.5.43.1.noarch",
+						"SUSE Manager Proxy 4.3:bind-utils-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Manager Proxy 4.3:python3-bind-9.16.50-150400.5.43.1.noarch",
+						"SUSE Manager Server 4.3:bind-9.16.50-150400.5.43.1.ppc64le",
+						"SUSE Manager Server 4.3:bind-9.16.50-150400.5.43.1.s390x",
+						"SUSE Manager Server 4.3:bind-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Manager Server 4.3:bind-doc-9.16.50-150400.5.43.1.noarch",
+						"SUSE Manager Server 4.3:bind-utils-9.16.50-150400.5.43.1.ppc64le",
+						"SUSE Manager Server 4.3:bind-utils-9.16.50-150400.5.43.1.s390x",
+						"SUSE Manager Server 4.3:bind-utils-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Manager Server 4.3:python3-bind-9.16.50-150400.5.43.1.noarch"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2024-08-09T07:21:18Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2024-1737"
+		},
+		{
+			"cve": "CVE-2024-1975",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2024-1975"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "If a server hosts a zone containing a \"KEY\" Resource Record, or a resolver DNSSEC-validates a \"KEY\" Resource Record from a DNSSEC-signed domain in cache, a client can exhaust resolver CPU resources by sending a stream of SIG(0) signed requests.\nThis issue affects BIND 9 versions 9.0.0 through 9.11.37, 9.16.0 through 9.16.50, 9.18.0 through 9.18.27, 9.19.0 through 9.19.24, 9.9.3-S1 through 9.11.37-S1, 9.16.8-S1 through 9.16.49-S1, and 9.18.11-S1 through 9.18.27-S1.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:bind-9.16.50-150400.5.43.1.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:bind-9.16.50-150400.5.43.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:bind-doc-9.16.50-150400.5.43.1.noarch",
+					"SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:bind-utils-9.16.50-150400.5.43.1.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:bind-utils-9.16.50-150400.5.43.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:python3-bind-9.16.50-150400.5.43.1.noarch",
+					"SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:bind-doc-9.16.50-150400.5.43.1.noarch",
+					"SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:python3-bind-9.16.50-150400.5.43.1.noarch",
+					"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.aarch64",
+					"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.ppc64le",
+					"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.s390x",
+					"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.x86_64",
+					"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-doc-9.16.50-150400.5.43.1.noarch",
+					"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.aarch64",
+					"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.ppc64le",
+					"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.s390x",
+					"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.x86_64",
+					"SUSE Linux Enterprise Server 15 SP4-LTSS:python3-bind-9.16.50-150400.5.43.1.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 15 SP4:bind-9.16.50-150400.5.43.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 15 SP4:bind-9.16.50-150400.5.43.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 15 SP4:bind-doc-9.16.50-150400.5.43.1.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 15 SP4:bind-utils-9.16.50-150400.5.43.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 15 SP4:bind-utils-9.16.50-150400.5.43.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 15 SP4:python3-bind-9.16.50-150400.5.43.1.noarch",
+					"SUSE Manager Proxy 4.3:bind-9.16.50-150400.5.43.1.x86_64",
+					"SUSE Manager Proxy 4.3:bind-doc-9.16.50-150400.5.43.1.noarch",
+					"SUSE Manager Proxy 4.3:bind-utils-9.16.50-150400.5.43.1.x86_64",
+					"SUSE Manager Proxy 4.3:python3-bind-9.16.50-150400.5.43.1.noarch",
+					"SUSE Manager Server 4.3:bind-9.16.50-150400.5.43.1.ppc64le",
+					"SUSE Manager Server 4.3:bind-9.16.50-150400.5.43.1.s390x",
+					"SUSE Manager Server 4.3:bind-9.16.50-150400.5.43.1.x86_64",
+					"SUSE Manager Server 4.3:bind-doc-9.16.50-150400.5.43.1.noarch",
+					"SUSE Manager Server 4.3:bind-utils-9.16.50-150400.5.43.1.ppc64le",
+					"SUSE Manager Server 4.3:bind-utils-9.16.50-150400.5.43.1.s390x",
+					"SUSE Manager Server 4.3:bind-utils-9.16.50-150400.5.43.1.x86_64",
+					"SUSE Manager Server 4.3:python3-bind-9.16.50-150400.5.43.1.noarch"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2024-1975",
+					"url": "https://www.suse.com/security/cve/CVE-2024-1975"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1228257 for CVE-2024-1975",
+					"url": "https://bugzilla.suse.com/1228257"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:bind-9.16.50-150400.5.43.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:bind-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:bind-doc-9.16.50-150400.5.43.1.noarch",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:bind-utils-9.16.50-150400.5.43.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:bind-utils-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:python3-bind-9.16.50-150400.5.43.1.noarch",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:bind-doc-9.16.50-150400.5.43.1.noarch",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:python3-bind-9.16.50-150400.5.43.1.noarch",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.aarch64",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.ppc64le",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.s390x",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-doc-9.16.50-150400.5.43.1.noarch",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.aarch64",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.ppc64le",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.s390x",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:python3-bind-9.16.50-150400.5.43.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP4:bind-9.16.50-150400.5.43.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP4:bind-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP4:bind-doc-9.16.50-150400.5.43.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP4:bind-utils-9.16.50-150400.5.43.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP4:bind-utils-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP4:python3-bind-9.16.50-150400.5.43.1.noarch",
+						"SUSE Manager Proxy 4.3:bind-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Manager Proxy 4.3:bind-doc-9.16.50-150400.5.43.1.noarch",
+						"SUSE Manager Proxy 4.3:bind-utils-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Manager Proxy 4.3:python3-bind-9.16.50-150400.5.43.1.noarch",
+						"SUSE Manager Server 4.3:bind-9.16.50-150400.5.43.1.ppc64le",
+						"SUSE Manager Server 4.3:bind-9.16.50-150400.5.43.1.s390x",
+						"SUSE Manager Server 4.3:bind-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Manager Server 4.3:bind-doc-9.16.50-150400.5.43.1.noarch",
+						"SUSE Manager Server 4.3:bind-utils-9.16.50-150400.5.43.1.ppc64le",
+						"SUSE Manager Server 4.3:bind-utils-9.16.50-150400.5.43.1.s390x",
+						"SUSE Manager Server 4.3:bind-utils-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Manager Server 4.3:python3-bind-9.16.50-150400.5.43.1.noarch"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.5,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:bind-9.16.50-150400.5.43.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:bind-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:bind-doc-9.16.50-150400.5.43.1.noarch",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:bind-utils-9.16.50-150400.5.43.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:bind-utils-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:python3-bind-9.16.50-150400.5.43.1.noarch",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:bind-doc-9.16.50-150400.5.43.1.noarch",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:python3-bind-9.16.50-150400.5.43.1.noarch",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.aarch64",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.ppc64le",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.s390x",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-doc-9.16.50-150400.5.43.1.noarch",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.aarch64",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.ppc64le",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.s390x",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:python3-bind-9.16.50-150400.5.43.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP4:bind-9.16.50-150400.5.43.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP4:bind-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP4:bind-doc-9.16.50-150400.5.43.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP4:bind-utils-9.16.50-150400.5.43.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP4:bind-utils-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP4:python3-bind-9.16.50-150400.5.43.1.noarch",
+						"SUSE Manager Proxy 4.3:bind-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Manager Proxy 4.3:bind-doc-9.16.50-150400.5.43.1.noarch",
+						"SUSE Manager Proxy 4.3:bind-utils-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Manager Proxy 4.3:python3-bind-9.16.50-150400.5.43.1.noarch",
+						"SUSE Manager Server 4.3:bind-9.16.50-150400.5.43.1.ppc64le",
+						"SUSE Manager Server 4.3:bind-9.16.50-150400.5.43.1.s390x",
+						"SUSE Manager Server 4.3:bind-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Manager Server 4.3:bind-doc-9.16.50-150400.5.43.1.noarch",
+						"SUSE Manager Server 4.3:bind-utils-9.16.50-150400.5.43.1.ppc64le",
+						"SUSE Manager Server 4.3:bind-utils-9.16.50-150400.5.43.1.s390x",
+						"SUSE Manager Server 4.3:bind-utils-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Manager Server 4.3:python3-bind-9.16.50-150400.5.43.1.noarch"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2024-08-09T07:21:18Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2024-1975"
+		},
+		{
+			"cve": "CVE-2024-4076",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2024-4076"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Client queries that trigger serving stale data and that also require lookups in local authoritative zone data may result in an assertion failure.\nThis issue affects BIND 9 versions 9.16.13 through 9.16.50, 9.18.0 through 9.18.27, 9.19.0 through 9.19.24, 9.11.33-S1 through 9.11.37-S1, 9.16.13-S1 through 9.16.50-S1, and 9.18.11-S1 through 9.18.27-S1.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:bind-9.16.50-150400.5.43.1.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:bind-9.16.50-150400.5.43.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:bind-doc-9.16.50-150400.5.43.1.noarch",
+					"SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:bind-utils-9.16.50-150400.5.43.1.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:bind-utils-9.16.50-150400.5.43.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:python3-bind-9.16.50-150400.5.43.1.noarch",
+					"SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:bind-doc-9.16.50-150400.5.43.1.noarch",
+					"SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.aarch64",
+					"SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.x86_64",
+					"SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:python3-bind-9.16.50-150400.5.43.1.noarch",
+					"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.aarch64",
+					"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.ppc64le",
+					"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.s390x",
+					"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.x86_64",
+					"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-doc-9.16.50-150400.5.43.1.noarch",
+					"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.aarch64",
+					"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.ppc64le",
+					"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.s390x",
+					"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.x86_64",
+					"SUSE Linux Enterprise Server 15 SP4-LTSS:python3-bind-9.16.50-150400.5.43.1.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 15 SP4:bind-9.16.50-150400.5.43.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 15 SP4:bind-9.16.50-150400.5.43.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 15 SP4:bind-doc-9.16.50-150400.5.43.1.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 15 SP4:bind-utils-9.16.50-150400.5.43.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 15 SP4:bind-utils-9.16.50-150400.5.43.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 15 SP4:python3-bind-9.16.50-150400.5.43.1.noarch",
+					"SUSE Manager Proxy 4.3:bind-9.16.50-150400.5.43.1.x86_64",
+					"SUSE Manager Proxy 4.3:bind-doc-9.16.50-150400.5.43.1.noarch",
+					"SUSE Manager Proxy 4.3:bind-utils-9.16.50-150400.5.43.1.x86_64",
+					"SUSE Manager Proxy 4.3:python3-bind-9.16.50-150400.5.43.1.noarch",
+					"SUSE Manager Server 4.3:bind-9.16.50-150400.5.43.1.ppc64le",
+					"SUSE Manager Server 4.3:bind-9.16.50-150400.5.43.1.s390x",
+					"SUSE Manager Server 4.3:bind-9.16.50-150400.5.43.1.x86_64",
+					"SUSE Manager Server 4.3:bind-doc-9.16.50-150400.5.43.1.noarch",
+					"SUSE Manager Server 4.3:bind-utils-9.16.50-150400.5.43.1.ppc64le",
+					"SUSE Manager Server 4.3:bind-utils-9.16.50-150400.5.43.1.s390x",
+					"SUSE Manager Server 4.3:bind-utils-9.16.50-150400.5.43.1.x86_64",
+					"SUSE Manager Server 4.3:python3-bind-9.16.50-150400.5.43.1.noarch"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2024-4076",
+					"url": "https://www.suse.com/security/cve/CVE-2024-4076"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1228258 for CVE-2024-4076",
+					"url": "https://bugzilla.suse.com/1228258"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:bind-9.16.50-150400.5.43.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:bind-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:bind-doc-9.16.50-150400.5.43.1.noarch",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:bind-utils-9.16.50-150400.5.43.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:bind-utils-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:python3-bind-9.16.50-150400.5.43.1.noarch",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:bind-doc-9.16.50-150400.5.43.1.noarch",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:python3-bind-9.16.50-150400.5.43.1.noarch",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.aarch64",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.ppc64le",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.s390x",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-doc-9.16.50-150400.5.43.1.noarch",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.aarch64",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.ppc64le",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.s390x",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:python3-bind-9.16.50-150400.5.43.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP4:bind-9.16.50-150400.5.43.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP4:bind-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP4:bind-doc-9.16.50-150400.5.43.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP4:bind-utils-9.16.50-150400.5.43.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP4:bind-utils-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP4:python3-bind-9.16.50-150400.5.43.1.noarch",
+						"SUSE Manager Proxy 4.3:bind-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Manager Proxy 4.3:bind-doc-9.16.50-150400.5.43.1.noarch",
+						"SUSE Manager Proxy 4.3:bind-utils-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Manager Proxy 4.3:python3-bind-9.16.50-150400.5.43.1.noarch",
+						"SUSE Manager Server 4.3:bind-9.16.50-150400.5.43.1.ppc64le",
+						"SUSE Manager Server 4.3:bind-9.16.50-150400.5.43.1.s390x",
+						"SUSE Manager Server 4.3:bind-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Manager Server 4.3:bind-doc-9.16.50-150400.5.43.1.noarch",
+						"SUSE Manager Server 4.3:bind-utils-9.16.50-150400.5.43.1.ppc64le",
+						"SUSE Manager Server 4.3:bind-utils-9.16.50-150400.5.43.1.s390x",
+						"SUSE Manager Server 4.3:bind-utils-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Manager Server 4.3:python3-bind-9.16.50-150400.5.43.1.noarch"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.5,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:bind-9.16.50-150400.5.43.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:bind-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:bind-doc-9.16.50-150400.5.43.1.noarch",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:bind-utils-9.16.50-150400.5.43.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:bind-utils-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:python3-bind-9.16.50-150400.5.43.1.noarch",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:bind-doc-9.16.50-150400.5.43.1.noarch",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.aarch64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:python3-bind-9.16.50-150400.5.43.1.noarch",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.aarch64",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.ppc64le",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.s390x",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-doc-9.16.50-150400.5.43.1.noarch",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.aarch64",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.ppc64le",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.s390x",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:bind-utils-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Linux Enterprise Server 15 SP4-LTSS:python3-bind-9.16.50-150400.5.43.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP4:bind-9.16.50-150400.5.43.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP4:bind-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP4:bind-doc-9.16.50-150400.5.43.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP4:bind-utils-9.16.50-150400.5.43.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP4:bind-utils-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 15 SP4:python3-bind-9.16.50-150400.5.43.1.noarch",
+						"SUSE Manager Proxy 4.3:bind-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Manager Proxy 4.3:bind-doc-9.16.50-150400.5.43.1.noarch",
+						"SUSE Manager Proxy 4.3:bind-utils-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Manager Proxy 4.3:python3-bind-9.16.50-150400.5.43.1.noarch",
+						"SUSE Manager Server 4.3:bind-9.16.50-150400.5.43.1.ppc64le",
+						"SUSE Manager Server 4.3:bind-9.16.50-150400.5.43.1.s390x",
+						"SUSE Manager Server 4.3:bind-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Manager Server 4.3:bind-doc-9.16.50-150400.5.43.1.noarch",
+						"SUSE Manager Server 4.3:bind-utils-9.16.50-150400.5.43.1.ppc64le",
+						"SUSE Manager Server 4.3:bind-utils-9.16.50-150400.5.43.1.s390x",
+						"SUSE Manager Server 4.3:bind-utils-9.16.50-150400.5.43.1.x86_64",
+						"SUSE Manager Server 4.3:python3-bind-9.16.50-150400.5.43.1.noarch"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2024-08-09T07:21:18Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2024-4076"
+		}
+	]
+}

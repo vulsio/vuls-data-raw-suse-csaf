@@ -1,0 +1,2894 @@
+{
+	"document": {
+		"aggregate_severity": {
+			"namespace": "https://www.suse.com/support/security/rating/",
+			"text": "moderate"
+		},
+		"category": "csaf_security_advisory",
+		"csaf_version": "2.0",
+		"distribution": {
+			"text": "Copyright 2024 SUSE LLC. All rights reserved.",
+			"tlp": {
+				"label": "WHITE",
+				"url": "https://www.first.org/tlp/"
+			}
+		},
+		"lang": "en",
+		"notes": [
+			{
+				"category": "summary",
+				"text": "Security update for ntp",
+				"title": "Title of the patch"
+			},
+			{
+				"category": "description",
+				"text": "This ntp update provides the following security and non security fixes:\n\n- Update to 4.2.8p4 to fix several security issues (bsc#951608):\n  * CVE-2015-7871: NAK to the Future: Symmetric association\n    authentication bypass via crypto-NAK\n  * CVE-2015-7855: decodenetnum() will ASSERT botch instead of\n    returning FAIL on some bogus values\n  * CVE-2015-7854: Password Length Memory Corruption Vulnerability\n  * CVE-2015-7853: Invalid length data provided by a custom\n    refclock driver could cause a buffer overflow\n  * CVE-2015-7852 ntpq atoascii() Memory Corruption Vulnerability\n  * CVE-2015-7851 saveconfig Directory Traversal Vulnerability\n  * CVE-2015-7850 remote config logfile-keyfile\n  * CVE-2015-7849 trusted key use-after-free\n  * CVE-2015-7848 mode 7 loop counter underrun\n  * CVE-2015-7701 Slow memory leak in CRYPTO_ASSOC\n  * CVE-2015-7703 configuration directives 'pidfile' and\n    'driftfile' should only be allowed locally\n  * CVE-2015-7704, CVE-2015-7705 Clients that receive a KoD should\n    validate the origin timestamp field\n  * CVE-2015-7691, CVE-2015-7692, CVE-2015-7702 Incomplete autokey\n    data packet length checks\n- Use ntpq instead of deprecated ntpdc in start-ntpd (bnc#936327).\n- Add a controlkey to ntp.conf to make the above work.\n- Improve runtime configuration:\n  * Read keytype from ntp.conf\n  * Don't write ntp keys to syslog.\n- Don't let 'keysdir' lines in ntp.conf trigger the 'keys' parser.\n- Fix the comment regarding addserver in ntp.conf (bnc#910063).\n- Remove ntp.1.gz, it wasn't installed anymore.\n- Remove ntp-4.2.7-rh-manpages.tar.gz and only keep ntptime.8.gz.\n  The rest is partially irrelevant, partially redundant and\n  potentially outdated (bsc#942587).\n- Remove 'kod' from the restrict line in ntp.conf (bsc#944300).\n- Use SHA1 instead of MD5 for symmetric keys (bsc#905885).\n- Require perl-Socket6 (bsc#942441).\n- Fix incomplete backporting of 'rcntp ntptimemset'.\n",
+				"title": "Description of the patch"
+			},
+			{
+				"category": "details",
+				"text": "sledsp4-ntp-12218,slessp4-ntp-12218",
+				"title": "Patchnames"
+			},
+			{
+				"category": "legal_disclaimer",
+				"text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+				"title": "Terms of use"
+			}
+		],
+		"publisher": {
+			"category": "vendor",
+			"contact_details": "https://www.suse.com/support/security/contact/",
+			"name": "SUSE Product Security Team",
+			"namespace": "https://www.suse.com/"
+		},
+		"references": [
+			{
+				"category": "external",
+				"summary": "SUSE ratings",
+				"url": "https://www.suse.com/support/security/rating/"
+			},
+			{
+				"category": "self",
+				"summary": "URL of this CSAF notice",
+				"url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2015_2058-1.json"
+			},
+			{
+				"category": "self",
+				"summary": "URL for SUSE-SU-2015:2058-1",
+				"url": "https://www.suse.com/support/update/announcement/2015/suse-su-20152058-1/"
+			},
+			{
+				"category": "self",
+				"summary": "E-Mail link for SUSE-SU-2015:2058-1",
+				"url": "https://lists.suse.com/pipermail/sle-security-updates/2015-November/001688.html"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 905885",
+				"url": "https://bugzilla.suse.com/905885"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 910063",
+				"url": "https://bugzilla.suse.com/910063"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 936327",
+				"url": "https://bugzilla.suse.com/936327"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 942441",
+				"url": "https://bugzilla.suse.com/942441"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 942587",
+				"url": "https://bugzilla.suse.com/942587"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 944300",
+				"url": "https://bugzilla.suse.com/944300"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 951608",
+				"url": "https://bugzilla.suse.com/951608"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-7691 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-7691/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-7692 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-7692/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-7701 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-7701/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-7702 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-7702/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-7703 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-7703/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-7704 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-7704/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-7705 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-7705/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-7848 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-7848/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-7849 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-7849/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-7850 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-7850/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-7851 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-7851/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-7852 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-7852/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-7853 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-7853/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-7854 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-7854/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-7855 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-7855/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-7871 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-7871/"
+			}
+		],
+		"title": "Security update for ntp",
+		"tracking": {
+			"current_release_date": "2015-11-20T09:21:30Z",
+			"generator": {
+				"date": "2015-11-20T09:21:30Z",
+				"engine": {
+					"name": "cve-database.git:bin/generate-csaf.pl",
+					"version": "1"
+				}
+			},
+			"id": "SUSE-SU-2015:2058-1",
+			"initial_release_date": "2015-11-20T09:21:30Z",
+			"revision_history": [
+				{
+					"date": "2015-11-20T09:21:30Z",
+					"number": "1",
+					"summary": "Current version"
+				}
+			],
+			"status": "final",
+			"version": "1"
+		}
+	},
+	"product_tree": {
+		"branches": [
+			{
+				"branches": [
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "ntp-4.2.8p4-5.1.i586",
+								"product": {
+									"name": "ntp-4.2.8p4-5.1.i586",
+									"product_id": "ntp-4.2.8p4-5.1.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "ntp-doc-4.2.8p4-5.1.i586",
+								"product": {
+									"name": "ntp-doc-4.2.8p4-5.1.i586",
+									"product_id": "ntp-doc-4.2.8p4-5.1.i586"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "i586"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "ntp-4.2.8p4-5.1.ia64",
+								"product": {
+									"name": "ntp-4.2.8p4-5.1.ia64",
+									"product_id": "ntp-4.2.8p4-5.1.ia64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "ntp-doc-4.2.8p4-5.1.ia64",
+								"product": {
+									"name": "ntp-doc-4.2.8p4-5.1.ia64",
+									"product_id": "ntp-doc-4.2.8p4-5.1.ia64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "ia64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "ntp-4.2.8p4-5.1.ppc64",
+								"product": {
+									"name": "ntp-4.2.8p4-5.1.ppc64",
+									"product_id": "ntp-4.2.8p4-5.1.ppc64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "ntp-doc-4.2.8p4-5.1.ppc64",
+								"product": {
+									"name": "ntp-doc-4.2.8p4-5.1.ppc64",
+									"product_id": "ntp-doc-4.2.8p4-5.1.ppc64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "ppc64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "ntp-4.2.8p4-5.1.s390x",
+								"product": {
+									"name": "ntp-4.2.8p4-5.1.s390x",
+									"product_id": "ntp-4.2.8p4-5.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "ntp-doc-4.2.8p4-5.1.s390x",
+								"product": {
+									"name": "ntp-doc-4.2.8p4-5.1.s390x",
+									"product_id": "ntp-doc-4.2.8p4-5.1.s390x"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "s390x"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "ntp-4.2.8p4-5.1.x86_64",
+								"product": {
+									"name": "ntp-4.2.8p4-5.1.x86_64",
+									"product_id": "ntp-4.2.8p4-5.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "ntp-doc-4.2.8p4-5.1.x86_64",
+								"product": {
+									"name": "ntp-doc-4.2.8p4-5.1.x86_64",
+									"product_id": "ntp-doc-4.2.8p4-5.1.x86_64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "x86_64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Desktop 11 SP4",
+								"product": {
+									"name": "SUSE Linux Enterprise Desktop 11 SP4",
+									"product_id": "SUSE Linux Enterprise Desktop 11 SP4",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:suse_sled:11:sp4"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server 11 SP4",
+								"product": {
+									"name": "SUSE Linux Enterprise Server 11 SP4",
+									"product_id": "SUSE Linux Enterprise Server 11 SP4",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:suse_sles:11:sp4"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+								"product": {
+									"name": "SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+									"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sles_sap:11:sp4"
+									}
+								}
+							}
+						],
+						"category": "product_family",
+						"name": "SUSE Linux Enterprise"
+					}
+				],
+				"category": "vendor",
+				"name": "SUSE"
+			}
+		],
+		"relationships": [
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ntp-4.2.8p4-5.1.i586 as component of SUSE Linux Enterprise Desktop 11 SP4",
+					"product_id": "SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.i586"
+				},
+				"product_reference": "ntp-4.2.8p4-5.1.i586",
+				"relates_to_product_reference": "SUSE Linux Enterprise Desktop 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ntp-4.2.8p4-5.1.x86_64 as component of SUSE Linux Enterprise Desktop 11 SP4",
+					"product_id": "SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.x86_64"
+				},
+				"product_reference": "ntp-4.2.8p4-5.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Desktop 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ntp-doc-4.2.8p4-5.1.i586 as component of SUSE Linux Enterprise Desktop 11 SP4",
+					"product_id": "SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.i586"
+				},
+				"product_reference": "ntp-doc-4.2.8p4-5.1.i586",
+				"relates_to_product_reference": "SUSE Linux Enterprise Desktop 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ntp-doc-4.2.8p4-5.1.x86_64 as component of SUSE Linux Enterprise Desktop 11 SP4",
+					"product_id": "SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64"
+				},
+				"product_reference": "ntp-doc-4.2.8p4-5.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Desktop 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ntp-4.2.8p4-5.1.i586 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.i586"
+				},
+				"product_reference": "ntp-4.2.8p4-5.1.i586",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ntp-4.2.8p4-5.1.ia64 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ia64"
+				},
+				"product_reference": "ntp-4.2.8p4-5.1.ia64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ntp-4.2.8p4-5.1.ppc64 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ppc64"
+				},
+				"product_reference": "ntp-4.2.8p4-5.1.ppc64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ntp-4.2.8p4-5.1.s390x as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.s390x"
+				},
+				"product_reference": "ntp-4.2.8p4-5.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ntp-4.2.8p4-5.1.x86_64 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.x86_64"
+				},
+				"product_reference": "ntp-4.2.8p4-5.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ntp-doc-4.2.8p4-5.1.i586 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.i586"
+				},
+				"product_reference": "ntp-doc-4.2.8p4-5.1.i586",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ntp-doc-4.2.8p4-5.1.ia64 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ia64"
+				},
+				"product_reference": "ntp-doc-4.2.8p4-5.1.ia64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ntp-doc-4.2.8p4-5.1.ppc64 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64"
+				},
+				"product_reference": "ntp-doc-4.2.8p4-5.1.ppc64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ntp-doc-4.2.8p4-5.1.s390x as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.s390x"
+				},
+				"product_reference": "ntp-doc-4.2.8p4-5.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ntp-doc-4.2.8p4-5.1.x86_64 as component of SUSE Linux Enterprise Server 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64"
+				},
+				"product_reference": "ntp-doc-4.2.8p4-5.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ntp-4.2.8p4-5.1.i586 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.i586"
+				},
+				"product_reference": "ntp-4.2.8p4-5.1.i586",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ntp-4.2.8p4-5.1.ia64 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ia64"
+				},
+				"product_reference": "ntp-4.2.8p4-5.1.ia64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ntp-4.2.8p4-5.1.ppc64 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ppc64"
+				},
+				"product_reference": "ntp-4.2.8p4-5.1.ppc64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ntp-4.2.8p4-5.1.s390x as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.s390x"
+				},
+				"product_reference": "ntp-4.2.8p4-5.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ntp-4.2.8p4-5.1.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.x86_64"
+				},
+				"product_reference": "ntp-4.2.8p4-5.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ntp-doc-4.2.8p4-5.1.i586 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.i586"
+				},
+				"product_reference": "ntp-doc-4.2.8p4-5.1.i586",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ntp-doc-4.2.8p4-5.1.ia64 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ia64"
+				},
+				"product_reference": "ntp-doc-4.2.8p4-5.1.ia64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ntp-doc-4.2.8p4-5.1.ppc64 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64"
+				},
+				"product_reference": "ntp-doc-4.2.8p4-5.1.ppc64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ntp-doc-4.2.8p4-5.1.s390x as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.s390x"
+				},
+				"product_reference": "ntp-doc-4.2.8p4-5.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ntp-doc-4.2.8p4-5.1.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 11 SP4",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64"
+				},
+				"product_reference": "ntp-doc-4.2.8p4-5.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 11 SP4"
+			}
+		]
+	},
+	"vulnerabilities": [
+		{
+			"cve": "CVE-2015-7691",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-7691"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The crypto_xmit function in ntpd in NTP 4.2.x before 4.2.8p4, and 4.3.x before 4.3.77 allows remote attackers to cause a denial of service (crash) via crafted packets containing particular autokey operations.  NOTE: This vulnerability exists due to an incomplete fix for CVE-2014-9750.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-7691",
+					"url": "https://www.suse.com/security/cve/CVE-2015-7691"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1010964 for CVE-2015-7691",
+					"url": "https://bugzilla.suse.com/1010964"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 911792 for CVE-2015-7691",
+					"url": "https://bugzilla.suse.com/911792"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 951608 for CVE-2015-7691",
+					"url": "https://bugzilla.suse.com/951608"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 959243 for CVE-2015-7691",
+					"url": "https://bugzilla.suse.com/959243"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 992991 for CVE-2015-7691",
+					"url": "https://bugzilla.suse.com/992991"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.5,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2015-11-20T09:21:30Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2015-7691"
+		},
+		{
+			"cve": "CVE-2015-7692",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-7692"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The crypto_xmit function in ntpd in NTP 4.2.x before 4.2.8p4, and 4.3.x before 4.3.77 allows remote attackers to cause a denial of service (crash).  NOTE: This vulnerability exists due to an incomplete fix for CVE-2014-9750.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-7692",
+					"url": "https://www.suse.com/security/cve/CVE-2015-7692"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1010964 for CVE-2015-7692",
+					"url": "https://bugzilla.suse.com/1010964"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 911792 for CVE-2015-7692",
+					"url": "https://bugzilla.suse.com/911792"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 951608 for CVE-2015-7692",
+					"url": "https://bugzilla.suse.com/951608"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 959243 for CVE-2015-7692",
+					"url": "https://bugzilla.suse.com/959243"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 992991 for CVE-2015-7692",
+					"url": "https://bugzilla.suse.com/992991"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.5,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2015-11-20T09:21:30Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2015-7692"
+		},
+		{
+			"cve": "CVE-2015-7701",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-7701"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Memory leak in the CRYPTO_ASSOC function in ntpd in NTP 4.2.x before 4.2.8p4, and 4.3.x before 4.3.77 allows remote attackers to cause a denial of service (memory consumption).",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-7701",
+					"url": "https://www.suse.com/security/cve/CVE-2015-7701"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1010964 for CVE-2015-7701",
+					"url": "https://bugzilla.suse.com/1010964"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 951608 for CVE-2015-7701",
+					"url": "https://bugzilla.suse.com/951608"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 959243 for CVE-2015-7701",
+					"url": "https://bugzilla.suse.com/959243"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 992991 for CVE-2015-7701",
+					"url": "https://bugzilla.suse.com/992991"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.5,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2015-11-20T09:21:30Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2015-7701"
+		},
+		{
+			"cve": "CVE-2015-7702",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-7702"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The crypto_xmit function in ntpd in NTP 4.2.x before 4.2.8p4, and 4.3.x before 4.3.77 allows remote attackers to cause a denial of service (crash).  NOTE: This vulnerability exists due to an incomplete fix for CVE-2014-9750.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-7702",
+					"url": "https://www.suse.com/security/cve/CVE-2015-7702"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1010964 for CVE-2015-7702",
+					"url": "https://bugzilla.suse.com/1010964"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 911792 for CVE-2015-7702",
+					"url": "https://bugzilla.suse.com/911792"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 951608 for CVE-2015-7702",
+					"url": "https://bugzilla.suse.com/951608"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 959243 for CVE-2015-7702",
+					"url": "https://bugzilla.suse.com/959243"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 992991 for CVE-2015-7702",
+					"url": "https://bugzilla.suse.com/992991"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 6.5,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2015-11-20T09:21:30Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2015-7702"
+		},
+		{
+			"cve": "CVE-2015-7703",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-7703"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The \"pidfile\" or \"driftfile\" directives in NTP ntpd 4.2.x before 4.2.8p4, and 4.3.x before 4.3.77, when ntpd is configured to allow remote configuration, allows remote attackers with an IP address that is allowed to send configuration requests, and with knowledge of the remote configuration password to write to arbitrary files via the :config command.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-7703",
+					"url": "https://www.suse.com/security/cve/CVE-2015-7703"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1010964 for CVE-2015-7703",
+					"url": "https://bugzilla.suse.com/1010964"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 943216 for CVE-2015-7703",
+					"url": "https://bugzilla.suse.com/943216"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 943218 for CVE-2015-7703",
+					"url": "https://bugzilla.suse.com/943218"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 943219 for CVE-2015-7703",
+					"url": "https://bugzilla.suse.com/943219"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 943221 for CVE-2015-7703",
+					"url": "https://bugzilla.suse.com/943221"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 951608 for CVE-2015-7703",
+					"url": "https://bugzilla.suse.com/951608"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 959243 for CVE-2015-7703",
+					"url": "https://bugzilla.suse.com/959243"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2015-11-20T09:21:30Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2015-7703"
+		},
+		{
+			"cve": "CVE-2015-7704",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-7704"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The ntpd client in NTP 4.x before 4.2.8p4 and 4.3.x before 4.3.77 allows remote attackers to cause a denial of service via a number of crafted \"KOD\" messages.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-7704",
+					"url": "https://www.suse.com/security/cve/CVE-2015-7704"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1010964 for CVE-2015-7704",
+					"url": "https://bugzilla.suse.com/1010964"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 951608 for CVE-2015-7704",
+					"url": "https://bugzilla.suse.com/951608"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 952611 for CVE-2015-7704",
+					"url": "https://bugzilla.suse.com/952611"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 959243 for CVE-2015-7704",
+					"url": "https://bugzilla.suse.com/959243"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 977446 for CVE-2015-7704",
+					"url": "https://bugzilla.suse.com/977446"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.5,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2015-11-20T09:21:30Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2015-7704"
+		},
+		{
+			"cve": "CVE-2015-7705",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-7705"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The rate limiting feature in NTP 4.x before 4.2.8p4 and 4.3.x before 4.3.77 allows remote attackers to have unspecified impact via a large number of crafted requests.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-7705",
+					"url": "https://www.suse.com/security/cve/CVE-2015-7705"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1010964 for CVE-2015-7705",
+					"url": "https://bugzilla.suse.com/1010964"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 951608 for CVE-2015-7705",
+					"url": "https://bugzilla.suse.com/951608"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 952611 for CVE-2015-7705",
+					"url": "https://bugzilla.suse.com/952611"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 959243 for CVE-2015-7705",
+					"url": "https://bugzilla.suse.com/959243"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 9.8,
+						"baseSeverity": "CRITICAL",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2015-11-20T09:21:30Z",
+					"details": "critical"
+				}
+			],
+			"title": "CVE-2015-7705"
+		},
+		{
+			"cve": "CVE-2015-7848",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-7848"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "An integer overflow can occur in NTP-dev.4.3.70 leading to an out-of-bounds memory copy operation when processing a specially crafted private mode packet. The crafted packet needs to have the correct message authentication code and a valid timestamp. When processed by the NTP daemon, it leads to an immediate crash.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-7848",
+					"url": "https://www.suse.com/security/cve/CVE-2015-7848"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1010964 for CVE-2015-7848",
+					"url": "https://bugzilla.suse.com/1010964"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 951608 for CVE-2015-7848",
+					"url": "https://bugzilla.suse.com/951608"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 959243 for CVE-2015-7848",
+					"url": "https://bugzilla.suse.com/959243"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 992991 for CVE-2015-7848",
+					"url": "https://bugzilla.suse.com/992991"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2015-11-20T09:21:30Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2015-7848"
+		},
+		{
+			"cve": "CVE-2015-7849",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-7849"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Use-after-free vulnerability in ntpd in NTP 4.2.x before 4.2.8p4, and 4.3.x before 4.3.77 allows remote authenticated users to possibly execute arbitrary code or cause a denial of service (crash) via crafted packets.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-7849",
+					"url": "https://www.suse.com/security/cve/CVE-2015-7849"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1010964 for CVE-2015-7849",
+					"url": "https://bugzilla.suse.com/1010964"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 951608 for CVE-2015-7849",
+					"url": "https://bugzilla.suse.com/951608"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 959243 for CVE-2015-7849",
+					"url": "https://bugzilla.suse.com/959243"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 992991 for CVE-2015-7849",
+					"url": "https://bugzilla.suse.com/992991"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 8.8,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2015-11-20T09:21:30Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2015-7849"
+		},
+		{
+			"cve": "CVE-2015-7850",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-7850"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "ntpd in NTP 4.2.x before 4.2.8p4, and 4.3.x before 4.3.77 allows remote authenticated users to cause a denial of service (infinite loop or crash) by pointing the key file at the log file.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-7850",
+					"url": "https://www.suse.com/security/cve/CVE-2015-7850"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1010964 for CVE-2015-7850",
+					"url": "https://bugzilla.suse.com/1010964"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 951608 for CVE-2015-7850",
+					"url": "https://bugzilla.suse.com/951608"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 959243 for CVE-2015-7850",
+					"url": "https://bugzilla.suse.com/959243"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 992991 for CVE-2015-7850",
+					"url": "https://bugzilla.suse.com/992991"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 6.5,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2015-11-20T09:21:30Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2015-7850"
+		},
+		{
+			"cve": "CVE-2015-7851",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-7851"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Directory traversal vulnerability in the save_config function in ntpd in ntp_control.c in NTP before 4.2.8p4, when used on systems that do not use '\\' or '/' characters for directory separation such as OpenVMS, allows remote authenticated users to overwrite arbitrary files.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-7851",
+					"url": "https://www.suse.com/security/cve/CVE-2015-7851"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1010964 for CVE-2015-7851",
+					"url": "https://bugzilla.suse.com/1010964"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 951608 for CVE-2015-7851",
+					"url": "https://bugzilla.suse.com/951608"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 959243 for CVE-2015-7851",
+					"url": "https://bugzilla.suse.com/959243"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 6.5,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:H/A:N",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2015-11-20T09:21:30Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2015-7851"
+		},
+		{
+			"cve": "CVE-2015-7852",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-7852"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "ntpq in NTP 4.2.x before 4.2.8p4, and 4.3.x before 4.3.77 allows remote attackers to cause a denial of service (crash) via crafted mode 6 response packets.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-7852",
+					"url": "https://www.suse.com/security/cve/CVE-2015-7852"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1010964 for CVE-2015-7852",
+					"url": "https://bugzilla.suse.com/1010964"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 951608 for CVE-2015-7852",
+					"url": "https://bugzilla.suse.com/951608"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 959243 for CVE-2015-7852",
+					"url": "https://bugzilla.suse.com/959243"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 992991 for CVE-2015-7852",
+					"url": "https://bugzilla.suse.com/992991"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 5.9,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2015-11-20T09:21:30Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2015-7852"
+		},
+		{
+			"cve": "CVE-2015-7853",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-7853"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The datalen parameter in the refclock driver in NTP 4.2.x before 4.2.8p4, and 4.3.x before 4.3.77 allows remote attackers to execute arbitrary code or cause a denial of service (crash) via a negative input value.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-7853",
+					"url": "https://www.suse.com/security/cve/CVE-2015-7853"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1010964 for CVE-2015-7853",
+					"url": "https://bugzilla.suse.com/1010964"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 951608 for CVE-2015-7853",
+					"url": "https://bugzilla.suse.com/951608"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 959243 for CVE-2015-7853",
+					"url": "https://bugzilla.suse.com/959243"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 992991 for CVE-2015-7853",
+					"url": "https://bugzilla.suse.com/992991"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 9.8,
+						"baseSeverity": "CRITICAL",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2015-11-20T09:21:30Z",
+					"details": "critical"
+				}
+			],
+			"title": "CVE-2015-7853"
+		},
+		{
+			"cve": "CVE-2015-7854",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-7854"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Buffer overflow in the password management functionality in NTP 4.2.x before 4.2.8p4, and 4.3.x before 4.3.77 allows remote authenticated users to cause a denial of service (daemon crash) or possibly execute arbitrary code via a crafted key file.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-7854",
+					"url": "https://www.suse.com/security/cve/CVE-2015-7854"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1010964 for CVE-2015-7854",
+					"url": "https://bugzilla.suse.com/1010964"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 951608 for CVE-2015-7854",
+					"url": "https://bugzilla.suse.com/951608"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 959243 for CVE-2015-7854",
+					"url": "https://bugzilla.suse.com/959243"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 992991 for CVE-2015-7854",
+					"url": "https://bugzilla.suse.com/992991"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 8.8,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2015-11-20T09:21:30Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2015-7854"
+		},
+		{
+			"cve": "CVE-2015-7855",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-7855"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The decodenetnum function in ntpd in NTP 4.2.x before 4.2.8p4, and 4.3.x before 4.3.77 allows remote attackers to cause a denial of service (assertion failure) via a 6 or mode 7 packet containing a long data value.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-7855",
+					"url": "https://www.suse.com/security/cve/CVE-2015-7855"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1010964 for CVE-2015-7855",
+					"url": "https://bugzilla.suse.com/1010964"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 951608 for CVE-2015-7855",
+					"url": "https://bugzilla.suse.com/951608"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 959243 for CVE-2015-7855",
+					"url": "https://bugzilla.suse.com/959243"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 992991 for CVE-2015-7855",
+					"url": "https://bugzilla.suse.com/992991"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 6.5,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2015-11-20T09:21:30Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2015-7855"
+		},
+		{
+			"cve": "CVE-2015-7871",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-7871"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Crypto-NAK packets in ntpd in NTP 4.2.x before 4.2.8p4, and 4.3.x before 4.3.77 allows remote attackers to bypass authentication.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-7871",
+					"url": "https://www.suse.com/security/cve/CVE-2015-7871"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1010964 for CVE-2015-7871",
+					"url": "https://bugzilla.suse.com/1010964"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 951608 for CVE-2015-7871",
+					"url": "https://bugzilla.suse.com/951608"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 952606 for CVE-2015-7871",
+					"url": "https://bugzilla.suse.com/952606"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 959243 for CVE-2015-7871",
+					"url": "https://bugzilla.suse.com/959243"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 9.8,
+						"baseSeverity": "CRITICAL",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Desktop 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-4.2.8p4-5.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.i586",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ia64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.ppc64",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 11 SP4:ntp-doc-4.2.8p4-5.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2015-11-20T09:21:30Z",
+					"details": "critical"
+				}
+			],
+			"title": "CVE-2015-7871"
+		}
+	]
+}

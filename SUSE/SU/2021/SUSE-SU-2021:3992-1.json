@@ -1,0 +1,954 @@
+{
+	"document": {
+		"aggregate_severity": {
+			"namespace": "https://www.suse.com/support/security/rating/",
+			"text": "important"
+		},
+		"category": "csaf_security_advisory",
+		"csaf_version": "2.0",
+		"distribution": {
+			"text": "Copyright 2024 SUSE LLC. All rights reserved.",
+			"tlp": {
+				"label": "WHITE",
+				"url": "https://www.first.org/tlp/"
+			}
+		},
+		"lang": "en",
+		"notes": [
+			{
+				"category": "summary",
+				"text": "Security update for the Linux RT Kernel",
+				"title": "Title of the patch"
+			},
+			{
+				"category": "description",
+				"text": "\n\nThe SUSE Linux Enterprise 12 SP5 Real Time kernel was updated to receive various security and bugfixes.\n\nThe following security bugs were fixed:\n\n- Unprivileged BPF has been disabled by default to reduce attack surface as too many security issues have happened in the past (jsc#SLE-22573)\n\n  You can reenable via systemctl setting /proc/sys/kernel/unprivileged_bpf_disabled to 0. (kernel.unprivileged_bpf_disabled = 0)\n\n- CVE-2021-0941: In bpf_skb_change_head of filter.c, there is a possible out of bounds read due to a use after free. This could lead to local escalation of privilege with System execution privileges needed. User interaction is not needed for exploitation (bnc#1192045).\n- CVE-2021-31916: An out-of-bounds (OOB) memory write flaw was found in list_devices in drivers/md/dm-ioctl.c in the Multi-device driver module in the Linux kernel A bound check failure allowed an attacker with special user (CAP_SYS_ADMIN) privilege to gain access to out-of-bounds memory leading to a system crash or a leak of internal kernel information. The highest threat from this vulnerability is to system availability (bnc#1192781).\n- CVE-2021-20322: Make the ipv4 and ipv6 ICMP exception caches less predictive to avoid information leaks about UDP ports in use. (bsc#1191790)\n- CVE-2021-34981: Fixed file refcounting in cmtp when cmtp_attach_device fails. (bsc#1191961)\n\nThe following non-security bugs were fixed:\n\n- arm64/sve: Use correct size when reinitialising SVE state (git-fixes).\n- arm64: pgtable: make __pte_to_phys/__phys_to_pte_val inline functions (git-fixes).\n- bpf: Add kconfig knob for disabling unpriv bpf by default (jsc#SLE-22913)\n- bpf: Disallow unprivileged bpf by default (jsc#SLE-22913).\n- bpf: Fix potential race in tail call compatibility check (git-fixes).\n- bpf: Move owner type, jited info into array auxiliary data (bsc#1141655).\n- bpf: Use kvmalloc for map values in syscall (stable-5.14.16).\n- btrfs: fix memory ordering between normal and ordered work functions (git-fixes).\n- cifs: fix memory leak of smb3_fs_context_dup::server_hostname (bsc#1190317).\n- cifs: for compound requests, use open handle if possible (bsc#1190317).\n- cifs: release lock earlier in dequeue_mid error case (bsc#1190317).\n- config: disable unprivileged BPF by default (jsc#SLE-22913) \n- drivers: base: cacheinfo: Get rid of DEFINE_SMP_CALL_CACHE_FUNCTION() (git-fixes).\n- drm: fix spectre issue in vmw_execbuf_ioctl (bsc#1192802).\n- EDAC/sb_edac: Fix top-of-high-memory value for Broadwell/Haswell (bsc#1114648).\n- elfcore: fix building with clang (bsc#1169514).\n- fuse: fix page stealing (bsc#1192718).\n- gigaset: fix spectre issue in do_data_b3_req (bsc#1192802).\n- hisax: fix spectre issues (bsc#1192802).\n- hysdn: fix spectre issue in hycapi_send_message (bsc#1192802).\n- i2c: synquacer: fix deferred probing (git-fixes).\n- ibmvnic: check failover_pending in login response (bsc#1190523 ltc#194510).\n- ibmvnic: do not stop queue in xmit (bsc#1192273 ltc#194629).\n- ibmvnic: Process crqs after enabling interrupts (bsc#1192273 ltc#194629).\n- infiniband: fix spectre issue in ib_uverbs_write (bsc#1192802).\n- iwlwifi: fix spectre issue in iwl_dbgfs_update_pm (bsc#1192802).\n- media: dvb_ca_en50221: prevent using slot_info for Spectre attacs (bsc#1192802).\n- media: dvb_ca_en50221: sanity check slot number from userspace (bsc#1192802).\n- media: wl128x: get rid of a potential spectre issue (bsc#1192802).\n- mm/hugetlb: initialize hugetlb_usage in mm_init (bsc#1192906).\n- mpt3sas: fix spectre issues (bsc#1192802).\n- net: sock_diag: Fix spectre v1 gadget in __sock_diag_cmd() (bsc#1192802).\n- objtool: Support Clang non-section symbols in ORC generation (bsc#1169514).\n- osst: fix spectre issue in osst_verify_frame (bsc#1192802).\n- prctl: allow to setup brk for et_dyn executables (git-fixes).\n- printk/console: Allow to disable console output by using console='' or console=null (bsc#1192753).\n- printk: handle blank console arguments passed in (bsc#1192753).\n- printk: Remove printk.h inclusion in percpu.h (bsc#1192987).\n- Revert 'ibmvnic: check failover_pending in login response' (bsc#1190523 ltc#194510).\n- Revert 'x86/kvm: fix vcpu-id indexed array sizes' (git-fixes).\n- scsi: be2iscsi: Fix an error handling path in beiscsi_dev_probe() (git-fixes).\n- scsi: BusLogic: Fix missing pr_cont() use (git-fixes).\n- scsi: core: Fix error handling of scsi_host_alloc() (git-fixes).\n- scsi: core: Fix spelling in a source code comment (git-fixes).\n- scsi: core: Only put parent device if host state differs from SHOST_CREATED (git-fixes).\n- scsi: core: Put .shost_dev in failure path if host state changes to RUNNING (git-fixes).\n- scsi: core: Retry I/O for Notify (Enable Spinup) Required error (git-fixes).\n- scsi: csiostor: Add module softdep on cxgb4 (git-fixes).\n- scsi: csiostor: Uninitialized data in csio_ln_vnp_read_cbfn() (git-fixes).\n- scsi: dc395: Fix error case unwinding (git-fixes).\n- scsi: FlashPoint: Rename si_flags field (git-fixes).\n- scsi: iscsi: Fix iface sysfs attr detection (git-fixes).\n- scsi: libsas: Use _safe() loop in sas_resume_port() (git-fixes).\n- scsi: mpt3sas: Fix error return value in _scsih_expander_add() (git-fixes).\n- scsi: qedf: Add pointer checks in qedf_update_link_speed() (git-fixes).\n- scsi: qedf: Fix error codes in qedf_alloc_global_queues() (git-fixes).\n- scsi: qedi: Fix error codes in qedi_alloc_global_queues() (git-fixes).\n- scsi: qla2xxx: Fix a memory leak in an error path of qla2x00_process_els() (git-fixes).\n- scsi: qla2xxx: Make sure that aborted commands are freed (git-fixes).\n- scsi: snic: Fix an error message (git-fixes).\n- scsi: ufs: ufshcd-pltfrm: Fix memory leak due to probe defer (git-fixes).\n- smb3: add additional null check in SMB2_ioctl (bsc#1190317).\n- smb3: add additional null check in SMB2_open (bsc#1190317).\n- smb3: add additional null check in SMB2_tcon (bsc#1190317).\n- soc: fsl: dpio: replace smp_processor_id with raw_smp_processor_id (git-fixes).\n- SUNRPC/auth: async tasks mustn't block waiting for memory (bsc#1191876 bsc#1192866).\n- SUNRPC/call_alloc: async tasks mustn't block waiting for memory (bsc#1191876 bsc#1192866).\n- SUNRPC/xprt: async tasks mustn't block waiting for memory (bsc#1191876 bsc#1192866).\n- SUNRPC: improve 'swap' handling: scheduling and PF_MEMALLOC (bsc#1191876 bsc#1192866).\n- swiotlb-xen: avoid double free (git-fixes).\n- sysvipc/sem: mitigate semnum index against spectre v1 (bsc#1192802).\n- tracing: use %ps format string to print symbols (git-fixes).\n- tty: serial: fsl_lpuart: fix the wrong mapbase value (git-fixes).\n- Update config files: Add CONFIG_BPF_UNPRIV_DEFAULT_OFF is not set\n- x86/xen: Mark cpu_bringup_and_idle() as dead_end_function (bsc#1169514).\n- x86/xen: Mark cpu_bringup_and_idle() as dead_end_function (git-fixes).\n- x86/Xen: swap NX determination and GDT setup on BSP (git-fixes).\n- xen-pciback: Fix return in pm_ctrl_init() (git-fixes).\n- xen-pciback: redo VF placement in the virtual topology (git-fixes).\n- xen/x86: fix PV trap handling on secondary processors (git-fixes).\n- xen: Fix implicit type conversion (git-fixes).\n",
+				"title": "Description of the patch"
+			},
+			{
+				"category": "details",
+				"text": "SUSE-2021-3992,SUSE-SLE-RT-12-SP5-2021-3992",
+				"title": "Patchnames"
+			},
+			{
+				"category": "legal_disclaimer",
+				"text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+				"title": "Terms of use"
+			}
+		],
+		"publisher": {
+			"category": "vendor",
+			"contact_details": "https://www.suse.com/support/security/contact/",
+			"name": "SUSE Product Security Team",
+			"namespace": "https://www.suse.com/"
+		},
+		"references": [
+			{
+				"category": "external",
+				"summary": "SUSE ratings",
+				"url": "https://www.suse.com/support/security/rating/"
+			},
+			{
+				"category": "self",
+				"summary": "URL of this CSAF notice",
+				"url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2021_3992-1.json"
+			},
+			{
+				"category": "self",
+				"summary": "URL for SUSE-SU-2021:3992-1",
+				"url": "https://www.suse.com/support/update/announcement/2021/suse-su-20213992-1/"
+			},
+			{
+				"category": "self",
+				"summary": "E-Mail link for SUSE-SU-2021:3992-1",
+				"url": "https://lists.suse.com/pipermail/sle-security-updates/2021-December/009877.html"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1114648",
+				"url": "https://bugzilla.suse.com/1114648"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1141655",
+				"url": "https://bugzilla.suse.com/1141655"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1169514",
+				"url": "https://bugzilla.suse.com/1169514"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1190317",
+				"url": "https://bugzilla.suse.com/1190317"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1190523",
+				"url": "https://bugzilla.suse.com/1190523"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1191790",
+				"url": "https://bugzilla.suse.com/1191790"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1191876",
+				"url": "https://bugzilla.suse.com/1191876"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1191961",
+				"url": "https://bugzilla.suse.com/1191961"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1192045",
+				"url": "https://bugzilla.suse.com/1192045"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1192048",
+				"url": "https://bugzilla.suse.com/1192048"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1192273",
+				"url": "https://bugzilla.suse.com/1192273"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1192718",
+				"url": "https://bugzilla.suse.com/1192718"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1192750",
+				"url": "https://bugzilla.suse.com/1192750"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1192753",
+				"url": "https://bugzilla.suse.com/1192753"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1192781",
+				"url": "https://bugzilla.suse.com/1192781"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1192802",
+				"url": "https://bugzilla.suse.com/1192802"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1192866",
+				"url": "https://bugzilla.suse.com/1192866"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1192906",
+				"url": "https://bugzilla.suse.com/1192906"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1192987",
+				"url": "https://bugzilla.suse.com/1192987"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2021-0941 page",
+				"url": "https://www.suse.com/security/cve/CVE-2021-0941/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2021-20322 page",
+				"url": "https://www.suse.com/security/cve/CVE-2021-20322/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2021-31916 page",
+				"url": "https://www.suse.com/security/cve/CVE-2021-31916/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2021-34981 page",
+				"url": "https://www.suse.com/security/cve/CVE-2021-34981/"
+			}
+		],
+		"title": "Security update for the Linux RT Kernel",
+		"tracking": {
+			"current_release_date": "2021-12-10T11:37:38Z",
+			"generator": {
+				"date": "2021-12-10T11:37:38Z",
+				"engine": {
+					"name": "cve-database.git:bin/generate-csaf.pl",
+					"version": "1"
+				}
+			},
+			"id": "SUSE-SU-2021:3992-1",
+			"initial_release_date": "2021-12-10T11:37:38Z",
+			"revision_history": [
+				{
+					"date": "2021-12-10T11:37:38Z",
+					"number": "1",
+					"summary": "Current version"
+				}
+			],
+			"status": "final",
+			"version": "1"
+		}
+	},
+	"product_tree": {
+		"branches": [
+			{
+				"branches": [
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "kernel-devel-rt-4.12.14-10.70.2.noarch",
+								"product": {
+									"name": "kernel-devel-rt-4.12.14-10.70.2.noarch",
+									"product_id": "kernel-devel-rt-4.12.14-10.70.2.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-source-rt-4.12.14-10.70.2.noarch",
+								"product": {
+									"name": "kernel-source-rt-4.12.14-10.70.2.noarch",
+									"product_id": "kernel-source-rt-4.12.14-10.70.2.noarch"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "noarch"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "cluster-md-kmp-rt-4.12.14-10.70.2.x86_64",
+								"product": {
+									"name": "cluster-md-kmp-rt-4.12.14-10.70.2.x86_64",
+									"product_id": "cluster-md-kmp-rt-4.12.14-10.70.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "cluster-md-kmp-rt_debug-4.12.14-10.70.2.x86_64",
+								"product": {
+									"name": "cluster-md-kmp-rt_debug-4.12.14-10.70.2.x86_64",
+									"product_id": "cluster-md-kmp-rt_debug-4.12.14-10.70.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "dlm-kmp-rt-4.12.14-10.70.2.x86_64",
+								"product": {
+									"name": "dlm-kmp-rt-4.12.14-10.70.2.x86_64",
+									"product_id": "dlm-kmp-rt-4.12.14-10.70.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "dlm-kmp-rt_debug-4.12.14-10.70.2.x86_64",
+								"product": {
+									"name": "dlm-kmp-rt_debug-4.12.14-10.70.2.x86_64",
+									"product_id": "dlm-kmp-rt_debug-4.12.14-10.70.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "gfs2-kmp-rt-4.12.14-10.70.2.x86_64",
+								"product": {
+									"name": "gfs2-kmp-rt-4.12.14-10.70.2.x86_64",
+									"product_id": "gfs2-kmp-rt-4.12.14-10.70.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "gfs2-kmp-rt_debug-4.12.14-10.70.2.x86_64",
+								"product": {
+									"name": "gfs2-kmp-rt_debug-4.12.14-10.70.2.x86_64",
+									"product_id": "gfs2-kmp-rt_debug-4.12.14-10.70.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-rt-4.12.14-10.70.2.x86_64",
+								"product": {
+									"name": "kernel-rt-4.12.14-10.70.2.x86_64",
+									"product_id": "kernel-rt-4.12.14-10.70.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-rt-base-4.12.14-10.70.2.x86_64",
+								"product": {
+									"name": "kernel-rt-base-4.12.14-10.70.2.x86_64",
+									"product_id": "kernel-rt-base-4.12.14-10.70.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-rt-devel-4.12.14-10.70.2.x86_64",
+								"product": {
+									"name": "kernel-rt-devel-4.12.14-10.70.2.x86_64",
+									"product_id": "kernel-rt-devel-4.12.14-10.70.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-rt-extra-4.12.14-10.70.2.x86_64",
+								"product": {
+									"name": "kernel-rt-extra-4.12.14-10.70.2.x86_64",
+									"product_id": "kernel-rt-extra-4.12.14-10.70.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-rt-kgraft-devel-4.12.14-10.70.2.x86_64",
+								"product": {
+									"name": "kernel-rt-kgraft-devel-4.12.14-10.70.2.x86_64",
+									"product_id": "kernel-rt-kgraft-devel-4.12.14-10.70.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-rt_debug-4.12.14-10.70.2.x86_64",
+								"product": {
+									"name": "kernel-rt_debug-4.12.14-10.70.2.x86_64",
+									"product_id": "kernel-rt_debug-4.12.14-10.70.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-rt_debug-base-4.12.14-10.70.2.x86_64",
+								"product": {
+									"name": "kernel-rt_debug-base-4.12.14-10.70.2.x86_64",
+									"product_id": "kernel-rt_debug-base-4.12.14-10.70.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-rt_debug-devel-4.12.14-10.70.2.x86_64",
+								"product": {
+									"name": "kernel-rt_debug-devel-4.12.14-10.70.2.x86_64",
+									"product_id": "kernel-rt_debug-devel-4.12.14-10.70.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-rt_debug-extra-4.12.14-10.70.2.x86_64",
+								"product": {
+									"name": "kernel-rt_debug-extra-4.12.14-10.70.2.x86_64",
+									"product_id": "kernel-rt_debug-extra-4.12.14-10.70.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-rt_debug-kgraft-devel-4.12.14-10.70.2.x86_64",
+								"product": {
+									"name": "kernel-rt_debug-kgraft-devel-4.12.14-10.70.2.x86_64",
+									"product_id": "kernel-rt_debug-kgraft-devel-4.12.14-10.70.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-syms-rt-4.12.14-10.70.2.x86_64",
+								"product": {
+									"name": "kernel-syms-rt-4.12.14-10.70.2.x86_64",
+									"product_id": "kernel-syms-rt-4.12.14-10.70.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kselftests-kmp-rt-4.12.14-10.70.2.x86_64",
+								"product": {
+									"name": "kselftests-kmp-rt-4.12.14-10.70.2.x86_64",
+									"product_id": "kselftests-kmp-rt-4.12.14-10.70.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kselftests-kmp-rt_debug-4.12.14-10.70.2.x86_64",
+								"product": {
+									"name": "kselftests-kmp-rt_debug-4.12.14-10.70.2.x86_64",
+									"product_id": "kselftests-kmp-rt_debug-4.12.14-10.70.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "ocfs2-kmp-rt-4.12.14-10.70.2.x86_64",
+								"product": {
+									"name": "ocfs2-kmp-rt-4.12.14-10.70.2.x86_64",
+									"product_id": "ocfs2-kmp-rt-4.12.14-10.70.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "ocfs2-kmp-rt_debug-4.12.14-10.70.2.x86_64",
+								"product": {
+									"name": "ocfs2-kmp-rt_debug-4.12.14-10.70.2.x86_64",
+									"product_id": "ocfs2-kmp-rt_debug-4.12.14-10.70.2.x86_64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "x86_64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Real Time 12 SP5",
+								"product": {
+									"name": "SUSE Linux Enterprise Real Time 12 SP5",
+									"product_id": "SUSE Linux Enterprise Real Time 12 SP5",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:suse-linux-enterprise-rt:12:sp5"
+									}
+								}
+							}
+						],
+						"category": "product_family",
+						"name": "SUSE Linux Enterprise"
+					}
+				],
+				"category": "vendor",
+				"name": "SUSE"
+			}
+		],
+		"relationships": [
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "cluster-md-kmp-rt-4.12.14-10.70.2.x86_64 as component of SUSE Linux Enterprise Real Time 12 SP5",
+					"product_id": "SUSE Linux Enterprise Real Time 12 SP5:cluster-md-kmp-rt-4.12.14-10.70.2.x86_64"
+				},
+				"product_reference": "cluster-md-kmp-rt-4.12.14-10.70.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Real Time 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "dlm-kmp-rt-4.12.14-10.70.2.x86_64 as component of SUSE Linux Enterprise Real Time 12 SP5",
+					"product_id": "SUSE Linux Enterprise Real Time 12 SP5:dlm-kmp-rt-4.12.14-10.70.2.x86_64"
+				},
+				"product_reference": "dlm-kmp-rt-4.12.14-10.70.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Real Time 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "gfs2-kmp-rt-4.12.14-10.70.2.x86_64 as component of SUSE Linux Enterprise Real Time 12 SP5",
+					"product_id": "SUSE Linux Enterprise Real Time 12 SP5:gfs2-kmp-rt-4.12.14-10.70.2.x86_64"
+				},
+				"product_reference": "gfs2-kmp-rt-4.12.14-10.70.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Real Time 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-devel-rt-4.12.14-10.70.2.noarch as component of SUSE Linux Enterprise Real Time 12 SP5",
+					"product_id": "SUSE Linux Enterprise Real Time 12 SP5:kernel-devel-rt-4.12.14-10.70.2.noarch"
+				},
+				"product_reference": "kernel-devel-rt-4.12.14-10.70.2.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Real Time 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-rt-4.12.14-10.70.2.x86_64 as component of SUSE Linux Enterprise Real Time 12 SP5",
+					"product_id": "SUSE Linux Enterprise Real Time 12 SP5:kernel-rt-4.12.14-10.70.2.x86_64"
+				},
+				"product_reference": "kernel-rt-4.12.14-10.70.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Real Time 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-rt-base-4.12.14-10.70.2.x86_64 as component of SUSE Linux Enterprise Real Time 12 SP5",
+					"product_id": "SUSE Linux Enterprise Real Time 12 SP5:kernel-rt-base-4.12.14-10.70.2.x86_64"
+				},
+				"product_reference": "kernel-rt-base-4.12.14-10.70.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Real Time 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-rt-devel-4.12.14-10.70.2.x86_64 as component of SUSE Linux Enterprise Real Time 12 SP5",
+					"product_id": "SUSE Linux Enterprise Real Time 12 SP5:kernel-rt-devel-4.12.14-10.70.2.x86_64"
+				},
+				"product_reference": "kernel-rt-devel-4.12.14-10.70.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Real Time 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-rt_debug-4.12.14-10.70.2.x86_64 as component of SUSE Linux Enterprise Real Time 12 SP5",
+					"product_id": "SUSE Linux Enterprise Real Time 12 SP5:kernel-rt_debug-4.12.14-10.70.2.x86_64"
+				},
+				"product_reference": "kernel-rt_debug-4.12.14-10.70.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Real Time 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-rt_debug-devel-4.12.14-10.70.2.x86_64 as component of SUSE Linux Enterprise Real Time 12 SP5",
+					"product_id": "SUSE Linux Enterprise Real Time 12 SP5:kernel-rt_debug-devel-4.12.14-10.70.2.x86_64"
+				},
+				"product_reference": "kernel-rt_debug-devel-4.12.14-10.70.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Real Time 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-source-rt-4.12.14-10.70.2.noarch as component of SUSE Linux Enterprise Real Time 12 SP5",
+					"product_id": "SUSE Linux Enterprise Real Time 12 SP5:kernel-source-rt-4.12.14-10.70.2.noarch"
+				},
+				"product_reference": "kernel-source-rt-4.12.14-10.70.2.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Real Time 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-syms-rt-4.12.14-10.70.2.x86_64 as component of SUSE Linux Enterprise Real Time 12 SP5",
+					"product_id": "SUSE Linux Enterprise Real Time 12 SP5:kernel-syms-rt-4.12.14-10.70.2.x86_64"
+				},
+				"product_reference": "kernel-syms-rt-4.12.14-10.70.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Real Time 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ocfs2-kmp-rt-4.12.14-10.70.2.x86_64 as component of SUSE Linux Enterprise Real Time 12 SP5",
+					"product_id": "SUSE Linux Enterprise Real Time 12 SP5:ocfs2-kmp-rt-4.12.14-10.70.2.x86_64"
+				},
+				"product_reference": "ocfs2-kmp-rt-4.12.14-10.70.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Real Time 12 SP5"
+			}
+		]
+	},
+	"vulnerabilities": [
+		{
+			"cve": "CVE-2021-0941",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2021-0941"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "In bpf_skb_change_head of filter.c, there is a possible out of bounds read due to a use after free. This could lead to local escalation of privilege with System execution privileges needed. User interaction is not needed for exploitation.Product: AndroidVersions: Android kernelAndroid ID: A-154177719References: Upstream kernel",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Real Time 12 SP5:cluster-md-kmp-rt-4.12.14-10.70.2.x86_64",
+					"SUSE Linux Enterprise Real Time 12 SP5:dlm-kmp-rt-4.12.14-10.70.2.x86_64",
+					"SUSE Linux Enterprise Real Time 12 SP5:gfs2-kmp-rt-4.12.14-10.70.2.x86_64",
+					"SUSE Linux Enterprise Real Time 12 SP5:kernel-devel-rt-4.12.14-10.70.2.noarch",
+					"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt-4.12.14-10.70.2.x86_64",
+					"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt-base-4.12.14-10.70.2.x86_64",
+					"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt-devel-4.12.14-10.70.2.x86_64",
+					"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt_debug-4.12.14-10.70.2.x86_64",
+					"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt_debug-devel-4.12.14-10.70.2.x86_64",
+					"SUSE Linux Enterprise Real Time 12 SP5:kernel-source-rt-4.12.14-10.70.2.noarch",
+					"SUSE Linux Enterprise Real Time 12 SP5:kernel-syms-rt-4.12.14-10.70.2.x86_64",
+					"SUSE Linux Enterprise Real Time 12 SP5:ocfs2-kmp-rt-4.12.14-10.70.2.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2021-0941",
+					"url": "https://www.suse.com/security/cve/CVE-2021-0941"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1192045 for CVE-2021-0941",
+					"url": "https://bugzilla.suse.com/1192045"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1192048 for CVE-2021-0941",
+					"url": "https://bugzilla.suse.com/1192048"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Real Time 12 SP5:cluster-md-kmp-rt-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:dlm-kmp-rt-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:gfs2-kmp-rt-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-devel-rt-4.12.14-10.70.2.noarch",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt-base-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt-devel-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt_debug-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt_debug-devel-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-source-rt-4.12.14-10.70.2.noarch",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-syms-rt-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:ocfs2-kmp-rt-4.12.14-10.70.2.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.5,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Real Time 12 SP5:cluster-md-kmp-rt-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:dlm-kmp-rt-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:gfs2-kmp-rt-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-devel-rt-4.12.14-10.70.2.noarch",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt-base-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt-devel-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt_debug-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt_debug-devel-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-source-rt-4.12.14-10.70.2.noarch",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-syms-rt-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:ocfs2-kmp-rt-4.12.14-10.70.2.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2021-12-10T11:37:38Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2021-0941"
+		},
+		{
+			"cve": "CVE-2021-20322",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2021-20322"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A flaw in the processing of received ICMP errors (ICMP fragment needed and ICMP redirect) in the Linux kernel functionality was found to allow the ability to quickly scan open UDP ports. This flaw allows an off-path remote user to effectively bypass the source port UDP randomization. The highest threat from this vulnerability is to confidentiality and possibly integrity, because software that relies on UDP source port randomization are indirectly affected as well.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Real Time 12 SP5:cluster-md-kmp-rt-4.12.14-10.70.2.x86_64",
+					"SUSE Linux Enterprise Real Time 12 SP5:dlm-kmp-rt-4.12.14-10.70.2.x86_64",
+					"SUSE Linux Enterprise Real Time 12 SP5:gfs2-kmp-rt-4.12.14-10.70.2.x86_64",
+					"SUSE Linux Enterprise Real Time 12 SP5:kernel-devel-rt-4.12.14-10.70.2.noarch",
+					"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt-4.12.14-10.70.2.x86_64",
+					"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt-base-4.12.14-10.70.2.x86_64",
+					"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt-devel-4.12.14-10.70.2.x86_64",
+					"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt_debug-4.12.14-10.70.2.x86_64",
+					"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt_debug-devel-4.12.14-10.70.2.x86_64",
+					"SUSE Linux Enterprise Real Time 12 SP5:kernel-source-rt-4.12.14-10.70.2.noarch",
+					"SUSE Linux Enterprise Real Time 12 SP5:kernel-syms-rt-4.12.14-10.70.2.x86_64",
+					"SUSE Linux Enterprise Real Time 12 SP5:ocfs2-kmp-rt-4.12.14-10.70.2.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2021-20322",
+					"url": "https://www.suse.com/security/cve/CVE-2021-20322"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1191790 for CVE-2021-20322",
+					"url": "https://bugzilla.suse.com/1191790"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1191813 for CVE-2021-20322",
+					"url": "https://bugzilla.suse.com/1191813"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1193290 for CVE-2021-20322",
+					"url": "https://bugzilla.suse.com/1193290"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Real Time 12 SP5:cluster-md-kmp-rt-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:dlm-kmp-rt-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:gfs2-kmp-rt-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-devel-rt-4.12.14-10.70.2.noarch",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt-base-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt-devel-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt_debug-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt_debug-devel-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-source-rt-4.12.14-10.70.2.noarch",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-syms-rt-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:ocfs2-kmp-rt-4.12.14-10.70.2.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.4,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Real Time 12 SP5:cluster-md-kmp-rt-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:dlm-kmp-rt-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:gfs2-kmp-rt-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-devel-rt-4.12.14-10.70.2.noarch",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt-base-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt-devel-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt_debug-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt_debug-devel-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-source-rt-4.12.14-10.70.2.noarch",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-syms-rt-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:ocfs2-kmp-rt-4.12.14-10.70.2.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2021-12-10T11:37:38Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2021-20322"
+		},
+		{
+			"cve": "CVE-2021-31916",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2021-31916"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "An out-of-bounds (OOB) memory write flaw was found in list_devices in drivers/md/dm-ioctl.c in the Multi-device driver module in the Linux kernel before 5.12. A bound check failure allows an attacker with special user (CAP_SYS_ADMIN) privilege to gain access to out-of-bounds memory leading to a system crash or a leak of internal kernel information. The highest threat from this vulnerability is to system availability.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Real Time 12 SP5:cluster-md-kmp-rt-4.12.14-10.70.2.x86_64",
+					"SUSE Linux Enterprise Real Time 12 SP5:dlm-kmp-rt-4.12.14-10.70.2.x86_64",
+					"SUSE Linux Enterprise Real Time 12 SP5:gfs2-kmp-rt-4.12.14-10.70.2.x86_64",
+					"SUSE Linux Enterprise Real Time 12 SP5:kernel-devel-rt-4.12.14-10.70.2.noarch",
+					"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt-4.12.14-10.70.2.x86_64",
+					"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt-base-4.12.14-10.70.2.x86_64",
+					"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt-devel-4.12.14-10.70.2.x86_64",
+					"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt_debug-4.12.14-10.70.2.x86_64",
+					"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt_debug-devel-4.12.14-10.70.2.x86_64",
+					"SUSE Linux Enterprise Real Time 12 SP5:kernel-source-rt-4.12.14-10.70.2.noarch",
+					"SUSE Linux Enterprise Real Time 12 SP5:kernel-syms-rt-4.12.14-10.70.2.x86_64",
+					"SUSE Linux Enterprise Real Time 12 SP5:ocfs2-kmp-rt-4.12.14-10.70.2.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2021-31916",
+					"url": "https://www.suse.com/security/cve/CVE-2021-31916"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1192781 for CVE-2021-31916",
+					"url": "https://bugzilla.suse.com/1192781"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Real Time 12 SP5:cluster-md-kmp-rt-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:dlm-kmp-rt-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:gfs2-kmp-rt-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-devel-rt-4.12.14-10.70.2.noarch",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt-base-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt-devel-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt_debug-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt_debug-devel-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-source-rt-4.12.14-10.70.2.noarch",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-syms-rt-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:ocfs2-kmp-rt-4.12.14-10.70.2.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 6.8,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:A/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Real Time 12 SP5:cluster-md-kmp-rt-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:dlm-kmp-rt-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:gfs2-kmp-rt-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-devel-rt-4.12.14-10.70.2.noarch",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt-base-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt-devel-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt_debug-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt_debug-devel-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-source-rt-4.12.14-10.70.2.noarch",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-syms-rt-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:ocfs2-kmp-rt-4.12.14-10.70.2.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2021-12-10T11:37:38Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2021-31916"
+		},
+		{
+			"cve": "CVE-2021-34981",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2021-34981"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Linux Kernel Bluetooth CMTP Module Double Free Privilege Escalation Vulnerability. This vulnerability allows local attackers to escalate privileges on affected installations of Linux Kernel. An attacker must first obtain the ability to execute high-privileged code on the target system in order to exploit this vulnerability.\n\nThe specific flaw exists within the CMTP module. The issue results from the lack of validating the existence of an object prior to performing further free operations on the object. An attacker can leverage this vulnerability to escalate privileges and execute code in the context of the kernel. Was ZDI-CAN-11977.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Real Time 12 SP5:cluster-md-kmp-rt-4.12.14-10.70.2.x86_64",
+					"SUSE Linux Enterprise Real Time 12 SP5:dlm-kmp-rt-4.12.14-10.70.2.x86_64",
+					"SUSE Linux Enterprise Real Time 12 SP5:gfs2-kmp-rt-4.12.14-10.70.2.x86_64",
+					"SUSE Linux Enterprise Real Time 12 SP5:kernel-devel-rt-4.12.14-10.70.2.noarch",
+					"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt-4.12.14-10.70.2.x86_64",
+					"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt-base-4.12.14-10.70.2.x86_64",
+					"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt-devel-4.12.14-10.70.2.x86_64",
+					"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt_debug-4.12.14-10.70.2.x86_64",
+					"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt_debug-devel-4.12.14-10.70.2.x86_64",
+					"SUSE Linux Enterprise Real Time 12 SP5:kernel-source-rt-4.12.14-10.70.2.noarch",
+					"SUSE Linux Enterprise Real Time 12 SP5:kernel-syms-rt-4.12.14-10.70.2.x86_64",
+					"SUSE Linux Enterprise Real Time 12 SP5:ocfs2-kmp-rt-4.12.14-10.70.2.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2021-34981",
+					"url": "https://www.suse.com/security/cve/CVE-2021-34981"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1191961 for CVE-2021-34981",
+					"url": "https://bugzilla.suse.com/1191961"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1192595 for CVE-2021-34981",
+					"url": "https://bugzilla.suse.com/1192595"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1196722 for CVE-2021-34981",
+					"url": "https://bugzilla.suse.com/1196722"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1212298 for CVE-2021-34981",
+					"url": "https://bugzilla.suse.com/1212298"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Real Time 12 SP5:cluster-md-kmp-rt-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:dlm-kmp-rt-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:gfs2-kmp-rt-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-devel-rt-4.12.14-10.70.2.noarch",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt-base-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt-devel-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt_debug-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt_debug-devel-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-source-rt-4.12.14-10.70.2.noarch",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-syms-rt-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:ocfs2-kmp-rt-4.12.14-10.70.2.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.5,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:C/C:H/I:H/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Real Time 12 SP5:cluster-md-kmp-rt-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:dlm-kmp-rt-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:gfs2-kmp-rt-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-devel-rt-4.12.14-10.70.2.noarch",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt-base-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt-devel-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt_debug-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-rt_debug-devel-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-source-rt-4.12.14-10.70.2.noarch",
+						"SUSE Linux Enterprise Real Time 12 SP5:kernel-syms-rt-4.12.14-10.70.2.x86_64",
+						"SUSE Linux Enterprise Real Time 12 SP5:ocfs2-kmp-rt-4.12.14-10.70.2.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2021-12-10T11:37:38Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2021-34981"
+		}
+	]
+}

@@ -1,0 +1,1499 @@
+{
+	"document": {
+		"aggregate_severity": {
+			"namespace": "https://www.suse.com/support/security/rating/",
+			"text": "important"
+		},
+		"category": "csaf_security_advisory",
+		"csaf_version": "2.0",
+		"distribution": {
+			"text": "Copyright 2024 SUSE LLC. All rights reserved.",
+			"tlp": {
+				"label": "WHITE",
+				"url": "https://www.first.org/tlp/"
+			}
+		},
+		"lang": "en",
+		"notes": [
+			{
+				"category": "summary",
+				"text": "Security update for the Linux Kernel (Live Patch 15 for SLE 15 SP2)",
+				"title": "Title of the patch"
+			},
+			{
+				"category": "description",
+				"text": "This update for the Linux Kernel 5.3.18-24_53_4 fixes several issues.\n\nThe following security issues were fixed:\n\n- CVE-2021-33909: Fixed an out-of-bounds write in the filesystem layer that allows to andobtain full root privileges. (bsc#1188062)\n- CVE-2021-22555: Fixed an heap out-of-bounds write in net/netfilter/x_tables.c that could allow local provilege escalation. (bsc#1188116)\n- CVE-2020-36385: Fixed a use-after-free vulnerability reached via the ctx_list in some ucma_migrate_id situations where ucma_close is called. (bnc#1187050)\n- CVE-2021-23133: Fixed a race condition in the SCTP sockets that could lead to kernel privilege escalation from the context of a network service or an unprivileged process. (bnc#1184675)\n- CVE-2021-33034: Fixed a use-after-free vulnerability when destroying an hci_chan which leads to writing an arbitrary value. (bnc#1186111)\n- CVE-2021-32399: Fixed a race condition in net/bluetooth/hci_request.c for removal of the HCI controller. (bsc#1184611)\n- CVE-2020-36322: Fixed an issue in the FUSE filesystem implementation. This bug was addressed with a previous fix, which turned out was incomplete, and its incompleteness is tracked as CVE-2021-28950. (bsc#1184211)\n- CVE-2021-29154: Fixed an incorrect computation of branch displacements in the BPF JIT compilers, which could allow to execute arbitrary code within the kernel context. (bsc#1184391)\n- CVE-2021-3444: The bpf verifier did not properly handle mod32 destination register truncation when the source register was known to be 0. A local attacker with the ability to load bpf programs could use this gain out-of-bounds reads in kernel memory leading to information disclosure (kernel memory), and possibly out-of-bounds writes that could potentially lead to code execution. (bsc#1184170)\n- CVE-2021-28660: Fixed an out-of-bounds write in rtw_wx_set_scan which could lead to local escalation of privilege with no additional execution privileges needed. (bsc#1183593)\n- CVE-2021-27365: Fixed an issue in certain iSCSI data structures that do not have appropriate length constraints or checks, and can exceed the PAGE_SIZE value. (bsc#1182715)\n- CVE-2021-28688: Fixed some uninitialization pointers in Xen that could result in leaking persistent grants. The leak in turn would prevent fully cleaning up after a respective guest has died, leaving around zombie domains. (bsc#1183646)\n- CVE-2021-27363: Fixed a kernel pointer leak that can be used to determine the address of the iscsi_transport structure. (bsc#1182716)\n- CVE-2021-27364: Fixed an issue that provides an unprivileged user the ability of craft Netlink messages. (bsc#1182717)\n",
+				"title": "Description of the patch"
+			},
+			{
+				"category": "details",
+				"text": "SUSE-2021-2577,SUSE-SLE-Module-Live-Patching-15-SP2-2021-2577",
+				"title": "Patchnames"
+			},
+			{
+				"category": "legal_disclaimer",
+				"text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+				"title": "Terms of use"
+			}
+		],
+		"publisher": {
+			"category": "vendor",
+			"contact_details": "https://www.suse.com/support/security/contact/",
+			"name": "SUSE Product Security Team",
+			"namespace": "https://www.suse.com/"
+		},
+		"references": [
+			{
+				"category": "external",
+				"summary": "SUSE ratings",
+				"url": "https://www.suse.com/support/security/rating/"
+			},
+			{
+				"category": "self",
+				"summary": "URL of this CSAF notice",
+				"url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2021_2577-1.json"
+			},
+			{
+				"category": "self",
+				"summary": "URL for SUSE-SU-2021:2577-1",
+				"url": "https://www.suse.com/support/update/announcement/2021/suse-su-20212577-1/"
+			},
+			{
+				"category": "self",
+				"summary": "E-Mail link for SUSE-SU-2021:2577-1",
+				"url": "https://lists.suse.com/pipermail/sle-security-updates/2021-July/009234.html"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1182717",
+				"url": "https://bugzilla.suse.com/1182717"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1183120",
+				"url": "https://bugzilla.suse.com/1183120"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1183491",
+				"url": "https://bugzilla.suse.com/1183491"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1183658",
+				"url": "https://bugzilla.suse.com/1183658"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1184171",
+				"url": "https://bugzilla.suse.com/1184171"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1184710",
+				"url": "https://bugzilla.suse.com/1184710"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1184952",
+				"url": "https://bugzilla.suse.com/1184952"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1185847",
+				"url": "https://bugzilla.suse.com/1185847"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1185899",
+				"url": "https://bugzilla.suse.com/1185899"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1185901",
+				"url": "https://bugzilla.suse.com/1185901"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1186285",
+				"url": "https://bugzilla.suse.com/1186285"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1187052",
+				"url": "https://bugzilla.suse.com/1187052"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1188117",
+				"url": "https://bugzilla.suse.com/1188117"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1188257",
+				"url": "https://bugzilla.suse.com/1188257"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2020-36322 page",
+				"url": "https://www.suse.com/security/cve/CVE-2020-36322/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2020-36385 page",
+				"url": "https://www.suse.com/security/cve/CVE-2020-36385/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2021-22555 page",
+				"url": "https://www.suse.com/security/cve/CVE-2021-22555/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2021-23133 page",
+				"url": "https://www.suse.com/security/cve/CVE-2021-23133/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2021-27363 page",
+				"url": "https://www.suse.com/security/cve/CVE-2021-27363/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2021-27364 page",
+				"url": "https://www.suse.com/security/cve/CVE-2021-27364/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2021-27365 page",
+				"url": "https://www.suse.com/security/cve/CVE-2021-27365/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2021-28660 page",
+				"url": "https://www.suse.com/security/cve/CVE-2021-28660/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2021-28688 page",
+				"url": "https://www.suse.com/security/cve/CVE-2021-28688/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2021-29154 page",
+				"url": "https://www.suse.com/security/cve/CVE-2021-29154/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2021-32399 page",
+				"url": "https://www.suse.com/security/cve/CVE-2021-32399/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2021-33034 page",
+				"url": "https://www.suse.com/security/cve/CVE-2021-33034/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2021-33909 page",
+				"url": "https://www.suse.com/security/cve/CVE-2021-33909/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2021-3444 page",
+				"url": "https://www.suse.com/security/cve/CVE-2021-3444/"
+			}
+		],
+		"title": "Security update for the Linux Kernel (Live Patch 15 for SLE 15 SP2)",
+		"tracking": {
+			"current_release_date": "2021-07-30T15:51:38Z",
+			"generator": {
+				"date": "2021-07-30T15:51:38Z",
+				"engine": {
+					"name": "cve-database.git:bin/generate-csaf.pl",
+					"version": "1"
+				}
+			},
+			"id": "SUSE-SU-2021:2577-1",
+			"initial_release_date": "2021-07-30T15:51:38Z",
+			"revision_history": [
+				{
+					"date": "2021-07-30T15:51:38Z",
+					"number": "1",
+					"summary": "Current version"
+				}
+			],
+			"status": "final",
+			"version": "1"
+		}
+	},
+	"product_tree": {
+		"branches": [
+			{
+				"branches": [
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "kernel-livepatch-5_3_18-24_53_4-default-2-2.1.ppc64le",
+								"product": {
+									"name": "kernel-livepatch-5_3_18-24_53_4-default-2-2.1.ppc64le",
+									"product_id": "kernel-livepatch-5_3_18-24_53_4-default-2-2.1.ppc64le"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "ppc64le"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "kernel-livepatch-5_3_18-24_53_4-default-2-2.1.s390x",
+								"product": {
+									"name": "kernel-livepatch-5_3_18-24_53_4-default-2-2.1.s390x",
+									"product_id": "kernel-livepatch-5_3_18-24_53_4-default-2-2.1.s390x"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "s390x"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "kernel-livepatch-5_3_18-24_53_4-default-2-2.1.x86_64",
+								"product": {
+									"name": "kernel-livepatch-5_3_18-24_53_4-default-2-2.1.x86_64",
+									"product_id": "kernel-livepatch-5_3_18-24_53_4-default-2-2.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-livepatch-5_3_18-24_53_4-preempt-2-2.1.x86_64",
+								"product": {
+									"name": "kernel-livepatch-5_3_18-24_53_4-preempt-2-2.1.x86_64",
+									"product_id": "kernel-livepatch-5_3_18-24_53_4-preempt-2-2.1.x86_64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "x86_64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Live Patching 15 SP2",
+								"product": {
+									"name": "SUSE Linux Enterprise Live Patching 15 SP2",
+									"product_id": "SUSE Linux Enterprise Live Patching 15 SP2",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-module-live-patching:15:sp2"
+									}
+								}
+							}
+						],
+						"category": "product_family",
+						"name": "SUSE Linux Enterprise"
+					}
+				],
+				"category": "vendor",
+				"name": "SUSE"
+			}
+		],
+		"relationships": [
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-livepatch-5_3_18-24_53_4-default-2-2.1.ppc64le as component of SUSE Linux Enterprise Live Patching 15 SP2",
+					"product_id": "SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.ppc64le"
+				},
+				"product_reference": "kernel-livepatch-5_3_18-24_53_4-default-2-2.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Live Patching 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-livepatch-5_3_18-24_53_4-default-2-2.1.s390x as component of SUSE Linux Enterprise Live Patching 15 SP2",
+					"product_id": "SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.s390x"
+				},
+				"product_reference": "kernel-livepatch-5_3_18-24_53_4-default-2-2.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Live Patching 15 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-livepatch-5_3_18-24_53_4-default-2-2.1.x86_64 as component of SUSE Linux Enterprise Live Patching 15 SP2",
+					"product_id": "SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.x86_64"
+				},
+				"product_reference": "kernel-livepatch-5_3_18-24_53_4-default-2-2.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Live Patching 15 SP2"
+			}
+		]
+	},
+	"vulnerabilities": [
+		{
+			"cve": "CVE-2020-36322",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2020-36322"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "An issue was discovered in the FUSE filesystem implementation in the Linux kernel before 5.10.6, aka CID-5d069dbe8aaf. fuse_do_getattr() calls make_bad_inode() in inappropriate situations, causing a system crash. NOTE: the original fix for this vulnerability was incomplete, and its incompleteness is tracked as CVE-2021-28950.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.ppc64le",
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.s390x",
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2020-36322",
+					"url": "https://www.suse.com/security/cve/CVE-2020-36322"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1184211 for CVE-2020-36322",
+					"url": "https://bugzilla.suse.com/1184211"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1184952 for CVE-2020-36322",
+					"url": "https://bugzilla.suse.com/1184952"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1189302 for CVE-2020-36322",
+					"url": "https://bugzilla.suse.com/1189302"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.s390x",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.7,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.s390x",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2021-07-30T15:51:38Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2020-36322"
+		},
+		{
+			"cve": "CVE-2020-36385",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2020-36385"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "An issue was discovered in the Linux kernel before 5.10. drivers/infiniband/core/ucma.c has a use-after-free because the ctx is reached via the ctx_list in some ucma_migrate_id situations where ucma_close is called, aka CID-f5449e74802c.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.ppc64le",
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.s390x",
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2020-36385",
+					"url": "https://www.suse.com/security/cve/CVE-2020-36385"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1187050 for CVE-2020-36385",
+					"url": "https://bugzilla.suse.com/1187050"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1187052 for CVE-2020-36385",
+					"url": "https://bugzilla.suse.com/1187052"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1189302 for CVE-2020-36385",
+					"url": "https://bugzilla.suse.com/1189302"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1196174 for CVE-2020-36385",
+					"url": "https://bugzilla.suse.com/1196174"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1196810 for CVE-2020-36385",
+					"url": "https://bugzilla.suse.com/1196810"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1196914 for CVE-2020-36385",
+					"url": "https://bugzilla.suse.com/1196914"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1200084 for CVE-2020-36385",
+					"url": "https://bugzilla.suse.com/1200084"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1201734 for CVE-2020-36385",
+					"url": "https://bugzilla.suse.com/1201734"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.s390x",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 8.4,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.s390x",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2021-07-30T15:51:38Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2020-36385"
+		},
+		{
+			"cve": "CVE-2021-22555",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2021-22555"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A heap out-of-bounds write affecting Linux since v2.6.19-rc1 was discovered in net/netfilter/x_tables.c. This allows an attacker to gain privileges or cause a DoS (via heap memory corruption) through user name space",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.ppc64le",
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.s390x",
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2021-22555",
+					"url": "https://www.suse.com/security/cve/CVE-2021-22555"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1188116 for CVE-2021-22555",
+					"url": "https://bugzilla.suse.com/1188116"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1188117 for CVE-2021-22555",
+					"url": "https://bugzilla.suse.com/1188117"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1188411 for CVE-2021-22555",
+					"url": "https://bugzilla.suse.com/1188411"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.s390x",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.8,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.s390x",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2021-07-30T15:51:38Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2021-22555"
+		},
+		{
+			"cve": "CVE-2021-23133",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2021-23133"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A race condition in Linux kernel SCTP sockets (net/sctp/socket.c) before 5.12-rc8 can lead to kernel privilege escalation from the context of a network service or an unprivileged process. If sctp_destroy_sock is called without sock_net(sk)->sctp.addr_wq_lock then an element is removed from the auto_asconf_splist list without any proper locking. This can be exploited by an attacker with network service privileges to escalate to root or from the context of an unprivileged user directly if a BPF_CGROUP_INET_SOCK_CREATE is attached which denies creation of some SCTP socket.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.ppc64le",
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.s390x",
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2021-23133",
+					"url": "https://www.suse.com/security/cve/CVE-2021-23133"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1184675 for CVE-2021-23133",
+					"url": "https://bugzilla.suse.com/1184675"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1185901 for CVE-2021-23133",
+					"url": "https://bugzilla.suse.com/1185901"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.s390x",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.s390x",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2021-07-30T15:51:38Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2021-23133"
+		},
+		{
+			"cve": "CVE-2021-27363",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2021-27363"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "An issue was discovered in the Linux kernel through 5.11.3. A kernel pointer leak can be used to determine the address of the iscsi_transport structure. When an iSCSI transport is registered with the iSCSI subsystem, the transport's handle is available to unprivileged users via the sysfs file system, at /sys/class/iscsi_transport/$TRANSPORT_NAME/handle. When read, the show_transport_handle function (in drivers/scsi/scsi_transport_iscsi.c) is called, which leaks the handle. This handle is actually the pointer to an iscsi_transport struct in the kernel module's global variables.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.ppc64le",
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.s390x",
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2021-27363",
+					"url": "https://www.suse.com/security/cve/CVE-2021-27363"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1182716 for CVE-2021-27363",
+					"url": "https://bugzilla.suse.com/1182716"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1182717 for CVE-2021-27363",
+					"url": "https://bugzilla.suse.com/1182717"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1183120 for CVE-2021-27363",
+					"url": "https://bugzilla.suse.com/1183120"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1200084 for CVE-2021-27363",
+					"url": "https://bugzilla.suse.com/1200084"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.s390x",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.1,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.s390x",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2021-07-30T15:51:38Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2021-27363"
+		},
+		{
+			"cve": "CVE-2021-27364",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2021-27364"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "An issue was discovered in the Linux kernel through 5.11.3. drivers/scsi/scsi_transport_iscsi.c is adversely affected by the ability of an unprivileged user to craft Netlink messages.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.ppc64le",
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.s390x",
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2021-27364",
+					"url": "https://www.suse.com/security/cve/CVE-2021-27364"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1182715 for CVE-2021-27364",
+					"url": "https://bugzilla.suse.com/1182715"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1182716 for CVE-2021-27364",
+					"url": "https://bugzilla.suse.com/1182716"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1182717 for CVE-2021-27364",
+					"url": "https://bugzilla.suse.com/1182717"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1200084 for CVE-2021-27364",
+					"url": "https://bugzilla.suse.com/1200084"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1214268 for CVE-2021-27364",
+					"url": "https://bugzilla.suse.com/1214268"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1218966 for CVE-2021-27364",
+					"url": "https://bugzilla.suse.com/1218966"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.s390x",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.1,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.s390x",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2021-07-30T15:51:38Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2021-27364"
+		},
+		{
+			"cve": "CVE-2021-27365",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2021-27365"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "An issue was discovered in the Linux kernel through 5.11.3. Certain iSCSI data structures do not have appropriate length constraints or checks, and can exceed the PAGE_SIZE value. An unprivileged user can send a Netlink message that is associated with iSCSI, and has a length up to the maximum length of a Netlink message.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.ppc64le",
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.s390x",
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2021-27365",
+					"url": "https://www.suse.com/security/cve/CVE-2021-27365"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1182712 for CVE-2021-27365",
+					"url": "https://bugzilla.suse.com/1182712"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1182715 for CVE-2021-27365",
+					"url": "https://bugzilla.suse.com/1182715"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1183491 for CVE-2021-27365",
+					"url": "https://bugzilla.suse.com/1183491"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1200084 for CVE-2021-27365",
+					"url": "https://bugzilla.suse.com/1200084"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1214268 for CVE-2021-27365",
+					"url": "https://bugzilla.suse.com/1214268"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1218966 for CVE-2021-27365",
+					"url": "https://bugzilla.suse.com/1218966"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.s390x",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.s390x",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2021-07-30T15:51:38Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2021-27365"
+		},
+		{
+			"cve": "CVE-2021-28660",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2021-28660"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "rtw_wx_set_scan in drivers/staging/rtl8188eu/os_dep/ioctl_linux.c in the Linux kernel through 5.11.6 allows writing beyond the end of the ->ssid[] array. NOTE: from the perspective of kernel.org releases, CVE IDs are not normally used for drivers/staging/* (unfinished work); however, system integrators may have situations in which a drivers/staging issue is relevant to their own customer base.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.ppc64le",
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.s390x",
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2021-28660",
+					"url": "https://www.suse.com/security/cve/CVE-2021-28660"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1183593 for CVE-2021-28660",
+					"url": "https://bugzilla.suse.com/1183593"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1183658 for CVE-2021-28660",
+					"url": "https://bugzilla.suse.com/1183658"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.s390x",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 8,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:A/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.s390x",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2021-07-30T15:51:38Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2021-28660"
+		},
+		{
+			"cve": "CVE-2021-28688",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2021-28688"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The fix for XSA-365 includes initialization of pointers such that subsequent cleanup code wouldn't use uninitialized or stale values. This initialization went too far and may under certain conditions also overwrite pointers which are in need of cleaning up. The lack of cleanup would result in leaking persistent grants. The leak in turn would prevent fully cleaning up after a respective guest has died, leaving around zombie domains. All Linux versions having the fix for XSA-365 applied are vulnerable. XSA-365 was classified to affect versions back to at least 3.11.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.ppc64le",
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.s390x",
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2021-28688",
+					"url": "https://www.suse.com/security/cve/CVE-2021-28688"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1183646 for CVE-2021-28688",
+					"url": "https://bugzilla.suse.com/1183646"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.s390x",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 6.5,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.s390x",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2021-07-30T15:51:38Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2021-28688"
+		},
+		{
+			"cve": "CVE-2021-29154",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2021-29154"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "BPF JIT compilers in the Linux kernel through 5.11.12 have incorrect computation of branch displacements, allowing them to execute arbitrary code within the kernel context. This affects arch/x86/net/bpf_jit_comp.c and arch/x86/net/bpf_jit_comp32.c.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.ppc64le",
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.s390x",
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2021-29154",
+					"url": "https://www.suse.com/security/cve/CVE-2021-29154"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1184391 for CVE-2021-29154",
+					"url": "https://bugzilla.suse.com/1184391"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1184710 for CVE-2021-29154",
+					"url": "https://bugzilla.suse.com/1184710"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1186408 for CVE-2021-29154",
+					"url": "https://bugzilla.suse.com/1186408"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.s390x",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.s390x",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2021-07-30T15:51:38Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2021-29154"
+		},
+		{
+			"cve": "CVE-2021-32399",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2021-32399"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "net/bluetooth/hci_request.c in the Linux kernel through 5.12.2 has a race condition for removal of the HCI controller.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.ppc64le",
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.s390x",
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2021-32399",
+					"url": "https://www.suse.com/security/cve/CVE-2021-32399"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1184611 for CVE-2021-32399",
+					"url": "https://bugzilla.suse.com/1184611"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1185898 for CVE-2021-32399",
+					"url": "https://bugzilla.suse.com/1185898"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1185899 for CVE-2021-32399",
+					"url": "https://bugzilla.suse.com/1185899"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1196174 for CVE-2021-32399",
+					"url": "https://bugzilla.suse.com/1196174"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1200084 for CVE-2021-32399",
+					"url": "https://bugzilla.suse.com/1200084"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1201734 for CVE-2021-32399",
+					"url": "https://bugzilla.suse.com/1201734"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.s390x",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.4,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:L/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.s390x",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2021-07-30T15:51:38Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2021-32399"
+		},
+		{
+			"cve": "CVE-2021-33034",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2021-33034"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "In the Linux kernel before 5.12.4, net/bluetooth/hci_event.c has a use-after-free when destroying an hci_chan, aka CID-5c4c8c954409. This leads to writing an arbitrary value.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.ppc64le",
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.s390x",
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2021-33034",
+					"url": "https://www.suse.com/security/cve/CVE-2021-33034"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1186111 for CVE-2021-33034",
+					"url": "https://bugzilla.suse.com/1186111"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1186285 for CVE-2021-33034",
+					"url": "https://bugzilla.suse.com/1186285"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.s390x",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.7,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.s390x",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2021-07-30T15:51:38Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2021-33034"
+		},
+		{
+			"cve": "CVE-2021-33909",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2021-33909"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "fs/seq_file.c in the Linux kernel 3.16 through 5.13.x before 5.13.4 does not properly restrict seq buffer allocations, leading to an integer overflow, an Out-of-bounds Write, and escalation to root by an unprivileged user, aka CID-8cae8cd89f05.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.ppc64le",
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.s390x",
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2021-33909",
+					"url": "https://www.suse.com/security/cve/CVE-2021-33909"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1188062 for CVE-2021-33909",
+					"url": "https://bugzilla.suse.com/1188062"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1188063 for CVE-2021-33909",
+					"url": "https://bugzilla.suse.com/1188063"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1188257 for CVE-2021-33909",
+					"url": "https://bugzilla.suse.com/1188257"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1189302 for CVE-2021-33909",
+					"url": "https://bugzilla.suse.com/1189302"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1190859 for CVE-2021-33909",
+					"url": "https://bugzilla.suse.com/1190859"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.s390x",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.8,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.s390x",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2021-07-30T15:51:38Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2021-33909"
+		},
+		{
+			"cve": "CVE-2021-3444",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2021-3444"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The bpf verifier in the Linux kernel did not properly handle mod32 destination register truncation when the source register was known to be 0. A local attacker with the ability to load bpf programs could use this gain out-of-bounds reads in kernel memory leading to information disclosure (kernel memory), and possibly out-of-bounds writes that could potentially lead to code execution. This issue was addressed in the upstream kernel in commit 9b00f1b78809 (\"bpf: Fix truncation handling for mod32 dst reg wrt zero\") and in Linux stable kernels 5.11.2, 5.10.19, and 5.4.101.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.ppc64le",
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.s390x",
+					"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2021-3444",
+					"url": "https://www.suse.com/security/cve/CVE-2021-3444"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1184170 for CVE-2021-3444",
+					"url": "https://bugzilla.suse.com/1184170"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1184171 for CVE-2021-3444",
+					"url": "https://bugzilla.suse.com/1184171"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.s390x",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.s390x",
+						"SUSE Linux Enterprise Live Patching 15 SP2:kernel-livepatch-5_3_18-24_53_4-default-2-2.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2021-07-30T15:51:38Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2021-3444"
+		}
+	]
+}

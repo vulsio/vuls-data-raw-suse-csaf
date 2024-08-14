@@ -1,0 +1,3496 @@
+{
+	"document": {
+		"aggregate_severity": {
+			"namespace": "https://www.suse.com/support/security/rating/",
+			"text": "important"
+		},
+		"category": "csaf_security_advisory",
+		"csaf_version": "2.0",
+		"distribution": {
+			"text": "Copyright 2024 SUSE LLC. All rights reserved.",
+			"tlp": {
+				"label": "WHITE",
+				"url": "https://www.first.org/tlp/"
+			}
+		},
+		"lang": "en",
+		"notes": [
+			{
+				"category": "summary",
+				"text": "Security update for kvm",
+				"title": "Title of the patch"
+			},
+			{
+				"category": "description",
+				"text": "\nThis update for kvm fixes several issues.\n\nThese security issues were fixed:\n\n- CVE-2017-2620: In CIRRUS_BLTMODE_MEMSYSSRC mode the bitblit copy routine cirrus_bitblt_cputovideo failed to check the memory region, allowing for an out-of-bounds write that allows for privilege escalation (bsc#1024972)\n- CVE-2017-2615: An error in the bitblt copy operation could have allowed a malicious guest administrator to cause an out of bounds memory access, possibly leading to information disclosure or privilege escalation (bsc#1023004)\n- CVE-2016-9776: The ColdFire Fast Ethernet Controller emulator support was vulnerable to an infinite loop issue while receiving packets in 'mcf_fec_receive'. A privileged user/process inside guest could have used this issue to crash the Qemu process on the host leading to DoS (bsc#1013285)\n- CVE-2016-9911: The USB EHCI Emulation support was vulnerable to a memory leakage issue while processing packet data in 'ehci_init_transfer'. A guest user/process could have used this issue to leak host memory, resulting in DoS for the host (bsc#1014111)\n- CVE-2016-9907: The USB redirector usb-guest support was vulnerable to a memory leakage flaw when destroying the USB redirector in 'usbredir_handle_destroy'.  A guest user/process could have used this issue to leak host memory, resulting in DoS for a host (bsc#1014109)\n- CVE-2016-9921: The Cirrus CLGD 54xx VGA Emulator support was vulnerable to a divide by zero issue while copying VGA data. A privileged user inside guest could have used this flaw to crash the process instance on the host, resulting in DoS (bsc#1014702)\n- CVE-2016-9922: The Cirrus CLGD 54xx VGA Emulator support was vulnerable to a divide by zero issue while copying VGA data. A privileged user inside guest could have used this flaw to crash the process instance on the host, resulting in DoS (bsc#1014702)\n- CVE-2017-5898: The CCID Card device emulator support was vulnerable to an integer overflow allowing a privileged user inside the guest to crash the Qemu process resulting in DoS (bnc#1023907)\n- CVE-2016-10155: The virtual hardware watchdog 'wdt_i6300esb' was vulnerable to a memory leakage issue allowing a privileged user to cause a DoS and/or potentially crash the Qemu process on the host (bsc#1021129)\n- CVE-2017-5856: The MegaRAID SAS 8708EM2 Host Bus Adapter emulation support was vulnerable to a memory leakage issue allowing a privileged user to leak host memory resulting in DoS (bsc#1023053)\n- CVE-2016-9602: The VirtFS host directory sharing via Plan 9 File System(9pfs) support was vulnerable to an improper link following issue which allowed a privileged user inside guest to access host file system beyond the shared folder and potentially escalating their privileges on a host (bsc#1020427)\n- CVE-2016-9603: A privileged user within the guest VM could have caused a heap overflow in the device model process, potentially escalating their privileges to that of the device model process (bsc#1028656)\n- CVE-2017-10664: qemu-nbd did not ignore SIGPIPE, which allowed remote attackers to cause a denial of service (daemon crash) by disconnecting during a server-to-client reply attempt (bsc#1046636)\n- CVE-2017-10806: Stack-based buffer overflow allowed local guest OS users to cause a denial of service (QEMU process crash) via vectors related to logging debug messages (bsc#1047674)\n- CVE-2017-11334: The address_space_write_continue function allowed local guest OS privileged users to cause a denial of service (out-of-bounds access and guest instance crash) by leveraging use of qemu_map_ram_ptr to access guest ram block area (bsc#1048902)\n- CVE-2017-11434: The dhcp_decode function in slirp/bootp.c allowed local guest OS users to cause a denial of service (out-of-bounds read) via a crafted DHCP options string (bsc#1049381)\n- CVE-2017-13672: The VGA display emulator support allowed local guest OS privileged users to cause a denial of service (out-of-bounds read and QEMU process crash) via vectors involving display update (bsc#1056334)\n- CVE-2017-14167: Integer overflow in the load_multiboot function allowed local guest OS users to execute arbitrary code on the host via crafted multiboot header address values, which trigger an out-of-bounds write (bsc#1057585)\n- CVE-2017-15038: Race condition in the v9fs_xattrwalk function local guest OS users to obtain sensitive information from host heap memory via vectors related to reading extended attributes (bsc#1062069)\n- CVE-2017-15289: The mode4and5 write functions allowed local OS guest privileged users to cause a denial of service (out-of-bounds write access and Qemu process crash) via vectors related to dst calculation (bsc#1063122)\n- CVE-2017-5579: The 16550A UART serial device emulation support was vulnerable to a memory leakage issue allowing a privileged user to cause a DoS and/or potentially crash the Qemu process on the host (bsc#1021741)\n- CVE-2017-5973: A infinite loop while doing control transfer in xhci_kick_epctx allowed privileged user inside the guest to crash the host process resulting in DoS (bsc#1025109)\n- CVE-2017-6505: The ohci_service_ed_list function allowed local guest OS users to cause a denial of service (infinite loop) via vectors involving the number of link endpoint list descriptors (bsc#1028184)\n- CVE-2017-7471: The VirtFS host directory sharing via Plan 9 File System(9pfs) support was vulnerable to an improper access control issue which allowed a privileged user inside guest to access host file system beyond the shared folder and potentially escalating their privileges on a host (bsc#1034866)\n- CVE-2017-7493: The VirtFS, host directory sharing via Plan 9 File System(9pfs) support, was vulnerable to an improper access control issue. It could occur while accessing virtfs metadata files in mapped-file security mode. A guest user could have used this flaw to escalate their privileges inside guest (bsc#1039495)\n- CVE-2017-7718: hw/display/cirrus_vga_rop.h allowed local guest OS privileged users to cause a denial of service (out-of-bounds read and QEMU process crash) via vectors related to copying VGA data via the cirrus_bitblt_rop_fwd_transp_ and cirrus_bitblt_rop_fwd_ functions (bsc#1034908)\n- CVE-2017-7980: An out-of-bounds r/w access issues in the Cirrus CLGD 54xx VGA Emulator support allowed privileged user inside guest to use this flaw to crash the Qemu process resulting in DoS or potentially execute arbitrary code on a host with privileges of Qemu process on the host (bsc#1035406)\n- CVE-2017-8086: A memory leak in the v9fs_list_xattr function in hw/9pfs/9p-xattr.c allowed local guest OS privileged users to cause a denial of service (memory consumption) via vectors involving the orig_value variable (bsc#1035950)\n- CVE-2017-8309: Memory leak in the audio/audio.c allowed remote attackers to cause a denial of service (memory consumption) by repeatedly starting and stopping audio capture (bsc#1037242)\n- CVE-2017-9330: USB OHCI Emulation in qemu allowed local guest OS users to cause a denial of service (infinite loop) by leveraging an incorrect return value (bsc#1042159)\n- CVE-2017-9373: The IDE AHCI Emulation support was vulnerable to a host memory leakage issue, which allowed a privileged user inside guest to leak host memory resulting in DoS (bsc#1042801)\n- CVE-2017-9375: The USB xHCI controller emulator support was vulnerable to an infinite recursive call loop issue, which allowed a privileged user inside guest to crash the Qemu process resulting in DoS (bsc#1042800)\n- CVE-2017-9503: The MegaRAID SAS 8708EM2 Host Bus Adapter emulation support was vulnerable to a null pointer dereference issue which allowed a privileged user inside guest to crash the Qemu process on the host resulting in DoS (bsc#1043296)\n* Fix privilege escalation in TCG mode (bsc#1030624)\n\nThese non-security issues were fixed:\n\n- bsc#1045035: Fixed regression introduced by previous virtfs security fixes\n- bsc#1038396: Fixed 12 tempest tests\n- bsc#1034044: Prevent KVM guests stuck when waiting for sg_io() completion\n- bsc#1031051: Prevent I/O errors when using pvmove with disk device=lun\n- bsc#1049785: Make virsh dump output readable by crash\n- bsc#1015048: Fixed virtio interface failure \n- bsc#1016779: Fixed graphical update errors introduced by previous security fix\n- Fixed various inaccuracies in cirrus vga device emulation\n",
+				"title": "Description of the patch"
+			},
+			{
+				"category": "details",
+				"text": "sleposp3-kvm-13351,slessp3-kvm-13351",
+				"title": "Patchnames"
+			},
+			{
+				"category": "legal_disclaimer",
+				"text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+				"title": "Terms of use"
+			}
+		],
+		"publisher": {
+			"category": "vendor",
+			"contact_details": "https://www.suse.com/support/security/contact/",
+			"name": "SUSE Product Security Team",
+			"namespace": "https://www.suse.com/"
+		},
+		"references": [
+			{
+				"category": "external",
+				"summary": "SUSE ratings",
+				"url": "https://www.suse.com/support/security/rating/"
+			},
+			{
+				"category": "self",
+				"summary": "URL of this CSAF notice",
+				"url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2017_3084-1.json"
+			},
+			{
+				"category": "self",
+				"summary": "URL for SUSE-SU-2017:3084-1",
+				"url": "https://www.suse.com/support/update/announcement/2017/suse-su-20173084-1/"
+			},
+			{
+				"category": "self",
+				"summary": "E-Mail link for SUSE-SU-2017:3084-1",
+				"url": "https://lists.suse.com/pipermail/sle-security-updates/2017-November/003413.html"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1013285",
+				"url": "https://bugzilla.suse.com/1013285"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1014109",
+				"url": "https://bugzilla.suse.com/1014109"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1014111",
+				"url": "https://bugzilla.suse.com/1014111"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1014702",
+				"url": "https://bugzilla.suse.com/1014702"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1015048",
+				"url": "https://bugzilla.suse.com/1015048"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1016779",
+				"url": "https://bugzilla.suse.com/1016779"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1020427",
+				"url": "https://bugzilla.suse.com/1020427"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1021129",
+				"url": "https://bugzilla.suse.com/1021129"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1021741",
+				"url": "https://bugzilla.suse.com/1021741"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1023004",
+				"url": "https://bugzilla.suse.com/1023004"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1023053",
+				"url": "https://bugzilla.suse.com/1023053"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1023907",
+				"url": "https://bugzilla.suse.com/1023907"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1024972",
+				"url": "https://bugzilla.suse.com/1024972"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1025109",
+				"url": "https://bugzilla.suse.com/1025109"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1028184",
+				"url": "https://bugzilla.suse.com/1028184"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1028656",
+				"url": "https://bugzilla.suse.com/1028656"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1030624",
+				"url": "https://bugzilla.suse.com/1030624"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1031051",
+				"url": "https://bugzilla.suse.com/1031051"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1034044",
+				"url": "https://bugzilla.suse.com/1034044"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1034866",
+				"url": "https://bugzilla.suse.com/1034866"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1034908",
+				"url": "https://bugzilla.suse.com/1034908"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1035406",
+				"url": "https://bugzilla.suse.com/1035406"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1035950",
+				"url": "https://bugzilla.suse.com/1035950"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1037242",
+				"url": "https://bugzilla.suse.com/1037242"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1038396",
+				"url": "https://bugzilla.suse.com/1038396"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1039495",
+				"url": "https://bugzilla.suse.com/1039495"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1042159",
+				"url": "https://bugzilla.suse.com/1042159"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1042800",
+				"url": "https://bugzilla.suse.com/1042800"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1042801",
+				"url": "https://bugzilla.suse.com/1042801"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1043296",
+				"url": "https://bugzilla.suse.com/1043296"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1045035",
+				"url": "https://bugzilla.suse.com/1045035"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1046636",
+				"url": "https://bugzilla.suse.com/1046636"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1047674",
+				"url": "https://bugzilla.suse.com/1047674"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1048902",
+				"url": "https://bugzilla.suse.com/1048902"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1049381",
+				"url": "https://bugzilla.suse.com/1049381"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1049785",
+				"url": "https://bugzilla.suse.com/1049785"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1056334",
+				"url": "https://bugzilla.suse.com/1056334"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1057585",
+				"url": "https://bugzilla.suse.com/1057585"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1062069",
+				"url": "https://bugzilla.suse.com/1062069"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1063122",
+				"url": "https://bugzilla.suse.com/1063122"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2016-10155 page",
+				"url": "https://www.suse.com/security/cve/CVE-2016-10155/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2016-9602 page",
+				"url": "https://www.suse.com/security/cve/CVE-2016-9602/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2016-9603 page",
+				"url": "https://www.suse.com/security/cve/CVE-2016-9603/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2016-9776 page",
+				"url": "https://www.suse.com/security/cve/CVE-2016-9776/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2016-9907 page",
+				"url": "https://www.suse.com/security/cve/CVE-2016-9907/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2016-9911 page",
+				"url": "https://www.suse.com/security/cve/CVE-2016-9911/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2016-9921 page",
+				"url": "https://www.suse.com/security/cve/CVE-2016-9921/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2016-9922 page",
+				"url": "https://www.suse.com/security/cve/CVE-2016-9922/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2017-10664 page",
+				"url": "https://www.suse.com/security/cve/CVE-2017-10664/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2017-10806 page",
+				"url": "https://www.suse.com/security/cve/CVE-2017-10806/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2017-11334 page",
+				"url": "https://www.suse.com/security/cve/CVE-2017-11334/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2017-11434 page",
+				"url": "https://www.suse.com/security/cve/CVE-2017-11434/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2017-13672 page",
+				"url": "https://www.suse.com/security/cve/CVE-2017-13672/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2017-14167 page",
+				"url": "https://www.suse.com/security/cve/CVE-2017-14167/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2017-15038 page",
+				"url": "https://www.suse.com/security/cve/CVE-2017-15038/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2017-15289 page",
+				"url": "https://www.suse.com/security/cve/CVE-2017-15289/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2017-2615 page",
+				"url": "https://www.suse.com/security/cve/CVE-2017-2615/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2017-2620 page",
+				"url": "https://www.suse.com/security/cve/CVE-2017-2620/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2017-5579 page",
+				"url": "https://www.suse.com/security/cve/CVE-2017-5579/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2017-5856 page",
+				"url": "https://www.suse.com/security/cve/CVE-2017-5856/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2017-5898 page",
+				"url": "https://www.suse.com/security/cve/CVE-2017-5898/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2017-5973 page",
+				"url": "https://www.suse.com/security/cve/CVE-2017-5973/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2017-6505 page",
+				"url": "https://www.suse.com/security/cve/CVE-2017-6505/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2017-7471 page",
+				"url": "https://www.suse.com/security/cve/CVE-2017-7471/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2017-7493 page",
+				"url": "https://www.suse.com/security/cve/CVE-2017-7493/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2017-7718 page",
+				"url": "https://www.suse.com/security/cve/CVE-2017-7718/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2017-7980 page",
+				"url": "https://www.suse.com/security/cve/CVE-2017-7980/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2017-8086 page",
+				"url": "https://www.suse.com/security/cve/CVE-2017-8086/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2017-8309 page",
+				"url": "https://www.suse.com/security/cve/CVE-2017-8309/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2017-9330 page",
+				"url": "https://www.suse.com/security/cve/CVE-2017-9330/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2017-9373 page",
+				"url": "https://www.suse.com/security/cve/CVE-2017-9373/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2017-9375 page",
+				"url": "https://www.suse.com/security/cve/CVE-2017-9375/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2017-9503 page",
+				"url": "https://www.suse.com/security/cve/CVE-2017-9503/"
+			}
+		],
+		"title": "Security update for kvm",
+		"tracking": {
+			"current_release_date": "2017-11-24T15:21:30Z",
+			"generator": {
+				"date": "2017-11-24T15:21:30Z",
+				"engine": {
+					"name": "cve-database.git:bin/generate-csaf.pl",
+					"version": "1"
+				}
+			},
+			"id": "SUSE-SU-2017:3084-1",
+			"initial_release_date": "2017-11-24T15:21:30Z",
+			"revision_history": [
+				{
+					"date": "2017-11-24T15:21:30Z",
+					"number": "1",
+					"summary": "Current version"
+				}
+			],
+			"status": "final",
+			"version": "1"
+		}
+	},
+	"product_tree": {
+		"branches": [
+			{
+				"branches": [
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "kvm-1.4.2-53.11.1.i586",
+								"product": {
+									"name": "kvm-1.4.2-53.11.1.i586",
+									"product_id": "kvm-1.4.2-53.11.1.i586"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "i586"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "kvm-1.4.2-53.11.1.s390x",
+								"product": {
+									"name": "kvm-1.4.2-53.11.1.s390x",
+									"product_id": "kvm-1.4.2-53.11.1.s390x"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "s390x"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "kvm-1.4.2-53.11.1.x86_64",
+								"product": {
+									"name": "kvm-1.4.2-53.11.1.x86_64",
+									"product_id": "kvm-1.4.2-53.11.1.x86_64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "x86_64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Point of Sale 11 SP3",
+								"product": {
+									"name": "SUSE Linux Enterprise Point of Sale 11 SP3",
+									"product_id": "SUSE Linux Enterprise Point of Sale 11 SP3",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-pos:11:sp3"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server 11 SP3-LTSS",
+								"product": {
+									"name": "SUSE Linux Enterprise Server 11 SP3-LTSS",
+									"product_id": "SUSE Linux Enterprise Server 11 SP3-LTSS",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:suse_sles_ltss:11:sp3"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server 11 SP3-TERADATA",
+								"product": {
+									"name": "SUSE Linux Enterprise Server 11 SP3-TERADATA",
+									"product_id": "SUSE Linux Enterprise Server 11 SP3-TERADATA",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sles:11:sp3:teradata"
+									}
+								}
+							}
+						],
+						"category": "product_family",
+						"name": "SUSE Linux Enterprise"
+					}
+				],
+				"category": "vendor",
+				"name": "SUSE"
+			}
+		],
+		"relationships": [
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kvm-1.4.2-53.11.1.i586 as component of SUSE Linux Enterprise Point of Sale 11 SP3",
+					"product_id": "SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586"
+				},
+				"product_reference": "kvm-1.4.2-53.11.1.i586",
+				"relates_to_product_reference": "SUSE Linux Enterprise Point of Sale 11 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kvm-1.4.2-53.11.1.i586 as component of SUSE Linux Enterprise Server 11 SP3-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586"
+				},
+				"product_reference": "kvm-1.4.2-53.11.1.i586",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP3-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kvm-1.4.2-53.11.1.s390x as component of SUSE Linux Enterprise Server 11 SP3-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x"
+				},
+				"product_reference": "kvm-1.4.2-53.11.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP3-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kvm-1.4.2-53.11.1.x86_64 as component of SUSE Linux Enterprise Server 11 SP3-LTSS",
+					"product_id": "SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64"
+				},
+				"product_reference": "kvm-1.4.2-53.11.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP3-LTSS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kvm-1.4.2-53.11.1.i586 as component of SUSE Linux Enterprise Server 11 SP3-TERADATA",
+					"product_id": "SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586"
+				},
+				"product_reference": "kvm-1.4.2-53.11.1.i586",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP3-TERADATA"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kvm-1.4.2-53.11.1.s390x as component of SUSE Linux Enterprise Server 11 SP3-TERADATA",
+					"product_id": "SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x"
+				},
+				"product_reference": "kvm-1.4.2-53.11.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP3-TERADATA"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kvm-1.4.2-53.11.1.x86_64 as component of SUSE Linux Enterprise Server 11 SP3-TERADATA",
+					"product_id": "SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+				},
+				"product_reference": "kvm-1.4.2-53.11.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 11 SP3-TERADATA"
+			}
+		]
+	},
+	"vulnerabilities": [
+		{
+			"cve": "CVE-2016-10155",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2016-10155"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Memory leak in hw/watchdog/wdt_i6300esb.c in QEMU (aka Quick Emulator) allows local guest OS privileged users to cause a denial of service (host memory consumption and QEMU process crash) via a large number of device unplug operations.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2016-10155",
+					"url": "https://www.suse.com/security/cve/CVE-2016-10155"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1021129 for CVE-2016-10155",
+					"url": "https://bugzilla.suse.com/1021129"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1024183 for CVE-2016-10155",
+					"url": "https://bugzilla.suse.com/1024183"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 6,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:C/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2017-11-24T15:21:30Z",
+					"details": "low"
+				}
+			],
+			"title": "CVE-2016-10155"
+		},
+		{
+			"cve": "CVE-2016-9602",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2016-9602"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Qemu before version 2.9 is vulnerable to an improper link following when built with the VirtFS. A privileged user inside guest could use this flaw to access host file system beyond the shared folder and potentially escalating their privileges on a host.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2016-9602",
+					"url": "https://www.suse.com/security/cve/CVE-2016-9602"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1020427 for CVE-2016-9602",
+					"url": "https://bugzilla.suse.com/1020427"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 8.8,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2017-11-24T15:21:30Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2016-9602"
+		},
+		{
+			"cve": "CVE-2016-9603",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2016-9603"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A heap buffer overflow flaw was found in QEMU's Cirrus CLGD 54xx VGA emulator's VNC display driver support before 2.9; the issue could occur when a VNC client attempted to update its display after a VGA operation is performed by a guest. A privileged user/process inside a guest could use this flaw to crash the QEMU process or, potentially, execute arbitrary code on the host with privileges of the QEMU process.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2016-9603",
+					"url": "https://www.suse.com/security/cve/CVE-2016-9603"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1028655 for CVE-2016-9603",
+					"url": "https://bugzilla.suse.com/1028655"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1028656 for CVE-2016-9603",
+					"url": "https://bugzilla.suse.com/1028656"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1178658 for CVE-2016-9603",
+					"url": "https://bugzilla.suse.com/1178658"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 9.9,
+						"baseSeverity": "CRITICAL",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2017-11-24T15:21:30Z",
+					"details": "low"
+				}
+			],
+			"title": "CVE-2016-9603"
+		},
+		{
+			"cve": "CVE-2016-9776",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2016-9776"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "QEMU (aka Quick Emulator) built with the ColdFire Fast Ethernet Controller emulator support is vulnerable to an infinite loop issue. It could occur while receiving packets in 'mcf_fec_receive'. A privileged user/process inside guest could use this issue to crash the QEMU process on the host leading to DoS.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2016-9776",
+					"url": "https://www.suse.com/security/cve/CVE-2016-9776"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1013285 for CVE-2016-9776",
+					"url": "https://bugzilla.suse.com/1013285"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1013657 for CVE-2016-9776",
+					"url": "https://bugzilla.suse.com/1013657"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1024182 for CVE-2016-9776",
+					"url": "https://bugzilla.suse.com/1024182"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1178658 for CVE-2016-9776",
+					"url": "https://bugzilla.suse.com/1178658"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 3,
+						"baseSeverity": "LOW",
+						"vectorString": "CVSS:3.1/AV:A/AC:H/PR:L/UI:N/S:C/C:N/I:N/A:L",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2017-11-24T15:21:30Z",
+					"details": "low"
+				}
+			],
+			"title": "CVE-2016-9776"
+		},
+		{
+			"cve": "CVE-2016-9907",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2016-9907"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Quick Emulator (Qemu) built with the USB redirector usb-guest support is vulnerable to a memory leakage flaw. It could occur while destroying the USB redirector in 'usbredir_handle_destroy'. A guest user/process could use this issue to leak host memory, resulting in DoS for a host.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2016-9907",
+					"url": "https://www.suse.com/security/cve/CVE-2016-9907"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1014109 for CVE-2016-9907",
+					"url": "https://bugzilla.suse.com/1014109"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1014490 for CVE-2016-9907",
+					"url": "https://bugzilla.suse.com/1014490"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 6.5,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2017-11-24T15:21:30Z",
+					"details": "low"
+				}
+			],
+			"title": "CVE-2016-9907"
+		},
+		{
+			"cve": "CVE-2016-9911",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2016-9911"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Quick Emulator (Qemu) built with the USB EHCI Emulation support is vulnerable to a memory leakage issue. It could occur while processing packet data in 'ehci_init_transfer'. A guest user/process could use this issue to leak host memory, resulting in DoS for a host.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2016-9911",
+					"url": "https://www.suse.com/security/cve/CVE-2016-9911"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1014111 for CVE-2016-9911",
+					"url": "https://bugzilla.suse.com/1014111"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1014507 for CVE-2016-9911",
+					"url": "https://bugzilla.suse.com/1014507"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 6.5,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2017-11-24T15:21:30Z",
+					"details": "low"
+				}
+			],
+			"title": "CVE-2016-9911"
+		},
+		{
+			"cve": "CVE-2016-9921",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2016-9921"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Quick emulator (Qemu) built with the Cirrus CLGD 54xx VGA Emulator support is vulnerable to a divide by zero issue. It could occur while copying VGA data when cirrus graphics mode was set to be VGA. A privileged user inside guest could use this flaw to crash the Qemu process instance on the host, resulting in DoS.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2016-9921",
+					"url": "https://www.suse.com/security/cve/CVE-2016-9921"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1014702 for CVE-2016-9921",
+					"url": "https://bugzilla.suse.com/1014702"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1015169 for CVE-2016-9921",
+					"url": "https://bugzilla.suse.com/1015169"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1178658 for CVE-2016-9921",
+					"url": "https://bugzilla.suse.com/1178658"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 6.5,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2017-11-24T15:21:30Z",
+					"details": "low"
+				}
+			],
+			"title": "CVE-2016-9921"
+		},
+		{
+			"cve": "CVE-2016-9922",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2016-9922"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The cirrus_do_copy function in hw/display/cirrus_vga.c in QEMU (aka Quick Emulator), when cirrus graphics mode is VGA, allows local guest OS privileged users to cause a denial of service (divide-by-zero error and QEMU process crash) via vectors involving blit pitch values.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2016-9922",
+					"url": "https://www.suse.com/security/cve/CVE-2016-9922"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1014702 for CVE-2016-9922",
+					"url": "https://bugzilla.suse.com/1014702"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1015169 for CVE-2016-9922",
+					"url": "https://bugzilla.suse.com/1015169"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1178658 for CVE-2016-9922",
+					"url": "https://bugzilla.suse.com/1178658"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 5.5,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2017-11-24T15:21:30Z",
+					"details": "low"
+				}
+			],
+			"title": "CVE-2016-9922"
+		},
+		{
+			"cve": "CVE-2017-10664",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2017-10664"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "qemu-nbd in QEMU (aka Quick Emulator) does not ignore SIGPIPE, which allows remote attackers to cause a denial of service (daemon crash) by disconnecting during a server-to-client reply attempt.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2017-10664",
+					"url": "https://www.suse.com/security/cve/CVE-2017-10664"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1046636 for CVE-2017-10664",
+					"url": "https://bugzilla.suse.com/1046636"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1046637 for CVE-2017-10664",
+					"url": "https://bugzilla.suse.com/1046637"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1178658 for CVE-2017-10664",
+					"url": "https://bugzilla.suse.com/1178658"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 5.3,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2017-11-24T15:21:30Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2017-10664"
+		},
+		{
+			"cve": "CVE-2017-10806",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2017-10806"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Stack-based buffer overflow in hw/usb/redirect.c in QEMU (aka Quick Emulator) allows local guest OS users to cause a denial of service (QEMU process crash) via vectors related to logging debug messages.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2017-10806",
+					"url": "https://www.suse.com/security/cve/CVE-2017-10806"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1047674 for CVE-2017-10806",
+					"url": "https://bugzilla.suse.com/1047674"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1047675 for CVE-2017-10806",
+					"url": "https://bugzilla.suse.com/1047675"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 5.9,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.0/AV:L/AC:H/PR:N/UI:N/S:C/C:N/I:N/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2017-11-24T15:21:30Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2017-10806"
+		},
+		{
+			"cve": "CVE-2017-11334",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2017-11334"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The address_space_write_continue function in exec.c in QEMU (aka Quick Emulator) allows local guest OS privileged users to cause a denial of service (out-of-bounds access and guest instance crash) by leveraging use of qemu_map_ram_ptr to access guest ram block area.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2017-11334",
+					"url": "https://www.suse.com/security/cve/CVE-2017-11334"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1048902 for CVE-2017-11334",
+					"url": "https://bugzilla.suse.com/1048902"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1048920 for CVE-2017-11334",
+					"url": "https://bugzilla.suse.com/1048920"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 6.2,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.0/AV:L/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2017-11-24T15:21:30Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2017-11334"
+		},
+		{
+			"cve": "CVE-2017-11434",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2017-11434"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The dhcp_decode function in slirp/bootp.c in QEMU (aka Quick Emulator) allows local guest OS users to cause a denial of service (out-of-bounds read and QEMU process crash) via a crafted DHCP options string.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2017-11434",
+					"url": "https://www.suse.com/security/cve/CVE-2017-11434"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1049381 for CVE-2017-11434",
+					"url": "https://bugzilla.suse.com/1049381"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1049578 for CVE-2017-11434",
+					"url": "https://bugzilla.suse.com/1049578"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1178658 for CVE-2017-11434",
+					"url": "https://bugzilla.suse.com/1178658"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 8.6,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:N/I:N/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2017-11-24T15:21:30Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2017-11434"
+		},
+		{
+			"cve": "CVE-2017-13672",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2017-13672"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "QEMU (aka Quick Emulator), when built with the VGA display emulator support, allows local guest OS privileged users to cause a denial of service (out-of-bounds read and QEMU process crash) via vectors involving display update.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2017-13672",
+					"url": "https://www.suse.com/security/cve/CVE-2017-13672"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1056334 for CVE-2017-13672",
+					"url": "https://bugzilla.suse.com/1056334"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1056336 for CVE-2017-13672",
+					"url": "https://bugzilla.suse.com/1056336"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1084604 for CVE-2017-13672",
+					"url": "https://bugzilla.suse.com/1084604"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 3,
+						"baseSeverity": "LOW",
+						"vectorString": "CVSS:3.0/AV:A/AC:H/PR:L/UI:N/S:C/C:N/I:N/A:L",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2017-11-24T15:21:30Z",
+					"details": "low"
+				}
+			],
+			"title": "CVE-2017-13672"
+		},
+		{
+			"cve": "CVE-2017-14167",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2017-14167"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Integer overflow in the load_multiboot function in hw/i386/multiboot.c in QEMU (aka Quick Emulator) allows local guest OS users to execute arbitrary code on the host via crafted multiboot header address values, which trigger an out-of-bounds write.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2017-14167",
+					"url": "https://www.suse.com/security/cve/CVE-2017-14167"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1057585 for CVE-2017-14167",
+					"url": "https://bugzilla.suse.com/1057585"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 4,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.0/AV:L/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:L",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2017-11-24T15:21:30Z",
+					"details": "low"
+				}
+			],
+			"title": "CVE-2017-14167"
+		},
+		{
+			"cve": "CVE-2017-15038",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2017-15038"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Race condition in the v9fs_xattrwalk function in hw/9pfs/9p.c in QEMU (aka Quick Emulator) allows local guest OS users to obtain sensitive information from host heap memory via vectors related to reading extended attributes.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2017-15038",
+					"url": "https://www.suse.com/security/cve/CVE-2017-15038"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1062069 for CVE-2017-15038",
+					"url": "https://bugzilla.suse.com/1062069"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 3,
+						"baseSeverity": "LOW",
+						"vectorString": "CVSS:3.0/AV:A/AC:H/PR:L/UI:N/S:C/C:L/I:N/A:N",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2017-11-24T15:21:30Z",
+					"details": "low"
+				}
+			],
+			"title": "CVE-2017-15038"
+		},
+		{
+			"cve": "CVE-2017-15289",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2017-15289"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The mode4and5 write functions in hw/display/cirrus_vga.c in Qemu allow local OS guest privileged users to cause a denial of service (out-of-bounds write access and Qemu process crash) via vectors related to dst calculation.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2017-15289",
+					"url": "https://www.suse.com/security/cve/CVE-2017-15289"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1063122 for CVE-2017-15289",
+					"url": "https://bugzilla.suse.com/1063122"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1063123 for CVE-2017-15289",
+					"url": "https://bugzilla.suse.com/1063123"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1178658 for CVE-2017-15289",
+					"url": "https://bugzilla.suse.com/1178658"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 6,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.0/AV:L/AC:L/PR:H/UI:N/S:C/C:N/I:N/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2017-11-24T15:21:30Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2017-15289"
+		},
+		{
+			"cve": "CVE-2017-2615",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2017-2615"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Quick emulator (QEMU) built with the Cirrus CLGD 54xx VGA emulator support is vulnerable to an out-of-bounds access issue. It could occur while copying VGA data via bitblt copy in backward mode. A privileged user inside a guest could use this flaw to crash the QEMU process resulting in DoS or potentially execute arbitrary code on the host with privileges of QEMU process on the host.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2017-2615",
+					"url": "https://www.suse.com/security/cve/CVE-2017-2615"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1023004 for CVE-2017-2615",
+					"url": "https://bugzilla.suse.com/1023004"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1178658 for CVE-2017-2615",
+					"url": "https://bugzilla.suse.com/1178658"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 5.5,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.0/AV:A/AC:H/PR:L/UI:N/S:C/C:L/I:L/A:L",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2017-11-24T15:21:30Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2017-2615"
+		},
+		{
+			"cve": "CVE-2017-2620",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2017-2620"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Quick emulator (QEMU) before 2.8 built with the Cirrus CLGD 54xx VGA Emulator support is vulnerable to an out-of-bounds access issue. The issue could occur while copying VGA data in cirrus_bitblt_cputovideo. A privileged user inside guest could use this flaw to crash the QEMU process OR potentially execute arbitrary code on host with privileges of the QEMU process.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2017-2620",
+					"url": "https://www.suse.com/security/cve/CVE-2017-2620"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1024834 for CVE-2017-2620",
+					"url": "https://bugzilla.suse.com/1024834"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1024972 for CVE-2017-2620",
+					"url": "https://bugzilla.suse.com/1024972"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1178658 for CVE-2017-2620",
+					"url": "https://bugzilla.suse.com/1178658"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 9.9,
+						"baseSeverity": "CRITICAL",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2017-11-24T15:21:30Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2017-2620"
+		},
+		{
+			"cve": "CVE-2017-5579",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2017-5579"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Memory leak in the serial_exit_core function in hw/char/serial.c in QEMU (aka Quick Emulator) allows local guest OS privileged users to cause a denial of service (host memory consumption and QEMU process crash) via a large number of device unplug operations.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2017-5579",
+					"url": "https://www.suse.com/security/cve/CVE-2017-5579"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1021741 for CVE-2017-5579",
+					"url": "https://bugzilla.suse.com/1021741"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1022627 for CVE-2017-5579",
+					"url": "https://bugzilla.suse.com/1022627"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 6.5,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2017-11-24T15:21:30Z",
+					"details": "low"
+				}
+			],
+			"title": "CVE-2017-5579"
+		},
+		{
+			"cve": "CVE-2017-5856",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2017-5856"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Memory leak in the megasas_handle_dcmd function in hw/scsi/megasas.c in QEMU (aka Quick Emulator) allows local guest OS privileged users to cause a denial of service (host memory consumption) via MegaRAID Firmware Interface (MFI) commands with the sglist size set to a value over 2 Gb.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2017-5856",
+					"url": "https://www.suse.com/security/cve/CVE-2017-5856"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1023053 for CVE-2017-5856",
+					"url": "https://bugzilla.suse.com/1023053"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1024186 for CVE-2017-5856",
+					"url": "https://bugzilla.suse.com/1024186"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 6.5,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2017-11-24T15:21:30Z",
+					"details": "low"
+				}
+			],
+			"title": "CVE-2017-5856"
+		},
+		{
+			"cve": "CVE-2017-5898",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2017-5898"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Integer overflow in the emulated_apdu_from_guest function in usb/dev-smartcard-reader.c in Quick Emulator (Qemu), when built with the CCID Card device emulator support, allows local users to cause a denial of service (application crash) via a large Application Protocol Data Units (APDU) unit.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2017-5898",
+					"url": "https://www.suse.com/security/cve/CVE-2017-5898"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1023907 for CVE-2017-5898",
+					"url": "https://bugzilla.suse.com/1023907"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1024307 for CVE-2017-5898",
+					"url": "https://bugzilla.suse.com/1024307"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 5.5,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2017-11-24T15:21:30Z",
+					"details": "low"
+				}
+			],
+			"title": "CVE-2017-5898"
+		},
+		{
+			"cve": "CVE-2017-5973",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2017-5973"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The xhci_kick_epctx function in hw/usb/hcd-xhci.c in QEMU (aka Quick Emulator) allows local guest OS privileged users to cause a denial of service (infinite loop and QEMU process crash) via vectors related to control transfer descriptor sequence.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2017-5973",
+					"url": "https://www.suse.com/security/cve/CVE-2017-5973"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1025109 for CVE-2017-5973",
+					"url": "https://bugzilla.suse.com/1025109"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1025188 for CVE-2017-5973",
+					"url": "https://bugzilla.suse.com/1025188"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 5.5,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2017-11-24T15:21:30Z",
+					"details": "low"
+				}
+			],
+			"title": "CVE-2017-5973"
+		},
+		{
+			"cve": "CVE-2017-6505",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2017-6505"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The ohci_service_ed_list function in hw/usb/hcd-ohci.c in QEMU (aka Quick Emulator) before 2.9.0 allows local guest OS users to cause a denial of service (infinite loop) via vectors involving the number of link endpoint list descriptors, a different vulnerability than CVE-2017-9330.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2017-6505",
+					"url": "https://www.suse.com/security/cve/CVE-2017-6505"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1028184 for CVE-2017-6505",
+					"url": "https://bugzilla.suse.com/1028184"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1028235 for CVE-2017-6505",
+					"url": "https://bugzilla.suse.com/1028235"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1178658 for CVE-2017-6505",
+					"url": "https://bugzilla.suse.com/1178658"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 6.5,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2017-11-24T15:21:30Z",
+					"details": "low"
+				}
+			],
+			"title": "CVE-2017-6505"
+		},
+		{
+			"cve": "CVE-2017-7471",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2017-7471"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Quick Emulator (Qemu) built with the VirtFS, host directory sharing via Plan 9 File System (9pfs) support, is vulnerable to an improper access control issue. It could occur while accessing files on a shared host directory. A privileged user inside guest could use this flaw to access host file system beyond the shared folder and potentially escalating their privileges on a host.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2017-7471",
+					"url": "https://www.suse.com/security/cve/CVE-2017-7471"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1034866 for CVE-2017-7471",
+					"url": "https://bugzilla.suse.com/1034866"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1034990 for CVE-2017-7471",
+					"url": "https://bugzilla.suse.com/1034990"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 9,
+						"baseSeverity": "CRITICAL",
+						"vectorString": "CVSS:3.1/AV:A/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2017-11-24T15:21:30Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2017-7471"
+		},
+		{
+			"cve": "CVE-2017-7493",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2017-7493"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Quick Emulator (Qemu) built with the VirtFS, host directory sharing via Plan 9 File System(9pfs) support, is vulnerable to an improper access control issue. It could occur while accessing virtfs metadata files in mapped-file security mode. A guest user could use this flaw to escalate their privileges inside guest.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2017-7493",
+					"url": "https://www.suse.com/security/cve/CVE-2017-7493"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1039495 for CVE-2017-7493",
+					"url": "https://bugzilla.suse.com/1039495"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.8,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2017-11-24T15:21:30Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2017-7493"
+		},
+		{
+			"cve": "CVE-2017-7718",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2017-7718"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "hw/display/cirrus_vga_rop.h in QEMU (aka Quick Emulator) allows local guest OS privileged users to cause a denial of service (out-of-bounds read and QEMU process crash) via vectors related to copying VGA data via the cirrus_bitblt_rop_fwd_transp_ and cirrus_bitblt_rop_fwd_ functions.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2017-7718",
+					"url": "https://www.suse.com/security/cve/CVE-2017-7718"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1034908 for CVE-2017-7718",
+					"url": "https://bugzilla.suse.com/1034908"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1034994 for CVE-2017-7718",
+					"url": "https://bugzilla.suse.com/1034994"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1178658 for CVE-2017-7718",
+					"url": "https://bugzilla.suse.com/1178658"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 5.5,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2017-11-24T15:21:30Z",
+					"details": "low"
+				}
+			],
+			"title": "CVE-2017-7718"
+		},
+		{
+			"cve": "CVE-2017-7980",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2017-7980"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Heap-based buffer overflow in Cirrus CLGD 54xx VGA Emulator in Quick Emulator (Qemu) 2.8 and earlier allows local guest OS users to execute arbitrary code or cause a denial of service (crash) via vectors related to a VNC client updating its display after a VGA operation.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2017-7980",
+					"url": "https://www.suse.com/security/cve/CVE-2017-7980"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1035406 for CVE-2017-7980",
+					"url": "https://bugzilla.suse.com/1035406"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1035483 for CVE-2017-7980",
+					"url": "https://bugzilla.suse.com/1035483"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 5.5,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:A/AC:H/PR:L/UI:N/S:C/C:L/I:L/A:L",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2017-11-24T15:21:30Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2017-7980"
+		},
+		{
+			"cve": "CVE-2017-8086",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2017-8086"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Memory leak in the v9fs_list_xattr function in hw/9pfs/9p-xattr.c in QEMU (aka Quick Emulator) allows local guest OS privileged users to cause a denial of service (memory consumption) via vectors involving the orig_value variable.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2017-8086",
+					"url": "https://www.suse.com/security/cve/CVE-2017-8086"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1035950 for CVE-2017-8086",
+					"url": "https://bugzilla.suse.com/1035950"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 6.5,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:C/C:N/I:N/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2017-11-24T15:21:30Z",
+					"details": "low"
+				}
+			],
+			"title": "CVE-2017-8086"
+		},
+		{
+			"cve": "CVE-2017-8309",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2017-8309"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Memory leak in the audio/audio.c in QEMU (aka Quick Emulator) allows remote attackers to cause a denial of service (memory consumption) by repeatedly starting and stopping audio capture.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2017-8309",
+					"url": "https://www.suse.com/security/cve/CVE-2017-8309"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1037242 for CVE-2017-8309",
+					"url": "https://bugzilla.suse.com/1037242"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1037243 for CVE-2017-8309",
+					"url": "https://bugzilla.suse.com/1037243"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1178658 for CVE-2017-8309",
+					"url": "https://bugzilla.suse.com/1178658"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.5,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2017-11-24T15:21:30Z",
+					"details": "low"
+				}
+			],
+			"title": "CVE-2017-8309"
+		},
+		{
+			"cve": "CVE-2017-9330",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2017-9330"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "QEMU (aka Quick Emulator) before 2.9.0, when built with the USB OHCI Emulation support, allows local guest OS users to cause a denial of service (infinite loop) by leveraging an incorrect return value, a different vulnerability than CVE-2017-6505.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2017-9330",
+					"url": "https://www.suse.com/security/cve/CVE-2017-9330"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1042159 for CVE-2017-9330",
+					"url": "https://bugzilla.suse.com/1042159"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1042160 for CVE-2017-9330",
+					"url": "https://bugzilla.suse.com/1042160"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1043157 for CVE-2017-9330",
+					"url": "https://bugzilla.suse.com/1043157"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1178658 for CVE-2017-9330",
+					"url": "https://bugzilla.suse.com/1178658"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 3.8,
+						"baseSeverity": "LOW",
+						"vectorString": "CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:C/C:N/I:N/A:L",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2017-11-24T15:21:30Z",
+					"details": "low"
+				}
+			],
+			"title": "CVE-2017-9330"
+		},
+		{
+			"cve": "CVE-2017-9373",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2017-9373"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Memory leak in QEMU (aka Quick Emulator), when built with IDE AHCI Emulation support, allows local guest OS privileged users to cause a denial of service (memory consumption) by repeatedly hot-unplugging the AHCI device.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2017-9373",
+					"url": "https://www.suse.com/security/cve/CVE-2017-9373"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1042801 for CVE-2017-9373",
+					"url": "https://bugzilla.suse.com/1042801"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 3.8,
+						"baseSeverity": "LOW",
+						"vectorString": "CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:C/C:N/I:N/A:L",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2017-11-24T15:21:30Z",
+					"details": "low"
+				}
+			],
+			"title": "CVE-2017-9373"
+		},
+		{
+			"cve": "CVE-2017-9375",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2017-9375"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "QEMU (aka Quick Emulator), when built with USB xHCI controller emulator support, allows local guest OS privileged users to cause a denial of service (infinite recursive call) via vectors involving control transfer descriptors sequencing.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2017-9375",
+					"url": "https://www.suse.com/security/cve/CVE-2017-9375"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1042800 for CVE-2017-9375",
+					"url": "https://bugzilla.suse.com/1042800"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 3.8,
+						"baseSeverity": "LOW",
+						"vectorString": "CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:C/C:N/I:N/A:L",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2017-11-24T15:21:30Z",
+					"details": "low"
+				}
+			],
+			"title": "CVE-2017-9375"
+		},
+		{
+			"cve": "CVE-2017-9503",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2017-9503"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "QEMU (aka Quick Emulator), when built with MegaRAID SAS 8708EM2 Host Bus Adapter emulation support, allows local guest OS privileged users to cause a denial of service (NULL pointer dereference and QEMU process crash) via vectors involving megasas command processing.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+					"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2017-9503",
+					"url": "https://www.suse.com/security/cve/CVE-2017-9503"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1043296 for CVE-2017-9503",
+					"url": "https://bugzilla.suse.com/1043296"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1043297 for CVE-2017-9503",
+					"url": "https://bugzilla.suse.com/1043297"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1043312 for CVE-2017-9503",
+					"url": "https://bugzilla.suse.com/1043312"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 3.8,
+						"baseSeverity": "LOW",
+						"vectorString": "CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:C/C:N/I:N/A:L",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Point of Sale 11 SP3:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-LTSS:kvm-1.4.2-53.11.1.x86_64",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.i586",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.s390x",
+						"SUSE Linux Enterprise Server 11 SP3-TERADATA:kvm-1.4.2-53.11.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2017-11-24T15:21:30Z",
+					"details": "low"
+				}
+			],
+			"title": "CVE-2017-9503"
+		}
+	]
+}

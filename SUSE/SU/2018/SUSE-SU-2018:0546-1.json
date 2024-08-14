@@ -1,0 +1,2390 @@
+{
+	"document": {
+		"aggregate_severity": {
+			"namespace": "https://www.suse.com/support/security/rating/",
+			"text": "moderate"
+		},
+		"category": "csaf_security_advisory",
+		"csaf_version": "2.0",
+		"distribution": {
+			"text": "Copyright 2024 SUSE LLC. All rights reserved.",
+			"tlp": {
+				"label": "WHITE",
+				"url": "https://www.first.org/tlp/"
+			}
+		},
+		"lang": "en",
+		"notes": [
+			{
+				"category": "summary",
+				"text": "Security update for systemd",
+				"title": "Title of the patch"
+			},
+			{
+				"category": "description",
+				"text": "\n  \nThis update for systemd fixes the following issues:\n\nSecurity issue fixed:\n\n- CVE-2017-18078: tmpfiles: refuse to chown()/chmod() files which are\n  hardlinked, unless protected_hardlinks sysctl is on. This could be used\n  by local attackers to gain privileges (bsc#1077925)\n\nNon Security issues fixed:\n\n- core: use id unit when retrieving unit file state (#8038) (bsc#1075801)\n- cryptsetup-generator: run cryptsetup service before swap unit (#5480)\n- udev-rules: all values can contain escaped double quotes now (#6890)\n- strv: fix buffer size calculation in strv_join_quoted()\n- tmpfiles: change ownership of symlinks too\n- stdio-bridge: Correctly propagate error\n- stdio-bridge: remove dead code\n- remove bus-proxyd (bsc#1057974)\n- core/timer: Prevent timer looping when unit cannot start (bsc#1068588)\n\n- Make systemd-timesyncd use the openSUSE NTP servers by default\n  Previously systemd-timesyncd used the Google Public NTP servers\n  time{1..4}.google.com\n\n- Don't ship /usr/lib/systemd/system/tmp.mnt at all (bsc#1071224)\n  But we still ship a copy in /var.\n  Users who want to use tmpfs on /tmp are supposed to add a symlink in\n  /etc/ pointing to the copy shipped in /var.\n  To support the update path we automatically create the symlink if\n  tmp.mount in use is located in /usr.\n\n- Enable systemd-networkd on Leap distros only (bsc#1071311)\n\n",
+				"title": "Description of the patch"
+			},
+			{
+				"category": "details",
+				"text": "SUSE-CAASP-ALL-2018-355,SUSE-OpenStack-Cloud-Magnum-Orchestration-7-2018-355,SUSE-SLE-DESKTOP-12-SP2-2018-355,SUSE-SLE-DESKTOP-12-SP3-2018-355,SUSE-SLE-RPI-12-SP2-2018-355,SUSE-SLE-SDK-12-SP2-2018-355,SUSE-SLE-SDK-12-SP3-2018-355,SUSE-SLE-SERVER-12-SP2-2018-355,SUSE-SLE-SERVER-12-SP3-2018-355",
+				"title": "Patchnames"
+			},
+			{
+				"category": "legal_disclaimer",
+				"text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+				"title": "Terms of use"
+			}
+		],
+		"publisher": {
+			"category": "vendor",
+			"contact_details": "https://www.suse.com/support/security/contact/",
+			"name": "SUSE Product Security Team",
+			"namespace": "https://www.suse.com/"
+		},
+		"references": [
+			{
+				"category": "external",
+				"summary": "SUSE ratings",
+				"url": "https://www.suse.com/support/security/rating/"
+			},
+			{
+				"category": "self",
+				"summary": "URL of this CSAF notice",
+				"url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2018_0546-1.json"
+			},
+			{
+				"category": "self",
+				"summary": "URL for SUSE-SU-2018:0546-1",
+				"url": "https://www.suse.com/support/update/announcement/2018/suse-su-20180546-1/"
+			},
+			{
+				"category": "self",
+				"summary": "E-Mail link for SUSE-SU-2018:0546-1",
+				"url": "https://lists.suse.com/pipermail/sle-security-updates/2018-February/003753.html"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1057974",
+				"url": "https://bugzilla.suse.com/1057974"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1068588",
+				"url": "https://bugzilla.suse.com/1068588"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1071224",
+				"url": "https://bugzilla.suse.com/1071224"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1071311",
+				"url": "https://bugzilla.suse.com/1071311"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1075801",
+				"url": "https://bugzilla.suse.com/1075801"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1077925",
+				"url": "https://bugzilla.suse.com/1077925"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2017-18078 page",
+				"url": "https://www.suse.com/security/cve/CVE-2017-18078/"
+			}
+		],
+		"title": "Security update for systemd",
+		"tracking": {
+			"current_release_date": "2018-02-26T15:35:50Z",
+			"generator": {
+				"date": "2018-02-26T15:35:50Z",
+				"engine": {
+					"name": "cve-database.git:bin/generate-csaf.pl",
+					"version": "1"
+				}
+			},
+			"id": "SUSE-SU-2018:0546-1",
+			"initial_release_date": "2018-02-26T15:35:50Z",
+			"revision_history": [
+				{
+					"date": "2018-02-26T15:35:50Z",
+					"number": "1",
+					"summary": "Current version"
+				}
+			],
+			"status": "final",
+			"version": "1"
+		}
+	},
+	"product_tree": {
+		"branches": [
+			{
+				"branches": [
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "libsystemd0-228-150.32.1.aarch64",
+								"product": {
+									"name": "libsystemd0-228-150.32.1.aarch64",
+									"product_id": "libsystemd0-228-150.32.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libudev1-228-150.32.1.aarch64",
+								"product": {
+									"name": "libudev1-228-150.32.1.aarch64",
+									"product_id": "libudev1-228-150.32.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "systemd-228-150.32.1.aarch64",
+								"product": {
+									"name": "systemd-228-150.32.1.aarch64",
+									"product_id": "systemd-228-150.32.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "systemd-sysvinit-228-150.32.1.aarch64",
+								"product": {
+									"name": "systemd-sysvinit-228-150.32.1.aarch64",
+									"product_id": "systemd-sysvinit-228-150.32.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "udev-228-150.32.1.aarch64",
+								"product": {
+									"name": "udev-228-150.32.1.aarch64",
+									"product_id": "udev-228-150.32.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libudev-devel-228-150.32.1.aarch64",
+								"product": {
+									"name": "libudev-devel-228-150.32.1.aarch64",
+									"product_id": "libudev-devel-228-150.32.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "systemd-devel-228-150.32.1.aarch64",
+								"product": {
+									"name": "systemd-devel-228-150.32.1.aarch64",
+									"product_id": "systemd-devel-228-150.32.1.aarch64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "aarch64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "systemd-bash-completion-228-150.32.1.noarch",
+								"product": {
+									"name": "systemd-bash-completion-228-150.32.1.noarch",
+									"product_id": "systemd-bash-completion-228-150.32.1.noarch"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "noarch"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "libudev-devel-228-150.32.1.ppc64le",
+								"product": {
+									"name": "libudev-devel-228-150.32.1.ppc64le",
+									"product_id": "libudev-devel-228-150.32.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "systemd-devel-228-150.32.1.ppc64le",
+								"product": {
+									"name": "systemd-devel-228-150.32.1.ppc64le",
+									"product_id": "systemd-devel-228-150.32.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libsystemd0-228-150.32.1.ppc64le",
+								"product": {
+									"name": "libsystemd0-228-150.32.1.ppc64le",
+									"product_id": "libsystemd0-228-150.32.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libudev1-228-150.32.1.ppc64le",
+								"product": {
+									"name": "libudev1-228-150.32.1.ppc64le",
+									"product_id": "libudev1-228-150.32.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "systemd-228-150.32.1.ppc64le",
+								"product": {
+									"name": "systemd-228-150.32.1.ppc64le",
+									"product_id": "systemd-228-150.32.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "systemd-sysvinit-228-150.32.1.ppc64le",
+								"product": {
+									"name": "systemd-sysvinit-228-150.32.1.ppc64le",
+									"product_id": "systemd-sysvinit-228-150.32.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "udev-228-150.32.1.ppc64le",
+								"product": {
+									"name": "udev-228-150.32.1.ppc64le",
+									"product_id": "udev-228-150.32.1.ppc64le"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "ppc64le"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "libudev-devel-228-150.32.1.s390x",
+								"product": {
+									"name": "libudev-devel-228-150.32.1.s390x",
+									"product_id": "libudev-devel-228-150.32.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "systemd-devel-228-150.32.1.s390x",
+								"product": {
+									"name": "systemd-devel-228-150.32.1.s390x",
+									"product_id": "systemd-devel-228-150.32.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libsystemd0-228-150.32.1.s390x",
+								"product": {
+									"name": "libsystemd0-228-150.32.1.s390x",
+									"product_id": "libsystemd0-228-150.32.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libsystemd0-32bit-228-150.32.1.s390x",
+								"product": {
+									"name": "libsystemd0-32bit-228-150.32.1.s390x",
+									"product_id": "libsystemd0-32bit-228-150.32.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libudev1-228-150.32.1.s390x",
+								"product": {
+									"name": "libudev1-228-150.32.1.s390x",
+									"product_id": "libudev1-228-150.32.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libudev1-32bit-228-150.32.1.s390x",
+								"product": {
+									"name": "libudev1-32bit-228-150.32.1.s390x",
+									"product_id": "libudev1-32bit-228-150.32.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "systemd-228-150.32.1.s390x",
+								"product": {
+									"name": "systemd-228-150.32.1.s390x",
+									"product_id": "systemd-228-150.32.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "systemd-32bit-228-150.32.1.s390x",
+								"product": {
+									"name": "systemd-32bit-228-150.32.1.s390x",
+									"product_id": "systemd-32bit-228-150.32.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "systemd-sysvinit-228-150.32.1.s390x",
+								"product": {
+									"name": "systemd-sysvinit-228-150.32.1.s390x",
+									"product_id": "systemd-sysvinit-228-150.32.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "udev-228-150.32.1.s390x",
+								"product": {
+									"name": "udev-228-150.32.1.s390x",
+									"product_id": "udev-228-150.32.1.s390x"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "s390x"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "libsystemd0-228-150.32.1.x86_64",
+								"product": {
+									"name": "libsystemd0-228-150.32.1.x86_64",
+									"product_id": "libsystemd0-228-150.32.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libsystemd0-32bit-228-150.32.1.x86_64",
+								"product": {
+									"name": "libsystemd0-32bit-228-150.32.1.x86_64",
+									"product_id": "libsystemd0-32bit-228-150.32.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libudev1-228-150.32.1.x86_64",
+								"product": {
+									"name": "libudev1-228-150.32.1.x86_64",
+									"product_id": "libudev1-228-150.32.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libudev1-32bit-228-150.32.1.x86_64",
+								"product": {
+									"name": "libudev1-32bit-228-150.32.1.x86_64",
+									"product_id": "libudev1-32bit-228-150.32.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "systemd-228-150.32.1.x86_64",
+								"product": {
+									"name": "systemd-228-150.32.1.x86_64",
+									"product_id": "systemd-228-150.32.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "systemd-32bit-228-150.32.1.x86_64",
+								"product": {
+									"name": "systemd-32bit-228-150.32.1.x86_64",
+									"product_id": "systemd-32bit-228-150.32.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "systemd-sysvinit-228-150.32.1.x86_64",
+								"product": {
+									"name": "systemd-sysvinit-228-150.32.1.x86_64",
+									"product_id": "systemd-sysvinit-228-150.32.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "udev-228-150.32.1.x86_64",
+								"product": {
+									"name": "udev-228-150.32.1.x86_64",
+									"product_id": "udev-228-150.32.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libudev-devel-228-150.32.1.x86_64",
+								"product": {
+									"name": "libudev-devel-228-150.32.1.x86_64",
+									"product_id": "libudev-devel-228-150.32.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "systemd-devel-228-150.32.1.x86_64",
+								"product": {
+									"name": "systemd-devel-228-150.32.1.x86_64",
+									"product_id": "systemd-devel-228-150.32.1.x86_64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "x86_64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Desktop 12 SP2",
+								"product": {
+									"name": "SUSE Linux Enterprise Desktop 12 SP2",
+									"product_id": "SUSE Linux Enterprise Desktop 12 SP2",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sled:12:sp2"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Desktop 12 SP3",
+								"product": {
+									"name": "SUSE Linux Enterprise Desktop 12 SP3",
+									"product_id": "SUSE Linux Enterprise Desktop 12 SP3",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sled:12:sp3"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server for Raspberry Pi 12 SP2",
+								"product": {
+									"name": "SUSE Linux Enterprise Server for Raspberry Pi 12 SP2",
+									"product_id": "SUSE Linux Enterprise Server for Raspberry Pi 12 SP2",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sles:12:sp2"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Software Development Kit 12 SP2",
+								"product": {
+									"name": "SUSE Linux Enterprise Software Development Kit 12 SP2",
+									"product_id": "SUSE Linux Enterprise Software Development Kit 12 SP2",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-sdk:12:sp2"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Software Development Kit 12 SP3",
+								"product": {
+									"name": "SUSE Linux Enterprise Software Development Kit 12 SP3",
+									"product_id": "SUSE Linux Enterprise Software Development Kit 12 SP3",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-sdk:12:sp3"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server 12 SP2",
+								"product": {
+									"name": "SUSE Linux Enterprise Server 12 SP2",
+									"product_id": "SUSE Linux Enterprise Server 12 SP2",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sles:12:sp2"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server for SAP Applications 12 SP2",
+								"product": {
+									"name": "SUSE Linux Enterprise Server for SAP Applications 12 SP2",
+									"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP2",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sles_sap:12:sp2"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server 12 SP3",
+								"product": {
+									"name": "SUSE Linux Enterprise Server 12 SP3",
+									"product_id": "SUSE Linux Enterprise Server 12 SP3",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sles:12:sp3"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+								"product": {
+									"name": "SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+									"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sles_sap:12:sp3"
+									}
+								}
+							}
+						],
+						"category": "product_family",
+						"name": "SUSE Linux Enterprise"
+					}
+				],
+				"category": "vendor",
+				"name": "SUSE"
+			}
+		],
+		"relationships": [
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libsystemd0-228-150.32.1.x86_64 as component of SUSE Linux Enterprise Desktop 12 SP2",
+					"product_id": "SUSE Linux Enterprise Desktop 12 SP2:libsystemd0-228-150.32.1.x86_64"
+				},
+				"product_reference": "libsystemd0-228-150.32.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Desktop 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libsystemd0-32bit-228-150.32.1.x86_64 as component of SUSE Linux Enterprise Desktop 12 SP2",
+					"product_id": "SUSE Linux Enterprise Desktop 12 SP2:libsystemd0-32bit-228-150.32.1.x86_64"
+				},
+				"product_reference": "libsystemd0-32bit-228-150.32.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Desktop 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libudev1-228-150.32.1.x86_64 as component of SUSE Linux Enterprise Desktop 12 SP2",
+					"product_id": "SUSE Linux Enterprise Desktop 12 SP2:libudev1-228-150.32.1.x86_64"
+				},
+				"product_reference": "libudev1-228-150.32.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Desktop 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libudev1-32bit-228-150.32.1.x86_64 as component of SUSE Linux Enterprise Desktop 12 SP2",
+					"product_id": "SUSE Linux Enterprise Desktop 12 SP2:libudev1-32bit-228-150.32.1.x86_64"
+				},
+				"product_reference": "libudev1-32bit-228-150.32.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Desktop 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-228-150.32.1.x86_64 as component of SUSE Linux Enterprise Desktop 12 SP2",
+					"product_id": "SUSE Linux Enterprise Desktop 12 SP2:systemd-228-150.32.1.x86_64"
+				},
+				"product_reference": "systemd-228-150.32.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Desktop 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-32bit-228-150.32.1.x86_64 as component of SUSE Linux Enterprise Desktop 12 SP2",
+					"product_id": "SUSE Linux Enterprise Desktop 12 SP2:systemd-32bit-228-150.32.1.x86_64"
+				},
+				"product_reference": "systemd-32bit-228-150.32.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Desktop 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-bash-completion-228-150.32.1.noarch as component of SUSE Linux Enterprise Desktop 12 SP2",
+					"product_id": "SUSE Linux Enterprise Desktop 12 SP2:systemd-bash-completion-228-150.32.1.noarch"
+				},
+				"product_reference": "systemd-bash-completion-228-150.32.1.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Desktop 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-sysvinit-228-150.32.1.x86_64 as component of SUSE Linux Enterprise Desktop 12 SP2",
+					"product_id": "SUSE Linux Enterprise Desktop 12 SP2:systemd-sysvinit-228-150.32.1.x86_64"
+				},
+				"product_reference": "systemd-sysvinit-228-150.32.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Desktop 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "udev-228-150.32.1.x86_64 as component of SUSE Linux Enterprise Desktop 12 SP2",
+					"product_id": "SUSE Linux Enterprise Desktop 12 SP2:udev-228-150.32.1.x86_64"
+				},
+				"product_reference": "udev-228-150.32.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Desktop 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libsystemd0-228-150.32.1.x86_64 as component of SUSE Linux Enterprise Desktop 12 SP3",
+					"product_id": "SUSE Linux Enterprise Desktop 12 SP3:libsystemd0-228-150.32.1.x86_64"
+				},
+				"product_reference": "libsystemd0-228-150.32.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Desktop 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libsystemd0-32bit-228-150.32.1.x86_64 as component of SUSE Linux Enterprise Desktop 12 SP3",
+					"product_id": "SUSE Linux Enterprise Desktop 12 SP3:libsystemd0-32bit-228-150.32.1.x86_64"
+				},
+				"product_reference": "libsystemd0-32bit-228-150.32.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Desktop 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libudev1-228-150.32.1.x86_64 as component of SUSE Linux Enterprise Desktop 12 SP3",
+					"product_id": "SUSE Linux Enterprise Desktop 12 SP3:libudev1-228-150.32.1.x86_64"
+				},
+				"product_reference": "libudev1-228-150.32.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Desktop 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libudev1-32bit-228-150.32.1.x86_64 as component of SUSE Linux Enterprise Desktop 12 SP3",
+					"product_id": "SUSE Linux Enterprise Desktop 12 SP3:libudev1-32bit-228-150.32.1.x86_64"
+				},
+				"product_reference": "libudev1-32bit-228-150.32.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Desktop 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-228-150.32.1.x86_64 as component of SUSE Linux Enterprise Desktop 12 SP3",
+					"product_id": "SUSE Linux Enterprise Desktop 12 SP3:systemd-228-150.32.1.x86_64"
+				},
+				"product_reference": "systemd-228-150.32.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Desktop 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-32bit-228-150.32.1.x86_64 as component of SUSE Linux Enterprise Desktop 12 SP3",
+					"product_id": "SUSE Linux Enterprise Desktop 12 SP3:systemd-32bit-228-150.32.1.x86_64"
+				},
+				"product_reference": "systemd-32bit-228-150.32.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Desktop 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-bash-completion-228-150.32.1.noarch as component of SUSE Linux Enterprise Desktop 12 SP3",
+					"product_id": "SUSE Linux Enterprise Desktop 12 SP3:systemd-bash-completion-228-150.32.1.noarch"
+				},
+				"product_reference": "systemd-bash-completion-228-150.32.1.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Desktop 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-sysvinit-228-150.32.1.x86_64 as component of SUSE Linux Enterprise Desktop 12 SP3",
+					"product_id": "SUSE Linux Enterprise Desktop 12 SP3:systemd-sysvinit-228-150.32.1.x86_64"
+				},
+				"product_reference": "systemd-sysvinit-228-150.32.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Desktop 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "udev-228-150.32.1.x86_64 as component of SUSE Linux Enterprise Desktop 12 SP3",
+					"product_id": "SUSE Linux Enterprise Desktop 12 SP3:udev-228-150.32.1.x86_64"
+				},
+				"product_reference": "udev-228-150.32.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Desktop 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libsystemd0-228-150.32.1.aarch64 as component of SUSE Linux Enterprise Server for Raspberry Pi 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:libsystemd0-228-150.32.1.aarch64"
+				},
+				"product_reference": "libsystemd0-228-150.32.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for Raspberry Pi 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libudev1-228-150.32.1.aarch64 as component of SUSE Linux Enterprise Server for Raspberry Pi 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:libudev1-228-150.32.1.aarch64"
+				},
+				"product_reference": "libudev1-228-150.32.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for Raspberry Pi 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-228-150.32.1.aarch64 as component of SUSE Linux Enterprise Server for Raspberry Pi 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:systemd-228-150.32.1.aarch64"
+				},
+				"product_reference": "systemd-228-150.32.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for Raspberry Pi 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-bash-completion-228-150.32.1.noarch as component of SUSE Linux Enterprise Server for Raspberry Pi 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:systemd-bash-completion-228-150.32.1.noarch"
+				},
+				"product_reference": "systemd-bash-completion-228-150.32.1.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for Raspberry Pi 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-sysvinit-228-150.32.1.aarch64 as component of SUSE Linux Enterprise Server for Raspberry Pi 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:systemd-sysvinit-228-150.32.1.aarch64"
+				},
+				"product_reference": "systemd-sysvinit-228-150.32.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for Raspberry Pi 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "udev-228-150.32.1.aarch64 as component of SUSE Linux Enterprise Server for Raspberry Pi 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:udev-228-150.32.1.aarch64"
+				},
+				"product_reference": "udev-228-150.32.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for Raspberry Pi 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libudev-devel-228-150.32.1.aarch64 as component of SUSE Linux Enterprise Software Development Kit 12 SP2",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 12 SP2:libudev-devel-228-150.32.1.aarch64"
+				},
+				"product_reference": "libudev-devel-228-150.32.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libudev-devel-228-150.32.1.ppc64le as component of SUSE Linux Enterprise Software Development Kit 12 SP2",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 12 SP2:libudev-devel-228-150.32.1.ppc64le"
+				},
+				"product_reference": "libudev-devel-228-150.32.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libudev-devel-228-150.32.1.s390x as component of SUSE Linux Enterprise Software Development Kit 12 SP2",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 12 SP2:libudev-devel-228-150.32.1.s390x"
+				},
+				"product_reference": "libudev-devel-228-150.32.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libudev-devel-228-150.32.1.x86_64 as component of SUSE Linux Enterprise Software Development Kit 12 SP2",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 12 SP2:libudev-devel-228-150.32.1.x86_64"
+				},
+				"product_reference": "libudev-devel-228-150.32.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-devel-228-150.32.1.aarch64 as component of SUSE Linux Enterprise Software Development Kit 12 SP2",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 12 SP2:systemd-devel-228-150.32.1.aarch64"
+				},
+				"product_reference": "systemd-devel-228-150.32.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-devel-228-150.32.1.ppc64le as component of SUSE Linux Enterprise Software Development Kit 12 SP2",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 12 SP2:systemd-devel-228-150.32.1.ppc64le"
+				},
+				"product_reference": "systemd-devel-228-150.32.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-devel-228-150.32.1.s390x as component of SUSE Linux Enterprise Software Development Kit 12 SP2",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 12 SP2:systemd-devel-228-150.32.1.s390x"
+				},
+				"product_reference": "systemd-devel-228-150.32.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-devel-228-150.32.1.x86_64 as component of SUSE Linux Enterprise Software Development Kit 12 SP2",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 12 SP2:systemd-devel-228-150.32.1.x86_64"
+				},
+				"product_reference": "systemd-devel-228-150.32.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libudev-devel-228-150.32.1.aarch64 as component of SUSE Linux Enterprise Software Development Kit 12 SP3",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 12 SP3:libudev-devel-228-150.32.1.aarch64"
+				},
+				"product_reference": "libudev-devel-228-150.32.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libudev-devel-228-150.32.1.ppc64le as component of SUSE Linux Enterprise Software Development Kit 12 SP3",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 12 SP3:libudev-devel-228-150.32.1.ppc64le"
+				},
+				"product_reference": "libudev-devel-228-150.32.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libudev-devel-228-150.32.1.s390x as component of SUSE Linux Enterprise Software Development Kit 12 SP3",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 12 SP3:libudev-devel-228-150.32.1.s390x"
+				},
+				"product_reference": "libudev-devel-228-150.32.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libudev-devel-228-150.32.1.x86_64 as component of SUSE Linux Enterprise Software Development Kit 12 SP3",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 12 SP3:libudev-devel-228-150.32.1.x86_64"
+				},
+				"product_reference": "libudev-devel-228-150.32.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-devel-228-150.32.1.aarch64 as component of SUSE Linux Enterprise Software Development Kit 12 SP3",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 12 SP3:systemd-devel-228-150.32.1.aarch64"
+				},
+				"product_reference": "systemd-devel-228-150.32.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-devel-228-150.32.1.ppc64le as component of SUSE Linux Enterprise Software Development Kit 12 SP3",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 12 SP3:systemd-devel-228-150.32.1.ppc64le"
+				},
+				"product_reference": "systemd-devel-228-150.32.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-devel-228-150.32.1.s390x as component of SUSE Linux Enterprise Software Development Kit 12 SP3",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 12 SP3:systemd-devel-228-150.32.1.s390x"
+				},
+				"product_reference": "systemd-devel-228-150.32.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-devel-228-150.32.1.x86_64 as component of SUSE Linux Enterprise Software Development Kit 12 SP3",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 12 SP3:systemd-devel-228-150.32.1.x86_64"
+				},
+				"product_reference": "systemd-devel-228-150.32.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libsystemd0-228-150.32.1.aarch64 as component of SUSE Linux Enterprise Server 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server 12 SP2:libsystemd0-228-150.32.1.aarch64"
+				},
+				"product_reference": "libsystemd0-228-150.32.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libsystemd0-228-150.32.1.ppc64le as component of SUSE Linux Enterprise Server 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server 12 SP2:libsystemd0-228-150.32.1.ppc64le"
+				},
+				"product_reference": "libsystemd0-228-150.32.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libsystemd0-228-150.32.1.s390x as component of SUSE Linux Enterprise Server 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server 12 SP2:libsystemd0-228-150.32.1.s390x"
+				},
+				"product_reference": "libsystemd0-228-150.32.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libsystemd0-228-150.32.1.x86_64 as component of SUSE Linux Enterprise Server 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server 12 SP2:libsystemd0-228-150.32.1.x86_64"
+				},
+				"product_reference": "libsystemd0-228-150.32.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libsystemd0-32bit-228-150.32.1.s390x as component of SUSE Linux Enterprise Server 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server 12 SP2:libsystemd0-32bit-228-150.32.1.s390x"
+				},
+				"product_reference": "libsystemd0-32bit-228-150.32.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libsystemd0-32bit-228-150.32.1.x86_64 as component of SUSE Linux Enterprise Server 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server 12 SP2:libsystemd0-32bit-228-150.32.1.x86_64"
+				},
+				"product_reference": "libsystemd0-32bit-228-150.32.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libudev1-228-150.32.1.aarch64 as component of SUSE Linux Enterprise Server 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server 12 SP2:libudev1-228-150.32.1.aarch64"
+				},
+				"product_reference": "libudev1-228-150.32.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libudev1-228-150.32.1.ppc64le as component of SUSE Linux Enterprise Server 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server 12 SP2:libudev1-228-150.32.1.ppc64le"
+				},
+				"product_reference": "libudev1-228-150.32.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libudev1-228-150.32.1.s390x as component of SUSE Linux Enterprise Server 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server 12 SP2:libudev1-228-150.32.1.s390x"
+				},
+				"product_reference": "libudev1-228-150.32.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libudev1-228-150.32.1.x86_64 as component of SUSE Linux Enterprise Server 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server 12 SP2:libudev1-228-150.32.1.x86_64"
+				},
+				"product_reference": "libudev1-228-150.32.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libudev1-32bit-228-150.32.1.s390x as component of SUSE Linux Enterprise Server 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server 12 SP2:libudev1-32bit-228-150.32.1.s390x"
+				},
+				"product_reference": "libudev1-32bit-228-150.32.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libudev1-32bit-228-150.32.1.x86_64 as component of SUSE Linux Enterprise Server 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server 12 SP2:libudev1-32bit-228-150.32.1.x86_64"
+				},
+				"product_reference": "libudev1-32bit-228-150.32.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-228-150.32.1.aarch64 as component of SUSE Linux Enterprise Server 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server 12 SP2:systemd-228-150.32.1.aarch64"
+				},
+				"product_reference": "systemd-228-150.32.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-228-150.32.1.ppc64le as component of SUSE Linux Enterprise Server 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server 12 SP2:systemd-228-150.32.1.ppc64le"
+				},
+				"product_reference": "systemd-228-150.32.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-228-150.32.1.s390x as component of SUSE Linux Enterprise Server 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server 12 SP2:systemd-228-150.32.1.s390x"
+				},
+				"product_reference": "systemd-228-150.32.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-228-150.32.1.x86_64 as component of SUSE Linux Enterprise Server 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server 12 SP2:systemd-228-150.32.1.x86_64"
+				},
+				"product_reference": "systemd-228-150.32.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-32bit-228-150.32.1.s390x as component of SUSE Linux Enterprise Server 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server 12 SP2:systemd-32bit-228-150.32.1.s390x"
+				},
+				"product_reference": "systemd-32bit-228-150.32.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-32bit-228-150.32.1.x86_64 as component of SUSE Linux Enterprise Server 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server 12 SP2:systemd-32bit-228-150.32.1.x86_64"
+				},
+				"product_reference": "systemd-32bit-228-150.32.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-bash-completion-228-150.32.1.noarch as component of SUSE Linux Enterprise Server 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server 12 SP2:systemd-bash-completion-228-150.32.1.noarch"
+				},
+				"product_reference": "systemd-bash-completion-228-150.32.1.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-sysvinit-228-150.32.1.aarch64 as component of SUSE Linux Enterprise Server 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server 12 SP2:systemd-sysvinit-228-150.32.1.aarch64"
+				},
+				"product_reference": "systemd-sysvinit-228-150.32.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-sysvinit-228-150.32.1.ppc64le as component of SUSE Linux Enterprise Server 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server 12 SP2:systemd-sysvinit-228-150.32.1.ppc64le"
+				},
+				"product_reference": "systemd-sysvinit-228-150.32.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-sysvinit-228-150.32.1.s390x as component of SUSE Linux Enterprise Server 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server 12 SP2:systemd-sysvinit-228-150.32.1.s390x"
+				},
+				"product_reference": "systemd-sysvinit-228-150.32.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-sysvinit-228-150.32.1.x86_64 as component of SUSE Linux Enterprise Server 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server 12 SP2:systemd-sysvinit-228-150.32.1.x86_64"
+				},
+				"product_reference": "systemd-sysvinit-228-150.32.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "udev-228-150.32.1.aarch64 as component of SUSE Linux Enterprise Server 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server 12 SP2:udev-228-150.32.1.aarch64"
+				},
+				"product_reference": "udev-228-150.32.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "udev-228-150.32.1.ppc64le as component of SUSE Linux Enterprise Server 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server 12 SP2:udev-228-150.32.1.ppc64le"
+				},
+				"product_reference": "udev-228-150.32.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "udev-228-150.32.1.s390x as component of SUSE Linux Enterprise Server 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server 12 SP2:udev-228-150.32.1.s390x"
+				},
+				"product_reference": "udev-228-150.32.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "udev-228-150.32.1.x86_64 as component of SUSE Linux Enterprise Server 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server 12 SP2:udev-228-150.32.1.x86_64"
+				},
+				"product_reference": "udev-228-150.32.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libsystemd0-228-150.32.1.aarch64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP2:libsystemd0-228-150.32.1.aarch64"
+				},
+				"product_reference": "libsystemd0-228-150.32.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libsystemd0-228-150.32.1.ppc64le as component of SUSE Linux Enterprise Server for SAP Applications 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP2:libsystemd0-228-150.32.1.ppc64le"
+				},
+				"product_reference": "libsystemd0-228-150.32.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libsystemd0-228-150.32.1.s390x as component of SUSE Linux Enterprise Server for SAP Applications 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP2:libsystemd0-228-150.32.1.s390x"
+				},
+				"product_reference": "libsystemd0-228-150.32.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libsystemd0-228-150.32.1.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP2:libsystemd0-228-150.32.1.x86_64"
+				},
+				"product_reference": "libsystemd0-228-150.32.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libsystemd0-32bit-228-150.32.1.s390x as component of SUSE Linux Enterprise Server for SAP Applications 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP2:libsystemd0-32bit-228-150.32.1.s390x"
+				},
+				"product_reference": "libsystemd0-32bit-228-150.32.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libsystemd0-32bit-228-150.32.1.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP2:libsystemd0-32bit-228-150.32.1.x86_64"
+				},
+				"product_reference": "libsystemd0-32bit-228-150.32.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libudev1-228-150.32.1.aarch64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP2:libudev1-228-150.32.1.aarch64"
+				},
+				"product_reference": "libudev1-228-150.32.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libudev1-228-150.32.1.ppc64le as component of SUSE Linux Enterprise Server for SAP Applications 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP2:libudev1-228-150.32.1.ppc64le"
+				},
+				"product_reference": "libudev1-228-150.32.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libudev1-228-150.32.1.s390x as component of SUSE Linux Enterprise Server for SAP Applications 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP2:libudev1-228-150.32.1.s390x"
+				},
+				"product_reference": "libudev1-228-150.32.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libudev1-228-150.32.1.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP2:libudev1-228-150.32.1.x86_64"
+				},
+				"product_reference": "libudev1-228-150.32.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libudev1-32bit-228-150.32.1.s390x as component of SUSE Linux Enterprise Server for SAP Applications 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP2:libudev1-32bit-228-150.32.1.s390x"
+				},
+				"product_reference": "libudev1-32bit-228-150.32.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libudev1-32bit-228-150.32.1.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP2:libudev1-32bit-228-150.32.1.x86_64"
+				},
+				"product_reference": "libudev1-32bit-228-150.32.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-228-150.32.1.aarch64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP2:systemd-228-150.32.1.aarch64"
+				},
+				"product_reference": "systemd-228-150.32.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-228-150.32.1.ppc64le as component of SUSE Linux Enterprise Server for SAP Applications 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP2:systemd-228-150.32.1.ppc64le"
+				},
+				"product_reference": "systemd-228-150.32.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-228-150.32.1.s390x as component of SUSE Linux Enterprise Server for SAP Applications 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP2:systemd-228-150.32.1.s390x"
+				},
+				"product_reference": "systemd-228-150.32.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-228-150.32.1.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP2:systemd-228-150.32.1.x86_64"
+				},
+				"product_reference": "systemd-228-150.32.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-32bit-228-150.32.1.s390x as component of SUSE Linux Enterprise Server for SAP Applications 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP2:systemd-32bit-228-150.32.1.s390x"
+				},
+				"product_reference": "systemd-32bit-228-150.32.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-32bit-228-150.32.1.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP2:systemd-32bit-228-150.32.1.x86_64"
+				},
+				"product_reference": "systemd-32bit-228-150.32.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-bash-completion-228-150.32.1.noarch as component of SUSE Linux Enterprise Server for SAP Applications 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP2:systemd-bash-completion-228-150.32.1.noarch"
+				},
+				"product_reference": "systemd-bash-completion-228-150.32.1.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-sysvinit-228-150.32.1.aarch64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP2:systemd-sysvinit-228-150.32.1.aarch64"
+				},
+				"product_reference": "systemd-sysvinit-228-150.32.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-sysvinit-228-150.32.1.ppc64le as component of SUSE Linux Enterprise Server for SAP Applications 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP2:systemd-sysvinit-228-150.32.1.ppc64le"
+				},
+				"product_reference": "systemd-sysvinit-228-150.32.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-sysvinit-228-150.32.1.s390x as component of SUSE Linux Enterprise Server for SAP Applications 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP2:systemd-sysvinit-228-150.32.1.s390x"
+				},
+				"product_reference": "systemd-sysvinit-228-150.32.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-sysvinit-228-150.32.1.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP2:systemd-sysvinit-228-150.32.1.x86_64"
+				},
+				"product_reference": "systemd-sysvinit-228-150.32.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "udev-228-150.32.1.aarch64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP2:udev-228-150.32.1.aarch64"
+				},
+				"product_reference": "udev-228-150.32.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "udev-228-150.32.1.ppc64le as component of SUSE Linux Enterprise Server for SAP Applications 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP2:udev-228-150.32.1.ppc64le"
+				},
+				"product_reference": "udev-228-150.32.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "udev-228-150.32.1.s390x as component of SUSE Linux Enterprise Server for SAP Applications 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP2:udev-228-150.32.1.s390x"
+				},
+				"product_reference": "udev-228-150.32.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "udev-228-150.32.1.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP2",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP2:udev-228-150.32.1.x86_64"
+				},
+				"product_reference": "udev-228-150.32.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libsystemd0-228-150.32.1.aarch64 as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:libsystemd0-228-150.32.1.aarch64"
+				},
+				"product_reference": "libsystemd0-228-150.32.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libsystemd0-228-150.32.1.ppc64le as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:libsystemd0-228-150.32.1.ppc64le"
+				},
+				"product_reference": "libsystemd0-228-150.32.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libsystemd0-228-150.32.1.s390x as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:libsystemd0-228-150.32.1.s390x"
+				},
+				"product_reference": "libsystemd0-228-150.32.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libsystemd0-228-150.32.1.x86_64 as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:libsystemd0-228-150.32.1.x86_64"
+				},
+				"product_reference": "libsystemd0-228-150.32.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libsystemd0-32bit-228-150.32.1.s390x as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:libsystemd0-32bit-228-150.32.1.s390x"
+				},
+				"product_reference": "libsystemd0-32bit-228-150.32.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libsystemd0-32bit-228-150.32.1.x86_64 as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:libsystemd0-32bit-228-150.32.1.x86_64"
+				},
+				"product_reference": "libsystemd0-32bit-228-150.32.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libudev1-228-150.32.1.aarch64 as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:libudev1-228-150.32.1.aarch64"
+				},
+				"product_reference": "libudev1-228-150.32.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libudev1-228-150.32.1.ppc64le as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:libudev1-228-150.32.1.ppc64le"
+				},
+				"product_reference": "libudev1-228-150.32.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libudev1-228-150.32.1.s390x as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:libudev1-228-150.32.1.s390x"
+				},
+				"product_reference": "libudev1-228-150.32.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libudev1-228-150.32.1.x86_64 as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:libudev1-228-150.32.1.x86_64"
+				},
+				"product_reference": "libudev1-228-150.32.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libudev1-32bit-228-150.32.1.s390x as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:libudev1-32bit-228-150.32.1.s390x"
+				},
+				"product_reference": "libudev1-32bit-228-150.32.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libudev1-32bit-228-150.32.1.x86_64 as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:libudev1-32bit-228-150.32.1.x86_64"
+				},
+				"product_reference": "libudev1-32bit-228-150.32.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-228-150.32.1.aarch64 as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:systemd-228-150.32.1.aarch64"
+				},
+				"product_reference": "systemd-228-150.32.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-228-150.32.1.ppc64le as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:systemd-228-150.32.1.ppc64le"
+				},
+				"product_reference": "systemd-228-150.32.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-228-150.32.1.s390x as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:systemd-228-150.32.1.s390x"
+				},
+				"product_reference": "systemd-228-150.32.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-228-150.32.1.x86_64 as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:systemd-228-150.32.1.x86_64"
+				},
+				"product_reference": "systemd-228-150.32.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-32bit-228-150.32.1.s390x as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:systemd-32bit-228-150.32.1.s390x"
+				},
+				"product_reference": "systemd-32bit-228-150.32.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-32bit-228-150.32.1.x86_64 as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:systemd-32bit-228-150.32.1.x86_64"
+				},
+				"product_reference": "systemd-32bit-228-150.32.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-bash-completion-228-150.32.1.noarch as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:systemd-bash-completion-228-150.32.1.noarch"
+				},
+				"product_reference": "systemd-bash-completion-228-150.32.1.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-sysvinit-228-150.32.1.aarch64 as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:systemd-sysvinit-228-150.32.1.aarch64"
+				},
+				"product_reference": "systemd-sysvinit-228-150.32.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-sysvinit-228-150.32.1.ppc64le as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:systemd-sysvinit-228-150.32.1.ppc64le"
+				},
+				"product_reference": "systemd-sysvinit-228-150.32.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-sysvinit-228-150.32.1.s390x as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:systemd-sysvinit-228-150.32.1.s390x"
+				},
+				"product_reference": "systemd-sysvinit-228-150.32.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-sysvinit-228-150.32.1.x86_64 as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:systemd-sysvinit-228-150.32.1.x86_64"
+				},
+				"product_reference": "systemd-sysvinit-228-150.32.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "udev-228-150.32.1.aarch64 as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:udev-228-150.32.1.aarch64"
+				},
+				"product_reference": "udev-228-150.32.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "udev-228-150.32.1.ppc64le as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:udev-228-150.32.1.ppc64le"
+				},
+				"product_reference": "udev-228-150.32.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "udev-228-150.32.1.s390x as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:udev-228-150.32.1.s390x"
+				},
+				"product_reference": "udev-228-150.32.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "udev-228-150.32.1.x86_64 as component of SUSE Linux Enterprise Server 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server 12 SP3:udev-228-150.32.1.x86_64"
+				},
+				"product_reference": "udev-228-150.32.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libsystemd0-228-150.32.1.aarch64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:libsystemd0-228-150.32.1.aarch64"
+				},
+				"product_reference": "libsystemd0-228-150.32.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libsystemd0-228-150.32.1.ppc64le as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:libsystemd0-228-150.32.1.ppc64le"
+				},
+				"product_reference": "libsystemd0-228-150.32.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libsystemd0-228-150.32.1.s390x as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:libsystemd0-228-150.32.1.s390x"
+				},
+				"product_reference": "libsystemd0-228-150.32.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libsystemd0-228-150.32.1.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:libsystemd0-228-150.32.1.x86_64"
+				},
+				"product_reference": "libsystemd0-228-150.32.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libsystemd0-32bit-228-150.32.1.s390x as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:libsystemd0-32bit-228-150.32.1.s390x"
+				},
+				"product_reference": "libsystemd0-32bit-228-150.32.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libsystemd0-32bit-228-150.32.1.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:libsystemd0-32bit-228-150.32.1.x86_64"
+				},
+				"product_reference": "libsystemd0-32bit-228-150.32.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libudev1-228-150.32.1.aarch64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:libudev1-228-150.32.1.aarch64"
+				},
+				"product_reference": "libudev1-228-150.32.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libudev1-228-150.32.1.ppc64le as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:libudev1-228-150.32.1.ppc64le"
+				},
+				"product_reference": "libudev1-228-150.32.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libudev1-228-150.32.1.s390x as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:libudev1-228-150.32.1.s390x"
+				},
+				"product_reference": "libudev1-228-150.32.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libudev1-228-150.32.1.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:libudev1-228-150.32.1.x86_64"
+				},
+				"product_reference": "libudev1-228-150.32.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libudev1-32bit-228-150.32.1.s390x as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:libudev1-32bit-228-150.32.1.s390x"
+				},
+				"product_reference": "libudev1-32bit-228-150.32.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libudev1-32bit-228-150.32.1.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:libudev1-32bit-228-150.32.1.x86_64"
+				},
+				"product_reference": "libudev1-32bit-228-150.32.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-228-150.32.1.aarch64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:systemd-228-150.32.1.aarch64"
+				},
+				"product_reference": "systemd-228-150.32.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-228-150.32.1.ppc64le as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:systemd-228-150.32.1.ppc64le"
+				},
+				"product_reference": "systemd-228-150.32.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-228-150.32.1.s390x as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:systemd-228-150.32.1.s390x"
+				},
+				"product_reference": "systemd-228-150.32.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-228-150.32.1.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:systemd-228-150.32.1.x86_64"
+				},
+				"product_reference": "systemd-228-150.32.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-32bit-228-150.32.1.s390x as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:systemd-32bit-228-150.32.1.s390x"
+				},
+				"product_reference": "systemd-32bit-228-150.32.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-32bit-228-150.32.1.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:systemd-32bit-228-150.32.1.x86_64"
+				},
+				"product_reference": "systemd-32bit-228-150.32.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-bash-completion-228-150.32.1.noarch as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:systemd-bash-completion-228-150.32.1.noarch"
+				},
+				"product_reference": "systemd-bash-completion-228-150.32.1.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-sysvinit-228-150.32.1.aarch64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:systemd-sysvinit-228-150.32.1.aarch64"
+				},
+				"product_reference": "systemd-sysvinit-228-150.32.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-sysvinit-228-150.32.1.ppc64le as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:systemd-sysvinit-228-150.32.1.ppc64le"
+				},
+				"product_reference": "systemd-sysvinit-228-150.32.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-sysvinit-228-150.32.1.s390x as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:systemd-sysvinit-228-150.32.1.s390x"
+				},
+				"product_reference": "systemd-sysvinit-228-150.32.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "systemd-sysvinit-228-150.32.1.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:systemd-sysvinit-228-150.32.1.x86_64"
+				},
+				"product_reference": "systemd-sysvinit-228-150.32.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "udev-228-150.32.1.aarch64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:udev-228-150.32.1.aarch64"
+				},
+				"product_reference": "udev-228-150.32.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "udev-228-150.32.1.ppc64le as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:udev-228-150.32.1.ppc64le"
+				},
+				"product_reference": "udev-228-150.32.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "udev-228-150.32.1.s390x as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:udev-228-150.32.1.s390x"
+				},
+				"product_reference": "udev-228-150.32.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "udev-228-150.32.1.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP3",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP3:udev-228-150.32.1.x86_64"
+				},
+				"product_reference": "udev-228-150.32.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP3"
+			}
+		]
+	},
+	"vulnerabilities": [
+		{
+			"cve": "CVE-2017-18078",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2017-18078"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "systemd-tmpfiles in systemd before 237 attempts to support ownership/permission changes on hardlinked files even if the fs.protected_hardlinks sysctl is turned off, which allows local users to bypass intended access restrictions via vectors involving a hard link to a file for which the user lacks write access, as demonstrated by changing the ownership of the /etc/passwd file.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Desktop 12 SP2:libsystemd0-228-150.32.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12 SP2:libsystemd0-32bit-228-150.32.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12 SP2:libudev1-228-150.32.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12 SP2:libudev1-32bit-228-150.32.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12 SP2:systemd-228-150.32.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12 SP2:systemd-32bit-228-150.32.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12 SP2:systemd-bash-completion-228-150.32.1.noarch",
+					"SUSE Linux Enterprise Desktop 12 SP2:systemd-sysvinit-228-150.32.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12 SP2:udev-228-150.32.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12 SP3:libsystemd0-228-150.32.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12 SP3:libsystemd0-32bit-228-150.32.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12 SP3:libudev1-228-150.32.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12 SP3:libudev1-32bit-228-150.32.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12 SP3:systemd-228-150.32.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12 SP3:systemd-32bit-228-150.32.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12 SP3:systemd-bash-completion-228-150.32.1.noarch",
+					"SUSE Linux Enterprise Desktop 12 SP3:systemd-sysvinit-228-150.32.1.x86_64",
+					"SUSE Linux Enterprise Desktop 12 SP3:udev-228-150.32.1.x86_64",
+					"SUSE Linux Enterprise Server 12 SP2:libsystemd0-228-150.32.1.aarch64",
+					"SUSE Linux Enterprise Server 12 SP2:libsystemd0-228-150.32.1.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP2:libsystemd0-228-150.32.1.s390x",
+					"SUSE Linux Enterprise Server 12 SP2:libsystemd0-228-150.32.1.x86_64",
+					"SUSE Linux Enterprise Server 12 SP2:libsystemd0-32bit-228-150.32.1.s390x",
+					"SUSE Linux Enterprise Server 12 SP2:libsystemd0-32bit-228-150.32.1.x86_64",
+					"SUSE Linux Enterprise Server 12 SP2:libudev1-228-150.32.1.aarch64",
+					"SUSE Linux Enterprise Server 12 SP2:libudev1-228-150.32.1.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP2:libudev1-228-150.32.1.s390x",
+					"SUSE Linux Enterprise Server 12 SP2:libudev1-228-150.32.1.x86_64",
+					"SUSE Linux Enterprise Server 12 SP2:libudev1-32bit-228-150.32.1.s390x",
+					"SUSE Linux Enterprise Server 12 SP2:libudev1-32bit-228-150.32.1.x86_64",
+					"SUSE Linux Enterprise Server 12 SP2:systemd-228-150.32.1.aarch64",
+					"SUSE Linux Enterprise Server 12 SP2:systemd-228-150.32.1.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP2:systemd-228-150.32.1.s390x",
+					"SUSE Linux Enterprise Server 12 SP2:systemd-228-150.32.1.x86_64",
+					"SUSE Linux Enterprise Server 12 SP2:systemd-32bit-228-150.32.1.s390x",
+					"SUSE Linux Enterprise Server 12 SP2:systemd-32bit-228-150.32.1.x86_64",
+					"SUSE Linux Enterprise Server 12 SP2:systemd-bash-completion-228-150.32.1.noarch",
+					"SUSE Linux Enterprise Server 12 SP2:systemd-sysvinit-228-150.32.1.aarch64",
+					"SUSE Linux Enterprise Server 12 SP2:systemd-sysvinit-228-150.32.1.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP2:systemd-sysvinit-228-150.32.1.s390x",
+					"SUSE Linux Enterprise Server 12 SP2:systemd-sysvinit-228-150.32.1.x86_64",
+					"SUSE Linux Enterprise Server 12 SP2:udev-228-150.32.1.aarch64",
+					"SUSE Linux Enterprise Server 12 SP2:udev-228-150.32.1.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP2:udev-228-150.32.1.s390x",
+					"SUSE Linux Enterprise Server 12 SP2:udev-228-150.32.1.x86_64",
+					"SUSE Linux Enterprise Server 12 SP3:libsystemd0-228-150.32.1.aarch64",
+					"SUSE Linux Enterprise Server 12 SP3:libsystemd0-228-150.32.1.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP3:libsystemd0-228-150.32.1.s390x",
+					"SUSE Linux Enterprise Server 12 SP3:libsystemd0-228-150.32.1.x86_64",
+					"SUSE Linux Enterprise Server 12 SP3:libsystemd0-32bit-228-150.32.1.s390x",
+					"SUSE Linux Enterprise Server 12 SP3:libsystemd0-32bit-228-150.32.1.x86_64",
+					"SUSE Linux Enterprise Server 12 SP3:libudev1-228-150.32.1.aarch64",
+					"SUSE Linux Enterprise Server 12 SP3:libudev1-228-150.32.1.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP3:libudev1-228-150.32.1.s390x",
+					"SUSE Linux Enterprise Server 12 SP3:libudev1-228-150.32.1.x86_64",
+					"SUSE Linux Enterprise Server 12 SP3:libudev1-32bit-228-150.32.1.s390x",
+					"SUSE Linux Enterprise Server 12 SP3:libudev1-32bit-228-150.32.1.x86_64",
+					"SUSE Linux Enterprise Server 12 SP3:systemd-228-150.32.1.aarch64",
+					"SUSE Linux Enterprise Server 12 SP3:systemd-228-150.32.1.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP3:systemd-228-150.32.1.s390x",
+					"SUSE Linux Enterprise Server 12 SP3:systemd-228-150.32.1.x86_64",
+					"SUSE Linux Enterprise Server 12 SP3:systemd-32bit-228-150.32.1.s390x",
+					"SUSE Linux Enterprise Server 12 SP3:systemd-32bit-228-150.32.1.x86_64",
+					"SUSE Linux Enterprise Server 12 SP3:systemd-bash-completion-228-150.32.1.noarch",
+					"SUSE Linux Enterprise Server 12 SP3:systemd-sysvinit-228-150.32.1.aarch64",
+					"SUSE Linux Enterprise Server 12 SP3:systemd-sysvinit-228-150.32.1.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP3:systemd-sysvinit-228-150.32.1.s390x",
+					"SUSE Linux Enterprise Server 12 SP3:systemd-sysvinit-228-150.32.1.x86_64",
+					"SUSE Linux Enterprise Server 12 SP3:udev-228-150.32.1.aarch64",
+					"SUSE Linux Enterprise Server 12 SP3:udev-228-150.32.1.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP3:udev-228-150.32.1.s390x",
+					"SUSE Linux Enterprise Server 12 SP3:udev-228-150.32.1.x86_64",
+					"SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:libsystemd0-228-150.32.1.aarch64",
+					"SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:libudev1-228-150.32.1.aarch64",
+					"SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:systemd-228-150.32.1.aarch64",
+					"SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:systemd-bash-completion-228-150.32.1.noarch",
+					"SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:systemd-sysvinit-228-150.32.1.aarch64",
+					"SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:udev-228-150.32.1.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libsystemd0-228-150.32.1.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libsystemd0-228-150.32.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libsystemd0-228-150.32.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libsystemd0-228-150.32.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libsystemd0-32bit-228-150.32.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libsystemd0-32bit-228-150.32.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libudev1-228-150.32.1.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libudev1-228-150.32.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libudev1-228-150.32.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libudev1-228-150.32.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libudev1-32bit-228-150.32.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libudev1-32bit-228-150.32.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:systemd-228-150.32.1.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:systemd-228-150.32.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:systemd-228-150.32.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:systemd-228-150.32.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:systemd-32bit-228-150.32.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:systemd-32bit-228-150.32.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:systemd-bash-completion-228-150.32.1.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:systemd-sysvinit-228-150.32.1.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:systemd-sysvinit-228-150.32.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:systemd-sysvinit-228-150.32.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:systemd-sysvinit-228-150.32.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:udev-228-150.32.1.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:udev-228-150.32.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:udev-228-150.32.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP2:udev-228-150.32.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libsystemd0-228-150.32.1.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libsystemd0-228-150.32.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libsystemd0-228-150.32.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libsystemd0-228-150.32.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libsystemd0-32bit-228-150.32.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libsystemd0-32bit-228-150.32.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libudev1-228-150.32.1.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libudev1-228-150.32.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libudev1-228-150.32.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libudev1-228-150.32.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libudev1-32bit-228-150.32.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libudev1-32bit-228-150.32.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:systemd-228-150.32.1.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:systemd-228-150.32.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:systemd-228-150.32.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:systemd-228-150.32.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:systemd-32bit-228-150.32.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:systemd-32bit-228-150.32.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:systemd-bash-completion-228-150.32.1.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:systemd-sysvinit-228-150.32.1.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:systemd-sysvinit-228-150.32.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:systemd-sysvinit-228-150.32.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:systemd-sysvinit-228-150.32.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:udev-228-150.32.1.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:udev-228-150.32.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:udev-228-150.32.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP3:udev-228-150.32.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 12 SP2:libudev-devel-228-150.32.1.aarch64",
+					"SUSE Linux Enterprise Software Development Kit 12 SP2:libudev-devel-228-150.32.1.ppc64le",
+					"SUSE Linux Enterprise Software Development Kit 12 SP2:libudev-devel-228-150.32.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 12 SP2:libudev-devel-228-150.32.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 12 SP2:systemd-devel-228-150.32.1.aarch64",
+					"SUSE Linux Enterprise Software Development Kit 12 SP2:systemd-devel-228-150.32.1.ppc64le",
+					"SUSE Linux Enterprise Software Development Kit 12 SP2:systemd-devel-228-150.32.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 12 SP2:systemd-devel-228-150.32.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 12 SP3:libudev-devel-228-150.32.1.aarch64",
+					"SUSE Linux Enterprise Software Development Kit 12 SP3:libudev-devel-228-150.32.1.ppc64le",
+					"SUSE Linux Enterprise Software Development Kit 12 SP3:libudev-devel-228-150.32.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 12 SP3:libudev-devel-228-150.32.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 12 SP3:systemd-devel-228-150.32.1.aarch64",
+					"SUSE Linux Enterprise Software Development Kit 12 SP3:systemd-devel-228-150.32.1.ppc64le",
+					"SUSE Linux Enterprise Software Development Kit 12 SP3:systemd-devel-228-150.32.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 12 SP3:systemd-devel-228-150.32.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2017-18078",
+					"url": "https://www.suse.com/security/cve/CVE-2017-18078"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1077925 for CVE-2017-18078",
+					"url": "https://bugzilla.suse.com/1077925"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12 SP2:libsystemd0-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP2:libsystemd0-32bit-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP2:libudev1-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP2:libudev1-32bit-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP2:systemd-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP2:systemd-32bit-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP2:systemd-bash-completion-228-150.32.1.noarch",
+						"SUSE Linux Enterprise Desktop 12 SP2:systemd-sysvinit-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP2:udev-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP3:libsystemd0-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP3:libsystemd0-32bit-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP3:libudev1-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP3:libudev1-32bit-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP3:systemd-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP3:systemd-32bit-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP3:systemd-bash-completion-228-150.32.1.noarch",
+						"SUSE Linux Enterprise Desktop 12 SP3:systemd-sysvinit-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP3:udev-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP2:libsystemd0-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Server 12 SP2:libsystemd0-228-150.32.1.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP2:libsystemd0-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP2:libsystemd0-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP2:libsystemd0-32bit-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP2:libsystemd0-32bit-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP2:libudev1-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Server 12 SP2:libudev1-228-150.32.1.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP2:libudev1-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP2:libudev1-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP2:libudev1-32bit-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP2:libudev1-32bit-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP2:systemd-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Server 12 SP2:systemd-228-150.32.1.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP2:systemd-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP2:systemd-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP2:systemd-32bit-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP2:systemd-32bit-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP2:systemd-bash-completion-228-150.32.1.noarch",
+						"SUSE Linux Enterprise Server 12 SP2:systemd-sysvinit-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Server 12 SP2:systemd-sysvinit-228-150.32.1.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP2:systemd-sysvinit-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP2:systemd-sysvinit-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP2:udev-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Server 12 SP2:udev-228-150.32.1.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP2:udev-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP2:udev-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:libsystemd0-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:libsystemd0-228-150.32.1.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:libsystemd0-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libsystemd0-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:libsystemd0-32bit-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libsystemd0-32bit-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:libudev1-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:libudev1-228-150.32.1.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:libudev1-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libudev1-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:libudev1-32bit-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libudev1-32bit-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:systemd-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:systemd-228-150.32.1.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:systemd-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:systemd-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:systemd-32bit-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:systemd-32bit-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:systemd-bash-completion-228-150.32.1.noarch",
+						"SUSE Linux Enterprise Server 12 SP3:systemd-sysvinit-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:systemd-sysvinit-228-150.32.1.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:systemd-sysvinit-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:systemd-sysvinit-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:udev-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:udev-228-150.32.1.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:udev-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:udev-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:libsystemd0-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:libudev1-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:systemd-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:systemd-bash-completion-228-150.32.1.noarch",
+						"SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:systemd-sysvinit-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:udev-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libsystemd0-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libsystemd0-228-150.32.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libsystemd0-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libsystemd0-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libsystemd0-32bit-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libsystemd0-32bit-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libudev1-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libudev1-228-150.32.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libudev1-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libudev1-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libudev1-32bit-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libudev1-32bit-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:systemd-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:systemd-228-150.32.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:systemd-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:systemd-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:systemd-32bit-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:systemd-32bit-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:systemd-bash-completion-228-150.32.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:systemd-sysvinit-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:systemd-sysvinit-228-150.32.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:systemd-sysvinit-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:systemd-sysvinit-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:udev-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:udev-228-150.32.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:udev-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:udev-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libsystemd0-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libsystemd0-228-150.32.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libsystemd0-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libsystemd0-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libsystemd0-32bit-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libsystemd0-32bit-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libudev1-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libudev1-228-150.32.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libudev1-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libudev1-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libudev1-32bit-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libudev1-32bit-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:systemd-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:systemd-228-150.32.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:systemd-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:systemd-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:systemd-32bit-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:systemd-32bit-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:systemd-bash-completion-228-150.32.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:systemd-sysvinit-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:systemd-sysvinit-228-150.32.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:systemd-sysvinit-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:systemd-sysvinit-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:udev-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:udev-228-150.32.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:udev-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:udev-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP2:libudev-devel-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP2:libudev-devel-228-150.32.1.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12 SP2:libudev-devel-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12 SP2:libudev-devel-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP2:systemd-devel-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP2:systemd-devel-228-150.32.1.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12 SP2:systemd-devel-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12 SP2:systemd-devel-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libudev-devel-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libudev-devel-228-150.32.1.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libudev-devel-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libudev-devel-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:systemd-devel-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:systemd-devel-228-150.32.1.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:systemd-devel-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:systemd-devel-228-150.32.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.4,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.0/AV:L/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Desktop 12 SP2:libsystemd0-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP2:libsystemd0-32bit-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP2:libudev1-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP2:libudev1-32bit-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP2:systemd-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP2:systemd-32bit-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP2:systemd-bash-completion-228-150.32.1.noarch",
+						"SUSE Linux Enterprise Desktop 12 SP2:systemd-sysvinit-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP2:udev-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP3:libsystemd0-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP3:libsystemd0-32bit-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP3:libudev1-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP3:libudev1-32bit-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP3:systemd-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP3:systemd-32bit-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP3:systemd-bash-completion-228-150.32.1.noarch",
+						"SUSE Linux Enterprise Desktop 12 SP3:systemd-sysvinit-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Desktop 12 SP3:udev-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP2:libsystemd0-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Server 12 SP2:libsystemd0-228-150.32.1.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP2:libsystemd0-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP2:libsystemd0-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP2:libsystemd0-32bit-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP2:libsystemd0-32bit-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP2:libudev1-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Server 12 SP2:libudev1-228-150.32.1.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP2:libudev1-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP2:libudev1-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP2:libudev1-32bit-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP2:libudev1-32bit-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP2:systemd-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Server 12 SP2:systemd-228-150.32.1.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP2:systemd-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP2:systemd-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP2:systemd-32bit-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP2:systemd-32bit-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP2:systemd-bash-completion-228-150.32.1.noarch",
+						"SUSE Linux Enterprise Server 12 SP2:systemd-sysvinit-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Server 12 SP2:systemd-sysvinit-228-150.32.1.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP2:systemd-sysvinit-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP2:systemd-sysvinit-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP2:udev-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Server 12 SP2:udev-228-150.32.1.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP2:udev-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP2:udev-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:libsystemd0-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:libsystemd0-228-150.32.1.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:libsystemd0-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libsystemd0-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:libsystemd0-32bit-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libsystemd0-32bit-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:libudev1-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:libudev1-228-150.32.1.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:libudev1-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libudev1-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:libudev1-32bit-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:libudev1-32bit-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:systemd-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:systemd-228-150.32.1.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:systemd-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:systemd-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:systemd-32bit-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:systemd-32bit-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:systemd-bash-completion-228-150.32.1.noarch",
+						"SUSE Linux Enterprise Server 12 SP3:systemd-sysvinit-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:systemd-sysvinit-228-150.32.1.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:systemd-sysvinit-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:systemd-sysvinit-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP3:udev-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Server 12 SP3:udev-228-150.32.1.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP3:udev-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP3:udev-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:libsystemd0-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:libudev1-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:systemd-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:systemd-bash-completion-228-150.32.1.noarch",
+						"SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:systemd-sysvinit-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Server for Raspberry Pi 12 SP2:udev-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libsystemd0-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libsystemd0-228-150.32.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libsystemd0-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libsystemd0-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libsystemd0-32bit-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libsystemd0-32bit-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libudev1-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libudev1-228-150.32.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libudev1-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libudev1-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libudev1-32bit-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:libudev1-32bit-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:systemd-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:systemd-228-150.32.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:systemd-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:systemd-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:systemd-32bit-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:systemd-32bit-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:systemd-bash-completion-228-150.32.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:systemd-sysvinit-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:systemd-sysvinit-228-150.32.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:systemd-sysvinit-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:systemd-sysvinit-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:udev-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:udev-228-150.32.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:udev-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP2:udev-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libsystemd0-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libsystemd0-228-150.32.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libsystemd0-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libsystemd0-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libsystemd0-32bit-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libsystemd0-32bit-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libudev1-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libudev1-228-150.32.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libudev1-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libudev1-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libudev1-32bit-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:libudev1-32bit-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:systemd-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:systemd-228-150.32.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:systemd-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:systemd-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:systemd-32bit-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:systemd-32bit-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:systemd-bash-completion-228-150.32.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:systemd-sysvinit-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:systemd-sysvinit-228-150.32.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:systemd-sysvinit-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:systemd-sysvinit-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:udev-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:udev-228-150.32.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:udev-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP3:udev-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP2:libudev-devel-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP2:libudev-devel-228-150.32.1.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12 SP2:libudev-devel-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12 SP2:libudev-devel-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP2:systemd-devel-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP2:systemd-devel-228-150.32.1.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12 SP2:systemd-devel-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12 SP2:systemd-devel-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libudev-devel-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libudev-devel-228-150.32.1.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libudev-devel-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:libudev-devel-228-150.32.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:systemd-devel-228-150.32.1.aarch64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:systemd-devel-228-150.32.1.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:systemd-devel-228-150.32.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12 SP3:systemd-devel-228-150.32.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-02-26T15:35:50Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2017-18078"
+		}
+	]
+}

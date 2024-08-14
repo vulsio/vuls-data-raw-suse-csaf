@@ -1,0 +1,1137 @@
+{
+	"document": {
+		"aggregate_severity": {
+			"namespace": "https://www.suse.com/support/security/rating/",
+			"text": "important"
+		},
+		"category": "csaf_security_advisory",
+		"csaf_version": "2.0",
+		"distribution": {
+			"text": "Copyright 2024 SUSE LLC. All rights reserved.",
+			"tlp": {
+				"label": "WHITE",
+				"url": "https://www.first.org/tlp/"
+			}
+		},
+		"lang": "en",
+		"notes": [
+			{
+				"category": "summary",
+				"text": "Security update for the Linux Kernel",
+				"title": "Title of the patch"
+			},
+			{
+				"category": "description",
+				"text": "\n\nThe openSUSE Leap 15.1 kernel was updated to receive various security and bugfixes.\n\nThe following security bugs were fixed:\n\n- CVE-2020-28915: A buffer over-read (at the framebuffer layer) in the fbcon code could be used by local attackers to read kernel memory, aka CID-6735b4632def (bnc#1178886).\n- CVE-2020-25669: A use-after-free in teardown paths of sunkbd was fixed (bsc#1178182).\n- CVE-2020-25705: A flaw in the way reply ICMP packets are limited in the Linux kernel functionality was found that allowed to quickly scan open UDP ports. This flaw allowed an off-path remote user to effectively bypassing source port UDP randomization. The highest threat from this vulnerability is to confidentiality and possibly integrity, because software that relies on UDP source port randomization are indirectly affected as well. Kernel versions may be vulnerable to this issue (bnc#1175721 bnc#1178782).\n- CVE-2020-25704: A a memory leak in perf_event_parse_addr_filter() was foxed (bsc#1178393, CVE-2020-25704).\n\nThe following non-security bugs were fixed:\n\n- ACPI: NFIT: Fix comparison to '-ENXIO' (git-fixes).\n- bpf: Zero-fill re-used per-cpu map element (git-fixes).\n- can: af_can: prevent potential access of uninitialized member in canfd_rcv() (git-fixes).\n- can: af_can: prevent potential access of uninitialized member in can_rcv() (git-fixes).\n- can: dev: can_restart(): post buffer from the right context (git-fixes).\n- can: m_can: m_can_handle_state_change(): fix state change (git-fixes).\n- can: m_can: m_can_stop(): set device to software init mode before closing (git-fixes).\n- can: mcba_usb: mcba_usb_start_xmit(): first fill skb, then pass to can_put_echo_skb() (git-fixes).\n- can: peak_usb: fix potential integer overflow on shift of a int (git-fixes).\n- docs: ABI: sysfs-c2port: remove a duplicated entry (git-fixes).\n- drbd: code cleanup by using sendpage_ok() to check page for kernel_sendpage() (bsc#1172873).\n- drm/i915: Break up error capture compression loops with cond_resched() (git-fixes).\n- drm/vc4: drv: Add error handding for bind (git-fixes).\n- Drop sysctl files for dropped archs, add ppc64le and arm64 (bsc#1178838). Also fix the ppc64 page size.\n- fs/proc/array.c: allow reporting eip/esp for all coredumping threads (bsc#1050549).\n- ftrace: Fix recursion check for NMI test (git-fixes).\n- ftrace: Handle tracing when switching between context (git-fixes).\n- futex: Do not enable IRQs unconditionally in put_pi_state() (bsc#1067665).\n- futex: Handle transient 'ownerless' rtmutex state correctly (bsc#1067665).\n- hv_netvsc: Add XDP support (bsc#1177819, bsc#1177820).\n- hv_netvsc: deal with bpf API differences in 4.12 (bsc#1177819, bsc#1177820).\n- hv_netvsc: Fix XDP refcnt for synthetic and VF NICs (bsc#1177819, bsc#1177820).\n- hv_netvsc: make recording RSS hash depend on feature flag (bsc#1178853, bsc#1178854).\n- hv_netvsc: record hardware hash in skb (bsc#1178853, bsc#1178854).\n- hyperv_fb: Update screen_info after removing old framebuffer (bsc#1175306).\n- inet_diag: Fix error path to cancel the meseage in inet_req_diag_fill() (git-fixes).\n- Input: adxl34x - clean up a data type in adxl34x_probe() (git-fixes).\n- kthread_worker: prevent queuing delayed work from timer_fn when it is being canceled (git-fixes).\n- libceph: use sendpage_ok() in ceph_tcp_sendpage() (bsc#1172873).\n- locking/lockdep: Add debug_locks check in __lock_downgrade() (bsc#1050549).\n- locking/percpu-rwsem: Use this_cpu_{inc,dec}() for read_count (bsc#1050549).\n- locktorture: Print ratio of acquisitions, not failures (bsc#1050549).\n- mac80211: minstrel: fix tx status processing corner case (git-fixes).\n- mac80211: minstrel: remove deferred sampling code (git-fixes).\n- memcg: fix NULL pointer dereference in __mem_cgroup_usage_unregister_event (bsc#1177703).\n- mmc: sdhci-of-esdhc: Handle pulse width detection erratum for more SoCs (git-fixes).\n- mm/memcg: fix refcount error while moving and swapping (bsc#1178686).\n- net: add WARN_ONCE in kernel_sendpage() for improper zero-copy send (bsc#1172873).\n- net: ena: Capitalize all log strings and improve code readability (bsc#1177397).\n- net: ena: Change license into format to SPDX in all files (bsc#1177397).\n- net: ena: Change log message to netif/dev function (bsc#1177397).\n- net: ena: Change RSS related macros and variables names (bsc#1177397).\n- net: ena: ethtool: Add new device statistics (bsc#1177397).\n- net: ena: ethtool: add stats printing to XDP queues (bsc#1177397).\n- net: ena: ethtool: convert stat_offset to 64 bit resolution (bsc#1177397).\n- net: ena: Fix all static chekers' warnings (bsc#1177397).\n- net: ena: Remove redundant print of placement policy (bsc#1177397).\n- net: ena: xdp: add queue counters for xdp actions (bsc#1177397).\n- netfilter: nat: can't use dst_hold on noref dst (bsc#1178878).\n- net: introduce helper sendpage_ok() in include/linux/net.h (bsc#1172873). kABI workaround for including mm.h in include/linux/net.h (bsc#1172873).\n- net/mlx4_core: Fix init_hca fields offset (git-fixes).\n- net: usb: qmi_wwan: add Telit LE910Cx 0x1230 composition (git-fixes).\n- NFSv4.1: fix handling of backchannel binding in BIND_CONN_TO_SESSION (bsc#1170630).\n- nvme-tcp: check page by sendpage_ok() before calling kernel_sendpage() (bsc#1172873).\n- pinctrl: intel: Set default bias in case no particular value given (git-fixes).\n- powerpc/pseries/cpuidle: add polling idle for shared processor guests (bsc#1178765 ltc#188968).\n- powerpc/vnic: Extend 'failover pending' window (bsc#1176855 ltc#187293).\n- powerpc/vnic: Extend 'failover pending' window (bsc#1176855 ltc#187293).\n- regulator: avoid resolve_supply() infinite recursion (git-fixes).\n- regulator: fix memory leak with repeated set_machine_constraints() (git-fixes).\n- regulator: ti-abb: Fix array out of bound read access on the first transition (git-fixes).\n- regulator: workaround self-referent regulators (git-fixes).\n- Revert 'cdc-acm: hardening against malicious devices' (git-fixes).\n- ring-buffer: Fix recursion protection transitions between interrupt context (git-fixes).\n- scsi: libiscsi: use sendpage_ok() in iscsi_tcp_segment_map() (bsc#1172873).\n- scsi: lpfc: Fix initial FLOGI failure due to BBSCN not supported (git-fixes).\n- thunderbolt: Add the missed ida_simple_remove() in ring_request_msix() (git-fixes).\n- time: Prevent undefined behaviour in timespec64_to_ns() (git-fixes).\n- USB: Add NO_LPM quirk for Kingston flash drive (git-fixes).\n- usb: core: driver: fix stray tabs in error messages (git-fixes).\n- usb: host: ehci-tegra: Fix error handling in tegra_ehci_probe() (git-fixes).\n- USB: serial: cyberjack: fix write-URB completion race (git-fixes).\n- USB: serial: ftdi_sio: add support for FreeCalypso JTAG+UART adapters (git-fixes).\n- USB: serial: option: add Cellient MPL200 card (git-fixes).\n- USB: serial: option: add LE910Cx compositions 0x1203, 0x1230, 0x1231 (git-fixes).\n- USB: serial: option: add Quectel EC200T module support (git-fixes).\n- USB: serial: option: add Telit FN980 composition 0x1055 (git-fixes).\n- USB: serial: option: Add Telit FT980-KS composition (git-fixes).\n- USB: serial: pl2303: add device-id for HP GC device (git-fixes).\n- video: hyperv: hyperv_fb: Obtain screen resolution from Hyper-V host (bsc#1175306).\n- video: hyperv: hyperv_fb: Support deferred IO for Hyper-V frame buffer driver (bsc#1175306).\n- video: hyperv: hyperv_fb: Use physical memory for fb on HyperV Gen 1 VMs (bsc#1175306).\n- vt: Disable KD_FONT_OP_COPY (bsc#1178589).\n- x86/kexec: Use up-to-dated screen_info copy to fill boot params (bsc#1175306).\n- xfs: fix a missing unlock on error in xfs_fs_map_blocks (git-fixes).\n- xfs: fix flags argument to rmap lookup when converting shared file rmaps (git-fixes).\n- xfs: fix rmap key and record comparison functions (git-fixes).\n",
+				"title": "Description of the patch"
+			},
+			{
+				"category": "details",
+				"text": "openSUSE-2020-2034",
+				"title": "Patchnames"
+			},
+			{
+				"category": "legal_disclaimer",
+				"text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+				"title": "Terms of use"
+			}
+		],
+		"publisher": {
+			"category": "vendor",
+			"contact_details": "https://www.suse.com/support/security/contact/",
+			"name": "SUSE Product Security Team",
+			"namespace": "https://www.suse.com/"
+		},
+		"references": [
+			{
+				"category": "external",
+				"summary": "SUSE ratings",
+				"url": "https://www.suse.com/support/security/rating/"
+			},
+			{
+				"category": "self",
+				"summary": "URL of this CSAF notice",
+				"url": "https://ftp.suse.com/pub/projects/security/csaf/opensuse-su-2020_2034-1.json"
+			},
+			{
+				"category": "self",
+				"summary": "URL for openSUSE-SU-2020:2034-1",
+				"url": "https://lists.opensuse.org/archives/list/security-announce@lists.opensuse.org/thread/7GIP2AYRG3VCHD6CCU4URBF5KVBKIT63/"
+			},
+			{
+				"category": "self",
+				"summary": "E-Mail link for openSUSE-SU-2020:2034-1",
+				"url": "https://lists.opensuse.org/archives/list/security-announce@lists.opensuse.org/thread/7GIP2AYRG3VCHD6CCU4URBF5KVBKIT63/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1050549",
+				"url": "https://bugzilla.suse.com/1050549"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1067665",
+				"url": "https://bugzilla.suse.com/1067665"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1170630",
+				"url": "https://bugzilla.suse.com/1170630"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1172873",
+				"url": "https://bugzilla.suse.com/1172873"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1175306",
+				"url": "https://bugzilla.suse.com/1175306"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1175721",
+				"url": "https://bugzilla.suse.com/1175721"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1176855",
+				"url": "https://bugzilla.suse.com/1176855"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1176983",
+				"url": "https://bugzilla.suse.com/1176983"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1177397",
+				"url": "https://bugzilla.suse.com/1177397"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1177703",
+				"url": "https://bugzilla.suse.com/1177703"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1177819",
+				"url": "https://bugzilla.suse.com/1177819"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1177820",
+				"url": "https://bugzilla.suse.com/1177820"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1178182",
+				"url": "https://bugzilla.suse.com/1178182"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1178393",
+				"url": "https://bugzilla.suse.com/1178393"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1178589",
+				"url": "https://bugzilla.suse.com/1178589"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1178686",
+				"url": "https://bugzilla.suse.com/1178686"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1178765",
+				"url": "https://bugzilla.suse.com/1178765"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1178782",
+				"url": "https://bugzilla.suse.com/1178782"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1178838",
+				"url": "https://bugzilla.suse.com/1178838"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1178853",
+				"url": "https://bugzilla.suse.com/1178853"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1178854",
+				"url": "https://bugzilla.suse.com/1178854"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1178878",
+				"url": "https://bugzilla.suse.com/1178878"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1178886",
+				"url": "https://bugzilla.suse.com/1178886"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 927455",
+				"url": "https://bugzilla.suse.com/927455"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2020-25669 page",
+				"url": "https://www.suse.com/security/cve/CVE-2020-25669/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2020-25704 page",
+				"url": "https://www.suse.com/security/cve/CVE-2020-25704/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2020-25705 page",
+				"url": "https://www.suse.com/security/cve/CVE-2020-25705/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2020-28915 page",
+				"url": "https://www.suse.com/security/cve/CVE-2020-28915/"
+			}
+		],
+		"title": "Security update for the Linux Kernel",
+		"tracking": {
+			"current_release_date": "2020-11-26T13:50:49Z",
+			"generator": {
+				"date": "2020-11-26T13:50:49Z",
+				"engine": {
+					"name": "cve-database.git:bin/generate-csaf.pl",
+					"version": "1"
+				}
+			},
+			"id": "openSUSE-SU-2020:2034-1",
+			"initial_release_date": "2020-11-26T13:50:49Z",
+			"revision_history": [
+				{
+					"date": "2020-11-26T13:50:49Z",
+					"number": "1",
+					"summary": "Current version"
+				}
+			],
+			"status": "final",
+			"version": "1"
+		}
+	},
+	"product_tree": {
+		"branches": [
+			{
+				"branches": [
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "kernel-devel-4.12.14-lp151.28.83.1.noarch",
+								"product": {
+									"name": "kernel-devel-4.12.14-lp151.28.83.1.noarch",
+									"product_id": "kernel-devel-4.12.14-lp151.28.83.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-docs-4.12.14-lp151.28.83.1.noarch",
+								"product": {
+									"name": "kernel-docs-4.12.14-lp151.28.83.1.noarch",
+									"product_id": "kernel-docs-4.12.14-lp151.28.83.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-docs-html-4.12.14-lp151.28.83.1.noarch",
+								"product": {
+									"name": "kernel-docs-html-4.12.14-lp151.28.83.1.noarch",
+									"product_id": "kernel-docs-html-4.12.14-lp151.28.83.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-macros-4.12.14-lp151.28.83.1.noarch",
+								"product": {
+									"name": "kernel-macros-4.12.14-lp151.28.83.1.noarch",
+									"product_id": "kernel-macros-4.12.14-lp151.28.83.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-source-4.12.14-lp151.28.83.1.noarch",
+								"product": {
+									"name": "kernel-source-4.12.14-lp151.28.83.1.noarch",
+									"product_id": "kernel-source-4.12.14-lp151.28.83.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-source-vanilla-4.12.14-lp151.28.83.1.noarch",
+								"product": {
+									"name": "kernel-source-vanilla-4.12.14-lp151.28.83.1.noarch",
+									"product_id": "kernel-source-vanilla-4.12.14-lp151.28.83.1.noarch"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "noarch"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "kernel-debug-4.12.14-lp151.28.83.1.x86_64",
+								"product": {
+									"name": "kernel-debug-4.12.14-lp151.28.83.1.x86_64",
+									"product_id": "kernel-debug-4.12.14-lp151.28.83.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-debug-base-4.12.14-lp151.28.83.1.x86_64",
+								"product": {
+									"name": "kernel-debug-base-4.12.14-lp151.28.83.1.x86_64",
+									"product_id": "kernel-debug-base-4.12.14-lp151.28.83.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-debug-devel-4.12.14-lp151.28.83.1.x86_64",
+								"product": {
+									"name": "kernel-debug-devel-4.12.14-lp151.28.83.1.x86_64",
+									"product_id": "kernel-debug-devel-4.12.14-lp151.28.83.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-4.12.14-lp151.28.83.1.x86_64",
+								"product": {
+									"name": "kernel-default-4.12.14-lp151.28.83.1.x86_64",
+									"product_id": "kernel-default-4.12.14-lp151.28.83.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-base-4.12.14-lp151.28.83.1.x86_64",
+								"product": {
+									"name": "kernel-default-base-4.12.14-lp151.28.83.1.x86_64",
+									"product_id": "kernel-default-base-4.12.14-lp151.28.83.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-devel-4.12.14-lp151.28.83.1.x86_64",
+								"product": {
+									"name": "kernel-default-devel-4.12.14-lp151.28.83.1.x86_64",
+									"product_id": "kernel-default-devel-4.12.14-lp151.28.83.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-kvmsmall-4.12.14-lp151.28.83.1.x86_64",
+								"product": {
+									"name": "kernel-kvmsmall-4.12.14-lp151.28.83.1.x86_64",
+									"product_id": "kernel-kvmsmall-4.12.14-lp151.28.83.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-kvmsmall-base-4.12.14-lp151.28.83.1.x86_64",
+								"product": {
+									"name": "kernel-kvmsmall-base-4.12.14-lp151.28.83.1.x86_64",
+									"product_id": "kernel-kvmsmall-base-4.12.14-lp151.28.83.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-kvmsmall-devel-4.12.14-lp151.28.83.1.x86_64",
+								"product": {
+									"name": "kernel-kvmsmall-devel-4.12.14-lp151.28.83.1.x86_64",
+									"product_id": "kernel-kvmsmall-devel-4.12.14-lp151.28.83.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-obs-build-4.12.14-lp151.28.83.1.x86_64",
+								"product": {
+									"name": "kernel-obs-build-4.12.14-lp151.28.83.1.x86_64",
+									"product_id": "kernel-obs-build-4.12.14-lp151.28.83.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-obs-qa-4.12.14-lp151.28.83.1.x86_64",
+								"product": {
+									"name": "kernel-obs-qa-4.12.14-lp151.28.83.1.x86_64",
+									"product_id": "kernel-obs-qa-4.12.14-lp151.28.83.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-syms-4.12.14-lp151.28.83.1.x86_64",
+								"product": {
+									"name": "kernel-syms-4.12.14-lp151.28.83.1.x86_64",
+									"product_id": "kernel-syms-4.12.14-lp151.28.83.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-vanilla-4.12.14-lp151.28.83.1.x86_64",
+								"product": {
+									"name": "kernel-vanilla-4.12.14-lp151.28.83.1.x86_64",
+									"product_id": "kernel-vanilla-4.12.14-lp151.28.83.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-vanilla-base-4.12.14-lp151.28.83.1.x86_64",
+								"product": {
+									"name": "kernel-vanilla-base-4.12.14-lp151.28.83.1.x86_64",
+									"product_id": "kernel-vanilla-base-4.12.14-lp151.28.83.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-vanilla-devel-4.12.14-lp151.28.83.1.x86_64",
+								"product": {
+									"name": "kernel-vanilla-devel-4.12.14-lp151.28.83.1.x86_64",
+									"product_id": "kernel-vanilla-devel-4.12.14-lp151.28.83.1.x86_64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "x86_64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_name",
+								"name": "openSUSE Leap 15.1",
+								"product": {
+									"name": "openSUSE Leap 15.1",
+									"product_id": "openSUSE Leap 15.1",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:opensuse:leap:15.1"
+									}
+								}
+							}
+						],
+						"category": "product_family",
+						"name": "SUSE Linux Enterprise"
+					}
+				],
+				"category": "vendor",
+				"name": "SUSE"
+			}
+		],
+		"relationships": [
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-debug-4.12.14-lp151.28.83.1.x86_64 as component of openSUSE Leap 15.1",
+					"product_id": "openSUSE Leap 15.1:kernel-debug-4.12.14-lp151.28.83.1.x86_64"
+				},
+				"product_reference": "kernel-debug-4.12.14-lp151.28.83.1.x86_64",
+				"relates_to_product_reference": "openSUSE Leap 15.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-debug-base-4.12.14-lp151.28.83.1.x86_64 as component of openSUSE Leap 15.1",
+					"product_id": "openSUSE Leap 15.1:kernel-debug-base-4.12.14-lp151.28.83.1.x86_64"
+				},
+				"product_reference": "kernel-debug-base-4.12.14-lp151.28.83.1.x86_64",
+				"relates_to_product_reference": "openSUSE Leap 15.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-debug-devel-4.12.14-lp151.28.83.1.x86_64 as component of openSUSE Leap 15.1",
+					"product_id": "openSUSE Leap 15.1:kernel-debug-devel-4.12.14-lp151.28.83.1.x86_64"
+				},
+				"product_reference": "kernel-debug-devel-4.12.14-lp151.28.83.1.x86_64",
+				"relates_to_product_reference": "openSUSE Leap 15.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-4.12.14-lp151.28.83.1.x86_64 as component of openSUSE Leap 15.1",
+					"product_id": "openSUSE Leap 15.1:kernel-default-4.12.14-lp151.28.83.1.x86_64"
+				},
+				"product_reference": "kernel-default-4.12.14-lp151.28.83.1.x86_64",
+				"relates_to_product_reference": "openSUSE Leap 15.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-base-4.12.14-lp151.28.83.1.x86_64 as component of openSUSE Leap 15.1",
+					"product_id": "openSUSE Leap 15.1:kernel-default-base-4.12.14-lp151.28.83.1.x86_64"
+				},
+				"product_reference": "kernel-default-base-4.12.14-lp151.28.83.1.x86_64",
+				"relates_to_product_reference": "openSUSE Leap 15.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-devel-4.12.14-lp151.28.83.1.x86_64 as component of openSUSE Leap 15.1",
+					"product_id": "openSUSE Leap 15.1:kernel-default-devel-4.12.14-lp151.28.83.1.x86_64"
+				},
+				"product_reference": "kernel-default-devel-4.12.14-lp151.28.83.1.x86_64",
+				"relates_to_product_reference": "openSUSE Leap 15.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-devel-4.12.14-lp151.28.83.1.noarch as component of openSUSE Leap 15.1",
+					"product_id": "openSUSE Leap 15.1:kernel-devel-4.12.14-lp151.28.83.1.noarch"
+				},
+				"product_reference": "kernel-devel-4.12.14-lp151.28.83.1.noarch",
+				"relates_to_product_reference": "openSUSE Leap 15.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-docs-4.12.14-lp151.28.83.1.noarch as component of openSUSE Leap 15.1",
+					"product_id": "openSUSE Leap 15.1:kernel-docs-4.12.14-lp151.28.83.1.noarch"
+				},
+				"product_reference": "kernel-docs-4.12.14-lp151.28.83.1.noarch",
+				"relates_to_product_reference": "openSUSE Leap 15.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-docs-html-4.12.14-lp151.28.83.1.noarch as component of openSUSE Leap 15.1",
+					"product_id": "openSUSE Leap 15.1:kernel-docs-html-4.12.14-lp151.28.83.1.noarch"
+				},
+				"product_reference": "kernel-docs-html-4.12.14-lp151.28.83.1.noarch",
+				"relates_to_product_reference": "openSUSE Leap 15.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-kvmsmall-4.12.14-lp151.28.83.1.x86_64 as component of openSUSE Leap 15.1",
+					"product_id": "openSUSE Leap 15.1:kernel-kvmsmall-4.12.14-lp151.28.83.1.x86_64"
+				},
+				"product_reference": "kernel-kvmsmall-4.12.14-lp151.28.83.1.x86_64",
+				"relates_to_product_reference": "openSUSE Leap 15.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-kvmsmall-base-4.12.14-lp151.28.83.1.x86_64 as component of openSUSE Leap 15.1",
+					"product_id": "openSUSE Leap 15.1:kernel-kvmsmall-base-4.12.14-lp151.28.83.1.x86_64"
+				},
+				"product_reference": "kernel-kvmsmall-base-4.12.14-lp151.28.83.1.x86_64",
+				"relates_to_product_reference": "openSUSE Leap 15.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-kvmsmall-devel-4.12.14-lp151.28.83.1.x86_64 as component of openSUSE Leap 15.1",
+					"product_id": "openSUSE Leap 15.1:kernel-kvmsmall-devel-4.12.14-lp151.28.83.1.x86_64"
+				},
+				"product_reference": "kernel-kvmsmall-devel-4.12.14-lp151.28.83.1.x86_64",
+				"relates_to_product_reference": "openSUSE Leap 15.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-macros-4.12.14-lp151.28.83.1.noarch as component of openSUSE Leap 15.1",
+					"product_id": "openSUSE Leap 15.1:kernel-macros-4.12.14-lp151.28.83.1.noarch"
+				},
+				"product_reference": "kernel-macros-4.12.14-lp151.28.83.1.noarch",
+				"relates_to_product_reference": "openSUSE Leap 15.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-obs-build-4.12.14-lp151.28.83.1.x86_64 as component of openSUSE Leap 15.1",
+					"product_id": "openSUSE Leap 15.1:kernel-obs-build-4.12.14-lp151.28.83.1.x86_64"
+				},
+				"product_reference": "kernel-obs-build-4.12.14-lp151.28.83.1.x86_64",
+				"relates_to_product_reference": "openSUSE Leap 15.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-obs-qa-4.12.14-lp151.28.83.1.x86_64 as component of openSUSE Leap 15.1",
+					"product_id": "openSUSE Leap 15.1:kernel-obs-qa-4.12.14-lp151.28.83.1.x86_64"
+				},
+				"product_reference": "kernel-obs-qa-4.12.14-lp151.28.83.1.x86_64",
+				"relates_to_product_reference": "openSUSE Leap 15.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-source-4.12.14-lp151.28.83.1.noarch as component of openSUSE Leap 15.1",
+					"product_id": "openSUSE Leap 15.1:kernel-source-4.12.14-lp151.28.83.1.noarch"
+				},
+				"product_reference": "kernel-source-4.12.14-lp151.28.83.1.noarch",
+				"relates_to_product_reference": "openSUSE Leap 15.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-source-vanilla-4.12.14-lp151.28.83.1.noarch as component of openSUSE Leap 15.1",
+					"product_id": "openSUSE Leap 15.1:kernel-source-vanilla-4.12.14-lp151.28.83.1.noarch"
+				},
+				"product_reference": "kernel-source-vanilla-4.12.14-lp151.28.83.1.noarch",
+				"relates_to_product_reference": "openSUSE Leap 15.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-syms-4.12.14-lp151.28.83.1.x86_64 as component of openSUSE Leap 15.1",
+					"product_id": "openSUSE Leap 15.1:kernel-syms-4.12.14-lp151.28.83.1.x86_64"
+				},
+				"product_reference": "kernel-syms-4.12.14-lp151.28.83.1.x86_64",
+				"relates_to_product_reference": "openSUSE Leap 15.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-vanilla-4.12.14-lp151.28.83.1.x86_64 as component of openSUSE Leap 15.1",
+					"product_id": "openSUSE Leap 15.1:kernel-vanilla-4.12.14-lp151.28.83.1.x86_64"
+				},
+				"product_reference": "kernel-vanilla-4.12.14-lp151.28.83.1.x86_64",
+				"relates_to_product_reference": "openSUSE Leap 15.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-vanilla-base-4.12.14-lp151.28.83.1.x86_64 as component of openSUSE Leap 15.1",
+					"product_id": "openSUSE Leap 15.1:kernel-vanilla-base-4.12.14-lp151.28.83.1.x86_64"
+				},
+				"product_reference": "kernel-vanilla-base-4.12.14-lp151.28.83.1.x86_64",
+				"relates_to_product_reference": "openSUSE Leap 15.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-vanilla-devel-4.12.14-lp151.28.83.1.x86_64 as component of openSUSE Leap 15.1",
+					"product_id": "openSUSE Leap 15.1:kernel-vanilla-devel-4.12.14-lp151.28.83.1.x86_64"
+				},
+				"product_reference": "kernel-vanilla-devel-4.12.14-lp151.28.83.1.x86_64",
+				"relates_to_product_reference": "openSUSE Leap 15.1"
+			}
+		]
+	},
+	"vulnerabilities": [
+		{
+			"cve": "CVE-2020-25669",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2020-25669"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A vulnerability was found in the Linux Kernel where the function sunkbd_reinit having been scheduled by sunkbd_interrupt before sunkbd being freed. Though the dangling pointer is set to NULL in sunkbd_disconnect, there is still an alias in sunkbd_reinit causing Use After Free.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"openSUSE Leap 15.1:kernel-debug-4.12.14-lp151.28.83.1.x86_64",
+					"openSUSE Leap 15.1:kernel-debug-base-4.12.14-lp151.28.83.1.x86_64",
+					"openSUSE Leap 15.1:kernel-debug-devel-4.12.14-lp151.28.83.1.x86_64",
+					"openSUSE Leap 15.1:kernel-default-4.12.14-lp151.28.83.1.x86_64",
+					"openSUSE Leap 15.1:kernel-default-base-4.12.14-lp151.28.83.1.x86_64",
+					"openSUSE Leap 15.1:kernel-default-devel-4.12.14-lp151.28.83.1.x86_64",
+					"openSUSE Leap 15.1:kernel-devel-4.12.14-lp151.28.83.1.noarch",
+					"openSUSE Leap 15.1:kernel-docs-4.12.14-lp151.28.83.1.noarch",
+					"openSUSE Leap 15.1:kernel-docs-html-4.12.14-lp151.28.83.1.noarch",
+					"openSUSE Leap 15.1:kernel-kvmsmall-4.12.14-lp151.28.83.1.x86_64",
+					"openSUSE Leap 15.1:kernel-kvmsmall-base-4.12.14-lp151.28.83.1.x86_64",
+					"openSUSE Leap 15.1:kernel-kvmsmall-devel-4.12.14-lp151.28.83.1.x86_64",
+					"openSUSE Leap 15.1:kernel-macros-4.12.14-lp151.28.83.1.noarch",
+					"openSUSE Leap 15.1:kernel-obs-build-4.12.14-lp151.28.83.1.x86_64",
+					"openSUSE Leap 15.1:kernel-obs-qa-4.12.14-lp151.28.83.1.x86_64",
+					"openSUSE Leap 15.1:kernel-source-4.12.14-lp151.28.83.1.noarch",
+					"openSUSE Leap 15.1:kernel-source-vanilla-4.12.14-lp151.28.83.1.noarch",
+					"openSUSE Leap 15.1:kernel-syms-4.12.14-lp151.28.83.1.x86_64",
+					"openSUSE Leap 15.1:kernel-vanilla-4.12.14-lp151.28.83.1.x86_64",
+					"openSUSE Leap 15.1:kernel-vanilla-base-4.12.14-lp151.28.83.1.x86_64",
+					"openSUSE Leap 15.1:kernel-vanilla-devel-4.12.14-lp151.28.83.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2020-25669",
+					"url": "https://www.suse.com/security/cve/CVE-2020-25669"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1178182 for CVE-2020-25669",
+					"url": "https://bugzilla.suse.com/1178182"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"openSUSE Leap 15.1:kernel-debug-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-debug-base-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-debug-devel-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-default-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-default-base-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-default-devel-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-devel-4.12.14-lp151.28.83.1.noarch",
+						"openSUSE Leap 15.1:kernel-docs-4.12.14-lp151.28.83.1.noarch",
+						"openSUSE Leap 15.1:kernel-docs-html-4.12.14-lp151.28.83.1.noarch",
+						"openSUSE Leap 15.1:kernel-kvmsmall-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-kvmsmall-base-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-kvmsmall-devel-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-macros-4.12.14-lp151.28.83.1.noarch",
+						"openSUSE Leap 15.1:kernel-obs-build-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-obs-qa-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-source-4.12.14-lp151.28.83.1.noarch",
+						"openSUSE Leap 15.1:kernel-source-vanilla-4.12.14-lp151.28.83.1.noarch",
+						"openSUSE Leap 15.1:kernel-syms-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-vanilla-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-vanilla-base-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-vanilla-devel-4.12.14-lp151.28.83.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 4.3,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:P/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"openSUSE Leap 15.1:kernel-debug-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-debug-base-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-debug-devel-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-default-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-default-base-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-default-devel-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-devel-4.12.14-lp151.28.83.1.noarch",
+						"openSUSE Leap 15.1:kernel-docs-4.12.14-lp151.28.83.1.noarch",
+						"openSUSE Leap 15.1:kernel-docs-html-4.12.14-lp151.28.83.1.noarch",
+						"openSUSE Leap 15.1:kernel-kvmsmall-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-kvmsmall-base-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-kvmsmall-devel-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-macros-4.12.14-lp151.28.83.1.noarch",
+						"openSUSE Leap 15.1:kernel-obs-build-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-obs-qa-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-source-4.12.14-lp151.28.83.1.noarch",
+						"openSUSE Leap 15.1:kernel-source-vanilla-4.12.14-lp151.28.83.1.noarch",
+						"openSUSE Leap 15.1:kernel-syms-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-vanilla-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-vanilla-base-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-vanilla-devel-4.12.14-lp151.28.83.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2020-11-26T13:50:49Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2020-25669"
+		},
+		{
+			"cve": "CVE-2020-25704",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2020-25704"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A flaw memory leak in the Linux kernel performance monitoring subsystem was found in the way if using PERF_EVENT_IOC_SET_FILTER. A local user could use this flaw to starve the resources causing denial of service.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"openSUSE Leap 15.1:kernel-debug-4.12.14-lp151.28.83.1.x86_64",
+					"openSUSE Leap 15.1:kernel-debug-base-4.12.14-lp151.28.83.1.x86_64",
+					"openSUSE Leap 15.1:kernel-debug-devel-4.12.14-lp151.28.83.1.x86_64",
+					"openSUSE Leap 15.1:kernel-default-4.12.14-lp151.28.83.1.x86_64",
+					"openSUSE Leap 15.1:kernel-default-base-4.12.14-lp151.28.83.1.x86_64",
+					"openSUSE Leap 15.1:kernel-default-devel-4.12.14-lp151.28.83.1.x86_64",
+					"openSUSE Leap 15.1:kernel-devel-4.12.14-lp151.28.83.1.noarch",
+					"openSUSE Leap 15.1:kernel-docs-4.12.14-lp151.28.83.1.noarch",
+					"openSUSE Leap 15.1:kernel-docs-html-4.12.14-lp151.28.83.1.noarch",
+					"openSUSE Leap 15.1:kernel-kvmsmall-4.12.14-lp151.28.83.1.x86_64",
+					"openSUSE Leap 15.1:kernel-kvmsmall-base-4.12.14-lp151.28.83.1.x86_64",
+					"openSUSE Leap 15.1:kernel-kvmsmall-devel-4.12.14-lp151.28.83.1.x86_64",
+					"openSUSE Leap 15.1:kernel-macros-4.12.14-lp151.28.83.1.noarch",
+					"openSUSE Leap 15.1:kernel-obs-build-4.12.14-lp151.28.83.1.x86_64",
+					"openSUSE Leap 15.1:kernel-obs-qa-4.12.14-lp151.28.83.1.x86_64",
+					"openSUSE Leap 15.1:kernel-source-4.12.14-lp151.28.83.1.noarch",
+					"openSUSE Leap 15.1:kernel-source-vanilla-4.12.14-lp151.28.83.1.noarch",
+					"openSUSE Leap 15.1:kernel-syms-4.12.14-lp151.28.83.1.x86_64",
+					"openSUSE Leap 15.1:kernel-vanilla-4.12.14-lp151.28.83.1.x86_64",
+					"openSUSE Leap 15.1:kernel-vanilla-base-4.12.14-lp151.28.83.1.x86_64",
+					"openSUSE Leap 15.1:kernel-vanilla-devel-4.12.14-lp151.28.83.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2020-25704",
+					"url": "https://www.suse.com/security/cve/CVE-2020-25704"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1178393 for CVE-2020-25704",
+					"url": "https://bugzilla.suse.com/1178393"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"openSUSE Leap 15.1:kernel-debug-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-debug-base-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-debug-devel-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-default-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-default-base-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-default-devel-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-devel-4.12.14-lp151.28.83.1.noarch",
+						"openSUSE Leap 15.1:kernel-docs-4.12.14-lp151.28.83.1.noarch",
+						"openSUSE Leap 15.1:kernel-docs-html-4.12.14-lp151.28.83.1.noarch",
+						"openSUSE Leap 15.1:kernel-kvmsmall-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-kvmsmall-base-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-kvmsmall-devel-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-macros-4.12.14-lp151.28.83.1.noarch",
+						"openSUSE Leap 15.1:kernel-obs-build-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-obs-qa-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-source-4.12.14-lp151.28.83.1.noarch",
+						"openSUSE Leap 15.1:kernel-source-vanilla-4.12.14-lp151.28.83.1.noarch",
+						"openSUSE Leap 15.1:kernel-syms-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-vanilla-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-vanilla-base-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-vanilla-devel-4.12.14-lp151.28.83.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 6.2,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"openSUSE Leap 15.1:kernel-debug-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-debug-base-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-debug-devel-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-default-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-default-base-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-default-devel-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-devel-4.12.14-lp151.28.83.1.noarch",
+						"openSUSE Leap 15.1:kernel-docs-4.12.14-lp151.28.83.1.noarch",
+						"openSUSE Leap 15.1:kernel-docs-html-4.12.14-lp151.28.83.1.noarch",
+						"openSUSE Leap 15.1:kernel-kvmsmall-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-kvmsmall-base-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-kvmsmall-devel-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-macros-4.12.14-lp151.28.83.1.noarch",
+						"openSUSE Leap 15.1:kernel-obs-build-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-obs-qa-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-source-4.12.14-lp151.28.83.1.noarch",
+						"openSUSE Leap 15.1:kernel-source-vanilla-4.12.14-lp151.28.83.1.noarch",
+						"openSUSE Leap 15.1:kernel-syms-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-vanilla-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-vanilla-base-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-vanilla-devel-4.12.14-lp151.28.83.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2020-11-26T13:50:49Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2020-25704"
+		},
+		{
+			"cve": "CVE-2020-25705",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2020-25705"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A flaw in ICMP packets in the Linux kernel may allow an attacker to quickly scan open UDP ports. This flaw allows an off-path remote attacker to effectively bypass source port UDP randomization. Software that relies on UDP source port randomization are indirectly affected as well on the Linux Based Products (RUGGEDCOM RM1224: All versions between v5.0 and v6.4, SCALANCE M-800: All versions between v5.0 and v6.4, SCALANCE S615: All versions between v5.0 and v6.4, SCALANCE SC-600: All versions prior to v2.1.3, SCALANCE W1750D: v8.3.0.1, v8.6.0, and v8.7.0, SIMATIC Cloud Connect 7: All versions, SIMATIC MV500 Family: All versions, SIMATIC NET CP 1243-1 (incl. SIPLUS variants): Versions 3.1.39 and later, SIMATIC NET CP 1243-7 LTE EU: Version",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"openSUSE Leap 15.1:kernel-debug-4.12.14-lp151.28.83.1.x86_64",
+					"openSUSE Leap 15.1:kernel-debug-base-4.12.14-lp151.28.83.1.x86_64",
+					"openSUSE Leap 15.1:kernel-debug-devel-4.12.14-lp151.28.83.1.x86_64",
+					"openSUSE Leap 15.1:kernel-default-4.12.14-lp151.28.83.1.x86_64",
+					"openSUSE Leap 15.1:kernel-default-base-4.12.14-lp151.28.83.1.x86_64",
+					"openSUSE Leap 15.1:kernel-default-devel-4.12.14-lp151.28.83.1.x86_64",
+					"openSUSE Leap 15.1:kernel-devel-4.12.14-lp151.28.83.1.noarch",
+					"openSUSE Leap 15.1:kernel-docs-4.12.14-lp151.28.83.1.noarch",
+					"openSUSE Leap 15.1:kernel-docs-html-4.12.14-lp151.28.83.1.noarch",
+					"openSUSE Leap 15.1:kernel-kvmsmall-4.12.14-lp151.28.83.1.x86_64",
+					"openSUSE Leap 15.1:kernel-kvmsmall-base-4.12.14-lp151.28.83.1.x86_64",
+					"openSUSE Leap 15.1:kernel-kvmsmall-devel-4.12.14-lp151.28.83.1.x86_64",
+					"openSUSE Leap 15.1:kernel-macros-4.12.14-lp151.28.83.1.noarch",
+					"openSUSE Leap 15.1:kernel-obs-build-4.12.14-lp151.28.83.1.x86_64",
+					"openSUSE Leap 15.1:kernel-obs-qa-4.12.14-lp151.28.83.1.x86_64",
+					"openSUSE Leap 15.1:kernel-source-4.12.14-lp151.28.83.1.noarch",
+					"openSUSE Leap 15.1:kernel-source-vanilla-4.12.14-lp151.28.83.1.noarch",
+					"openSUSE Leap 15.1:kernel-syms-4.12.14-lp151.28.83.1.x86_64",
+					"openSUSE Leap 15.1:kernel-vanilla-4.12.14-lp151.28.83.1.x86_64",
+					"openSUSE Leap 15.1:kernel-vanilla-base-4.12.14-lp151.28.83.1.x86_64",
+					"openSUSE Leap 15.1:kernel-vanilla-devel-4.12.14-lp151.28.83.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2020-25705",
+					"url": "https://www.suse.com/security/cve/CVE-2020-25705"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1175721 for CVE-2020-25705",
+					"url": "https://bugzilla.suse.com/1175721"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1178782 for CVE-2020-25705",
+					"url": "https://bugzilla.suse.com/1178782"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1178783 for CVE-2020-25705",
+					"url": "https://bugzilla.suse.com/1178783"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1191790 for CVE-2020-25705",
+					"url": "https://bugzilla.suse.com/1191790"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"openSUSE Leap 15.1:kernel-debug-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-debug-base-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-debug-devel-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-default-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-default-base-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-default-devel-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-devel-4.12.14-lp151.28.83.1.noarch",
+						"openSUSE Leap 15.1:kernel-docs-4.12.14-lp151.28.83.1.noarch",
+						"openSUSE Leap 15.1:kernel-docs-html-4.12.14-lp151.28.83.1.noarch",
+						"openSUSE Leap 15.1:kernel-kvmsmall-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-kvmsmall-base-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-kvmsmall-devel-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-macros-4.12.14-lp151.28.83.1.noarch",
+						"openSUSE Leap 15.1:kernel-obs-build-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-obs-qa-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-source-4.12.14-lp151.28.83.1.noarch",
+						"openSUSE Leap 15.1:kernel-source-vanilla-4.12.14-lp151.28.83.1.noarch",
+						"openSUSE Leap 15.1:kernel-syms-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-vanilla-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-vanilla-base-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-vanilla-devel-4.12.14-lp151.28.83.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.4,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N",
+						"version": "3.1"
+					},
+					"products": [
+						"openSUSE Leap 15.1:kernel-debug-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-debug-base-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-debug-devel-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-default-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-default-base-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-default-devel-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-devel-4.12.14-lp151.28.83.1.noarch",
+						"openSUSE Leap 15.1:kernel-docs-4.12.14-lp151.28.83.1.noarch",
+						"openSUSE Leap 15.1:kernel-docs-html-4.12.14-lp151.28.83.1.noarch",
+						"openSUSE Leap 15.1:kernel-kvmsmall-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-kvmsmall-base-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-kvmsmall-devel-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-macros-4.12.14-lp151.28.83.1.noarch",
+						"openSUSE Leap 15.1:kernel-obs-build-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-obs-qa-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-source-4.12.14-lp151.28.83.1.noarch",
+						"openSUSE Leap 15.1:kernel-source-vanilla-4.12.14-lp151.28.83.1.noarch",
+						"openSUSE Leap 15.1:kernel-syms-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-vanilla-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-vanilla-base-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-vanilla-devel-4.12.14-lp151.28.83.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2020-11-26T13:50:49Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2020-25705"
+		},
+		{
+			"cve": "CVE-2020-28915",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2020-28915"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A buffer over-read (at the framebuffer layer) in the fbcon code in the Linux kernel before 5.8.15 could be used by local attackers to read kernel memory, aka CID-6735b4632def.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"openSUSE Leap 15.1:kernel-debug-4.12.14-lp151.28.83.1.x86_64",
+					"openSUSE Leap 15.1:kernel-debug-base-4.12.14-lp151.28.83.1.x86_64",
+					"openSUSE Leap 15.1:kernel-debug-devel-4.12.14-lp151.28.83.1.x86_64",
+					"openSUSE Leap 15.1:kernel-default-4.12.14-lp151.28.83.1.x86_64",
+					"openSUSE Leap 15.1:kernel-default-base-4.12.14-lp151.28.83.1.x86_64",
+					"openSUSE Leap 15.1:kernel-default-devel-4.12.14-lp151.28.83.1.x86_64",
+					"openSUSE Leap 15.1:kernel-devel-4.12.14-lp151.28.83.1.noarch",
+					"openSUSE Leap 15.1:kernel-docs-4.12.14-lp151.28.83.1.noarch",
+					"openSUSE Leap 15.1:kernel-docs-html-4.12.14-lp151.28.83.1.noarch",
+					"openSUSE Leap 15.1:kernel-kvmsmall-4.12.14-lp151.28.83.1.x86_64",
+					"openSUSE Leap 15.1:kernel-kvmsmall-base-4.12.14-lp151.28.83.1.x86_64",
+					"openSUSE Leap 15.1:kernel-kvmsmall-devel-4.12.14-lp151.28.83.1.x86_64",
+					"openSUSE Leap 15.1:kernel-macros-4.12.14-lp151.28.83.1.noarch",
+					"openSUSE Leap 15.1:kernel-obs-build-4.12.14-lp151.28.83.1.x86_64",
+					"openSUSE Leap 15.1:kernel-obs-qa-4.12.14-lp151.28.83.1.x86_64",
+					"openSUSE Leap 15.1:kernel-source-4.12.14-lp151.28.83.1.noarch",
+					"openSUSE Leap 15.1:kernel-source-vanilla-4.12.14-lp151.28.83.1.noarch",
+					"openSUSE Leap 15.1:kernel-syms-4.12.14-lp151.28.83.1.x86_64",
+					"openSUSE Leap 15.1:kernel-vanilla-4.12.14-lp151.28.83.1.x86_64",
+					"openSUSE Leap 15.1:kernel-vanilla-base-4.12.14-lp151.28.83.1.x86_64",
+					"openSUSE Leap 15.1:kernel-vanilla-devel-4.12.14-lp151.28.83.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2020-28915",
+					"url": "https://www.suse.com/security/cve/CVE-2020-28915"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1178886 for CVE-2020-28915",
+					"url": "https://bugzilla.suse.com/1178886"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"openSUSE Leap 15.1:kernel-debug-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-debug-base-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-debug-devel-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-default-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-default-base-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-default-devel-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-devel-4.12.14-lp151.28.83.1.noarch",
+						"openSUSE Leap 15.1:kernel-docs-4.12.14-lp151.28.83.1.noarch",
+						"openSUSE Leap 15.1:kernel-docs-html-4.12.14-lp151.28.83.1.noarch",
+						"openSUSE Leap 15.1:kernel-kvmsmall-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-kvmsmall-base-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-kvmsmall-devel-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-macros-4.12.14-lp151.28.83.1.noarch",
+						"openSUSE Leap 15.1:kernel-obs-build-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-obs-qa-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-source-4.12.14-lp151.28.83.1.noarch",
+						"openSUSE Leap 15.1:kernel-source-vanilla-4.12.14-lp151.28.83.1.noarch",
+						"openSUSE Leap 15.1:kernel-syms-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-vanilla-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-vanilla-base-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-vanilla-devel-4.12.14-lp151.28.83.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 5.1,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:L",
+						"version": "3.1"
+					},
+					"products": [
+						"openSUSE Leap 15.1:kernel-debug-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-debug-base-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-debug-devel-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-default-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-default-base-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-default-devel-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-devel-4.12.14-lp151.28.83.1.noarch",
+						"openSUSE Leap 15.1:kernel-docs-4.12.14-lp151.28.83.1.noarch",
+						"openSUSE Leap 15.1:kernel-docs-html-4.12.14-lp151.28.83.1.noarch",
+						"openSUSE Leap 15.1:kernel-kvmsmall-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-kvmsmall-base-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-kvmsmall-devel-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-macros-4.12.14-lp151.28.83.1.noarch",
+						"openSUSE Leap 15.1:kernel-obs-build-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-obs-qa-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-source-4.12.14-lp151.28.83.1.noarch",
+						"openSUSE Leap 15.1:kernel-source-vanilla-4.12.14-lp151.28.83.1.noarch",
+						"openSUSE Leap 15.1:kernel-syms-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-vanilla-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-vanilla-base-4.12.14-lp151.28.83.1.x86_64",
+						"openSUSE Leap 15.1:kernel-vanilla-devel-4.12.14-lp151.28.83.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2020-11-26T13:50:49Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2020-28915"
+		}
+	]
+}

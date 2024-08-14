@@ -1,0 +1,3129 @@
+{
+	"document": {
+		"aggregate_severity": {
+			"namespace": "https://www.suse.com/support/security/rating/",
+			"text": "important"
+		},
+		"category": "csaf_security_advisory",
+		"csaf_version": "2.0",
+		"distribution": {
+			"text": "Copyright 2024 SUSE LLC. All rights reserved.",
+			"tlp": {
+				"label": "WHITE",
+				"url": "https://www.first.org/tlp/"
+			}
+		},
+		"lang": "en",
+		"notes": [
+			{
+				"category": "summary",
+				"text": "Recommended update for libzypp, zypper, libsolv and PackageKit",
+				"title": "Title of the patch"
+			},
+			{
+				"category": "description",
+				"text": "This update for libzypp, zypper, libsolv and PackageKit fixes the following issues:\n\nSecurity issues fixed in libsolv:\n\n- CVE-2018-20532: Fixed NULL pointer dereference at ext/testcase.c (function testcase_read) (bsc#1120629).\n- CVE-2018-20533: Fixed NULL pointer dereference at ext/testcase.c (function testcase_str2dep_complex) in libsolvext.a (bsc#1120630).\n- CVE-2018-20534: Fixed illegal address access at src/pool.h (function pool_whatprovides) in libsolv.a (bsc#1120631).\n\nOther issues addressed in libsolv:\n\n- Fixed an issue where libsolv failed to build against swig 4.0 by updating the version to 0.7.5 (bsc#1135749).\n- Fixed an issue with the package name (bsc#1131823).\n- repo_add_rpmdb: do not copy bad solvables from the old solv file\n- Fixed an issue with  cleandeps updates in which all packages were not updated\n- Experimental DISTTYPE_CONDA and REL_CONDA support\n- Fixed cleandeps jobs when using patterns (bsc#1137977)\n- Fixed favorq leaking between solver runs if the solver is reused\n- Fixed SOLVER_FLAG_FOCUS_BEST updateing packages without reason\n- Be more correct with multiversion packages that obsolete their own name (bnc#1127155)\n- Fix repository priority handling for multiversion packages\n- Make code compatible with swig 4.0, remove obj0 instances\n- repo2solv: support zchunk compressed data\n- Remove NO_BRP_STRIP_DEBUG=true as brp-15-strip-debug will\n  not strip debug info for archives\n\nIssues fixed in libzypp:\n\n- Fix empty metalink downloads if filesize is unknown (bsc#1153557)\n- Recognize riscv64 as architecture\n- Fix installation of new header file (fixes #185)\n- zypp.conf: Introduce `solver.focus` to define the resolvers general\n  attitude when resolving jobs. (bsc#1146415)\n- New container detection algorithm for zypper ps (bsc#1146947)\n- Fix leaking filedescriptors in MediaCurl. (bsc#1116995)\n- Run file conflict check on dry-run. (bsc#1140039)\n- Do not remove orphan products if the .prod file is owned by\n  a package. (bsc#1139795)\n- Rephrase file conflict check summary. (bsc#1140039)\n- Fix bash completions option detection. (bsc#1049825)\n- Fixes a bug where zypper exited on SIGPIPE when downloading packages (bsc#1145521)\n- Fixes an issue where zypper exited with a segmentation fault when updating via YaST2 (bsc#1146027)\n- PublicKey::algoName: supply key algorithm and length\n\nIssues fixed in zypper:\n\n- Update to version 1.14.30\n- Ignore SIGPIPE while STDOUT/STDERR are OK (bsc#1145521)\n- Dump stacktrace on SIGPIPE (bsc#1145521)\n- info: The requested info must be shown in QUIET mode (fixes #287)\n- Fix local/remote url classification.\n- Rephrase file conflict check summary (bsc#1140039)\n- Fix bash completions option detection (bsc#1049825)\n- man: split '--with[out]' like options to ease searching.\n- Unhided 'ps' command in help\n- Added option to show more conflict information\n- Rephrased `zypper ps` hint (bsc#859480)\n- Fixed repo refresh not returning 106-ZYPPER_EXIT_INF_REPOS_SKIPPED\n  if --root is used (bsc#1134226)\n- Fixed unknown package handling in zypper install (bsc#1127608)\n- Re-show progress bar after pressing retry upon install error (bsc#1131113)\n\n\nIssues fixed in PackageKit:\n\n- Port the cron configuration variables to the systemd timer script, and add -sendwait\n  parameter to mail in the script(bsc#1130306).\n\n",
+				"title": "Description of the patch"
+			},
+			{
+				"category": "details",
+				"text": "SUSE-2019-2742,SUSE-SLE-Module-Basesystem-15-SP1-2019-2742,SUSE-SLE-Module-Desktop-Applications-15-SP1-2019-2742,SUSE-SLE-Module-Development-Tools-15-SP1-2019-2742,SUSE-SLE-Module-Development-Tools-OBS-15-SP1-2019-2742,SUSE-SLE-Module-Packagehub-Subpackages-15-SP1-2019-2742,SUSE-SLE-Product-WE-15-SP1-2019-2742",
+				"title": "Patchnames"
+			},
+			{
+				"category": "legal_disclaimer",
+				"text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+				"title": "Terms of use"
+			}
+		],
+		"publisher": {
+			"category": "vendor",
+			"contact_details": "https://www.suse.com/support/security/contact/",
+			"name": "SUSE Product Security Team",
+			"namespace": "https://www.suse.com/"
+		},
+		"references": [
+			{
+				"category": "external",
+				"summary": "SUSE ratings",
+				"url": "https://www.suse.com/support/security/rating/"
+			},
+			{
+				"category": "self",
+				"summary": "URL of this CSAF notice",
+				"url": "https://ftp.suse.com/pub/projects/security/csaf/suse-ru-2019_2742-1.json"
+			},
+			{
+				"category": "self",
+				"summary": "URL for SUSE-RU-2019:2742-1",
+				"url": "https://www.suse.com/support/update/announcement//suse-ru-20192742-1/"
+			},
+			{
+				"category": "self",
+				"summary": "E-Mail link for SUSE-RU-2019:2742-1",
+				"url": "https://lists.suse.com/pipermail/sle-updates/2019-October/012808.html"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1049825",
+				"url": "https://bugzilla.suse.com/1049825"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1116995",
+				"url": "https://bugzilla.suse.com/1116995"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1120629",
+				"url": "https://bugzilla.suse.com/1120629"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1120630",
+				"url": "https://bugzilla.suse.com/1120630"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1120631",
+				"url": "https://bugzilla.suse.com/1120631"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1127155",
+				"url": "https://bugzilla.suse.com/1127155"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1127608",
+				"url": "https://bugzilla.suse.com/1127608"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1130306",
+				"url": "https://bugzilla.suse.com/1130306"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1131113",
+				"url": "https://bugzilla.suse.com/1131113"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1131823",
+				"url": "https://bugzilla.suse.com/1131823"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1134226",
+				"url": "https://bugzilla.suse.com/1134226"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1135749",
+				"url": "https://bugzilla.suse.com/1135749"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1137977",
+				"url": "https://bugzilla.suse.com/1137977"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1139795",
+				"url": "https://bugzilla.suse.com/1139795"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1140039",
+				"url": "https://bugzilla.suse.com/1140039"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1145521",
+				"url": "https://bugzilla.suse.com/1145521"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1146027",
+				"url": "https://bugzilla.suse.com/1146027"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1146415",
+				"url": "https://bugzilla.suse.com/1146415"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1146947",
+				"url": "https://bugzilla.suse.com/1146947"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1153557",
+				"url": "https://bugzilla.suse.com/1153557"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 859480",
+				"url": "https://bugzilla.suse.com/859480"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2018-20532 page",
+				"url": "https://www.suse.com/security/cve/CVE-2018-20532/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2018-20533 page",
+				"url": "https://www.suse.com/security/cve/CVE-2018-20533/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2018-20534 page",
+				"url": "https://www.suse.com/security/cve/CVE-2018-20534/"
+			}
+		],
+		"title": "Recommended update for libzypp, zypper, libsolv and PackageKit",
+		"tracking": {
+			"current_release_date": "2019-10-22T13:40:42Z",
+			"generator": {
+				"date": "2019-10-22T13:40:42Z",
+				"engine": {
+					"name": "cve-database.git:bin/generate-csaf.pl",
+					"version": "1"
+				}
+			},
+			"id": "SUSE-RU-2019:2742-1",
+			"initial_release_date": "2019-10-22T13:40:42Z",
+			"revision_history": [
+				{
+					"date": "2019-10-22T13:40:42Z",
+					"number": "1",
+					"summary": "Current version"
+				}
+			],
+			"status": "final",
+			"version": "1"
+		}
+	},
+	"product_tree": {
+		"branches": [
+			{
+				"branches": [
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "PackageKit-1.1.10-12.3.5.aarch64",
+								"product": {
+									"name": "PackageKit-1.1.10-12.3.5.aarch64",
+									"product_id": "PackageKit-1.1.10-12.3.5.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "PackageKit-backend-zypp-1.1.10-12.3.5.aarch64",
+								"product": {
+									"name": "PackageKit-backend-zypp-1.1.10-12.3.5.aarch64",
+									"product_id": "PackageKit-backend-zypp-1.1.10-12.3.5.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "PackageKit-devel-1.1.10-12.3.5.aarch64",
+								"product": {
+									"name": "PackageKit-devel-1.1.10-12.3.5.aarch64",
+									"product_id": "PackageKit-devel-1.1.10-12.3.5.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "PackageKit-gstreamer-plugin-1.1.10-12.3.5.aarch64",
+								"product": {
+									"name": "PackageKit-gstreamer-plugin-1.1.10-12.3.5.aarch64",
+									"product_id": "PackageKit-gstreamer-plugin-1.1.10-12.3.5.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "PackageKit-gtk3-module-1.1.10-12.3.5.aarch64",
+								"product": {
+									"name": "PackageKit-gtk3-module-1.1.10-12.3.5.aarch64",
+									"product_id": "PackageKit-gtk3-module-1.1.10-12.3.5.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libpackagekit-glib2-18-1.1.10-12.3.5.aarch64",
+								"product": {
+									"name": "libpackagekit-glib2-18-1.1.10-12.3.5.aarch64",
+									"product_id": "libpackagekit-glib2-18-1.1.10-12.3.5.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libpackagekit-glib2-devel-1.1.10-12.3.5.aarch64",
+								"product": {
+									"name": "libpackagekit-glib2-devel-1.1.10-12.3.5.aarch64",
+									"product_id": "libpackagekit-glib2-devel-1.1.10-12.3.5.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libsolv-demo-0.7.6-3.7.2.aarch64",
+								"product": {
+									"name": "libsolv-demo-0.7.6-3.7.2.aarch64",
+									"product_id": "libsolv-demo-0.7.6-3.7.2.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libsolv-devel-0.7.6-3.7.2.aarch64",
+								"product": {
+									"name": "libsolv-devel-0.7.6-3.7.2.aarch64",
+									"product_id": "libsolv-devel-0.7.6-3.7.2.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libsolv-tools-0.7.6-3.7.2.aarch64",
+								"product": {
+									"name": "libsolv-tools-0.7.6-3.7.2.aarch64",
+									"product_id": "libsolv-tools-0.7.6-3.7.2.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libyui-ncurses-pkg-devel-2.48.9-7.3.5.aarch64",
+								"product": {
+									"name": "libyui-ncurses-pkg-devel-2.48.9-7.3.5.aarch64",
+									"product_id": "libyui-ncurses-pkg-devel-2.48.9-7.3.5.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libyui-ncurses-pkg9-2.48.9-7.3.5.aarch64",
+								"product": {
+									"name": "libyui-ncurses-pkg9-2.48.9-7.3.5.aarch64",
+									"product_id": "libyui-ncurses-pkg9-2.48.9-7.3.5.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libyui-qt-pkg-devel-2.45.27-3.3.5.aarch64",
+								"product": {
+									"name": "libyui-qt-pkg-devel-2.45.27-3.3.5.aarch64",
+									"product_id": "libyui-qt-pkg-devel-2.45.27-3.3.5.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libyui-qt-pkg9-2.45.27-3.3.5.aarch64",
+								"product": {
+									"name": "libyui-qt-pkg9-2.45.27-3.3.5.aarch64",
+									"product_id": "libyui-qt-pkg9-2.45.27-3.3.5.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libzypp-17.15.0-3.9.1.aarch64",
+								"product": {
+									"name": "libzypp-17.15.0-3.9.1.aarch64",
+									"product_id": "libzypp-17.15.0-3.9.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libzypp-devel-17.15.0-3.9.1.aarch64",
+								"product": {
+									"name": "libzypp-devel-17.15.0-3.9.1.aarch64",
+									"product_id": "libzypp-devel-17.15.0-3.9.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libzypp-devel-doc-17.15.0-3.9.1.aarch64",
+								"product": {
+									"name": "libzypp-devel-doc-17.15.0-3.9.1.aarch64",
+									"product_id": "libzypp-devel-doc-17.15.0-3.9.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "perl-solv-0.7.6-3.7.2.aarch64",
+								"product": {
+									"name": "perl-solv-0.7.6-3.7.2.aarch64",
+									"product_id": "perl-solv-0.7.6-3.7.2.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "python-solv-0.7.6-3.7.2.aarch64",
+								"product": {
+									"name": "python-solv-0.7.6-3.7.2.aarch64",
+									"product_id": "python-solv-0.7.6-3.7.2.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "python3-solv-0.7.6-3.7.2.aarch64",
+								"product": {
+									"name": "python3-solv-0.7.6-3.7.2.aarch64",
+									"product_id": "python3-solv-0.7.6-3.7.2.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "ruby-solv-0.7.6-3.7.2.aarch64",
+								"product": {
+									"name": "ruby-solv-0.7.6-3.7.2.aarch64",
+									"product_id": "ruby-solv-0.7.6-3.7.2.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.aarch64",
+								"product": {
+									"name": "typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.aarch64",
+									"product_id": "typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "yast2-pkg-bindings-4.1.2-3.3.5.aarch64",
+								"product": {
+									"name": "yast2-pkg-bindings-4.1.2-3.3.5.aarch64",
+									"product_id": "yast2-pkg-bindings-4.1.2-3.3.5.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "zypper-1.14.30-3.7.2.aarch64",
+								"product": {
+									"name": "zypper-1.14.30-3.7.2.aarch64",
+									"product_id": "zypper-1.14.30-3.7.2.aarch64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "aarch64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "libpackagekit-glib2-18-64bit-1.1.10-12.3.5.aarch64_ilp32",
+								"product": {
+									"name": "libpackagekit-glib2-18-64bit-1.1.10-12.3.5.aarch64_ilp32",
+									"product_id": "libpackagekit-glib2-18-64bit-1.1.10-12.3.5.aarch64_ilp32"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libpackagekit-glib2-devel-64bit-1.1.10-12.3.5.aarch64_ilp32",
+								"product": {
+									"name": "libpackagekit-glib2-devel-64bit-1.1.10-12.3.5.aarch64_ilp32",
+									"product_id": "libpackagekit-glib2-devel-64bit-1.1.10-12.3.5.aarch64_ilp32"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "aarch64_ilp32"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "PackageKit-1.1.10-12.3.5.i586",
+								"product": {
+									"name": "PackageKit-1.1.10-12.3.5.i586",
+									"product_id": "PackageKit-1.1.10-12.3.5.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "PackageKit-backend-zypp-1.1.10-12.3.5.i586",
+								"product": {
+									"name": "PackageKit-backend-zypp-1.1.10-12.3.5.i586",
+									"product_id": "PackageKit-backend-zypp-1.1.10-12.3.5.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "PackageKit-devel-1.1.10-12.3.5.i586",
+								"product": {
+									"name": "PackageKit-devel-1.1.10-12.3.5.i586",
+									"product_id": "PackageKit-devel-1.1.10-12.3.5.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "PackageKit-gstreamer-plugin-1.1.10-12.3.5.i586",
+								"product": {
+									"name": "PackageKit-gstreamer-plugin-1.1.10-12.3.5.i586",
+									"product_id": "PackageKit-gstreamer-plugin-1.1.10-12.3.5.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "PackageKit-gtk3-module-1.1.10-12.3.5.i586",
+								"product": {
+									"name": "PackageKit-gtk3-module-1.1.10-12.3.5.i586",
+									"product_id": "PackageKit-gtk3-module-1.1.10-12.3.5.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libpackagekit-glib2-18-1.1.10-12.3.5.i586",
+								"product": {
+									"name": "libpackagekit-glib2-18-1.1.10-12.3.5.i586",
+									"product_id": "libpackagekit-glib2-18-1.1.10-12.3.5.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libpackagekit-glib2-devel-1.1.10-12.3.5.i586",
+								"product": {
+									"name": "libpackagekit-glib2-devel-1.1.10-12.3.5.i586",
+									"product_id": "libpackagekit-glib2-devel-1.1.10-12.3.5.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libsolv-demo-0.7.6-3.7.2.i586",
+								"product": {
+									"name": "libsolv-demo-0.7.6-3.7.2.i586",
+									"product_id": "libsolv-demo-0.7.6-3.7.2.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libsolv-devel-0.7.6-3.7.2.i586",
+								"product": {
+									"name": "libsolv-devel-0.7.6-3.7.2.i586",
+									"product_id": "libsolv-devel-0.7.6-3.7.2.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libsolv-tools-0.7.6-3.7.2.i586",
+								"product": {
+									"name": "libsolv-tools-0.7.6-3.7.2.i586",
+									"product_id": "libsolv-tools-0.7.6-3.7.2.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libyui-ncurses-pkg-devel-2.48.9-7.3.5.i586",
+								"product": {
+									"name": "libyui-ncurses-pkg-devel-2.48.9-7.3.5.i586",
+									"product_id": "libyui-ncurses-pkg-devel-2.48.9-7.3.5.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libyui-ncurses-pkg9-2.48.9-7.3.5.i586",
+								"product": {
+									"name": "libyui-ncurses-pkg9-2.48.9-7.3.5.i586",
+									"product_id": "libyui-ncurses-pkg9-2.48.9-7.3.5.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libyui-qt-pkg-devel-2.45.27-3.3.5.i586",
+								"product": {
+									"name": "libyui-qt-pkg-devel-2.45.27-3.3.5.i586",
+									"product_id": "libyui-qt-pkg-devel-2.45.27-3.3.5.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libyui-qt-pkg9-2.45.27-3.3.5.i586",
+								"product": {
+									"name": "libyui-qt-pkg9-2.45.27-3.3.5.i586",
+									"product_id": "libyui-qt-pkg9-2.45.27-3.3.5.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libzypp-17.15.0-3.9.1.i586",
+								"product": {
+									"name": "libzypp-17.15.0-3.9.1.i586",
+									"product_id": "libzypp-17.15.0-3.9.1.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libzypp-devel-17.15.0-3.9.1.i586",
+								"product": {
+									"name": "libzypp-devel-17.15.0-3.9.1.i586",
+									"product_id": "libzypp-devel-17.15.0-3.9.1.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libzypp-devel-doc-17.15.0-3.9.1.i586",
+								"product": {
+									"name": "libzypp-devel-doc-17.15.0-3.9.1.i586",
+									"product_id": "libzypp-devel-doc-17.15.0-3.9.1.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "perl-solv-0.7.6-3.7.2.i586",
+								"product": {
+									"name": "perl-solv-0.7.6-3.7.2.i586",
+									"product_id": "perl-solv-0.7.6-3.7.2.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "python-solv-0.7.6-3.7.2.i586",
+								"product": {
+									"name": "python-solv-0.7.6-3.7.2.i586",
+									"product_id": "python-solv-0.7.6-3.7.2.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "python3-solv-0.7.6-3.7.2.i586",
+								"product": {
+									"name": "python3-solv-0.7.6-3.7.2.i586",
+									"product_id": "python3-solv-0.7.6-3.7.2.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "ruby-solv-0.7.6-3.7.2.i586",
+								"product": {
+									"name": "ruby-solv-0.7.6-3.7.2.i586",
+									"product_id": "ruby-solv-0.7.6-3.7.2.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.i586",
+								"product": {
+									"name": "typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.i586",
+									"product_id": "typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "yast2-pkg-bindings-4.1.2-3.3.5.i586",
+								"product": {
+									"name": "yast2-pkg-bindings-4.1.2-3.3.5.i586",
+									"product_id": "yast2-pkg-bindings-4.1.2-3.3.5.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "zypper-1.14.30-3.7.2.i586",
+								"product": {
+									"name": "zypper-1.14.30-3.7.2.i586",
+									"product_id": "zypper-1.14.30-3.7.2.i586"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "i586"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "PackageKit-branding-upstream-1.1.10-12.3.5.noarch",
+								"product": {
+									"name": "PackageKit-branding-upstream-1.1.10-12.3.5.noarch",
+									"product_id": "PackageKit-branding-upstream-1.1.10-12.3.5.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "PackageKit-lang-1.1.10-12.3.5.noarch",
+								"product": {
+									"name": "PackageKit-lang-1.1.10-12.3.5.noarch",
+									"product_id": "PackageKit-lang-1.1.10-12.3.5.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libyui-ncurses-pkg-doc-2.48.9-7.3.3.noarch",
+								"product": {
+									"name": "libyui-ncurses-pkg-doc-2.48.9-7.3.3.noarch",
+									"product_id": "libyui-ncurses-pkg-doc-2.48.9-7.3.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libyui-qt-pkg-doc-2.45.27-3.3.3.noarch",
+								"product": {
+									"name": "libyui-qt-pkg-doc-2.45.27-3.3.3.noarch",
+									"product_id": "libyui-qt-pkg-doc-2.45.27-3.3.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "yast2-pkg-bindings-devel-doc-4.1.2-3.3.5.noarch",
+								"product": {
+									"name": "yast2-pkg-bindings-devel-doc-4.1.2-3.3.5.noarch",
+									"product_id": "yast2-pkg-bindings-devel-doc-4.1.2-3.3.5.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "zypper-aptitude-1.14.30-3.7.2.noarch",
+								"product": {
+									"name": "zypper-aptitude-1.14.30-3.7.2.noarch",
+									"product_id": "zypper-aptitude-1.14.30-3.7.2.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "zypper-log-1.14.30-3.7.2.noarch",
+								"product": {
+									"name": "zypper-log-1.14.30-3.7.2.noarch",
+									"product_id": "zypper-log-1.14.30-3.7.2.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "zypper-needs-restarting-1.14.30-3.7.2.noarch",
+								"product": {
+									"name": "zypper-needs-restarting-1.14.30-3.7.2.noarch",
+									"product_id": "zypper-needs-restarting-1.14.30-3.7.2.noarch"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "noarch"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "PackageKit-1.1.10-12.3.5.ppc64le",
+								"product": {
+									"name": "PackageKit-1.1.10-12.3.5.ppc64le",
+									"product_id": "PackageKit-1.1.10-12.3.5.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "PackageKit-backend-zypp-1.1.10-12.3.5.ppc64le",
+								"product": {
+									"name": "PackageKit-backend-zypp-1.1.10-12.3.5.ppc64le",
+									"product_id": "PackageKit-backend-zypp-1.1.10-12.3.5.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "PackageKit-devel-1.1.10-12.3.5.ppc64le",
+								"product": {
+									"name": "PackageKit-devel-1.1.10-12.3.5.ppc64le",
+									"product_id": "PackageKit-devel-1.1.10-12.3.5.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "PackageKit-gstreamer-plugin-1.1.10-12.3.5.ppc64le",
+								"product": {
+									"name": "PackageKit-gstreamer-plugin-1.1.10-12.3.5.ppc64le",
+									"product_id": "PackageKit-gstreamer-plugin-1.1.10-12.3.5.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "PackageKit-gtk3-module-1.1.10-12.3.5.ppc64le",
+								"product": {
+									"name": "PackageKit-gtk3-module-1.1.10-12.3.5.ppc64le",
+									"product_id": "PackageKit-gtk3-module-1.1.10-12.3.5.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libpackagekit-glib2-18-1.1.10-12.3.5.ppc64le",
+								"product": {
+									"name": "libpackagekit-glib2-18-1.1.10-12.3.5.ppc64le",
+									"product_id": "libpackagekit-glib2-18-1.1.10-12.3.5.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libpackagekit-glib2-devel-1.1.10-12.3.5.ppc64le",
+								"product": {
+									"name": "libpackagekit-glib2-devel-1.1.10-12.3.5.ppc64le",
+									"product_id": "libpackagekit-glib2-devel-1.1.10-12.3.5.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libsolv-demo-0.7.6-3.7.2.ppc64le",
+								"product": {
+									"name": "libsolv-demo-0.7.6-3.7.2.ppc64le",
+									"product_id": "libsolv-demo-0.7.6-3.7.2.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libsolv-devel-0.7.6-3.7.2.ppc64le",
+								"product": {
+									"name": "libsolv-devel-0.7.6-3.7.2.ppc64le",
+									"product_id": "libsolv-devel-0.7.6-3.7.2.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libsolv-tools-0.7.6-3.7.2.ppc64le",
+								"product": {
+									"name": "libsolv-tools-0.7.6-3.7.2.ppc64le",
+									"product_id": "libsolv-tools-0.7.6-3.7.2.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libyui-ncurses-pkg-devel-2.48.9-7.3.5.ppc64le",
+								"product": {
+									"name": "libyui-ncurses-pkg-devel-2.48.9-7.3.5.ppc64le",
+									"product_id": "libyui-ncurses-pkg-devel-2.48.9-7.3.5.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libyui-ncurses-pkg9-2.48.9-7.3.5.ppc64le",
+								"product": {
+									"name": "libyui-ncurses-pkg9-2.48.9-7.3.5.ppc64le",
+									"product_id": "libyui-ncurses-pkg9-2.48.9-7.3.5.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libyui-qt-pkg-devel-2.45.27-3.3.5.ppc64le",
+								"product": {
+									"name": "libyui-qt-pkg-devel-2.45.27-3.3.5.ppc64le",
+									"product_id": "libyui-qt-pkg-devel-2.45.27-3.3.5.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libyui-qt-pkg9-2.45.27-3.3.5.ppc64le",
+								"product": {
+									"name": "libyui-qt-pkg9-2.45.27-3.3.5.ppc64le",
+									"product_id": "libyui-qt-pkg9-2.45.27-3.3.5.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libzypp-17.15.0-3.9.1.ppc64le",
+								"product": {
+									"name": "libzypp-17.15.0-3.9.1.ppc64le",
+									"product_id": "libzypp-17.15.0-3.9.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libzypp-devel-17.15.0-3.9.1.ppc64le",
+								"product": {
+									"name": "libzypp-devel-17.15.0-3.9.1.ppc64le",
+									"product_id": "libzypp-devel-17.15.0-3.9.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libzypp-devel-doc-17.15.0-3.9.1.ppc64le",
+								"product": {
+									"name": "libzypp-devel-doc-17.15.0-3.9.1.ppc64le",
+									"product_id": "libzypp-devel-doc-17.15.0-3.9.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "perl-solv-0.7.6-3.7.2.ppc64le",
+								"product": {
+									"name": "perl-solv-0.7.6-3.7.2.ppc64le",
+									"product_id": "perl-solv-0.7.6-3.7.2.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "python-solv-0.7.6-3.7.2.ppc64le",
+								"product": {
+									"name": "python-solv-0.7.6-3.7.2.ppc64le",
+									"product_id": "python-solv-0.7.6-3.7.2.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "python3-solv-0.7.6-3.7.2.ppc64le",
+								"product": {
+									"name": "python3-solv-0.7.6-3.7.2.ppc64le",
+									"product_id": "python3-solv-0.7.6-3.7.2.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "ruby-solv-0.7.6-3.7.2.ppc64le",
+								"product": {
+									"name": "ruby-solv-0.7.6-3.7.2.ppc64le",
+									"product_id": "ruby-solv-0.7.6-3.7.2.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.ppc64le",
+								"product": {
+									"name": "typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.ppc64le",
+									"product_id": "typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "yast2-pkg-bindings-4.1.2-3.3.5.ppc64le",
+								"product": {
+									"name": "yast2-pkg-bindings-4.1.2-3.3.5.ppc64le",
+									"product_id": "yast2-pkg-bindings-4.1.2-3.3.5.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "zypper-1.14.30-3.7.2.ppc64le",
+								"product": {
+									"name": "zypper-1.14.30-3.7.2.ppc64le",
+									"product_id": "zypper-1.14.30-3.7.2.ppc64le"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "ppc64le"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "PackageKit-1.1.10-12.3.5.s390x",
+								"product": {
+									"name": "PackageKit-1.1.10-12.3.5.s390x",
+									"product_id": "PackageKit-1.1.10-12.3.5.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "PackageKit-backend-zypp-1.1.10-12.3.5.s390x",
+								"product": {
+									"name": "PackageKit-backend-zypp-1.1.10-12.3.5.s390x",
+									"product_id": "PackageKit-backend-zypp-1.1.10-12.3.5.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "PackageKit-devel-1.1.10-12.3.5.s390x",
+								"product": {
+									"name": "PackageKit-devel-1.1.10-12.3.5.s390x",
+									"product_id": "PackageKit-devel-1.1.10-12.3.5.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "PackageKit-gstreamer-plugin-1.1.10-12.3.5.s390x",
+								"product": {
+									"name": "PackageKit-gstreamer-plugin-1.1.10-12.3.5.s390x",
+									"product_id": "PackageKit-gstreamer-plugin-1.1.10-12.3.5.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "PackageKit-gtk3-module-1.1.10-12.3.5.s390x",
+								"product": {
+									"name": "PackageKit-gtk3-module-1.1.10-12.3.5.s390x",
+									"product_id": "PackageKit-gtk3-module-1.1.10-12.3.5.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libpackagekit-glib2-18-1.1.10-12.3.5.s390x",
+								"product": {
+									"name": "libpackagekit-glib2-18-1.1.10-12.3.5.s390x",
+									"product_id": "libpackagekit-glib2-18-1.1.10-12.3.5.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libpackagekit-glib2-devel-1.1.10-12.3.5.s390x",
+								"product": {
+									"name": "libpackagekit-glib2-devel-1.1.10-12.3.5.s390x",
+									"product_id": "libpackagekit-glib2-devel-1.1.10-12.3.5.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libsolv-demo-0.7.6-3.7.2.s390x",
+								"product": {
+									"name": "libsolv-demo-0.7.6-3.7.2.s390x",
+									"product_id": "libsolv-demo-0.7.6-3.7.2.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libsolv-devel-0.7.6-3.7.2.s390x",
+								"product": {
+									"name": "libsolv-devel-0.7.6-3.7.2.s390x",
+									"product_id": "libsolv-devel-0.7.6-3.7.2.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libsolv-tools-0.7.6-3.7.2.s390x",
+								"product": {
+									"name": "libsolv-tools-0.7.6-3.7.2.s390x",
+									"product_id": "libsolv-tools-0.7.6-3.7.2.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libyui-ncurses-pkg-devel-2.48.9-7.3.5.s390x",
+								"product": {
+									"name": "libyui-ncurses-pkg-devel-2.48.9-7.3.5.s390x",
+									"product_id": "libyui-ncurses-pkg-devel-2.48.9-7.3.5.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libyui-ncurses-pkg9-2.48.9-7.3.5.s390x",
+								"product": {
+									"name": "libyui-ncurses-pkg9-2.48.9-7.3.5.s390x",
+									"product_id": "libyui-ncurses-pkg9-2.48.9-7.3.5.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libyui-qt-pkg-devel-2.45.27-3.3.5.s390x",
+								"product": {
+									"name": "libyui-qt-pkg-devel-2.45.27-3.3.5.s390x",
+									"product_id": "libyui-qt-pkg-devel-2.45.27-3.3.5.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libyui-qt-pkg9-2.45.27-3.3.5.s390x",
+								"product": {
+									"name": "libyui-qt-pkg9-2.45.27-3.3.5.s390x",
+									"product_id": "libyui-qt-pkg9-2.45.27-3.3.5.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libzypp-17.15.0-3.9.1.s390x",
+								"product": {
+									"name": "libzypp-17.15.0-3.9.1.s390x",
+									"product_id": "libzypp-17.15.0-3.9.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libzypp-devel-17.15.0-3.9.1.s390x",
+								"product": {
+									"name": "libzypp-devel-17.15.0-3.9.1.s390x",
+									"product_id": "libzypp-devel-17.15.0-3.9.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libzypp-devel-doc-17.15.0-3.9.1.s390x",
+								"product": {
+									"name": "libzypp-devel-doc-17.15.0-3.9.1.s390x",
+									"product_id": "libzypp-devel-doc-17.15.0-3.9.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "perl-solv-0.7.6-3.7.2.s390x",
+								"product": {
+									"name": "perl-solv-0.7.6-3.7.2.s390x",
+									"product_id": "perl-solv-0.7.6-3.7.2.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "python-solv-0.7.6-3.7.2.s390x",
+								"product": {
+									"name": "python-solv-0.7.6-3.7.2.s390x",
+									"product_id": "python-solv-0.7.6-3.7.2.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "python3-solv-0.7.6-3.7.2.s390x",
+								"product": {
+									"name": "python3-solv-0.7.6-3.7.2.s390x",
+									"product_id": "python3-solv-0.7.6-3.7.2.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "ruby-solv-0.7.6-3.7.2.s390x",
+								"product": {
+									"name": "ruby-solv-0.7.6-3.7.2.s390x",
+									"product_id": "ruby-solv-0.7.6-3.7.2.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.s390x",
+								"product": {
+									"name": "typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.s390x",
+									"product_id": "typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "yast2-pkg-bindings-4.1.2-3.3.5.s390x",
+								"product": {
+									"name": "yast2-pkg-bindings-4.1.2-3.3.5.s390x",
+									"product_id": "yast2-pkg-bindings-4.1.2-3.3.5.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "zypper-1.14.30-3.7.2.s390x",
+								"product": {
+									"name": "zypper-1.14.30-3.7.2.s390x",
+									"product_id": "zypper-1.14.30-3.7.2.s390x"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "s390x"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "PackageKit-1.1.10-12.3.5.x86_64",
+								"product": {
+									"name": "PackageKit-1.1.10-12.3.5.x86_64",
+									"product_id": "PackageKit-1.1.10-12.3.5.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "PackageKit-backend-zypp-1.1.10-12.3.5.x86_64",
+								"product": {
+									"name": "PackageKit-backend-zypp-1.1.10-12.3.5.x86_64",
+									"product_id": "PackageKit-backend-zypp-1.1.10-12.3.5.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "PackageKit-devel-1.1.10-12.3.5.x86_64",
+								"product": {
+									"name": "PackageKit-devel-1.1.10-12.3.5.x86_64",
+									"product_id": "PackageKit-devel-1.1.10-12.3.5.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "PackageKit-gstreamer-plugin-1.1.10-12.3.5.x86_64",
+								"product": {
+									"name": "PackageKit-gstreamer-plugin-1.1.10-12.3.5.x86_64",
+									"product_id": "PackageKit-gstreamer-plugin-1.1.10-12.3.5.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "PackageKit-gtk3-module-1.1.10-12.3.5.x86_64",
+								"product": {
+									"name": "PackageKit-gtk3-module-1.1.10-12.3.5.x86_64",
+									"product_id": "PackageKit-gtk3-module-1.1.10-12.3.5.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libpackagekit-glib2-18-1.1.10-12.3.5.x86_64",
+								"product": {
+									"name": "libpackagekit-glib2-18-1.1.10-12.3.5.x86_64",
+									"product_id": "libpackagekit-glib2-18-1.1.10-12.3.5.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libpackagekit-glib2-18-32bit-1.1.10-12.3.5.x86_64",
+								"product": {
+									"name": "libpackagekit-glib2-18-32bit-1.1.10-12.3.5.x86_64",
+									"product_id": "libpackagekit-glib2-18-32bit-1.1.10-12.3.5.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libpackagekit-glib2-devel-1.1.10-12.3.5.x86_64",
+								"product": {
+									"name": "libpackagekit-glib2-devel-1.1.10-12.3.5.x86_64",
+									"product_id": "libpackagekit-glib2-devel-1.1.10-12.3.5.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libpackagekit-glib2-devel-32bit-1.1.10-12.3.5.x86_64",
+								"product": {
+									"name": "libpackagekit-glib2-devel-32bit-1.1.10-12.3.5.x86_64",
+									"product_id": "libpackagekit-glib2-devel-32bit-1.1.10-12.3.5.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libsolv-demo-0.7.6-3.7.2.x86_64",
+								"product": {
+									"name": "libsolv-demo-0.7.6-3.7.2.x86_64",
+									"product_id": "libsolv-demo-0.7.6-3.7.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libsolv-devel-0.7.6-3.7.2.x86_64",
+								"product": {
+									"name": "libsolv-devel-0.7.6-3.7.2.x86_64",
+									"product_id": "libsolv-devel-0.7.6-3.7.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libsolv-tools-0.7.6-3.7.2.x86_64",
+								"product": {
+									"name": "libsolv-tools-0.7.6-3.7.2.x86_64",
+									"product_id": "libsolv-tools-0.7.6-3.7.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libyui-ncurses-pkg-devel-2.48.9-7.3.5.x86_64",
+								"product": {
+									"name": "libyui-ncurses-pkg-devel-2.48.9-7.3.5.x86_64",
+									"product_id": "libyui-ncurses-pkg-devel-2.48.9-7.3.5.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libyui-ncurses-pkg9-2.48.9-7.3.5.x86_64",
+								"product": {
+									"name": "libyui-ncurses-pkg9-2.48.9-7.3.5.x86_64",
+									"product_id": "libyui-ncurses-pkg9-2.48.9-7.3.5.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libyui-qt-pkg-devel-2.45.27-3.3.5.x86_64",
+								"product": {
+									"name": "libyui-qt-pkg-devel-2.45.27-3.3.5.x86_64",
+									"product_id": "libyui-qt-pkg-devel-2.45.27-3.3.5.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libyui-qt-pkg9-2.45.27-3.3.5.x86_64",
+								"product": {
+									"name": "libyui-qt-pkg9-2.45.27-3.3.5.x86_64",
+									"product_id": "libyui-qt-pkg9-2.45.27-3.3.5.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libzypp-17.15.0-3.9.1.x86_64",
+								"product": {
+									"name": "libzypp-17.15.0-3.9.1.x86_64",
+									"product_id": "libzypp-17.15.0-3.9.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libzypp-devel-17.15.0-3.9.1.x86_64",
+								"product": {
+									"name": "libzypp-devel-17.15.0-3.9.1.x86_64",
+									"product_id": "libzypp-devel-17.15.0-3.9.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libzypp-devel-doc-17.15.0-3.9.1.x86_64",
+								"product": {
+									"name": "libzypp-devel-doc-17.15.0-3.9.1.x86_64",
+									"product_id": "libzypp-devel-doc-17.15.0-3.9.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "perl-solv-0.7.6-3.7.2.x86_64",
+								"product": {
+									"name": "perl-solv-0.7.6-3.7.2.x86_64",
+									"product_id": "perl-solv-0.7.6-3.7.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "python-solv-0.7.6-3.7.2.x86_64",
+								"product": {
+									"name": "python-solv-0.7.6-3.7.2.x86_64",
+									"product_id": "python-solv-0.7.6-3.7.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "python3-solv-0.7.6-3.7.2.x86_64",
+								"product": {
+									"name": "python3-solv-0.7.6-3.7.2.x86_64",
+									"product_id": "python3-solv-0.7.6-3.7.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "ruby-solv-0.7.6-3.7.2.x86_64",
+								"product": {
+									"name": "ruby-solv-0.7.6-3.7.2.x86_64",
+									"product_id": "ruby-solv-0.7.6-3.7.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.x86_64",
+								"product": {
+									"name": "typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.x86_64",
+									"product_id": "typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "yast2-pkg-bindings-4.1.2-3.3.5.x86_64",
+								"product": {
+									"name": "yast2-pkg-bindings-4.1.2-3.3.5.x86_64",
+									"product_id": "yast2-pkg-bindings-4.1.2-3.3.5.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "zypper-1.14.30-3.7.2.x86_64",
+								"product": {
+									"name": "zypper-1.14.30-3.7.2.x86_64",
+									"product_id": "zypper-1.14.30-3.7.2.x86_64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "x86_64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Module for Basesystem 15 SP1",
+								"product": {
+									"name": "SUSE Linux Enterprise Module for Basesystem 15 SP1",
+									"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-module-basesystem:15:sp1"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1",
+								"product": {
+									"name": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1",
+									"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-module-desktop-applications:15:sp1"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Module for Development Tools 15 SP1",
+								"product": {
+									"name": "SUSE Linux Enterprise Module for Development Tools 15 SP1",
+									"product_id": "SUSE Linux Enterprise Module for Development Tools 15 SP1",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-module-development-tools:15:sp1"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Module for Package Hub 15 SP1",
+								"product": {
+									"name": "SUSE Linux Enterprise Module for Package Hub 15 SP1",
+									"product_id": "SUSE Linux Enterprise Module for Package Hub 15 SP1",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:packagehub:15:sp1"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Workstation Extension 15 SP1",
+								"product": {
+									"name": "SUSE Linux Enterprise Workstation Extension 15 SP1",
+									"product_id": "SUSE Linux Enterprise Workstation Extension 15 SP1",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-we:15:sp1"
+									}
+								}
+							}
+						],
+						"category": "product_family",
+						"name": "SUSE Linux Enterprise"
+					}
+				],
+				"category": "vendor",
+				"name": "SUSE"
+			}
+		],
+		"relationships": [
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libsolv-devel-0.7.6-3.7.2.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-devel-0.7.6-3.7.2.aarch64"
+				},
+				"product_reference": "libsolv-devel-0.7.6-3.7.2.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libsolv-devel-0.7.6-3.7.2.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-devel-0.7.6-3.7.2.ppc64le"
+				},
+				"product_reference": "libsolv-devel-0.7.6-3.7.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libsolv-devel-0.7.6-3.7.2.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-devel-0.7.6-3.7.2.s390x"
+				},
+				"product_reference": "libsolv-devel-0.7.6-3.7.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libsolv-devel-0.7.6-3.7.2.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-devel-0.7.6-3.7.2.x86_64"
+				},
+				"product_reference": "libsolv-devel-0.7.6-3.7.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libsolv-tools-0.7.6-3.7.2.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-tools-0.7.6-3.7.2.aarch64"
+				},
+				"product_reference": "libsolv-tools-0.7.6-3.7.2.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libsolv-tools-0.7.6-3.7.2.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-tools-0.7.6-3.7.2.ppc64le"
+				},
+				"product_reference": "libsolv-tools-0.7.6-3.7.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libsolv-tools-0.7.6-3.7.2.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-tools-0.7.6-3.7.2.s390x"
+				},
+				"product_reference": "libsolv-tools-0.7.6-3.7.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libsolv-tools-0.7.6-3.7.2.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-tools-0.7.6-3.7.2.x86_64"
+				},
+				"product_reference": "libsolv-tools-0.7.6-3.7.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libyui-ncurses-pkg-devel-2.48.9-7.3.5.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg-devel-2.48.9-7.3.5.aarch64"
+				},
+				"product_reference": "libyui-ncurses-pkg-devel-2.48.9-7.3.5.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libyui-ncurses-pkg-devel-2.48.9-7.3.5.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg-devel-2.48.9-7.3.5.ppc64le"
+				},
+				"product_reference": "libyui-ncurses-pkg-devel-2.48.9-7.3.5.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libyui-ncurses-pkg-devel-2.48.9-7.3.5.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg-devel-2.48.9-7.3.5.s390x"
+				},
+				"product_reference": "libyui-ncurses-pkg-devel-2.48.9-7.3.5.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libyui-ncurses-pkg-devel-2.48.9-7.3.5.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg-devel-2.48.9-7.3.5.x86_64"
+				},
+				"product_reference": "libyui-ncurses-pkg-devel-2.48.9-7.3.5.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libyui-ncurses-pkg-doc-2.48.9-7.3.3.noarch as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg-doc-2.48.9-7.3.3.noarch"
+				},
+				"product_reference": "libyui-ncurses-pkg-doc-2.48.9-7.3.3.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libyui-ncurses-pkg9-2.48.9-7.3.5.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg9-2.48.9-7.3.5.aarch64"
+				},
+				"product_reference": "libyui-ncurses-pkg9-2.48.9-7.3.5.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libyui-ncurses-pkg9-2.48.9-7.3.5.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg9-2.48.9-7.3.5.ppc64le"
+				},
+				"product_reference": "libyui-ncurses-pkg9-2.48.9-7.3.5.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libyui-ncurses-pkg9-2.48.9-7.3.5.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg9-2.48.9-7.3.5.s390x"
+				},
+				"product_reference": "libyui-ncurses-pkg9-2.48.9-7.3.5.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libyui-ncurses-pkg9-2.48.9-7.3.5.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg9-2.48.9-7.3.5.x86_64"
+				},
+				"product_reference": "libyui-ncurses-pkg9-2.48.9-7.3.5.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libyui-qt-pkg-doc-2.45.27-3.3.3.noarch as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-qt-pkg-doc-2.45.27-3.3.3.noarch"
+				},
+				"product_reference": "libyui-qt-pkg-doc-2.45.27-3.3.3.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libyui-qt-pkg9-2.45.27-3.3.5.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-qt-pkg9-2.45.27-3.3.5.aarch64"
+				},
+				"product_reference": "libyui-qt-pkg9-2.45.27-3.3.5.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libyui-qt-pkg9-2.45.27-3.3.5.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-qt-pkg9-2.45.27-3.3.5.ppc64le"
+				},
+				"product_reference": "libyui-qt-pkg9-2.45.27-3.3.5.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libyui-qt-pkg9-2.45.27-3.3.5.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-qt-pkg9-2.45.27-3.3.5.s390x"
+				},
+				"product_reference": "libyui-qt-pkg9-2.45.27-3.3.5.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libyui-qt-pkg9-2.45.27-3.3.5.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-qt-pkg9-2.45.27-3.3.5.x86_64"
+				},
+				"product_reference": "libyui-qt-pkg9-2.45.27-3.3.5.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libzypp-17.15.0-3.9.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-17.15.0-3.9.1.aarch64"
+				},
+				"product_reference": "libzypp-17.15.0-3.9.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libzypp-17.15.0-3.9.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-17.15.0-3.9.1.ppc64le"
+				},
+				"product_reference": "libzypp-17.15.0-3.9.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libzypp-17.15.0-3.9.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-17.15.0-3.9.1.s390x"
+				},
+				"product_reference": "libzypp-17.15.0-3.9.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libzypp-17.15.0-3.9.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-17.15.0-3.9.1.x86_64"
+				},
+				"product_reference": "libzypp-17.15.0-3.9.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libzypp-devel-17.15.0-3.9.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-devel-17.15.0-3.9.1.aarch64"
+				},
+				"product_reference": "libzypp-devel-17.15.0-3.9.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libzypp-devel-17.15.0-3.9.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-devel-17.15.0-3.9.1.ppc64le"
+				},
+				"product_reference": "libzypp-devel-17.15.0-3.9.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libzypp-devel-17.15.0-3.9.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-devel-17.15.0-3.9.1.s390x"
+				},
+				"product_reference": "libzypp-devel-17.15.0-3.9.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libzypp-devel-17.15.0-3.9.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-devel-17.15.0-3.9.1.x86_64"
+				},
+				"product_reference": "libzypp-devel-17.15.0-3.9.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "python3-solv-0.7.6-3.7.2.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-solv-0.7.6-3.7.2.aarch64"
+				},
+				"product_reference": "python3-solv-0.7.6-3.7.2.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "python3-solv-0.7.6-3.7.2.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-solv-0.7.6-3.7.2.ppc64le"
+				},
+				"product_reference": "python3-solv-0.7.6-3.7.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "python3-solv-0.7.6-3.7.2.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-solv-0.7.6-3.7.2.s390x"
+				},
+				"product_reference": "python3-solv-0.7.6-3.7.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "python3-solv-0.7.6-3.7.2.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-solv-0.7.6-3.7.2.x86_64"
+				},
+				"product_reference": "python3-solv-0.7.6-3.7.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "yast2-pkg-bindings-4.1.2-3.3.5.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:yast2-pkg-bindings-4.1.2-3.3.5.aarch64"
+				},
+				"product_reference": "yast2-pkg-bindings-4.1.2-3.3.5.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "yast2-pkg-bindings-4.1.2-3.3.5.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:yast2-pkg-bindings-4.1.2-3.3.5.ppc64le"
+				},
+				"product_reference": "yast2-pkg-bindings-4.1.2-3.3.5.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "yast2-pkg-bindings-4.1.2-3.3.5.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:yast2-pkg-bindings-4.1.2-3.3.5.s390x"
+				},
+				"product_reference": "yast2-pkg-bindings-4.1.2-3.3.5.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "yast2-pkg-bindings-4.1.2-3.3.5.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:yast2-pkg-bindings-4.1.2-3.3.5.x86_64"
+				},
+				"product_reference": "yast2-pkg-bindings-4.1.2-3.3.5.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "zypper-1.14.30-3.7.2.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-1.14.30-3.7.2.aarch64"
+				},
+				"product_reference": "zypper-1.14.30-3.7.2.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "zypper-1.14.30-3.7.2.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-1.14.30-3.7.2.ppc64le"
+				},
+				"product_reference": "zypper-1.14.30-3.7.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "zypper-1.14.30-3.7.2.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-1.14.30-3.7.2.s390x"
+				},
+				"product_reference": "zypper-1.14.30-3.7.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "zypper-1.14.30-3.7.2.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-1.14.30-3.7.2.x86_64"
+				},
+				"product_reference": "zypper-1.14.30-3.7.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "zypper-log-1.14.30-3.7.2.noarch as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-log-1.14.30-3.7.2.noarch"
+				},
+				"product_reference": "zypper-log-1.14.30-3.7.2.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "zypper-needs-restarting-1.14.30-3.7.2.noarch as component of SUSE Linux Enterprise Module for Basesystem 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-needs-restarting-1.14.30-3.7.2.noarch"
+				},
+				"product_reference": "zypper-needs-restarting-1.14.30-3.7.2.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "PackageKit-1.1.10-12.3.5.aarch64 as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-1.1.10-12.3.5.aarch64"
+				},
+				"product_reference": "PackageKit-1.1.10-12.3.5.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "PackageKit-1.1.10-12.3.5.ppc64le as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-1.1.10-12.3.5.ppc64le"
+				},
+				"product_reference": "PackageKit-1.1.10-12.3.5.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "PackageKit-1.1.10-12.3.5.s390x as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-1.1.10-12.3.5.s390x"
+				},
+				"product_reference": "PackageKit-1.1.10-12.3.5.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "PackageKit-1.1.10-12.3.5.x86_64 as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-1.1.10-12.3.5.x86_64"
+				},
+				"product_reference": "PackageKit-1.1.10-12.3.5.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "PackageKit-backend-zypp-1.1.10-12.3.5.aarch64 as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-backend-zypp-1.1.10-12.3.5.aarch64"
+				},
+				"product_reference": "PackageKit-backend-zypp-1.1.10-12.3.5.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "PackageKit-backend-zypp-1.1.10-12.3.5.ppc64le as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-backend-zypp-1.1.10-12.3.5.ppc64le"
+				},
+				"product_reference": "PackageKit-backend-zypp-1.1.10-12.3.5.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "PackageKit-backend-zypp-1.1.10-12.3.5.s390x as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-backend-zypp-1.1.10-12.3.5.s390x"
+				},
+				"product_reference": "PackageKit-backend-zypp-1.1.10-12.3.5.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "PackageKit-backend-zypp-1.1.10-12.3.5.x86_64 as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-backend-zypp-1.1.10-12.3.5.x86_64"
+				},
+				"product_reference": "PackageKit-backend-zypp-1.1.10-12.3.5.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "PackageKit-devel-1.1.10-12.3.5.aarch64 as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-devel-1.1.10-12.3.5.aarch64"
+				},
+				"product_reference": "PackageKit-devel-1.1.10-12.3.5.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "PackageKit-devel-1.1.10-12.3.5.ppc64le as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-devel-1.1.10-12.3.5.ppc64le"
+				},
+				"product_reference": "PackageKit-devel-1.1.10-12.3.5.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "PackageKit-devel-1.1.10-12.3.5.s390x as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-devel-1.1.10-12.3.5.s390x"
+				},
+				"product_reference": "PackageKit-devel-1.1.10-12.3.5.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "PackageKit-devel-1.1.10-12.3.5.x86_64 as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-devel-1.1.10-12.3.5.x86_64"
+				},
+				"product_reference": "PackageKit-devel-1.1.10-12.3.5.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "PackageKit-lang-1.1.10-12.3.5.noarch as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-lang-1.1.10-12.3.5.noarch"
+				},
+				"product_reference": "PackageKit-lang-1.1.10-12.3.5.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libpackagekit-glib2-18-1.1.10-12.3.5.aarch64 as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-18-1.1.10-12.3.5.aarch64"
+				},
+				"product_reference": "libpackagekit-glib2-18-1.1.10-12.3.5.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libpackagekit-glib2-18-1.1.10-12.3.5.ppc64le as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-18-1.1.10-12.3.5.ppc64le"
+				},
+				"product_reference": "libpackagekit-glib2-18-1.1.10-12.3.5.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libpackagekit-glib2-18-1.1.10-12.3.5.s390x as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-18-1.1.10-12.3.5.s390x"
+				},
+				"product_reference": "libpackagekit-glib2-18-1.1.10-12.3.5.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libpackagekit-glib2-18-1.1.10-12.3.5.x86_64 as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-18-1.1.10-12.3.5.x86_64"
+				},
+				"product_reference": "libpackagekit-glib2-18-1.1.10-12.3.5.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libpackagekit-glib2-devel-1.1.10-12.3.5.aarch64 as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-devel-1.1.10-12.3.5.aarch64"
+				},
+				"product_reference": "libpackagekit-glib2-devel-1.1.10-12.3.5.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libpackagekit-glib2-devel-1.1.10-12.3.5.ppc64le as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-devel-1.1.10-12.3.5.ppc64le"
+				},
+				"product_reference": "libpackagekit-glib2-devel-1.1.10-12.3.5.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libpackagekit-glib2-devel-1.1.10-12.3.5.s390x as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-devel-1.1.10-12.3.5.s390x"
+				},
+				"product_reference": "libpackagekit-glib2-devel-1.1.10-12.3.5.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libpackagekit-glib2-devel-1.1.10-12.3.5.x86_64 as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-devel-1.1.10-12.3.5.x86_64"
+				},
+				"product_reference": "libpackagekit-glib2-devel-1.1.10-12.3.5.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libyui-qt-pkg-devel-2.45.27-3.3.5.aarch64 as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libyui-qt-pkg-devel-2.45.27-3.3.5.aarch64"
+				},
+				"product_reference": "libyui-qt-pkg-devel-2.45.27-3.3.5.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libyui-qt-pkg-devel-2.45.27-3.3.5.ppc64le as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libyui-qt-pkg-devel-2.45.27-3.3.5.ppc64le"
+				},
+				"product_reference": "libyui-qt-pkg-devel-2.45.27-3.3.5.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libyui-qt-pkg-devel-2.45.27-3.3.5.s390x as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libyui-qt-pkg-devel-2.45.27-3.3.5.s390x"
+				},
+				"product_reference": "libyui-qt-pkg-devel-2.45.27-3.3.5.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libyui-qt-pkg-devel-2.45.27-3.3.5.x86_64 as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libyui-qt-pkg-devel-2.45.27-3.3.5.x86_64"
+				},
+				"product_reference": "libyui-qt-pkg-devel-2.45.27-3.3.5.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.aarch64 as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1:typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.aarch64"
+				},
+				"product_reference": "typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.ppc64le as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1:typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.ppc64le"
+				},
+				"product_reference": "typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.s390x as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1:typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.s390x"
+				},
+				"product_reference": "typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.x86_64 as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1:typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.x86_64"
+				},
+				"product_reference": "typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "perl-solv-0.7.6-3.7.2.aarch64 as component of SUSE Linux Enterprise Module for Development Tools 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Development Tools 15 SP1:perl-solv-0.7.6-3.7.2.aarch64"
+				},
+				"product_reference": "perl-solv-0.7.6-3.7.2.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Development Tools 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "perl-solv-0.7.6-3.7.2.ppc64le as component of SUSE Linux Enterprise Module for Development Tools 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Development Tools 15 SP1:perl-solv-0.7.6-3.7.2.ppc64le"
+				},
+				"product_reference": "perl-solv-0.7.6-3.7.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Development Tools 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "perl-solv-0.7.6-3.7.2.s390x as component of SUSE Linux Enterprise Module for Development Tools 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Development Tools 15 SP1:perl-solv-0.7.6-3.7.2.s390x"
+				},
+				"product_reference": "perl-solv-0.7.6-3.7.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Development Tools 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "perl-solv-0.7.6-3.7.2.x86_64 as component of SUSE Linux Enterprise Module for Development Tools 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Development Tools 15 SP1:perl-solv-0.7.6-3.7.2.x86_64"
+				},
+				"product_reference": "perl-solv-0.7.6-3.7.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Development Tools 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ruby-solv-0.7.6-3.7.2.aarch64 as component of SUSE Linux Enterprise Module for Development Tools 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Development Tools 15 SP1:ruby-solv-0.7.6-3.7.2.aarch64"
+				},
+				"product_reference": "ruby-solv-0.7.6-3.7.2.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Development Tools 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ruby-solv-0.7.6-3.7.2.ppc64le as component of SUSE Linux Enterprise Module for Development Tools 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Development Tools 15 SP1:ruby-solv-0.7.6-3.7.2.ppc64le"
+				},
+				"product_reference": "ruby-solv-0.7.6-3.7.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Development Tools 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ruby-solv-0.7.6-3.7.2.s390x as component of SUSE Linux Enterprise Module for Development Tools 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Development Tools 15 SP1:ruby-solv-0.7.6-3.7.2.s390x"
+				},
+				"product_reference": "ruby-solv-0.7.6-3.7.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Development Tools 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ruby-solv-0.7.6-3.7.2.x86_64 as component of SUSE Linux Enterprise Module for Development Tools 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Development Tools 15 SP1:ruby-solv-0.7.6-3.7.2.x86_64"
+				},
+				"product_reference": "ruby-solv-0.7.6-3.7.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Development Tools 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "python-solv-0.7.6-3.7.2.aarch64 as component of SUSE Linux Enterprise Module for Package Hub 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Package Hub 15 SP1:python-solv-0.7.6-3.7.2.aarch64"
+				},
+				"product_reference": "python-solv-0.7.6-3.7.2.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Package Hub 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "python-solv-0.7.6-3.7.2.ppc64le as component of SUSE Linux Enterprise Module for Package Hub 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Package Hub 15 SP1:python-solv-0.7.6-3.7.2.ppc64le"
+				},
+				"product_reference": "python-solv-0.7.6-3.7.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Package Hub 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "python-solv-0.7.6-3.7.2.s390x as component of SUSE Linux Enterprise Module for Package Hub 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Package Hub 15 SP1:python-solv-0.7.6-3.7.2.s390x"
+				},
+				"product_reference": "python-solv-0.7.6-3.7.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Package Hub 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "python-solv-0.7.6-3.7.2.x86_64 as component of SUSE Linux Enterprise Module for Package Hub 15 SP1",
+					"product_id": "SUSE Linux Enterprise Module for Package Hub 15 SP1:python-solv-0.7.6-3.7.2.x86_64"
+				},
+				"product_reference": "python-solv-0.7.6-3.7.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Package Hub 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "PackageKit-gstreamer-plugin-1.1.10-12.3.5.x86_64 as component of SUSE Linux Enterprise Workstation Extension 15 SP1",
+					"product_id": "SUSE Linux Enterprise Workstation Extension 15 SP1:PackageKit-gstreamer-plugin-1.1.10-12.3.5.x86_64"
+				},
+				"product_reference": "PackageKit-gstreamer-plugin-1.1.10-12.3.5.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Workstation Extension 15 SP1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "PackageKit-gtk3-module-1.1.10-12.3.5.x86_64 as component of SUSE Linux Enterprise Workstation Extension 15 SP1",
+					"product_id": "SUSE Linux Enterprise Workstation Extension 15 SP1:PackageKit-gtk3-module-1.1.10-12.3.5.x86_64"
+				},
+				"product_reference": "PackageKit-gtk3-module-1.1.10-12.3.5.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Workstation Extension 15 SP1"
+			}
+		]
+	},
+	"vulnerabilities": [
+		{
+			"cve": "CVE-2018-20532",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2018-20532"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "There is a NULL pointer dereference at ext/testcase.c (function testcase_read) in libsolvext.a in libsolv through 0.7.2 that will cause a denial of service.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-devel-0.7.6-3.7.2.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-devel-0.7.6-3.7.2.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-devel-0.7.6-3.7.2.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-devel-0.7.6-3.7.2.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-tools-0.7.6-3.7.2.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-tools-0.7.6-3.7.2.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-tools-0.7.6-3.7.2.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-tools-0.7.6-3.7.2.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg-devel-2.48.9-7.3.5.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg-devel-2.48.9-7.3.5.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg-devel-2.48.9-7.3.5.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg-devel-2.48.9-7.3.5.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg-doc-2.48.9-7.3.3.noarch",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg9-2.48.9-7.3.5.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg9-2.48.9-7.3.5.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg9-2.48.9-7.3.5.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg9-2.48.9-7.3.5.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-qt-pkg-doc-2.45.27-3.3.3.noarch",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-qt-pkg9-2.45.27-3.3.5.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-qt-pkg9-2.45.27-3.3.5.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-qt-pkg9-2.45.27-3.3.5.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-qt-pkg9-2.45.27-3.3.5.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-17.15.0-3.9.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-17.15.0-3.9.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-17.15.0-3.9.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-17.15.0-3.9.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-devel-17.15.0-3.9.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-devel-17.15.0-3.9.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-devel-17.15.0-3.9.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-devel-17.15.0-3.9.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-solv-0.7.6-3.7.2.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-solv-0.7.6-3.7.2.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-solv-0.7.6-3.7.2.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-solv-0.7.6-3.7.2.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:yast2-pkg-bindings-4.1.2-3.3.5.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:yast2-pkg-bindings-4.1.2-3.3.5.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:yast2-pkg-bindings-4.1.2-3.3.5.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:yast2-pkg-bindings-4.1.2-3.3.5.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-1.14.30-3.7.2.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-1.14.30-3.7.2.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-1.14.30-3.7.2.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-1.14.30-3.7.2.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-log-1.14.30-3.7.2.noarch",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-needs-restarting-1.14.30-3.7.2.noarch",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-1.1.10-12.3.5.aarch64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-1.1.10-12.3.5.ppc64le",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-1.1.10-12.3.5.s390x",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-1.1.10-12.3.5.x86_64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-backend-zypp-1.1.10-12.3.5.aarch64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-backend-zypp-1.1.10-12.3.5.ppc64le",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-backend-zypp-1.1.10-12.3.5.s390x",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-backend-zypp-1.1.10-12.3.5.x86_64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-devel-1.1.10-12.3.5.aarch64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-devel-1.1.10-12.3.5.ppc64le",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-devel-1.1.10-12.3.5.s390x",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-devel-1.1.10-12.3.5.x86_64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-lang-1.1.10-12.3.5.noarch",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-18-1.1.10-12.3.5.aarch64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-18-1.1.10-12.3.5.ppc64le",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-18-1.1.10-12.3.5.s390x",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-18-1.1.10-12.3.5.x86_64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-devel-1.1.10-12.3.5.aarch64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-devel-1.1.10-12.3.5.ppc64le",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-devel-1.1.10-12.3.5.s390x",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-devel-1.1.10-12.3.5.x86_64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libyui-qt-pkg-devel-2.45.27-3.3.5.aarch64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libyui-qt-pkg-devel-2.45.27-3.3.5.ppc64le",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libyui-qt-pkg-devel-2.45.27-3.3.5.s390x",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libyui-qt-pkg-devel-2.45.27-3.3.5.x86_64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.aarch64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.ppc64le",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.s390x",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.x86_64",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP1:perl-solv-0.7.6-3.7.2.aarch64",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP1:perl-solv-0.7.6-3.7.2.ppc64le",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP1:perl-solv-0.7.6-3.7.2.s390x",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP1:perl-solv-0.7.6-3.7.2.x86_64",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP1:ruby-solv-0.7.6-3.7.2.aarch64",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP1:ruby-solv-0.7.6-3.7.2.ppc64le",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP1:ruby-solv-0.7.6-3.7.2.s390x",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP1:ruby-solv-0.7.6-3.7.2.x86_64",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP1:python-solv-0.7.6-3.7.2.aarch64",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP1:python-solv-0.7.6-3.7.2.ppc64le",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP1:python-solv-0.7.6-3.7.2.s390x",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP1:python-solv-0.7.6-3.7.2.x86_64",
+					"SUSE Linux Enterprise Workstation Extension 15 SP1:PackageKit-gstreamer-plugin-1.1.10-12.3.5.x86_64",
+					"SUSE Linux Enterprise Workstation Extension 15 SP1:PackageKit-gtk3-module-1.1.10-12.3.5.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2018-20532",
+					"url": "https://www.suse.com/security/cve/CVE-2018-20532"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1120629 for CVE-2018-20532",
+					"url": "https://bugzilla.suse.com/1120629"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-devel-0.7.6-3.7.2.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-devel-0.7.6-3.7.2.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-devel-0.7.6-3.7.2.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-devel-0.7.6-3.7.2.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-tools-0.7.6-3.7.2.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-tools-0.7.6-3.7.2.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-tools-0.7.6-3.7.2.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-tools-0.7.6-3.7.2.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg-devel-2.48.9-7.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg-devel-2.48.9-7.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg-devel-2.48.9-7.3.5.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg-devel-2.48.9-7.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg-doc-2.48.9-7.3.3.noarch",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg9-2.48.9-7.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg9-2.48.9-7.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg9-2.48.9-7.3.5.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg9-2.48.9-7.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-qt-pkg-doc-2.45.27-3.3.3.noarch",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-qt-pkg9-2.45.27-3.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-qt-pkg9-2.45.27-3.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-qt-pkg9-2.45.27-3.3.5.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-qt-pkg9-2.45.27-3.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-17.15.0-3.9.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-17.15.0-3.9.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-17.15.0-3.9.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-17.15.0-3.9.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-devel-17.15.0-3.9.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-devel-17.15.0-3.9.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-devel-17.15.0-3.9.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-devel-17.15.0-3.9.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-solv-0.7.6-3.7.2.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-solv-0.7.6-3.7.2.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-solv-0.7.6-3.7.2.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-solv-0.7.6-3.7.2.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:yast2-pkg-bindings-4.1.2-3.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:yast2-pkg-bindings-4.1.2-3.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:yast2-pkg-bindings-4.1.2-3.3.5.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:yast2-pkg-bindings-4.1.2-3.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-1.14.30-3.7.2.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-1.14.30-3.7.2.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-1.14.30-3.7.2.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-1.14.30-3.7.2.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-log-1.14.30-3.7.2.noarch",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-needs-restarting-1.14.30-3.7.2.noarch",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-1.1.10-12.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-1.1.10-12.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-1.1.10-12.3.5.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-1.1.10-12.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-backend-zypp-1.1.10-12.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-backend-zypp-1.1.10-12.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-backend-zypp-1.1.10-12.3.5.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-backend-zypp-1.1.10-12.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-devel-1.1.10-12.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-devel-1.1.10-12.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-devel-1.1.10-12.3.5.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-devel-1.1.10-12.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-lang-1.1.10-12.3.5.noarch",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-18-1.1.10-12.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-18-1.1.10-12.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-18-1.1.10-12.3.5.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-18-1.1.10-12.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-devel-1.1.10-12.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-devel-1.1.10-12.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-devel-1.1.10-12.3.5.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-devel-1.1.10-12.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libyui-qt-pkg-devel-2.45.27-3.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libyui-qt-pkg-devel-2.45.27-3.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libyui-qt-pkg-devel-2.45.27-3.3.5.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libyui-qt-pkg-devel-2.45.27-3.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP1:perl-solv-0.7.6-3.7.2.aarch64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP1:perl-solv-0.7.6-3.7.2.ppc64le",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP1:perl-solv-0.7.6-3.7.2.s390x",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP1:perl-solv-0.7.6-3.7.2.x86_64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP1:ruby-solv-0.7.6-3.7.2.aarch64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP1:ruby-solv-0.7.6-3.7.2.ppc64le",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP1:ruby-solv-0.7.6-3.7.2.s390x",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP1:ruby-solv-0.7.6-3.7.2.x86_64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP1:python-solv-0.7.6-3.7.2.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP1:python-solv-0.7.6-3.7.2.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP1:python-solv-0.7.6-3.7.2.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP1:python-solv-0.7.6-3.7.2.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP1:PackageKit-gstreamer-plugin-1.1.10-12.3.5.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP1:PackageKit-gtk3-module-1.1.10-12.3.5.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 6.5,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-devel-0.7.6-3.7.2.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-devel-0.7.6-3.7.2.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-devel-0.7.6-3.7.2.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-devel-0.7.6-3.7.2.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-tools-0.7.6-3.7.2.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-tools-0.7.6-3.7.2.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-tools-0.7.6-3.7.2.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-tools-0.7.6-3.7.2.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg-devel-2.48.9-7.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg-devel-2.48.9-7.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg-devel-2.48.9-7.3.5.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg-devel-2.48.9-7.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg-doc-2.48.9-7.3.3.noarch",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg9-2.48.9-7.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg9-2.48.9-7.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg9-2.48.9-7.3.5.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg9-2.48.9-7.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-qt-pkg-doc-2.45.27-3.3.3.noarch",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-qt-pkg9-2.45.27-3.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-qt-pkg9-2.45.27-3.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-qt-pkg9-2.45.27-3.3.5.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-qt-pkg9-2.45.27-3.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-17.15.0-3.9.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-17.15.0-3.9.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-17.15.0-3.9.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-17.15.0-3.9.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-devel-17.15.0-3.9.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-devel-17.15.0-3.9.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-devel-17.15.0-3.9.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-devel-17.15.0-3.9.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-solv-0.7.6-3.7.2.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-solv-0.7.6-3.7.2.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-solv-0.7.6-3.7.2.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-solv-0.7.6-3.7.2.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:yast2-pkg-bindings-4.1.2-3.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:yast2-pkg-bindings-4.1.2-3.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:yast2-pkg-bindings-4.1.2-3.3.5.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:yast2-pkg-bindings-4.1.2-3.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-1.14.30-3.7.2.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-1.14.30-3.7.2.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-1.14.30-3.7.2.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-1.14.30-3.7.2.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-log-1.14.30-3.7.2.noarch",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-needs-restarting-1.14.30-3.7.2.noarch",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-1.1.10-12.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-1.1.10-12.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-1.1.10-12.3.5.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-1.1.10-12.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-backend-zypp-1.1.10-12.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-backend-zypp-1.1.10-12.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-backend-zypp-1.1.10-12.3.5.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-backend-zypp-1.1.10-12.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-devel-1.1.10-12.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-devel-1.1.10-12.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-devel-1.1.10-12.3.5.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-devel-1.1.10-12.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-lang-1.1.10-12.3.5.noarch",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-18-1.1.10-12.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-18-1.1.10-12.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-18-1.1.10-12.3.5.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-18-1.1.10-12.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-devel-1.1.10-12.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-devel-1.1.10-12.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-devel-1.1.10-12.3.5.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-devel-1.1.10-12.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libyui-qt-pkg-devel-2.45.27-3.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libyui-qt-pkg-devel-2.45.27-3.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libyui-qt-pkg-devel-2.45.27-3.3.5.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libyui-qt-pkg-devel-2.45.27-3.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP1:perl-solv-0.7.6-3.7.2.aarch64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP1:perl-solv-0.7.6-3.7.2.ppc64le",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP1:perl-solv-0.7.6-3.7.2.s390x",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP1:perl-solv-0.7.6-3.7.2.x86_64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP1:ruby-solv-0.7.6-3.7.2.aarch64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP1:ruby-solv-0.7.6-3.7.2.ppc64le",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP1:ruby-solv-0.7.6-3.7.2.s390x",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP1:ruby-solv-0.7.6-3.7.2.x86_64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP1:python-solv-0.7.6-3.7.2.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP1:python-solv-0.7.6-3.7.2.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP1:python-solv-0.7.6-3.7.2.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP1:python-solv-0.7.6-3.7.2.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP1:PackageKit-gstreamer-plugin-1.1.10-12.3.5.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP1:PackageKit-gtk3-module-1.1.10-12.3.5.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2019-10-22T13:40:42Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2018-20532"
+		},
+		{
+			"cve": "CVE-2018-20533",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2018-20533"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "There is a NULL pointer dereference at ext/testcase.c (function testcase_str2dep_complex) in libsolvext.a in libsolv through 0.7.2 that will cause a denial of service.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-devel-0.7.6-3.7.2.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-devel-0.7.6-3.7.2.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-devel-0.7.6-3.7.2.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-devel-0.7.6-3.7.2.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-tools-0.7.6-3.7.2.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-tools-0.7.6-3.7.2.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-tools-0.7.6-3.7.2.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-tools-0.7.6-3.7.2.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg-devel-2.48.9-7.3.5.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg-devel-2.48.9-7.3.5.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg-devel-2.48.9-7.3.5.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg-devel-2.48.9-7.3.5.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg-doc-2.48.9-7.3.3.noarch",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg9-2.48.9-7.3.5.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg9-2.48.9-7.3.5.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg9-2.48.9-7.3.5.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg9-2.48.9-7.3.5.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-qt-pkg-doc-2.45.27-3.3.3.noarch",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-qt-pkg9-2.45.27-3.3.5.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-qt-pkg9-2.45.27-3.3.5.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-qt-pkg9-2.45.27-3.3.5.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-qt-pkg9-2.45.27-3.3.5.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-17.15.0-3.9.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-17.15.0-3.9.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-17.15.0-3.9.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-17.15.0-3.9.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-devel-17.15.0-3.9.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-devel-17.15.0-3.9.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-devel-17.15.0-3.9.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-devel-17.15.0-3.9.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-solv-0.7.6-3.7.2.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-solv-0.7.6-3.7.2.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-solv-0.7.6-3.7.2.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-solv-0.7.6-3.7.2.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:yast2-pkg-bindings-4.1.2-3.3.5.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:yast2-pkg-bindings-4.1.2-3.3.5.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:yast2-pkg-bindings-4.1.2-3.3.5.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:yast2-pkg-bindings-4.1.2-3.3.5.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-1.14.30-3.7.2.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-1.14.30-3.7.2.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-1.14.30-3.7.2.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-1.14.30-3.7.2.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-log-1.14.30-3.7.2.noarch",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-needs-restarting-1.14.30-3.7.2.noarch",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-1.1.10-12.3.5.aarch64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-1.1.10-12.3.5.ppc64le",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-1.1.10-12.3.5.s390x",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-1.1.10-12.3.5.x86_64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-backend-zypp-1.1.10-12.3.5.aarch64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-backend-zypp-1.1.10-12.3.5.ppc64le",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-backend-zypp-1.1.10-12.3.5.s390x",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-backend-zypp-1.1.10-12.3.5.x86_64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-devel-1.1.10-12.3.5.aarch64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-devel-1.1.10-12.3.5.ppc64le",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-devel-1.1.10-12.3.5.s390x",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-devel-1.1.10-12.3.5.x86_64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-lang-1.1.10-12.3.5.noarch",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-18-1.1.10-12.3.5.aarch64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-18-1.1.10-12.3.5.ppc64le",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-18-1.1.10-12.3.5.s390x",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-18-1.1.10-12.3.5.x86_64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-devel-1.1.10-12.3.5.aarch64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-devel-1.1.10-12.3.5.ppc64le",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-devel-1.1.10-12.3.5.s390x",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-devel-1.1.10-12.3.5.x86_64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libyui-qt-pkg-devel-2.45.27-3.3.5.aarch64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libyui-qt-pkg-devel-2.45.27-3.3.5.ppc64le",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libyui-qt-pkg-devel-2.45.27-3.3.5.s390x",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libyui-qt-pkg-devel-2.45.27-3.3.5.x86_64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.aarch64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.ppc64le",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.s390x",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.x86_64",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP1:perl-solv-0.7.6-3.7.2.aarch64",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP1:perl-solv-0.7.6-3.7.2.ppc64le",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP1:perl-solv-0.7.6-3.7.2.s390x",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP1:perl-solv-0.7.6-3.7.2.x86_64",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP1:ruby-solv-0.7.6-3.7.2.aarch64",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP1:ruby-solv-0.7.6-3.7.2.ppc64le",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP1:ruby-solv-0.7.6-3.7.2.s390x",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP1:ruby-solv-0.7.6-3.7.2.x86_64",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP1:python-solv-0.7.6-3.7.2.aarch64",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP1:python-solv-0.7.6-3.7.2.ppc64le",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP1:python-solv-0.7.6-3.7.2.s390x",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP1:python-solv-0.7.6-3.7.2.x86_64",
+					"SUSE Linux Enterprise Workstation Extension 15 SP1:PackageKit-gstreamer-plugin-1.1.10-12.3.5.x86_64",
+					"SUSE Linux Enterprise Workstation Extension 15 SP1:PackageKit-gtk3-module-1.1.10-12.3.5.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2018-20533",
+					"url": "https://www.suse.com/security/cve/CVE-2018-20533"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1120630 for CVE-2018-20533",
+					"url": "https://bugzilla.suse.com/1120630"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-devel-0.7.6-3.7.2.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-devel-0.7.6-3.7.2.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-devel-0.7.6-3.7.2.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-devel-0.7.6-3.7.2.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-tools-0.7.6-3.7.2.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-tools-0.7.6-3.7.2.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-tools-0.7.6-3.7.2.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-tools-0.7.6-3.7.2.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg-devel-2.48.9-7.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg-devel-2.48.9-7.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg-devel-2.48.9-7.3.5.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg-devel-2.48.9-7.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg-doc-2.48.9-7.3.3.noarch",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg9-2.48.9-7.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg9-2.48.9-7.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg9-2.48.9-7.3.5.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg9-2.48.9-7.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-qt-pkg-doc-2.45.27-3.3.3.noarch",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-qt-pkg9-2.45.27-3.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-qt-pkg9-2.45.27-3.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-qt-pkg9-2.45.27-3.3.5.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-qt-pkg9-2.45.27-3.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-17.15.0-3.9.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-17.15.0-3.9.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-17.15.0-3.9.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-17.15.0-3.9.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-devel-17.15.0-3.9.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-devel-17.15.0-3.9.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-devel-17.15.0-3.9.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-devel-17.15.0-3.9.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-solv-0.7.6-3.7.2.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-solv-0.7.6-3.7.2.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-solv-0.7.6-3.7.2.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-solv-0.7.6-3.7.2.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:yast2-pkg-bindings-4.1.2-3.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:yast2-pkg-bindings-4.1.2-3.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:yast2-pkg-bindings-4.1.2-3.3.5.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:yast2-pkg-bindings-4.1.2-3.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-1.14.30-3.7.2.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-1.14.30-3.7.2.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-1.14.30-3.7.2.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-1.14.30-3.7.2.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-log-1.14.30-3.7.2.noarch",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-needs-restarting-1.14.30-3.7.2.noarch",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-1.1.10-12.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-1.1.10-12.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-1.1.10-12.3.5.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-1.1.10-12.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-backend-zypp-1.1.10-12.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-backend-zypp-1.1.10-12.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-backend-zypp-1.1.10-12.3.5.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-backend-zypp-1.1.10-12.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-devel-1.1.10-12.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-devel-1.1.10-12.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-devel-1.1.10-12.3.5.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-devel-1.1.10-12.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-lang-1.1.10-12.3.5.noarch",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-18-1.1.10-12.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-18-1.1.10-12.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-18-1.1.10-12.3.5.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-18-1.1.10-12.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-devel-1.1.10-12.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-devel-1.1.10-12.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-devel-1.1.10-12.3.5.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-devel-1.1.10-12.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libyui-qt-pkg-devel-2.45.27-3.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libyui-qt-pkg-devel-2.45.27-3.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libyui-qt-pkg-devel-2.45.27-3.3.5.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libyui-qt-pkg-devel-2.45.27-3.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP1:perl-solv-0.7.6-3.7.2.aarch64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP1:perl-solv-0.7.6-3.7.2.ppc64le",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP1:perl-solv-0.7.6-3.7.2.s390x",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP1:perl-solv-0.7.6-3.7.2.x86_64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP1:ruby-solv-0.7.6-3.7.2.aarch64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP1:ruby-solv-0.7.6-3.7.2.ppc64le",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP1:ruby-solv-0.7.6-3.7.2.s390x",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP1:ruby-solv-0.7.6-3.7.2.x86_64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP1:python-solv-0.7.6-3.7.2.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP1:python-solv-0.7.6-3.7.2.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP1:python-solv-0.7.6-3.7.2.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP1:python-solv-0.7.6-3.7.2.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP1:PackageKit-gstreamer-plugin-1.1.10-12.3.5.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP1:PackageKit-gtk3-module-1.1.10-12.3.5.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 6.5,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-devel-0.7.6-3.7.2.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-devel-0.7.6-3.7.2.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-devel-0.7.6-3.7.2.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-devel-0.7.6-3.7.2.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-tools-0.7.6-3.7.2.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-tools-0.7.6-3.7.2.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-tools-0.7.6-3.7.2.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-tools-0.7.6-3.7.2.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg-devel-2.48.9-7.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg-devel-2.48.9-7.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg-devel-2.48.9-7.3.5.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg-devel-2.48.9-7.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg-doc-2.48.9-7.3.3.noarch",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg9-2.48.9-7.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg9-2.48.9-7.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg9-2.48.9-7.3.5.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg9-2.48.9-7.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-qt-pkg-doc-2.45.27-3.3.3.noarch",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-qt-pkg9-2.45.27-3.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-qt-pkg9-2.45.27-3.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-qt-pkg9-2.45.27-3.3.5.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-qt-pkg9-2.45.27-3.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-17.15.0-3.9.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-17.15.0-3.9.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-17.15.0-3.9.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-17.15.0-3.9.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-devel-17.15.0-3.9.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-devel-17.15.0-3.9.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-devel-17.15.0-3.9.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-devel-17.15.0-3.9.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-solv-0.7.6-3.7.2.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-solv-0.7.6-3.7.2.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-solv-0.7.6-3.7.2.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-solv-0.7.6-3.7.2.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:yast2-pkg-bindings-4.1.2-3.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:yast2-pkg-bindings-4.1.2-3.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:yast2-pkg-bindings-4.1.2-3.3.5.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:yast2-pkg-bindings-4.1.2-3.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-1.14.30-3.7.2.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-1.14.30-3.7.2.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-1.14.30-3.7.2.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-1.14.30-3.7.2.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-log-1.14.30-3.7.2.noarch",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-needs-restarting-1.14.30-3.7.2.noarch",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-1.1.10-12.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-1.1.10-12.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-1.1.10-12.3.5.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-1.1.10-12.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-backend-zypp-1.1.10-12.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-backend-zypp-1.1.10-12.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-backend-zypp-1.1.10-12.3.5.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-backend-zypp-1.1.10-12.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-devel-1.1.10-12.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-devel-1.1.10-12.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-devel-1.1.10-12.3.5.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-devel-1.1.10-12.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-lang-1.1.10-12.3.5.noarch",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-18-1.1.10-12.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-18-1.1.10-12.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-18-1.1.10-12.3.5.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-18-1.1.10-12.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-devel-1.1.10-12.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-devel-1.1.10-12.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-devel-1.1.10-12.3.5.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-devel-1.1.10-12.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libyui-qt-pkg-devel-2.45.27-3.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libyui-qt-pkg-devel-2.45.27-3.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libyui-qt-pkg-devel-2.45.27-3.3.5.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libyui-qt-pkg-devel-2.45.27-3.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP1:perl-solv-0.7.6-3.7.2.aarch64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP1:perl-solv-0.7.6-3.7.2.ppc64le",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP1:perl-solv-0.7.6-3.7.2.s390x",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP1:perl-solv-0.7.6-3.7.2.x86_64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP1:ruby-solv-0.7.6-3.7.2.aarch64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP1:ruby-solv-0.7.6-3.7.2.ppc64le",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP1:ruby-solv-0.7.6-3.7.2.s390x",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP1:ruby-solv-0.7.6-3.7.2.x86_64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP1:python-solv-0.7.6-3.7.2.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP1:python-solv-0.7.6-3.7.2.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP1:python-solv-0.7.6-3.7.2.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP1:python-solv-0.7.6-3.7.2.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP1:PackageKit-gstreamer-plugin-1.1.10-12.3.5.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP1:PackageKit-gtk3-module-1.1.10-12.3.5.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2019-10-22T13:40:42Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2018-20533"
+		},
+		{
+			"cve": "CVE-2018-20534",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2018-20534"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "** DISPUTED ** There is an illegal address access at ext/testcase.c in libsolv.a in libsolv through 0.7.2 that will cause a denial of service. NOTE: third parties dispute this issue stating that the issue affects the test suite and not the underlying library. It cannot be exploited in any real-world application.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-devel-0.7.6-3.7.2.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-devel-0.7.6-3.7.2.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-devel-0.7.6-3.7.2.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-devel-0.7.6-3.7.2.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-tools-0.7.6-3.7.2.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-tools-0.7.6-3.7.2.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-tools-0.7.6-3.7.2.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-tools-0.7.6-3.7.2.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg-devel-2.48.9-7.3.5.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg-devel-2.48.9-7.3.5.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg-devel-2.48.9-7.3.5.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg-devel-2.48.9-7.3.5.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg-doc-2.48.9-7.3.3.noarch",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg9-2.48.9-7.3.5.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg9-2.48.9-7.3.5.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg9-2.48.9-7.3.5.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg9-2.48.9-7.3.5.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-qt-pkg-doc-2.45.27-3.3.3.noarch",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-qt-pkg9-2.45.27-3.3.5.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-qt-pkg9-2.45.27-3.3.5.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-qt-pkg9-2.45.27-3.3.5.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-qt-pkg9-2.45.27-3.3.5.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-17.15.0-3.9.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-17.15.0-3.9.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-17.15.0-3.9.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-17.15.0-3.9.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-devel-17.15.0-3.9.1.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-devel-17.15.0-3.9.1.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-devel-17.15.0-3.9.1.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-devel-17.15.0-3.9.1.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-solv-0.7.6-3.7.2.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-solv-0.7.6-3.7.2.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-solv-0.7.6-3.7.2.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-solv-0.7.6-3.7.2.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:yast2-pkg-bindings-4.1.2-3.3.5.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:yast2-pkg-bindings-4.1.2-3.3.5.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:yast2-pkg-bindings-4.1.2-3.3.5.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:yast2-pkg-bindings-4.1.2-3.3.5.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-1.14.30-3.7.2.aarch64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-1.14.30-3.7.2.ppc64le",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-1.14.30-3.7.2.s390x",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-1.14.30-3.7.2.x86_64",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-log-1.14.30-3.7.2.noarch",
+					"SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-needs-restarting-1.14.30-3.7.2.noarch",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-1.1.10-12.3.5.aarch64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-1.1.10-12.3.5.ppc64le",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-1.1.10-12.3.5.s390x",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-1.1.10-12.3.5.x86_64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-backend-zypp-1.1.10-12.3.5.aarch64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-backend-zypp-1.1.10-12.3.5.ppc64le",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-backend-zypp-1.1.10-12.3.5.s390x",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-backend-zypp-1.1.10-12.3.5.x86_64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-devel-1.1.10-12.3.5.aarch64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-devel-1.1.10-12.3.5.ppc64le",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-devel-1.1.10-12.3.5.s390x",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-devel-1.1.10-12.3.5.x86_64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-lang-1.1.10-12.3.5.noarch",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-18-1.1.10-12.3.5.aarch64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-18-1.1.10-12.3.5.ppc64le",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-18-1.1.10-12.3.5.s390x",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-18-1.1.10-12.3.5.x86_64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-devel-1.1.10-12.3.5.aarch64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-devel-1.1.10-12.3.5.ppc64le",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-devel-1.1.10-12.3.5.s390x",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-devel-1.1.10-12.3.5.x86_64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libyui-qt-pkg-devel-2.45.27-3.3.5.aarch64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libyui-qt-pkg-devel-2.45.27-3.3.5.ppc64le",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libyui-qt-pkg-devel-2.45.27-3.3.5.s390x",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libyui-qt-pkg-devel-2.45.27-3.3.5.x86_64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.aarch64",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.ppc64le",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.s390x",
+					"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.x86_64",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP1:perl-solv-0.7.6-3.7.2.aarch64",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP1:perl-solv-0.7.6-3.7.2.ppc64le",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP1:perl-solv-0.7.6-3.7.2.s390x",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP1:perl-solv-0.7.6-3.7.2.x86_64",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP1:ruby-solv-0.7.6-3.7.2.aarch64",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP1:ruby-solv-0.7.6-3.7.2.ppc64le",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP1:ruby-solv-0.7.6-3.7.2.s390x",
+					"SUSE Linux Enterprise Module for Development Tools 15 SP1:ruby-solv-0.7.6-3.7.2.x86_64",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP1:python-solv-0.7.6-3.7.2.aarch64",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP1:python-solv-0.7.6-3.7.2.ppc64le",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP1:python-solv-0.7.6-3.7.2.s390x",
+					"SUSE Linux Enterprise Module for Package Hub 15 SP1:python-solv-0.7.6-3.7.2.x86_64",
+					"SUSE Linux Enterprise Workstation Extension 15 SP1:PackageKit-gstreamer-plugin-1.1.10-12.3.5.x86_64",
+					"SUSE Linux Enterprise Workstation Extension 15 SP1:PackageKit-gtk3-module-1.1.10-12.3.5.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2018-20534",
+					"url": "https://www.suse.com/security/cve/CVE-2018-20534"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1120631 for CVE-2018-20534",
+					"url": "https://bugzilla.suse.com/1120631"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-devel-0.7.6-3.7.2.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-devel-0.7.6-3.7.2.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-devel-0.7.6-3.7.2.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-devel-0.7.6-3.7.2.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-tools-0.7.6-3.7.2.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-tools-0.7.6-3.7.2.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-tools-0.7.6-3.7.2.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-tools-0.7.6-3.7.2.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg-devel-2.48.9-7.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg-devel-2.48.9-7.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg-devel-2.48.9-7.3.5.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg-devel-2.48.9-7.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg-doc-2.48.9-7.3.3.noarch",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg9-2.48.9-7.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg9-2.48.9-7.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg9-2.48.9-7.3.5.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg9-2.48.9-7.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-qt-pkg-doc-2.45.27-3.3.3.noarch",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-qt-pkg9-2.45.27-3.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-qt-pkg9-2.45.27-3.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-qt-pkg9-2.45.27-3.3.5.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-qt-pkg9-2.45.27-3.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-17.15.0-3.9.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-17.15.0-3.9.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-17.15.0-3.9.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-17.15.0-3.9.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-devel-17.15.0-3.9.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-devel-17.15.0-3.9.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-devel-17.15.0-3.9.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-devel-17.15.0-3.9.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-solv-0.7.6-3.7.2.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-solv-0.7.6-3.7.2.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-solv-0.7.6-3.7.2.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-solv-0.7.6-3.7.2.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:yast2-pkg-bindings-4.1.2-3.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:yast2-pkg-bindings-4.1.2-3.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:yast2-pkg-bindings-4.1.2-3.3.5.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:yast2-pkg-bindings-4.1.2-3.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-1.14.30-3.7.2.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-1.14.30-3.7.2.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-1.14.30-3.7.2.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-1.14.30-3.7.2.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-log-1.14.30-3.7.2.noarch",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-needs-restarting-1.14.30-3.7.2.noarch",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-1.1.10-12.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-1.1.10-12.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-1.1.10-12.3.5.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-1.1.10-12.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-backend-zypp-1.1.10-12.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-backend-zypp-1.1.10-12.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-backend-zypp-1.1.10-12.3.5.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-backend-zypp-1.1.10-12.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-devel-1.1.10-12.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-devel-1.1.10-12.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-devel-1.1.10-12.3.5.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-devel-1.1.10-12.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-lang-1.1.10-12.3.5.noarch",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-18-1.1.10-12.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-18-1.1.10-12.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-18-1.1.10-12.3.5.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-18-1.1.10-12.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-devel-1.1.10-12.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-devel-1.1.10-12.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-devel-1.1.10-12.3.5.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-devel-1.1.10-12.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libyui-qt-pkg-devel-2.45.27-3.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libyui-qt-pkg-devel-2.45.27-3.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libyui-qt-pkg-devel-2.45.27-3.3.5.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libyui-qt-pkg-devel-2.45.27-3.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP1:perl-solv-0.7.6-3.7.2.aarch64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP1:perl-solv-0.7.6-3.7.2.ppc64le",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP1:perl-solv-0.7.6-3.7.2.s390x",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP1:perl-solv-0.7.6-3.7.2.x86_64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP1:ruby-solv-0.7.6-3.7.2.aarch64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP1:ruby-solv-0.7.6-3.7.2.ppc64le",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP1:ruby-solv-0.7.6-3.7.2.s390x",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP1:ruby-solv-0.7.6-3.7.2.x86_64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP1:python-solv-0.7.6-3.7.2.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP1:python-solv-0.7.6-3.7.2.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP1:python-solv-0.7.6-3.7.2.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP1:python-solv-0.7.6-3.7.2.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP1:PackageKit-gstreamer-plugin-1.1.10-12.3.5.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP1:PackageKit-gtk3-module-1.1.10-12.3.5.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 3.3,
+						"baseSeverity": "LOW",
+						"vectorString": "CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:L",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-devel-0.7.6-3.7.2.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-devel-0.7.6-3.7.2.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-devel-0.7.6-3.7.2.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-devel-0.7.6-3.7.2.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-tools-0.7.6-3.7.2.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-tools-0.7.6-3.7.2.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-tools-0.7.6-3.7.2.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libsolv-tools-0.7.6-3.7.2.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg-devel-2.48.9-7.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg-devel-2.48.9-7.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg-devel-2.48.9-7.3.5.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg-devel-2.48.9-7.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg-doc-2.48.9-7.3.3.noarch",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg9-2.48.9-7.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg9-2.48.9-7.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg9-2.48.9-7.3.5.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-ncurses-pkg9-2.48.9-7.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-qt-pkg-doc-2.45.27-3.3.3.noarch",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-qt-pkg9-2.45.27-3.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-qt-pkg9-2.45.27-3.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-qt-pkg9-2.45.27-3.3.5.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libyui-qt-pkg9-2.45.27-3.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-17.15.0-3.9.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-17.15.0-3.9.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-17.15.0-3.9.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-17.15.0-3.9.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-devel-17.15.0-3.9.1.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-devel-17.15.0-3.9.1.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-devel-17.15.0-3.9.1.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:libzypp-devel-17.15.0-3.9.1.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-solv-0.7.6-3.7.2.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-solv-0.7.6-3.7.2.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-solv-0.7.6-3.7.2.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:python3-solv-0.7.6-3.7.2.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:yast2-pkg-bindings-4.1.2-3.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:yast2-pkg-bindings-4.1.2-3.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:yast2-pkg-bindings-4.1.2-3.3.5.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:yast2-pkg-bindings-4.1.2-3.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-1.14.30-3.7.2.aarch64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-1.14.30-3.7.2.ppc64le",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-1.14.30-3.7.2.s390x",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-1.14.30-3.7.2.x86_64",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-log-1.14.30-3.7.2.noarch",
+						"SUSE Linux Enterprise Module for Basesystem 15 SP1:zypper-needs-restarting-1.14.30-3.7.2.noarch",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-1.1.10-12.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-1.1.10-12.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-1.1.10-12.3.5.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-1.1.10-12.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-backend-zypp-1.1.10-12.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-backend-zypp-1.1.10-12.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-backend-zypp-1.1.10-12.3.5.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-backend-zypp-1.1.10-12.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-devel-1.1.10-12.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-devel-1.1.10-12.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-devel-1.1.10-12.3.5.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-devel-1.1.10-12.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:PackageKit-lang-1.1.10-12.3.5.noarch",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-18-1.1.10-12.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-18-1.1.10-12.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-18-1.1.10-12.3.5.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-18-1.1.10-12.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-devel-1.1.10-12.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-devel-1.1.10-12.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-devel-1.1.10-12.3.5.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libpackagekit-glib2-devel-1.1.10-12.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libyui-qt-pkg-devel-2.45.27-3.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libyui-qt-pkg-devel-2.45.27-3.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libyui-qt-pkg-devel-2.45.27-3.3.5.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:libyui-qt-pkg-devel-2.45.27-3.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.aarch64",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.ppc64le",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.s390x",
+						"SUSE Linux Enterprise Module for Desktop Applications 15 SP1:typelib-1_0-PackageKitGlib-1_0-1.1.10-12.3.5.x86_64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP1:perl-solv-0.7.6-3.7.2.aarch64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP1:perl-solv-0.7.6-3.7.2.ppc64le",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP1:perl-solv-0.7.6-3.7.2.s390x",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP1:perl-solv-0.7.6-3.7.2.x86_64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP1:ruby-solv-0.7.6-3.7.2.aarch64",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP1:ruby-solv-0.7.6-3.7.2.ppc64le",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP1:ruby-solv-0.7.6-3.7.2.s390x",
+						"SUSE Linux Enterprise Module for Development Tools 15 SP1:ruby-solv-0.7.6-3.7.2.x86_64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP1:python-solv-0.7.6-3.7.2.aarch64",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP1:python-solv-0.7.6-3.7.2.ppc64le",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP1:python-solv-0.7.6-3.7.2.s390x",
+						"SUSE Linux Enterprise Module for Package Hub 15 SP1:python-solv-0.7.6-3.7.2.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP1:PackageKit-gstreamer-plugin-1.1.10-12.3.5.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 15 SP1:PackageKit-gtk3-module-1.1.10-12.3.5.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2019-10-22T13:40:42Z",
+					"details": "low"
+				}
+			],
+			"title": "CVE-2018-20534"
+		}
+	]
+}

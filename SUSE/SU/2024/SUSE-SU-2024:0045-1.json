@@ -1,0 +1,677 @@
+{
+	"document": {
+		"aggregate_severity": {
+			"namespace": "https://www.suse.com/support/security/rating/",
+			"text": "important"
+		},
+		"category": "csaf_security_advisory",
+		"csaf_version": "2.0",
+		"distribution": {
+			"text": "Copyright 2024 SUSE LLC. All rights reserved.",
+			"tlp": {
+				"label": "WHITE",
+				"url": "https://www.first.org/tlp/"
+			}
+		},
+		"lang": "en",
+		"notes": [
+			{
+				"category": "summary",
+				"text": "Security update for gcc13",
+				"title": "Title of the patch"
+			},
+			{
+				"category": "description",
+				"text": "This update for gcc13 fixes the following issues:\n\nThis update ship the GCC 13.2 compiler suite and its base libraries.\n\nThe compiler base libraries are provided for all SUSE Linux Enterprise 15\nversions and replace the same named GCC 12 ones.\n\nThe new compilers for C, C++, and Fortran are provided for SUSE Linux\nEnterprise 15 SP4 and SP5, and provided in the 'Development Tools' module.\n\nThe Go, D, Ada and Modula 2 language compiler parts are available\nunsupported via the PackageHub repositories.\n\nTo use gcc13 compilers use:\n\n- install 'gcc13' or 'gcc13-c++' or one of the other 'gcc13-COMPILER' frontend packages.\n- override your Makefile to use CC=gcc-13, CXX=g++-13 and similar overrides for the other languages.\n\nFor a full changelog with all new GCC13 features, check out\n\n        https://gcc.gnu.org/gcc-13/changes.html\n\n\nDetailed changes:\n\n\n* CVE-2023-4039: Fixed -fstack-protector issues on aarch64 with variable\n  length stack allocations.  (bsc#1214052)\n\n- Work around third party app crash during C++ standard library initialization.  [bsc#1216664]\n- Fixed that GCC13 fails to compile some packages with error: unrecognizable insn (bsc#1215427)\n- Bump included newlib to version 4.3.0.\n- Update to GCC trunk head (r13-5254-g05b9868b182bb9)\n- Redo floatn fixinclude pick-up to simply keep what is there.\n- Turn cross compiler to s390x to a glibc cross. [bsc#1214460]\n\n- Also handle -static-pie in the default-PIE specs\n- Fixed missed optimization in Skia resulting in Firefox crashes when\n  building with LTO.  [bsc#1212101]\n- Make libstdc++6-devel packages own their directories since they\n  can be installed standalone.  [bsc#1211427]\n- Add new x86-related intrinsics (amxcomplexintrin.h).\n- RISC-V: Add support for inlining subword atomic operations\n- Use --enable-link-serialization rather that --enable-link-mutex,\n  the benefit of the former one is that the linker jobs are not\n  holding tokens of the make's jobserver.\n- Add cross-bpf packages.  See https://gcc.gnu.org/wiki/BPFBackEnd\n  for the general state of BPF with GCC.\n- Add bootstrap conditional to allow --without=bootstrap to be\n  specified to speed up local builds for testing.\n- Bump included newlib to version 4.3.0. \n- Also package libhwasan_preinit.o on aarch64.\n- Configure external timezone database provided by the timezone\n  package.  Make libstdc++6 recommend timezone to get a fully\n  working std::chrono.  Install timezone when running the testsuite.\n- Package libhwasan_preinit.o on x86_64.\n- Fixed unwinding on aarch64 with pointer signing.  [bsc#1206684]\n- Enable PRU flavour for gcc13\n- update floatn fixinclude pickup to check each header separately (bsc#1206480)\n- Redo floatn fixinclude pick-up to simply keep what is there. \n- Bump libgo SONAME to libgo22.\n- Do not package libhwasan for biarch (32-bit architecture)\n  as the extension depends on 64-bit pointers.\n- Adjust floatn fixincludes guard to work with SLE12 and earlier\n  SLE15.\n- Depend on at least LLVM 13 for GCN cross compiler.\n- Update embedded newlib to version 4.2.0\n- Allow cross-pru-gcc12-bootstrap for armv7l architecture.\n  PRU architecture is used for real-time MCUs embedded into TI\n  armv7l and aarch64 SoCs. We need to have cross-pru-gcc12 for\n  armv7l in order to build both host applications and PRU firmware\n  during the same build.\n",
+				"title": "Description of the patch"
+			},
+			{
+				"category": "details",
+				"text": "SUSE-2024-45,SUSE-SLE-Micro-5.3-2024-45,SUSE-SLE-Micro-5.4-2024-45,SUSE-SLE-Micro-5.5-2024-45",
+				"title": "Patchnames"
+			},
+			{
+				"category": "legal_disclaimer",
+				"text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+				"title": "Terms of use"
+			}
+		],
+		"publisher": {
+			"category": "vendor",
+			"contact_details": "https://www.suse.com/support/security/contact/",
+			"name": "SUSE Product Security Team",
+			"namespace": "https://www.suse.com/"
+		},
+		"references": [
+			{
+				"category": "external",
+				"summary": "SUSE ratings",
+				"url": "https://www.suse.com/support/security/rating/"
+			},
+			{
+				"category": "self",
+				"summary": "URL of this CSAF notice",
+				"url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2024_0045-1.json"
+			},
+			{
+				"category": "self",
+				"summary": "URL for SUSE-SU-2024:0045-1",
+				"url": "https://www.suse.com/support/update/announcement/2024/suse-su-20240045-1/"
+			},
+			{
+				"category": "self",
+				"summary": "E-Mail link for SUSE-SU-2024:0045-1",
+				"url": "https://lists.suse.com/pipermail/sle-security-updates/2024-January/017600.html"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1206480",
+				"url": "https://bugzilla.suse.com/1206480"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1206684",
+				"url": "https://bugzilla.suse.com/1206684"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1210557",
+				"url": "https://bugzilla.suse.com/1210557"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1211427",
+				"url": "https://bugzilla.suse.com/1211427"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1212101",
+				"url": "https://bugzilla.suse.com/1212101"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1213915",
+				"url": "https://bugzilla.suse.com/1213915"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1214052",
+				"url": "https://bugzilla.suse.com/1214052"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1214460",
+				"url": "https://bugzilla.suse.com/1214460"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1215427",
+				"url": "https://bugzilla.suse.com/1215427"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1216664",
+				"url": "https://bugzilla.suse.com/1216664"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2023-4039 page",
+				"url": "https://www.suse.com/security/cve/CVE-2023-4039/"
+			}
+		],
+		"title": "Security update for gcc13",
+		"tracking": {
+			"current_release_date": "2024-01-07T21:27:15Z",
+			"generator": {
+				"date": "2024-01-07T21:27:15Z",
+				"engine": {
+					"name": "cve-database.git:bin/generate-csaf.pl",
+					"version": "1"
+				}
+			},
+			"id": "SUSE-SU-2024:0045-1",
+			"initial_release_date": "2024-01-07T21:27:15Z",
+			"revision_history": [
+				{
+					"date": "2024-01-07T21:27:15Z",
+					"number": "1",
+					"summary": "Current version"
+				}
+			],
+			"status": "final",
+			"version": "1"
+		}
+	},
+	"product_tree": {
+		"branches": [
+			{
+				"branches": [
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "libatomic1-13.2.1+git7813-150000.1.6.1.aarch64",
+								"product": {
+									"name": "libatomic1-13.2.1+git7813-150000.1.6.1.aarch64",
+									"product_id": "libatomic1-13.2.1+git7813-150000.1.6.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libgcc_s1-13.2.1+git7813-150000.1.6.1.aarch64",
+								"product": {
+									"name": "libgcc_s1-13.2.1+git7813-150000.1.6.1.aarch64",
+									"product_id": "libgcc_s1-13.2.1+git7813-150000.1.6.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libstdc++6-13.2.1+git7813-150000.1.6.1.aarch64",
+								"product": {
+									"name": "libstdc++6-13.2.1+git7813-150000.1.6.1.aarch64",
+									"product_id": "libstdc++6-13.2.1+git7813-150000.1.6.1.aarch64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "aarch64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "libatomic1-13.2.1+git7813-150000.1.6.1.s390x",
+								"product": {
+									"name": "libatomic1-13.2.1+git7813-150000.1.6.1.s390x",
+									"product_id": "libatomic1-13.2.1+git7813-150000.1.6.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libgcc_s1-13.2.1+git7813-150000.1.6.1.s390x",
+								"product": {
+									"name": "libgcc_s1-13.2.1+git7813-150000.1.6.1.s390x",
+									"product_id": "libgcc_s1-13.2.1+git7813-150000.1.6.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libstdc++6-13.2.1+git7813-150000.1.6.1.s390x",
+								"product": {
+									"name": "libstdc++6-13.2.1+git7813-150000.1.6.1.s390x",
+									"product_id": "libstdc++6-13.2.1+git7813-150000.1.6.1.s390x"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "s390x"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "libatomic1-13.2.1+git7813-150000.1.6.1.x86_64",
+								"product": {
+									"name": "libatomic1-13.2.1+git7813-150000.1.6.1.x86_64",
+									"product_id": "libatomic1-13.2.1+git7813-150000.1.6.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libgcc_s1-13.2.1+git7813-150000.1.6.1.x86_64",
+								"product": {
+									"name": "libgcc_s1-13.2.1+git7813-150000.1.6.1.x86_64",
+									"product_id": "libgcc_s1-13.2.1+git7813-150000.1.6.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "libstdc++6-13.2.1+git7813-150000.1.6.1.x86_64",
+								"product": {
+									"name": "libstdc++6-13.2.1+git7813-150000.1.6.1.x86_64",
+									"product_id": "libstdc++6-13.2.1+git7813-150000.1.6.1.x86_64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "x86_64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Micro 5.3",
+								"product": {
+									"name": "SUSE Linux Enterprise Micro 5.3",
+									"product_id": "SUSE Linux Enterprise Micro 5.3",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-micro:5.3"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Micro 5.4",
+								"product": {
+									"name": "SUSE Linux Enterprise Micro 5.4",
+									"product_id": "SUSE Linux Enterprise Micro 5.4",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-micro:5.4"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Micro 5.5",
+								"product": {
+									"name": "SUSE Linux Enterprise Micro 5.5",
+									"product_id": "SUSE Linux Enterprise Micro 5.5",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-micro:5.5"
+									}
+								}
+							}
+						],
+						"category": "product_family",
+						"name": "SUSE Linux Enterprise"
+					}
+				],
+				"category": "vendor",
+				"name": "SUSE"
+			}
+		],
+		"relationships": [
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libatomic1-13.2.1+git7813-150000.1.6.1.aarch64 as component of SUSE Linux Enterprise Micro 5.3",
+					"product_id": "SUSE Linux Enterprise Micro 5.3:libatomic1-13.2.1+git7813-150000.1.6.1.aarch64"
+				},
+				"product_reference": "libatomic1-13.2.1+git7813-150000.1.6.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Micro 5.3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libatomic1-13.2.1+git7813-150000.1.6.1.s390x as component of SUSE Linux Enterprise Micro 5.3",
+					"product_id": "SUSE Linux Enterprise Micro 5.3:libatomic1-13.2.1+git7813-150000.1.6.1.s390x"
+				},
+				"product_reference": "libatomic1-13.2.1+git7813-150000.1.6.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Micro 5.3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libatomic1-13.2.1+git7813-150000.1.6.1.x86_64 as component of SUSE Linux Enterprise Micro 5.3",
+					"product_id": "SUSE Linux Enterprise Micro 5.3:libatomic1-13.2.1+git7813-150000.1.6.1.x86_64"
+				},
+				"product_reference": "libatomic1-13.2.1+git7813-150000.1.6.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Micro 5.3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libgcc_s1-13.2.1+git7813-150000.1.6.1.aarch64 as component of SUSE Linux Enterprise Micro 5.3",
+					"product_id": "SUSE Linux Enterprise Micro 5.3:libgcc_s1-13.2.1+git7813-150000.1.6.1.aarch64"
+				},
+				"product_reference": "libgcc_s1-13.2.1+git7813-150000.1.6.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Micro 5.3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libgcc_s1-13.2.1+git7813-150000.1.6.1.s390x as component of SUSE Linux Enterprise Micro 5.3",
+					"product_id": "SUSE Linux Enterprise Micro 5.3:libgcc_s1-13.2.1+git7813-150000.1.6.1.s390x"
+				},
+				"product_reference": "libgcc_s1-13.2.1+git7813-150000.1.6.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Micro 5.3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libgcc_s1-13.2.1+git7813-150000.1.6.1.x86_64 as component of SUSE Linux Enterprise Micro 5.3",
+					"product_id": "SUSE Linux Enterprise Micro 5.3:libgcc_s1-13.2.1+git7813-150000.1.6.1.x86_64"
+				},
+				"product_reference": "libgcc_s1-13.2.1+git7813-150000.1.6.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Micro 5.3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libstdc++6-13.2.1+git7813-150000.1.6.1.aarch64 as component of SUSE Linux Enterprise Micro 5.3",
+					"product_id": "SUSE Linux Enterprise Micro 5.3:libstdc++6-13.2.1+git7813-150000.1.6.1.aarch64"
+				},
+				"product_reference": "libstdc++6-13.2.1+git7813-150000.1.6.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Micro 5.3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libstdc++6-13.2.1+git7813-150000.1.6.1.s390x as component of SUSE Linux Enterprise Micro 5.3",
+					"product_id": "SUSE Linux Enterprise Micro 5.3:libstdc++6-13.2.1+git7813-150000.1.6.1.s390x"
+				},
+				"product_reference": "libstdc++6-13.2.1+git7813-150000.1.6.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Micro 5.3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libstdc++6-13.2.1+git7813-150000.1.6.1.x86_64 as component of SUSE Linux Enterprise Micro 5.3",
+					"product_id": "SUSE Linux Enterprise Micro 5.3:libstdc++6-13.2.1+git7813-150000.1.6.1.x86_64"
+				},
+				"product_reference": "libstdc++6-13.2.1+git7813-150000.1.6.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Micro 5.3"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libatomic1-13.2.1+git7813-150000.1.6.1.aarch64 as component of SUSE Linux Enterprise Micro 5.4",
+					"product_id": "SUSE Linux Enterprise Micro 5.4:libatomic1-13.2.1+git7813-150000.1.6.1.aarch64"
+				},
+				"product_reference": "libatomic1-13.2.1+git7813-150000.1.6.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Micro 5.4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libatomic1-13.2.1+git7813-150000.1.6.1.s390x as component of SUSE Linux Enterprise Micro 5.4",
+					"product_id": "SUSE Linux Enterprise Micro 5.4:libatomic1-13.2.1+git7813-150000.1.6.1.s390x"
+				},
+				"product_reference": "libatomic1-13.2.1+git7813-150000.1.6.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Micro 5.4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libatomic1-13.2.1+git7813-150000.1.6.1.x86_64 as component of SUSE Linux Enterprise Micro 5.4",
+					"product_id": "SUSE Linux Enterprise Micro 5.4:libatomic1-13.2.1+git7813-150000.1.6.1.x86_64"
+				},
+				"product_reference": "libatomic1-13.2.1+git7813-150000.1.6.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Micro 5.4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libgcc_s1-13.2.1+git7813-150000.1.6.1.aarch64 as component of SUSE Linux Enterprise Micro 5.4",
+					"product_id": "SUSE Linux Enterprise Micro 5.4:libgcc_s1-13.2.1+git7813-150000.1.6.1.aarch64"
+				},
+				"product_reference": "libgcc_s1-13.2.1+git7813-150000.1.6.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Micro 5.4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libgcc_s1-13.2.1+git7813-150000.1.6.1.s390x as component of SUSE Linux Enterprise Micro 5.4",
+					"product_id": "SUSE Linux Enterprise Micro 5.4:libgcc_s1-13.2.1+git7813-150000.1.6.1.s390x"
+				},
+				"product_reference": "libgcc_s1-13.2.1+git7813-150000.1.6.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Micro 5.4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libgcc_s1-13.2.1+git7813-150000.1.6.1.x86_64 as component of SUSE Linux Enterprise Micro 5.4",
+					"product_id": "SUSE Linux Enterprise Micro 5.4:libgcc_s1-13.2.1+git7813-150000.1.6.1.x86_64"
+				},
+				"product_reference": "libgcc_s1-13.2.1+git7813-150000.1.6.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Micro 5.4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libstdc++6-13.2.1+git7813-150000.1.6.1.aarch64 as component of SUSE Linux Enterprise Micro 5.4",
+					"product_id": "SUSE Linux Enterprise Micro 5.4:libstdc++6-13.2.1+git7813-150000.1.6.1.aarch64"
+				},
+				"product_reference": "libstdc++6-13.2.1+git7813-150000.1.6.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Micro 5.4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libstdc++6-13.2.1+git7813-150000.1.6.1.s390x as component of SUSE Linux Enterprise Micro 5.4",
+					"product_id": "SUSE Linux Enterprise Micro 5.4:libstdc++6-13.2.1+git7813-150000.1.6.1.s390x"
+				},
+				"product_reference": "libstdc++6-13.2.1+git7813-150000.1.6.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Micro 5.4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libstdc++6-13.2.1+git7813-150000.1.6.1.x86_64 as component of SUSE Linux Enterprise Micro 5.4",
+					"product_id": "SUSE Linux Enterprise Micro 5.4:libstdc++6-13.2.1+git7813-150000.1.6.1.x86_64"
+				},
+				"product_reference": "libstdc++6-13.2.1+git7813-150000.1.6.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Micro 5.4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libatomic1-13.2.1+git7813-150000.1.6.1.aarch64 as component of SUSE Linux Enterprise Micro 5.5",
+					"product_id": "SUSE Linux Enterprise Micro 5.5:libatomic1-13.2.1+git7813-150000.1.6.1.aarch64"
+				},
+				"product_reference": "libatomic1-13.2.1+git7813-150000.1.6.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Micro 5.5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libatomic1-13.2.1+git7813-150000.1.6.1.s390x as component of SUSE Linux Enterprise Micro 5.5",
+					"product_id": "SUSE Linux Enterprise Micro 5.5:libatomic1-13.2.1+git7813-150000.1.6.1.s390x"
+				},
+				"product_reference": "libatomic1-13.2.1+git7813-150000.1.6.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Micro 5.5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libatomic1-13.2.1+git7813-150000.1.6.1.x86_64 as component of SUSE Linux Enterprise Micro 5.5",
+					"product_id": "SUSE Linux Enterprise Micro 5.5:libatomic1-13.2.1+git7813-150000.1.6.1.x86_64"
+				},
+				"product_reference": "libatomic1-13.2.1+git7813-150000.1.6.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Micro 5.5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libgcc_s1-13.2.1+git7813-150000.1.6.1.aarch64 as component of SUSE Linux Enterprise Micro 5.5",
+					"product_id": "SUSE Linux Enterprise Micro 5.5:libgcc_s1-13.2.1+git7813-150000.1.6.1.aarch64"
+				},
+				"product_reference": "libgcc_s1-13.2.1+git7813-150000.1.6.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Micro 5.5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libgcc_s1-13.2.1+git7813-150000.1.6.1.s390x as component of SUSE Linux Enterprise Micro 5.5",
+					"product_id": "SUSE Linux Enterprise Micro 5.5:libgcc_s1-13.2.1+git7813-150000.1.6.1.s390x"
+				},
+				"product_reference": "libgcc_s1-13.2.1+git7813-150000.1.6.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Micro 5.5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libgcc_s1-13.2.1+git7813-150000.1.6.1.x86_64 as component of SUSE Linux Enterprise Micro 5.5",
+					"product_id": "SUSE Linux Enterprise Micro 5.5:libgcc_s1-13.2.1+git7813-150000.1.6.1.x86_64"
+				},
+				"product_reference": "libgcc_s1-13.2.1+git7813-150000.1.6.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Micro 5.5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libstdc++6-13.2.1+git7813-150000.1.6.1.aarch64 as component of SUSE Linux Enterprise Micro 5.5",
+					"product_id": "SUSE Linux Enterprise Micro 5.5:libstdc++6-13.2.1+git7813-150000.1.6.1.aarch64"
+				},
+				"product_reference": "libstdc++6-13.2.1+git7813-150000.1.6.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Micro 5.5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libstdc++6-13.2.1+git7813-150000.1.6.1.s390x as component of SUSE Linux Enterprise Micro 5.5",
+					"product_id": "SUSE Linux Enterprise Micro 5.5:libstdc++6-13.2.1+git7813-150000.1.6.1.s390x"
+				},
+				"product_reference": "libstdc++6-13.2.1+git7813-150000.1.6.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Micro 5.5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "libstdc++6-13.2.1+git7813-150000.1.6.1.x86_64 as component of SUSE Linux Enterprise Micro 5.5",
+					"product_id": "SUSE Linux Enterprise Micro 5.5:libstdc++6-13.2.1+git7813-150000.1.6.1.x86_64"
+				},
+				"product_reference": "libstdc++6-13.2.1+git7813-150000.1.6.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Micro 5.5"
+			}
+		]
+	},
+	"vulnerabilities": [
+		{
+			"cve": "CVE-2023-4039",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2023-4039"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "** DISPUTED ** \n\n**DISPUTED**A failure in the -fstack-protector feature in GCC-based toolchains \nthat target AArch64 allows an attacker to exploit an existing buffer \noverflow in dynamically-sized local variables in your application \nwithout this being detected. This stack-protector failure only applies \nto C99-style dynamically-sized local variables or those created using \nalloca(). The stack-protector operates as intended for statically-sized \nlocal variables.\n\nThe default behavior when the stack-protector \ndetects an overflow is to terminate your application, resulting in \ncontrolled loss of availability. An attacker who can exploit a buffer \noverflow without triggering the stack-protector might be able to change \nprogram flow control to cause an uncontrolled loss of availability or to\n go further and affect confidentiality or integrity. NOTE: The GCC project argues that this is a missed hardening bug and not a vulnerability by itself.\n\n\n\n\n\n",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Micro 5.3:libatomic1-13.2.1+git7813-150000.1.6.1.aarch64",
+					"SUSE Linux Enterprise Micro 5.3:libatomic1-13.2.1+git7813-150000.1.6.1.s390x",
+					"SUSE Linux Enterprise Micro 5.3:libatomic1-13.2.1+git7813-150000.1.6.1.x86_64",
+					"SUSE Linux Enterprise Micro 5.3:libgcc_s1-13.2.1+git7813-150000.1.6.1.aarch64",
+					"SUSE Linux Enterprise Micro 5.3:libgcc_s1-13.2.1+git7813-150000.1.6.1.s390x",
+					"SUSE Linux Enterprise Micro 5.3:libgcc_s1-13.2.1+git7813-150000.1.6.1.x86_64",
+					"SUSE Linux Enterprise Micro 5.3:libstdc++6-13.2.1+git7813-150000.1.6.1.aarch64",
+					"SUSE Linux Enterprise Micro 5.3:libstdc++6-13.2.1+git7813-150000.1.6.1.s390x",
+					"SUSE Linux Enterprise Micro 5.3:libstdc++6-13.2.1+git7813-150000.1.6.1.x86_64",
+					"SUSE Linux Enterprise Micro 5.4:libatomic1-13.2.1+git7813-150000.1.6.1.aarch64",
+					"SUSE Linux Enterprise Micro 5.4:libatomic1-13.2.1+git7813-150000.1.6.1.s390x",
+					"SUSE Linux Enterprise Micro 5.4:libatomic1-13.2.1+git7813-150000.1.6.1.x86_64",
+					"SUSE Linux Enterprise Micro 5.4:libgcc_s1-13.2.1+git7813-150000.1.6.1.aarch64",
+					"SUSE Linux Enterprise Micro 5.4:libgcc_s1-13.2.1+git7813-150000.1.6.1.s390x",
+					"SUSE Linux Enterprise Micro 5.4:libgcc_s1-13.2.1+git7813-150000.1.6.1.x86_64",
+					"SUSE Linux Enterprise Micro 5.4:libstdc++6-13.2.1+git7813-150000.1.6.1.aarch64",
+					"SUSE Linux Enterprise Micro 5.4:libstdc++6-13.2.1+git7813-150000.1.6.1.s390x",
+					"SUSE Linux Enterprise Micro 5.4:libstdc++6-13.2.1+git7813-150000.1.6.1.x86_64",
+					"SUSE Linux Enterprise Micro 5.5:libatomic1-13.2.1+git7813-150000.1.6.1.aarch64",
+					"SUSE Linux Enterprise Micro 5.5:libatomic1-13.2.1+git7813-150000.1.6.1.s390x",
+					"SUSE Linux Enterprise Micro 5.5:libatomic1-13.2.1+git7813-150000.1.6.1.x86_64",
+					"SUSE Linux Enterprise Micro 5.5:libgcc_s1-13.2.1+git7813-150000.1.6.1.aarch64",
+					"SUSE Linux Enterprise Micro 5.5:libgcc_s1-13.2.1+git7813-150000.1.6.1.s390x",
+					"SUSE Linux Enterprise Micro 5.5:libgcc_s1-13.2.1+git7813-150000.1.6.1.x86_64",
+					"SUSE Linux Enterprise Micro 5.5:libstdc++6-13.2.1+git7813-150000.1.6.1.aarch64",
+					"SUSE Linux Enterprise Micro 5.5:libstdc++6-13.2.1+git7813-150000.1.6.1.s390x",
+					"SUSE Linux Enterprise Micro 5.5:libstdc++6-13.2.1+git7813-150000.1.6.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2023-4039",
+					"url": "https://www.suse.com/security/cve/CVE-2023-4039"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1214052 for CVE-2023-4039",
+					"url": "https://bugzilla.suse.com/1214052"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1228298 for CVE-2023-4039",
+					"url": "https://bugzilla.suse.com/1228298"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Micro 5.3:libatomic1-13.2.1+git7813-150000.1.6.1.aarch64",
+						"SUSE Linux Enterprise Micro 5.3:libatomic1-13.2.1+git7813-150000.1.6.1.s390x",
+						"SUSE Linux Enterprise Micro 5.3:libatomic1-13.2.1+git7813-150000.1.6.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.3:libgcc_s1-13.2.1+git7813-150000.1.6.1.aarch64",
+						"SUSE Linux Enterprise Micro 5.3:libgcc_s1-13.2.1+git7813-150000.1.6.1.s390x",
+						"SUSE Linux Enterprise Micro 5.3:libgcc_s1-13.2.1+git7813-150000.1.6.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.3:libstdc++6-13.2.1+git7813-150000.1.6.1.aarch64",
+						"SUSE Linux Enterprise Micro 5.3:libstdc++6-13.2.1+git7813-150000.1.6.1.s390x",
+						"SUSE Linux Enterprise Micro 5.3:libstdc++6-13.2.1+git7813-150000.1.6.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.4:libatomic1-13.2.1+git7813-150000.1.6.1.aarch64",
+						"SUSE Linux Enterprise Micro 5.4:libatomic1-13.2.1+git7813-150000.1.6.1.s390x",
+						"SUSE Linux Enterprise Micro 5.4:libatomic1-13.2.1+git7813-150000.1.6.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.4:libgcc_s1-13.2.1+git7813-150000.1.6.1.aarch64",
+						"SUSE Linux Enterprise Micro 5.4:libgcc_s1-13.2.1+git7813-150000.1.6.1.s390x",
+						"SUSE Linux Enterprise Micro 5.4:libgcc_s1-13.2.1+git7813-150000.1.6.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.4:libstdc++6-13.2.1+git7813-150000.1.6.1.aarch64",
+						"SUSE Linux Enterprise Micro 5.4:libstdc++6-13.2.1+git7813-150000.1.6.1.s390x",
+						"SUSE Linux Enterprise Micro 5.4:libstdc++6-13.2.1+git7813-150000.1.6.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.5:libatomic1-13.2.1+git7813-150000.1.6.1.aarch64",
+						"SUSE Linux Enterprise Micro 5.5:libatomic1-13.2.1+git7813-150000.1.6.1.s390x",
+						"SUSE Linux Enterprise Micro 5.5:libatomic1-13.2.1+git7813-150000.1.6.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.5:libgcc_s1-13.2.1+git7813-150000.1.6.1.aarch64",
+						"SUSE Linux Enterprise Micro 5.5:libgcc_s1-13.2.1+git7813-150000.1.6.1.s390x",
+						"SUSE Linux Enterprise Micro 5.5:libgcc_s1-13.2.1+git7813-150000.1.6.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.5:libstdc++6-13.2.1+git7813-150000.1.6.1.aarch64",
+						"SUSE Linux Enterprise Micro 5.5:libstdc++6-13.2.1+git7813-150000.1.6.1.s390x",
+						"SUSE Linux Enterprise Micro 5.5:libstdc++6-13.2.1+git7813-150000.1.6.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 8.1,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Micro 5.3:libatomic1-13.2.1+git7813-150000.1.6.1.aarch64",
+						"SUSE Linux Enterprise Micro 5.3:libatomic1-13.2.1+git7813-150000.1.6.1.s390x",
+						"SUSE Linux Enterprise Micro 5.3:libatomic1-13.2.1+git7813-150000.1.6.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.3:libgcc_s1-13.2.1+git7813-150000.1.6.1.aarch64",
+						"SUSE Linux Enterprise Micro 5.3:libgcc_s1-13.2.1+git7813-150000.1.6.1.s390x",
+						"SUSE Linux Enterprise Micro 5.3:libgcc_s1-13.2.1+git7813-150000.1.6.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.3:libstdc++6-13.2.1+git7813-150000.1.6.1.aarch64",
+						"SUSE Linux Enterprise Micro 5.3:libstdc++6-13.2.1+git7813-150000.1.6.1.s390x",
+						"SUSE Linux Enterprise Micro 5.3:libstdc++6-13.2.1+git7813-150000.1.6.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.4:libatomic1-13.2.1+git7813-150000.1.6.1.aarch64",
+						"SUSE Linux Enterprise Micro 5.4:libatomic1-13.2.1+git7813-150000.1.6.1.s390x",
+						"SUSE Linux Enterprise Micro 5.4:libatomic1-13.2.1+git7813-150000.1.6.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.4:libgcc_s1-13.2.1+git7813-150000.1.6.1.aarch64",
+						"SUSE Linux Enterprise Micro 5.4:libgcc_s1-13.2.1+git7813-150000.1.6.1.s390x",
+						"SUSE Linux Enterprise Micro 5.4:libgcc_s1-13.2.1+git7813-150000.1.6.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.4:libstdc++6-13.2.1+git7813-150000.1.6.1.aarch64",
+						"SUSE Linux Enterprise Micro 5.4:libstdc++6-13.2.1+git7813-150000.1.6.1.s390x",
+						"SUSE Linux Enterprise Micro 5.4:libstdc++6-13.2.1+git7813-150000.1.6.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.5:libatomic1-13.2.1+git7813-150000.1.6.1.aarch64",
+						"SUSE Linux Enterprise Micro 5.5:libatomic1-13.2.1+git7813-150000.1.6.1.s390x",
+						"SUSE Linux Enterprise Micro 5.5:libatomic1-13.2.1+git7813-150000.1.6.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.5:libgcc_s1-13.2.1+git7813-150000.1.6.1.aarch64",
+						"SUSE Linux Enterprise Micro 5.5:libgcc_s1-13.2.1+git7813-150000.1.6.1.s390x",
+						"SUSE Linux Enterprise Micro 5.5:libgcc_s1-13.2.1+git7813-150000.1.6.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.5:libstdc++6-13.2.1+git7813-150000.1.6.1.aarch64",
+						"SUSE Linux Enterprise Micro 5.5:libstdc++6-13.2.1+git7813-150000.1.6.1.s390x",
+						"SUSE Linux Enterprise Micro 5.5:libstdc++6-13.2.1+git7813-150000.1.6.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2024-01-07T21:27:15Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2023-4039"
+		}
+	]
+}

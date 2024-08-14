@@ -1,0 +1,1846 @@
+{
+	"document": {
+		"aggregate_severity": {
+			"namespace": "https://www.suse.com/support/security/rating/",
+			"text": "moderate"
+		},
+		"category": "csaf_security_advisory",
+		"csaf_version": "2.0",
+		"distribution": {
+			"text": "Copyright 2024 SUSE LLC. All rights reserved.",
+			"tlp": {
+				"label": "WHITE",
+				"url": "https://www.first.org/tlp/"
+			}
+		},
+		"lang": "en",
+		"notes": [
+			{
+				"category": "summary",
+				"text": "Security update for SUSE Manager Server 3.2",
+				"title": "Title of the patch"
+			},
+			{
+				"category": "description",
+				"text": "\nThis update fixes the following issues:\n\ncobbler:\n\n- Removes string replace for textmode fix (bsc#1134195)\n\npy26-compat-salt:\n\n- Avoid syntax error on yumpkg module running on Python 2.6 (bsc#1136250)\n- Use ThreadPool from multiprocessing.pool to avoid leakins\n  when calculating FQDNs\n- Fix usermod options for SLE11 (bsc#1117017)\n- Do not report patches as installed on RHEL systems when not all\n  the related packages are installed (bsc#1128061)\n- Do not include 'ordereddict' and 'singledispatch' on the thin\n  for Python 2.6 systems.\n- Fix paths for py26-compat dependencies on SLE15 and newer\n- Port optimization_order config parameter (bsc#1131423)\n- Use special tornado and msgpack-python compat packages on sles15sp1\n  and greater in py26-compat-salt.conf (bsc#1131423)\n- Add missing py26 thin dependencies\n- Calculate the 'FQDNs' grains in parallel to avoid long blocking (bsc#1129079)\n\nsalt-netapi-client:\n\n- Add workaround for Salt issue 52762 \n- Version 0.16.0\n  see https://github.com/SUSE/salt-netapi-client/releases/tag/v0.16.0\n\nspacewalk-backend:\n\n- Fix spacewalk-repo-sync for Ubuntu repositories in mirror case (bsc#1136029)\n- Use new names in code for client tool packages which were renamed (bsc#1134876)\n- Fix HTTP headers handling to avoid duplicated entries (bsc#1125090)\n- Use suseLib.get_proxy to get the HTTP proxy configuration \n  properly on DEB repos (bsc#1133424)\n\nspacewalk-certs-tools:\n\n- Fix missing quotation in bootstrap script (bsc#1136423)\n- Add new packages names to instructions for adding remote configuration\n  support for traditional clients\n- Print error message instead of stacktrace for client_config_update.py\n\nspacewalk-config:\n\n- Fix config declaration for rhn.conf (bsc#1132197)\n\nspacewalk-java:\n\n- Remove the 'Returning' clause from the query as oracle doesn't support it (bsc#1135166)\n- Use new names in code for client tool packages which were renamed (bsc#1134876)\n- Handle the different retcodes that are being returned when salt module is not available (bsc#1131704)\n- Do not implicitly set parent channel when cloning (bsc#1130492)\n- Prevent Actions that were actually completed to be displayed as 'in progress' forever (bsc#1131780)\n- Enable batching mode for salt synchronous calls\n- Show minion id in System Details GUI and API\n- Do not report Provisioning installed product to subscription matcher (bsc#1128838)\n- Fix product package conflicts with SLES for SAP systems (bsc#1130551)\n- Add support for Salt batch execution mode\n- Fix NPE on remote commands when no targets match (bsc1123375)\n- Fix apidoc return order on mergePackages\n- Take into account only synced products when scheduling SP migration from the API (bsc#1131929)\n\nspacewalk-web:\n\n- Change WebUI string version to 3.2.8\n\nsusemanager:\n\n- Make swap files readable only by root (bsc#1131954, CVE-2019-3684)\n- Do not show false errors when configuring swapfile during setup\n- Create bootstrap repo for new Red Hat channels (bsc#1133587)\n\nsusemanager-docs_en:\n\n- Minion ID is visible in System Info box.\n- Managing Systems Completely via SSH now fully supported (bsc#1131867).\n\nsusemanager-schema:\n\n- Copy 3.1 schema migrations to 3.2 to be able to migrate from an older\n  schema version to 3.2\n- Add support for Salt batch execution mode\n\nsusemanager-sls:\n\n- Add support for Salt batch execution mode\n\nsusemanager-sync-data:\n\n- Add SLES11 SP4 LTSS channels for SLES for SAP (bsc#1133629)\n- Add SLES11 SP4 LTSS channels for ppc64 (bsc#1132103)\n\nzypp-plugin-spacewalk:\n\n- Fix python syntax error in distupgrade (bsc#1136102)\n",
+				"title": "Description of the patch"
+			},
+			{
+				"category": "details",
+				"text": "SUSE-2019-1703,SUSE-SUSE-Manager-Proxy-3.2-2019-1703,SUSE-SUSE-Manager-Server-3.2-2019-1703",
+				"title": "Patchnames"
+			},
+			{
+				"category": "legal_disclaimer",
+				"text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+				"title": "Terms of use"
+			}
+		],
+		"publisher": {
+			"category": "vendor",
+			"contact_details": "https://www.suse.com/support/security/contact/",
+			"name": "SUSE Product Security Team",
+			"namespace": "https://www.suse.com/"
+		},
+		"references": [
+			{
+				"category": "external",
+				"summary": "SUSE ratings",
+				"url": "https://www.suse.com/support/security/rating/"
+			},
+			{
+				"category": "self",
+				"summary": "URL of this CSAF notice",
+				"url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2019_1703-1.json"
+			},
+			{
+				"category": "self",
+				"summary": "URL for SUSE-SU-2019:1703-1",
+				"url": "https://www.suse.com/support/update/announcement/2019/suse-su-20191703-1/"
+			},
+			{
+				"category": "self",
+				"summary": "E-Mail link for SUSE-SU-2019:1703-1",
+				"url": "https://lists.suse.com/pipermail/sle-security-updates/2019-June/005632.html"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1117017",
+				"url": "https://bugzilla.suse.com/1117017"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1125090",
+				"url": "https://bugzilla.suse.com/1125090"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1128061",
+				"url": "https://bugzilla.suse.com/1128061"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1128838",
+				"url": "https://bugzilla.suse.com/1128838"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1129079",
+				"url": "https://bugzilla.suse.com/1129079"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1130492",
+				"url": "https://bugzilla.suse.com/1130492"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1130551",
+				"url": "https://bugzilla.suse.com/1130551"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1131408",
+				"url": "https://bugzilla.suse.com/1131408"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1131423",
+				"url": "https://bugzilla.suse.com/1131423"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1131704",
+				"url": "https://bugzilla.suse.com/1131704"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1131780",
+				"url": "https://bugzilla.suse.com/1131780"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1131867",
+				"url": "https://bugzilla.suse.com/1131867"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1131929",
+				"url": "https://bugzilla.suse.com/1131929"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1131954",
+				"url": "https://bugzilla.suse.com/1131954"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1132080",
+				"url": "https://bugzilla.suse.com/1132080"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1132103",
+				"url": "https://bugzilla.suse.com/1132103"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1132197",
+				"url": "https://bugzilla.suse.com/1132197"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1133424",
+				"url": "https://bugzilla.suse.com/1133424"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1133587",
+				"url": "https://bugzilla.suse.com/1133587"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1133629",
+				"url": "https://bugzilla.suse.com/1133629"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1134195",
+				"url": "https://bugzilla.suse.com/1134195"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1134876",
+				"url": "https://bugzilla.suse.com/1134876"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1135166",
+				"url": "https://bugzilla.suse.com/1135166"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1136029",
+				"url": "https://bugzilla.suse.com/1136029"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1136102",
+				"url": "https://bugzilla.suse.com/1136102"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1136250",
+				"url": "https://bugzilla.suse.com/1136250"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1136423",
+				"url": "https://bugzilla.suse.com/1136423"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2019-3684 page",
+				"url": "https://www.suse.com/security/cve/CVE-2019-3684/"
+			}
+		],
+		"title": "Security update for SUSE Manager Server 3.2",
+		"tracking": {
+			"current_release_date": "2019-06-25T11:21:05Z",
+			"generator": {
+				"date": "2019-06-25T11:21:05Z",
+				"engine": {
+					"name": "cve-database.git:bin/generate-csaf.pl",
+					"version": "1"
+				}
+			},
+			"id": "SUSE-SU-2019:1703-1",
+			"initial_release_date": "2019-06-25T11:21:05Z",
+			"revision_history": [
+				{
+					"date": "2019-06-25T11:21:05Z",
+					"number": "1",
+					"summary": "Current version"
+				}
+			],
+			"status": "final",
+			"version": "1"
+		}
+	},
+	"product_tree": {
+		"branches": [
+			{
+				"branches": [
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "susemanager-3.2.18-3.25.2.aarch64",
+								"product": {
+									"name": "susemanager-3.2.18-3.25.2.aarch64",
+									"product_id": "susemanager-3.2.18-3.25.2.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-tools-3.2.18-3.25.2.aarch64",
+								"product": {
+									"name": "susemanager-tools-3.2.18-3.25.2.aarch64",
+									"product_id": "susemanager-tools-3.2.18-3.25.2.aarch64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "aarch64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "cobbler-2.6.6-6.19.1.noarch",
+								"product": {
+									"name": "cobbler-2.6.6-6.19.1.noarch",
+									"product_id": "cobbler-2.6.6-6.19.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "cobbler-tests-2.6.6-6.19.1.noarch",
+								"product": {
+									"name": "cobbler-tests-2.6.6-6.19.1.noarch",
+									"product_id": "cobbler-tests-2.6.6-6.19.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "cobbler-web-2.6.6-6.19.1.noarch",
+								"product": {
+									"name": "cobbler-web-2.6.6-6.19.1.noarch",
+									"product_id": "cobbler-web-2.6.6-6.19.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "koan-2.6.6-6.19.1.noarch",
+								"product": {
+									"name": "koan-2.6.6-6.19.1.noarch",
+									"product_id": "koan-2.6.6-6.19.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "py26-compat-salt-2016.11.10-6.26.1.noarch",
+								"product": {
+									"name": "py26-compat-salt-2016.11.10-6.26.1.noarch",
+									"product_id": "py26-compat-salt-2016.11.10-6.26.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "python2-rhncfg-5.10.122.3-3.3.1.noarch",
+								"product": {
+									"name": "python2-rhncfg-5.10.122.3-3.3.1.noarch",
+									"product_id": "python2-rhncfg-5.10.122.3-3.3.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "python2-rhncfg-actions-5.10.122.3-3.3.1.noarch",
+								"product": {
+									"name": "python2-rhncfg-actions-5.10.122.3-3.3.1.noarch",
+									"product_id": "python2-rhncfg-actions-5.10.122.3-3.3.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "python2-rhncfg-client-5.10.122.3-3.3.1.noarch",
+								"product": {
+									"name": "python2-rhncfg-client-5.10.122.3-3.3.1.noarch",
+									"product_id": "python2-rhncfg-client-5.10.122.3-3.3.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "python2-rhncfg-management-5.10.122.3-3.3.1.noarch",
+								"product": {
+									"name": "python2-rhncfg-management-5.10.122.3-3.3.1.noarch",
+									"product_id": "python2-rhncfg-management-5.10.122.3-3.3.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "python2-spacewalk-certs-tools-2.8.8.10-3.11.1.noarch",
+								"product": {
+									"name": "python2-spacewalk-certs-tools-2.8.8.10-3.11.1.noarch",
+									"product_id": "python2-spacewalk-certs-tools-2.8.8.10-3.11.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "python2-zypp-plugin-spacewalk-1.0.5-3.7.1.noarch",
+								"product": {
+									"name": "python2-zypp-plugin-spacewalk-1.0.5-3.7.1.noarch",
+									"product_id": "python2-zypp-plugin-spacewalk-1.0.5-3.7.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "rhncfg-5.10.122.3-3.3.1.noarch",
+								"product": {
+									"name": "rhncfg-5.10.122.3-3.3.1.noarch",
+									"product_id": "rhncfg-5.10.122.3-3.3.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "rhncfg-actions-5.10.122.3-3.3.1.noarch",
+								"product": {
+									"name": "rhncfg-actions-5.10.122.3-3.3.1.noarch",
+									"product_id": "rhncfg-actions-5.10.122.3-3.3.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "rhncfg-client-5.10.122.3-3.3.1.noarch",
+								"product": {
+									"name": "rhncfg-client-5.10.122.3-3.3.1.noarch",
+									"product_id": "rhncfg-client-5.10.122.3-3.3.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "rhncfg-management-5.10.122.3-3.3.1.noarch",
+								"product": {
+									"name": "rhncfg-management-5.10.122.3-3.3.1.noarch",
+									"product_id": "rhncfg-management-5.10.122.3-3.3.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "salt-netapi-client-0.16.0-4.11.1.noarch",
+								"product": {
+									"name": "salt-netapi-client-0.16.0-4.11.1.noarch",
+									"product_id": "salt-netapi-client-0.16.0-4.11.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "salt-netapi-client-kit-280d75385820aa3d1836101bc4f1cef00acd127d-3.9.1.noarch",
+								"product": {
+									"name": "salt-netapi-client-kit-280d75385820aa3d1836101bc4f1cef00acd127d-3.9.1.noarch",
+									"product_id": "salt-netapi-client-kit-280d75385820aa3d1836101bc4f1cef00acd127d-3.9.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-backend-2.8.57.16-3.30.1.noarch",
+								"product": {
+									"name": "spacewalk-backend-2.8.57.16-3.30.1.noarch",
+									"product_id": "spacewalk-backend-2.8.57.16-3.30.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-backend-app-2.8.57.16-3.30.1.noarch",
+								"product": {
+									"name": "spacewalk-backend-app-2.8.57.16-3.30.1.noarch",
+									"product_id": "spacewalk-backend-app-2.8.57.16-3.30.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-backend-applet-2.8.57.16-3.30.1.noarch",
+								"product": {
+									"name": "spacewalk-backend-applet-2.8.57.16-3.30.1.noarch",
+									"product_id": "spacewalk-backend-applet-2.8.57.16-3.30.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-backend-cdn-2.8.57.16-3.30.1.noarch",
+								"product": {
+									"name": "spacewalk-backend-cdn-2.8.57.16-3.30.1.noarch",
+									"product_id": "spacewalk-backend-cdn-2.8.57.16-3.30.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-backend-config-files-2.8.57.16-3.30.1.noarch",
+								"product": {
+									"name": "spacewalk-backend-config-files-2.8.57.16-3.30.1.noarch",
+									"product_id": "spacewalk-backend-config-files-2.8.57.16-3.30.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-backend-config-files-common-2.8.57.16-3.30.1.noarch",
+								"product": {
+									"name": "spacewalk-backend-config-files-common-2.8.57.16-3.30.1.noarch",
+									"product_id": "spacewalk-backend-config-files-common-2.8.57.16-3.30.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-backend-config-files-tool-2.8.57.16-3.30.1.noarch",
+								"product": {
+									"name": "spacewalk-backend-config-files-tool-2.8.57.16-3.30.1.noarch",
+									"product_id": "spacewalk-backend-config-files-tool-2.8.57.16-3.30.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-backend-iss-2.8.57.16-3.30.1.noarch",
+								"product": {
+									"name": "spacewalk-backend-iss-2.8.57.16-3.30.1.noarch",
+									"product_id": "spacewalk-backend-iss-2.8.57.16-3.30.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-backend-iss-export-2.8.57.16-3.30.1.noarch",
+								"product": {
+									"name": "spacewalk-backend-iss-export-2.8.57.16-3.30.1.noarch",
+									"product_id": "spacewalk-backend-iss-export-2.8.57.16-3.30.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-backend-libs-2.8.57.16-3.30.1.noarch",
+								"product": {
+									"name": "spacewalk-backend-libs-2.8.57.16-3.30.1.noarch",
+									"product_id": "spacewalk-backend-libs-2.8.57.16-3.30.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-backend-package-push-server-2.8.57.16-3.30.1.noarch",
+								"product": {
+									"name": "spacewalk-backend-package-push-server-2.8.57.16-3.30.1.noarch",
+									"product_id": "spacewalk-backend-package-push-server-2.8.57.16-3.30.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-backend-server-2.8.57.16-3.30.1.noarch",
+								"product": {
+									"name": "spacewalk-backend-server-2.8.57.16-3.30.1.noarch",
+									"product_id": "spacewalk-backend-server-2.8.57.16-3.30.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-backend-sql-2.8.57.16-3.30.1.noarch",
+								"product": {
+									"name": "spacewalk-backend-sql-2.8.57.16-3.30.1.noarch",
+									"product_id": "spacewalk-backend-sql-2.8.57.16-3.30.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-backend-sql-oracle-2.8.57.16-3.30.1.noarch",
+								"product": {
+									"name": "spacewalk-backend-sql-oracle-2.8.57.16-3.30.1.noarch",
+									"product_id": "spacewalk-backend-sql-oracle-2.8.57.16-3.30.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-backend-sql-postgresql-2.8.57.16-3.30.1.noarch",
+								"product": {
+									"name": "spacewalk-backend-sql-postgresql-2.8.57.16-3.30.1.noarch",
+									"product_id": "spacewalk-backend-sql-postgresql-2.8.57.16-3.30.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-backend-tools-2.8.57.16-3.30.1.noarch",
+								"product": {
+									"name": "spacewalk-backend-tools-2.8.57.16-3.30.1.noarch",
+									"product_id": "spacewalk-backend-tools-2.8.57.16-3.30.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-backend-xml-export-libs-2.8.57.16-3.30.1.noarch",
+								"product": {
+									"name": "spacewalk-backend-xml-export-libs-2.8.57.16-3.30.1.noarch",
+									"product_id": "spacewalk-backend-xml-export-libs-2.8.57.16-3.30.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-backend-xmlrpc-2.8.57.16-3.30.1.noarch",
+								"product": {
+									"name": "spacewalk-backend-xmlrpc-2.8.57.16-3.30.1.noarch",
+									"product_id": "spacewalk-backend-xmlrpc-2.8.57.16-3.30.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-base-2.8.7.16-3.27.1.noarch",
+								"product": {
+									"name": "spacewalk-base-2.8.7.16-3.27.1.noarch",
+									"product_id": "spacewalk-base-2.8.7.16-3.27.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-base-minimal-2.8.7.16-3.27.1.noarch",
+								"product": {
+									"name": "spacewalk-base-minimal-2.8.7.16-3.27.1.noarch",
+									"product_id": "spacewalk-base-minimal-2.8.7.16-3.27.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-base-minimal-config-2.8.7.16-3.27.1.noarch",
+								"product": {
+									"name": "spacewalk-base-minimal-config-2.8.7.16-3.27.1.noarch",
+									"product_id": "spacewalk-base-minimal-config-2.8.7.16-3.27.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-certs-tools-2.8.8.10-3.11.1.noarch",
+								"product": {
+									"name": "spacewalk-certs-tools-2.8.8.10-3.11.1.noarch",
+									"product_id": "spacewalk-certs-tools-2.8.8.10-3.11.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-config-2.8.5.7-3.16.1.noarch",
+								"product": {
+									"name": "spacewalk-config-2.8.5.7-3.16.1.noarch",
+									"product_id": "spacewalk-config-2.8.5.7-3.16.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-dobby-2.8.7.16-3.27.1.noarch",
+								"product": {
+									"name": "spacewalk-dobby-2.8.7.16-3.27.1.noarch",
+									"product_id": "spacewalk-dobby-2.8.7.16-3.27.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-html-2.8.7.16-3.27.1.noarch",
+								"product": {
+									"name": "spacewalk-html-2.8.7.16-3.27.1.noarch",
+									"product_id": "spacewalk-html-2.8.7.16-3.27.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-java-2.8.78.22-3.32.1.noarch",
+								"product": {
+									"name": "spacewalk-java-2.8.78.22-3.32.1.noarch",
+									"product_id": "spacewalk-java-2.8.78.22-3.32.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-java-apidoc-sources-2.8.78.22-3.32.1.noarch",
+								"product": {
+									"name": "spacewalk-java-apidoc-sources-2.8.78.22-3.32.1.noarch",
+									"product_id": "spacewalk-java-apidoc-sources-2.8.78.22-3.32.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-java-config-2.8.78.22-3.32.1.noarch",
+								"product": {
+									"name": "spacewalk-java-config-2.8.78.22-3.32.1.noarch",
+									"product_id": "spacewalk-java-config-2.8.78.22-3.32.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-java-lib-2.8.78.22-3.32.1.noarch",
+								"product": {
+									"name": "spacewalk-java-lib-2.8.78.22-3.32.1.noarch",
+									"product_id": "spacewalk-java-lib-2.8.78.22-3.32.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-java-oracle-2.8.78.22-3.32.1.noarch",
+								"product": {
+									"name": "spacewalk-java-oracle-2.8.78.22-3.32.1.noarch",
+									"product_id": "spacewalk-java-oracle-2.8.78.22-3.32.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-java-postgresql-2.8.78.22-3.32.1.noarch",
+								"product": {
+									"name": "spacewalk-java-postgresql-2.8.78.22-3.32.1.noarch",
+									"product_id": "spacewalk-java-postgresql-2.8.78.22-3.32.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-proxy-broker-2.8.5.5-3.6.2.noarch",
+								"product": {
+									"name": "spacewalk-proxy-broker-2.8.5.5-3.6.2.noarch",
+									"product_id": "spacewalk-proxy-broker-2.8.5.5-3.6.2.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-proxy-common-2.8.5.5-3.6.2.noarch",
+								"product": {
+									"name": "spacewalk-proxy-common-2.8.5.5-3.6.2.noarch",
+									"product_id": "spacewalk-proxy-common-2.8.5.5-3.6.2.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-proxy-installer-2.8.6.6-3.12.1.noarch",
+								"product": {
+									"name": "spacewalk-proxy-installer-2.8.6.6-3.12.1.noarch",
+									"product_id": "spacewalk-proxy-installer-2.8.6.6-3.12.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-proxy-management-2.8.5.5-3.6.2.noarch",
+								"product": {
+									"name": "spacewalk-proxy-management-2.8.5.5-3.6.2.noarch",
+									"product_id": "spacewalk-proxy-management-2.8.5.5-3.6.2.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-proxy-package-manager-2.8.5.5-3.6.2.noarch",
+								"product": {
+									"name": "spacewalk-proxy-package-manager-2.8.5.5-3.6.2.noarch",
+									"product_id": "spacewalk-proxy-package-manager-2.8.5.5-3.6.2.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-proxy-redirect-2.8.5.5-3.6.2.noarch",
+								"product": {
+									"name": "spacewalk-proxy-redirect-2.8.5.5-3.6.2.noarch",
+									"product_id": "spacewalk-proxy-redirect-2.8.5.5-3.6.2.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-proxy-salt-2.8.5.5-3.6.2.noarch",
+								"product": {
+									"name": "spacewalk-proxy-salt-2.8.5.5-3.6.2.noarch",
+									"product_id": "spacewalk-proxy-salt-2.8.5.5-3.6.2.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-taskomatic-2.8.78.22-3.32.1.noarch",
+								"product": {
+									"name": "spacewalk-taskomatic-2.8.78.22-3.32.1.noarch",
+									"product_id": "spacewalk-taskomatic-2.8.78.22-3.32.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-advanced-topics_en-pdf-3.2-11.26.1.noarch",
+								"product": {
+									"name": "susemanager-advanced-topics_en-pdf-3.2-11.26.1.noarch",
+									"product_id": "susemanager-advanced-topics_en-pdf-3.2-11.26.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-best-practices_en-pdf-3.2-11.26.1.noarch",
+								"product": {
+									"name": "susemanager-best-practices_en-pdf-3.2-11.26.1.noarch",
+									"product_id": "susemanager-best-practices_en-pdf-3.2-11.26.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-docs_en-3.2-11.26.1.noarch",
+								"product": {
+									"name": "susemanager-docs_en-3.2-11.26.1.noarch",
+									"product_id": "susemanager-docs_en-3.2-11.26.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-getting-started_en-pdf-3.2-11.26.1.noarch",
+								"product": {
+									"name": "susemanager-getting-started_en-pdf-3.2-11.26.1.noarch",
+									"product_id": "susemanager-getting-started_en-pdf-3.2-11.26.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-jsp_en-3.2-11.26.1.noarch",
+								"product": {
+									"name": "susemanager-jsp_en-3.2-11.26.1.noarch",
+									"product_id": "susemanager-jsp_en-3.2-11.26.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-reference_en-pdf-3.2-11.26.1.noarch",
+								"product": {
+									"name": "susemanager-reference_en-pdf-3.2-11.26.1.noarch",
+									"product_id": "susemanager-reference_en-pdf-3.2-11.26.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-schema-3.2.19-3.25.1.noarch",
+								"product": {
+									"name": "susemanager-schema-3.2.19-3.25.1.noarch",
+									"product_id": "susemanager-schema-3.2.19-3.25.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-schema-sanity-3.2.19-3.25.1.noarch",
+								"product": {
+									"name": "susemanager-schema-sanity-3.2.19-3.25.1.noarch",
+									"product_id": "susemanager-schema-sanity-3.2.19-3.25.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-sls-3.2.25-3.29.1.noarch",
+								"product": {
+									"name": "susemanager-sls-3.2.25-3.29.1.noarch",
+									"product_id": "susemanager-sls-3.2.25-3.29.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-sync-data-3.2.15-3.23.1.noarch",
+								"product": {
+									"name": "susemanager-sync-data-3.2.15-3.23.1.noarch",
+									"product_id": "susemanager-sync-data-3.2.15-3.23.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-web-libs-2.8.7.16-3.27.1.noarch",
+								"product": {
+									"name": "susemanager-web-libs-2.8.7.16-3.27.1.noarch",
+									"product_id": "susemanager-web-libs-2.8.7.16-3.27.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "zypp-plugin-spacewalk-1.0.5-3.7.1.noarch",
+								"product": {
+									"name": "zypp-plugin-spacewalk-1.0.5-3.7.1.noarch",
+									"product_id": "zypp-plugin-spacewalk-1.0.5-3.7.1.noarch"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "noarch"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "susemanager-3.2.18-3.25.2.ppc64le",
+								"product": {
+									"name": "susemanager-3.2.18-3.25.2.ppc64le",
+									"product_id": "susemanager-3.2.18-3.25.2.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-tools-3.2.18-3.25.2.ppc64le",
+								"product": {
+									"name": "susemanager-tools-3.2.18-3.25.2.ppc64le",
+									"product_id": "susemanager-tools-3.2.18-3.25.2.ppc64le"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "ppc64le"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "susemanager-3.2.18-3.25.2.s390x",
+								"product": {
+									"name": "susemanager-3.2.18-3.25.2.s390x",
+									"product_id": "susemanager-3.2.18-3.25.2.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-tools-3.2.18-3.25.2.s390x",
+								"product": {
+									"name": "susemanager-tools-3.2.18-3.25.2.s390x",
+									"product_id": "susemanager-tools-3.2.18-3.25.2.s390x"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "s390x"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "susemanager-3.2.18-3.25.2.x86_64",
+								"product": {
+									"name": "susemanager-3.2.18-3.25.2.x86_64",
+									"product_id": "susemanager-3.2.18-3.25.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-tools-3.2.18-3.25.2.x86_64",
+								"product": {
+									"name": "susemanager-tools-3.2.18-3.25.2.x86_64",
+									"product_id": "susemanager-tools-3.2.18-3.25.2.x86_64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "x86_64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_name",
+								"name": "SUSE Manager Proxy 3.2",
+								"product": {
+									"name": "SUSE Manager Proxy 3.2",
+									"product_id": "SUSE Manager Proxy 3.2",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:suse-manager-proxy:3.2"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Manager Server 3.2",
+								"product": {
+									"name": "SUSE Manager Server 3.2",
+									"product_id": "SUSE Manager Server 3.2",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:suse-manager-server:3.2"
+									}
+								}
+							}
+						],
+						"category": "product_family",
+						"name": "SUSE Linux Enterprise"
+					}
+				],
+				"category": "vendor",
+				"name": "SUSE"
+			}
+		],
+		"relationships": [
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "python2-rhncfg-5.10.122.3-3.3.1.noarch as component of SUSE Manager Proxy 3.2",
+					"product_id": "SUSE Manager Proxy 3.2:python2-rhncfg-5.10.122.3-3.3.1.noarch"
+				},
+				"product_reference": "python2-rhncfg-5.10.122.3-3.3.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Proxy 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "python2-rhncfg-actions-5.10.122.3-3.3.1.noarch as component of SUSE Manager Proxy 3.2",
+					"product_id": "SUSE Manager Proxy 3.2:python2-rhncfg-actions-5.10.122.3-3.3.1.noarch"
+				},
+				"product_reference": "python2-rhncfg-actions-5.10.122.3-3.3.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Proxy 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "python2-rhncfg-client-5.10.122.3-3.3.1.noarch as component of SUSE Manager Proxy 3.2",
+					"product_id": "SUSE Manager Proxy 3.2:python2-rhncfg-client-5.10.122.3-3.3.1.noarch"
+				},
+				"product_reference": "python2-rhncfg-client-5.10.122.3-3.3.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Proxy 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "python2-rhncfg-management-5.10.122.3-3.3.1.noarch as component of SUSE Manager Proxy 3.2",
+					"product_id": "SUSE Manager Proxy 3.2:python2-rhncfg-management-5.10.122.3-3.3.1.noarch"
+				},
+				"product_reference": "python2-rhncfg-management-5.10.122.3-3.3.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Proxy 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "python2-spacewalk-certs-tools-2.8.8.10-3.11.1.noarch as component of SUSE Manager Proxy 3.2",
+					"product_id": "SUSE Manager Proxy 3.2:python2-spacewalk-certs-tools-2.8.8.10-3.11.1.noarch"
+				},
+				"product_reference": "python2-spacewalk-certs-tools-2.8.8.10-3.11.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Proxy 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "python2-zypp-plugin-spacewalk-1.0.5-3.7.1.noarch as component of SUSE Manager Proxy 3.2",
+					"product_id": "SUSE Manager Proxy 3.2:python2-zypp-plugin-spacewalk-1.0.5-3.7.1.noarch"
+				},
+				"product_reference": "python2-zypp-plugin-spacewalk-1.0.5-3.7.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Proxy 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "rhncfg-5.10.122.3-3.3.1.noarch as component of SUSE Manager Proxy 3.2",
+					"product_id": "SUSE Manager Proxy 3.2:rhncfg-5.10.122.3-3.3.1.noarch"
+				},
+				"product_reference": "rhncfg-5.10.122.3-3.3.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Proxy 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "rhncfg-actions-5.10.122.3-3.3.1.noarch as component of SUSE Manager Proxy 3.2",
+					"product_id": "SUSE Manager Proxy 3.2:rhncfg-actions-5.10.122.3-3.3.1.noarch"
+				},
+				"product_reference": "rhncfg-actions-5.10.122.3-3.3.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Proxy 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "rhncfg-client-5.10.122.3-3.3.1.noarch as component of SUSE Manager Proxy 3.2",
+					"product_id": "SUSE Manager Proxy 3.2:rhncfg-client-5.10.122.3-3.3.1.noarch"
+				},
+				"product_reference": "rhncfg-client-5.10.122.3-3.3.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Proxy 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "rhncfg-management-5.10.122.3-3.3.1.noarch as component of SUSE Manager Proxy 3.2",
+					"product_id": "SUSE Manager Proxy 3.2:rhncfg-management-5.10.122.3-3.3.1.noarch"
+				},
+				"product_reference": "rhncfg-management-5.10.122.3-3.3.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Proxy 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-backend-2.8.57.16-3.30.1.noarch as component of SUSE Manager Proxy 3.2",
+					"product_id": "SUSE Manager Proxy 3.2:spacewalk-backend-2.8.57.16-3.30.1.noarch"
+				},
+				"product_reference": "spacewalk-backend-2.8.57.16-3.30.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Proxy 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-backend-libs-2.8.57.16-3.30.1.noarch as component of SUSE Manager Proxy 3.2",
+					"product_id": "SUSE Manager Proxy 3.2:spacewalk-backend-libs-2.8.57.16-3.30.1.noarch"
+				},
+				"product_reference": "spacewalk-backend-libs-2.8.57.16-3.30.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Proxy 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-base-minimal-2.8.7.16-3.27.1.noarch as component of SUSE Manager Proxy 3.2",
+					"product_id": "SUSE Manager Proxy 3.2:spacewalk-base-minimal-2.8.7.16-3.27.1.noarch"
+				},
+				"product_reference": "spacewalk-base-minimal-2.8.7.16-3.27.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Proxy 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-base-minimal-config-2.8.7.16-3.27.1.noarch as component of SUSE Manager Proxy 3.2",
+					"product_id": "SUSE Manager Proxy 3.2:spacewalk-base-minimal-config-2.8.7.16-3.27.1.noarch"
+				},
+				"product_reference": "spacewalk-base-minimal-config-2.8.7.16-3.27.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Proxy 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-certs-tools-2.8.8.10-3.11.1.noarch as component of SUSE Manager Proxy 3.2",
+					"product_id": "SUSE Manager Proxy 3.2:spacewalk-certs-tools-2.8.8.10-3.11.1.noarch"
+				},
+				"product_reference": "spacewalk-certs-tools-2.8.8.10-3.11.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Proxy 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-proxy-broker-2.8.5.5-3.6.2.noarch as component of SUSE Manager Proxy 3.2",
+					"product_id": "SUSE Manager Proxy 3.2:spacewalk-proxy-broker-2.8.5.5-3.6.2.noarch"
+				},
+				"product_reference": "spacewalk-proxy-broker-2.8.5.5-3.6.2.noarch",
+				"relates_to_product_reference": "SUSE Manager Proxy 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-proxy-common-2.8.5.5-3.6.2.noarch as component of SUSE Manager Proxy 3.2",
+					"product_id": "SUSE Manager Proxy 3.2:spacewalk-proxy-common-2.8.5.5-3.6.2.noarch"
+				},
+				"product_reference": "spacewalk-proxy-common-2.8.5.5-3.6.2.noarch",
+				"relates_to_product_reference": "SUSE Manager Proxy 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-proxy-installer-2.8.6.6-3.12.1.noarch as component of SUSE Manager Proxy 3.2",
+					"product_id": "SUSE Manager Proxy 3.2:spacewalk-proxy-installer-2.8.6.6-3.12.1.noarch"
+				},
+				"product_reference": "spacewalk-proxy-installer-2.8.6.6-3.12.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Proxy 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-proxy-management-2.8.5.5-3.6.2.noarch as component of SUSE Manager Proxy 3.2",
+					"product_id": "SUSE Manager Proxy 3.2:spacewalk-proxy-management-2.8.5.5-3.6.2.noarch"
+				},
+				"product_reference": "spacewalk-proxy-management-2.8.5.5-3.6.2.noarch",
+				"relates_to_product_reference": "SUSE Manager Proxy 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-proxy-package-manager-2.8.5.5-3.6.2.noarch as component of SUSE Manager Proxy 3.2",
+					"product_id": "SUSE Manager Proxy 3.2:spacewalk-proxy-package-manager-2.8.5.5-3.6.2.noarch"
+				},
+				"product_reference": "spacewalk-proxy-package-manager-2.8.5.5-3.6.2.noarch",
+				"relates_to_product_reference": "SUSE Manager Proxy 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-proxy-redirect-2.8.5.5-3.6.2.noarch as component of SUSE Manager Proxy 3.2",
+					"product_id": "SUSE Manager Proxy 3.2:spacewalk-proxy-redirect-2.8.5.5-3.6.2.noarch"
+				},
+				"product_reference": "spacewalk-proxy-redirect-2.8.5.5-3.6.2.noarch",
+				"relates_to_product_reference": "SUSE Manager Proxy 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-proxy-salt-2.8.5.5-3.6.2.noarch as component of SUSE Manager Proxy 3.2",
+					"product_id": "SUSE Manager Proxy 3.2:spacewalk-proxy-salt-2.8.5.5-3.6.2.noarch"
+				},
+				"product_reference": "spacewalk-proxy-salt-2.8.5.5-3.6.2.noarch",
+				"relates_to_product_reference": "SUSE Manager Proxy 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "susemanager-web-libs-2.8.7.16-3.27.1.noarch as component of SUSE Manager Proxy 3.2",
+					"product_id": "SUSE Manager Proxy 3.2:susemanager-web-libs-2.8.7.16-3.27.1.noarch"
+				},
+				"product_reference": "susemanager-web-libs-2.8.7.16-3.27.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Proxy 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "zypp-plugin-spacewalk-1.0.5-3.7.1.noarch as component of SUSE Manager Proxy 3.2",
+					"product_id": "SUSE Manager Proxy 3.2:zypp-plugin-spacewalk-1.0.5-3.7.1.noarch"
+				},
+				"product_reference": "zypp-plugin-spacewalk-1.0.5-3.7.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Proxy 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "cobbler-2.6.6-6.19.1.noarch as component of SUSE Manager Server 3.2",
+					"product_id": "SUSE Manager Server 3.2:cobbler-2.6.6-6.19.1.noarch"
+				},
+				"product_reference": "cobbler-2.6.6-6.19.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "py26-compat-salt-2016.11.10-6.26.1.noarch as component of SUSE Manager Server 3.2",
+					"product_id": "SUSE Manager Server 3.2:py26-compat-salt-2016.11.10-6.26.1.noarch"
+				},
+				"product_reference": "py26-compat-salt-2016.11.10-6.26.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "python2-spacewalk-certs-tools-2.8.8.10-3.11.1.noarch as component of SUSE Manager Server 3.2",
+					"product_id": "SUSE Manager Server 3.2:python2-spacewalk-certs-tools-2.8.8.10-3.11.1.noarch"
+				},
+				"product_reference": "python2-spacewalk-certs-tools-2.8.8.10-3.11.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "salt-netapi-client-0.16.0-4.11.1.noarch as component of SUSE Manager Server 3.2",
+					"product_id": "SUSE Manager Server 3.2:salt-netapi-client-0.16.0-4.11.1.noarch"
+				},
+				"product_reference": "salt-netapi-client-0.16.0-4.11.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-backend-2.8.57.16-3.30.1.noarch as component of SUSE Manager Server 3.2",
+					"product_id": "SUSE Manager Server 3.2:spacewalk-backend-2.8.57.16-3.30.1.noarch"
+				},
+				"product_reference": "spacewalk-backend-2.8.57.16-3.30.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-backend-app-2.8.57.16-3.30.1.noarch as component of SUSE Manager Server 3.2",
+					"product_id": "SUSE Manager Server 3.2:spacewalk-backend-app-2.8.57.16-3.30.1.noarch"
+				},
+				"product_reference": "spacewalk-backend-app-2.8.57.16-3.30.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-backend-applet-2.8.57.16-3.30.1.noarch as component of SUSE Manager Server 3.2",
+					"product_id": "SUSE Manager Server 3.2:spacewalk-backend-applet-2.8.57.16-3.30.1.noarch"
+				},
+				"product_reference": "spacewalk-backend-applet-2.8.57.16-3.30.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-backend-config-files-2.8.57.16-3.30.1.noarch as component of SUSE Manager Server 3.2",
+					"product_id": "SUSE Manager Server 3.2:spacewalk-backend-config-files-2.8.57.16-3.30.1.noarch"
+				},
+				"product_reference": "spacewalk-backend-config-files-2.8.57.16-3.30.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-backend-config-files-common-2.8.57.16-3.30.1.noarch as component of SUSE Manager Server 3.2",
+					"product_id": "SUSE Manager Server 3.2:spacewalk-backend-config-files-common-2.8.57.16-3.30.1.noarch"
+				},
+				"product_reference": "spacewalk-backend-config-files-common-2.8.57.16-3.30.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-backend-config-files-tool-2.8.57.16-3.30.1.noarch as component of SUSE Manager Server 3.2",
+					"product_id": "SUSE Manager Server 3.2:spacewalk-backend-config-files-tool-2.8.57.16-3.30.1.noarch"
+				},
+				"product_reference": "spacewalk-backend-config-files-tool-2.8.57.16-3.30.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-backend-iss-2.8.57.16-3.30.1.noarch as component of SUSE Manager Server 3.2",
+					"product_id": "SUSE Manager Server 3.2:spacewalk-backend-iss-2.8.57.16-3.30.1.noarch"
+				},
+				"product_reference": "spacewalk-backend-iss-2.8.57.16-3.30.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-backend-iss-export-2.8.57.16-3.30.1.noarch as component of SUSE Manager Server 3.2",
+					"product_id": "SUSE Manager Server 3.2:spacewalk-backend-iss-export-2.8.57.16-3.30.1.noarch"
+				},
+				"product_reference": "spacewalk-backend-iss-export-2.8.57.16-3.30.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-backend-libs-2.8.57.16-3.30.1.noarch as component of SUSE Manager Server 3.2",
+					"product_id": "SUSE Manager Server 3.2:spacewalk-backend-libs-2.8.57.16-3.30.1.noarch"
+				},
+				"product_reference": "spacewalk-backend-libs-2.8.57.16-3.30.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-backend-package-push-server-2.8.57.16-3.30.1.noarch as component of SUSE Manager Server 3.2",
+					"product_id": "SUSE Manager Server 3.2:spacewalk-backend-package-push-server-2.8.57.16-3.30.1.noarch"
+				},
+				"product_reference": "spacewalk-backend-package-push-server-2.8.57.16-3.30.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-backend-server-2.8.57.16-3.30.1.noarch as component of SUSE Manager Server 3.2",
+					"product_id": "SUSE Manager Server 3.2:spacewalk-backend-server-2.8.57.16-3.30.1.noarch"
+				},
+				"product_reference": "spacewalk-backend-server-2.8.57.16-3.30.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-backend-sql-2.8.57.16-3.30.1.noarch as component of SUSE Manager Server 3.2",
+					"product_id": "SUSE Manager Server 3.2:spacewalk-backend-sql-2.8.57.16-3.30.1.noarch"
+				},
+				"product_reference": "spacewalk-backend-sql-2.8.57.16-3.30.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-backend-sql-oracle-2.8.57.16-3.30.1.noarch as component of SUSE Manager Server 3.2",
+					"product_id": "SUSE Manager Server 3.2:spacewalk-backend-sql-oracle-2.8.57.16-3.30.1.noarch"
+				},
+				"product_reference": "spacewalk-backend-sql-oracle-2.8.57.16-3.30.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-backend-sql-postgresql-2.8.57.16-3.30.1.noarch as component of SUSE Manager Server 3.2",
+					"product_id": "SUSE Manager Server 3.2:spacewalk-backend-sql-postgresql-2.8.57.16-3.30.1.noarch"
+				},
+				"product_reference": "spacewalk-backend-sql-postgresql-2.8.57.16-3.30.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-backend-tools-2.8.57.16-3.30.1.noarch as component of SUSE Manager Server 3.2",
+					"product_id": "SUSE Manager Server 3.2:spacewalk-backend-tools-2.8.57.16-3.30.1.noarch"
+				},
+				"product_reference": "spacewalk-backend-tools-2.8.57.16-3.30.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-backend-xml-export-libs-2.8.57.16-3.30.1.noarch as component of SUSE Manager Server 3.2",
+					"product_id": "SUSE Manager Server 3.2:spacewalk-backend-xml-export-libs-2.8.57.16-3.30.1.noarch"
+				},
+				"product_reference": "spacewalk-backend-xml-export-libs-2.8.57.16-3.30.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-backend-xmlrpc-2.8.57.16-3.30.1.noarch as component of SUSE Manager Server 3.2",
+					"product_id": "SUSE Manager Server 3.2:spacewalk-backend-xmlrpc-2.8.57.16-3.30.1.noarch"
+				},
+				"product_reference": "spacewalk-backend-xmlrpc-2.8.57.16-3.30.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-base-2.8.7.16-3.27.1.noarch as component of SUSE Manager Server 3.2",
+					"product_id": "SUSE Manager Server 3.2:spacewalk-base-2.8.7.16-3.27.1.noarch"
+				},
+				"product_reference": "spacewalk-base-2.8.7.16-3.27.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-base-minimal-2.8.7.16-3.27.1.noarch as component of SUSE Manager Server 3.2",
+					"product_id": "SUSE Manager Server 3.2:spacewalk-base-minimal-2.8.7.16-3.27.1.noarch"
+				},
+				"product_reference": "spacewalk-base-minimal-2.8.7.16-3.27.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-base-minimal-config-2.8.7.16-3.27.1.noarch as component of SUSE Manager Server 3.2",
+					"product_id": "SUSE Manager Server 3.2:spacewalk-base-minimal-config-2.8.7.16-3.27.1.noarch"
+				},
+				"product_reference": "spacewalk-base-minimal-config-2.8.7.16-3.27.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-certs-tools-2.8.8.10-3.11.1.noarch as component of SUSE Manager Server 3.2",
+					"product_id": "SUSE Manager Server 3.2:spacewalk-certs-tools-2.8.8.10-3.11.1.noarch"
+				},
+				"product_reference": "spacewalk-certs-tools-2.8.8.10-3.11.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-config-2.8.5.7-3.16.1.noarch as component of SUSE Manager Server 3.2",
+					"product_id": "SUSE Manager Server 3.2:spacewalk-config-2.8.5.7-3.16.1.noarch"
+				},
+				"product_reference": "spacewalk-config-2.8.5.7-3.16.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-html-2.8.7.16-3.27.1.noarch as component of SUSE Manager Server 3.2",
+					"product_id": "SUSE Manager Server 3.2:spacewalk-html-2.8.7.16-3.27.1.noarch"
+				},
+				"product_reference": "spacewalk-html-2.8.7.16-3.27.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-java-2.8.78.22-3.32.1.noarch as component of SUSE Manager Server 3.2",
+					"product_id": "SUSE Manager Server 3.2:spacewalk-java-2.8.78.22-3.32.1.noarch"
+				},
+				"product_reference": "spacewalk-java-2.8.78.22-3.32.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-java-config-2.8.78.22-3.32.1.noarch as component of SUSE Manager Server 3.2",
+					"product_id": "SUSE Manager Server 3.2:spacewalk-java-config-2.8.78.22-3.32.1.noarch"
+				},
+				"product_reference": "spacewalk-java-config-2.8.78.22-3.32.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-java-lib-2.8.78.22-3.32.1.noarch as component of SUSE Manager Server 3.2",
+					"product_id": "SUSE Manager Server 3.2:spacewalk-java-lib-2.8.78.22-3.32.1.noarch"
+				},
+				"product_reference": "spacewalk-java-lib-2.8.78.22-3.32.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-java-oracle-2.8.78.22-3.32.1.noarch as component of SUSE Manager Server 3.2",
+					"product_id": "SUSE Manager Server 3.2:spacewalk-java-oracle-2.8.78.22-3.32.1.noarch"
+				},
+				"product_reference": "spacewalk-java-oracle-2.8.78.22-3.32.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-java-postgresql-2.8.78.22-3.32.1.noarch as component of SUSE Manager Server 3.2",
+					"product_id": "SUSE Manager Server 3.2:spacewalk-java-postgresql-2.8.78.22-3.32.1.noarch"
+				},
+				"product_reference": "spacewalk-java-postgresql-2.8.78.22-3.32.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-taskomatic-2.8.78.22-3.32.1.noarch as component of SUSE Manager Server 3.2",
+					"product_id": "SUSE Manager Server 3.2:spacewalk-taskomatic-2.8.78.22-3.32.1.noarch"
+				},
+				"product_reference": "spacewalk-taskomatic-2.8.78.22-3.32.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "susemanager-3.2.18-3.25.2.ppc64le as component of SUSE Manager Server 3.2",
+					"product_id": "SUSE Manager Server 3.2:susemanager-3.2.18-3.25.2.ppc64le"
+				},
+				"product_reference": "susemanager-3.2.18-3.25.2.ppc64le",
+				"relates_to_product_reference": "SUSE Manager Server 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "susemanager-3.2.18-3.25.2.s390x as component of SUSE Manager Server 3.2",
+					"product_id": "SUSE Manager Server 3.2:susemanager-3.2.18-3.25.2.s390x"
+				},
+				"product_reference": "susemanager-3.2.18-3.25.2.s390x",
+				"relates_to_product_reference": "SUSE Manager Server 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "susemanager-3.2.18-3.25.2.x86_64 as component of SUSE Manager Server 3.2",
+					"product_id": "SUSE Manager Server 3.2:susemanager-3.2.18-3.25.2.x86_64"
+				},
+				"product_reference": "susemanager-3.2.18-3.25.2.x86_64",
+				"relates_to_product_reference": "SUSE Manager Server 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "susemanager-advanced-topics_en-pdf-3.2-11.26.1.noarch as component of SUSE Manager Server 3.2",
+					"product_id": "SUSE Manager Server 3.2:susemanager-advanced-topics_en-pdf-3.2-11.26.1.noarch"
+				},
+				"product_reference": "susemanager-advanced-topics_en-pdf-3.2-11.26.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "susemanager-best-practices_en-pdf-3.2-11.26.1.noarch as component of SUSE Manager Server 3.2",
+					"product_id": "SUSE Manager Server 3.2:susemanager-best-practices_en-pdf-3.2-11.26.1.noarch"
+				},
+				"product_reference": "susemanager-best-practices_en-pdf-3.2-11.26.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "susemanager-docs_en-3.2-11.26.1.noarch as component of SUSE Manager Server 3.2",
+					"product_id": "SUSE Manager Server 3.2:susemanager-docs_en-3.2-11.26.1.noarch"
+				},
+				"product_reference": "susemanager-docs_en-3.2-11.26.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "susemanager-getting-started_en-pdf-3.2-11.26.1.noarch as component of SUSE Manager Server 3.2",
+					"product_id": "SUSE Manager Server 3.2:susemanager-getting-started_en-pdf-3.2-11.26.1.noarch"
+				},
+				"product_reference": "susemanager-getting-started_en-pdf-3.2-11.26.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "susemanager-jsp_en-3.2-11.26.1.noarch as component of SUSE Manager Server 3.2",
+					"product_id": "SUSE Manager Server 3.2:susemanager-jsp_en-3.2-11.26.1.noarch"
+				},
+				"product_reference": "susemanager-jsp_en-3.2-11.26.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "susemanager-reference_en-pdf-3.2-11.26.1.noarch as component of SUSE Manager Server 3.2",
+					"product_id": "SUSE Manager Server 3.2:susemanager-reference_en-pdf-3.2-11.26.1.noarch"
+				},
+				"product_reference": "susemanager-reference_en-pdf-3.2-11.26.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "susemanager-schema-3.2.19-3.25.1.noarch as component of SUSE Manager Server 3.2",
+					"product_id": "SUSE Manager Server 3.2:susemanager-schema-3.2.19-3.25.1.noarch"
+				},
+				"product_reference": "susemanager-schema-3.2.19-3.25.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "susemanager-sls-3.2.25-3.29.1.noarch as component of SUSE Manager Server 3.2",
+					"product_id": "SUSE Manager Server 3.2:susemanager-sls-3.2.25-3.29.1.noarch"
+				},
+				"product_reference": "susemanager-sls-3.2.25-3.29.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "susemanager-sync-data-3.2.15-3.23.1.noarch as component of SUSE Manager Server 3.2",
+					"product_id": "SUSE Manager Server 3.2:susemanager-sync-data-3.2.15-3.23.1.noarch"
+				},
+				"product_reference": "susemanager-sync-data-3.2.15-3.23.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "susemanager-tools-3.2.18-3.25.2.ppc64le as component of SUSE Manager Server 3.2",
+					"product_id": "SUSE Manager Server 3.2:susemanager-tools-3.2.18-3.25.2.ppc64le"
+				},
+				"product_reference": "susemanager-tools-3.2.18-3.25.2.ppc64le",
+				"relates_to_product_reference": "SUSE Manager Server 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "susemanager-tools-3.2.18-3.25.2.s390x as component of SUSE Manager Server 3.2",
+					"product_id": "SUSE Manager Server 3.2:susemanager-tools-3.2.18-3.25.2.s390x"
+				},
+				"product_reference": "susemanager-tools-3.2.18-3.25.2.s390x",
+				"relates_to_product_reference": "SUSE Manager Server 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "susemanager-tools-3.2.18-3.25.2.x86_64 as component of SUSE Manager Server 3.2",
+					"product_id": "SUSE Manager Server 3.2:susemanager-tools-3.2.18-3.25.2.x86_64"
+				},
+				"product_reference": "susemanager-tools-3.2.18-3.25.2.x86_64",
+				"relates_to_product_reference": "SUSE Manager Server 3.2"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "susemanager-web-libs-2.8.7.16-3.27.1.noarch as component of SUSE Manager Server 3.2",
+					"product_id": "SUSE Manager Server 3.2:susemanager-web-libs-2.8.7.16-3.27.1.noarch"
+				},
+				"product_reference": "susemanager-web-libs-2.8.7.16-3.27.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.2"
+			}
+		]
+	},
+	"vulnerabilities": [
+		{
+			"cve": "CVE-2019-3684",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2019-3684"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "SUSE Manager until version 4.0.7 and Uyuni until commit 1b426ad5ed0a7191a6fb46bb83e98ae4b99a5ade created world-readable swap files on systems that don't have a swap already configured and don't have btrfs as filesystem",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Manager Proxy 3.2:python2-rhncfg-5.10.122.3-3.3.1.noarch",
+					"SUSE Manager Proxy 3.2:python2-rhncfg-actions-5.10.122.3-3.3.1.noarch",
+					"SUSE Manager Proxy 3.2:python2-rhncfg-client-5.10.122.3-3.3.1.noarch",
+					"SUSE Manager Proxy 3.2:python2-rhncfg-management-5.10.122.3-3.3.1.noarch",
+					"SUSE Manager Proxy 3.2:python2-spacewalk-certs-tools-2.8.8.10-3.11.1.noarch",
+					"SUSE Manager Proxy 3.2:python2-zypp-plugin-spacewalk-1.0.5-3.7.1.noarch",
+					"SUSE Manager Proxy 3.2:rhncfg-5.10.122.3-3.3.1.noarch",
+					"SUSE Manager Proxy 3.2:rhncfg-actions-5.10.122.3-3.3.1.noarch",
+					"SUSE Manager Proxy 3.2:rhncfg-client-5.10.122.3-3.3.1.noarch",
+					"SUSE Manager Proxy 3.2:rhncfg-management-5.10.122.3-3.3.1.noarch",
+					"SUSE Manager Proxy 3.2:spacewalk-backend-2.8.57.16-3.30.1.noarch",
+					"SUSE Manager Proxy 3.2:spacewalk-backend-libs-2.8.57.16-3.30.1.noarch",
+					"SUSE Manager Proxy 3.2:spacewalk-base-minimal-2.8.7.16-3.27.1.noarch",
+					"SUSE Manager Proxy 3.2:spacewalk-base-minimal-config-2.8.7.16-3.27.1.noarch",
+					"SUSE Manager Proxy 3.2:spacewalk-certs-tools-2.8.8.10-3.11.1.noarch",
+					"SUSE Manager Proxy 3.2:spacewalk-proxy-broker-2.8.5.5-3.6.2.noarch",
+					"SUSE Manager Proxy 3.2:spacewalk-proxy-common-2.8.5.5-3.6.2.noarch",
+					"SUSE Manager Proxy 3.2:spacewalk-proxy-installer-2.8.6.6-3.12.1.noarch",
+					"SUSE Manager Proxy 3.2:spacewalk-proxy-management-2.8.5.5-3.6.2.noarch",
+					"SUSE Manager Proxy 3.2:spacewalk-proxy-package-manager-2.8.5.5-3.6.2.noarch",
+					"SUSE Manager Proxy 3.2:spacewalk-proxy-redirect-2.8.5.5-3.6.2.noarch",
+					"SUSE Manager Proxy 3.2:spacewalk-proxy-salt-2.8.5.5-3.6.2.noarch",
+					"SUSE Manager Proxy 3.2:susemanager-web-libs-2.8.7.16-3.27.1.noarch",
+					"SUSE Manager Proxy 3.2:zypp-plugin-spacewalk-1.0.5-3.7.1.noarch",
+					"SUSE Manager Server 3.2:cobbler-2.6.6-6.19.1.noarch",
+					"SUSE Manager Server 3.2:py26-compat-salt-2016.11.10-6.26.1.noarch",
+					"SUSE Manager Server 3.2:python2-spacewalk-certs-tools-2.8.8.10-3.11.1.noarch",
+					"SUSE Manager Server 3.2:salt-netapi-client-0.16.0-4.11.1.noarch",
+					"SUSE Manager Server 3.2:spacewalk-backend-2.8.57.16-3.30.1.noarch",
+					"SUSE Manager Server 3.2:spacewalk-backend-app-2.8.57.16-3.30.1.noarch",
+					"SUSE Manager Server 3.2:spacewalk-backend-applet-2.8.57.16-3.30.1.noarch",
+					"SUSE Manager Server 3.2:spacewalk-backend-config-files-2.8.57.16-3.30.1.noarch",
+					"SUSE Manager Server 3.2:spacewalk-backend-config-files-common-2.8.57.16-3.30.1.noarch",
+					"SUSE Manager Server 3.2:spacewalk-backend-config-files-tool-2.8.57.16-3.30.1.noarch",
+					"SUSE Manager Server 3.2:spacewalk-backend-iss-2.8.57.16-3.30.1.noarch",
+					"SUSE Manager Server 3.2:spacewalk-backend-iss-export-2.8.57.16-3.30.1.noarch",
+					"SUSE Manager Server 3.2:spacewalk-backend-libs-2.8.57.16-3.30.1.noarch",
+					"SUSE Manager Server 3.2:spacewalk-backend-package-push-server-2.8.57.16-3.30.1.noarch",
+					"SUSE Manager Server 3.2:spacewalk-backend-server-2.8.57.16-3.30.1.noarch",
+					"SUSE Manager Server 3.2:spacewalk-backend-sql-2.8.57.16-3.30.1.noarch",
+					"SUSE Manager Server 3.2:spacewalk-backend-sql-oracle-2.8.57.16-3.30.1.noarch",
+					"SUSE Manager Server 3.2:spacewalk-backend-sql-postgresql-2.8.57.16-3.30.1.noarch",
+					"SUSE Manager Server 3.2:spacewalk-backend-tools-2.8.57.16-3.30.1.noarch",
+					"SUSE Manager Server 3.2:spacewalk-backend-xml-export-libs-2.8.57.16-3.30.1.noarch",
+					"SUSE Manager Server 3.2:spacewalk-backend-xmlrpc-2.8.57.16-3.30.1.noarch",
+					"SUSE Manager Server 3.2:spacewalk-base-2.8.7.16-3.27.1.noarch",
+					"SUSE Manager Server 3.2:spacewalk-base-minimal-2.8.7.16-3.27.1.noarch",
+					"SUSE Manager Server 3.2:spacewalk-base-minimal-config-2.8.7.16-3.27.1.noarch",
+					"SUSE Manager Server 3.2:spacewalk-certs-tools-2.8.8.10-3.11.1.noarch",
+					"SUSE Manager Server 3.2:spacewalk-config-2.8.5.7-3.16.1.noarch",
+					"SUSE Manager Server 3.2:spacewalk-html-2.8.7.16-3.27.1.noarch",
+					"SUSE Manager Server 3.2:spacewalk-java-2.8.78.22-3.32.1.noarch",
+					"SUSE Manager Server 3.2:spacewalk-java-config-2.8.78.22-3.32.1.noarch",
+					"SUSE Manager Server 3.2:spacewalk-java-lib-2.8.78.22-3.32.1.noarch",
+					"SUSE Manager Server 3.2:spacewalk-java-oracle-2.8.78.22-3.32.1.noarch",
+					"SUSE Manager Server 3.2:spacewalk-java-postgresql-2.8.78.22-3.32.1.noarch",
+					"SUSE Manager Server 3.2:spacewalk-taskomatic-2.8.78.22-3.32.1.noarch",
+					"SUSE Manager Server 3.2:susemanager-3.2.18-3.25.2.ppc64le",
+					"SUSE Manager Server 3.2:susemanager-3.2.18-3.25.2.s390x",
+					"SUSE Manager Server 3.2:susemanager-3.2.18-3.25.2.x86_64",
+					"SUSE Manager Server 3.2:susemanager-advanced-topics_en-pdf-3.2-11.26.1.noarch",
+					"SUSE Manager Server 3.2:susemanager-best-practices_en-pdf-3.2-11.26.1.noarch",
+					"SUSE Manager Server 3.2:susemanager-docs_en-3.2-11.26.1.noarch",
+					"SUSE Manager Server 3.2:susemanager-getting-started_en-pdf-3.2-11.26.1.noarch",
+					"SUSE Manager Server 3.2:susemanager-jsp_en-3.2-11.26.1.noarch",
+					"SUSE Manager Server 3.2:susemanager-reference_en-pdf-3.2-11.26.1.noarch",
+					"SUSE Manager Server 3.2:susemanager-schema-3.2.19-3.25.1.noarch",
+					"SUSE Manager Server 3.2:susemanager-sls-3.2.25-3.29.1.noarch",
+					"SUSE Manager Server 3.2:susemanager-sync-data-3.2.15-3.23.1.noarch",
+					"SUSE Manager Server 3.2:susemanager-tools-3.2.18-3.25.2.ppc64le",
+					"SUSE Manager Server 3.2:susemanager-tools-3.2.18-3.25.2.s390x",
+					"SUSE Manager Server 3.2:susemanager-tools-3.2.18-3.25.2.x86_64",
+					"SUSE Manager Server 3.2:susemanager-web-libs-2.8.7.16-3.27.1.noarch"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2019-3684",
+					"url": "https://www.suse.com/security/cve/CVE-2019-3684"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1131954 for CVE-2019-3684",
+					"url": "https://bugzilla.suse.com/1131954"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Manager Proxy 3.2:python2-rhncfg-5.10.122.3-3.3.1.noarch",
+						"SUSE Manager Proxy 3.2:python2-rhncfg-actions-5.10.122.3-3.3.1.noarch",
+						"SUSE Manager Proxy 3.2:python2-rhncfg-client-5.10.122.3-3.3.1.noarch",
+						"SUSE Manager Proxy 3.2:python2-rhncfg-management-5.10.122.3-3.3.1.noarch",
+						"SUSE Manager Proxy 3.2:python2-spacewalk-certs-tools-2.8.8.10-3.11.1.noarch",
+						"SUSE Manager Proxy 3.2:python2-zypp-plugin-spacewalk-1.0.5-3.7.1.noarch",
+						"SUSE Manager Proxy 3.2:rhncfg-5.10.122.3-3.3.1.noarch",
+						"SUSE Manager Proxy 3.2:rhncfg-actions-5.10.122.3-3.3.1.noarch",
+						"SUSE Manager Proxy 3.2:rhncfg-client-5.10.122.3-3.3.1.noarch",
+						"SUSE Manager Proxy 3.2:rhncfg-management-5.10.122.3-3.3.1.noarch",
+						"SUSE Manager Proxy 3.2:spacewalk-backend-2.8.57.16-3.30.1.noarch",
+						"SUSE Manager Proxy 3.2:spacewalk-backend-libs-2.8.57.16-3.30.1.noarch",
+						"SUSE Manager Proxy 3.2:spacewalk-base-minimal-2.8.7.16-3.27.1.noarch",
+						"SUSE Manager Proxy 3.2:spacewalk-base-minimal-config-2.8.7.16-3.27.1.noarch",
+						"SUSE Manager Proxy 3.2:spacewalk-certs-tools-2.8.8.10-3.11.1.noarch",
+						"SUSE Manager Proxy 3.2:spacewalk-proxy-broker-2.8.5.5-3.6.2.noarch",
+						"SUSE Manager Proxy 3.2:spacewalk-proxy-common-2.8.5.5-3.6.2.noarch",
+						"SUSE Manager Proxy 3.2:spacewalk-proxy-installer-2.8.6.6-3.12.1.noarch",
+						"SUSE Manager Proxy 3.2:spacewalk-proxy-management-2.8.5.5-3.6.2.noarch",
+						"SUSE Manager Proxy 3.2:spacewalk-proxy-package-manager-2.8.5.5-3.6.2.noarch",
+						"SUSE Manager Proxy 3.2:spacewalk-proxy-redirect-2.8.5.5-3.6.2.noarch",
+						"SUSE Manager Proxy 3.2:spacewalk-proxy-salt-2.8.5.5-3.6.2.noarch",
+						"SUSE Manager Proxy 3.2:susemanager-web-libs-2.8.7.16-3.27.1.noarch",
+						"SUSE Manager Proxy 3.2:zypp-plugin-spacewalk-1.0.5-3.7.1.noarch",
+						"SUSE Manager Server 3.2:cobbler-2.6.6-6.19.1.noarch",
+						"SUSE Manager Server 3.2:py26-compat-salt-2016.11.10-6.26.1.noarch",
+						"SUSE Manager Server 3.2:python2-spacewalk-certs-tools-2.8.8.10-3.11.1.noarch",
+						"SUSE Manager Server 3.2:salt-netapi-client-0.16.0-4.11.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-backend-2.8.57.16-3.30.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-backend-app-2.8.57.16-3.30.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-backend-applet-2.8.57.16-3.30.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-backend-config-files-2.8.57.16-3.30.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-backend-config-files-common-2.8.57.16-3.30.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-backend-config-files-tool-2.8.57.16-3.30.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-backend-iss-2.8.57.16-3.30.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-backend-iss-export-2.8.57.16-3.30.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-backend-libs-2.8.57.16-3.30.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-backend-package-push-server-2.8.57.16-3.30.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-backend-server-2.8.57.16-3.30.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-backend-sql-2.8.57.16-3.30.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-backend-sql-oracle-2.8.57.16-3.30.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-backend-sql-postgresql-2.8.57.16-3.30.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-backend-tools-2.8.57.16-3.30.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-backend-xml-export-libs-2.8.57.16-3.30.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-backend-xmlrpc-2.8.57.16-3.30.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-base-2.8.7.16-3.27.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-base-minimal-2.8.7.16-3.27.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-base-minimal-config-2.8.7.16-3.27.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-certs-tools-2.8.8.10-3.11.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-config-2.8.5.7-3.16.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-html-2.8.7.16-3.27.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-java-2.8.78.22-3.32.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-java-config-2.8.78.22-3.32.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-java-lib-2.8.78.22-3.32.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-java-oracle-2.8.78.22-3.32.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-java-postgresql-2.8.78.22-3.32.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-taskomatic-2.8.78.22-3.32.1.noarch",
+						"SUSE Manager Server 3.2:susemanager-3.2.18-3.25.2.ppc64le",
+						"SUSE Manager Server 3.2:susemanager-3.2.18-3.25.2.s390x",
+						"SUSE Manager Server 3.2:susemanager-3.2.18-3.25.2.x86_64",
+						"SUSE Manager Server 3.2:susemanager-advanced-topics_en-pdf-3.2-11.26.1.noarch",
+						"SUSE Manager Server 3.2:susemanager-best-practices_en-pdf-3.2-11.26.1.noarch",
+						"SUSE Manager Server 3.2:susemanager-docs_en-3.2-11.26.1.noarch",
+						"SUSE Manager Server 3.2:susemanager-getting-started_en-pdf-3.2-11.26.1.noarch",
+						"SUSE Manager Server 3.2:susemanager-jsp_en-3.2-11.26.1.noarch",
+						"SUSE Manager Server 3.2:susemanager-reference_en-pdf-3.2-11.26.1.noarch",
+						"SUSE Manager Server 3.2:susemanager-schema-3.2.19-3.25.1.noarch",
+						"SUSE Manager Server 3.2:susemanager-sls-3.2.25-3.29.1.noarch",
+						"SUSE Manager Server 3.2:susemanager-sync-data-3.2.15-3.23.1.noarch",
+						"SUSE Manager Server 3.2:susemanager-tools-3.2.18-3.25.2.ppc64le",
+						"SUSE Manager Server 3.2:susemanager-tools-3.2.18-3.25.2.s390x",
+						"SUSE Manager Server 3.2:susemanager-tools-3.2.18-3.25.2.x86_64",
+						"SUSE Manager Server 3.2:susemanager-web-libs-2.8.7.16-3.27.1.noarch"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 4,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.0/AV:L/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Manager Proxy 3.2:python2-rhncfg-5.10.122.3-3.3.1.noarch",
+						"SUSE Manager Proxy 3.2:python2-rhncfg-actions-5.10.122.3-3.3.1.noarch",
+						"SUSE Manager Proxy 3.2:python2-rhncfg-client-5.10.122.3-3.3.1.noarch",
+						"SUSE Manager Proxy 3.2:python2-rhncfg-management-5.10.122.3-3.3.1.noarch",
+						"SUSE Manager Proxy 3.2:python2-spacewalk-certs-tools-2.8.8.10-3.11.1.noarch",
+						"SUSE Manager Proxy 3.2:python2-zypp-plugin-spacewalk-1.0.5-3.7.1.noarch",
+						"SUSE Manager Proxy 3.2:rhncfg-5.10.122.3-3.3.1.noarch",
+						"SUSE Manager Proxy 3.2:rhncfg-actions-5.10.122.3-3.3.1.noarch",
+						"SUSE Manager Proxy 3.2:rhncfg-client-5.10.122.3-3.3.1.noarch",
+						"SUSE Manager Proxy 3.2:rhncfg-management-5.10.122.3-3.3.1.noarch",
+						"SUSE Manager Proxy 3.2:spacewalk-backend-2.8.57.16-3.30.1.noarch",
+						"SUSE Manager Proxy 3.2:spacewalk-backend-libs-2.8.57.16-3.30.1.noarch",
+						"SUSE Manager Proxy 3.2:spacewalk-base-minimal-2.8.7.16-3.27.1.noarch",
+						"SUSE Manager Proxy 3.2:spacewalk-base-minimal-config-2.8.7.16-3.27.1.noarch",
+						"SUSE Manager Proxy 3.2:spacewalk-certs-tools-2.8.8.10-3.11.1.noarch",
+						"SUSE Manager Proxy 3.2:spacewalk-proxy-broker-2.8.5.5-3.6.2.noarch",
+						"SUSE Manager Proxy 3.2:spacewalk-proxy-common-2.8.5.5-3.6.2.noarch",
+						"SUSE Manager Proxy 3.2:spacewalk-proxy-installer-2.8.6.6-3.12.1.noarch",
+						"SUSE Manager Proxy 3.2:spacewalk-proxy-management-2.8.5.5-3.6.2.noarch",
+						"SUSE Manager Proxy 3.2:spacewalk-proxy-package-manager-2.8.5.5-3.6.2.noarch",
+						"SUSE Manager Proxy 3.2:spacewalk-proxy-redirect-2.8.5.5-3.6.2.noarch",
+						"SUSE Manager Proxy 3.2:spacewalk-proxy-salt-2.8.5.5-3.6.2.noarch",
+						"SUSE Manager Proxy 3.2:susemanager-web-libs-2.8.7.16-3.27.1.noarch",
+						"SUSE Manager Proxy 3.2:zypp-plugin-spacewalk-1.0.5-3.7.1.noarch",
+						"SUSE Manager Server 3.2:cobbler-2.6.6-6.19.1.noarch",
+						"SUSE Manager Server 3.2:py26-compat-salt-2016.11.10-6.26.1.noarch",
+						"SUSE Manager Server 3.2:python2-spacewalk-certs-tools-2.8.8.10-3.11.1.noarch",
+						"SUSE Manager Server 3.2:salt-netapi-client-0.16.0-4.11.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-backend-2.8.57.16-3.30.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-backend-app-2.8.57.16-3.30.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-backend-applet-2.8.57.16-3.30.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-backend-config-files-2.8.57.16-3.30.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-backend-config-files-common-2.8.57.16-3.30.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-backend-config-files-tool-2.8.57.16-3.30.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-backend-iss-2.8.57.16-3.30.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-backend-iss-export-2.8.57.16-3.30.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-backend-libs-2.8.57.16-3.30.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-backend-package-push-server-2.8.57.16-3.30.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-backend-server-2.8.57.16-3.30.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-backend-sql-2.8.57.16-3.30.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-backend-sql-oracle-2.8.57.16-3.30.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-backend-sql-postgresql-2.8.57.16-3.30.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-backend-tools-2.8.57.16-3.30.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-backend-xml-export-libs-2.8.57.16-3.30.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-backend-xmlrpc-2.8.57.16-3.30.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-base-2.8.7.16-3.27.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-base-minimal-2.8.7.16-3.27.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-base-minimal-config-2.8.7.16-3.27.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-certs-tools-2.8.8.10-3.11.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-config-2.8.5.7-3.16.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-html-2.8.7.16-3.27.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-java-2.8.78.22-3.32.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-java-config-2.8.78.22-3.32.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-java-lib-2.8.78.22-3.32.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-java-oracle-2.8.78.22-3.32.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-java-postgresql-2.8.78.22-3.32.1.noarch",
+						"SUSE Manager Server 3.2:spacewalk-taskomatic-2.8.78.22-3.32.1.noarch",
+						"SUSE Manager Server 3.2:susemanager-3.2.18-3.25.2.ppc64le",
+						"SUSE Manager Server 3.2:susemanager-3.2.18-3.25.2.s390x",
+						"SUSE Manager Server 3.2:susemanager-3.2.18-3.25.2.x86_64",
+						"SUSE Manager Server 3.2:susemanager-advanced-topics_en-pdf-3.2-11.26.1.noarch",
+						"SUSE Manager Server 3.2:susemanager-best-practices_en-pdf-3.2-11.26.1.noarch",
+						"SUSE Manager Server 3.2:susemanager-docs_en-3.2-11.26.1.noarch",
+						"SUSE Manager Server 3.2:susemanager-getting-started_en-pdf-3.2-11.26.1.noarch",
+						"SUSE Manager Server 3.2:susemanager-jsp_en-3.2-11.26.1.noarch",
+						"SUSE Manager Server 3.2:susemanager-reference_en-pdf-3.2-11.26.1.noarch",
+						"SUSE Manager Server 3.2:susemanager-schema-3.2.19-3.25.1.noarch",
+						"SUSE Manager Server 3.2:susemanager-sls-3.2.25-3.29.1.noarch",
+						"SUSE Manager Server 3.2:susemanager-sync-data-3.2.15-3.23.1.noarch",
+						"SUSE Manager Server 3.2:susemanager-tools-3.2.18-3.25.2.ppc64le",
+						"SUSE Manager Server 3.2:susemanager-tools-3.2.18-3.25.2.s390x",
+						"SUSE Manager Server 3.2:susemanager-tools-3.2.18-3.25.2.x86_64",
+						"SUSE Manager Server 3.2:susemanager-web-libs-2.8.7.16-3.27.1.noarch"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2019-06-25T11:21:05Z",
+					"details": "low"
+				}
+			],
+			"title": "CVE-2019-3684"
+		}
+	]
+}

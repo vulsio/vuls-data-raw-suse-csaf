@@ -1,0 +1,1475 @@
+{
+	"document": {
+		"aggregate_severity": {
+			"namespace": "https://www.suse.com/support/security/rating/",
+			"text": "moderate"
+		},
+		"category": "csaf_security_advisory",
+		"csaf_version": "2.0",
+		"distribution": {
+			"text": "Copyright 2024 SUSE LLC. All rights reserved.",
+			"tlp": {
+				"label": "WHITE",
+				"url": "https://www.first.org/tlp/"
+			}
+		},
+		"lang": "en",
+		"notes": [
+			{
+				"category": "summary",
+				"text": "Security update for SUSE Manager Server 3.1",
+				"title": "Title of the patch"
+			},
+			{
+				"category": "description",
+				"text": "\nThis update fixes the following issues:\n\ncobbler:\n\n- Fixes case where distribution detection returns None (bsc#1130658)\n- SUSE texmode fix (bsc#1109316)\n- Fix for SUSE distribution detection in ISO building\n  (bsc#1123991)\n\npy26-compat-salt:\n\n- Remove arch from name when pkg.list_pkgs is called with 'attr' (bsc#1114029)\n\nspacecmd:\n\n- Fix importing state channels using configchannel_import\n- Fix getting file info for latest revision (via configchannel_filedetails)\n\nspacewalk-branding:\n\n- Update jquery.timepicker dependency to 1.11.14 to allow parsing\n  the time format without depending on the language. (bsc#1119081)\n\nspacewalk-java:\n\n- Fix a problem when cloning public child channels with a private base channel (bsc#1124639)\n- Keep assigned channels on traditional to minion migration (bsc#1122836)\n- Fix 'Add Selected to SSM' on System Groups -> systems page (bsc#1121856)\n- Disable notification types with 'java.notifications_type_disabled' in rhn.conf (bsc#1111910)\n- XMLRPC API: Include init.sls in channel file list (bsc#1111191)\n- Fix the config channels assignment via SSM (bsc#1117759)\n\nspacewalk-utils:\n\n- Create /etc/rhn with correct ownership to prevent file conflicts\n\nspacewalk-web:\n\n- Fix action scheduler time picker prefill when the server is on  'UTC/GMT' timezone (bsc#1121195)\n- Fix initializing of the datetime picker (bsc#1126862)\n- Show feedback messages after using the retry option on the notification messages page\n\nsubscription-matcher:\n\n- Old style hard bundle merging fix (bsc#1114059)\n\nsusemanager:\n\n- Fix creation of bootstrap repositories for SLE12 (no SP) by requiring python-setuptools\n  only for SLE12 >= SP1 (bsc#1129765)\n- Add `python-setuptools` package dependency to SLES12 bootstrap repo (bsc#1119964)\n- Rhnlib was renamed to python2-rhnlib. Change bootstrap data accordingly.\n\nsusemanager-schema:\n\n- Fix performance regression in inter-server-sync (bsc#1128781)\n\nsusemanager-docs_en:\n\n- Update text and image files\n- 2.1 comparison: clarify profile syncing support\n- Adjust documentation about notification settings\n- Fix internal link (SMT documentation).\n- Remove documentation about the 'mgr-sync enable-scc' subcommand.  This\n  subcommand is no longer available.\n\nsusemanager-frontend-libs:\n\n- Update jquery.timepicker to 1.11.14 (bsc#1119081) \n\ntika-core:\n\n- New upstream version (1.20). Fixes infinite loop in SQLite3Parser (CVE-2018-17197) (bsc#1121038) \n\n",
+				"title": "Description of the patch"
+			},
+			{
+				"category": "details",
+				"text": "SUSE-2019-863,SUSE-SUSE-Manager-Proxy-3.1-2019-863,SUSE-SUSE-Manager-Server-3.1-2019-863",
+				"title": "Patchnames"
+			},
+			{
+				"category": "legal_disclaimer",
+				"text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+				"title": "Terms of use"
+			}
+		],
+		"publisher": {
+			"category": "vendor",
+			"contact_details": "https://www.suse.com/support/security/contact/",
+			"name": "SUSE Product Security Team",
+			"namespace": "https://www.suse.com/"
+		},
+		"references": [
+			{
+				"category": "external",
+				"summary": "SUSE ratings",
+				"url": "https://www.suse.com/support/security/rating/"
+			},
+			{
+				"category": "self",
+				"summary": "URL of this CSAF notice",
+				"url": "https://ftp.suse.com/pub/projects/security/csaf/suse-ru-2019_0863-1.json"
+			},
+			{
+				"category": "self",
+				"summary": "URL for SUSE-RU-2019:0863-1",
+				"url": "https://www.suse.com/support/update/announcement//suse-ru-20190863-1/"
+			},
+			{
+				"category": "self",
+				"summary": "E-Mail link for SUSE-RU-2019:0863-1",
+				"url": "https://lists.suse.com/pipermail/sle-updates/2019-April/011135.html"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1109316",
+				"url": "https://bugzilla.suse.com/1109316"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1111191",
+				"url": "https://bugzilla.suse.com/1111191"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1111910",
+				"url": "https://bugzilla.suse.com/1111910"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1114029",
+				"url": "https://bugzilla.suse.com/1114029"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1114059",
+				"url": "https://bugzilla.suse.com/1114059"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1114157",
+				"url": "https://bugzilla.suse.com/1114157"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1114169",
+				"url": "https://bugzilla.suse.com/1114169"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1117759",
+				"url": "https://bugzilla.suse.com/1117759"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1119081",
+				"url": "https://bugzilla.suse.com/1119081"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1119964",
+				"url": "https://bugzilla.suse.com/1119964"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1121038",
+				"url": "https://bugzilla.suse.com/1121038"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1121195",
+				"url": "https://bugzilla.suse.com/1121195"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1121856",
+				"url": "https://bugzilla.suse.com/1121856"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1122836",
+				"url": "https://bugzilla.suse.com/1122836"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1123991",
+				"url": "https://bugzilla.suse.com/1123991"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1124639",
+				"url": "https://bugzilla.suse.com/1124639"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1126862",
+				"url": "https://bugzilla.suse.com/1126862"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1128781",
+				"url": "https://bugzilla.suse.com/1128781"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1129765",
+				"url": "https://bugzilla.suse.com/1129765"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1130658",
+				"url": "https://bugzilla.suse.com/1130658"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2018-10851 page",
+				"url": "https://www.suse.com/security/cve/CVE-2018-10851/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2018-14626 page",
+				"url": "https://www.suse.com/security/cve/CVE-2018-14626/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2018-17197 page",
+				"url": "https://www.suse.com/security/cve/CVE-2018-17197/"
+			}
+		],
+		"title": "Security update for SUSE Manager Server 3.1",
+		"tracking": {
+			"current_release_date": "2019-04-03T15:33:20Z",
+			"generator": {
+				"date": "2019-04-03T15:33:20Z",
+				"engine": {
+					"name": "cve-database.git:bin/generate-csaf.pl",
+					"version": "1"
+				}
+			},
+			"id": "SUSE-RU-2019:0863-1",
+			"initial_release_date": "2019-04-03T15:33:20Z",
+			"revision_history": [
+				{
+					"date": "2019-04-03T15:33:20Z",
+					"number": "1",
+					"summary": "Current version"
+				}
+			],
+			"status": "final",
+			"version": "1"
+		}
+	},
+	"product_tree": {
+		"branches": [
+			{
+				"branches": [
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "spacewalk-branding-2.7.2.17-2.31.3.aarch64",
+								"product": {
+									"name": "spacewalk-branding-2.7.2.17-2.31.3.aarch64",
+									"product_id": "spacewalk-branding-2.7.2.17-2.31.3.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-branding-devel-2.7.2.17-2.31.3.aarch64",
+								"product": {
+									"name": "spacewalk-branding-devel-2.7.2.17-2.31.3.aarch64",
+									"product_id": "spacewalk-branding-devel-2.7.2.17-2.31.3.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-3.1.19-2.34.2.aarch64",
+								"product": {
+									"name": "susemanager-3.1.19-2.34.2.aarch64",
+									"product_id": "susemanager-3.1.19-2.34.2.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-tools-3.1.19-2.34.2.aarch64",
+								"product": {
+									"name": "susemanager-tools-3.1.19-2.34.2.aarch64",
+									"product_id": "susemanager-tools-3.1.19-2.34.2.aarch64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "aarch64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "cobbler-2.6.6-5.25.1.noarch",
+								"product": {
+									"name": "cobbler-2.6.6-5.25.1.noarch",
+									"product_id": "cobbler-2.6.6-5.25.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "cobbler-tests-2.6.6-5.25.1.noarch",
+								"product": {
+									"name": "cobbler-tests-2.6.6-5.25.1.noarch",
+									"product_id": "cobbler-tests-2.6.6-5.25.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "cobbler-web-2.6.6-5.25.1.noarch",
+								"product": {
+									"name": "cobbler-web-2.6.6-5.25.1.noarch",
+									"product_id": "cobbler-web-2.6.6-5.25.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "koan-2.6.6-5.25.1.noarch",
+								"product": {
+									"name": "koan-2.6.6-5.25.1.noarch",
+									"product_id": "koan-2.6.6-5.25.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "py26-compat-salt-2016.11.10-1.19.3.noarch",
+								"product": {
+									"name": "py26-compat-salt-2016.11.10-1.19.3.noarch",
+									"product_id": "py26-compat-salt-2016.11.10-1.19.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacecmd-2.7.8.15-2.32.1.noarch",
+								"product": {
+									"name": "spacecmd-2.7.8.15-2.32.1.noarch",
+									"product_id": "spacecmd-2.7.8.15-2.32.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-base-2.7.1.21-2.35.1.noarch",
+								"product": {
+									"name": "spacewalk-base-2.7.1.21-2.35.1.noarch",
+									"product_id": "spacewalk-base-2.7.1.21-2.35.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-base-minimal-2.7.1.21-2.35.1.noarch",
+								"product": {
+									"name": "spacewalk-base-minimal-2.7.1.21-2.35.1.noarch",
+									"product_id": "spacewalk-base-minimal-2.7.1.21-2.35.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-base-minimal-config-2.7.1.21-2.35.1.noarch",
+								"product": {
+									"name": "spacewalk-base-minimal-config-2.7.1.21-2.35.1.noarch",
+									"product_id": "spacewalk-base-minimal-config-2.7.1.21-2.35.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-dobby-2.7.1.21-2.35.1.noarch",
+								"product": {
+									"name": "spacewalk-dobby-2.7.1.21-2.35.1.noarch",
+									"product_id": "spacewalk-dobby-2.7.1.21-2.35.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-html-2.7.1.21-2.35.1.noarch",
+								"product": {
+									"name": "spacewalk-html-2.7.1.21-2.35.1.noarch",
+									"product_id": "spacewalk-html-2.7.1.21-2.35.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-java-2.7.46.19-2.41.3.noarch",
+								"product": {
+									"name": "spacewalk-java-2.7.46.19-2.41.3.noarch",
+									"product_id": "spacewalk-java-2.7.46.19-2.41.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-java-apidoc-sources-2.7.46.19-2.41.3.noarch",
+								"product": {
+									"name": "spacewalk-java-apidoc-sources-2.7.46.19-2.41.3.noarch",
+									"product_id": "spacewalk-java-apidoc-sources-2.7.46.19-2.41.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-java-config-2.7.46.19-2.41.3.noarch",
+								"product": {
+									"name": "spacewalk-java-config-2.7.46.19-2.41.3.noarch",
+									"product_id": "spacewalk-java-config-2.7.46.19-2.41.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-java-lib-2.7.46.19-2.41.3.noarch",
+								"product": {
+									"name": "spacewalk-java-lib-2.7.46.19-2.41.3.noarch",
+									"product_id": "spacewalk-java-lib-2.7.46.19-2.41.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-java-oracle-2.7.46.19-2.41.3.noarch",
+								"product": {
+									"name": "spacewalk-java-oracle-2.7.46.19-2.41.3.noarch",
+									"product_id": "spacewalk-java-oracle-2.7.46.19-2.41.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-java-postgresql-2.7.46.19-2.41.3.noarch",
+								"product": {
+									"name": "spacewalk-java-postgresql-2.7.46.19-2.41.3.noarch",
+									"product_id": "spacewalk-java-postgresql-2.7.46.19-2.41.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-taskomatic-2.7.46.19-2.41.3.noarch",
+								"product": {
+									"name": "spacewalk-taskomatic-2.7.46.19-2.41.3.noarch",
+									"product_id": "spacewalk-taskomatic-2.7.46.19-2.41.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-utils-2.7.10.11-2.23.3.noarch",
+								"product": {
+									"name": "spacewalk-utils-2.7.10.11-2.23.3.noarch",
+									"product_id": "spacewalk-utils-2.7.10.11-2.23.3.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "subscription-matcher-0.22-4.9.2.noarch",
+								"product": {
+									"name": "subscription-matcher-0.22-4.9.2.noarch",
+									"product_id": "subscription-matcher-0.22-4.9.2.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-advanced-topics_en-pdf-3.1-10.29.4.noarch",
+								"product": {
+									"name": "susemanager-advanced-topics_en-pdf-3.1-10.29.4.noarch",
+									"product_id": "susemanager-advanced-topics_en-pdf-3.1-10.29.4.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-best-practices_en-pdf-3.1-10.29.4.noarch",
+								"product": {
+									"name": "susemanager-best-practices_en-pdf-3.1-10.29.4.noarch",
+									"product_id": "susemanager-best-practices_en-pdf-3.1-10.29.4.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-docs_en-3.1-10.29.4.noarch",
+								"product": {
+									"name": "susemanager-docs_en-3.1-10.29.4.noarch",
+									"product_id": "susemanager-docs_en-3.1-10.29.4.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-frontend-libs-3.1.2-3.10.1.noarch",
+								"product": {
+									"name": "susemanager-frontend-libs-3.1.2-3.10.1.noarch",
+									"product_id": "susemanager-frontend-libs-3.1.2-3.10.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-frontend-libs-devel-3.1.2-3.10.1.noarch",
+								"product": {
+									"name": "susemanager-frontend-libs-devel-3.1.2-3.10.1.noarch",
+									"product_id": "susemanager-frontend-libs-devel-3.1.2-3.10.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-getting-started_en-pdf-3.1-10.29.4.noarch",
+								"product": {
+									"name": "susemanager-getting-started_en-pdf-3.1-10.29.4.noarch",
+									"product_id": "susemanager-getting-started_en-pdf-3.1-10.29.4.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-jsp_en-3.1-10.29.4.noarch",
+								"product": {
+									"name": "susemanager-jsp_en-3.1-10.29.4.noarch",
+									"product_id": "susemanager-jsp_en-3.1-10.29.4.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-reference_en-pdf-3.1-10.29.4.noarch",
+								"product": {
+									"name": "susemanager-reference_en-pdf-3.1-10.29.4.noarch",
+									"product_id": "susemanager-reference_en-pdf-3.1-10.29.4.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-schema-3.1.21-2.36.1.noarch",
+								"product": {
+									"name": "susemanager-schema-3.1.21-2.36.1.noarch",
+									"product_id": "susemanager-schema-3.1.21-2.36.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "tika-core-1.20-1.6.2.noarch",
+								"product": {
+									"name": "tika-core-1.20-1.6.2.noarch",
+									"product_id": "tika-core-1.20-1.6.2.noarch"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "noarch"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "spacewalk-branding-2.7.2.17-2.31.3.ppc64le",
+								"product": {
+									"name": "spacewalk-branding-2.7.2.17-2.31.3.ppc64le",
+									"product_id": "spacewalk-branding-2.7.2.17-2.31.3.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-branding-devel-2.7.2.17-2.31.3.ppc64le",
+								"product": {
+									"name": "spacewalk-branding-devel-2.7.2.17-2.31.3.ppc64le",
+									"product_id": "spacewalk-branding-devel-2.7.2.17-2.31.3.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-3.1.19-2.34.2.ppc64le",
+								"product": {
+									"name": "susemanager-3.1.19-2.34.2.ppc64le",
+									"product_id": "susemanager-3.1.19-2.34.2.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-tools-3.1.19-2.34.2.ppc64le",
+								"product": {
+									"name": "susemanager-tools-3.1.19-2.34.2.ppc64le",
+									"product_id": "susemanager-tools-3.1.19-2.34.2.ppc64le"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "ppc64le"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "spacewalk-branding-2.7.2.17-2.31.3.s390x",
+								"product": {
+									"name": "spacewalk-branding-2.7.2.17-2.31.3.s390x",
+									"product_id": "spacewalk-branding-2.7.2.17-2.31.3.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-branding-devel-2.7.2.17-2.31.3.s390x",
+								"product": {
+									"name": "spacewalk-branding-devel-2.7.2.17-2.31.3.s390x",
+									"product_id": "spacewalk-branding-devel-2.7.2.17-2.31.3.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-3.1.19-2.34.2.s390x",
+								"product": {
+									"name": "susemanager-3.1.19-2.34.2.s390x",
+									"product_id": "susemanager-3.1.19-2.34.2.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-tools-3.1.19-2.34.2.s390x",
+								"product": {
+									"name": "susemanager-tools-3.1.19-2.34.2.s390x",
+									"product_id": "susemanager-tools-3.1.19-2.34.2.s390x"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "s390x"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "spacewalk-branding-2.7.2.17-2.31.3.x86_64",
+								"product": {
+									"name": "spacewalk-branding-2.7.2.17-2.31.3.x86_64",
+									"product_id": "spacewalk-branding-2.7.2.17-2.31.3.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "spacewalk-branding-devel-2.7.2.17-2.31.3.x86_64",
+								"product": {
+									"name": "spacewalk-branding-devel-2.7.2.17-2.31.3.x86_64",
+									"product_id": "spacewalk-branding-devel-2.7.2.17-2.31.3.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-3.1.19-2.34.2.x86_64",
+								"product": {
+									"name": "susemanager-3.1.19-2.34.2.x86_64",
+									"product_id": "susemanager-3.1.19-2.34.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "susemanager-tools-3.1.19-2.34.2.x86_64",
+								"product": {
+									"name": "susemanager-tools-3.1.19-2.34.2.x86_64",
+									"product_id": "susemanager-tools-3.1.19-2.34.2.x86_64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "x86_64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_name",
+								"name": "SUSE Manager Proxy 3.1",
+								"product": {
+									"name": "SUSE Manager Proxy 3.1",
+									"product_id": "SUSE Manager Proxy 3.1",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:suse-manager-proxy:3.1"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Manager Server 3.1",
+								"product": {
+									"name": "SUSE Manager Server 3.1",
+									"product_id": "SUSE Manager Server 3.1",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:suse-manager-server:3.1"
+									}
+								}
+							}
+						],
+						"category": "product_family",
+						"name": "SUSE Linux Enterprise"
+					}
+				],
+				"category": "vendor",
+				"name": "SUSE"
+			}
+		],
+		"relationships": [
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-base-minimal-2.7.1.21-2.35.1.noarch as component of SUSE Manager Proxy 3.1",
+					"product_id": "SUSE Manager Proxy 3.1:spacewalk-base-minimal-2.7.1.21-2.35.1.noarch"
+				},
+				"product_reference": "spacewalk-base-minimal-2.7.1.21-2.35.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Proxy 3.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-base-minimal-config-2.7.1.21-2.35.1.noarch as component of SUSE Manager Proxy 3.1",
+					"product_id": "SUSE Manager Proxy 3.1:spacewalk-base-minimal-config-2.7.1.21-2.35.1.noarch"
+				},
+				"product_reference": "spacewalk-base-minimal-config-2.7.1.21-2.35.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Proxy 3.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "cobbler-2.6.6-5.25.1.noarch as component of SUSE Manager Server 3.1",
+					"product_id": "SUSE Manager Server 3.1:cobbler-2.6.6-5.25.1.noarch"
+				},
+				"product_reference": "cobbler-2.6.6-5.25.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "py26-compat-salt-2016.11.10-1.19.3.noarch as component of SUSE Manager Server 3.1",
+					"product_id": "SUSE Manager Server 3.1:py26-compat-salt-2016.11.10-1.19.3.noarch"
+				},
+				"product_reference": "py26-compat-salt-2016.11.10-1.19.3.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacecmd-2.7.8.15-2.32.1.noarch as component of SUSE Manager Server 3.1",
+					"product_id": "SUSE Manager Server 3.1:spacecmd-2.7.8.15-2.32.1.noarch"
+				},
+				"product_reference": "spacecmd-2.7.8.15-2.32.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-base-2.7.1.21-2.35.1.noarch as component of SUSE Manager Server 3.1",
+					"product_id": "SUSE Manager Server 3.1:spacewalk-base-2.7.1.21-2.35.1.noarch"
+				},
+				"product_reference": "spacewalk-base-2.7.1.21-2.35.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-base-minimal-2.7.1.21-2.35.1.noarch as component of SUSE Manager Server 3.1",
+					"product_id": "SUSE Manager Server 3.1:spacewalk-base-minimal-2.7.1.21-2.35.1.noarch"
+				},
+				"product_reference": "spacewalk-base-minimal-2.7.1.21-2.35.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-base-minimal-config-2.7.1.21-2.35.1.noarch as component of SUSE Manager Server 3.1",
+					"product_id": "SUSE Manager Server 3.1:spacewalk-base-minimal-config-2.7.1.21-2.35.1.noarch"
+				},
+				"product_reference": "spacewalk-base-minimal-config-2.7.1.21-2.35.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-branding-2.7.2.17-2.31.3.ppc64le as component of SUSE Manager Server 3.1",
+					"product_id": "SUSE Manager Server 3.1:spacewalk-branding-2.7.2.17-2.31.3.ppc64le"
+				},
+				"product_reference": "spacewalk-branding-2.7.2.17-2.31.3.ppc64le",
+				"relates_to_product_reference": "SUSE Manager Server 3.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-branding-2.7.2.17-2.31.3.s390x as component of SUSE Manager Server 3.1",
+					"product_id": "SUSE Manager Server 3.1:spacewalk-branding-2.7.2.17-2.31.3.s390x"
+				},
+				"product_reference": "spacewalk-branding-2.7.2.17-2.31.3.s390x",
+				"relates_to_product_reference": "SUSE Manager Server 3.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-branding-2.7.2.17-2.31.3.x86_64 as component of SUSE Manager Server 3.1",
+					"product_id": "SUSE Manager Server 3.1:spacewalk-branding-2.7.2.17-2.31.3.x86_64"
+				},
+				"product_reference": "spacewalk-branding-2.7.2.17-2.31.3.x86_64",
+				"relates_to_product_reference": "SUSE Manager Server 3.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-html-2.7.1.21-2.35.1.noarch as component of SUSE Manager Server 3.1",
+					"product_id": "SUSE Manager Server 3.1:spacewalk-html-2.7.1.21-2.35.1.noarch"
+				},
+				"product_reference": "spacewalk-html-2.7.1.21-2.35.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-java-2.7.46.19-2.41.3.noarch as component of SUSE Manager Server 3.1",
+					"product_id": "SUSE Manager Server 3.1:spacewalk-java-2.7.46.19-2.41.3.noarch"
+				},
+				"product_reference": "spacewalk-java-2.7.46.19-2.41.3.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-java-config-2.7.46.19-2.41.3.noarch as component of SUSE Manager Server 3.1",
+					"product_id": "SUSE Manager Server 3.1:spacewalk-java-config-2.7.46.19-2.41.3.noarch"
+				},
+				"product_reference": "spacewalk-java-config-2.7.46.19-2.41.3.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-java-lib-2.7.46.19-2.41.3.noarch as component of SUSE Manager Server 3.1",
+					"product_id": "SUSE Manager Server 3.1:spacewalk-java-lib-2.7.46.19-2.41.3.noarch"
+				},
+				"product_reference": "spacewalk-java-lib-2.7.46.19-2.41.3.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-java-oracle-2.7.46.19-2.41.3.noarch as component of SUSE Manager Server 3.1",
+					"product_id": "SUSE Manager Server 3.1:spacewalk-java-oracle-2.7.46.19-2.41.3.noarch"
+				},
+				"product_reference": "spacewalk-java-oracle-2.7.46.19-2.41.3.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-java-postgresql-2.7.46.19-2.41.3.noarch as component of SUSE Manager Server 3.1",
+					"product_id": "SUSE Manager Server 3.1:spacewalk-java-postgresql-2.7.46.19-2.41.3.noarch"
+				},
+				"product_reference": "spacewalk-java-postgresql-2.7.46.19-2.41.3.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-taskomatic-2.7.46.19-2.41.3.noarch as component of SUSE Manager Server 3.1",
+					"product_id": "SUSE Manager Server 3.1:spacewalk-taskomatic-2.7.46.19-2.41.3.noarch"
+				},
+				"product_reference": "spacewalk-taskomatic-2.7.46.19-2.41.3.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "spacewalk-utils-2.7.10.11-2.23.3.noarch as component of SUSE Manager Server 3.1",
+					"product_id": "SUSE Manager Server 3.1:spacewalk-utils-2.7.10.11-2.23.3.noarch"
+				},
+				"product_reference": "spacewalk-utils-2.7.10.11-2.23.3.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "subscription-matcher-0.22-4.9.2.noarch as component of SUSE Manager Server 3.1",
+					"product_id": "SUSE Manager Server 3.1:subscription-matcher-0.22-4.9.2.noarch"
+				},
+				"product_reference": "subscription-matcher-0.22-4.9.2.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "susemanager-3.1.19-2.34.2.ppc64le as component of SUSE Manager Server 3.1",
+					"product_id": "SUSE Manager Server 3.1:susemanager-3.1.19-2.34.2.ppc64le"
+				},
+				"product_reference": "susemanager-3.1.19-2.34.2.ppc64le",
+				"relates_to_product_reference": "SUSE Manager Server 3.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "susemanager-3.1.19-2.34.2.s390x as component of SUSE Manager Server 3.1",
+					"product_id": "SUSE Manager Server 3.1:susemanager-3.1.19-2.34.2.s390x"
+				},
+				"product_reference": "susemanager-3.1.19-2.34.2.s390x",
+				"relates_to_product_reference": "SUSE Manager Server 3.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "susemanager-3.1.19-2.34.2.x86_64 as component of SUSE Manager Server 3.1",
+					"product_id": "SUSE Manager Server 3.1:susemanager-3.1.19-2.34.2.x86_64"
+				},
+				"product_reference": "susemanager-3.1.19-2.34.2.x86_64",
+				"relates_to_product_reference": "SUSE Manager Server 3.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "susemanager-advanced-topics_en-pdf-3.1-10.29.4.noarch as component of SUSE Manager Server 3.1",
+					"product_id": "SUSE Manager Server 3.1:susemanager-advanced-topics_en-pdf-3.1-10.29.4.noarch"
+				},
+				"product_reference": "susemanager-advanced-topics_en-pdf-3.1-10.29.4.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "susemanager-best-practices_en-pdf-3.1-10.29.4.noarch as component of SUSE Manager Server 3.1",
+					"product_id": "SUSE Manager Server 3.1:susemanager-best-practices_en-pdf-3.1-10.29.4.noarch"
+				},
+				"product_reference": "susemanager-best-practices_en-pdf-3.1-10.29.4.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "susemanager-docs_en-3.1-10.29.4.noarch as component of SUSE Manager Server 3.1",
+					"product_id": "SUSE Manager Server 3.1:susemanager-docs_en-3.1-10.29.4.noarch"
+				},
+				"product_reference": "susemanager-docs_en-3.1-10.29.4.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "susemanager-frontend-libs-3.1.2-3.10.1.noarch as component of SUSE Manager Server 3.1",
+					"product_id": "SUSE Manager Server 3.1:susemanager-frontend-libs-3.1.2-3.10.1.noarch"
+				},
+				"product_reference": "susemanager-frontend-libs-3.1.2-3.10.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "susemanager-getting-started_en-pdf-3.1-10.29.4.noarch as component of SUSE Manager Server 3.1",
+					"product_id": "SUSE Manager Server 3.1:susemanager-getting-started_en-pdf-3.1-10.29.4.noarch"
+				},
+				"product_reference": "susemanager-getting-started_en-pdf-3.1-10.29.4.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "susemanager-jsp_en-3.1-10.29.4.noarch as component of SUSE Manager Server 3.1",
+					"product_id": "SUSE Manager Server 3.1:susemanager-jsp_en-3.1-10.29.4.noarch"
+				},
+				"product_reference": "susemanager-jsp_en-3.1-10.29.4.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "susemanager-reference_en-pdf-3.1-10.29.4.noarch as component of SUSE Manager Server 3.1",
+					"product_id": "SUSE Manager Server 3.1:susemanager-reference_en-pdf-3.1-10.29.4.noarch"
+				},
+				"product_reference": "susemanager-reference_en-pdf-3.1-10.29.4.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "susemanager-schema-3.1.21-2.36.1.noarch as component of SUSE Manager Server 3.1",
+					"product_id": "SUSE Manager Server 3.1:susemanager-schema-3.1.21-2.36.1.noarch"
+				},
+				"product_reference": "susemanager-schema-3.1.21-2.36.1.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "susemanager-tools-3.1.19-2.34.2.ppc64le as component of SUSE Manager Server 3.1",
+					"product_id": "SUSE Manager Server 3.1:susemanager-tools-3.1.19-2.34.2.ppc64le"
+				},
+				"product_reference": "susemanager-tools-3.1.19-2.34.2.ppc64le",
+				"relates_to_product_reference": "SUSE Manager Server 3.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "susemanager-tools-3.1.19-2.34.2.s390x as component of SUSE Manager Server 3.1",
+					"product_id": "SUSE Manager Server 3.1:susemanager-tools-3.1.19-2.34.2.s390x"
+				},
+				"product_reference": "susemanager-tools-3.1.19-2.34.2.s390x",
+				"relates_to_product_reference": "SUSE Manager Server 3.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "susemanager-tools-3.1.19-2.34.2.x86_64 as component of SUSE Manager Server 3.1",
+					"product_id": "SUSE Manager Server 3.1:susemanager-tools-3.1.19-2.34.2.x86_64"
+				},
+				"product_reference": "susemanager-tools-3.1.19-2.34.2.x86_64",
+				"relates_to_product_reference": "SUSE Manager Server 3.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "tika-core-1.20-1.6.2.noarch as component of SUSE Manager Server 3.1",
+					"product_id": "SUSE Manager Server 3.1:tika-core-1.20-1.6.2.noarch"
+				},
+				"product_reference": "tika-core-1.20-1.6.2.noarch",
+				"relates_to_product_reference": "SUSE Manager Server 3.1"
+			}
+		]
+	},
+	"vulnerabilities": [
+		{
+			"cve": "CVE-2018-10851",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2018-10851"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "PowerDNS Authoritative Server 3.3.0 up to 4.1.4 excluding 4.1.5 and 4.0.6, and PowerDNS Recursor 3.2 up to 4.1.4 excluding 4.1.5 and 4.0.9, are vulnerable to a memory leak while parsing malformed records that can lead to remote denial of service.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Manager Proxy 3.1:spacewalk-base-minimal-2.7.1.21-2.35.1.noarch",
+					"SUSE Manager Proxy 3.1:spacewalk-base-minimal-config-2.7.1.21-2.35.1.noarch",
+					"SUSE Manager Server 3.1:cobbler-2.6.6-5.25.1.noarch",
+					"SUSE Manager Server 3.1:py26-compat-salt-2016.11.10-1.19.3.noarch",
+					"SUSE Manager Server 3.1:spacecmd-2.7.8.15-2.32.1.noarch",
+					"SUSE Manager Server 3.1:spacewalk-base-2.7.1.21-2.35.1.noarch",
+					"SUSE Manager Server 3.1:spacewalk-base-minimal-2.7.1.21-2.35.1.noarch",
+					"SUSE Manager Server 3.1:spacewalk-base-minimal-config-2.7.1.21-2.35.1.noarch",
+					"SUSE Manager Server 3.1:spacewalk-branding-2.7.2.17-2.31.3.ppc64le",
+					"SUSE Manager Server 3.1:spacewalk-branding-2.7.2.17-2.31.3.s390x",
+					"SUSE Manager Server 3.1:spacewalk-branding-2.7.2.17-2.31.3.x86_64",
+					"SUSE Manager Server 3.1:spacewalk-html-2.7.1.21-2.35.1.noarch",
+					"SUSE Manager Server 3.1:spacewalk-java-2.7.46.19-2.41.3.noarch",
+					"SUSE Manager Server 3.1:spacewalk-java-config-2.7.46.19-2.41.3.noarch",
+					"SUSE Manager Server 3.1:spacewalk-java-lib-2.7.46.19-2.41.3.noarch",
+					"SUSE Manager Server 3.1:spacewalk-java-oracle-2.7.46.19-2.41.3.noarch",
+					"SUSE Manager Server 3.1:spacewalk-java-postgresql-2.7.46.19-2.41.3.noarch",
+					"SUSE Manager Server 3.1:spacewalk-taskomatic-2.7.46.19-2.41.3.noarch",
+					"SUSE Manager Server 3.1:spacewalk-utils-2.7.10.11-2.23.3.noarch",
+					"SUSE Manager Server 3.1:subscription-matcher-0.22-4.9.2.noarch",
+					"SUSE Manager Server 3.1:susemanager-3.1.19-2.34.2.ppc64le",
+					"SUSE Manager Server 3.1:susemanager-3.1.19-2.34.2.s390x",
+					"SUSE Manager Server 3.1:susemanager-3.1.19-2.34.2.x86_64",
+					"SUSE Manager Server 3.1:susemanager-advanced-topics_en-pdf-3.1-10.29.4.noarch",
+					"SUSE Manager Server 3.1:susemanager-best-practices_en-pdf-3.1-10.29.4.noarch",
+					"SUSE Manager Server 3.1:susemanager-docs_en-3.1-10.29.4.noarch",
+					"SUSE Manager Server 3.1:susemanager-frontend-libs-3.1.2-3.10.1.noarch",
+					"SUSE Manager Server 3.1:susemanager-getting-started_en-pdf-3.1-10.29.4.noarch",
+					"SUSE Manager Server 3.1:susemanager-jsp_en-3.1-10.29.4.noarch",
+					"SUSE Manager Server 3.1:susemanager-reference_en-pdf-3.1-10.29.4.noarch",
+					"SUSE Manager Server 3.1:susemanager-schema-3.1.21-2.36.1.noarch",
+					"SUSE Manager Server 3.1:susemanager-tools-3.1.19-2.34.2.ppc64le",
+					"SUSE Manager Server 3.1:susemanager-tools-3.1.19-2.34.2.s390x",
+					"SUSE Manager Server 3.1:susemanager-tools-3.1.19-2.34.2.x86_64",
+					"SUSE Manager Server 3.1:tika-core-1.20-1.6.2.noarch"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2018-10851",
+					"url": "https://www.suse.com/security/cve/CVE-2018-10851"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1114157 for CVE-2018-10851",
+					"url": "https://bugzilla.suse.com/1114157"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1114169 for CVE-2018-10851",
+					"url": "https://bugzilla.suse.com/1114169"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1114170 for CVE-2018-10851",
+					"url": "https://bugzilla.suse.com/1114170"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Manager Proxy 3.1:spacewalk-base-minimal-2.7.1.21-2.35.1.noarch",
+						"SUSE Manager Proxy 3.1:spacewalk-base-minimal-config-2.7.1.21-2.35.1.noarch",
+						"SUSE Manager Server 3.1:cobbler-2.6.6-5.25.1.noarch",
+						"SUSE Manager Server 3.1:py26-compat-salt-2016.11.10-1.19.3.noarch",
+						"SUSE Manager Server 3.1:spacecmd-2.7.8.15-2.32.1.noarch",
+						"SUSE Manager Server 3.1:spacewalk-base-2.7.1.21-2.35.1.noarch",
+						"SUSE Manager Server 3.1:spacewalk-base-minimal-2.7.1.21-2.35.1.noarch",
+						"SUSE Manager Server 3.1:spacewalk-base-minimal-config-2.7.1.21-2.35.1.noarch",
+						"SUSE Manager Server 3.1:spacewalk-branding-2.7.2.17-2.31.3.ppc64le",
+						"SUSE Manager Server 3.1:spacewalk-branding-2.7.2.17-2.31.3.s390x",
+						"SUSE Manager Server 3.1:spacewalk-branding-2.7.2.17-2.31.3.x86_64",
+						"SUSE Manager Server 3.1:spacewalk-html-2.7.1.21-2.35.1.noarch",
+						"SUSE Manager Server 3.1:spacewalk-java-2.7.46.19-2.41.3.noarch",
+						"SUSE Manager Server 3.1:spacewalk-java-config-2.7.46.19-2.41.3.noarch",
+						"SUSE Manager Server 3.1:spacewalk-java-lib-2.7.46.19-2.41.3.noarch",
+						"SUSE Manager Server 3.1:spacewalk-java-oracle-2.7.46.19-2.41.3.noarch",
+						"SUSE Manager Server 3.1:spacewalk-java-postgresql-2.7.46.19-2.41.3.noarch",
+						"SUSE Manager Server 3.1:spacewalk-taskomatic-2.7.46.19-2.41.3.noarch",
+						"SUSE Manager Server 3.1:spacewalk-utils-2.7.10.11-2.23.3.noarch",
+						"SUSE Manager Server 3.1:subscription-matcher-0.22-4.9.2.noarch",
+						"SUSE Manager Server 3.1:susemanager-3.1.19-2.34.2.ppc64le",
+						"SUSE Manager Server 3.1:susemanager-3.1.19-2.34.2.s390x",
+						"SUSE Manager Server 3.1:susemanager-3.1.19-2.34.2.x86_64",
+						"SUSE Manager Server 3.1:susemanager-advanced-topics_en-pdf-3.1-10.29.4.noarch",
+						"SUSE Manager Server 3.1:susemanager-best-practices_en-pdf-3.1-10.29.4.noarch",
+						"SUSE Manager Server 3.1:susemanager-docs_en-3.1-10.29.4.noarch",
+						"SUSE Manager Server 3.1:susemanager-frontend-libs-3.1.2-3.10.1.noarch",
+						"SUSE Manager Server 3.1:susemanager-getting-started_en-pdf-3.1-10.29.4.noarch",
+						"SUSE Manager Server 3.1:susemanager-jsp_en-3.1-10.29.4.noarch",
+						"SUSE Manager Server 3.1:susemanager-reference_en-pdf-3.1-10.29.4.noarch",
+						"SUSE Manager Server 3.1:susemanager-schema-3.1.21-2.36.1.noarch",
+						"SUSE Manager Server 3.1:susemanager-tools-3.1.19-2.34.2.ppc64le",
+						"SUSE Manager Server 3.1:susemanager-tools-3.1.19-2.34.2.s390x",
+						"SUSE Manager Server 3.1:susemanager-tools-3.1.19-2.34.2.x86_64",
+						"SUSE Manager Server 3.1:tika-core-1.20-1.6.2.noarch"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 5.3,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.0/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Manager Proxy 3.1:spacewalk-base-minimal-2.7.1.21-2.35.1.noarch",
+						"SUSE Manager Proxy 3.1:spacewalk-base-minimal-config-2.7.1.21-2.35.1.noarch",
+						"SUSE Manager Server 3.1:cobbler-2.6.6-5.25.1.noarch",
+						"SUSE Manager Server 3.1:py26-compat-salt-2016.11.10-1.19.3.noarch",
+						"SUSE Manager Server 3.1:spacecmd-2.7.8.15-2.32.1.noarch",
+						"SUSE Manager Server 3.1:spacewalk-base-2.7.1.21-2.35.1.noarch",
+						"SUSE Manager Server 3.1:spacewalk-base-minimal-2.7.1.21-2.35.1.noarch",
+						"SUSE Manager Server 3.1:spacewalk-base-minimal-config-2.7.1.21-2.35.1.noarch",
+						"SUSE Manager Server 3.1:spacewalk-branding-2.7.2.17-2.31.3.ppc64le",
+						"SUSE Manager Server 3.1:spacewalk-branding-2.7.2.17-2.31.3.s390x",
+						"SUSE Manager Server 3.1:spacewalk-branding-2.7.2.17-2.31.3.x86_64",
+						"SUSE Manager Server 3.1:spacewalk-html-2.7.1.21-2.35.1.noarch",
+						"SUSE Manager Server 3.1:spacewalk-java-2.7.46.19-2.41.3.noarch",
+						"SUSE Manager Server 3.1:spacewalk-java-config-2.7.46.19-2.41.3.noarch",
+						"SUSE Manager Server 3.1:spacewalk-java-lib-2.7.46.19-2.41.3.noarch",
+						"SUSE Manager Server 3.1:spacewalk-java-oracle-2.7.46.19-2.41.3.noarch",
+						"SUSE Manager Server 3.1:spacewalk-java-postgresql-2.7.46.19-2.41.3.noarch",
+						"SUSE Manager Server 3.1:spacewalk-taskomatic-2.7.46.19-2.41.3.noarch",
+						"SUSE Manager Server 3.1:spacewalk-utils-2.7.10.11-2.23.3.noarch",
+						"SUSE Manager Server 3.1:subscription-matcher-0.22-4.9.2.noarch",
+						"SUSE Manager Server 3.1:susemanager-3.1.19-2.34.2.ppc64le",
+						"SUSE Manager Server 3.1:susemanager-3.1.19-2.34.2.s390x",
+						"SUSE Manager Server 3.1:susemanager-3.1.19-2.34.2.x86_64",
+						"SUSE Manager Server 3.1:susemanager-advanced-topics_en-pdf-3.1-10.29.4.noarch",
+						"SUSE Manager Server 3.1:susemanager-best-practices_en-pdf-3.1-10.29.4.noarch",
+						"SUSE Manager Server 3.1:susemanager-docs_en-3.1-10.29.4.noarch",
+						"SUSE Manager Server 3.1:susemanager-frontend-libs-3.1.2-3.10.1.noarch",
+						"SUSE Manager Server 3.1:susemanager-getting-started_en-pdf-3.1-10.29.4.noarch",
+						"SUSE Manager Server 3.1:susemanager-jsp_en-3.1-10.29.4.noarch",
+						"SUSE Manager Server 3.1:susemanager-reference_en-pdf-3.1-10.29.4.noarch",
+						"SUSE Manager Server 3.1:susemanager-schema-3.1.21-2.36.1.noarch",
+						"SUSE Manager Server 3.1:susemanager-tools-3.1.19-2.34.2.ppc64le",
+						"SUSE Manager Server 3.1:susemanager-tools-3.1.19-2.34.2.s390x",
+						"SUSE Manager Server 3.1:susemanager-tools-3.1.19-2.34.2.x86_64",
+						"SUSE Manager Server 3.1:tika-core-1.20-1.6.2.noarch"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2019-04-03T15:33:20Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2018-10851"
+		},
+		{
+			"cve": "CVE-2018-14626",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2018-14626"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "PowerDNS Authoritative Server 4.1.0 up to 4.1.4 inclusive and PowerDNS Recursor 4.0.0 up to 4.1.4 inclusive are vulnerable to a packet cache pollution via crafted query that can lead to denial of service.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Manager Proxy 3.1:spacewalk-base-minimal-2.7.1.21-2.35.1.noarch",
+					"SUSE Manager Proxy 3.1:spacewalk-base-minimal-config-2.7.1.21-2.35.1.noarch",
+					"SUSE Manager Server 3.1:cobbler-2.6.6-5.25.1.noarch",
+					"SUSE Manager Server 3.1:py26-compat-salt-2016.11.10-1.19.3.noarch",
+					"SUSE Manager Server 3.1:spacecmd-2.7.8.15-2.32.1.noarch",
+					"SUSE Manager Server 3.1:spacewalk-base-2.7.1.21-2.35.1.noarch",
+					"SUSE Manager Server 3.1:spacewalk-base-minimal-2.7.1.21-2.35.1.noarch",
+					"SUSE Manager Server 3.1:spacewalk-base-minimal-config-2.7.1.21-2.35.1.noarch",
+					"SUSE Manager Server 3.1:spacewalk-branding-2.7.2.17-2.31.3.ppc64le",
+					"SUSE Manager Server 3.1:spacewalk-branding-2.7.2.17-2.31.3.s390x",
+					"SUSE Manager Server 3.1:spacewalk-branding-2.7.2.17-2.31.3.x86_64",
+					"SUSE Manager Server 3.1:spacewalk-html-2.7.1.21-2.35.1.noarch",
+					"SUSE Manager Server 3.1:spacewalk-java-2.7.46.19-2.41.3.noarch",
+					"SUSE Manager Server 3.1:spacewalk-java-config-2.7.46.19-2.41.3.noarch",
+					"SUSE Manager Server 3.1:spacewalk-java-lib-2.7.46.19-2.41.3.noarch",
+					"SUSE Manager Server 3.1:spacewalk-java-oracle-2.7.46.19-2.41.3.noarch",
+					"SUSE Manager Server 3.1:spacewalk-java-postgresql-2.7.46.19-2.41.3.noarch",
+					"SUSE Manager Server 3.1:spacewalk-taskomatic-2.7.46.19-2.41.3.noarch",
+					"SUSE Manager Server 3.1:spacewalk-utils-2.7.10.11-2.23.3.noarch",
+					"SUSE Manager Server 3.1:subscription-matcher-0.22-4.9.2.noarch",
+					"SUSE Manager Server 3.1:susemanager-3.1.19-2.34.2.ppc64le",
+					"SUSE Manager Server 3.1:susemanager-3.1.19-2.34.2.s390x",
+					"SUSE Manager Server 3.1:susemanager-3.1.19-2.34.2.x86_64",
+					"SUSE Manager Server 3.1:susemanager-advanced-topics_en-pdf-3.1-10.29.4.noarch",
+					"SUSE Manager Server 3.1:susemanager-best-practices_en-pdf-3.1-10.29.4.noarch",
+					"SUSE Manager Server 3.1:susemanager-docs_en-3.1-10.29.4.noarch",
+					"SUSE Manager Server 3.1:susemanager-frontend-libs-3.1.2-3.10.1.noarch",
+					"SUSE Manager Server 3.1:susemanager-getting-started_en-pdf-3.1-10.29.4.noarch",
+					"SUSE Manager Server 3.1:susemanager-jsp_en-3.1-10.29.4.noarch",
+					"SUSE Manager Server 3.1:susemanager-reference_en-pdf-3.1-10.29.4.noarch",
+					"SUSE Manager Server 3.1:susemanager-schema-3.1.21-2.36.1.noarch",
+					"SUSE Manager Server 3.1:susemanager-tools-3.1.19-2.34.2.ppc64le",
+					"SUSE Manager Server 3.1:susemanager-tools-3.1.19-2.34.2.s390x",
+					"SUSE Manager Server 3.1:susemanager-tools-3.1.19-2.34.2.x86_64",
+					"SUSE Manager Server 3.1:tika-core-1.20-1.6.2.noarch"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2018-14626",
+					"url": "https://www.suse.com/security/cve/CVE-2018-14626"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1114157 for CVE-2018-14626",
+					"url": "https://bugzilla.suse.com/1114157"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1114169 for CVE-2018-14626",
+					"url": "https://bugzilla.suse.com/1114169"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1114170 for CVE-2018-14626",
+					"url": "https://bugzilla.suse.com/1114170"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Manager Proxy 3.1:spacewalk-base-minimal-2.7.1.21-2.35.1.noarch",
+						"SUSE Manager Proxy 3.1:spacewalk-base-minimal-config-2.7.1.21-2.35.1.noarch",
+						"SUSE Manager Server 3.1:cobbler-2.6.6-5.25.1.noarch",
+						"SUSE Manager Server 3.1:py26-compat-salt-2016.11.10-1.19.3.noarch",
+						"SUSE Manager Server 3.1:spacecmd-2.7.8.15-2.32.1.noarch",
+						"SUSE Manager Server 3.1:spacewalk-base-2.7.1.21-2.35.1.noarch",
+						"SUSE Manager Server 3.1:spacewalk-base-minimal-2.7.1.21-2.35.1.noarch",
+						"SUSE Manager Server 3.1:spacewalk-base-minimal-config-2.7.1.21-2.35.1.noarch",
+						"SUSE Manager Server 3.1:spacewalk-branding-2.7.2.17-2.31.3.ppc64le",
+						"SUSE Manager Server 3.1:spacewalk-branding-2.7.2.17-2.31.3.s390x",
+						"SUSE Manager Server 3.1:spacewalk-branding-2.7.2.17-2.31.3.x86_64",
+						"SUSE Manager Server 3.1:spacewalk-html-2.7.1.21-2.35.1.noarch",
+						"SUSE Manager Server 3.1:spacewalk-java-2.7.46.19-2.41.3.noarch",
+						"SUSE Manager Server 3.1:spacewalk-java-config-2.7.46.19-2.41.3.noarch",
+						"SUSE Manager Server 3.1:spacewalk-java-lib-2.7.46.19-2.41.3.noarch",
+						"SUSE Manager Server 3.1:spacewalk-java-oracle-2.7.46.19-2.41.3.noarch",
+						"SUSE Manager Server 3.1:spacewalk-java-postgresql-2.7.46.19-2.41.3.noarch",
+						"SUSE Manager Server 3.1:spacewalk-taskomatic-2.7.46.19-2.41.3.noarch",
+						"SUSE Manager Server 3.1:spacewalk-utils-2.7.10.11-2.23.3.noarch",
+						"SUSE Manager Server 3.1:subscription-matcher-0.22-4.9.2.noarch",
+						"SUSE Manager Server 3.1:susemanager-3.1.19-2.34.2.ppc64le",
+						"SUSE Manager Server 3.1:susemanager-3.1.19-2.34.2.s390x",
+						"SUSE Manager Server 3.1:susemanager-3.1.19-2.34.2.x86_64",
+						"SUSE Manager Server 3.1:susemanager-advanced-topics_en-pdf-3.1-10.29.4.noarch",
+						"SUSE Manager Server 3.1:susemanager-best-practices_en-pdf-3.1-10.29.4.noarch",
+						"SUSE Manager Server 3.1:susemanager-docs_en-3.1-10.29.4.noarch",
+						"SUSE Manager Server 3.1:susemanager-frontend-libs-3.1.2-3.10.1.noarch",
+						"SUSE Manager Server 3.1:susemanager-getting-started_en-pdf-3.1-10.29.4.noarch",
+						"SUSE Manager Server 3.1:susemanager-jsp_en-3.1-10.29.4.noarch",
+						"SUSE Manager Server 3.1:susemanager-reference_en-pdf-3.1-10.29.4.noarch",
+						"SUSE Manager Server 3.1:susemanager-schema-3.1.21-2.36.1.noarch",
+						"SUSE Manager Server 3.1:susemanager-tools-3.1.19-2.34.2.ppc64le",
+						"SUSE Manager Server 3.1:susemanager-tools-3.1.19-2.34.2.s390x",
+						"SUSE Manager Server 3.1:susemanager-tools-3.1.19-2.34.2.x86_64",
+						"SUSE Manager Server 3.1:tika-core-1.20-1.6.2.noarch"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 5.3,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Manager Proxy 3.1:spacewalk-base-minimal-2.7.1.21-2.35.1.noarch",
+						"SUSE Manager Proxy 3.1:spacewalk-base-minimal-config-2.7.1.21-2.35.1.noarch",
+						"SUSE Manager Server 3.1:cobbler-2.6.6-5.25.1.noarch",
+						"SUSE Manager Server 3.1:py26-compat-salt-2016.11.10-1.19.3.noarch",
+						"SUSE Manager Server 3.1:spacecmd-2.7.8.15-2.32.1.noarch",
+						"SUSE Manager Server 3.1:spacewalk-base-2.7.1.21-2.35.1.noarch",
+						"SUSE Manager Server 3.1:spacewalk-base-minimal-2.7.1.21-2.35.1.noarch",
+						"SUSE Manager Server 3.1:spacewalk-base-minimal-config-2.7.1.21-2.35.1.noarch",
+						"SUSE Manager Server 3.1:spacewalk-branding-2.7.2.17-2.31.3.ppc64le",
+						"SUSE Manager Server 3.1:spacewalk-branding-2.7.2.17-2.31.3.s390x",
+						"SUSE Manager Server 3.1:spacewalk-branding-2.7.2.17-2.31.3.x86_64",
+						"SUSE Manager Server 3.1:spacewalk-html-2.7.1.21-2.35.1.noarch",
+						"SUSE Manager Server 3.1:spacewalk-java-2.7.46.19-2.41.3.noarch",
+						"SUSE Manager Server 3.1:spacewalk-java-config-2.7.46.19-2.41.3.noarch",
+						"SUSE Manager Server 3.1:spacewalk-java-lib-2.7.46.19-2.41.3.noarch",
+						"SUSE Manager Server 3.1:spacewalk-java-oracle-2.7.46.19-2.41.3.noarch",
+						"SUSE Manager Server 3.1:spacewalk-java-postgresql-2.7.46.19-2.41.3.noarch",
+						"SUSE Manager Server 3.1:spacewalk-taskomatic-2.7.46.19-2.41.3.noarch",
+						"SUSE Manager Server 3.1:spacewalk-utils-2.7.10.11-2.23.3.noarch",
+						"SUSE Manager Server 3.1:subscription-matcher-0.22-4.9.2.noarch",
+						"SUSE Manager Server 3.1:susemanager-3.1.19-2.34.2.ppc64le",
+						"SUSE Manager Server 3.1:susemanager-3.1.19-2.34.2.s390x",
+						"SUSE Manager Server 3.1:susemanager-3.1.19-2.34.2.x86_64",
+						"SUSE Manager Server 3.1:susemanager-advanced-topics_en-pdf-3.1-10.29.4.noarch",
+						"SUSE Manager Server 3.1:susemanager-best-practices_en-pdf-3.1-10.29.4.noarch",
+						"SUSE Manager Server 3.1:susemanager-docs_en-3.1-10.29.4.noarch",
+						"SUSE Manager Server 3.1:susemanager-frontend-libs-3.1.2-3.10.1.noarch",
+						"SUSE Manager Server 3.1:susemanager-getting-started_en-pdf-3.1-10.29.4.noarch",
+						"SUSE Manager Server 3.1:susemanager-jsp_en-3.1-10.29.4.noarch",
+						"SUSE Manager Server 3.1:susemanager-reference_en-pdf-3.1-10.29.4.noarch",
+						"SUSE Manager Server 3.1:susemanager-schema-3.1.21-2.36.1.noarch",
+						"SUSE Manager Server 3.1:susemanager-tools-3.1.19-2.34.2.ppc64le",
+						"SUSE Manager Server 3.1:susemanager-tools-3.1.19-2.34.2.s390x",
+						"SUSE Manager Server 3.1:susemanager-tools-3.1.19-2.34.2.x86_64",
+						"SUSE Manager Server 3.1:tika-core-1.20-1.6.2.noarch"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2019-04-03T15:33:20Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2018-14626"
+		},
+		{
+			"cve": "CVE-2018-17197",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2018-17197"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A carefully crafted or corrupt sqlite file can cause an infinite loop in Apache Tika's SQLite3Parser in versions 1.8-1.19.1 of Apache Tika.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Manager Proxy 3.1:spacewalk-base-minimal-2.7.1.21-2.35.1.noarch",
+					"SUSE Manager Proxy 3.1:spacewalk-base-minimal-config-2.7.1.21-2.35.1.noarch",
+					"SUSE Manager Server 3.1:cobbler-2.6.6-5.25.1.noarch",
+					"SUSE Manager Server 3.1:py26-compat-salt-2016.11.10-1.19.3.noarch",
+					"SUSE Manager Server 3.1:spacecmd-2.7.8.15-2.32.1.noarch",
+					"SUSE Manager Server 3.1:spacewalk-base-2.7.1.21-2.35.1.noarch",
+					"SUSE Manager Server 3.1:spacewalk-base-minimal-2.7.1.21-2.35.1.noarch",
+					"SUSE Manager Server 3.1:spacewalk-base-minimal-config-2.7.1.21-2.35.1.noarch",
+					"SUSE Manager Server 3.1:spacewalk-branding-2.7.2.17-2.31.3.ppc64le",
+					"SUSE Manager Server 3.1:spacewalk-branding-2.7.2.17-2.31.3.s390x",
+					"SUSE Manager Server 3.1:spacewalk-branding-2.7.2.17-2.31.3.x86_64",
+					"SUSE Manager Server 3.1:spacewalk-html-2.7.1.21-2.35.1.noarch",
+					"SUSE Manager Server 3.1:spacewalk-java-2.7.46.19-2.41.3.noarch",
+					"SUSE Manager Server 3.1:spacewalk-java-config-2.7.46.19-2.41.3.noarch",
+					"SUSE Manager Server 3.1:spacewalk-java-lib-2.7.46.19-2.41.3.noarch",
+					"SUSE Manager Server 3.1:spacewalk-java-oracle-2.7.46.19-2.41.3.noarch",
+					"SUSE Manager Server 3.1:spacewalk-java-postgresql-2.7.46.19-2.41.3.noarch",
+					"SUSE Manager Server 3.1:spacewalk-taskomatic-2.7.46.19-2.41.3.noarch",
+					"SUSE Manager Server 3.1:spacewalk-utils-2.7.10.11-2.23.3.noarch",
+					"SUSE Manager Server 3.1:subscription-matcher-0.22-4.9.2.noarch",
+					"SUSE Manager Server 3.1:susemanager-3.1.19-2.34.2.ppc64le",
+					"SUSE Manager Server 3.1:susemanager-3.1.19-2.34.2.s390x",
+					"SUSE Manager Server 3.1:susemanager-3.1.19-2.34.2.x86_64",
+					"SUSE Manager Server 3.1:susemanager-advanced-topics_en-pdf-3.1-10.29.4.noarch",
+					"SUSE Manager Server 3.1:susemanager-best-practices_en-pdf-3.1-10.29.4.noarch",
+					"SUSE Manager Server 3.1:susemanager-docs_en-3.1-10.29.4.noarch",
+					"SUSE Manager Server 3.1:susemanager-frontend-libs-3.1.2-3.10.1.noarch",
+					"SUSE Manager Server 3.1:susemanager-getting-started_en-pdf-3.1-10.29.4.noarch",
+					"SUSE Manager Server 3.1:susemanager-jsp_en-3.1-10.29.4.noarch",
+					"SUSE Manager Server 3.1:susemanager-reference_en-pdf-3.1-10.29.4.noarch",
+					"SUSE Manager Server 3.1:susemanager-schema-3.1.21-2.36.1.noarch",
+					"SUSE Manager Server 3.1:susemanager-tools-3.1.19-2.34.2.ppc64le",
+					"SUSE Manager Server 3.1:susemanager-tools-3.1.19-2.34.2.s390x",
+					"SUSE Manager Server 3.1:susemanager-tools-3.1.19-2.34.2.x86_64",
+					"SUSE Manager Server 3.1:tika-core-1.20-1.6.2.noarch"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2018-17197",
+					"url": "https://www.suse.com/security/cve/CVE-2018-17197"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1121038 for CVE-2018-17197",
+					"url": "https://bugzilla.suse.com/1121038"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Manager Proxy 3.1:spacewalk-base-minimal-2.7.1.21-2.35.1.noarch",
+						"SUSE Manager Proxy 3.1:spacewalk-base-minimal-config-2.7.1.21-2.35.1.noarch",
+						"SUSE Manager Server 3.1:cobbler-2.6.6-5.25.1.noarch",
+						"SUSE Manager Server 3.1:py26-compat-salt-2016.11.10-1.19.3.noarch",
+						"SUSE Manager Server 3.1:spacecmd-2.7.8.15-2.32.1.noarch",
+						"SUSE Manager Server 3.1:spacewalk-base-2.7.1.21-2.35.1.noarch",
+						"SUSE Manager Server 3.1:spacewalk-base-minimal-2.7.1.21-2.35.1.noarch",
+						"SUSE Manager Server 3.1:spacewalk-base-minimal-config-2.7.1.21-2.35.1.noarch",
+						"SUSE Manager Server 3.1:spacewalk-branding-2.7.2.17-2.31.3.ppc64le",
+						"SUSE Manager Server 3.1:spacewalk-branding-2.7.2.17-2.31.3.s390x",
+						"SUSE Manager Server 3.1:spacewalk-branding-2.7.2.17-2.31.3.x86_64",
+						"SUSE Manager Server 3.1:spacewalk-html-2.7.1.21-2.35.1.noarch",
+						"SUSE Manager Server 3.1:spacewalk-java-2.7.46.19-2.41.3.noarch",
+						"SUSE Manager Server 3.1:spacewalk-java-config-2.7.46.19-2.41.3.noarch",
+						"SUSE Manager Server 3.1:spacewalk-java-lib-2.7.46.19-2.41.3.noarch",
+						"SUSE Manager Server 3.1:spacewalk-java-oracle-2.7.46.19-2.41.3.noarch",
+						"SUSE Manager Server 3.1:spacewalk-java-postgresql-2.7.46.19-2.41.3.noarch",
+						"SUSE Manager Server 3.1:spacewalk-taskomatic-2.7.46.19-2.41.3.noarch",
+						"SUSE Manager Server 3.1:spacewalk-utils-2.7.10.11-2.23.3.noarch",
+						"SUSE Manager Server 3.1:subscription-matcher-0.22-4.9.2.noarch",
+						"SUSE Manager Server 3.1:susemanager-3.1.19-2.34.2.ppc64le",
+						"SUSE Manager Server 3.1:susemanager-3.1.19-2.34.2.s390x",
+						"SUSE Manager Server 3.1:susemanager-3.1.19-2.34.2.x86_64",
+						"SUSE Manager Server 3.1:susemanager-advanced-topics_en-pdf-3.1-10.29.4.noarch",
+						"SUSE Manager Server 3.1:susemanager-best-practices_en-pdf-3.1-10.29.4.noarch",
+						"SUSE Manager Server 3.1:susemanager-docs_en-3.1-10.29.4.noarch",
+						"SUSE Manager Server 3.1:susemanager-frontend-libs-3.1.2-3.10.1.noarch",
+						"SUSE Manager Server 3.1:susemanager-getting-started_en-pdf-3.1-10.29.4.noarch",
+						"SUSE Manager Server 3.1:susemanager-jsp_en-3.1-10.29.4.noarch",
+						"SUSE Manager Server 3.1:susemanager-reference_en-pdf-3.1-10.29.4.noarch",
+						"SUSE Manager Server 3.1:susemanager-schema-3.1.21-2.36.1.noarch",
+						"SUSE Manager Server 3.1:susemanager-tools-3.1.19-2.34.2.ppc64le",
+						"SUSE Manager Server 3.1:susemanager-tools-3.1.19-2.34.2.s390x",
+						"SUSE Manager Server 3.1:susemanager-tools-3.1.19-2.34.2.x86_64",
+						"SUSE Manager Server 3.1:tika-core-1.20-1.6.2.noarch"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 6.5,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Manager Proxy 3.1:spacewalk-base-minimal-2.7.1.21-2.35.1.noarch",
+						"SUSE Manager Proxy 3.1:spacewalk-base-minimal-config-2.7.1.21-2.35.1.noarch",
+						"SUSE Manager Server 3.1:cobbler-2.6.6-5.25.1.noarch",
+						"SUSE Manager Server 3.1:py26-compat-salt-2016.11.10-1.19.3.noarch",
+						"SUSE Manager Server 3.1:spacecmd-2.7.8.15-2.32.1.noarch",
+						"SUSE Manager Server 3.1:spacewalk-base-2.7.1.21-2.35.1.noarch",
+						"SUSE Manager Server 3.1:spacewalk-base-minimal-2.7.1.21-2.35.1.noarch",
+						"SUSE Manager Server 3.1:spacewalk-base-minimal-config-2.7.1.21-2.35.1.noarch",
+						"SUSE Manager Server 3.1:spacewalk-branding-2.7.2.17-2.31.3.ppc64le",
+						"SUSE Manager Server 3.1:spacewalk-branding-2.7.2.17-2.31.3.s390x",
+						"SUSE Manager Server 3.1:spacewalk-branding-2.7.2.17-2.31.3.x86_64",
+						"SUSE Manager Server 3.1:spacewalk-html-2.7.1.21-2.35.1.noarch",
+						"SUSE Manager Server 3.1:spacewalk-java-2.7.46.19-2.41.3.noarch",
+						"SUSE Manager Server 3.1:spacewalk-java-config-2.7.46.19-2.41.3.noarch",
+						"SUSE Manager Server 3.1:spacewalk-java-lib-2.7.46.19-2.41.3.noarch",
+						"SUSE Manager Server 3.1:spacewalk-java-oracle-2.7.46.19-2.41.3.noarch",
+						"SUSE Manager Server 3.1:spacewalk-java-postgresql-2.7.46.19-2.41.3.noarch",
+						"SUSE Manager Server 3.1:spacewalk-taskomatic-2.7.46.19-2.41.3.noarch",
+						"SUSE Manager Server 3.1:spacewalk-utils-2.7.10.11-2.23.3.noarch",
+						"SUSE Manager Server 3.1:subscription-matcher-0.22-4.9.2.noarch",
+						"SUSE Manager Server 3.1:susemanager-3.1.19-2.34.2.ppc64le",
+						"SUSE Manager Server 3.1:susemanager-3.1.19-2.34.2.s390x",
+						"SUSE Manager Server 3.1:susemanager-3.1.19-2.34.2.x86_64",
+						"SUSE Manager Server 3.1:susemanager-advanced-topics_en-pdf-3.1-10.29.4.noarch",
+						"SUSE Manager Server 3.1:susemanager-best-practices_en-pdf-3.1-10.29.4.noarch",
+						"SUSE Manager Server 3.1:susemanager-docs_en-3.1-10.29.4.noarch",
+						"SUSE Manager Server 3.1:susemanager-frontend-libs-3.1.2-3.10.1.noarch",
+						"SUSE Manager Server 3.1:susemanager-getting-started_en-pdf-3.1-10.29.4.noarch",
+						"SUSE Manager Server 3.1:susemanager-jsp_en-3.1-10.29.4.noarch",
+						"SUSE Manager Server 3.1:susemanager-reference_en-pdf-3.1-10.29.4.noarch",
+						"SUSE Manager Server 3.1:susemanager-schema-3.1.21-2.36.1.noarch",
+						"SUSE Manager Server 3.1:susemanager-tools-3.1.19-2.34.2.ppc64le",
+						"SUSE Manager Server 3.1:susemanager-tools-3.1.19-2.34.2.s390x",
+						"SUSE Manager Server 3.1:susemanager-tools-3.1.19-2.34.2.x86_64",
+						"SUSE Manager Server 3.1:tika-core-1.20-1.6.2.noarch"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2019-04-03T15:33:20Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2018-17197"
+		}
+	]
+}

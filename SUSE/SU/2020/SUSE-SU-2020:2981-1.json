@@ -1,0 +1,2766 @@
+{
+	"document": {
+		"aggregate_severity": {
+			"namespace": "https://www.suse.com/support/security/rating/",
+			"text": "critical"
+		},
+		"category": "csaf_security_advisory",
+		"csaf_version": "2.0",
+		"distribution": {
+			"text": "Copyright 2024 SUSE LLC. All rights reserved.",
+			"tlp": {
+				"label": "WHITE",
+				"url": "https://www.first.org/tlp/"
+			}
+		},
+		"lang": "en",
+		"notes": [
+			{
+				"category": "summary",
+				"text": "Security update for the Linux Kernel",
+				"title": "Title of the patch"
+			},
+			{
+				"category": "description",
+				"text": "The SUSE Linux Enterprise 12 SP5 kernel was updated to receive various security and bugfixes.\n\nThe following security bugs were fixed:\n\n- CVE-2020-12351: Fixed a type confusion while processing AMP packets aka 'BleedingTooth' aka 'BadKarma' (bsc#1177724).\n- CVE-2020-12352: Fixed an information leak when processing certain AMP packets aka 'BleedingTooth' aka 'BadChoice' (bsc#1177725).\n- CVE-2020-25645: Fixed an issue which traffic between two Geneve endpoints may be unencrypted when IPsec is configured to encrypt traffic for the specific UDP port used by the GENEVE tunnel allowing anyone between the two endpoints to read the traffic unencrypted (bsc#1177511).\n- CVE-2020-25212: Fixed a TOCTOU mismatch in the NFS client code (bsc#1176381).\n\nThe following non-security bugs were fixed:\n\n- btrfs: check the right error variable in btrfs_del_dir_entries_in_log (bsc#1177687).\n- btrfs: do not set the full sync flag on the inode during page release (bsc#1177687).\n- btrfs: fix incorrect updating of log root tree (bsc#1177687).\n- btrfs: fix race between page release and a fast fsync (bsc#1177687).\n- btrfs: only commit delayed items at fsync if we are logging a directory (bsc#1177687).\n- btrfs: only commit the delayed inode when doing a full fsync (bsc#1177687).\n- btrfs: reduce contention on log trees when logging checksums (bsc#1177687).\n- btrfs: release old extent maps during page release (bsc#1177687).\n- btrfs: remove no longer needed use of log_writers for the log root tree (bsc#1177687).\n- btrfs: stop incremening log_batch for the log root tree when syncing log (bsc#1177687).\n- drm/amdgpu: prevent double kfree ttm->sg (git-fixes).\n- drm/nouveau/mem: guard against NULL pointer access in mem_del (git-fixes).\n- drm/sun4i: mixer: Extend regmap max_register (git-fixes).\n- ext4: fix dir_nlink behaviour (bsc#1177359).\n- i2c: meson: fix clock setting overwrite (git-fixes).\n- include/linux/swapops.h: correct guards for non_swap_entry() (git-fixes (mm/swap)).\n- iommu/vt-d: Correctly calculate agaw in domain_init() (bsc#1176400).\n- leds: mt6323: move period calculation (git-fixes).\n- mac80211: do not allow bigger VHT MPDUs than the hardware supports (git-fixes).\n- macsec: avoid use-after-free in macsec_handle_frame() (git-fixes).\n- mfd: sm501: Fix leaks in probe() (git-fixes).\n- mmc: core: do not set limits.discard_granularity as 0 (git-fixes).\n- mm/huge_memory.c: use head to check huge zero page (git-fixes (mm/thp)).\n- mm: hugetlb: switch to css_tryget() in hugetlb_cgroup_charge_cgroup() (git-fixes (mm/hugetlb)).\n- mm/ksm.c: do not WARN if page is still mapped in remove_stable_node() (git-fixes (mm/hugetlb)).\n- mm: memcg: switch to css_tryget() in get_mem_cgroup_from_mm() (bsc#1177685).\n- mm/mempolicy.c: fix out of bounds write in mpol_parse_str() (git-fixes (mm/mempolicy)).\n- mm/mempolicy.c: use match_string() helper to simplify the code (git-fixes (mm/mempolicy)).\n- mm, numa: fix bad pmd by atomically check for pmd_trans_huge when marking page tables prot_numa (git-fixes (mm/numa)).\n- mm/page_owner.c: remove drain_all_pages from init_early_allocated_pages (git-fixes (mm/debug)).\n- mm/page-writeback.c: avoid potential division by zero in wb_min_max_ratio() (git-fixes (mm/writeback)).\n- mm/page-writeback.c: improve arithmetic divisions (git-fixes (mm/writeback)).\n- mm/page-writeback.c: use div64_ul() for u64-by-unsigned-long divide (git-fixes (mm/writeback)).\n- mm/rmap: fixup copying of soft dirty and uffd ptes (git-fixes (mm/rmap)).\n- mm/zsmalloc.c: fix build when CONFIG_COMPACTION=n (git-fixes (mm/zsmalloc)).\n- mm/zsmalloc.c: fix race condition in zs_destroy_pool (git-fixes (mm/zsmalloc)).\n- mm/zsmalloc.c: fix the migrated zspage statistics (git-fixes (mm/zsmalloc)).\n- mm/zsmalloc.c: migration can leave pages in ZS_EMPTY indefinitely (git-fixes (mm/zsmalloc)).\n- Move the upstreamed bluetooth fix into sorted section\n- net: wireless: nl80211: fix out-of-bounds access in nl80211_del_key() (git-fixes).\n- NFS: On fatal writeback errors, we need to call nfs_inode_remove_request() (bsc#1177340).\n- NFS: Revalidate the file mapping on all fatal writeback errors (bsc#1177340).\n- NFSv4.1 - backchannel request should hold ref on xprt (bsc#1152624).\n- nvme: add a Identify Namespace Identification Descriptor list quirk (bsc#1174748). add two previous futile attempts to fix the bug to blacklist.conf\n- nvme: Fix ctrl use-after-free during sysfs deletion (bsc#1174748).\n- nvme: fix deadlock caused by ANA update wrong locking (bsc#1174748).\n- nvme: fix possible io failures when removing multipathed ns (bsc#1174748).\n- nvme: make nvme_identify_ns propagate errors back (bsc#1174748). \n- nvme: make nvme_report_ns_ids propagate error back (bsc#1174748).\n- nvme-multipath: do not reset on unknown status (bsc#1174748).\n- nvme: Namepace identification descriptor list is optional (bsc#1174748).\n- nvme: pass status to nvme_error_status (bsc#1174748).\n- nvme-rdma: Avoid double freeing of async event data (bsc#1174748).\n- nvme: return error from nvme_alloc_ns() (bsc#1174748).\n- platform/x86: mlx-platform: Remove PSU EEPROM configuration (git-fixes).\n- powerpc/dma: Fix dma_map_ops::get_required_mask (bsc#1065729).\n- pty: do tty_flip_buffer_push without port->lock in pty_write (git-fixes).\n- scsi: hisi_sas: Add debugfs ITCT file and add file operations (bsc#1140683).\n- scsi: hisi_sas: Add manual trigger for debugfs dump (bsc#1140683).\n- scsi: hisi_sas: Add missing seq_printf() call in hisi_sas_show_row_32() (bsc#1140683).\n- scsi: hisi_sas: Change return variable type in phy_up_v3_hw() (bsc#1140683).\n- scsi: hisi_sas: Correct memory allocation size for DQ debugfs (bsc#1140683).\n- scsi: hisi_sas: Do some more tidy-up (bsc#1140683).\n- scsi: hisi_sas: Fix a timeout race of driver internal and SMP IO (bsc#1140683).\n- scsi: hisi_sas: Fix type casting and missing static qualifier in debugfs code (bsc#1140683). Refresh:\n- scsi: hisi_sas: No need to check return value of debugfs_create functions (bsc#1140683). Update:\n- scsi: hisi_sas: Some misc tidy-up (bsc#1140683).\n- scsi: qla2xxx: Add IOCB resource tracking (bsc#1176946 bsc#1175520 bsc#1172538).\n- scsi: qla2xxx: Add rport fields in debugfs (bsc#1176946 bsc#1175520 bsc#1172538).\n- scsi: qla2xxx: Add SLER and PI control support (bsc#1176946 bsc#1175520 bsc#1172538).\n- scsi: qla2xxx: Allow dev_loss_tmo setting for FC-NVMe devices (bsc#1176946 bsc#1175520 bsc#1172538).\n- scsi: qla2xxx: Correct the check for sscanf() return value (bsc#1176946 bsc#1175520 bsc#1172538).\n- scsi: qla2xxx: Fix buffer-buffer credit extraction error (bsc#1176946 bsc#1175520 bsc#1172538).\n- scsi: qla2xxx: Fix crash on session cleanup with unload (bsc#1176946 bsc#1175520 bsc#1172538).\n- scsi: qla2xxx: Fix inconsistent format argument type in qla_dbg.c (bsc#1176946 bsc#1175520 bsc#1172538).\n- scsi: qla2xxx: Fix inconsistent format argument type in qla_os.c (bsc#1176946 bsc#1175520 bsc#1172538).\n- scsi: qla2xxx: Fix inconsistent format argument type in tcm_qla2xxx.c (bsc#1176946 bsc#1175520 bsc#1172538).\n- scsi: qla2xxx: Fix I/O errors during LIP reset tests (bsc#1176946 bsc#1175520 bsc#1172538).\n- scsi: qla2xxx: Fix I/O failures during remote port toggle testing (bsc#1176946 bsc#1175520 bsc#1172538).\n- scsi: qla2xxx: Fix memory size truncation (bsc#1176946 bsc#1175520 bsc#1172538).\n- scsi: qla2xxx: Fix MPI reset needed message (bsc#1176946 bsc#1175520 bsc#1172538).\n- scsi: qla2xxx: Fix point-to-point (N2N) device discovery issue (bsc#1176946 bsc#1175520 bsc#1172538).\n- scsi: qla2xxx: Fix reset of MPI firmware (bsc#1176946 bsc#1175520 bsc#1172538).\n- scsi: qla2xxx: Honor status qualifier in FCP_RSP per spec (bsc#1176946 bsc#1175520 bsc#1172538).\n- scsi: qla2xxx: Make tgt_port_database available in initiator mode (bsc#1176946 bsc#1175520 bsc#1172538).\n- scsi: qla2xxx: Performance tweak (bsc#1176946 bsc#1175520 bsc#1172538).\n- scsi: qla2xxx: Reduce duplicate code in reporting speed (bsc#1176946 bsc#1175520 bsc#1172538).\n- scsi: qla2xxx: Remove unneeded variable 'rval' (bsc#1176946 bsc#1175520 bsc#1172538).\n- scsi: qla2xxx: Setup debugfs entries for remote ports (bsc#1176946 bsc#1175520 bsc#1172538).\n- scsi: qla2xxx: Update version to 10.02.00.102-k (bsc#1176946 bsc#1175520 bsc#1172538).\n- scsi: qla2xxx: Update version to 10.02.00.103-k (bsc#1176946 bsc#1175520 bsc#1172538).\n- spi: fsl-espi: Only process interrupts for expected events (git-fixes).\n- tty: serial: earlycon dependency (git-fixes).\n- x86, fakenuma: Fix invalid starting node ID (git-fixes (mm/x86/fakenuma)).\n- x86/xen: disable Firmware First mode for correctable memory errors (bsc#1176713).\n",
+				"title": "Description of the patch"
+			},
+			{
+				"category": "details",
+				"text": "SUSE-2020-2981,SUSE-SLE-HA-12-SP5-2020-2981,SUSE-SLE-Live-Patching-12-SP5-2020-2981,SUSE-SLE-SDK-12-SP5-2020-2981,SUSE-SLE-SERVER-12-SP5-2020-2981,SUSE-SLE-WE-12-SP5-2020-2981",
+				"title": "Patchnames"
+			},
+			{
+				"category": "legal_disclaimer",
+				"text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+				"title": "Terms of use"
+			}
+		],
+		"publisher": {
+			"category": "vendor",
+			"contact_details": "https://www.suse.com/support/security/contact/",
+			"name": "SUSE Product Security Team",
+			"namespace": "https://www.suse.com/"
+		},
+		"references": [
+			{
+				"category": "external",
+				"summary": "SUSE ratings",
+				"url": "https://www.suse.com/support/security/rating/"
+			},
+			{
+				"category": "self",
+				"summary": "URL of this CSAF notice",
+				"url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2020_2981-1.json"
+			},
+			{
+				"category": "self",
+				"summary": "URL for SUSE-SU-2020:2981-1",
+				"url": "https://www.suse.com/support/update/announcement/2020/suse-su-20202981-1/"
+			},
+			{
+				"category": "self",
+				"summary": "E-Mail link for SUSE-SU-2020:2981-1",
+				"url": "https://lists.suse.com/pipermail/sle-security-updates/2020-October/007601.html"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1065729",
+				"url": "https://bugzilla.suse.com/1065729"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1140683",
+				"url": "https://bugzilla.suse.com/1140683"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1152624",
+				"url": "https://bugzilla.suse.com/1152624"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1172538",
+				"url": "https://bugzilla.suse.com/1172538"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1172757",
+				"url": "https://bugzilla.suse.com/1172757"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1174748",
+				"url": "https://bugzilla.suse.com/1174748"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1175520",
+				"url": "https://bugzilla.suse.com/1175520"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1176381",
+				"url": "https://bugzilla.suse.com/1176381"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1176400",
+				"url": "https://bugzilla.suse.com/1176400"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1176713",
+				"url": "https://bugzilla.suse.com/1176713"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1176946",
+				"url": "https://bugzilla.suse.com/1176946"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1177027",
+				"url": "https://bugzilla.suse.com/1177027"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1177340",
+				"url": "https://bugzilla.suse.com/1177340"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1177359",
+				"url": "https://bugzilla.suse.com/1177359"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1177511",
+				"url": "https://bugzilla.suse.com/1177511"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1177685",
+				"url": "https://bugzilla.suse.com/1177685"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1177687",
+				"url": "https://bugzilla.suse.com/1177687"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1177724",
+				"url": "https://bugzilla.suse.com/1177724"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1177725",
+				"url": "https://bugzilla.suse.com/1177725"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2020-12351 page",
+				"url": "https://www.suse.com/security/cve/CVE-2020-12351/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2020-12352 page",
+				"url": "https://www.suse.com/security/cve/CVE-2020-12352/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2020-25212 page",
+				"url": "https://www.suse.com/security/cve/CVE-2020-25212/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2020-25645 page",
+				"url": "https://www.suse.com/security/cve/CVE-2020-25645/"
+			}
+		],
+		"title": "Security update for the Linux Kernel",
+		"tracking": {
+			"current_release_date": "2020-10-21T11:29:25Z",
+			"generator": {
+				"date": "2020-10-21T11:29:25Z",
+				"engine": {
+					"name": "cve-database.git:bin/generate-csaf.pl",
+					"version": "1"
+				}
+			},
+			"id": "SUSE-SU-2020:2981-1",
+			"initial_release_date": "2020-10-21T11:29:25Z",
+			"revision_history": [
+				{
+					"date": "2020-10-21T11:29:25Z",
+					"number": "1",
+					"summary": "Current version"
+				}
+			],
+			"status": "final",
+			"version": "1"
+		}
+	},
+	"product_tree": {
+		"branches": [
+			{
+				"branches": [
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "cluster-md-kmp-default-4.12.14-122.46.1.aarch64",
+								"product": {
+									"name": "cluster-md-kmp-default-4.12.14-122.46.1.aarch64",
+									"product_id": "cluster-md-kmp-default-4.12.14-122.46.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "dlm-kmp-default-4.12.14-122.46.1.aarch64",
+								"product": {
+									"name": "dlm-kmp-default-4.12.14-122.46.1.aarch64",
+									"product_id": "dlm-kmp-default-4.12.14-122.46.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "gfs2-kmp-default-4.12.14-122.46.1.aarch64",
+								"product": {
+									"name": "gfs2-kmp-default-4.12.14-122.46.1.aarch64",
+									"product_id": "gfs2-kmp-default-4.12.14-122.46.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-4.12.14-122.46.1.aarch64",
+								"product": {
+									"name": "kernel-default-4.12.14-122.46.1.aarch64",
+									"product_id": "kernel-default-4.12.14-122.46.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-base-4.12.14-122.46.1.aarch64",
+								"product": {
+									"name": "kernel-default-base-4.12.14-122.46.1.aarch64",
+									"product_id": "kernel-default-base-4.12.14-122.46.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-devel-4.12.14-122.46.1.aarch64",
+								"product": {
+									"name": "kernel-default-devel-4.12.14-122.46.1.aarch64",
+									"product_id": "kernel-default-devel-4.12.14-122.46.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-extra-4.12.14-122.46.1.aarch64",
+								"product": {
+									"name": "kernel-default-extra-4.12.14-122.46.1.aarch64",
+									"product_id": "kernel-default-extra-4.12.14-122.46.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-kgraft-4.12.14-122.46.1.aarch64",
+								"product": {
+									"name": "kernel-default-kgraft-4.12.14-122.46.1.aarch64",
+									"product_id": "kernel-default-kgraft-4.12.14-122.46.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-kgraft-devel-4.12.14-122.46.1.aarch64",
+								"product": {
+									"name": "kernel-default-kgraft-devel-4.12.14-122.46.1.aarch64",
+									"product_id": "kernel-default-kgraft-devel-4.12.14-122.46.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-obs-build-4.12.14-122.46.1.aarch64",
+								"product": {
+									"name": "kernel-obs-build-4.12.14-122.46.1.aarch64",
+									"product_id": "kernel-obs-build-4.12.14-122.46.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-obs-qa-4.12.14-122.46.1.aarch64",
+								"product": {
+									"name": "kernel-obs-qa-4.12.14-122.46.1.aarch64",
+									"product_id": "kernel-obs-qa-4.12.14-122.46.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-syms-4.12.14-122.46.1.aarch64",
+								"product": {
+									"name": "kernel-syms-4.12.14-122.46.1.aarch64",
+									"product_id": "kernel-syms-4.12.14-122.46.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-vanilla-4.12.14-122.46.1.aarch64",
+								"product": {
+									"name": "kernel-vanilla-4.12.14-122.46.1.aarch64",
+									"product_id": "kernel-vanilla-4.12.14-122.46.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-vanilla-base-4.12.14-122.46.1.aarch64",
+								"product": {
+									"name": "kernel-vanilla-base-4.12.14-122.46.1.aarch64",
+									"product_id": "kernel-vanilla-base-4.12.14-122.46.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-vanilla-devel-4.12.14-122.46.1.aarch64",
+								"product": {
+									"name": "kernel-vanilla-devel-4.12.14-122.46.1.aarch64",
+									"product_id": "kernel-vanilla-devel-4.12.14-122.46.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-vanilla-kgraft-devel-4.12.14-122.46.1.aarch64",
+								"product": {
+									"name": "kernel-vanilla-kgraft-devel-4.12.14-122.46.1.aarch64",
+									"product_id": "kernel-vanilla-kgraft-devel-4.12.14-122.46.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kselftests-kmp-default-4.12.14-122.46.1.aarch64",
+								"product": {
+									"name": "kselftests-kmp-default-4.12.14-122.46.1.aarch64",
+									"product_id": "kselftests-kmp-default-4.12.14-122.46.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "ocfs2-kmp-default-4.12.14-122.46.1.aarch64",
+								"product": {
+									"name": "ocfs2-kmp-default-4.12.14-122.46.1.aarch64",
+									"product_id": "ocfs2-kmp-default-4.12.14-122.46.1.aarch64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "aarch64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "kernel-devel-4.12.14-122.46.1.noarch",
+								"product": {
+									"name": "kernel-devel-4.12.14-122.46.1.noarch",
+									"product_id": "kernel-devel-4.12.14-122.46.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-docs-4.12.14-122.46.1.noarch",
+								"product": {
+									"name": "kernel-docs-4.12.14-122.46.1.noarch",
+									"product_id": "kernel-docs-4.12.14-122.46.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-docs-html-4.12.14-122.46.1.noarch",
+								"product": {
+									"name": "kernel-docs-html-4.12.14-122.46.1.noarch",
+									"product_id": "kernel-docs-html-4.12.14-122.46.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-macros-4.12.14-122.46.1.noarch",
+								"product": {
+									"name": "kernel-macros-4.12.14-122.46.1.noarch",
+									"product_id": "kernel-macros-4.12.14-122.46.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-source-4.12.14-122.46.1.noarch",
+								"product": {
+									"name": "kernel-source-4.12.14-122.46.1.noarch",
+									"product_id": "kernel-source-4.12.14-122.46.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-source-vanilla-4.12.14-122.46.1.noarch",
+								"product": {
+									"name": "kernel-source-vanilla-4.12.14-122.46.1.noarch",
+									"product_id": "kernel-source-vanilla-4.12.14-122.46.1.noarch"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "noarch"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "cluster-md-kmp-default-4.12.14-122.46.1.ppc64le",
+								"product": {
+									"name": "cluster-md-kmp-default-4.12.14-122.46.1.ppc64le",
+									"product_id": "cluster-md-kmp-default-4.12.14-122.46.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "dlm-kmp-default-4.12.14-122.46.1.ppc64le",
+								"product": {
+									"name": "dlm-kmp-default-4.12.14-122.46.1.ppc64le",
+									"product_id": "dlm-kmp-default-4.12.14-122.46.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "gfs2-kmp-default-4.12.14-122.46.1.ppc64le",
+								"product": {
+									"name": "gfs2-kmp-default-4.12.14-122.46.1.ppc64le",
+									"product_id": "gfs2-kmp-default-4.12.14-122.46.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-debug-4.12.14-122.46.1.ppc64le",
+								"product": {
+									"name": "kernel-debug-4.12.14-122.46.1.ppc64le",
+									"product_id": "kernel-debug-4.12.14-122.46.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-debug-base-4.12.14-122.46.1.ppc64le",
+								"product": {
+									"name": "kernel-debug-base-4.12.14-122.46.1.ppc64le",
+									"product_id": "kernel-debug-base-4.12.14-122.46.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-debug-devel-4.12.14-122.46.1.ppc64le",
+								"product": {
+									"name": "kernel-debug-devel-4.12.14-122.46.1.ppc64le",
+									"product_id": "kernel-debug-devel-4.12.14-122.46.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-debug-kgraft-devel-4.12.14-122.46.1.ppc64le",
+								"product": {
+									"name": "kernel-debug-kgraft-devel-4.12.14-122.46.1.ppc64le",
+									"product_id": "kernel-debug-kgraft-devel-4.12.14-122.46.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-4.12.14-122.46.1.ppc64le",
+								"product": {
+									"name": "kernel-default-4.12.14-122.46.1.ppc64le",
+									"product_id": "kernel-default-4.12.14-122.46.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-base-4.12.14-122.46.1.ppc64le",
+								"product": {
+									"name": "kernel-default-base-4.12.14-122.46.1.ppc64le",
+									"product_id": "kernel-default-base-4.12.14-122.46.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-devel-4.12.14-122.46.1.ppc64le",
+								"product": {
+									"name": "kernel-default-devel-4.12.14-122.46.1.ppc64le",
+									"product_id": "kernel-default-devel-4.12.14-122.46.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-extra-4.12.14-122.46.1.ppc64le",
+								"product": {
+									"name": "kernel-default-extra-4.12.14-122.46.1.ppc64le",
+									"product_id": "kernel-default-extra-4.12.14-122.46.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-kgraft-4.12.14-122.46.1.ppc64le",
+								"product": {
+									"name": "kernel-default-kgraft-4.12.14-122.46.1.ppc64le",
+									"product_id": "kernel-default-kgraft-4.12.14-122.46.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-kgraft-devel-4.12.14-122.46.1.ppc64le",
+								"product": {
+									"name": "kernel-default-kgraft-devel-4.12.14-122.46.1.ppc64le",
+									"product_id": "kernel-default-kgraft-devel-4.12.14-122.46.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-obs-build-4.12.14-122.46.1.ppc64le",
+								"product": {
+									"name": "kernel-obs-build-4.12.14-122.46.1.ppc64le",
+									"product_id": "kernel-obs-build-4.12.14-122.46.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-obs-qa-4.12.14-122.46.1.ppc64le",
+								"product": {
+									"name": "kernel-obs-qa-4.12.14-122.46.1.ppc64le",
+									"product_id": "kernel-obs-qa-4.12.14-122.46.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-syms-4.12.14-122.46.1.ppc64le",
+								"product": {
+									"name": "kernel-syms-4.12.14-122.46.1.ppc64le",
+									"product_id": "kernel-syms-4.12.14-122.46.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-vanilla-4.12.14-122.46.1.ppc64le",
+								"product": {
+									"name": "kernel-vanilla-4.12.14-122.46.1.ppc64le",
+									"product_id": "kernel-vanilla-4.12.14-122.46.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-vanilla-base-4.12.14-122.46.1.ppc64le",
+								"product": {
+									"name": "kernel-vanilla-base-4.12.14-122.46.1.ppc64le",
+									"product_id": "kernel-vanilla-base-4.12.14-122.46.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-vanilla-devel-4.12.14-122.46.1.ppc64le",
+								"product": {
+									"name": "kernel-vanilla-devel-4.12.14-122.46.1.ppc64le",
+									"product_id": "kernel-vanilla-devel-4.12.14-122.46.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-vanilla-kgraft-devel-4.12.14-122.46.1.ppc64le",
+								"product": {
+									"name": "kernel-vanilla-kgraft-devel-4.12.14-122.46.1.ppc64le",
+									"product_id": "kernel-vanilla-kgraft-devel-4.12.14-122.46.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kgraft-patch-4_12_14-122_46-default-1-8.5.1.ppc64le",
+								"product": {
+									"name": "kgraft-patch-4_12_14-122_46-default-1-8.5.1.ppc64le",
+									"product_id": "kgraft-patch-4_12_14-122_46-default-1-8.5.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kselftests-kmp-default-4.12.14-122.46.1.ppc64le",
+								"product": {
+									"name": "kselftests-kmp-default-4.12.14-122.46.1.ppc64le",
+									"product_id": "kselftests-kmp-default-4.12.14-122.46.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "ocfs2-kmp-default-4.12.14-122.46.1.ppc64le",
+								"product": {
+									"name": "ocfs2-kmp-default-4.12.14-122.46.1.ppc64le",
+									"product_id": "ocfs2-kmp-default-4.12.14-122.46.1.ppc64le"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "ppc64le"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "cluster-md-kmp-default-4.12.14-122.46.1.s390x",
+								"product": {
+									"name": "cluster-md-kmp-default-4.12.14-122.46.1.s390x",
+									"product_id": "cluster-md-kmp-default-4.12.14-122.46.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "dlm-kmp-default-4.12.14-122.46.1.s390x",
+								"product": {
+									"name": "dlm-kmp-default-4.12.14-122.46.1.s390x",
+									"product_id": "dlm-kmp-default-4.12.14-122.46.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "gfs2-kmp-default-4.12.14-122.46.1.s390x",
+								"product": {
+									"name": "gfs2-kmp-default-4.12.14-122.46.1.s390x",
+									"product_id": "gfs2-kmp-default-4.12.14-122.46.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-4.12.14-122.46.1.s390x",
+								"product": {
+									"name": "kernel-default-4.12.14-122.46.1.s390x",
+									"product_id": "kernel-default-4.12.14-122.46.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-base-4.12.14-122.46.1.s390x",
+								"product": {
+									"name": "kernel-default-base-4.12.14-122.46.1.s390x",
+									"product_id": "kernel-default-base-4.12.14-122.46.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-devel-4.12.14-122.46.1.s390x",
+								"product": {
+									"name": "kernel-default-devel-4.12.14-122.46.1.s390x",
+									"product_id": "kernel-default-devel-4.12.14-122.46.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-extra-4.12.14-122.46.1.s390x",
+								"product": {
+									"name": "kernel-default-extra-4.12.14-122.46.1.s390x",
+									"product_id": "kernel-default-extra-4.12.14-122.46.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-kgraft-4.12.14-122.46.1.s390x",
+								"product": {
+									"name": "kernel-default-kgraft-4.12.14-122.46.1.s390x",
+									"product_id": "kernel-default-kgraft-4.12.14-122.46.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-kgraft-devel-4.12.14-122.46.1.s390x",
+								"product": {
+									"name": "kernel-default-kgraft-devel-4.12.14-122.46.1.s390x",
+									"product_id": "kernel-default-kgraft-devel-4.12.14-122.46.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-man-4.12.14-122.46.1.s390x",
+								"product": {
+									"name": "kernel-default-man-4.12.14-122.46.1.s390x",
+									"product_id": "kernel-default-man-4.12.14-122.46.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-obs-build-4.12.14-122.46.1.s390x",
+								"product": {
+									"name": "kernel-obs-build-4.12.14-122.46.1.s390x",
+									"product_id": "kernel-obs-build-4.12.14-122.46.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-obs-qa-4.12.14-122.46.1.s390x",
+								"product": {
+									"name": "kernel-obs-qa-4.12.14-122.46.1.s390x",
+									"product_id": "kernel-obs-qa-4.12.14-122.46.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-syms-4.12.14-122.46.1.s390x",
+								"product": {
+									"name": "kernel-syms-4.12.14-122.46.1.s390x",
+									"product_id": "kernel-syms-4.12.14-122.46.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-vanilla-4.12.14-122.46.1.s390x",
+								"product": {
+									"name": "kernel-vanilla-4.12.14-122.46.1.s390x",
+									"product_id": "kernel-vanilla-4.12.14-122.46.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-vanilla-base-4.12.14-122.46.1.s390x",
+								"product": {
+									"name": "kernel-vanilla-base-4.12.14-122.46.1.s390x",
+									"product_id": "kernel-vanilla-base-4.12.14-122.46.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-vanilla-devel-4.12.14-122.46.1.s390x",
+								"product": {
+									"name": "kernel-vanilla-devel-4.12.14-122.46.1.s390x",
+									"product_id": "kernel-vanilla-devel-4.12.14-122.46.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-vanilla-kgraft-devel-4.12.14-122.46.1.s390x",
+								"product": {
+									"name": "kernel-vanilla-kgraft-devel-4.12.14-122.46.1.s390x",
+									"product_id": "kernel-vanilla-kgraft-devel-4.12.14-122.46.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-zfcpdump-4.12.14-122.46.1.s390x",
+								"product": {
+									"name": "kernel-zfcpdump-4.12.14-122.46.1.s390x",
+									"product_id": "kernel-zfcpdump-4.12.14-122.46.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-zfcpdump-man-4.12.14-122.46.1.s390x",
+								"product": {
+									"name": "kernel-zfcpdump-man-4.12.14-122.46.1.s390x",
+									"product_id": "kernel-zfcpdump-man-4.12.14-122.46.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kgraft-patch-4_12_14-122_46-default-1-8.5.1.s390x",
+								"product": {
+									"name": "kgraft-patch-4_12_14-122_46-default-1-8.5.1.s390x",
+									"product_id": "kgraft-patch-4_12_14-122_46-default-1-8.5.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kselftests-kmp-default-4.12.14-122.46.1.s390x",
+								"product": {
+									"name": "kselftests-kmp-default-4.12.14-122.46.1.s390x",
+									"product_id": "kselftests-kmp-default-4.12.14-122.46.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "ocfs2-kmp-default-4.12.14-122.46.1.s390x",
+								"product": {
+									"name": "ocfs2-kmp-default-4.12.14-122.46.1.s390x",
+									"product_id": "ocfs2-kmp-default-4.12.14-122.46.1.s390x"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "s390x"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "cluster-md-kmp-default-4.12.14-122.46.1.x86_64",
+								"product": {
+									"name": "cluster-md-kmp-default-4.12.14-122.46.1.x86_64",
+									"product_id": "cluster-md-kmp-default-4.12.14-122.46.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "dlm-kmp-default-4.12.14-122.46.1.x86_64",
+								"product": {
+									"name": "dlm-kmp-default-4.12.14-122.46.1.x86_64",
+									"product_id": "dlm-kmp-default-4.12.14-122.46.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "gfs2-kmp-default-4.12.14-122.46.1.x86_64",
+								"product": {
+									"name": "gfs2-kmp-default-4.12.14-122.46.1.x86_64",
+									"product_id": "gfs2-kmp-default-4.12.14-122.46.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-debug-4.12.14-122.46.1.x86_64",
+								"product": {
+									"name": "kernel-debug-4.12.14-122.46.1.x86_64",
+									"product_id": "kernel-debug-4.12.14-122.46.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-debug-base-4.12.14-122.46.1.x86_64",
+								"product": {
+									"name": "kernel-debug-base-4.12.14-122.46.1.x86_64",
+									"product_id": "kernel-debug-base-4.12.14-122.46.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-debug-devel-4.12.14-122.46.1.x86_64",
+								"product": {
+									"name": "kernel-debug-devel-4.12.14-122.46.1.x86_64",
+									"product_id": "kernel-debug-devel-4.12.14-122.46.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-debug-kgraft-devel-4.12.14-122.46.1.x86_64",
+								"product": {
+									"name": "kernel-debug-kgraft-devel-4.12.14-122.46.1.x86_64",
+									"product_id": "kernel-debug-kgraft-devel-4.12.14-122.46.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-4.12.14-122.46.1.x86_64",
+								"product": {
+									"name": "kernel-default-4.12.14-122.46.1.x86_64",
+									"product_id": "kernel-default-4.12.14-122.46.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-base-4.12.14-122.46.1.x86_64",
+								"product": {
+									"name": "kernel-default-base-4.12.14-122.46.1.x86_64",
+									"product_id": "kernel-default-base-4.12.14-122.46.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-devel-4.12.14-122.46.1.x86_64",
+								"product": {
+									"name": "kernel-default-devel-4.12.14-122.46.1.x86_64",
+									"product_id": "kernel-default-devel-4.12.14-122.46.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-extra-4.12.14-122.46.1.x86_64",
+								"product": {
+									"name": "kernel-default-extra-4.12.14-122.46.1.x86_64",
+									"product_id": "kernel-default-extra-4.12.14-122.46.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-kgraft-4.12.14-122.46.1.x86_64",
+								"product": {
+									"name": "kernel-default-kgraft-4.12.14-122.46.1.x86_64",
+									"product_id": "kernel-default-kgraft-4.12.14-122.46.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-default-kgraft-devel-4.12.14-122.46.1.x86_64",
+								"product": {
+									"name": "kernel-default-kgraft-devel-4.12.14-122.46.1.x86_64",
+									"product_id": "kernel-default-kgraft-devel-4.12.14-122.46.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-kvmsmall-4.12.14-122.46.1.x86_64",
+								"product": {
+									"name": "kernel-kvmsmall-4.12.14-122.46.1.x86_64",
+									"product_id": "kernel-kvmsmall-4.12.14-122.46.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-kvmsmall-base-4.12.14-122.46.1.x86_64",
+								"product": {
+									"name": "kernel-kvmsmall-base-4.12.14-122.46.1.x86_64",
+									"product_id": "kernel-kvmsmall-base-4.12.14-122.46.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-kvmsmall-devel-4.12.14-122.46.1.x86_64",
+								"product": {
+									"name": "kernel-kvmsmall-devel-4.12.14-122.46.1.x86_64",
+									"product_id": "kernel-kvmsmall-devel-4.12.14-122.46.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-kvmsmall-kgraft-devel-4.12.14-122.46.1.x86_64",
+								"product": {
+									"name": "kernel-kvmsmall-kgraft-devel-4.12.14-122.46.1.x86_64",
+									"product_id": "kernel-kvmsmall-kgraft-devel-4.12.14-122.46.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-obs-build-4.12.14-122.46.1.x86_64",
+								"product": {
+									"name": "kernel-obs-build-4.12.14-122.46.1.x86_64",
+									"product_id": "kernel-obs-build-4.12.14-122.46.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-obs-qa-4.12.14-122.46.1.x86_64",
+								"product": {
+									"name": "kernel-obs-qa-4.12.14-122.46.1.x86_64",
+									"product_id": "kernel-obs-qa-4.12.14-122.46.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-syms-4.12.14-122.46.1.x86_64",
+								"product": {
+									"name": "kernel-syms-4.12.14-122.46.1.x86_64",
+									"product_id": "kernel-syms-4.12.14-122.46.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-vanilla-4.12.14-122.46.1.x86_64",
+								"product": {
+									"name": "kernel-vanilla-4.12.14-122.46.1.x86_64",
+									"product_id": "kernel-vanilla-4.12.14-122.46.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-vanilla-base-4.12.14-122.46.1.x86_64",
+								"product": {
+									"name": "kernel-vanilla-base-4.12.14-122.46.1.x86_64",
+									"product_id": "kernel-vanilla-base-4.12.14-122.46.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-vanilla-devel-4.12.14-122.46.1.x86_64",
+								"product": {
+									"name": "kernel-vanilla-devel-4.12.14-122.46.1.x86_64",
+									"product_id": "kernel-vanilla-devel-4.12.14-122.46.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-vanilla-kgraft-devel-4.12.14-122.46.1.x86_64",
+								"product": {
+									"name": "kernel-vanilla-kgraft-devel-4.12.14-122.46.1.x86_64",
+									"product_id": "kernel-vanilla-kgraft-devel-4.12.14-122.46.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kgraft-patch-4_12_14-122_46-default-1-8.5.1.x86_64",
+								"product": {
+									"name": "kgraft-patch-4_12_14-122_46-default-1-8.5.1.x86_64",
+									"product_id": "kgraft-patch-4_12_14-122_46-default-1-8.5.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kselftests-kmp-default-4.12.14-122.46.1.x86_64",
+								"product": {
+									"name": "kselftests-kmp-default-4.12.14-122.46.1.x86_64",
+									"product_id": "kselftests-kmp-default-4.12.14-122.46.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "ocfs2-kmp-default-4.12.14-122.46.1.x86_64",
+								"product": {
+									"name": "ocfs2-kmp-default-4.12.14-122.46.1.x86_64",
+									"product_id": "ocfs2-kmp-default-4.12.14-122.46.1.x86_64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "x86_64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise High Availability Extension 12 SP5",
+								"product": {
+									"name": "SUSE Linux Enterprise High Availability Extension 12 SP5",
+									"product_id": "SUSE Linux Enterprise High Availability Extension 12 SP5",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-ha:12:sp5"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Live Patching 12 SP5",
+								"product": {
+									"name": "SUSE Linux Enterprise Live Patching 12 SP5",
+									"product_id": "SUSE Linux Enterprise Live Patching 12 SP5",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-live-patching:12:sp5"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Software Development Kit 12 SP5",
+								"product": {
+									"name": "SUSE Linux Enterprise Software Development Kit 12 SP5",
+									"product_id": "SUSE Linux Enterprise Software Development Kit 12 SP5",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-sdk:12:sp5"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server 12 SP5",
+								"product": {
+									"name": "SUSE Linux Enterprise Server 12 SP5",
+									"product_id": "SUSE Linux Enterprise Server 12 SP5",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sles:12:sp5"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server for SAP Applications 12 SP5",
+								"product": {
+									"name": "SUSE Linux Enterprise Server for SAP Applications 12 SP5",
+									"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP5",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sles_sap:12:sp5"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Workstation Extension 12 SP5",
+								"product": {
+									"name": "SUSE Linux Enterprise Workstation Extension 12 SP5",
+									"product_id": "SUSE Linux Enterprise Workstation Extension 12 SP5",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-we:12:sp5"
+									}
+								}
+							}
+						],
+						"category": "product_family",
+						"name": "SUSE Linux Enterprise"
+					}
+				],
+				"category": "vendor",
+				"name": "SUSE"
+			}
+		],
+		"relationships": [
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "cluster-md-kmp-default-4.12.14-122.46.1.ppc64le as component of SUSE Linux Enterprise High Availability Extension 12 SP5",
+					"product_id": "SUSE Linux Enterprise High Availability Extension 12 SP5:cluster-md-kmp-default-4.12.14-122.46.1.ppc64le"
+				},
+				"product_reference": "cluster-md-kmp-default-4.12.14-122.46.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Availability Extension 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "cluster-md-kmp-default-4.12.14-122.46.1.s390x as component of SUSE Linux Enterprise High Availability Extension 12 SP5",
+					"product_id": "SUSE Linux Enterprise High Availability Extension 12 SP5:cluster-md-kmp-default-4.12.14-122.46.1.s390x"
+				},
+				"product_reference": "cluster-md-kmp-default-4.12.14-122.46.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Availability Extension 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "cluster-md-kmp-default-4.12.14-122.46.1.x86_64 as component of SUSE Linux Enterprise High Availability Extension 12 SP5",
+					"product_id": "SUSE Linux Enterprise High Availability Extension 12 SP5:cluster-md-kmp-default-4.12.14-122.46.1.x86_64"
+				},
+				"product_reference": "cluster-md-kmp-default-4.12.14-122.46.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Availability Extension 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "dlm-kmp-default-4.12.14-122.46.1.ppc64le as component of SUSE Linux Enterprise High Availability Extension 12 SP5",
+					"product_id": "SUSE Linux Enterprise High Availability Extension 12 SP5:dlm-kmp-default-4.12.14-122.46.1.ppc64le"
+				},
+				"product_reference": "dlm-kmp-default-4.12.14-122.46.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Availability Extension 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "dlm-kmp-default-4.12.14-122.46.1.s390x as component of SUSE Linux Enterprise High Availability Extension 12 SP5",
+					"product_id": "SUSE Linux Enterprise High Availability Extension 12 SP5:dlm-kmp-default-4.12.14-122.46.1.s390x"
+				},
+				"product_reference": "dlm-kmp-default-4.12.14-122.46.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Availability Extension 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "dlm-kmp-default-4.12.14-122.46.1.x86_64 as component of SUSE Linux Enterprise High Availability Extension 12 SP5",
+					"product_id": "SUSE Linux Enterprise High Availability Extension 12 SP5:dlm-kmp-default-4.12.14-122.46.1.x86_64"
+				},
+				"product_reference": "dlm-kmp-default-4.12.14-122.46.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Availability Extension 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "gfs2-kmp-default-4.12.14-122.46.1.ppc64le as component of SUSE Linux Enterprise High Availability Extension 12 SP5",
+					"product_id": "SUSE Linux Enterprise High Availability Extension 12 SP5:gfs2-kmp-default-4.12.14-122.46.1.ppc64le"
+				},
+				"product_reference": "gfs2-kmp-default-4.12.14-122.46.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Availability Extension 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "gfs2-kmp-default-4.12.14-122.46.1.s390x as component of SUSE Linux Enterprise High Availability Extension 12 SP5",
+					"product_id": "SUSE Linux Enterprise High Availability Extension 12 SP5:gfs2-kmp-default-4.12.14-122.46.1.s390x"
+				},
+				"product_reference": "gfs2-kmp-default-4.12.14-122.46.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Availability Extension 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "gfs2-kmp-default-4.12.14-122.46.1.x86_64 as component of SUSE Linux Enterprise High Availability Extension 12 SP5",
+					"product_id": "SUSE Linux Enterprise High Availability Extension 12 SP5:gfs2-kmp-default-4.12.14-122.46.1.x86_64"
+				},
+				"product_reference": "gfs2-kmp-default-4.12.14-122.46.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Availability Extension 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ocfs2-kmp-default-4.12.14-122.46.1.ppc64le as component of SUSE Linux Enterprise High Availability Extension 12 SP5",
+					"product_id": "SUSE Linux Enterprise High Availability Extension 12 SP5:ocfs2-kmp-default-4.12.14-122.46.1.ppc64le"
+				},
+				"product_reference": "ocfs2-kmp-default-4.12.14-122.46.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Availability Extension 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ocfs2-kmp-default-4.12.14-122.46.1.s390x as component of SUSE Linux Enterprise High Availability Extension 12 SP5",
+					"product_id": "SUSE Linux Enterprise High Availability Extension 12 SP5:ocfs2-kmp-default-4.12.14-122.46.1.s390x"
+				},
+				"product_reference": "ocfs2-kmp-default-4.12.14-122.46.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Availability Extension 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ocfs2-kmp-default-4.12.14-122.46.1.x86_64 as component of SUSE Linux Enterprise High Availability Extension 12 SP5",
+					"product_id": "SUSE Linux Enterprise High Availability Extension 12 SP5:ocfs2-kmp-default-4.12.14-122.46.1.x86_64"
+				},
+				"product_reference": "ocfs2-kmp-default-4.12.14-122.46.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Availability Extension 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-kgraft-4.12.14-122.46.1.ppc64le as component of SUSE Linux Enterprise Live Patching 12 SP5",
+					"product_id": "SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-4.12.14-122.46.1.ppc64le"
+				},
+				"product_reference": "kernel-default-kgraft-4.12.14-122.46.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Live Patching 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-kgraft-4.12.14-122.46.1.s390x as component of SUSE Linux Enterprise Live Patching 12 SP5",
+					"product_id": "SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-4.12.14-122.46.1.s390x"
+				},
+				"product_reference": "kernel-default-kgraft-4.12.14-122.46.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Live Patching 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-kgraft-4.12.14-122.46.1.x86_64 as component of SUSE Linux Enterprise Live Patching 12 SP5",
+					"product_id": "SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-4.12.14-122.46.1.x86_64"
+				},
+				"product_reference": "kernel-default-kgraft-4.12.14-122.46.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Live Patching 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-kgraft-devel-4.12.14-122.46.1.ppc64le as component of SUSE Linux Enterprise Live Patching 12 SP5",
+					"product_id": "SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-devel-4.12.14-122.46.1.ppc64le"
+				},
+				"product_reference": "kernel-default-kgraft-devel-4.12.14-122.46.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Live Patching 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-kgraft-devel-4.12.14-122.46.1.s390x as component of SUSE Linux Enterprise Live Patching 12 SP5",
+					"product_id": "SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-devel-4.12.14-122.46.1.s390x"
+				},
+				"product_reference": "kernel-default-kgraft-devel-4.12.14-122.46.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Live Patching 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-kgraft-devel-4.12.14-122.46.1.x86_64 as component of SUSE Linux Enterprise Live Patching 12 SP5",
+					"product_id": "SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-devel-4.12.14-122.46.1.x86_64"
+				},
+				"product_reference": "kernel-default-kgraft-devel-4.12.14-122.46.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Live Patching 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-4_12_14-122_46-default-1-8.5.1.ppc64le as component of SUSE Linux Enterprise Live Patching 12 SP5",
+					"product_id": "SUSE Linux Enterprise Live Patching 12 SP5:kgraft-patch-4_12_14-122_46-default-1-8.5.1.ppc64le"
+				},
+				"product_reference": "kgraft-patch-4_12_14-122_46-default-1-8.5.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Live Patching 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-4_12_14-122_46-default-1-8.5.1.s390x as component of SUSE Linux Enterprise Live Patching 12 SP5",
+					"product_id": "SUSE Linux Enterprise Live Patching 12 SP5:kgraft-patch-4_12_14-122_46-default-1-8.5.1.s390x"
+				},
+				"product_reference": "kgraft-patch-4_12_14-122_46-default-1-8.5.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Live Patching 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kgraft-patch-4_12_14-122_46-default-1-8.5.1.x86_64 as component of SUSE Linux Enterprise Live Patching 12 SP5",
+					"product_id": "SUSE Linux Enterprise Live Patching 12 SP5:kgraft-patch-4_12_14-122_46-default-1-8.5.1.x86_64"
+				},
+				"product_reference": "kgraft-patch-4_12_14-122_46-default-1-8.5.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Live Patching 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-docs-4.12.14-122.46.1.noarch as component of SUSE Linux Enterprise Software Development Kit 12 SP5",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-docs-4.12.14-122.46.1.noarch"
+				},
+				"product_reference": "kernel-docs-4.12.14-122.46.1.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-obs-build-4.12.14-122.46.1.aarch64 as component of SUSE Linux Enterprise Software Development Kit 12 SP5",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-obs-build-4.12.14-122.46.1.aarch64"
+				},
+				"product_reference": "kernel-obs-build-4.12.14-122.46.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-obs-build-4.12.14-122.46.1.ppc64le as component of SUSE Linux Enterprise Software Development Kit 12 SP5",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-obs-build-4.12.14-122.46.1.ppc64le"
+				},
+				"product_reference": "kernel-obs-build-4.12.14-122.46.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-obs-build-4.12.14-122.46.1.s390x as component of SUSE Linux Enterprise Software Development Kit 12 SP5",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-obs-build-4.12.14-122.46.1.s390x"
+				},
+				"product_reference": "kernel-obs-build-4.12.14-122.46.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-obs-build-4.12.14-122.46.1.x86_64 as component of SUSE Linux Enterprise Software Development Kit 12 SP5",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-obs-build-4.12.14-122.46.1.x86_64"
+				},
+				"product_reference": "kernel-obs-build-4.12.14-122.46.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-4.12.14-122.46.1.aarch64 as component of SUSE Linux Enterprise Server 12 SP5",
+					"product_id": "SUSE Linux Enterprise Server 12 SP5:kernel-default-4.12.14-122.46.1.aarch64"
+				},
+				"product_reference": "kernel-default-4.12.14-122.46.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-4.12.14-122.46.1.ppc64le as component of SUSE Linux Enterprise Server 12 SP5",
+					"product_id": "SUSE Linux Enterprise Server 12 SP5:kernel-default-4.12.14-122.46.1.ppc64le"
+				},
+				"product_reference": "kernel-default-4.12.14-122.46.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-4.12.14-122.46.1.s390x as component of SUSE Linux Enterprise Server 12 SP5",
+					"product_id": "SUSE Linux Enterprise Server 12 SP5:kernel-default-4.12.14-122.46.1.s390x"
+				},
+				"product_reference": "kernel-default-4.12.14-122.46.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-4.12.14-122.46.1.x86_64 as component of SUSE Linux Enterprise Server 12 SP5",
+					"product_id": "SUSE Linux Enterprise Server 12 SP5:kernel-default-4.12.14-122.46.1.x86_64"
+				},
+				"product_reference": "kernel-default-4.12.14-122.46.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-base-4.12.14-122.46.1.aarch64 as component of SUSE Linux Enterprise Server 12 SP5",
+					"product_id": "SUSE Linux Enterprise Server 12 SP5:kernel-default-base-4.12.14-122.46.1.aarch64"
+				},
+				"product_reference": "kernel-default-base-4.12.14-122.46.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-base-4.12.14-122.46.1.ppc64le as component of SUSE Linux Enterprise Server 12 SP5",
+					"product_id": "SUSE Linux Enterprise Server 12 SP5:kernel-default-base-4.12.14-122.46.1.ppc64le"
+				},
+				"product_reference": "kernel-default-base-4.12.14-122.46.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-base-4.12.14-122.46.1.s390x as component of SUSE Linux Enterprise Server 12 SP5",
+					"product_id": "SUSE Linux Enterprise Server 12 SP5:kernel-default-base-4.12.14-122.46.1.s390x"
+				},
+				"product_reference": "kernel-default-base-4.12.14-122.46.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-base-4.12.14-122.46.1.x86_64 as component of SUSE Linux Enterprise Server 12 SP5",
+					"product_id": "SUSE Linux Enterprise Server 12 SP5:kernel-default-base-4.12.14-122.46.1.x86_64"
+				},
+				"product_reference": "kernel-default-base-4.12.14-122.46.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-devel-4.12.14-122.46.1.aarch64 as component of SUSE Linux Enterprise Server 12 SP5",
+					"product_id": "SUSE Linux Enterprise Server 12 SP5:kernel-default-devel-4.12.14-122.46.1.aarch64"
+				},
+				"product_reference": "kernel-default-devel-4.12.14-122.46.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-devel-4.12.14-122.46.1.ppc64le as component of SUSE Linux Enterprise Server 12 SP5",
+					"product_id": "SUSE Linux Enterprise Server 12 SP5:kernel-default-devel-4.12.14-122.46.1.ppc64le"
+				},
+				"product_reference": "kernel-default-devel-4.12.14-122.46.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-devel-4.12.14-122.46.1.s390x as component of SUSE Linux Enterprise Server 12 SP5",
+					"product_id": "SUSE Linux Enterprise Server 12 SP5:kernel-default-devel-4.12.14-122.46.1.s390x"
+				},
+				"product_reference": "kernel-default-devel-4.12.14-122.46.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-devel-4.12.14-122.46.1.x86_64 as component of SUSE Linux Enterprise Server 12 SP5",
+					"product_id": "SUSE Linux Enterprise Server 12 SP5:kernel-default-devel-4.12.14-122.46.1.x86_64"
+				},
+				"product_reference": "kernel-default-devel-4.12.14-122.46.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-man-4.12.14-122.46.1.s390x as component of SUSE Linux Enterprise Server 12 SP5",
+					"product_id": "SUSE Linux Enterprise Server 12 SP5:kernel-default-man-4.12.14-122.46.1.s390x"
+				},
+				"product_reference": "kernel-default-man-4.12.14-122.46.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-devel-4.12.14-122.46.1.noarch as component of SUSE Linux Enterprise Server 12 SP5",
+					"product_id": "SUSE Linux Enterprise Server 12 SP5:kernel-devel-4.12.14-122.46.1.noarch"
+				},
+				"product_reference": "kernel-devel-4.12.14-122.46.1.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-macros-4.12.14-122.46.1.noarch as component of SUSE Linux Enterprise Server 12 SP5",
+					"product_id": "SUSE Linux Enterprise Server 12 SP5:kernel-macros-4.12.14-122.46.1.noarch"
+				},
+				"product_reference": "kernel-macros-4.12.14-122.46.1.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-source-4.12.14-122.46.1.noarch as component of SUSE Linux Enterprise Server 12 SP5",
+					"product_id": "SUSE Linux Enterprise Server 12 SP5:kernel-source-4.12.14-122.46.1.noarch"
+				},
+				"product_reference": "kernel-source-4.12.14-122.46.1.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-syms-4.12.14-122.46.1.aarch64 as component of SUSE Linux Enterprise Server 12 SP5",
+					"product_id": "SUSE Linux Enterprise Server 12 SP5:kernel-syms-4.12.14-122.46.1.aarch64"
+				},
+				"product_reference": "kernel-syms-4.12.14-122.46.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-syms-4.12.14-122.46.1.ppc64le as component of SUSE Linux Enterprise Server 12 SP5",
+					"product_id": "SUSE Linux Enterprise Server 12 SP5:kernel-syms-4.12.14-122.46.1.ppc64le"
+				},
+				"product_reference": "kernel-syms-4.12.14-122.46.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-syms-4.12.14-122.46.1.s390x as component of SUSE Linux Enterprise Server 12 SP5",
+					"product_id": "SUSE Linux Enterprise Server 12 SP5:kernel-syms-4.12.14-122.46.1.s390x"
+				},
+				"product_reference": "kernel-syms-4.12.14-122.46.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-syms-4.12.14-122.46.1.x86_64 as component of SUSE Linux Enterprise Server 12 SP5",
+					"product_id": "SUSE Linux Enterprise Server 12 SP5:kernel-syms-4.12.14-122.46.1.x86_64"
+				},
+				"product_reference": "kernel-syms-4.12.14-122.46.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-4.12.14-122.46.1.aarch64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP5",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-4.12.14-122.46.1.aarch64"
+				},
+				"product_reference": "kernel-default-4.12.14-122.46.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-4.12.14-122.46.1.ppc64le as component of SUSE Linux Enterprise Server for SAP Applications 12 SP5",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-4.12.14-122.46.1.ppc64le"
+				},
+				"product_reference": "kernel-default-4.12.14-122.46.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-4.12.14-122.46.1.s390x as component of SUSE Linux Enterprise Server for SAP Applications 12 SP5",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-4.12.14-122.46.1.s390x"
+				},
+				"product_reference": "kernel-default-4.12.14-122.46.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-4.12.14-122.46.1.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP5",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-4.12.14-122.46.1.x86_64"
+				},
+				"product_reference": "kernel-default-4.12.14-122.46.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-base-4.12.14-122.46.1.aarch64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP5",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-base-4.12.14-122.46.1.aarch64"
+				},
+				"product_reference": "kernel-default-base-4.12.14-122.46.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-base-4.12.14-122.46.1.ppc64le as component of SUSE Linux Enterprise Server for SAP Applications 12 SP5",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-base-4.12.14-122.46.1.ppc64le"
+				},
+				"product_reference": "kernel-default-base-4.12.14-122.46.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-base-4.12.14-122.46.1.s390x as component of SUSE Linux Enterprise Server for SAP Applications 12 SP5",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-base-4.12.14-122.46.1.s390x"
+				},
+				"product_reference": "kernel-default-base-4.12.14-122.46.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-base-4.12.14-122.46.1.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP5",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-base-4.12.14-122.46.1.x86_64"
+				},
+				"product_reference": "kernel-default-base-4.12.14-122.46.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-devel-4.12.14-122.46.1.aarch64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP5",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-devel-4.12.14-122.46.1.aarch64"
+				},
+				"product_reference": "kernel-default-devel-4.12.14-122.46.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-devel-4.12.14-122.46.1.ppc64le as component of SUSE Linux Enterprise Server for SAP Applications 12 SP5",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-devel-4.12.14-122.46.1.ppc64le"
+				},
+				"product_reference": "kernel-default-devel-4.12.14-122.46.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-devel-4.12.14-122.46.1.s390x as component of SUSE Linux Enterprise Server for SAP Applications 12 SP5",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-devel-4.12.14-122.46.1.s390x"
+				},
+				"product_reference": "kernel-default-devel-4.12.14-122.46.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-devel-4.12.14-122.46.1.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP5",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-devel-4.12.14-122.46.1.x86_64"
+				},
+				"product_reference": "kernel-default-devel-4.12.14-122.46.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-man-4.12.14-122.46.1.s390x as component of SUSE Linux Enterprise Server for SAP Applications 12 SP5",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-man-4.12.14-122.46.1.s390x"
+				},
+				"product_reference": "kernel-default-man-4.12.14-122.46.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-devel-4.12.14-122.46.1.noarch as component of SUSE Linux Enterprise Server for SAP Applications 12 SP5",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-devel-4.12.14-122.46.1.noarch"
+				},
+				"product_reference": "kernel-devel-4.12.14-122.46.1.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-macros-4.12.14-122.46.1.noarch as component of SUSE Linux Enterprise Server for SAP Applications 12 SP5",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-macros-4.12.14-122.46.1.noarch"
+				},
+				"product_reference": "kernel-macros-4.12.14-122.46.1.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-source-4.12.14-122.46.1.noarch as component of SUSE Linux Enterprise Server for SAP Applications 12 SP5",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-source-4.12.14-122.46.1.noarch"
+				},
+				"product_reference": "kernel-source-4.12.14-122.46.1.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-syms-4.12.14-122.46.1.aarch64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP5",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-4.12.14-122.46.1.aarch64"
+				},
+				"product_reference": "kernel-syms-4.12.14-122.46.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-syms-4.12.14-122.46.1.ppc64le as component of SUSE Linux Enterprise Server for SAP Applications 12 SP5",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-4.12.14-122.46.1.ppc64le"
+				},
+				"product_reference": "kernel-syms-4.12.14-122.46.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-syms-4.12.14-122.46.1.s390x as component of SUSE Linux Enterprise Server for SAP Applications 12 SP5",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-4.12.14-122.46.1.s390x"
+				},
+				"product_reference": "kernel-syms-4.12.14-122.46.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-syms-4.12.14-122.46.1.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP5",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-4.12.14-122.46.1.x86_64"
+				},
+				"product_reference": "kernel-syms-4.12.14-122.46.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-default-extra-4.12.14-122.46.1.x86_64 as component of SUSE Linux Enterprise Workstation Extension 12 SP5",
+					"product_id": "SUSE Linux Enterprise Workstation Extension 12 SP5:kernel-default-extra-4.12.14-122.46.1.x86_64"
+				},
+				"product_reference": "kernel-default-extra-4.12.14-122.46.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Workstation Extension 12 SP5"
+			}
+		]
+	},
+	"vulnerabilities": [
+		{
+			"cve": "CVE-2020-12351",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2020-12351"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Improper input validation in BlueZ may allow an unauthenticated user to potentially enable escalation of privilege via adjacent access.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise High Availability Extension 12 SP5:cluster-md-kmp-default-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise High Availability Extension 12 SP5:cluster-md-kmp-default-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise High Availability Extension 12 SP5:cluster-md-kmp-default-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise High Availability Extension 12 SP5:dlm-kmp-default-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise High Availability Extension 12 SP5:dlm-kmp-default-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise High Availability Extension 12 SP5:dlm-kmp-default-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise High Availability Extension 12 SP5:gfs2-kmp-default-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise High Availability Extension 12 SP5:gfs2-kmp-default-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise High Availability Extension 12 SP5:gfs2-kmp-default-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise High Availability Extension 12 SP5:ocfs2-kmp-default-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise High Availability Extension 12 SP5:ocfs2-kmp-default-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise High Availability Extension 12 SP5:ocfs2-kmp-default-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-devel-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-devel-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-devel-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise Live Patching 12 SP5:kgraft-patch-4_12_14-122_46-default-1-8.5.1.ppc64le",
+					"SUSE Linux Enterprise Live Patching 12 SP5:kgraft-patch-4_12_14-122_46-default-1-8.5.1.s390x",
+					"SUSE Linux Enterprise Live Patching 12 SP5:kgraft-patch-4_12_14-122_46-default-1-8.5.1.x86_64",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-default-4.12.14-122.46.1.aarch64",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-default-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-default-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-default-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-default-base-4.12.14-122.46.1.aarch64",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-default-base-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-default-base-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-default-base-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-default-devel-4.12.14-122.46.1.aarch64",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-default-devel-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-default-devel-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-default-devel-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-default-man-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-devel-4.12.14-122.46.1.noarch",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-macros-4.12.14-122.46.1.noarch",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-source-4.12.14-122.46.1.noarch",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-syms-4.12.14-122.46.1.aarch64",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-syms-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-syms-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-syms-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-4.12.14-122.46.1.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-base-4.12.14-122.46.1.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-base-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-base-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-base-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-devel-4.12.14-122.46.1.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-devel-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-devel-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-devel-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-man-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-devel-4.12.14-122.46.1.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-macros-4.12.14-122.46.1.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-source-4.12.14-122.46.1.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-4.12.14-122.46.1.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-docs-4.12.14-122.46.1.noarch",
+					"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-obs-build-4.12.14-122.46.1.aarch64",
+					"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-obs-build-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-obs-build-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-obs-build-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise Workstation Extension 12 SP5:kernel-default-extra-4.12.14-122.46.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2020-12351",
+					"url": "https://www.suse.com/security/cve/CVE-2020-12351"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1177724 for CVE-2020-12351",
+					"url": "https://bugzilla.suse.com/1177724"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1177729 for CVE-2020-12351",
+					"url": "https://bugzilla.suse.com/1177729"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1178397 for CVE-2020-12351",
+					"url": "https://bugzilla.suse.com/1178397"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:cluster-md-kmp-default-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:cluster-md-kmp-default-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:cluster-md-kmp-default-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:dlm-kmp-default-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:dlm-kmp-default-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:dlm-kmp-default-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:gfs2-kmp-default-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:gfs2-kmp-default-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:gfs2-kmp-default-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:ocfs2-kmp-default-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:ocfs2-kmp-default-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:ocfs2-kmp-default-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-devel-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-devel-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-devel-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kgraft-patch-4_12_14-122_46-default-1-8.5.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kgraft-patch-4_12_14-122_46-default-1-8.5.1.s390x",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kgraft-patch-4_12_14-122_46-default-1-8.5.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-base-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-base-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-base-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-base-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-devel-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-devel-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-devel-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-devel-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-man-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-devel-4.12.14-122.46.1.noarch",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-macros-4.12.14-122.46.1.noarch",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-source-4.12.14-122.46.1.noarch",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-syms-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-syms-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-syms-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-syms-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-base-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-base-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-base-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-base-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-devel-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-devel-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-devel-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-devel-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-man-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-devel-4.12.14-122.46.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-macros-4.12.14-122.46.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-source-4.12.14-122.46.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-docs-4.12.14-122.46.1.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-obs-build-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-obs-build-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-obs-build-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-obs-build-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 12 SP5:kernel-default-extra-4.12.14-122.46.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.5,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:cluster-md-kmp-default-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:cluster-md-kmp-default-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:cluster-md-kmp-default-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:dlm-kmp-default-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:dlm-kmp-default-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:dlm-kmp-default-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:gfs2-kmp-default-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:gfs2-kmp-default-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:gfs2-kmp-default-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:ocfs2-kmp-default-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:ocfs2-kmp-default-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:ocfs2-kmp-default-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-devel-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-devel-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-devel-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kgraft-patch-4_12_14-122_46-default-1-8.5.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kgraft-patch-4_12_14-122_46-default-1-8.5.1.s390x",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kgraft-patch-4_12_14-122_46-default-1-8.5.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-base-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-base-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-base-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-base-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-devel-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-devel-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-devel-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-devel-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-man-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-devel-4.12.14-122.46.1.noarch",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-macros-4.12.14-122.46.1.noarch",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-source-4.12.14-122.46.1.noarch",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-syms-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-syms-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-syms-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-syms-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-base-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-base-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-base-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-base-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-devel-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-devel-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-devel-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-devel-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-man-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-devel-4.12.14-122.46.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-macros-4.12.14-122.46.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-source-4.12.14-122.46.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-docs-4.12.14-122.46.1.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-obs-build-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-obs-build-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-obs-build-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-obs-build-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 12 SP5:kernel-default-extra-4.12.14-122.46.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2020-10-21T11:29:25Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2020-12351"
+		},
+		{
+			"cve": "CVE-2020-12352",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2020-12352"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Improper access control in BlueZ may allow an unauthenticated user to potentially enable information disclosure via adjacent access.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise High Availability Extension 12 SP5:cluster-md-kmp-default-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise High Availability Extension 12 SP5:cluster-md-kmp-default-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise High Availability Extension 12 SP5:cluster-md-kmp-default-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise High Availability Extension 12 SP5:dlm-kmp-default-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise High Availability Extension 12 SP5:dlm-kmp-default-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise High Availability Extension 12 SP5:dlm-kmp-default-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise High Availability Extension 12 SP5:gfs2-kmp-default-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise High Availability Extension 12 SP5:gfs2-kmp-default-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise High Availability Extension 12 SP5:gfs2-kmp-default-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise High Availability Extension 12 SP5:ocfs2-kmp-default-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise High Availability Extension 12 SP5:ocfs2-kmp-default-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise High Availability Extension 12 SP5:ocfs2-kmp-default-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-devel-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-devel-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-devel-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise Live Patching 12 SP5:kgraft-patch-4_12_14-122_46-default-1-8.5.1.ppc64le",
+					"SUSE Linux Enterprise Live Patching 12 SP5:kgraft-patch-4_12_14-122_46-default-1-8.5.1.s390x",
+					"SUSE Linux Enterprise Live Patching 12 SP5:kgraft-patch-4_12_14-122_46-default-1-8.5.1.x86_64",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-default-4.12.14-122.46.1.aarch64",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-default-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-default-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-default-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-default-base-4.12.14-122.46.1.aarch64",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-default-base-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-default-base-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-default-base-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-default-devel-4.12.14-122.46.1.aarch64",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-default-devel-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-default-devel-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-default-devel-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-default-man-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-devel-4.12.14-122.46.1.noarch",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-macros-4.12.14-122.46.1.noarch",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-source-4.12.14-122.46.1.noarch",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-syms-4.12.14-122.46.1.aarch64",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-syms-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-syms-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-syms-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-4.12.14-122.46.1.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-base-4.12.14-122.46.1.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-base-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-base-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-base-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-devel-4.12.14-122.46.1.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-devel-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-devel-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-devel-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-man-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-devel-4.12.14-122.46.1.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-macros-4.12.14-122.46.1.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-source-4.12.14-122.46.1.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-4.12.14-122.46.1.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-docs-4.12.14-122.46.1.noarch",
+					"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-obs-build-4.12.14-122.46.1.aarch64",
+					"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-obs-build-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-obs-build-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-obs-build-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise Workstation Extension 12 SP5:kernel-default-extra-4.12.14-122.46.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2020-12352",
+					"url": "https://www.suse.com/security/cve/CVE-2020-12352"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1177725 for CVE-2020-12352",
+					"url": "https://bugzilla.suse.com/1177725"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1178398 for CVE-2020-12352",
+					"url": "https://bugzilla.suse.com/1178398"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:cluster-md-kmp-default-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:cluster-md-kmp-default-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:cluster-md-kmp-default-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:dlm-kmp-default-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:dlm-kmp-default-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:dlm-kmp-default-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:gfs2-kmp-default-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:gfs2-kmp-default-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:gfs2-kmp-default-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:ocfs2-kmp-default-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:ocfs2-kmp-default-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:ocfs2-kmp-default-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-devel-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-devel-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-devel-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kgraft-patch-4_12_14-122_46-default-1-8.5.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kgraft-patch-4_12_14-122_46-default-1-8.5.1.s390x",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kgraft-patch-4_12_14-122_46-default-1-8.5.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-base-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-base-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-base-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-base-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-devel-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-devel-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-devel-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-devel-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-man-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-devel-4.12.14-122.46.1.noarch",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-macros-4.12.14-122.46.1.noarch",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-source-4.12.14-122.46.1.noarch",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-syms-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-syms-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-syms-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-syms-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-base-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-base-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-base-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-base-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-devel-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-devel-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-devel-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-devel-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-man-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-devel-4.12.14-122.46.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-macros-4.12.14-122.46.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-source-4.12.14-122.46.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-docs-4.12.14-122.46.1.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-obs-build-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-obs-build-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-obs-build-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-obs-build-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 12 SP5:kernel-default-extra-4.12.14-122.46.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 3.1,
+						"baseSeverity": "LOW",
+						"vectorString": "CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:L",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:cluster-md-kmp-default-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:cluster-md-kmp-default-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:cluster-md-kmp-default-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:dlm-kmp-default-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:dlm-kmp-default-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:dlm-kmp-default-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:gfs2-kmp-default-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:gfs2-kmp-default-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:gfs2-kmp-default-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:ocfs2-kmp-default-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:ocfs2-kmp-default-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:ocfs2-kmp-default-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-devel-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-devel-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-devel-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kgraft-patch-4_12_14-122_46-default-1-8.5.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kgraft-patch-4_12_14-122_46-default-1-8.5.1.s390x",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kgraft-patch-4_12_14-122_46-default-1-8.5.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-base-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-base-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-base-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-base-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-devel-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-devel-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-devel-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-devel-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-man-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-devel-4.12.14-122.46.1.noarch",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-macros-4.12.14-122.46.1.noarch",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-source-4.12.14-122.46.1.noarch",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-syms-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-syms-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-syms-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-syms-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-base-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-base-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-base-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-base-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-devel-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-devel-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-devel-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-devel-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-man-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-devel-4.12.14-122.46.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-macros-4.12.14-122.46.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-source-4.12.14-122.46.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-docs-4.12.14-122.46.1.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-obs-build-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-obs-build-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-obs-build-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-obs-build-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 12 SP5:kernel-default-extra-4.12.14-122.46.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2020-10-21T11:29:25Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2020-12352"
+		},
+		{
+			"cve": "CVE-2020-25212",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2020-25212"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A TOCTOU mismatch in the NFS client code in the Linux kernel before 5.8.3 could be used by local attackers to corrupt memory or possibly have unspecified other impact because a size check is in fs/nfs/nfs4proc.c instead of fs/nfs/nfs4xdr.c, aka CID-b4487b935452.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise High Availability Extension 12 SP5:cluster-md-kmp-default-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise High Availability Extension 12 SP5:cluster-md-kmp-default-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise High Availability Extension 12 SP5:cluster-md-kmp-default-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise High Availability Extension 12 SP5:dlm-kmp-default-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise High Availability Extension 12 SP5:dlm-kmp-default-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise High Availability Extension 12 SP5:dlm-kmp-default-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise High Availability Extension 12 SP5:gfs2-kmp-default-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise High Availability Extension 12 SP5:gfs2-kmp-default-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise High Availability Extension 12 SP5:gfs2-kmp-default-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise High Availability Extension 12 SP5:ocfs2-kmp-default-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise High Availability Extension 12 SP5:ocfs2-kmp-default-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise High Availability Extension 12 SP5:ocfs2-kmp-default-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-devel-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-devel-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-devel-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise Live Patching 12 SP5:kgraft-patch-4_12_14-122_46-default-1-8.5.1.ppc64le",
+					"SUSE Linux Enterprise Live Patching 12 SP5:kgraft-patch-4_12_14-122_46-default-1-8.5.1.s390x",
+					"SUSE Linux Enterprise Live Patching 12 SP5:kgraft-patch-4_12_14-122_46-default-1-8.5.1.x86_64",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-default-4.12.14-122.46.1.aarch64",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-default-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-default-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-default-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-default-base-4.12.14-122.46.1.aarch64",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-default-base-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-default-base-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-default-base-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-default-devel-4.12.14-122.46.1.aarch64",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-default-devel-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-default-devel-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-default-devel-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-default-man-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-devel-4.12.14-122.46.1.noarch",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-macros-4.12.14-122.46.1.noarch",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-source-4.12.14-122.46.1.noarch",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-syms-4.12.14-122.46.1.aarch64",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-syms-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-syms-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-syms-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-4.12.14-122.46.1.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-base-4.12.14-122.46.1.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-base-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-base-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-base-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-devel-4.12.14-122.46.1.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-devel-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-devel-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-devel-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-man-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-devel-4.12.14-122.46.1.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-macros-4.12.14-122.46.1.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-source-4.12.14-122.46.1.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-4.12.14-122.46.1.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-docs-4.12.14-122.46.1.noarch",
+					"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-obs-build-4.12.14-122.46.1.aarch64",
+					"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-obs-build-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-obs-build-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-obs-build-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise Workstation Extension 12 SP5:kernel-default-extra-4.12.14-122.46.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2020-25212",
+					"url": "https://www.suse.com/security/cve/CVE-2020-25212"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1176381 for CVE-2020-25212",
+					"url": "https://bugzilla.suse.com/1176381"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1176382 for CVE-2020-25212",
+					"url": "https://bugzilla.suse.com/1176382"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1177027 for CVE-2020-25212",
+					"url": "https://bugzilla.suse.com/1177027"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:cluster-md-kmp-default-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:cluster-md-kmp-default-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:cluster-md-kmp-default-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:dlm-kmp-default-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:dlm-kmp-default-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:dlm-kmp-default-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:gfs2-kmp-default-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:gfs2-kmp-default-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:gfs2-kmp-default-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:ocfs2-kmp-default-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:ocfs2-kmp-default-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:ocfs2-kmp-default-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-devel-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-devel-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-devel-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kgraft-patch-4_12_14-122_46-default-1-8.5.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kgraft-patch-4_12_14-122_46-default-1-8.5.1.s390x",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kgraft-patch-4_12_14-122_46-default-1-8.5.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-base-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-base-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-base-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-base-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-devel-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-devel-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-devel-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-devel-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-man-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-devel-4.12.14-122.46.1.noarch",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-macros-4.12.14-122.46.1.noarch",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-source-4.12.14-122.46.1.noarch",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-syms-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-syms-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-syms-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-syms-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-base-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-base-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-base-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-base-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-devel-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-devel-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-devel-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-devel-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-man-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-devel-4.12.14-122.46.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-macros-4.12.14-122.46.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-source-4.12.14-122.46.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-docs-4.12.14-122.46.1.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-obs-build-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-obs-build-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-obs-build-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-obs-build-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 12 SP5:kernel-default-extra-4.12.14-122.46.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.4,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:L/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:cluster-md-kmp-default-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:cluster-md-kmp-default-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:cluster-md-kmp-default-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:dlm-kmp-default-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:dlm-kmp-default-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:dlm-kmp-default-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:gfs2-kmp-default-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:gfs2-kmp-default-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:gfs2-kmp-default-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:ocfs2-kmp-default-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:ocfs2-kmp-default-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:ocfs2-kmp-default-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-devel-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-devel-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-devel-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kgraft-patch-4_12_14-122_46-default-1-8.5.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kgraft-patch-4_12_14-122_46-default-1-8.5.1.s390x",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kgraft-patch-4_12_14-122_46-default-1-8.5.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-base-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-base-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-base-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-base-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-devel-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-devel-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-devel-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-devel-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-man-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-devel-4.12.14-122.46.1.noarch",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-macros-4.12.14-122.46.1.noarch",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-source-4.12.14-122.46.1.noarch",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-syms-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-syms-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-syms-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-syms-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-base-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-base-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-base-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-base-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-devel-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-devel-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-devel-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-devel-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-man-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-devel-4.12.14-122.46.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-macros-4.12.14-122.46.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-source-4.12.14-122.46.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-docs-4.12.14-122.46.1.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-obs-build-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-obs-build-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-obs-build-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-obs-build-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 12 SP5:kernel-default-extra-4.12.14-122.46.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2020-10-21T11:29:25Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2020-25212"
+		},
+		{
+			"cve": "CVE-2020-25645",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2020-25645"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A flaw was found in the Linux kernel in versions before 5.9-rc7. Traffic between two Geneve endpoints may be unencrypted when IPsec is configured to encrypt traffic for the specific UDP port used by the GENEVE tunnel allowing anyone between the two endpoints to read the traffic unencrypted. The main threat from this vulnerability is to data confidentiality.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise High Availability Extension 12 SP5:cluster-md-kmp-default-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise High Availability Extension 12 SP5:cluster-md-kmp-default-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise High Availability Extension 12 SP5:cluster-md-kmp-default-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise High Availability Extension 12 SP5:dlm-kmp-default-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise High Availability Extension 12 SP5:dlm-kmp-default-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise High Availability Extension 12 SP5:dlm-kmp-default-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise High Availability Extension 12 SP5:gfs2-kmp-default-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise High Availability Extension 12 SP5:gfs2-kmp-default-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise High Availability Extension 12 SP5:gfs2-kmp-default-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise High Availability Extension 12 SP5:ocfs2-kmp-default-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise High Availability Extension 12 SP5:ocfs2-kmp-default-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise High Availability Extension 12 SP5:ocfs2-kmp-default-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-devel-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-devel-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-devel-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise Live Patching 12 SP5:kgraft-patch-4_12_14-122_46-default-1-8.5.1.ppc64le",
+					"SUSE Linux Enterprise Live Patching 12 SP5:kgraft-patch-4_12_14-122_46-default-1-8.5.1.s390x",
+					"SUSE Linux Enterprise Live Patching 12 SP5:kgraft-patch-4_12_14-122_46-default-1-8.5.1.x86_64",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-default-4.12.14-122.46.1.aarch64",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-default-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-default-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-default-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-default-base-4.12.14-122.46.1.aarch64",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-default-base-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-default-base-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-default-base-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-default-devel-4.12.14-122.46.1.aarch64",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-default-devel-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-default-devel-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-default-devel-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-default-man-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-devel-4.12.14-122.46.1.noarch",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-macros-4.12.14-122.46.1.noarch",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-source-4.12.14-122.46.1.noarch",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-syms-4.12.14-122.46.1.aarch64",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-syms-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-syms-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-syms-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-4.12.14-122.46.1.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-base-4.12.14-122.46.1.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-base-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-base-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-base-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-devel-4.12.14-122.46.1.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-devel-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-devel-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-devel-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-man-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-devel-4.12.14-122.46.1.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-macros-4.12.14-122.46.1.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-source-4.12.14-122.46.1.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-4.12.14-122.46.1.aarch64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-docs-4.12.14-122.46.1.noarch",
+					"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-obs-build-4.12.14-122.46.1.aarch64",
+					"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-obs-build-4.12.14-122.46.1.ppc64le",
+					"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-obs-build-4.12.14-122.46.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-obs-build-4.12.14-122.46.1.x86_64",
+					"SUSE Linux Enterprise Workstation Extension 12 SP5:kernel-default-extra-4.12.14-122.46.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2020-25645",
+					"url": "https://www.suse.com/security/cve/CVE-2020-25645"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1177511 for CVE-2020-25645",
+					"url": "https://bugzilla.suse.com/1177511"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1177513 for CVE-2020-25645",
+					"url": "https://bugzilla.suse.com/1177513"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:cluster-md-kmp-default-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:cluster-md-kmp-default-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:cluster-md-kmp-default-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:dlm-kmp-default-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:dlm-kmp-default-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:dlm-kmp-default-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:gfs2-kmp-default-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:gfs2-kmp-default-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:gfs2-kmp-default-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:ocfs2-kmp-default-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:ocfs2-kmp-default-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:ocfs2-kmp-default-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-devel-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-devel-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-devel-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kgraft-patch-4_12_14-122_46-default-1-8.5.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kgraft-patch-4_12_14-122_46-default-1-8.5.1.s390x",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kgraft-patch-4_12_14-122_46-default-1-8.5.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-base-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-base-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-base-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-base-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-devel-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-devel-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-devel-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-devel-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-man-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-devel-4.12.14-122.46.1.noarch",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-macros-4.12.14-122.46.1.noarch",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-source-4.12.14-122.46.1.noarch",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-syms-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-syms-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-syms-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-syms-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-base-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-base-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-base-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-base-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-devel-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-devel-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-devel-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-devel-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-man-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-devel-4.12.14-122.46.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-macros-4.12.14-122.46.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-source-4.12.14-122.46.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-docs-4.12.14-122.46.1.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-obs-build-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-obs-build-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-obs-build-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-obs-build-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 12 SP5:kernel-default-extra-4.12.14-122.46.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.5,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:cluster-md-kmp-default-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:cluster-md-kmp-default-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:cluster-md-kmp-default-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:dlm-kmp-default-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:dlm-kmp-default-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:dlm-kmp-default-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:gfs2-kmp-default-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:gfs2-kmp-default-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:gfs2-kmp-default-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:ocfs2-kmp-default-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:ocfs2-kmp-default-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise High Availability Extension 12 SP5:ocfs2-kmp-default-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-devel-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-devel-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kernel-default-kgraft-devel-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kgraft-patch-4_12_14-122_46-default-1-8.5.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kgraft-patch-4_12_14-122_46-default-1-8.5.1.s390x",
+						"SUSE Linux Enterprise Live Patching 12 SP5:kgraft-patch-4_12_14-122_46-default-1-8.5.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-base-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-base-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-base-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-base-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-devel-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-devel-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-devel-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-devel-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-default-man-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-devel-4.12.14-122.46.1.noarch",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-macros-4.12.14-122.46.1.noarch",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-source-4.12.14-122.46.1.noarch",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-syms-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-syms-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-syms-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-syms-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-base-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-base-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-base-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-base-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-devel-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-devel-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-devel-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-devel-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-default-man-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-devel-4.12.14-122.46.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-macros-4.12.14-122.46.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-source-4.12.14-122.46.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-docs-4.12.14-122.46.1.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-obs-build-4.12.14-122.46.1.aarch64",
+						"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-obs-build-4.12.14-122.46.1.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-obs-build-4.12.14-122.46.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12 SP5:kernel-obs-build-4.12.14-122.46.1.x86_64",
+						"SUSE Linux Enterprise Workstation Extension 12 SP5:kernel-default-extra-4.12.14-122.46.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2020-10-21T11:29:25Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2020-25645"
+		}
+	]
+}

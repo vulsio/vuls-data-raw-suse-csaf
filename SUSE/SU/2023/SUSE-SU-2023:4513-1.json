@@ -1,0 +1,486 @@
+{
+	"document": {
+		"aggregate_severity": {
+			"namespace": "https://www.suse.com/support/security/rating/",
+			"text": "important"
+		},
+		"category": "csaf_security_advisory",
+		"csaf_version": "2.0",
+		"distribution": {
+			"text": "Copyright 2024 SUSE LLC. All rights reserved.",
+			"tlp": {
+				"label": "WHITE",
+				"url": "https://www.first.org/tlp/"
+			}
+		},
+		"lang": "en",
+		"notes": [
+			{
+				"category": "summary",
+				"text": "Security update for apache2-mod_jk",
+				"title": "Title of the patch"
+			},
+			{
+				"category": "description",
+				"text": "This update for apache2-mod_jk fixes the following issues:\n\nUpdate to version 1.2.49:\n  Apache\n    * Retrieve default request id from mod_unique_id. It can also be\n      taken from an arbitrary environment variable by configuring\n      'JkRequestIdIndicator'.\n    * Don't delegate the generatation of the response body to httpd\n      when the status code represents an error if the request used\n      the HEAD method.\n    * Only export the main module symbol. Visibility of module \n      internal symbols led to crashes when conflicting with library\n      symbols. Based on a patch provided by Josef Čejka.\n    * Remove support for implicit mapping of requests to workers. \n      All mappings must now be explicit.\n  IIS\n    * Set default request id as a GUID. It can also be taken from an\n      arbitrary request header by configuring 'request_id_header'.\n    * Fix non-empty check for the Translate header.\n  Common\n    * Fix compiler warning when initializing and copying fixed \n      length strings.\n    * Add a request id to mod_jk log lines.\n    * Enable configure to find the correct sizes for pid_t and \n      pthread_t when building on MacOS.\n    * Fix Clang 15/16 compatability. Pull request #6 provided by \n      Sam James.\n    * Improve XSS hardening in status worker.\n    * Add additional bounds and error checking when reading AJP \n      messages.\n  Docs\n    * Remove support for the Netscape / Sun ONE / Oracle iPlanet Web\n      Server as the product has been retired.\n    * Remove links to the old JK2 documentation. The JK2 \n      documentation is still available, it is just no longer linked\n      from the current JK documentation.\n    * Restructure subsections in changelog starting with version \n      1.2.45.\n\nChanges for 1.2.47 and 1.2.48 updates:\n  * Add: Apache: Extend trace level logging of method entry/exit to\n    aid debugging of request mapping issues.\n  * Fix: Apache: Fix a bug in the normalization checks that prevented\n    file based requests, such as SSI file includes, from being processed.\n  * Fix: Apache: When using JkAutoAlias, ensure that files that include\n    spaces in their name are accessible.\n  * Update: Common: Update the documentation to reflect that the source\n    code for the Apache Tomcat Connectors has moved from Subversion to Git.\n  * Fix: Common: When using set_session_cookie, ensure that an updated session\n    cookie is issued if the load-balancer has to failover to a different worker.\n  * Update: Common: Update config.guess and config.sub from\n    https://git.savannah.gnu.org/git/config.git.\n  * Update: Common: Update release script for migration to git.\n\nUpdate to version 1.2.46\n  Fixes:\n    * Apache: Fix regression in 1.2.44 which resulted in\n      socket_connect_timeout to be interpreted in units of seconds\n      instead of milliseconds on platforms that provide poll(). (rjung)\n    * Security: CVE-2018-11759 Connector path traversal [bsc#1114612]\n\nUpdate to version 1.2.45\n  Fixes:\n    * Correct regression in 1.2.44 that broke request handling for\n      OPTIONS * requests. (rjung)\n    * Improve path parameter parsing so that the session ID specified\n      by the session_path worker property for load-balanced workers\n      can be extracted from a path parameter in any segment of the\n      URI, rather than only from the final segment. (markt)\n    * Apache: Improve path parameter handling so that JkStripSession\n      can remove session IDs that are specified on path parameters in any\n      segment of the URI rather than only the final segment. (markt)\n    * IIS: Improve path parameter handling so that strip_session can\n      remove session IDs that are specified on path parameters in any\n      segment of the URI rather than only the final segment. (markt) \n  Updates:\n    * Apache: Update the documentation to note additional\n      limitations of the JkAutoAlias directive. (markt)\n  Code:\n    * Common: Optimize path parameter handling. (rjung)\n\nUpdate to version 1.2.44\n  Updates:\n    * Remove the Novell Netware make files and Netware specific source\n      code since there has not been a supported version of Netware\n      available for over five years. (markt)\n    * Apache: Update the documentation to use httpd 2.4.x style access\n      control directives. (markt)\n    * Update PCRE bundled with the ISAPI redirector to 8.42. (rjung)\n    * Update config.guess and config.sub from\n      https://git.savannah.gnu.org/git/config.git. (rjung)\n  Fixes:\n    * Common: Use Local, rather than Global, mutexs on Windows to\n      better support multi-user environments. (markt)\n    * Apache: Use poll rather than select to avoid the limitations of\n      select triggering an httpd crash. Patch provided by Koen Wilde. (markt)\n    * ISAPI: Remove the check that rejects requests that contain path\n      segments that match WEB-INF or META-INF as it duplicates a check\n      that Tomcat performs and, because ISAPI does not have visibility of\n      the current context path, it is impossible to implement this check\n      without valid requests being rejected. (markt)\n    * Refactor normalisation of request URIs to a common location and align\n      the normalisation implementation for mod_jk with that implemented by\n      Tomcat. (markt)\n  Add:\n    * Clarify the behvaiour of lb workers when all ajp13 workers fail with\n      particular reference to the role of the retries attribute. (markt)\n    * Add the new load-balancer worker property lb_retries to improve the\n      control over the number of retries. Based on a patch provided by\n      Frederik Nosi. (markt)\n    * Add a note to the documentation that the CollapseSlashes options are\n      now effectively hard-coded to CollpaseSlashesAll due to the changes\n      made to align normalization with that implemented in Tomcat. (markt)\n",
+				"title": "Description of the patch"
+			},
+			{
+				"category": "details",
+				"text": "SUSE-2023-4513,SUSE-SLE-Module-Server-Applications-15-SP4-2023-4513,SUSE-SLE-Module-Server-Applications-15-SP5-2023-4513,openSUSE-SLE-15.4-2023-4513,openSUSE-SLE-15.5-2023-4513",
+				"title": "Patchnames"
+			},
+			{
+				"category": "legal_disclaimer",
+				"text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+				"title": "Terms of use"
+			}
+		],
+		"publisher": {
+			"category": "vendor",
+			"contact_details": "https://www.suse.com/support/security/contact/",
+			"name": "SUSE Product Security Team",
+			"namespace": "https://www.suse.com/"
+		},
+		"references": [
+			{
+				"category": "external",
+				"summary": "SUSE ratings",
+				"url": "https://www.suse.com/support/security/rating/"
+			},
+			{
+				"category": "self",
+				"summary": "URL of this CSAF notice",
+				"url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2023_4513-1.json"
+			},
+			{
+				"category": "self",
+				"summary": "URL for SUSE-SU-2023:4513-1",
+				"url": "https://www.suse.com/support/update/announcement/2023/suse-su-20234513-1/"
+			},
+			{
+				"category": "self",
+				"summary": "E-Mail link for SUSE-SU-2023:4513-1",
+				"url": "https://lists.suse.com/pipermail/sle-security-updates/2023-November/017156.html"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1114612",
+				"url": "https://bugzilla.suse.com/1114612"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2018-11759 page",
+				"url": "https://www.suse.com/security/cve/CVE-2018-11759/"
+			}
+		],
+		"title": "Security update for apache2-mod_jk",
+		"tracking": {
+			"current_release_date": "2023-11-21T16:25:57Z",
+			"generator": {
+				"date": "2023-11-21T16:25:57Z",
+				"engine": {
+					"name": "cve-database.git:bin/generate-csaf.pl",
+					"version": "1"
+				}
+			},
+			"id": "SUSE-SU-2023:4513-1",
+			"initial_release_date": "2023-11-21T16:25:57Z",
+			"revision_history": [
+				{
+					"date": "2023-11-21T16:25:57Z",
+					"number": "1",
+					"summary": "Current version"
+				}
+			],
+			"status": "final",
+			"version": "1"
+		}
+	},
+	"product_tree": {
+		"branches": [
+			{
+				"branches": [
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "apache2-mod_jk-1.2.49-150100.6.6.1.aarch64",
+								"product": {
+									"name": "apache2-mod_jk-1.2.49-150100.6.6.1.aarch64",
+									"product_id": "apache2-mod_jk-1.2.49-150100.6.6.1.aarch64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "aarch64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "apache2-mod_jk-1.2.49-150100.6.6.1.i586",
+								"product": {
+									"name": "apache2-mod_jk-1.2.49-150100.6.6.1.i586",
+									"product_id": "apache2-mod_jk-1.2.49-150100.6.6.1.i586"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "i586"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "apache2-mod_jk-1.2.49-150100.6.6.1.ppc64le",
+								"product": {
+									"name": "apache2-mod_jk-1.2.49-150100.6.6.1.ppc64le",
+									"product_id": "apache2-mod_jk-1.2.49-150100.6.6.1.ppc64le"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "ppc64le"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "apache2-mod_jk-1.2.49-150100.6.6.1.s390x",
+								"product": {
+									"name": "apache2-mod_jk-1.2.49-150100.6.6.1.s390x",
+									"product_id": "apache2-mod_jk-1.2.49-150100.6.6.1.s390x"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "s390x"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "apache2-mod_jk-1.2.49-150100.6.6.1.x86_64",
+								"product": {
+									"name": "apache2-mod_jk-1.2.49-150100.6.6.1.x86_64",
+									"product_id": "apache2-mod_jk-1.2.49-150100.6.6.1.x86_64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "x86_64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Module for Server Applications 15 SP4",
+								"product": {
+									"name": "SUSE Linux Enterprise Module for Server Applications 15 SP4",
+									"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP4",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-module-server-applications:15:sp4"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Module for Server Applications 15 SP5",
+								"product": {
+									"name": "SUSE Linux Enterprise Module for Server Applications 15 SP5",
+									"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP5",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-module-server-applications:15:sp5"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "openSUSE Leap 15.4",
+								"product": {
+									"name": "openSUSE Leap 15.4",
+									"product_id": "openSUSE Leap 15.4",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:opensuse:leap:15.4"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "openSUSE Leap 15.5",
+								"product": {
+									"name": "openSUSE Leap 15.5",
+									"product_id": "openSUSE Leap 15.5",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:opensuse:leap:15.5"
+									}
+								}
+							}
+						],
+						"category": "product_family",
+						"name": "SUSE Linux Enterprise"
+					}
+				],
+				"category": "vendor",
+				"name": "SUSE"
+			}
+		],
+		"relationships": [
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-mod_jk-1.2.49-150100.6.6.1.aarch64 as component of SUSE Linux Enterprise Module for Server Applications 15 SP4",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP4:apache2-mod_jk-1.2.49-150100.6.6.1.aarch64"
+				},
+				"product_reference": "apache2-mod_jk-1.2.49-150100.6.6.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-mod_jk-1.2.49-150100.6.6.1.ppc64le as component of SUSE Linux Enterprise Module for Server Applications 15 SP4",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP4:apache2-mod_jk-1.2.49-150100.6.6.1.ppc64le"
+				},
+				"product_reference": "apache2-mod_jk-1.2.49-150100.6.6.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-mod_jk-1.2.49-150100.6.6.1.s390x as component of SUSE Linux Enterprise Module for Server Applications 15 SP4",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP4:apache2-mod_jk-1.2.49-150100.6.6.1.s390x"
+				},
+				"product_reference": "apache2-mod_jk-1.2.49-150100.6.6.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-mod_jk-1.2.49-150100.6.6.1.x86_64 as component of SUSE Linux Enterprise Module for Server Applications 15 SP4",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP4:apache2-mod_jk-1.2.49-150100.6.6.1.x86_64"
+				},
+				"product_reference": "apache2-mod_jk-1.2.49-150100.6.6.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-mod_jk-1.2.49-150100.6.6.1.aarch64 as component of SUSE Linux Enterprise Module for Server Applications 15 SP5",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP5:apache2-mod_jk-1.2.49-150100.6.6.1.aarch64"
+				},
+				"product_reference": "apache2-mod_jk-1.2.49-150100.6.6.1.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-mod_jk-1.2.49-150100.6.6.1.ppc64le as component of SUSE Linux Enterprise Module for Server Applications 15 SP5",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP5:apache2-mod_jk-1.2.49-150100.6.6.1.ppc64le"
+				},
+				"product_reference": "apache2-mod_jk-1.2.49-150100.6.6.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-mod_jk-1.2.49-150100.6.6.1.s390x as component of SUSE Linux Enterprise Module for Server Applications 15 SP5",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP5:apache2-mod_jk-1.2.49-150100.6.6.1.s390x"
+				},
+				"product_reference": "apache2-mod_jk-1.2.49-150100.6.6.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-mod_jk-1.2.49-150100.6.6.1.x86_64 as component of SUSE Linux Enterprise Module for Server Applications 15 SP5",
+					"product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP5:apache2-mod_jk-1.2.49-150100.6.6.1.x86_64"
+				},
+				"product_reference": "apache2-mod_jk-1.2.49-150100.6.6.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-mod_jk-1.2.49-150100.6.6.1.aarch64 as component of openSUSE Leap 15.4",
+					"product_id": "openSUSE Leap 15.4:apache2-mod_jk-1.2.49-150100.6.6.1.aarch64"
+				},
+				"product_reference": "apache2-mod_jk-1.2.49-150100.6.6.1.aarch64",
+				"relates_to_product_reference": "openSUSE Leap 15.4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-mod_jk-1.2.49-150100.6.6.1.ppc64le as component of openSUSE Leap 15.4",
+					"product_id": "openSUSE Leap 15.4:apache2-mod_jk-1.2.49-150100.6.6.1.ppc64le"
+				},
+				"product_reference": "apache2-mod_jk-1.2.49-150100.6.6.1.ppc64le",
+				"relates_to_product_reference": "openSUSE Leap 15.4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-mod_jk-1.2.49-150100.6.6.1.s390x as component of openSUSE Leap 15.4",
+					"product_id": "openSUSE Leap 15.4:apache2-mod_jk-1.2.49-150100.6.6.1.s390x"
+				},
+				"product_reference": "apache2-mod_jk-1.2.49-150100.6.6.1.s390x",
+				"relates_to_product_reference": "openSUSE Leap 15.4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-mod_jk-1.2.49-150100.6.6.1.x86_64 as component of openSUSE Leap 15.4",
+					"product_id": "openSUSE Leap 15.4:apache2-mod_jk-1.2.49-150100.6.6.1.x86_64"
+				},
+				"product_reference": "apache2-mod_jk-1.2.49-150100.6.6.1.x86_64",
+				"relates_to_product_reference": "openSUSE Leap 15.4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-mod_jk-1.2.49-150100.6.6.1.aarch64 as component of openSUSE Leap 15.5",
+					"product_id": "openSUSE Leap 15.5:apache2-mod_jk-1.2.49-150100.6.6.1.aarch64"
+				},
+				"product_reference": "apache2-mod_jk-1.2.49-150100.6.6.1.aarch64",
+				"relates_to_product_reference": "openSUSE Leap 15.5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-mod_jk-1.2.49-150100.6.6.1.ppc64le as component of openSUSE Leap 15.5",
+					"product_id": "openSUSE Leap 15.5:apache2-mod_jk-1.2.49-150100.6.6.1.ppc64le"
+				},
+				"product_reference": "apache2-mod_jk-1.2.49-150100.6.6.1.ppc64le",
+				"relates_to_product_reference": "openSUSE Leap 15.5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-mod_jk-1.2.49-150100.6.6.1.s390x as component of openSUSE Leap 15.5",
+					"product_id": "openSUSE Leap 15.5:apache2-mod_jk-1.2.49-150100.6.6.1.s390x"
+				},
+				"product_reference": "apache2-mod_jk-1.2.49-150100.6.6.1.s390x",
+				"relates_to_product_reference": "openSUSE Leap 15.5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-mod_jk-1.2.49-150100.6.6.1.x86_64 as component of openSUSE Leap 15.5",
+					"product_id": "openSUSE Leap 15.5:apache2-mod_jk-1.2.49-150100.6.6.1.x86_64"
+				},
+				"product_reference": "apache2-mod_jk-1.2.49-150100.6.6.1.x86_64",
+				"relates_to_product_reference": "openSUSE Leap 15.5"
+			}
+		]
+	},
+	"vulnerabilities": [
+		{
+			"cve": "CVE-2018-11759",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2018-11759"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The Apache Web Server (httpd) specific code that normalised the requested path before matching it to the URI-worker map in Apache Tomcat JK (mod_jk) Connector 1.2.0 to 1.2.44 did not handle some edge cases correctly. If only a sub-set of the URLs supported by Tomcat were exposed via httpd, then it was possible for a specially constructed request to expose application functionality through the reverse proxy that was not intended for clients accessing the application via the reverse proxy. It was also possible in some configurations for a specially constructed request to bypass the access controls configured in httpd. While there is some overlap between this issue and CVE-2018-1323, they are not identical.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Module for Server Applications 15 SP4:apache2-mod_jk-1.2.49-150100.6.6.1.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP4:apache2-mod_jk-1.2.49-150100.6.6.1.ppc64le",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP4:apache2-mod_jk-1.2.49-150100.6.6.1.s390x",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP4:apache2-mod_jk-1.2.49-150100.6.6.1.x86_64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP5:apache2-mod_jk-1.2.49-150100.6.6.1.aarch64",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP5:apache2-mod_jk-1.2.49-150100.6.6.1.ppc64le",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP5:apache2-mod_jk-1.2.49-150100.6.6.1.s390x",
+					"SUSE Linux Enterprise Module for Server Applications 15 SP5:apache2-mod_jk-1.2.49-150100.6.6.1.x86_64",
+					"openSUSE Leap 15.4:apache2-mod_jk-1.2.49-150100.6.6.1.aarch64",
+					"openSUSE Leap 15.4:apache2-mod_jk-1.2.49-150100.6.6.1.ppc64le",
+					"openSUSE Leap 15.4:apache2-mod_jk-1.2.49-150100.6.6.1.s390x",
+					"openSUSE Leap 15.4:apache2-mod_jk-1.2.49-150100.6.6.1.x86_64",
+					"openSUSE Leap 15.5:apache2-mod_jk-1.2.49-150100.6.6.1.aarch64",
+					"openSUSE Leap 15.5:apache2-mod_jk-1.2.49-150100.6.6.1.ppc64le",
+					"openSUSE Leap 15.5:apache2-mod_jk-1.2.49-150100.6.6.1.s390x",
+					"openSUSE Leap 15.5:apache2-mod_jk-1.2.49-150100.6.6.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2018-11759",
+					"url": "https://www.suse.com/security/cve/CVE-2018-11759"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1114612 for CVE-2018-11759",
+					"url": "https://bugzilla.suse.com/1114612"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Module for Server Applications 15 SP4:apache2-mod_jk-1.2.49-150100.6.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP4:apache2-mod_jk-1.2.49-150100.6.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP4:apache2-mod_jk-1.2.49-150100.6.6.1.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP4:apache2-mod_jk-1.2.49-150100.6.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP5:apache2-mod_jk-1.2.49-150100.6.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP5:apache2-mod_jk-1.2.49-150100.6.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP5:apache2-mod_jk-1.2.49-150100.6.6.1.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP5:apache2-mod_jk-1.2.49-150100.6.6.1.x86_64",
+						"openSUSE Leap 15.4:apache2-mod_jk-1.2.49-150100.6.6.1.aarch64",
+						"openSUSE Leap 15.4:apache2-mod_jk-1.2.49-150100.6.6.1.ppc64le",
+						"openSUSE Leap 15.4:apache2-mod_jk-1.2.49-150100.6.6.1.s390x",
+						"openSUSE Leap 15.4:apache2-mod_jk-1.2.49-150100.6.6.1.x86_64",
+						"openSUSE Leap 15.5:apache2-mod_jk-1.2.49-150100.6.6.1.aarch64",
+						"openSUSE Leap 15.5:apache2-mod_jk-1.2.49-150100.6.6.1.ppc64le",
+						"openSUSE Leap 15.5:apache2-mod_jk-1.2.49-150100.6.6.1.s390x",
+						"openSUSE Leap 15.5:apache2-mod_jk-1.2.49-150100.6.6.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.5,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Module for Server Applications 15 SP4:apache2-mod_jk-1.2.49-150100.6.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP4:apache2-mod_jk-1.2.49-150100.6.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP4:apache2-mod_jk-1.2.49-150100.6.6.1.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP4:apache2-mod_jk-1.2.49-150100.6.6.1.x86_64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP5:apache2-mod_jk-1.2.49-150100.6.6.1.aarch64",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP5:apache2-mod_jk-1.2.49-150100.6.6.1.ppc64le",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP5:apache2-mod_jk-1.2.49-150100.6.6.1.s390x",
+						"SUSE Linux Enterprise Module for Server Applications 15 SP5:apache2-mod_jk-1.2.49-150100.6.6.1.x86_64",
+						"openSUSE Leap 15.4:apache2-mod_jk-1.2.49-150100.6.6.1.aarch64",
+						"openSUSE Leap 15.4:apache2-mod_jk-1.2.49-150100.6.6.1.ppc64le",
+						"openSUSE Leap 15.4:apache2-mod_jk-1.2.49-150100.6.6.1.s390x",
+						"openSUSE Leap 15.4:apache2-mod_jk-1.2.49-150100.6.6.1.x86_64",
+						"openSUSE Leap 15.5:apache2-mod_jk-1.2.49-150100.6.6.1.aarch64",
+						"openSUSE Leap 15.5:apache2-mod_jk-1.2.49-150100.6.6.1.ppc64le",
+						"openSUSE Leap 15.5:apache2-mod_jk-1.2.49-150100.6.6.1.s390x",
+						"openSUSE Leap 15.5:apache2-mod_jk-1.2.49-150100.6.6.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2023-11-21T16:25:57Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2018-11759"
+		}
+	]
+}

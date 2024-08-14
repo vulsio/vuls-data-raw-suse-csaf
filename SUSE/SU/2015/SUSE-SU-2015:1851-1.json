@@ -1,0 +1,1826 @@
+{
+	"document": {
+		"aggregate_severity": {
+			"namespace": "https://www.suse.com/support/security/rating/",
+			"text": "moderate"
+		},
+		"category": "csaf_security_advisory",
+		"csaf_version": "2.0",
+		"distribution": {
+			"text": "Copyright 2024 SUSE LLC. All rights reserved.",
+			"tlp": {
+				"label": "WHITE",
+				"url": "https://www.first.org/tlp/"
+			}
+		},
+		"lang": "en",
+		"notes": [
+			{
+				"category": "summary",
+				"text": "Security update for apache2",
+				"title": "Title of the patch"
+			},
+			{
+				"category": "description",
+				"text": "\nThe Apache2 webserver was updated to fix several issues:\n\nSecurity issues fixed:\n- The chunked transfer coding implementation in the Apache HTTP Server\n  did not properly parse chunk headers, which allowed remote attackers to\n  conduct HTTP request smuggling attacks via a crafted request, related\n  to mishandling of large chunk-size values and invalid chunk-extension\n  characters in modules/http/http_filters.c. [bsc#938728, CVE-2015-3183]\n- The LOGJAM security issue was addressed by: [bnc#931723 CVE-2015-4000]\n  * changing the SSLCipherSuite cipherstring to disable export cipher\n    suites and deploy Ephemeral Elliptic-Curve Diffie-Hellman (ECDHE)\n    ciphers.\n  * Adjust 'gensslcert' script to generate a strong and unique Diffie\n    Hellman Group and append it to the server certificate file.\n- The ap_some_auth_required function in server/request.c in the Apache\n  HTTP Server 2.4.x did not consider that a Require directive may be\n  associated with an authorization setting rather than an authentication\n  setting, which allowed remote attackers to bypass intended access\n  restrictions in opportunistic circumstances by leveraging the presence\n  of a module that relies on the 2.2 API behavior.\n  [bnc#938723 bnc#939516 CVE-2015-3185]\n- Tomcat mod_jk information leak due to incorrect JkMount/JkUnmount\n  directives processing [bnc#927845 CVE-2014-8111] \n\nOther bugs fixed:\n- Now provides a suse_maintenance_mmn_# [bnc#915666].\n- Hardcoded modules in the %files [bnc#444878].\n- Fixed the IfModule directive around SSLSessionCache [bnc#911159].\n- allow only TCP ports in Yast2 firewall files [bnc#931002]\n- fixed a regression when some LDAP searches or comparisons might be done \n  with the wrong credentials when a backend connection is reused\n  [bnc#930228]\n- Fixed split-logfile2 script [bnc#869790]\n- remove the changed MODULE_MAGIC_NUMBER_MINOR from which confuses\n  modules the way that they expect functionality that our apache does\n  not provide [bnc#915666]\n- gensslcert: CN now defaults to `hostname -f` [bnc#949766], fix\n  help [bnc#949771]\n",
+				"title": "Description of the patch"
+			},
+			{
+				"category": "details",
+				"text": "SUSE-SLE-SDK-12-2015-772,SUSE-SLE-SERVER-12-2015-772,SUSE-Storage-1.0-2015-772",
+				"title": "Patchnames"
+			},
+			{
+				"category": "legal_disclaimer",
+				"text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+				"title": "Terms of use"
+			}
+		],
+		"publisher": {
+			"category": "vendor",
+			"contact_details": "https://www.suse.com/support/security/contact/",
+			"name": "SUSE Product Security Team",
+			"namespace": "https://www.suse.com/"
+		},
+		"references": [
+			{
+				"category": "external",
+				"summary": "SUSE ratings",
+				"url": "https://www.suse.com/support/security/rating/"
+			},
+			{
+				"category": "self",
+				"summary": "URL of this CSAF notice",
+				"url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2015_1851-1.json"
+			},
+			{
+				"category": "self",
+				"summary": "URL for SUSE-SU-2015:1851-1",
+				"url": "https://www.suse.com/support/update/announcement/2015/suse-su-20151851-1/"
+			},
+			{
+				"category": "self",
+				"summary": "E-Mail link for SUSE-SU-2015:1851-1",
+				"url": "https://lists.suse.com/pipermail/sle-security-updates/2015-October/001653.html"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 444878",
+				"url": "https://bugzilla.suse.com/444878"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 869790",
+				"url": "https://bugzilla.suse.com/869790"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 911159",
+				"url": "https://bugzilla.suse.com/911159"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 915666",
+				"url": "https://bugzilla.suse.com/915666"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 927845",
+				"url": "https://bugzilla.suse.com/927845"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 930228",
+				"url": "https://bugzilla.suse.com/930228"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 931002",
+				"url": "https://bugzilla.suse.com/931002"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 931723",
+				"url": "https://bugzilla.suse.com/931723"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 938723",
+				"url": "https://bugzilla.suse.com/938723"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 938728",
+				"url": "https://bugzilla.suse.com/938728"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 939516",
+				"url": "https://bugzilla.suse.com/939516"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 949766",
+				"url": "https://bugzilla.suse.com/949766"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 949771",
+				"url": "https://bugzilla.suse.com/949771"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2014-8111 page",
+				"url": "https://www.suse.com/security/cve/CVE-2014-8111/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-3183 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-3183/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-3185 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-3185/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-4000 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-4000/"
+			}
+		],
+		"title": "Security update for apache2",
+		"tracking": {
+			"current_release_date": "2015-10-22T09:19:23Z",
+			"generator": {
+				"date": "2015-10-22T09:19:23Z",
+				"engine": {
+					"name": "cve-database.git:bin/generate-csaf.pl",
+					"version": "1"
+				}
+			},
+			"id": "SUSE-SU-2015:1851-1",
+			"initial_release_date": "2015-10-22T09:19:23Z",
+			"revision_history": [
+				{
+					"date": "2015-10-22T09:19:23Z",
+					"number": "1",
+					"summary": "Current version"
+				}
+			],
+			"status": "final",
+			"version": "1"
+		}
+	},
+	"product_tree": {
+		"branches": [
+			{
+				"branches": [
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "apache2-doc-2.4.10-14.10.1.noarch",
+								"product": {
+									"name": "apache2-doc-2.4.10-14.10.1.noarch",
+									"product_id": "apache2-doc-2.4.10-14.10.1.noarch"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "noarch"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "apache2-devel-2.4.10-14.10.1.ppc64le",
+								"product": {
+									"name": "apache2-devel-2.4.10-14.10.1.ppc64le",
+									"product_id": "apache2-devel-2.4.10-14.10.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "apache2-2.4.10-14.10.1.ppc64le",
+								"product": {
+									"name": "apache2-2.4.10-14.10.1.ppc64le",
+									"product_id": "apache2-2.4.10-14.10.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "apache2-example-pages-2.4.10-14.10.1.ppc64le",
+								"product": {
+									"name": "apache2-example-pages-2.4.10-14.10.1.ppc64le",
+									"product_id": "apache2-example-pages-2.4.10-14.10.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "apache2-mod_auth_kerb-5.4-2.4.1.ppc64le",
+								"product": {
+									"name": "apache2-mod_auth_kerb-5.4-2.4.1.ppc64le",
+									"product_id": "apache2-mod_auth_kerb-5.4-2.4.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "apache2-mod_jk-1.2.40-2.6.1.ppc64le",
+								"product": {
+									"name": "apache2-mod_jk-1.2.40-2.6.1.ppc64le",
+									"product_id": "apache2-mod_jk-1.2.40-2.6.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "apache2-mod_security2-2.8.0-3.4.1.ppc64le",
+								"product": {
+									"name": "apache2-mod_security2-2.8.0-3.4.1.ppc64le",
+									"product_id": "apache2-mod_security2-2.8.0-3.4.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "apache2-prefork-2.4.10-14.10.1.ppc64le",
+								"product": {
+									"name": "apache2-prefork-2.4.10-14.10.1.ppc64le",
+									"product_id": "apache2-prefork-2.4.10-14.10.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "apache2-utils-2.4.10-14.10.1.ppc64le",
+								"product": {
+									"name": "apache2-utils-2.4.10-14.10.1.ppc64le",
+									"product_id": "apache2-utils-2.4.10-14.10.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "apache2-worker-2.4.10-14.10.1.ppc64le",
+								"product": {
+									"name": "apache2-worker-2.4.10-14.10.1.ppc64le",
+									"product_id": "apache2-worker-2.4.10-14.10.1.ppc64le"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "ppc64le"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "apache2-devel-2.4.10-14.10.1.s390x",
+								"product": {
+									"name": "apache2-devel-2.4.10-14.10.1.s390x",
+									"product_id": "apache2-devel-2.4.10-14.10.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "apache2-2.4.10-14.10.1.s390x",
+								"product": {
+									"name": "apache2-2.4.10-14.10.1.s390x",
+									"product_id": "apache2-2.4.10-14.10.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "apache2-example-pages-2.4.10-14.10.1.s390x",
+								"product": {
+									"name": "apache2-example-pages-2.4.10-14.10.1.s390x",
+									"product_id": "apache2-example-pages-2.4.10-14.10.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "apache2-mod_auth_kerb-5.4-2.4.1.s390x",
+								"product": {
+									"name": "apache2-mod_auth_kerb-5.4-2.4.1.s390x",
+									"product_id": "apache2-mod_auth_kerb-5.4-2.4.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "apache2-mod_jk-1.2.40-2.6.1.s390x",
+								"product": {
+									"name": "apache2-mod_jk-1.2.40-2.6.1.s390x",
+									"product_id": "apache2-mod_jk-1.2.40-2.6.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "apache2-mod_security2-2.8.0-3.4.1.s390x",
+								"product": {
+									"name": "apache2-mod_security2-2.8.0-3.4.1.s390x",
+									"product_id": "apache2-mod_security2-2.8.0-3.4.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "apache2-prefork-2.4.10-14.10.1.s390x",
+								"product": {
+									"name": "apache2-prefork-2.4.10-14.10.1.s390x",
+									"product_id": "apache2-prefork-2.4.10-14.10.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "apache2-utils-2.4.10-14.10.1.s390x",
+								"product": {
+									"name": "apache2-utils-2.4.10-14.10.1.s390x",
+									"product_id": "apache2-utils-2.4.10-14.10.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "apache2-worker-2.4.10-14.10.1.s390x",
+								"product": {
+									"name": "apache2-worker-2.4.10-14.10.1.s390x",
+									"product_id": "apache2-worker-2.4.10-14.10.1.s390x"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "s390x"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "apache2-devel-2.4.10-14.10.1.x86_64",
+								"product": {
+									"name": "apache2-devel-2.4.10-14.10.1.x86_64",
+									"product_id": "apache2-devel-2.4.10-14.10.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "apache2-2.4.10-14.10.1.x86_64",
+								"product": {
+									"name": "apache2-2.4.10-14.10.1.x86_64",
+									"product_id": "apache2-2.4.10-14.10.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "apache2-example-pages-2.4.10-14.10.1.x86_64",
+								"product": {
+									"name": "apache2-example-pages-2.4.10-14.10.1.x86_64",
+									"product_id": "apache2-example-pages-2.4.10-14.10.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "apache2-mod_auth_kerb-5.4-2.4.1.x86_64",
+								"product": {
+									"name": "apache2-mod_auth_kerb-5.4-2.4.1.x86_64",
+									"product_id": "apache2-mod_auth_kerb-5.4-2.4.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "apache2-mod_jk-1.2.40-2.6.1.x86_64",
+								"product": {
+									"name": "apache2-mod_jk-1.2.40-2.6.1.x86_64",
+									"product_id": "apache2-mod_jk-1.2.40-2.6.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "apache2-mod_security2-2.8.0-3.4.1.x86_64",
+								"product": {
+									"name": "apache2-mod_security2-2.8.0-3.4.1.x86_64",
+									"product_id": "apache2-mod_security2-2.8.0-3.4.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "apache2-prefork-2.4.10-14.10.1.x86_64",
+								"product": {
+									"name": "apache2-prefork-2.4.10-14.10.1.x86_64",
+									"product_id": "apache2-prefork-2.4.10-14.10.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "apache2-utils-2.4.10-14.10.1.x86_64",
+								"product": {
+									"name": "apache2-utils-2.4.10-14.10.1.x86_64",
+									"product_id": "apache2-utils-2.4.10-14.10.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "apache2-worker-2.4.10-14.10.1.x86_64",
+								"product": {
+									"name": "apache2-worker-2.4.10-14.10.1.x86_64",
+									"product_id": "apache2-worker-2.4.10-14.10.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "apache2-mod_fastcgi-2.4.7-3.4.1.x86_64",
+								"product": {
+									"name": "apache2-mod_fastcgi-2.4.7-3.4.1.x86_64",
+									"product_id": "apache2-mod_fastcgi-2.4.7-3.4.1.x86_64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "x86_64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Software Development Kit 12",
+								"product": {
+									"name": "SUSE Linux Enterprise Software Development Kit 12",
+									"product_id": "SUSE Linux Enterprise Software Development Kit 12",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-sdk:12"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server 12",
+								"product": {
+									"name": "SUSE Linux Enterprise Server 12",
+									"product_id": "SUSE Linux Enterprise Server 12",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sles:12"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server for SAP Applications 12",
+								"product": {
+									"name": "SUSE Linux Enterprise Server for SAP Applications 12",
+									"product_id": "SUSE Linux Enterprise Server for SAP Applications 12",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sles_sap:12"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Enterprise Storage 1.0",
+								"product": {
+									"name": "SUSE Enterprise Storage 1.0",
+									"product_id": "SUSE Enterprise Storage 1.0",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:ses:1.0"
+									}
+								}
+							}
+						],
+						"category": "product_family",
+						"name": "SUSE Linux Enterprise"
+					}
+				],
+				"category": "vendor",
+				"name": "SUSE"
+			}
+		],
+		"relationships": [
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-devel-2.4.10-14.10.1.ppc64le as component of SUSE Linux Enterprise Software Development Kit 12",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 12:apache2-devel-2.4.10-14.10.1.ppc64le"
+				},
+				"product_reference": "apache2-devel-2.4.10-14.10.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-devel-2.4.10-14.10.1.s390x as component of SUSE Linux Enterprise Software Development Kit 12",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 12:apache2-devel-2.4.10-14.10.1.s390x"
+				},
+				"product_reference": "apache2-devel-2.4.10-14.10.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-devel-2.4.10-14.10.1.x86_64 as component of SUSE Linux Enterprise Software Development Kit 12",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 12:apache2-devel-2.4.10-14.10.1.x86_64"
+				},
+				"product_reference": "apache2-devel-2.4.10-14.10.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-2.4.10-14.10.1.ppc64le as component of SUSE Linux Enterprise Server 12",
+					"product_id": "SUSE Linux Enterprise Server 12:apache2-2.4.10-14.10.1.ppc64le"
+				},
+				"product_reference": "apache2-2.4.10-14.10.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-2.4.10-14.10.1.s390x as component of SUSE Linux Enterprise Server 12",
+					"product_id": "SUSE Linux Enterprise Server 12:apache2-2.4.10-14.10.1.s390x"
+				},
+				"product_reference": "apache2-2.4.10-14.10.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-2.4.10-14.10.1.x86_64 as component of SUSE Linux Enterprise Server 12",
+					"product_id": "SUSE Linux Enterprise Server 12:apache2-2.4.10-14.10.1.x86_64"
+				},
+				"product_reference": "apache2-2.4.10-14.10.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-doc-2.4.10-14.10.1.noarch as component of SUSE Linux Enterprise Server 12",
+					"product_id": "SUSE Linux Enterprise Server 12:apache2-doc-2.4.10-14.10.1.noarch"
+				},
+				"product_reference": "apache2-doc-2.4.10-14.10.1.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-example-pages-2.4.10-14.10.1.ppc64le as component of SUSE Linux Enterprise Server 12",
+					"product_id": "SUSE Linux Enterprise Server 12:apache2-example-pages-2.4.10-14.10.1.ppc64le"
+				},
+				"product_reference": "apache2-example-pages-2.4.10-14.10.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-example-pages-2.4.10-14.10.1.s390x as component of SUSE Linux Enterprise Server 12",
+					"product_id": "SUSE Linux Enterprise Server 12:apache2-example-pages-2.4.10-14.10.1.s390x"
+				},
+				"product_reference": "apache2-example-pages-2.4.10-14.10.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-example-pages-2.4.10-14.10.1.x86_64 as component of SUSE Linux Enterprise Server 12",
+					"product_id": "SUSE Linux Enterprise Server 12:apache2-example-pages-2.4.10-14.10.1.x86_64"
+				},
+				"product_reference": "apache2-example-pages-2.4.10-14.10.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-mod_auth_kerb-5.4-2.4.1.ppc64le as component of SUSE Linux Enterprise Server 12",
+					"product_id": "SUSE Linux Enterprise Server 12:apache2-mod_auth_kerb-5.4-2.4.1.ppc64le"
+				},
+				"product_reference": "apache2-mod_auth_kerb-5.4-2.4.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-mod_auth_kerb-5.4-2.4.1.s390x as component of SUSE Linux Enterprise Server 12",
+					"product_id": "SUSE Linux Enterprise Server 12:apache2-mod_auth_kerb-5.4-2.4.1.s390x"
+				},
+				"product_reference": "apache2-mod_auth_kerb-5.4-2.4.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-mod_auth_kerb-5.4-2.4.1.x86_64 as component of SUSE Linux Enterprise Server 12",
+					"product_id": "SUSE Linux Enterprise Server 12:apache2-mod_auth_kerb-5.4-2.4.1.x86_64"
+				},
+				"product_reference": "apache2-mod_auth_kerb-5.4-2.4.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-mod_jk-1.2.40-2.6.1.ppc64le as component of SUSE Linux Enterprise Server 12",
+					"product_id": "SUSE Linux Enterprise Server 12:apache2-mod_jk-1.2.40-2.6.1.ppc64le"
+				},
+				"product_reference": "apache2-mod_jk-1.2.40-2.6.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-mod_jk-1.2.40-2.6.1.s390x as component of SUSE Linux Enterprise Server 12",
+					"product_id": "SUSE Linux Enterprise Server 12:apache2-mod_jk-1.2.40-2.6.1.s390x"
+				},
+				"product_reference": "apache2-mod_jk-1.2.40-2.6.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-mod_jk-1.2.40-2.6.1.x86_64 as component of SUSE Linux Enterprise Server 12",
+					"product_id": "SUSE Linux Enterprise Server 12:apache2-mod_jk-1.2.40-2.6.1.x86_64"
+				},
+				"product_reference": "apache2-mod_jk-1.2.40-2.6.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-mod_security2-2.8.0-3.4.1.ppc64le as component of SUSE Linux Enterprise Server 12",
+					"product_id": "SUSE Linux Enterprise Server 12:apache2-mod_security2-2.8.0-3.4.1.ppc64le"
+				},
+				"product_reference": "apache2-mod_security2-2.8.0-3.4.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-mod_security2-2.8.0-3.4.1.s390x as component of SUSE Linux Enterprise Server 12",
+					"product_id": "SUSE Linux Enterprise Server 12:apache2-mod_security2-2.8.0-3.4.1.s390x"
+				},
+				"product_reference": "apache2-mod_security2-2.8.0-3.4.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-mod_security2-2.8.0-3.4.1.x86_64 as component of SUSE Linux Enterprise Server 12",
+					"product_id": "SUSE Linux Enterprise Server 12:apache2-mod_security2-2.8.0-3.4.1.x86_64"
+				},
+				"product_reference": "apache2-mod_security2-2.8.0-3.4.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-prefork-2.4.10-14.10.1.ppc64le as component of SUSE Linux Enterprise Server 12",
+					"product_id": "SUSE Linux Enterprise Server 12:apache2-prefork-2.4.10-14.10.1.ppc64le"
+				},
+				"product_reference": "apache2-prefork-2.4.10-14.10.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-prefork-2.4.10-14.10.1.s390x as component of SUSE Linux Enterprise Server 12",
+					"product_id": "SUSE Linux Enterprise Server 12:apache2-prefork-2.4.10-14.10.1.s390x"
+				},
+				"product_reference": "apache2-prefork-2.4.10-14.10.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-prefork-2.4.10-14.10.1.x86_64 as component of SUSE Linux Enterprise Server 12",
+					"product_id": "SUSE Linux Enterprise Server 12:apache2-prefork-2.4.10-14.10.1.x86_64"
+				},
+				"product_reference": "apache2-prefork-2.4.10-14.10.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-utils-2.4.10-14.10.1.ppc64le as component of SUSE Linux Enterprise Server 12",
+					"product_id": "SUSE Linux Enterprise Server 12:apache2-utils-2.4.10-14.10.1.ppc64le"
+				},
+				"product_reference": "apache2-utils-2.4.10-14.10.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-utils-2.4.10-14.10.1.s390x as component of SUSE Linux Enterprise Server 12",
+					"product_id": "SUSE Linux Enterprise Server 12:apache2-utils-2.4.10-14.10.1.s390x"
+				},
+				"product_reference": "apache2-utils-2.4.10-14.10.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-utils-2.4.10-14.10.1.x86_64 as component of SUSE Linux Enterprise Server 12",
+					"product_id": "SUSE Linux Enterprise Server 12:apache2-utils-2.4.10-14.10.1.x86_64"
+				},
+				"product_reference": "apache2-utils-2.4.10-14.10.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-worker-2.4.10-14.10.1.ppc64le as component of SUSE Linux Enterprise Server 12",
+					"product_id": "SUSE Linux Enterprise Server 12:apache2-worker-2.4.10-14.10.1.ppc64le"
+				},
+				"product_reference": "apache2-worker-2.4.10-14.10.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-worker-2.4.10-14.10.1.s390x as component of SUSE Linux Enterprise Server 12",
+					"product_id": "SUSE Linux Enterprise Server 12:apache2-worker-2.4.10-14.10.1.s390x"
+				},
+				"product_reference": "apache2-worker-2.4.10-14.10.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-worker-2.4.10-14.10.1.x86_64 as component of SUSE Linux Enterprise Server 12",
+					"product_id": "SUSE Linux Enterprise Server 12:apache2-worker-2.4.10-14.10.1.x86_64"
+				},
+				"product_reference": "apache2-worker-2.4.10-14.10.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-2.4.10-14.10.1.ppc64le as component of SUSE Linux Enterprise Server for SAP Applications 12",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12:apache2-2.4.10-14.10.1.ppc64le"
+				},
+				"product_reference": "apache2-2.4.10-14.10.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-2.4.10-14.10.1.s390x as component of SUSE Linux Enterprise Server for SAP Applications 12",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12:apache2-2.4.10-14.10.1.s390x"
+				},
+				"product_reference": "apache2-2.4.10-14.10.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-2.4.10-14.10.1.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 12",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12:apache2-2.4.10-14.10.1.x86_64"
+				},
+				"product_reference": "apache2-2.4.10-14.10.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-doc-2.4.10-14.10.1.noarch as component of SUSE Linux Enterprise Server for SAP Applications 12",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12:apache2-doc-2.4.10-14.10.1.noarch"
+				},
+				"product_reference": "apache2-doc-2.4.10-14.10.1.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-example-pages-2.4.10-14.10.1.ppc64le as component of SUSE Linux Enterprise Server for SAP Applications 12",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12:apache2-example-pages-2.4.10-14.10.1.ppc64le"
+				},
+				"product_reference": "apache2-example-pages-2.4.10-14.10.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-example-pages-2.4.10-14.10.1.s390x as component of SUSE Linux Enterprise Server for SAP Applications 12",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12:apache2-example-pages-2.4.10-14.10.1.s390x"
+				},
+				"product_reference": "apache2-example-pages-2.4.10-14.10.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-example-pages-2.4.10-14.10.1.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 12",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12:apache2-example-pages-2.4.10-14.10.1.x86_64"
+				},
+				"product_reference": "apache2-example-pages-2.4.10-14.10.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-mod_auth_kerb-5.4-2.4.1.ppc64le as component of SUSE Linux Enterprise Server for SAP Applications 12",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_auth_kerb-5.4-2.4.1.ppc64le"
+				},
+				"product_reference": "apache2-mod_auth_kerb-5.4-2.4.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-mod_auth_kerb-5.4-2.4.1.s390x as component of SUSE Linux Enterprise Server for SAP Applications 12",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_auth_kerb-5.4-2.4.1.s390x"
+				},
+				"product_reference": "apache2-mod_auth_kerb-5.4-2.4.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-mod_auth_kerb-5.4-2.4.1.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 12",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_auth_kerb-5.4-2.4.1.x86_64"
+				},
+				"product_reference": "apache2-mod_auth_kerb-5.4-2.4.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-mod_jk-1.2.40-2.6.1.ppc64le as component of SUSE Linux Enterprise Server for SAP Applications 12",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_jk-1.2.40-2.6.1.ppc64le"
+				},
+				"product_reference": "apache2-mod_jk-1.2.40-2.6.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-mod_jk-1.2.40-2.6.1.s390x as component of SUSE Linux Enterprise Server for SAP Applications 12",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_jk-1.2.40-2.6.1.s390x"
+				},
+				"product_reference": "apache2-mod_jk-1.2.40-2.6.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-mod_jk-1.2.40-2.6.1.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 12",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_jk-1.2.40-2.6.1.x86_64"
+				},
+				"product_reference": "apache2-mod_jk-1.2.40-2.6.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-mod_security2-2.8.0-3.4.1.ppc64le as component of SUSE Linux Enterprise Server for SAP Applications 12",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_security2-2.8.0-3.4.1.ppc64le"
+				},
+				"product_reference": "apache2-mod_security2-2.8.0-3.4.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-mod_security2-2.8.0-3.4.1.s390x as component of SUSE Linux Enterprise Server for SAP Applications 12",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_security2-2.8.0-3.4.1.s390x"
+				},
+				"product_reference": "apache2-mod_security2-2.8.0-3.4.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-mod_security2-2.8.0-3.4.1.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 12",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_security2-2.8.0-3.4.1.x86_64"
+				},
+				"product_reference": "apache2-mod_security2-2.8.0-3.4.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-prefork-2.4.10-14.10.1.ppc64le as component of SUSE Linux Enterprise Server for SAP Applications 12",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12:apache2-prefork-2.4.10-14.10.1.ppc64le"
+				},
+				"product_reference": "apache2-prefork-2.4.10-14.10.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-prefork-2.4.10-14.10.1.s390x as component of SUSE Linux Enterprise Server for SAP Applications 12",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12:apache2-prefork-2.4.10-14.10.1.s390x"
+				},
+				"product_reference": "apache2-prefork-2.4.10-14.10.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-prefork-2.4.10-14.10.1.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 12",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12:apache2-prefork-2.4.10-14.10.1.x86_64"
+				},
+				"product_reference": "apache2-prefork-2.4.10-14.10.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-utils-2.4.10-14.10.1.ppc64le as component of SUSE Linux Enterprise Server for SAP Applications 12",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12:apache2-utils-2.4.10-14.10.1.ppc64le"
+				},
+				"product_reference": "apache2-utils-2.4.10-14.10.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-utils-2.4.10-14.10.1.s390x as component of SUSE Linux Enterprise Server for SAP Applications 12",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12:apache2-utils-2.4.10-14.10.1.s390x"
+				},
+				"product_reference": "apache2-utils-2.4.10-14.10.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-utils-2.4.10-14.10.1.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 12",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12:apache2-utils-2.4.10-14.10.1.x86_64"
+				},
+				"product_reference": "apache2-utils-2.4.10-14.10.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-worker-2.4.10-14.10.1.ppc64le as component of SUSE Linux Enterprise Server for SAP Applications 12",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12:apache2-worker-2.4.10-14.10.1.ppc64le"
+				},
+				"product_reference": "apache2-worker-2.4.10-14.10.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-worker-2.4.10-14.10.1.s390x as component of SUSE Linux Enterprise Server for SAP Applications 12",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12:apache2-worker-2.4.10-14.10.1.s390x"
+				},
+				"product_reference": "apache2-worker-2.4.10-14.10.1.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-worker-2.4.10-14.10.1.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 12",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12:apache2-worker-2.4.10-14.10.1.x86_64"
+				},
+				"product_reference": "apache2-worker-2.4.10-14.10.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "apache2-mod_fastcgi-2.4.7-3.4.1.x86_64 as component of SUSE Enterprise Storage 1.0",
+					"product_id": "SUSE Enterprise Storage 1.0:apache2-mod_fastcgi-2.4.7-3.4.1.x86_64"
+				},
+				"product_reference": "apache2-mod_fastcgi-2.4.7-3.4.1.x86_64",
+				"relates_to_product_reference": "SUSE Enterprise Storage 1.0"
+			}
+		]
+	},
+	"vulnerabilities": [
+		{
+			"cve": "CVE-2014-8111",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2014-8111"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Apache Tomcat Connectors (mod_jk) before 1.2.41 ignores JkUnmount rules for subtrees of previous JkMount rules, which allows remote attackers to access otherwise restricted artifacts via unspecified vectors.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Enterprise Storage 1.0:apache2-mod_fastcgi-2.4.7-3.4.1.x86_64",
+					"SUSE Linux Enterprise Server 12:apache2-2.4.10-14.10.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:apache2-2.4.10-14.10.1.s390x",
+					"SUSE Linux Enterprise Server 12:apache2-2.4.10-14.10.1.x86_64",
+					"SUSE Linux Enterprise Server 12:apache2-doc-2.4.10-14.10.1.noarch",
+					"SUSE Linux Enterprise Server 12:apache2-example-pages-2.4.10-14.10.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:apache2-example-pages-2.4.10-14.10.1.s390x",
+					"SUSE Linux Enterprise Server 12:apache2-example-pages-2.4.10-14.10.1.x86_64",
+					"SUSE Linux Enterprise Server 12:apache2-mod_auth_kerb-5.4-2.4.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:apache2-mod_auth_kerb-5.4-2.4.1.s390x",
+					"SUSE Linux Enterprise Server 12:apache2-mod_auth_kerb-5.4-2.4.1.x86_64",
+					"SUSE Linux Enterprise Server 12:apache2-mod_jk-1.2.40-2.6.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:apache2-mod_jk-1.2.40-2.6.1.s390x",
+					"SUSE Linux Enterprise Server 12:apache2-mod_jk-1.2.40-2.6.1.x86_64",
+					"SUSE Linux Enterprise Server 12:apache2-mod_security2-2.8.0-3.4.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:apache2-mod_security2-2.8.0-3.4.1.s390x",
+					"SUSE Linux Enterprise Server 12:apache2-mod_security2-2.8.0-3.4.1.x86_64",
+					"SUSE Linux Enterprise Server 12:apache2-prefork-2.4.10-14.10.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:apache2-prefork-2.4.10-14.10.1.s390x",
+					"SUSE Linux Enterprise Server 12:apache2-prefork-2.4.10-14.10.1.x86_64",
+					"SUSE Linux Enterprise Server 12:apache2-utils-2.4.10-14.10.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:apache2-utils-2.4.10-14.10.1.s390x",
+					"SUSE Linux Enterprise Server 12:apache2-utils-2.4.10-14.10.1.x86_64",
+					"SUSE Linux Enterprise Server 12:apache2-worker-2.4.10-14.10.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:apache2-worker-2.4.10-14.10.1.s390x",
+					"SUSE Linux Enterprise Server 12:apache2-worker-2.4.10-14.10.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-2.4.10-14.10.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-2.4.10-14.10.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-2.4.10-14.10.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-doc-2.4.10-14.10.1.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-example-pages-2.4.10-14.10.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-example-pages-2.4.10-14.10.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-example-pages-2.4.10-14.10.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_auth_kerb-5.4-2.4.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_auth_kerb-5.4-2.4.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_auth_kerb-5.4-2.4.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_jk-1.2.40-2.6.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_jk-1.2.40-2.6.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_jk-1.2.40-2.6.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_security2-2.8.0-3.4.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_security2-2.8.0-3.4.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_security2-2.8.0-3.4.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-prefork-2.4.10-14.10.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-prefork-2.4.10-14.10.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-prefork-2.4.10-14.10.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-utils-2.4.10-14.10.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-utils-2.4.10-14.10.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-utils-2.4.10-14.10.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-worker-2.4.10-14.10.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-worker-2.4.10-14.10.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-worker-2.4.10-14.10.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 12:apache2-devel-2.4.10-14.10.1.ppc64le",
+					"SUSE Linux Enterprise Software Development Kit 12:apache2-devel-2.4.10-14.10.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 12:apache2-devel-2.4.10-14.10.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2014-8111",
+					"url": "https://www.suse.com/security/cve/CVE-2014-8111"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 927845 for CVE-2014-8111",
+					"url": "https://bugzilla.suse.com/927845"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Enterprise Storage 1.0:apache2-mod_fastcgi-2.4.7-3.4.1.x86_64",
+						"SUSE Linux Enterprise Server 12:apache2-2.4.10-14.10.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:apache2-2.4.10-14.10.1.s390x",
+						"SUSE Linux Enterprise Server 12:apache2-2.4.10-14.10.1.x86_64",
+						"SUSE Linux Enterprise Server 12:apache2-doc-2.4.10-14.10.1.noarch",
+						"SUSE Linux Enterprise Server 12:apache2-example-pages-2.4.10-14.10.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:apache2-example-pages-2.4.10-14.10.1.s390x",
+						"SUSE Linux Enterprise Server 12:apache2-example-pages-2.4.10-14.10.1.x86_64",
+						"SUSE Linux Enterprise Server 12:apache2-mod_auth_kerb-5.4-2.4.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:apache2-mod_auth_kerb-5.4-2.4.1.s390x",
+						"SUSE Linux Enterprise Server 12:apache2-mod_auth_kerb-5.4-2.4.1.x86_64",
+						"SUSE Linux Enterprise Server 12:apache2-mod_jk-1.2.40-2.6.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:apache2-mod_jk-1.2.40-2.6.1.s390x",
+						"SUSE Linux Enterprise Server 12:apache2-mod_jk-1.2.40-2.6.1.x86_64",
+						"SUSE Linux Enterprise Server 12:apache2-mod_security2-2.8.0-3.4.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:apache2-mod_security2-2.8.0-3.4.1.s390x",
+						"SUSE Linux Enterprise Server 12:apache2-mod_security2-2.8.0-3.4.1.x86_64",
+						"SUSE Linux Enterprise Server 12:apache2-prefork-2.4.10-14.10.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:apache2-prefork-2.4.10-14.10.1.s390x",
+						"SUSE Linux Enterprise Server 12:apache2-prefork-2.4.10-14.10.1.x86_64",
+						"SUSE Linux Enterprise Server 12:apache2-utils-2.4.10-14.10.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:apache2-utils-2.4.10-14.10.1.s390x",
+						"SUSE Linux Enterprise Server 12:apache2-utils-2.4.10-14.10.1.x86_64",
+						"SUSE Linux Enterprise Server 12:apache2-worker-2.4.10-14.10.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:apache2-worker-2.4.10-14.10.1.s390x",
+						"SUSE Linux Enterprise Server 12:apache2-worker-2.4.10-14.10.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-2.4.10-14.10.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-2.4.10-14.10.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-2.4.10-14.10.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-doc-2.4.10-14.10.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-example-pages-2.4.10-14.10.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-example-pages-2.4.10-14.10.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-example-pages-2.4.10-14.10.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_auth_kerb-5.4-2.4.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_auth_kerb-5.4-2.4.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_auth_kerb-5.4-2.4.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_jk-1.2.40-2.6.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_jk-1.2.40-2.6.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_jk-1.2.40-2.6.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_security2-2.8.0-3.4.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_security2-2.8.0-3.4.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_security2-2.8.0-3.4.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-prefork-2.4.10-14.10.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-prefork-2.4.10-14.10.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-prefork-2.4.10-14.10.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-utils-2.4.10-14.10.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-utils-2.4.10-14.10.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-utils-2.4.10-14.10.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-worker-2.4.10-14.10.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-worker-2.4.10-14.10.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-worker-2.4.10-14.10.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12:apache2-devel-2.4.10-14.10.1.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12:apache2-devel-2.4.10-14.10.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12:apache2-devel-2.4.10-14.10.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2015-10-22T09:19:23Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2014-8111"
+		},
+		{
+			"cve": "CVE-2015-3183",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-3183"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The chunked transfer coding implementation in the Apache HTTP Server before 2.4.14 does not properly parse chunk headers, which allows remote attackers to conduct HTTP request smuggling attacks via a crafted request, related to mishandling of large chunk-size values and invalid chunk-extension characters in modules/http/http_filters.c.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Enterprise Storage 1.0:apache2-mod_fastcgi-2.4.7-3.4.1.x86_64",
+					"SUSE Linux Enterprise Server 12:apache2-2.4.10-14.10.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:apache2-2.4.10-14.10.1.s390x",
+					"SUSE Linux Enterprise Server 12:apache2-2.4.10-14.10.1.x86_64",
+					"SUSE Linux Enterprise Server 12:apache2-doc-2.4.10-14.10.1.noarch",
+					"SUSE Linux Enterprise Server 12:apache2-example-pages-2.4.10-14.10.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:apache2-example-pages-2.4.10-14.10.1.s390x",
+					"SUSE Linux Enterprise Server 12:apache2-example-pages-2.4.10-14.10.1.x86_64",
+					"SUSE Linux Enterprise Server 12:apache2-mod_auth_kerb-5.4-2.4.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:apache2-mod_auth_kerb-5.4-2.4.1.s390x",
+					"SUSE Linux Enterprise Server 12:apache2-mod_auth_kerb-5.4-2.4.1.x86_64",
+					"SUSE Linux Enterprise Server 12:apache2-mod_jk-1.2.40-2.6.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:apache2-mod_jk-1.2.40-2.6.1.s390x",
+					"SUSE Linux Enterprise Server 12:apache2-mod_jk-1.2.40-2.6.1.x86_64",
+					"SUSE Linux Enterprise Server 12:apache2-mod_security2-2.8.0-3.4.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:apache2-mod_security2-2.8.0-3.4.1.s390x",
+					"SUSE Linux Enterprise Server 12:apache2-mod_security2-2.8.0-3.4.1.x86_64",
+					"SUSE Linux Enterprise Server 12:apache2-prefork-2.4.10-14.10.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:apache2-prefork-2.4.10-14.10.1.s390x",
+					"SUSE Linux Enterprise Server 12:apache2-prefork-2.4.10-14.10.1.x86_64",
+					"SUSE Linux Enterprise Server 12:apache2-utils-2.4.10-14.10.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:apache2-utils-2.4.10-14.10.1.s390x",
+					"SUSE Linux Enterprise Server 12:apache2-utils-2.4.10-14.10.1.x86_64",
+					"SUSE Linux Enterprise Server 12:apache2-worker-2.4.10-14.10.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:apache2-worker-2.4.10-14.10.1.s390x",
+					"SUSE Linux Enterprise Server 12:apache2-worker-2.4.10-14.10.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-2.4.10-14.10.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-2.4.10-14.10.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-2.4.10-14.10.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-doc-2.4.10-14.10.1.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-example-pages-2.4.10-14.10.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-example-pages-2.4.10-14.10.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-example-pages-2.4.10-14.10.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_auth_kerb-5.4-2.4.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_auth_kerb-5.4-2.4.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_auth_kerb-5.4-2.4.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_jk-1.2.40-2.6.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_jk-1.2.40-2.6.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_jk-1.2.40-2.6.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_security2-2.8.0-3.4.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_security2-2.8.0-3.4.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_security2-2.8.0-3.4.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-prefork-2.4.10-14.10.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-prefork-2.4.10-14.10.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-prefork-2.4.10-14.10.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-utils-2.4.10-14.10.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-utils-2.4.10-14.10.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-utils-2.4.10-14.10.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-worker-2.4.10-14.10.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-worker-2.4.10-14.10.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-worker-2.4.10-14.10.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 12:apache2-devel-2.4.10-14.10.1.ppc64le",
+					"SUSE Linux Enterprise Software Development Kit 12:apache2-devel-2.4.10-14.10.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 12:apache2-devel-2.4.10-14.10.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-3183",
+					"url": "https://www.suse.com/security/cve/CVE-2015-3183"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 938728 for CVE-2015-3183",
+					"url": "https://bugzilla.suse.com/938728"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 948325 for CVE-2015-3183",
+					"url": "https://bugzilla.suse.com/948325"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 949218 for CVE-2015-3183",
+					"url": "https://bugzilla.suse.com/949218"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Enterprise Storage 1.0:apache2-mod_fastcgi-2.4.7-3.4.1.x86_64",
+						"SUSE Linux Enterprise Server 12:apache2-2.4.10-14.10.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:apache2-2.4.10-14.10.1.s390x",
+						"SUSE Linux Enterprise Server 12:apache2-2.4.10-14.10.1.x86_64",
+						"SUSE Linux Enterprise Server 12:apache2-doc-2.4.10-14.10.1.noarch",
+						"SUSE Linux Enterprise Server 12:apache2-example-pages-2.4.10-14.10.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:apache2-example-pages-2.4.10-14.10.1.s390x",
+						"SUSE Linux Enterprise Server 12:apache2-example-pages-2.4.10-14.10.1.x86_64",
+						"SUSE Linux Enterprise Server 12:apache2-mod_auth_kerb-5.4-2.4.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:apache2-mod_auth_kerb-5.4-2.4.1.s390x",
+						"SUSE Linux Enterprise Server 12:apache2-mod_auth_kerb-5.4-2.4.1.x86_64",
+						"SUSE Linux Enterprise Server 12:apache2-mod_jk-1.2.40-2.6.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:apache2-mod_jk-1.2.40-2.6.1.s390x",
+						"SUSE Linux Enterprise Server 12:apache2-mod_jk-1.2.40-2.6.1.x86_64",
+						"SUSE Linux Enterprise Server 12:apache2-mod_security2-2.8.0-3.4.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:apache2-mod_security2-2.8.0-3.4.1.s390x",
+						"SUSE Linux Enterprise Server 12:apache2-mod_security2-2.8.0-3.4.1.x86_64",
+						"SUSE Linux Enterprise Server 12:apache2-prefork-2.4.10-14.10.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:apache2-prefork-2.4.10-14.10.1.s390x",
+						"SUSE Linux Enterprise Server 12:apache2-prefork-2.4.10-14.10.1.x86_64",
+						"SUSE Linux Enterprise Server 12:apache2-utils-2.4.10-14.10.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:apache2-utils-2.4.10-14.10.1.s390x",
+						"SUSE Linux Enterprise Server 12:apache2-utils-2.4.10-14.10.1.x86_64",
+						"SUSE Linux Enterprise Server 12:apache2-worker-2.4.10-14.10.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:apache2-worker-2.4.10-14.10.1.s390x",
+						"SUSE Linux Enterprise Server 12:apache2-worker-2.4.10-14.10.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-2.4.10-14.10.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-2.4.10-14.10.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-2.4.10-14.10.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-doc-2.4.10-14.10.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-example-pages-2.4.10-14.10.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-example-pages-2.4.10-14.10.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-example-pages-2.4.10-14.10.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_auth_kerb-5.4-2.4.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_auth_kerb-5.4-2.4.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_auth_kerb-5.4-2.4.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_jk-1.2.40-2.6.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_jk-1.2.40-2.6.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_jk-1.2.40-2.6.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_security2-2.8.0-3.4.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_security2-2.8.0-3.4.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_security2-2.8.0-3.4.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-prefork-2.4.10-14.10.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-prefork-2.4.10-14.10.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-prefork-2.4.10-14.10.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-utils-2.4.10-14.10.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-utils-2.4.10-14.10.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-utils-2.4.10-14.10.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-worker-2.4.10-14.10.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-worker-2.4.10-14.10.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-worker-2.4.10-14.10.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12:apache2-devel-2.4.10-14.10.1.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12:apache2-devel-2.4.10-14.10.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12:apache2-devel-2.4.10-14.10.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2015-10-22T09:19:23Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2015-3183"
+		},
+		{
+			"cve": "CVE-2015-3185",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-3185"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The ap_some_auth_required function in server/request.c in the Apache HTTP Server 2.4.x before 2.4.14 does not consider that a Require directive may be associated with an authorization setting rather than an authentication setting, which allows remote attackers to bypass intended access restrictions in opportunistic circumstances by leveraging the presence of a module that relies on the 2.2 API behavior.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Enterprise Storage 1.0:apache2-mod_fastcgi-2.4.7-3.4.1.x86_64",
+					"SUSE Linux Enterprise Server 12:apache2-2.4.10-14.10.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:apache2-2.4.10-14.10.1.s390x",
+					"SUSE Linux Enterprise Server 12:apache2-2.4.10-14.10.1.x86_64",
+					"SUSE Linux Enterprise Server 12:apache2-doc-2.4.10-14.10.1.noarch",
+					"SUSE Linux Enterprise Server 12:apache2-example-pages-2.4.10-14.10.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:apache2-example-pages-2.4.10-14.10.1.s390x",
+					"SUSE Linux Enterprise Server 12:apache2-example-pages-2.4.10-14.10.1.x86_64",
+					"SUSE Linux Enterprise Server 12:apache2-mod_auth_kerb-5.4-2.4.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:apache2-mod_auth_kerb-5.4-2.4.1.s390x",
+					"SUSE Linux Enterprise Server 12:apache2-mod_auth_kerb-5.4-2.4.1.x86_64",
+					"SUSE Linux Enterprise Server 12:apache2-mod_jk-1.2.40-2.6.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:apache2-mod_jk-1.2.40-2.6.1.s390x",
+					"SUSE Linux Enterprise Server 12:apache2-mod_jk-1.2.40-2.6.1.x86_64",
+					"SUSE Linux Enterprise Server 12:apache2-mod_security2-2.8.0-3.4.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:apache2-mod_security2-2.8.0-3.4.1.s390x",
+					"SUSE Linux Enterprise Server 12:apache2-mod_security2-2.8.0-3.4.1.x86_64",
+					"SUSE Linux Enterprise Server 12:apache2-prefork-2.4.10-14.10.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:apache2-prefork-2.4.10-14.10.1.s390x",
+					"SUSE Linux Enterprise Server 12:apache2-prefork-2.4.10-14.10.1.x86_64",
+					"SUSE Linux Enterprise Server 12:apache2-utils-2.4.10-14.10.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:apache2-utils-2.4.10-14.10.1.s390x",
+					"SUSE Linux Enterprise Server 12:apache2-utils-2.4.10-14.10.1.x86_64",
+					"SUSE Linux Enterprise Server 12:apache2-worker-2.4.10-14.10.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:apache2-worker-2.4.10-14.10.1.s390x",
+					"SUSE Linux Enterprise Server 12:apache2-worker-2.4.10-14.10.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-2.4.10-14.10.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-2.4.10-14.10.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-2.4.10-14.10.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-doc-2.4.10-14.10.1.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-example-pages-2.4.10-14.10.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-example-pages-2.4.10-14.10.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-example-pages-2.4.10-14.10.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_auth_kerb-5.4-2.4.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_auth_kerb-5.4-2.4.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_auth_kerb-5.4-2.4.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_jk-1.2.40-2.6.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_jk-1.2.40-2.6.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_jk-1.2.40-2.6.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_security2-2.8.0-3.4.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_security2-2.8.0-3.4.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_security2-2.8.0-3.4.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-prefork-2.4.10-14.10.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-prefork-2.4.10-14.10.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-prefork-2.4.10-14.10.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-utils-2.4.10-14.10.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-utils-2.4.10-14.10.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-utils-2.4.10-14.10.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-worker-2.4.10-14.10.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-worker-2.4.10-14.10.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-worker-2.4.10-14.10.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 12:apache2-devel-2.4.10-14.10.1.ppc64le",
+					"SUSE Linux Enterprise Software Development Kit 12:apache2-devel-2.4.10-14.10.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 12:apache2-devel-2.4.10-14.10.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-3185",
+					"url": "https://www.suse.com/security/cve/CVE-2015-3185"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 938723 for CVE-2015-3185",
+					"url": "https://bugzilla.suse.com/938723"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 939514 for CVE-2015-3185",
+					"url": "https://bugzilla.suse.com/939514"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 939516 for CVE-2015-3185",
+					"url": "https://bugzilla.suse.com/939516"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Enterprise Storage 1.0:apache2-mod_fastcgi-2.4.7-3.4.1.x86_64",
+						"SUSE Linux Enterprise Server 12:apache2-2.4.10-14.10.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:apache2-2.4.10-14.10.1.s390x",
+						"SUSE Linux Enterprise Server 12:apache2-2.4.10-14.10.1.x86_64",
+						"SUSE Linux Enterprise Server 12:apache2-doc-2.4.10-14.10.1.noarch",
+						"SUSE Linux Enterprise Server 12:apache2-example-pages-2.4.10-14.10.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:apache2-example-pages-2.4.10-14.10.1.s390x",
+						"SUSE Linux Enterprise Server 12:apache2-example-pages-2.4.10-14.10.1.x86_64",
+						"SUSE Linux Enterprise Server 12:apache2-mod_auth_kerb-5.4-2.4.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:apache2-mod_auth_kerb-5.4-2.4.1.s390x",
+						"SUSE Linux Enterprise Server 12:apache2-mod_auth_kerb-5.4-2.4.1.x86_64",
+						"SUSE Linux Enterprise Server 12:apache2-mod_jk-1.2.40-2.6.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:apache2-mod_jk-1.2.40-2.6.1.s390x",
+						"SUSE Linux Enterprise Server 12:apache2-mod_jk-1.2.40-2.6.1.x86_64",
+						"SUSE Linux Enterprise Server 12:apache2-mod_security2-2.8.0-3.4.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:apache2-mod_security2-2.8.0-3.4.1.s390x",
+						"SUSE Linux Enterprise Server 12:apache2-mod_security2-2.8.0-3.4.1.x86_64",
+						"SUSE Linux Enterprise Server 12:apache2-prefork-2.4.10-14.10.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:apache2-prefork-2.4.10-14.10.1.s390x",
+						"SUSE Linux Enterprise Server 12:apache2-prefork-2.4.10-14.10.1.x86_64",
+						"SUSE Linux Enterprise Server 12:apache2-utils-2.4.10-14.10.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:apache2-utils-2.4.10-14.10.1.s390x",
+						"SUSE Linux Enterprise Server 12:apache2-utils-2.4.10-14.10.1.x86_64",
+						"SUSE Linux Enterprise Server 12:apache2-worker-2.4.10-14.10.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:apache2-worker-2.4.10-14.10.1.s390x",
+						"SUSE Linux Enterprise Server 12:apache2-worker-2.4.10-14.10.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-2.4.10-14.10.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-2.4.10-14.10.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-2.4.10-14.10.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-doc-2.4.10-14.10.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-example-pages-2.4.10-14.10.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-example-pages-2.4.10-14.10.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-example-pages-2.4.10-14.10.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_auth_kerb-5.4-2.4.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_auth_kerb-5.4-2.4.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_auth_kerb-5.4-2.4.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_jk-1.2.40-2.6.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_jk-1.2.40-2.6.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_jk-1.2.40-2.6.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_security2-2.8.0-3.4.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_security2-2.8.0-3.4.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_security2-2.8.0-3.4.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-prefork-2.4.10-14.10.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-prefork-2.4.10-14.10.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-prefork-2.4.10-14.10.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-utils-2.4.10-14.10.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-utils-2.4.10-14.10.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-utils-2.4.10-14.10.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-worker-2.4.10-14.10.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-worker-2.4.10-14.10.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-worker-2.4.10-14.10.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12:apache2-devel-2.4.10-14.10.1.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12:apache2-devel-2.4.10-14.10.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12:apache2-devel-2.4.10-14.10.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2015-10-22T09:19:23Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2015-3185"
+		},
+		{
+			"cve": "CVE-2015-4000",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-4000"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The TLS protocol 1.2 and earlier, when a DHE_EXPORT ciphersuite is enabled on a server but not on a client, does not properly convey a DHE_EXPORT choice, which allows man-in-the-middle attackers to conduct cipher-downgrade attacks by rewriting a ClientHello with DHE replaced by DHE_EXPORT and then rewriting a ServerHello with DHE_EXPORT replaced by DHE, aka the \"Logjam\" issue.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Enterprise Storage 1.0:apache2-mod_fastcgi-2.4.7-3.4.1.x86_64",
+					"SUSE Linux Enterprise Server 12:apache2-2.4.10-14.10.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:apache2-2.4.10-14.10.1.s390x",
+					"SUSE Linux Enterprise Server 12:apache2-2.4.10-14.10.1.x86_64",
+					"SUSE Linux Enterprise Server 12:apache2-doc-2.4.10-14.10.1.noarch",
+					"SUSE Linux Enterprise Server 12:apache2-example-pages-2.4.10-14.10.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:apache2-example-pages-2.4.10-14.10.1.s390x",
+					"SUSE Linux Enterprise Server 12:apache2-example-pages-2.4.10-14.10.1.x86_64",
+					"SUSE Linux Enterprise Server 12:apache2-mod_auth_kerb-5.4-2.4.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:apache2-mod_auth_kerb-5.4-2.4.1.s390x",
+					"SUSE Linux Enterprise Server 12:apache2-mod_auth_kerb-5.4-2.4.1.x86_64",
+					"SUSE Linux Enterprise Server 12:apache2-mod_jk-1.2.40-2.6.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:apache2-mod_jk-1.2.40-2.6.1.s390x",
+					"SUSE Linux Enterprise Server 12:apache2-mod_jk-1.2.40-2.6.1.x86_64",
+					"SUSE Linux Enterprise Server 12:apache2-mod_security2-2.8.0-3.4.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:apache2-mod_security2-2.8.0-3.4.1.s390x",
+					"SUSE Linux Enterprise Server 12:apache2-mod_security2-2.8.0-3.4.1.x86_64",
+					"SUSE Linux Enterprise Server 12:apache2-prefork-2.4.10-14.10.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:apache2-prefork-2.4.10-14.10.1.s390x",
+					"SUSE Linux Enterprise Server 12:apache2-prefork-2.4.10-14.10.1.x86_64",
+					"SUSE Linux Enterprise Server 12:apache2-utils-2.4.10-14.10.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:apache2-utils-2.4.10-14.10.1.s390x",
+					"SUSE Linux Enterprise Server 12:apache2-utils-2.4.10-14.10.1.x86_64",
+					"SUSE Linux Enterprise Server 12:apache2-worker-2.4.10-14.10.1.ppc64le",
+					"SUSE Linux Enterprise Server 12:apache2-worker-2.4.10-14.10.1.s390x",
+					"SUSE Linux Enterprise Server 12:apache2-worker-2.4.10-14.10.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-2.4.10-14.10.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-2.4.10-14.10.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-2.4.10-14.10.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-doc-2.4.10-14.10.1.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-example-pages-2.4.10-14.10.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-example-pages-2.4.10-14.10.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-example-pages-2.4.10-14.10.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_auth_kerb-5.4-2.4.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_auth_kerb-5.4-2.4.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_auth_kerb-5.4-2.4.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_jk-1.2.40-2.6.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_jk-1.2.40-2.6.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_jk-1.2.40-2.6.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_security2-2.8.0-3.4.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_security2-2.8.0-3.4.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_security2-2.8.0-3.4.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-prefork-2.4.10-14.10.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-prefork-2.4.10-14.10.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-prefork-2.4.10-14.10.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-utils-2.4.10-14.10.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-utils-2.4.10-14.10.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-utils-2.4.10-14.10.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-worker-2.4.10-14.10.1.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-worker-2.4.10-14.10.1.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:apache2-worker-2.4.10-14.10.1.x86_64",
+					"SUSE Linux Enterprise Software Development Kit 12:apache2-devel-2.4.10-14.10.1.ppc64le",
+					"SUSE Linux Enterprise Software Development Kit 12:apache2-devel-2.4.10-14.10.1.s390x",
+					"SUSE Linux Enterprise Software Development Kit 12:apache2-devel-2.4.10-14.10.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-4000",
+					"url": "https://www.suse.com/security/cve/CVE-2015-4000"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1074631 for CVE-2015-4000",
+					"url": "https://bugzilla.suse.com/1074631"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1211968 for CVE-2015-4000",
+					"url": "https://bugzilla.suse.com/1211968"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 931600 for CVE-2015-4000",
+					"url": "https://bugzilla.suse.com/931600"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 931698 for CVE-2015-4000",
+					"url": "https://bugzilla.suse.com/931698"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 931723 for CVE-2015-4000",
+					"url": "https://bugzilla.suse.com/931723"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 931845 for CVE-2015-4000",
+					"url": "https://bugzilla.suse.com/931845"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 932026 for CVE-2015-4000",
+					"url": "https://bugzilla.suse.com/932026"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 932483 for CVE-2015-4000",
+					"url": "https://bugzilla.suse.com/932483"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 934789 for CVE-2015-4000",
+					"url": "https://bugzilla.suse.com/934789"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 935033 for CVE-2015-4000",
+					"url": "https://bugzilla.suse.com/935033"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 935540 for CVE-2015-4000",
+					"url": "https://bugzilla.suse.com/935540"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 935979 for CVE-2015-4000",
+					"url": "https://bugzilla.suse.com/935979"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 937202 for CVE-2015-4000",
+					"url": "https://bugzilla.suse.com/937202"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 937766 for CVE-2015-4000",
+					"url": "https://bugzilla.suse.com/937766"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 938248 for CVE-2015-4000",
+					"url": "https://bugzilla.suse.com/938248"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 938432 for CVE-2015-4000",
+					"url": "https://bugzilla.suse.com/938432"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 938895 for CVE-2015-4000",
+					"url": "https://bugzilla.suse.com/938895"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 938905 for CVE-2015-4000",
+					"url": "https://bugzilla.suse.com/938905"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 938906 for CVE-2015-4000",
+					"url": "https://bugzilla.suse.com/938906"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 938913 for CVE-2015-4000",
+					"url": "https://bugzilla.suse.com/938913"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 938945 for CVE-2015-4000",
+					"url": "https://bugzilla.suse.com/938945"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 943664 for CVE-2015-4000",
+					"url": "https://bugzilla.suse.com/943664"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 944729 for CVE-2015-4000",
+					"url": "https://bugzilla.suse.com/944729"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 945582 for CVE-2015-4000",
+					"url": "https://bugzilla.suse.com/945582"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 955589 for CVE-2015-4000",
+					"url": "https://bugzilla.suse.com/955589"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 980406 for CVE-2015-4000",
+					"url": "https://bugzilla.suse.com/980406"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 990592 for CVE-2015-4000",
+					"url": "https://bugzilla.suse.com/990592"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 994144 for CVE-2015-4000",
+					"url": "https://bugzilla.suse.com/994144"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Enterprise Storage 1.0:apache2-mod_fastcgi-2.4.7-3.4.1.x86_64",
+						"SUSE Linux Enterprise Server 12:apache2-2.4.10-14.10.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:apache2-2.4.10-14.10.1.s390x",
+						"SUSE Linux Enterprise Server 12:apache2-2.4.10-14.10.1.x86_64",
+						"SUSE Linux Enterprise Server 12:apache2-doc-2.4.10-14.10.1.noarch",
+						"SUSE Linux Enterprise Server 12:apache2-example-pages-2.4.10-14.10.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:apache2-example-pages-2.4.10-14.10.1.s390x",
+						"SUSE Linux Enterprise Server 12:apache2-example-pages-2.4.10-14.10.1.x86_64",
+						"SUSE Linux Enterprise Server 12:apache2-mod_auth_kerb-5.4-2.4.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:apache2-mod_auth_kerb-5.4-2.4.1.s390x",
+						"SUSE Linux Enterprise Server 12:apache2-mod_auth_kerb-5.4-2.4.1.x86_64",
+						"SUSE Linux Enterprise Server 12:apache2-mod_jk-1.2.40-2.6.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:apache2-mod_jk-1.2.40-2.6.1.s390x",
+						"SUSE Linux Enterprise Server 12:apache2-mod_jk-1.2.40-2.6.1.x86_64",
+						"SUSE Linux Enterprise Server 12:apache2-mod_security2-2.8.0-3.4.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:apache2-mod_security2-2.8.0-3.4.1.s390x",
+						"SUSE Linux Enterprise Server 12:apache2-mod_security2-2.8.0-3.4.1.x86_64",
+						"SUSE Linux Enterprise Server 12:apache2-prefork-2.4.10-14.10.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:apache2-prefork-2.4.10-14.10.1.s390x",
+						"SUSE Linux Enterprise Server 12:apache2-prefork-2.4.10-14.10.1.x86_64",
+						"SUSE Linux Enterprise Server 12:apache2-utils-2.4.10-14.10.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:apache2-utils-2.4.10-14.10.1.s390x",
+						"SUSE Linux Enterprise Server 12:apache2-utils-2.4.10-14.10.1.x86_64",
+						"SUSE Linux Enterprise Server 12:apache2-worker-2.4.10-14.10.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:apache2-worker-2.4.10-14.10.1.s390x",
+						"SUSE Linux Enterprise Server 12:apache2-worker-2.4.10-14.10.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-2.4.10-14.10.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-2.4.10-14.10.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-2.4.10-14.10.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-doc-2.4.10-14.10.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-example-pages-2.4.10-14.10.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-example-pages-2.4.10-14.10.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-example-pages-2.4.10-14.10.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_auth_kerb-5.4-2.4.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_auth_kerb-5.4-2.4.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_auth_kerb-5.4-2.4.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_jk-1.2.40-2.6.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_jk-1.2.40-2.6.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_jk-1.2.40-2.6.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_security2-2.8.0-3.4.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_security2-2.8.0-3.4.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_security2-2.8.0-3.4.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-prefork-2.4.10-14.10.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-prefork-2.4.10-14.10.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-prefork-2.4.10-14.10.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-utils-2.4.10-14.10.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-utils-2.4.10-14.10.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-utils-2.4.10-14.10.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-worker-2.4.10-14.10.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-worker-2.4.10-14.10.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-worker-2.4.10-14.10.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12:apache2-devel-2.4.10-14.10.1.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12:apache2-devel-2.4.10-14.10.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12:apache2-devel-2.4.10-14.10.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 3.7,
+						"baseSeverity": "LOW",
+						"vectorString": "CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Enterprise Storage 1.0:apache2-mod_fastcgi-2.4.7-3.4.1.x86_64",
+						"SUSE Linux Enterprise Server 12:apache2-2.4.10-14.10.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:apache2-2.4.10-14.10.1.s390x",
+						"SUSE Linux Enterprise Server 12:apache2-2.4.10-14.10.1.x86_64",
+						"SUSE Linux Enterprise Server 12:apache2-doc-2.4.10-14.10.1.noarch",
+						"SUSE Linux Enterprise Server 12:apache2-example-pages-2.4.10-14.10.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:apache2-example-pages-2.4.10-14.10.1.s390x",
+						"SUSE Linux Enterprise Server 12:apache2-example-pages-2.4.10-14.10.1.x86_64",
+						"SUSE Linux Enterprise Server 12:apache2-mod_auth_kerb-5.4-2.4.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:apache2-mod_auth_kerb-5.4-2.4.1.s390x",
+						"SUSE Linux Enterprise Server 12:apache2-mod_auth_kerb-5.4-2.4.1.x86_64",
+						"SUSE Linux Enterprise Server 12:apache2-mod_jk-1.2.40-2.6.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:apache2-mod_jk-1.2.40-2.6.1.s390x",
+						"SUSE Linux Enterprise Server 12:apache2-mod_jk-1.2.40-2.6.1.x86_64",
+						"SUSE Linux Enterprise Server 12:apache2-mod_security2-2.8.0-3.4.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:apache2-mod_security2-2.8.0-3.4.1.s390x",
+						"SUSE Linux Enterprise Server 12:apache2-mod_security2-2.8.0-3.4.1.x86_64",
+						"SUSE Linux Enterprise Server 12:apache2-prefork-2.4.10-14.10.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:apache2-prefork-2.4.10-14.10.1.s390x",
+						"SUSE Linux Enterprise Server 12:apache2-prefork-2.4.10-14.10.1.x86_64",
+						"SUSE Linux Enterprise Server 12:apache2-utils-2.4.10-14.10.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:apache2-utils-2.4.10-14.10.1.s390x",
+						"SUSE Linux Enterprise Server 12:apache2-utils-2.4.10-14.10.1.x86_64",
+						"SUSE Linux Enterprise Server 12:apache2-worker-2.4.10-14.10.1.ppc64le",
+						"SUSE Linux Enterprise Server 12:apache2-worker-2.4.10-14.10.1.s390x",
+						"SUSE Linux Enterprise Server 12:apache2-worker-2.4.10-14.10.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-2.4.10-14.10.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-2.4.10-14.10.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-2.4.10-14.10.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-doc-2.4.10-14.10.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-example-pages-2.4.10-14.10.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-example-pages-2.4.10-14.10.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-example-pages-2.4.10-14.10.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_auth_kerb-5.4-2.4.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_auth_kerb-5.4-2.4.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_auth_kerb-5.4-2.4.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_jk-1.2.40-2.6.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_jk-1.2.40-2.6.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_jk-1.2.40-2.6.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_security2-2.8.0-3.4.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_security2-2.8.0-3.4.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-mod_security2-2.8.0-3.4.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-prefork-2.4.10-14.10.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-prefork-2.4.10-14.10.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-prefork-2.4.10-14.10.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-utils-2.4.10-14.10.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-utils-2.4.10-14.10.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-utils-2.4.10-14.10.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-worker-2.4.10-14.10.1.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-worker-2.4.10-14.10.1.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:apache2-worker-2.4.10-14.10.1.x86_64",
+						"SUSE Linux Enterprise Software Development Kit 12:apache2-devel-2.4.10-14.10.1.ppc64le",
+						"SUSE Linux Enterprise Software Development Kit 12:apache2-devel-2.4.10-14.10.1.s390x",
+						"SUSE Linux Enterprise Software Development Kit 12:apache2-devel-2.4.10-14.10.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2015-10-22T09:19:23Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2015-4000"
+		}
+	]
+}

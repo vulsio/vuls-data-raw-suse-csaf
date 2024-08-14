@@ -1,0 +1,1273 @@
+{
+	"document": {
+		"aggregate_severity": {
+			"namespace": "https://www.suse.com/support/security/rating/",
+			"text": "important"
+		},
+		"category": "csaf_security_advisory",
+		"csaf_version": "2.0",
+		"distribution": {
+			"text": "Copyright 2024 SUSE LLC. All rights reserved.",
+			"tlp": {
+				"label": "WHITE",
+				"url": "https://www.first.org/tlp/"
+			}
+		},
+		"lang": "en",
+		"notes": [
+			{
+				"category": "summary",
+				"text": "Security update for the Linux Kernel",
+				"title": "Title of the patch"
+			},
+			{
+				"category": "description",
+				"text": "\nThe SUSE Linux Enterprise 12 SP5 kernel was updated to receive various security and bugfixes.\n\nThe following security bugs were fixed:\n\n- CVE-2022-36946: Fixed an incorrect packet trucation operation which could lead to denial of service (bnc#1201940).\n- CVE-2022-20166: Fixed several possible memory safety issues due to unsafe operations (bsc#1200598).\n- CVE-2020-36558: Fixed a race condition involving VT_RESIZEX which could lead to a NULL pointer dereference and general protection fault (bnc#1200910).\n- CVE-2020-36557: Fixed a race condition between the VT_DISALLOCATE ioctl and closing/opening of TTYs could lead to a use-after-free (bnc#1201429).\n- CVE-2021-33656: Fixed memory out of bounds write related to ioctl cmd PIO_FONT (bnc#1201636).\n- CVE-2021-33655: Fixed out of bounds write with ioctl FBIOPUT_VSCREENINFO (bnc#1201635).\n- CVE-2022-1462: Fixed an out-of-bounds read flaw in the TTY subsystem (bnc#1198829).\n\nThe following non-security bugs were fixed:\n\n- Add missing recommends of kernel-install-tools (bsc#1200442)\n- qla2xxx: drop patch which prevented nvme port discovery (bsc#1200651 bsc#1200644 bsc#1201954 bsc#1201958).\n- kvm: emulate: do not adjust size of fastop and setcc subroutines (bsc#1201930).\n- nfs: avoid NULL pointer dereference when there is unflushed data (bsc#1201196).\n- kvm: emulate: Fix SETcc emulation function offsets with SLS (bsc#1201930).\n- lkdtm: Disable return thunks in rodata.c (bsc#1114648).\n- powerpc/64: Move paca allocation later in boot (bsc#1190812).\n- powerpc/fadump: fix PT_LOAD segment for boot memory area (bsc#1103269 ltc#169948).\n- powerpc/fadump: make crash memory ranges array allocation generic (bsc#1103269 ltc#169948).\n- powerpc: Set crashkernel offset to mid of RMA region (bsc#1190812).\n- rpm/kernel-obs-build.spec.in: Also depend on dracut-systemd (bsc#1195775)\n- rpm/kernel-obs-build.spec.in: add systemd-initrd and terminfo dracut module (bsc#1195775)\n- rpm/kernel-obs-build.spec.in: use default dracut modules (bsc#1195926, bsc#1198484) Let's iron out the reduced initrd optimisation in Tumbleweed. Build full blown dracut initrd with systemd for SLE15 SP4.\n- scsi: qla2xxx: Add a new v2 dport diagnostic feature (bsc#1201958).\n- scsi: qla2xxx: Add debug prints in the device remove path (bsc#1201958).\n- scsi: qla2xxx: Check correct variable in qla24xx_async_gffid() (bsc#1201958).\n- scsi: qla2xxx: Fix crash due to stale SRB access around I/O timeouts (bsc#1201958).\n- scsi: qla2xxx: Fix discovery issues in FC-AL topology (bsc#1201651).\n- scsi: qla2xxx: Fix erroneous mailbox timeout after PCI error injection (bsc#1201958).\n- scsi: qla2xxx: Fix excessive I/O error messages by default (bsc#1201958).\n- scsi: qla2xxx: Fix imbalance vha->vref_count (bsc#1201651).\n- scsi: qla2xxx: Fix incorrect display of max frame size (bsc#1201958).\n- scsi: qla2xxx: Fix losing FCP-2 targets during port perturbation tests (bsc#1201958).\n- scsi: qla2xxx: Fix losing FCP-2 targets on long port disable with I/Os (bsc#1201958).\n- scsi: qla2xxx: Fix losing target when it reappears during delete (bsc#1201958).\n- scsi: qla2xxx: Fix response queue handler reading stale packets (bsc#1201651).\n- scsi: qla2xxx: Fix sparse warning for dport_data (bsc#1201651).\n- scsi: qla2xxx: Remove setting of 'req' and 'rsp' parameters (bsc#1201958).\n- scsi: qla2xxx: Remove unused 'ql_dm_tgt_ex_pct' parameter (bsc#1201958).\n- scsi: qla2xxx: Turn off multi-queue for 8G adapters (bsc#1201958).\n- scsi: qla2xxx: Update manufacturer details (bsc#1201958).\n- scsi: qla2xxx: Update version to 10.02.07.500-k (bsc#1201958).\n- scsi: qla2xxx: Update version to 10.02.07.600-k (bsc#1201958).\n- scsi: qla2xxx: Update version to 10.02.07.700-k (bsc#1201958).\n- scsi: qla2xxx: Update version to 10.02.07.800-k (bsc#1201958).\n- scsi: qla2xxx: Wind down adapter after PCIe error (bsc#1201958).\n- scsi: qla2xxx: Zero undefined mailbox IN registers (bsc#1201651).\n- scsi: qla2xxx: edif: Add bsg interface to read doorbell events (bsc#1201958).\n- scsi: qla2xxx: edif: Add retry for ELS passthrough (bsc#1201958).\n- scsi: qla2xxx: edif: Fix I/O timeout due to over-subscription (bsc#1201958).\n- scsi: qla2xxx: edif: Fix dropped IKE message (bsc#1201651).\n- scsi: qla2xxx: edif: Fix n2n discovery issue with secure target (bsc#1201958).\n- scsi: qla2xxx: edif: Fix n2n login retry for secure device (bsc#1201958).\n- scsi: qla2xxx: edif: Fix no login after app start (bsc#1201958).\n- scsi: qla2xxx: edif: Fix no logout on delete for N2N (bsc#1201958).\n- scsi: qla2xxx: edif: Fix potential stuck session in sa update (bsc#1201958).\n- scsi: qla2xxx: edif: Fix session thrash (bsc#1201958).\n- scsi: qla2xxx: edif: Fix slow session teardown (bsc#1201958).\n- scsi: qla2xxx: edif: Reduce Initiator-Initiator thrashing (bsc#1201958).\n- scsi: qla2xxx: edif: Reduce N2N thrashing at app_start time (bsc#1201958).\n- scsi: qla2xxx: edif: Reduce disruption due to multiple app start (bsc#1201958).\n- scsi: qla2xxx: edif: Remove old doorbell interface (bsc#1201958).\n- scsi: qla2xxx: edif: Send LOGO for unexpected IKE message (bsc#1201958).\n- scsi: qla2xxx: edif: Synchronize NPIV deletion with authentication application (bsc#1201958).\n- scsi: qla2xxx: edif: Tear down session if keys have been removed (bsc#1201958).\n- scsi: qla2xxx: edif: Wait for app to ack on sess down (bsc#1201958).\n- scsi: qla2xxx: edif: bsg refactor (bsc#1201958).\n- x86/entry: Remove skip_r11rcx (bsc#1201644).\n- x86/retbleed: Add fine grained Kconfig knobs (bsc#1114648).\n- xen/netback: avoid entering xenvif_rx_next_skb() with an empty rx queue (bsc#1201381).\n",
+				"title": "Description of the patch"
+			},
+			{
+				"category": "details",
+				"text": "SUSE-2022-2720,SUSE-SLE-SERVER-12-SP5-2022-2720",
+				"title": "Patchnames"
+			},
+			{
+				"category": "legal_disclaimer",
+				"text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+				"title": "Terms of use"
+			}
+		],
+		"publisher": {
+			"category": "vendor",
+			"contact_details": "https://www.suse.com/support/security/contact/",
+			"name": "SUSE Product Security Team",
+			"namespace": "https://www.suse.com/"
+		},
+		"references": [
+			{
+				"category": "external",
+				"summary": "SUSE ratings",
+				"url": "https://www.suse.com/support/security/rating/"
+			},
+			{
+				"category": "self",
+				"summary": "URL of this CSAF notice",
+				"url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2022_2720-1.json"
+			},
+			{
+				"category": "self",
+				"summary": "URL for SUSE-SU-2022:2720-1",
+				"url": "https://www.suse.com/support/update/announcement/2022/suse-su-20222720-1/"
+			},
+			{
+				"category": "self",
+				"summary": "E-Mail link for SUSE-SU-2022:2720-1",
+				"url": "https://lists.suse.com/pipermail/sle-security-updates/2022-August/011829.html"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1103269",
+				"url": "https://bugzilla.suse.com/1103269"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1114648",
+				"url": "https://bugzilla.suse.com/1114648"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1190812",
+				"url": "https://bugzilla.suse.com/1190812"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1195775",
+				"url": "https://bugzilla.suse.com/1195775"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1195926",
+				"url": "https://bugzilla.suse.com/1195926"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1198484",
+				"url": "https://bugzilla.suse.com/1198484"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1198829",
+				"url": "https://bugzilla.suse.com/1198829"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1200442",
+				"url": "https://bugzilla.suse.com/1200442"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1200598",
+				"url": "https://bugzilla.suse.com/1200598"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1200644",
+				"url": "https://bugzilla.suse.com/1200644"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1200651",
+				"url": "https://bugzilla.suse.com/1200651"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1200910",
+				"url": "https://bugzilla.suse.com/1200910"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1201196",
+				"url": "https://bugzilla.suse.com/1201196"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1201381",
+				"url": "https://bugzilla.suse.com/1201381"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1201429",
+				"url": "https://bugzilla.suse.com/1201429"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1201635",
+				"url": "https://bugzilla.suse.com/1201635"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1201636",
+				"url": "https://bugzilla.suse.com/1201636"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1201644",
+				"url": "https://bugzilla.suse.com/1201644"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1201651",
+				"url": "https://bugzilla.suse.com/1201651"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1201742",
+				"url": "https://bugzilla.suse.com/1201742"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1201752",
+				"url": "https://bugzilla.suse.com/1201752"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1201930",
+				"url": "https://bugzilla.suse.com/1201930"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1201940",
+				"url": "https://bugzilla.suse.com/1201940"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1201954",
+				"url": "https://bugzilla.suse.com/1201954"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1201958",
+				"url": "https://bugzilla.suse.com/1201958"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2020-36557 page",
+				"url": "https://www.suse.com/security/cve/CVE-2020-36557/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2020-36558 page",
+				"url": "https://www.suse.com/security/cve/CVE-2020-36558/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2021-33655 page",
+				"url": "https://www.suse.com/security/cve/CVE-2021-33655/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2021-33656 page",
+				"url": "https://www.suse.com/security/cve/CVE-2021-33656/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2022-1462 page",
+				"url": "https://www.suse.com/security/cve/CVE-2022-1462/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2022-20166 page",
+				"url": "https://www.suse.com/security/cve/CVE-2022-20166/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2022-36946 page",
+				"url": "https://www.suse.com/security/cve/CVE-2022-36946/"
+			}
+		],
+		"title": "Security update for the Linux Kernel",
+		"tracking": {
+			"current_release_date": "2022-08-09T11:13:36Z",
+			"generator": {
+				"date": "2022-08-09T11:13:36Z",
+				"engine": {
+					"name": "cve-database.git:bin/generate-csaf.pl",
+					"version": "1"
+				}
+			},
+			"id": "SUSE-SU-2022:2720-1",
+			"initial_release_date": "2022-08-09T11:13:36Z",
+			"revision_history": [
+				{
+					"date": "2022-08-09T11:13:36Z",
+					"number": "1",
+					"summary": "Current version"
+				}
+			],
+			"status": "final",
+			"version": "1"
+		}
+	},
+	"product_tree": {
+		"branches": [
+			{
+				"branches": [
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "kernel-devel-azure-4.12.14-16.106.1.noarch",
+								"product": {
+									"name": "kernel-devel-azure-4.12.14-16.106.1.noarch",
+									"product_id": "kernel-devel-azure-4.12.14-16.106.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-source-azure-4.12.14-16.106.1.noarch",
+								"product": {
+									"name": "kernel-source-azure-4.12.14-16.106.1.noarch",
+									"product_id": "kernel-source-azure-4.12.14-16.106.1.noarch"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "noarch"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "cluster-md-kmp-azure-4.12.14-16.106.1.x86_64",
+								"product": {
+									"name": "cluster-md-kmp-azure-4.12.14-16.106.1.x86_64",
+									"product_id": "cluster-md-kmp-azure-4.12.14-16.106.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "dlm-kmp-azure-4.12.14-16.106.1.x86_64",
+								"product": {
+									"name": "dlm-kmp-azure-4.12.14-16.106.1.x86_64",
+									"product_id": "dlm-kmp-azure-4.12.14-16.106.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "gfs2-kmp-azure-4.12.14-16.106.1.x86_64",
+								"product": {
+									"name": "gfs2-kmp-azure-4.12.14-16.106.1.x86_64",
+									"product_id": "gfs2-kmp-azure-4.12.14-16.106.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-azure-4.12.14-16.106.1.x86_64",
+								"product": {
+									"name": "kernel-azure-4.12.14-16.106.1.x86_64",
+									"product_id": "kernel-azure-4.12.14-16.106.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-azure-base-4.12.14-16.106.1.x86_64",
+								"product": {
+									"name": "kernel-azure-base-4.12.14-16.106.1.x86_64",
+									"product_id": "kernel-azure-base-4.12.14-16.106.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-azure-devel-4.12.14-16.106.1.x86_64",
+								"product": {
+									"name": "kernel-azure-devel-4.12.14-16.106.1.x86_64",
+									"product_id": "kernel-azure-devel-4.12.14-16.106.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-azure-extra-4.12.14-16.106.1.x86_64",
+								"product": {
+									"name": "kernel-azure-extra-4.12.14-16.106.1.x86_64",
+									"product_id": "kernel-azure-extra-4.12.14-16.106.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-azure-kgraft-devel-4.12.14-16.106.1.x86_64",
+								"product": {
+									"name": "kernel-azure-kgraft-devel-4.12.14-16.106.1.x86_64",
+									"product_id": "kernel-azure-kgraft-devel-4.12.14-16.106.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-syms-azure-4.12.14-16.106.1.x86_64",
+								"product": {
+									"name": "kernel-syms-azure-4.12.14-16.106.1.x86_64",
+									"product_id": "kernel-syms-azure-4.12.14-16.106.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kselftests-kmp-azure-4.12.14-16.106.1.x86_64",
+								"product": {
+									"name": "kselftests-kmp-azure-4.12.14-16.106.1.x86_64",
+									"product_id": "kselftests-kmp-azure-4.12.14-16.106.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "ocfs2-kmp-azure-4.12.14-16.106.1.x86_64",
+								"product": {
+									"name": "ocfs2-kmp-azure-4.12.14-16.106.1.x86_64",
+									"product_id": "ocfs2-kmp-azure-4.12.14-16.106.1.x86_64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "x86_64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server 12 SP5",
+								"product": {
+									"name": "SUSE Linux Enterprise Server 12 SP5",
+									"product_id": "SUSE Linux Enterprise Server 12 SP5",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sles:12:sp5"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server for SAP Applications 12 SP5",
+								"product": {
+									"name": "SUSE Linux Enterprise Server for SAP Applications 12 SP5",
+									"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP5",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sles_sap:12:sp5"
+									}
+								}
+							}
+						],
+						"category": "product_family",
+						"name": "SUSE Linux Enterprise"
+					}
+				],
+				"category": "vendor",
+				"name": "SUSE"
+			}
+		],
+		"relationships": [
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-azure-4.12.14-16.106.1.x86_64 as component of SUSE Linux Enterprise Server 12 SP5",
+					"product_id": "SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.106.1.x86_64"
+				},
+				"product_reference": "kernel-azure-4.12.14-16.106.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-azure-base-4.12.14-16.106.1.x86_64 as component of SUSE Linux Enterprise Server 12 SP5",
+					"product_id": "SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.106.1.x86_64"
+				},
+				"product_reference": "kernel-azure-base-4.12.14-16.106.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-azure-devel-4.12.14-16.106.1.x86_64 as component of SUSE Linux Enterprise Server 12 SP5",
+					"product_id": "SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.106.1.x86_64"
+				},
+				"product_reference": "kernel-azure-devel-4.12.14-16.106.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-devel-azure-4.12.14-16.106.1.noarch as component of SUSE Linux Enterprise Server 12 SP5",
+					"product_id": "SUSE Linux Enterprise Server 12 SP5:kernel-devel-azure-4.12.14-16.106.1.noarch"
+				},
+				"product_reference": "kernel-devel-azure-4.12.14-16.106.1.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-source-azure-4.12.14-16.106.1.noarch as component of SUSE Linux Enterprise Server 12 SP5",
+					"product_id": "SUSE Linux Enterprise Server 12 SP5:kernel-source-azure-4.12.14-16.106.1.noarch"
+				},
+				"product_reference": "kernel-source-azure-4.12.14-16.106.1.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-syms-azure-4.12.14-16.106.1.x86_64 as component of SUSE Linux Enterprise Server 12 SP5",
+					"product_id": "SUSE Linux Enterprise Server 12 SP5:kernel-syms-azure-4.12.14-16.106.1.x86_64"
+				},
+				"product_reference": "kernel-syms-azure-4.12.14-16.106.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-azure-4.12.14-16.106.1.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP5",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-4.12.14-16.106.1.x86_64"
+				},
+				"product_reference": "kernel-azure-4.12.14-16.106.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-azure-base-4.12.14-16.106.1.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP5",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-base-4.12.14-16.106.1.x86_64"
+				},
+				"product_reference": "kernel-azure-base-4.12.14-16.106.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-azure-devel-4.12.14-16.106.1.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP5",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-devel-4.12.14-16.106.1.x86_64"
+				},
+				"product_reference": "kernel-azure-devel-4.12.14-16.106.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-devel-azure-4.12.14-16.106.1.noarch as component of SUSE Linux Enterprise Server for SAP Applications 12 SP5",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-devel-azure-4.12.14-16.106.1.noarch"
+				},
+				"product_reference": "kernel-devel-azure-4.12.14-16.106.1.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-source-azure-4.12.14-16.106.1.noarch as component of SUSE Linux Enterprise Server for SAP Applications 12 SP5",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-source-azure-4.12.14-16.106.1.noarch"
+				},
+				"product_reference": "kernel-source-azure-4.12.14-16.106.1.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP5"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-syms-azure-4.12.14-16.106.1.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 12 SP5",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-azure-4.12.14-16.106.1.x86_64"
+				},
+				"product_reference": "kernel-syms-azure-4.12.14-16.106.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP5"
+			}
+		]
+	},
+	"vulnerabilities": [
+		{
+			"cve": "CVE-2020-36557",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2020-36557"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A race condition in the Linux kernel before 5.6.2 between the VT_DISALLOCATE ioctl and closing/opening of ttys could lead to a use-after-free.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.106.1.x86_64",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.106.1.x86_64",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.106.1.x86_64",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-devel-azure-4.12.14-16.106.1.noarch",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-source-azure-4.12.14-16.106.1.noarch",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-syms-azure-4.12.14-16.106.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-4.12.14-16.106.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-base-4.12.14-16.106.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-devel-4.12.14-16.106.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-devel-azure-4.12.14-16.106.1.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-source-azure-4.12.14-16.106.1.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-azure-4.12.14-16.106.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2020-36557",
+					"url": "https://www.suse.com/security/cve/CVE-2020-36557"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1201429 for CVE-2020-36557",
+					"url": "https://bugzilla.suse.com/1201429"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1201742 for CVE-2020-36557",
+					"url": "https://bugzilla.suse.com/1201742"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1202874 for CVE-2020-36557",
+					"url": "https://bugzilla.suse.com/1202874"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1205313 for CVE-2020-36557",
+					"url": "https://bugzilla.suse.com/1205313"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-devel-azure-4.12.14-16.106.1.noarch",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-source-azure-4.12.14-16.106.1.noarch",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-syms-azure-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-base-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-devel-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-devel-azure-4.12.14-16.106.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-source-azure-4.12.14-16.106.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-azure-4.12.14-16.106.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.8,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-devel-azure-4.12.14-16.106.1.noarch",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-source-azure-4.12.14-16.106.1.noarch",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-syms-azure-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-base-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-devel-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-devel-azure-4.12.14-16.106.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-source-azure-4.12.14-16.106.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-azure-4.12.14-16.106.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2022-08-09T11:13:36Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2020-36557"
+		},
+		{
+			"cve": "CVE-2020-36558",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2020-36558"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A race condition in the Linux kernel before 5.5.7 involving VT_RESIZEX could lead to a NULL pointer dereference and general protection fault.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.106.1.x86_64",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.106.1.x86_64",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.106.1.x86_64",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-devel-azure-4.12.14-16.106.1.noarch",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-source-azure-4.12.14-16.106.1.noarch",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-syms-azure-4.12.14-16.106.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-4.12.14-16.106.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-base-4.12.14-16.106.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-devel-4.12.14-16.106.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-devel-azure-4.12.14-16.106.1.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-source-azure-4.12.14-16.106.1.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-azure-4.12.14-16.106.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2020-36558",
+					"url": "https://www.suse.com/security/cve/CVE-2020-36558"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1200910 for CVE-2020-36558",
+					"url": "https://bugzilla.suse.com/1200910"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1201752 for CVE-2020-36558",
+					"url": "https://bugzilla.suse.com/1201752"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1205313 for CVE-2020-36558",
+					"url": "https://bugzilla.suse.com/1205313"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-devel-azure-4.12.14-16.106.1.noarch",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-source-azure-4.12.14-16.106.1.noarch",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-syms-azure-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-base-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-devel-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-devel-azure-4.12.14-16.106.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-source-azure-4.12.14-16.106.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-azure-4.12.14-16.106.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.8,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-devel-azure-4.12.14-16.106.1.noarch",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-source-azure-4.12.14-16.106.1.noarch",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-syms-azure-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-base-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-devel-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-devel-azure-4.12.14-16.106.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-source-azure-4.12.14-16.106.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-azure-4.12.14-16.106.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2022-08-09T11:13:36Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2020-36558"
+		},
+		{
+			"cve": "CVE-2021-33655",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2021-33655"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "When sending malicous data to kernel by ioctl cmd FBIOPUT_VSCREENINFO,kernel will write memory out of bounds.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.106.1.x86_64",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.106.1.x86_64",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.106.1.x86_64",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-devel-azure-4.12.14-16.106.1.noarch",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-source-azure-4.12.14-16.106.1.noarch",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-syms-azure-4.12.14-16.106.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-4.12.14-16.106.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-base-4.12.14-16.106.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-devel-4.12.14-16.106.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-devel-azure-4.12.14-16.106.1.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-source-azure-4.12.14-16.106.1.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-azure-4.12.14-16.106.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2021-33655",
+					"url": "https://www.suse.com/security/cve/CVE-2021-33655"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1201635 for CVE-2021-33655",
+					"url": "https://bugzilla.suse.com/1201635"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1202087 for CVE-2021-33655",
+					"url": "https://bugzilla.suse.com/1202087"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1205313 for CVE-2021-33655",
+					"url": "https://bugzilla.suse.com/1205313"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1212291 for CVE-2021-33655",
+					"url": "https://bugzilla.suse.com/1212291"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-devel-azure-4.12.14-16.106.1.noarch",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-source-azure-4.12.14-16.106.1.noarch",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-syms-azure-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-base-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-devel-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-devel-azure-4.12.14-16.106.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-source-azure-4.12.14-16.106.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-azure-4.12.14-16.106.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.8,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-devel-azure-4.12.14-16.106.1.noarch",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-source-azure-4.12.14-16.106.1.noarch",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-syms-azure-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-base-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-devel-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-devel-azure-4.12.14-16.106.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-source-azure-4.12.14-16.106.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-azure-4.12.14-16.106.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2022-08-09T11:13:36Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2021-33655"
+		},
+		{
+			"cve": "CVE-2021-33656",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2021-33656"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "When setting font with malicous data by ioctl cmd PIO_FONT,kernel will write memory out of bounds.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.106.1.x86_64",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.106.1.x86_64",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.106.1.x86_64",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-devel-azure-4.12.14-16.106.1.noarch",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-source-azure-4.12.14-16.106.1.noarch",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-syms-azure-4.12.14-16.106.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-4.12.14-16.106.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-base-4.12.14-16.106.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-devel-4.12.14-16.106.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-devel-azure-4.12.14-16.106.1.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-source-azure-4.12.14-16.106.1.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-azure-4.12.14-16.106.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2021-33656",
+					"url": "https://www.suse.com/security/cve/CVE-2021-33656"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1201636 for CVE-2021-33656",
+					"url": "https://bugzilla.suse.com/1201636"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1212286 for CVE-2021-33656",
+					"url": "https://bugzilla.suse.com/1212286"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-devel-azure-4.12.14-16.106.1.noarch",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-source-azure-4.12.14-16.106.1.noarch",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-syms-azure-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-base-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-devel-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-devel-azure-4.12.14-16.106.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-source-azure-4.12.14-16.106.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-azure-4.12.14-16.106.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 6.3,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:L/I:H/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-devel-azure-4.12.14-16.106.1.noarch",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-source-azure-4.12.14-16.106.1.noarch",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-syms-azure-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-base-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-devel-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-devel-azure-4.12.14-16.106.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-source-azure-4.12.14-16.106.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-azure-4.12.14-16.106.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2022-08-09T11:13:36Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2021-33656"
+		},
+		{
+			"cve": "CVE-2022-1462",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2022-1462"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "An out-of-bounds read flaw was found in the Linux kernel's TeleTYpe subsystem. The issue occurs in how a user triggers a race condition using ioctls TIOCSPTLCK and TIOCGPTPEER and TIOCSTI and TCXONC with leakage of memory in the flush_to_ldisc function. This flaw allows a local user to crash the system or read unauthorized random data from memory.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.106.1.x86_64",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.106.1.x86_64",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.106.1.x86_64",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-devel-azure-4.12.14-16.106.1.noarch",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-source-azure-4.12.14-16.106.1.noarch",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-syms-azure-4.12.14-16.106.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-4.12.14-16.106.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-base-4.12.14-16.106.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-devel-4.12.14-16.106.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-devel-azure-4.12.14-16.106.1.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-source-azure-4.12.14-16.106.1.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-azure-4.12.14-16.106.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2022-1462",
+					"url": "https://www.suse.com/security/cve/CVE-2022-1462"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1198829 for CVE-2022-1462",
+					"url": "https://bugzilla.suse.com/1198829"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-devel-azure-4.12.14-16.106.1.noarch",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-source-azure-4.12.14-16.106.1.noarch",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-syms-azure-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-base-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-devel-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-devel-azure-4.12.14-16.106.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-source-azure-4.12.14-16.106.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-azure-4.12.14-16.106.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 6.3,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-devel-azure-4.12.14-16.106.1.noarch",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-source-azure-4.12.14-16.106.1.noarch",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-syms-azure-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-base-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-devel-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-devel-azure-4.12.14-16.106.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-source-azure-4.12.14-16.106.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-azure-4.12.14-16.106.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2022-08-09T11:13:36Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2022-1462"
+		},
+		{
+			"cve": "CVE-2022-20166",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2022-20166"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "In various methods of kernel base drivers, there is a possible out of bounds write due to a heap buffer overflow. This could lead to local escalation of privilege with System execution privileges needed. User interaction is not needed for exploitation.Product: AndroidVersions: Android kernelAndroid ID: A-182388481References: Upstream kernel",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.106.1.x86_64",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.106.1.x86_64",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.106.1.x86_64",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-devel-azure-4.12.14-16.106.1.noarch",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-source-azure-4.12.14-16.106.1.noarch",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-syms-azure-4.12.14-16.106.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-4.12.14-16.106.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-base-4.12.14-16.106.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-devel-4.12.14-16.106.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-devel-azure-4.12.14-16.106.1.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-source-azure-4.12.14-16.106.1.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-azure-4.12.14-16.106.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2022-20166",
+					"url": "https://www.suse.com/security/cve/CVE-2022-20166"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1200598 for CVE-2022-20166",
+					"url": "https://bugzilla.suse.com/1200598"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1212284 for CVE-2022-20166",
+					"url": "https://bugzilla.suse.com/1212284"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-devel-azure-4.12.14-16.106.1.noarch",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-source-azure-4.12.14-16.106.1.noarch",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-syms-azure-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-base-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-devel-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-devel-azure-4.12.14-16.106.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-source-azure-4.12.14-16.106.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-azure-4.12.14-16.106.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 6.1,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-devel-azure-4.12.14-16.106.1.noarch",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-source-azure-4.12.14-16.106.1.noarch",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-syms-azure-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-base-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-devel-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-devel-azure-4.12.14-16.106.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-source-azure-4.12.14-16.106.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-azure-4.12.14-16.106.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2022-08-09T11:13:36Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2022-20166"
+		},
+		{
+			"cve": "CVE-2022-36946",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2022-36946"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "nfqnl_mangle in net/netfilter/nfnetlink_queue.c in the Linux kernel through 5.18.14 allows remote attackers to cause a denial of service (panic) because, in the case of an nf_queue verdict with a one-byte nfta_payload attribute, an skb_pull can encounter a negative skb->len.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.106.1.x86_64",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.106.1.x86_64",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.106.1.x86_64",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-devel-azure-4.12.14-16.106.1.noarch",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-source-azure-4.12.14-16.106.1.noarch",
+					"SUSE Linux Enterprise Server 12 SP5:kernel-syms-azure-4.12.14-16.106.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-4.12.14-16.106.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-base-4.12.14-16.106.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-devel-4.12.14-16.106.1.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-devel-azure-4.12.14-16.106.1.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-source-azure-4.12.14-16.106.1.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-azure-4.12.14-16.106.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2022-36946",
+					"url": "https://www.suse.com/security/cve/CVE-2022-36946"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1201940 for CVE-2022-36946",
+					"url": "https://bugzilla.suse.com/1201940"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1201941 for CVE-2022-36946",
+					"url": "https://bugzilla.suse.com/1201941"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1202312 for CVE-2022-36946",
+					"url": "https://bugzilla.suse.com/1202312"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1202874 for CVE-2022-36946",
+					"url": "https://bugzilla.suse.com/1202874"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1203208 for CVE-2022-36946",
+					"url": "https://bugzilla.suse.com/1203208"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1204132 for CVE-2022-36946",
+					"url": "https://bugzilla.suse.com/1204132"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1205313 for CVE-2022-36946",
+					"url": "https://bugzilla.suse.com/1205313"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1212310 for CVE-2022-36946",
+					"url": "https://bugzilla.suse.com/1212310"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-devel-azure-4.12.14-16.106.1.noarch",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-source-azure-4.12.14-16.106.1.noarch",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-syms-azure-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-base-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-devel-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-devel-azure-4.12.14-16.106.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-source-azure-4.12.14-16.106.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-azure-4.12.14-16.106.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.5,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-devel-azure-4.12.14-16.106.1.noarch",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-source-azure-4.12.14-16.106.1.noarch",
+						"SUSE Linux Enterprise Server 12 SP5:kernel-syms-azure-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-base-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-azure-devel-4.12.14-16.106.1.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-devel-azure-4.12.14-16.106.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-source-azure-4.12.14-16.106.1.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12 SP5:kernel-syms-azure-4.12.14-16.106.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2022-08-09T11:13:36Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2022-36946"
+		}
+	]
+}

@@ -1,0 +1,662 @@
+{
+	"document": {
+		"aggregate_severity": {
+			"namespace": "https://www.suse.com/support/security/rating/",
+			"text": "important"
+		},
+		"category": "csaf_security_advisory",
+		"csaf_version": "2.0",
+		"distribution": {
+			"text": "Copyright 2024 SUSE LLC. All rights reserved.",
+			"tlp": {
+				"label": "WHITE",
+				"url": "https://www.first.org/tlp/"
+			}
+		},
+		"lang": "en",
+		"notes": [
+			{
+				"category": "summary",
+				"text": "Security update for the Linux Kernel (Live Patch 0 for SLE 15)",
+				"title": "Title of the patch"
+			},
+			{
+				"category": "description",
+				"text": "This update for the Linux Kernel 4.12.14-23 fixes several issues.\n\nThe following security issues were fixed:\n\n- CVE-2018-5390: Linux kernel versions 4.9+ can be forced to make very expensive calls to tcp_collapse_ofo_queue() and tcp_prune_ofo_queue() for every incoming packet which can lead to a denial of service (bsc#1102682).\n- CVE-2018-3646: Local attackers in virtualized guest systems could use speculative code patterns on hyperthreaded processors to read data present in the L1 Datacache used by other hyperthreads on the same CPU core, potentially leaking sensitive data, even from other virtual machines or the host system (bsc#1099306).\n- CVE-2017-18344: The timer_create syscall implementation in kernel/time/posix-timers.c didn't properly validate the sigevent->sigev_notify field, which lead to out-of-bounds access in the show_timer function (called when /proc/$PID/timers is read). This allowed userspace applications to read arbitrary kernel memory (on a kernel built with CONFIG_POSIX_TIMERS and CONFIG_CHECKPOINT_RESTORE) (bsc#1103203).\nbefore 4.14.8\n- CVE-2018-12904: In arch/x86/kvm/vmx.c local attackers could cause L1 KVM guests to VMEXIT, potentially allowing privilege escalations and denial of service attacks due to lack of checking of CPL (bsc#1099258).\n- CVE-2018-10853: A flaw was found in kvm. In which certain instructions such as sgdt/sidt call segmented_write_std didn't propagate access correctly. As such, during userspace induced exception, the guest can incorrectly assume that the exception happened in the kernel and panic. (bsc#1097108).\n",
+				"title": "Description of the patch"
+			},
+			{
+				"category": "details",
+				"text": "SUSE-SLE-Module-Live-Patching-15-2018-1739",
+				"title": "Patchnames"
+			},
+			{
+				"category": "legal_disclaimer",
+				"text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+				"title": "Terms of use"
+			}
+		],
+		"publisher": {
+			"category": "vendor",
+			"contact_details": "https://www.suse.com/support/security/contact/",
+			"name": "SUSE Product Security Team",
+			"namespace": "https://www.suse.com/"
+		},
+		"references": [
+			{
+				"category": "external",
+				"summary": "SUSE ratings",
+				"url": "https://www.suse.com/support/security/rating/"
+			},
+			{
+				"category": "self",
+				"summary": "URL of this CSAF notice",
+				"url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2018_2474-1.json"
+			},
+			{
+				"category": "self",
+				"summary": "URL for SUSE-SU-2018:2474-1",
+				"url": "https://www.suse.com/support/update/announcement/2018/suse-su-20182474-1/"
+			},
+			{
+				"category": "self",
+				"summary": "E-Mail link for SUSE-SU-2018:2474-1",
+				"url": "https://lists.suse.com/pipermail/sle-security-updates/2018-August/004487.html"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1097108",
+				"url": "https://bugzilla.suse.com/1097108"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1099258",
+				"url": "https://bugzilla.suse.com/1099258"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1099306",
+				"url": "https://bugzilla.suse.com/1099306"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1102682",
+				"url": "https://bugzilla.suse.com/1102682"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1103203",
+				"url": "https://bugzilla.suse.com/1103203"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2017-18344 page",
+				"url": "https://www.suse.com/security/cve/CVE-2017-18344/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2018-10853 page",
+				"url": "https://www.suse.com/security/cve/CVE-2018-10853/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2018-12904 page",
+				"url": "https://www.suse.com/security/cve/CVE-2018-12904/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2018-3646 page",
+				"url": "https://www.suse.com/security/cve/CVE-2018-3646/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2018-5390 page",
+				"url": "https://www.suse.com/security/cve/CVE-2018-5390/"
+			}
+		],
+		"title": "Security update for the Linux Kernel (Live Patch 0 for SLE 15)",
+		"tracking": {
+			"current_release_date": "2018-08-21T15:13:27Z",
+			"generator": {
+				"date": "2018-08-21T15:13:27Z",
+				"engine": {
+					"name": "cve-database.git:bin/generate-csaf.pl",
+					"version": "1"
+				}
+			},
+			"id": "SUSE-SU-2018:2474-1",
+			"initial_release_date": "2018-08-21T15:13:27Z",
+			"revision_history": [
+				{
+					"date": "2018-08-21T15:13:27Z",
+					"number": "1",
+					"summary": "Current version"
+				}
+			],
+			"status": "final",
+			"version": "1"
+		}
+	},
+	"product_tree": {
+		"branches": [
+			{
+				"branches": [
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "kernel-livepatch-4_12_14-23-default-2-4.1.ppc64le",
+								"product": {
+									"name": "kernel-livepatch-4_12_14-23-default-2-4.1.ppc64le",
+									"product_id": "kernel-livepatch-4_12_14-23-default-2-4.1.ppc64le"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "ppc64le"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "kernel-livepatch-4_12_14-23-default-2-4.1.x86_64",
+								"product": {
+									"name": "kernel-livepatch-4_12_14-23-default-2-4.1.x86_64",
+									"product_id": "kernel-livepatch-4_12_14-23-default-2-4.1.x86_64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "x86_64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Live Patching 15",
+								"product": {
+									"name": "SUSE Linux Enterprise Live Patching 15",
+									"product_id": "SUSE Linux Enterprise Live Patching 15",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-module-live-patching:15"
+									}
+								}
+							}
+						],
+						"category": "product_family",
+						"name": "SUSE Linux Enterprise"
+					}
+				],
+				"category": "vendor",
+				"name": "SUSE"
+			}
+		],
+		"relationships": [
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-livepatch-4_12_14-23-default-2-4.1.ppc64le as component of SUSE Linux Enterprise Live Patching 15",
+					"product_id": "SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-2-4.1.ppc64le"
+				},
+				"product_reference": "kernel-livepatch-4_12_14-23-default-2-4.1.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Live Patching 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-livepatch-4_12_14-23-default-2-4.1.x86_64 as component of SUSE Linux Enterprise Live Patching 15",
+					"product_id": "SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-2-4.1.x86_64"
+				},
+				"product_reference": "kernel-livepatch-4_12_14-23-default-2-4.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Live Patching 15"
+			}
+		]
+	},
+	"vulnerabilities": [
+		{
+			"cve": "CVE-2017-18344",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2017-18344"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The timer_create syscall implementation in kernel/time/posix-timers.c in the Linux kernel before 4.14.8 doesn't properly validate the sigevent->sigev_notify field, which leads to out-of-bounds access in the show_timer function (called when /proc/$PID/timers is read). This allows userspace applications to read arbitrary kernel memory (on a kernel built with CONFIG_POSIX_TIMERS and CONFIG_CHECKPOINT_RESTORE).",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-2-4.1.ppc64le",
+					"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-2-4.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2017-18344",
+					"url": "https://www.suse.com/security/cve/CVE-2017-18344"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1087082 for CVE-2017-18344",
+					"url": "https://bugzilla.suse.com/1087082"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1102851 for CVE-2017-18344",
+					"url": "https://bugzilla.suse.com/1102851"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1103203 for CVE-2017-18344",
+					"url": "https://bugzilla.suse.com/1103203"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1103580 for CVE-2017-18344",
+					"url": "https://bugzilla.suse.com/1103580"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1215674 for CVE-2017-18344",
+					"url": "https://bugzilla.suse.com/1215674"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-2-4.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-2-4.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.1,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.0/AV:L/AC:L/PR:N/UI:N/S:C/C:H/I:N/A:N",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-2-4.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-2-4.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-08-21T15:13:27Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2017-18344"
+		},
+		{
+			"cve": "CVE-2018-10853",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2018-10853"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A flaw was found in the way Linux kernel KVM hypervisor before 4.18 emulated instructions such as sgdt/sidt/fxsave/fxrstor. It did not check current privilege(CPL) level while emulating unprivileged instructions. An unprivileged guest user/process could use this flaw to potentially escalate privileges inside guest.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-2-4.1.ppc64le",
+					"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-2-4.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2018-10853",
+					"url": "https://www.suse.com/security/cve/CVE-2018-10853"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1097104 for CVE-2018-10853",
+					"url": "https://bugzilla.suse.com/1097104"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1097108 for CVE-2018-10853",
+					"url": "https://bugzilla.suse.com/1097108"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-2-4.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-2-4.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 8.4,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.0/AV:L/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-2-4.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-2-4.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-08-21T15:13:27Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2018-10853"
+		},
+		{
+			"cve": "CVE-2018-12904",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2018-12904"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "In arch/x86/kvm/vmx.c in the Linux kernel before 4.17.2, when nested virtualization is used, local attackers could cause L1 KVM guests to VMEXIT, potentially allowing privilege escalations and denial of service attacks due to lack of checking of CPL.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-2-4.1.ppc64le",
+					"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-2-4.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2018-12904",
+					"url": "https://www.suse.com/security/cve/CVE-2018-12904"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1087082 for CVE-2018-12904",
+					"url": "https://bugzilla.suse.com/1087082"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1099183 for CVE-2018-12904",
+					"url": "https://bugzilla.suse.com/1099183"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1099258 for CVE-2018-12904",
+					"url": "https://bugzilla.suse.com/1099258"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-2-4.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-2-4.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 8.8,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-2-4.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-2-4.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-08-21T15:13:27Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2018-12904"
+		},
+		{
+			"cve": "CVE-2018-3646",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2018-3646"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Systems with microprocessors utilizing speculative execution and address translations may allow unauthorized disclosure of information residing in the L1 data cache to an attacker with local user access with guest OS privilege via a terminal page fault and a side-channel analysis.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-2-4.1.ppc64le",
+					"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-2-4.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2018-3646",
+					"url": "https://www.suse.com/security/cve/CVE-2018-3646"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1087078 for CVE-2018-3646",
+					"url": "https://bugzilla.suse.com/1087078"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1087081 for CVE-2018-3646",
+					"url": "https://bugzilla.suse.com/1087081"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1089343 for CVE-2018-3646",
+					"url": "https://bugzilla.suse.com/1089343"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1091107 for CVE-2018-3646",
+					"url": "https://bugzilla.suse.com/1091107"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1099306 for CVE-2018-3646",
+					"url": "https://bugzilla.suse.com/1099306"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1104365 for CVE-2018-3646",
+					"url": "https://bugzilla.suse.com/1104365"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1104894 for CVE-2018-3646",
+					"url": "https://bugzilla.suse.com/1104894"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1106548 for CVE-2018-3646",
+					"url": "https://bugzilla.suse.com/1106548"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1113534 for CVE-2018-3646",
+					"url": "https://bugzilla.suse.com/1113534"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1136865 for CVE-2018-3646",
+					"url": "https://bugzilla.suse.com/1136865"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1178658 for CVE-2018-3646",
+					"url": "https://bugzilla.suse.com/1178658"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1201877 for CVE-2018-3646",
+					"url": "https://bugzilla.suse.com/1201877"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-2-4.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-2-4.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 5.6,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.0/AV:L/AC:H/PR:L/UI:N/S:C/C:H/I:N/A:N",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-2-4.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-2-4.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-08-21T15:13:27Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2018-3646"
+		},
+		{
+			"cve": "CVE-2018-5390",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2018-5390"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Linux kernel versions 4.9+ can be forced to make very expensive calls to tcp_collapse_ofo_queue() and tcp_prune_ofo_queue() for every incoming packet which can lead to a denial of service.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-2-4.1.ppc64le",
+					"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-2-4.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2018-5390",
+					"url": "https://www.suse.com/security/cve/CVE-2018-5390"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1087082 for CVE-2018-5390",
+					"url": "https://bugzilla.suse.com/1087082"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1102340 for CVE-2018-5390",
+					"url": "https://bugzilla.suse.com/1102340"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1102682 for CVE-2018-5390",
+					"url": "https://bugzilla.suse.com/1102682"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1103097 for CVE-2018-5390",
+					"url": "https://bugzilla.suse.com/1103097"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1103098 for CVE-2018-5390",
+					"url": "https://bugzilla.suse.com/1103098"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1156434 for CVE-2018-5390",
+					"url": "https://bugzilla.suse.com/1156434"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-2-4.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-2-4.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.5,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-2-4.1.ppc64le",
+						"SUSE Linux Enterprise Live Patching 15:kernel-livepatch-4_12_14-23-default-2-4.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-08-21T15:13:27Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2018-5390"
+		}
+	]
+}

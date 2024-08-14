@@ -1,0 +1,1709 @@
+{
+	"document": {
+		"aggregate_severity": {
+			"namespace": "https://www.suse.com/support/security/rating/",
+			"text": "important"
+		},
+		"category": "csaf_security_advisory",
+		"csaf_version": "2.0",
+		"distribution": {
+			"text": "Copyright 2024 SUSE LLC. All rights reserved.",
+			"tlp": {
+				"label": "WHITE",
+				"url": "https://www.first.org/tlp/"
+			}
+		},
+		"lang": "en",
+		"notes": [
+			{
+				"category": "summary",
+				"text": "Security update for the Linux Kernel",
+				"title": "Title of the patch"
+			},
+			{
+				"category": "description",
+				"text": "\nThe SUSE Linux Enterprise 15 SP3 RT kernel was updated to receive various security and bugfixes.\n\nThe following security bugs were fixed:\n\n- CVE-2022-36402: Fixed an integer overflow vulnerability in vmwgfx driver in that allowed a local attacker with a user account on the system to gain privilege, causing a denial of service (bsc#1203517).\n- CVE-2023-2007: Fixed a flaw in the DPT I2O Controller driver that could allow an attacker to escalate privileges and execute arbitrary code in the context of the kernel (bsc#1210448).\n- CVE-2023-3772: Fixed a flaw in XFRM subsystem that may have allowed a malicious user with CAP_NET_ADMIN privileges to directly dereference a NULL pointer leading to a possible kernel crash and denial of service (bsc#1213666).\n- CVE-2023-3863: Fixed a use-after-free flaw was found in nfc_llcp_find_local that allowed a local user with special privileges to impact a kernel information leak issue (bsc#1213601).\n- CVE-2023-4128: Fixed a use-after-free flaw in net/sched/cls_fw.c that allowed a local attacker to perform a local privilege escalation due to incorrect handling of the existing filter, leading to a kernel information leak issue (bsc#1214149).\n- CVE-2023-4132: Fixed use-after-free vulnerability was found in the siano smsusb module that allowed a local user to crash the system, causing a denial of service condition (bsc#1213969).\n- CVE-2023-4133: Fixed use after free bugs caused by circular dependency problem in cxgb4 (bsc#1213970).\n- CVE-2023-4134: Fixed use-after-free in cyttsp4_watchdog_work() (bsc#1213971).\n- CVE-2023-4147: Fixed use-after-free in nf_tables_newrule (bsc#1213968).\n- CVE-2023-4194: Fixed a type confusion in net tun_chr_open() (bsc#1214019).\n- CVE-2023-4273: Fixed a flaw in the exFAT driver of the Linux kernel that alloawed a local privileged attacker to overflow the kernel stack (bsc#1214120).\n- CVE-2023-4385: Fixed a NULL pointer dereference flaw in dbFree that may have allowed a local attacker to crash the system due to a missing sanity check (bsc#1214348).\n- CVE-2023-4387: Fixed use-after-free flaw in vmxnet3_rq_alloc_rx_buf that could allow a local attacker to crash the system due to a double-free (bsc#1214350).\n- CVE-2023-4459: Fixed a NULL pointer dereference flaw in vmxnet3_rq_cleanup that may have allowed a local attacker with normal user privilege to cause a denial of service (bsc#1214451).\n- CVE-2023-20588: Fixed a division-by-zero error on some AMD processors that can potentially return speculative data resulting in loss of confidentiality (bsc#1213927).\n- CVE-2023-21400: Fixed several memory corruptions due to improper locking in io_uring (bsc#1213272).\n- CVE-2023-34319: Fixed buffer overrun triggered by unusual packet in xen/netback (XSA-432) (bsc#1213546).\n\nThe following non-security bugs were fixed:\n\n- ARM: spear: Do not use timer namespace for timer_shutdown() function (bsc#1213970).\n- Do not add and remove genksyms ifdefs\n- clocksource/drivers/arm_arch_timer: Do not use timer namespace for timer_shutdown() function (bsc#1213970).\n- clocksource/drivers/sp804: Do not use timer namespace for timer_shutdown() function (bsc#1213970).\n- e1000: Fix fall-through warnings for Clang (jsc#PED-5738).\n- e1000: Fix typos in comments (jsc#PED-5738).\n- e1000: Remove unnecessary use of kmap_atomic() (jsc#PED-5738).\n- e1000: drop unneeded assignment in e1000_set_itr() (jsc#PED-5738).\n- e1000: switch to napi_consume_skb() (jsc#PED-5738).\n- intel/e1000:fix repeated words in comments (jsc#PED-5738).\n- intel: remove checker warning (jsc#PED-5738).\n- kabi/severities: Ignore newly added SRSO mitigation functions\n- md/raid0: Factor out helper for mapping and submitting a bio (bsc#1213916).\n- md/raid0: Fix performance regression for large sequential writes (bsc#1213916).\n- net: e1000: remove repeated word 'slot' for e1000_main.c (jsc#PED-5738).\n- net: e1000: remove repeated words for e1000_hw.c (jsc#PED-5738).\n- powerpc/rtas: block error injection when locked down (bsc#1023051).\n- powerpc/rtas: mandate RTAS syscall filtering (bsc#1023051).\n- powerpc/rtas: move syscall filter setup into separate function (bsc#1023051).\n- powerpc/rtas: remove ibm_suspend_me_token (bsc#1023051).\n- powerpc: Move DMA64_PROPNAME define to a header (bsc#1214297 ltc#197503).\n- pseries/iommu/ddw: Fix kdump to work in absence of ibm,dma-window (bsc#1214297 ltc#197503).\n- timers: Add shutdown mechanism to the internal functions (bsc#1213970).\n- timers: Provide timer_shutdown[_sync]() (bsc#1213970).\n- timers: Rename del_timer() to timer_delete() (bsc#1213970).\n- timers: Rename del_timer_sync() to timer_delete_sync() (bsc#1213970).\n- timers: Replace BUG_ON()s (bsc#1213970).\n- timers: Silently ignore timers with a NULL function (bsc#1213970).\n- timers: Split [try_to_]del_timer[_sync]() to prepare for shutdown mode (bsc#1213970).\n- timers: Update kernel-doc for various functions (bsc#1213970).\n- timers: Use del_timer_sync() even on UP (bsc#1213970).\n- x86/cpu/kvm: Provide UNTRAIN_RET_VM (git-fixes).\n- x86/cpu: Cleanup the untrain mess (git-fixes).\n- x86/cpu: Rename original retbleed methods (git-fixes).\n- x86/cpu: Rename srso_(.*)_alias to srso_alias_\\1 (git-fixes).\n- x86/retpoline: Do not clobber RFLAGS during srso_safe_ret() (git-fixes).\n- x86/speculation: Add cpu_show_gds() prototype (git-fixes).\n- x86/speculation: Mark all Skylake CPUs as vulnerable to GDS (git-fixes).\n- x86/srso: Correct the mitigation status when SMT is disabled (git-fixes).\n- x86/srso: Disable the mitigation on unaffected configurations (git-fixes).\n- x86/srso: Explain the untraining sequences a bit more (git-fixes).\n- x86: Move gds_ucode_mitigated() declaration to header (git-fixes).\n- xfs: fix sb write verify for lazysbcount (bsc#1214275).\n- xfs: gut error handling in xfs_trans_unreserve_and_mod_sb() (bsc#1214275).\n- xfs: update superblock counters correctly for !lazysbcount (bsc#1214275).\n",
+				"title": "Description of the patch"
+			},
+			{
+				"category": "details",
+				"text": "SUSE-2023-3785,SUSE-SUSE-MicroOS-5.1-2023-3785,SUSE-SUSE-MicroOS-5.2-2023-3785",
+				"title": "Patchnames"
+			},
+			{
+				"category": "legal_disclaimer",
+				"text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+				"title": "Terms of use"
+			}
+		],
+		"publisher": {
+			"category": "vendor",
+			"contact_details": "https://www.suse.com/support/security/contact/",
+			"name": "SUSE Product Security Team",
+			"namespace": "https://www.suse.com/"
+		},
+		"references": [
+			{
+				"category": "external",
+				"summary": "SUSE ratings",
+				"url": "https://www.suse.com/support/security/rating/"
+			},
+			{
+				"category": "self",
+				"summary": "URL of this CSAF notice",
+				"url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2023_3785-1.json"
+			},
+			{
+				"category": "self",
+				"summary": "URL for SUSE-SU-2023:3785-1",
+				"url": "https://www.suse.com/support/update/announcement/2023/suse-su-20233785-1/"
+			},
+			{
+				"category": "self",
+				"summary": "E-Mail link for SUSE-SU-2023:3785-1",
+				"url": "https://lists.suse.com/pipermail/sle-security-updates/2023-September/016326.html"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1023051",
+				"url": "https://bugzilla.suse.com/1023051"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1203517",
+				"url": "https://bugzilla.suse.com/1203517"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1210448",
+				"url": "https://bugzilla.suse.com/1210448"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1213272",
+				"url": "https://bugzilla.suse.com/1213272"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1213546",
+				"url": "https://bugzilla.suse.com/1213546"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1213601",
+				"url": "https://bugzilla.suse.com/1213601"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1213666",
+				"url": "https://bugzilla.suse.com/1213666"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1213916",
+				"url": "https://bugzilla.suse.com/1213916"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1213927",
+				"url": "https://bugzilla.suse.com/1213927"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1213968",
+				"url": "https://bugzilla.suse.com/1213968"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1213969",
+				"url": "https://bugzilla.suse.com/1213969"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1213970",
+				"url": "https://bugzilla.suse.com/1213970"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1213971",
+				"url": "https://bugzilla.suse.com/1213971"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1214019",
+				"url": "https://bugzilla.suse.com/1214019"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1214120",
+				"url": "https://bugzilla.suse.com/1214120"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1214149",
+				"url": "https://bugzilla.suse.com/1214149"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1214275",
+				"url": "https://bugzilla.suse.com/1214275"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1214297",
+				"url": "https://bugzilla.suse.com/1214297"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1214348",
+				"url": "https://bugzilla.suse.com/1214348"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1214350",
+				"url": "https://bugzilla.suse.com/1214350"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1214451",
+				"url": "https://bugzilla.suse.com/1214451"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2022-36402 page",
+				"url": "https://www.suse.com/security/cve/CVE-2022-36402/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2023-2007 page",
+				"url": "https://www.suse.com/security/cve/CVE-2023-2007/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2023-20588 page",
+				"url": "https://www.suse.com/security/cve/CVE-2023-20588/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2023-21400 page",
+				"url": "https://www.suse.com/security/cve/CVE-2023-21400/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2023-34319 page",
+				"url": "https://www.suse.com/security/cve/CVE-2023-34319/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2023-3772 page",
+				"url": "https://www.suse.com/security/cve/CVE-2023-3772/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2023-3863 page",
+				"url": "https://www.suse.com/security/cve/CVE-2023-3863/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2023-4128 page",
+				"url": "https://www.suse.com/security/cve/CVE-2023-4128/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2023-4132 page",
+				"url": "https://www.suse.com/security/cve/CVE-2023-4132/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2023-4133 page",
+				"url": "https://www.suse.com/security/cve/CVE-2023-4133/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2023-4134 page",
+				"url": "https://www.suse.com/security/cve/CVE-2023-4134/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2023-4147 page",
+				"url": "https://www.suse.com/security/cve/CVE-2023-4147/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2023-4194 page",
+				"url": "https://www.suse.com/security/cve/CVE-2023-4194/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2023-4273 page",
+				"url": "https://www.suse.com/security/cve/CVE-2023-4273/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2023-4385 page",
+				"url": "https://www.suse.com/security/cve/CVE-2023-4385/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2023-4387 page",
+				"url": "https://www.suse.com/security/cve/CVE-2023-4387/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2023-4459 page",
+				"url": "https://www.suse.com/security/cve/CVE-2023-4459/"
+			}
+		],
+		"title": "Security update for the Linux Kernel",
+		"tracking": {
+			"current_release_date": "2023-09-26T11:19:19Z",
+			"generator": {
+				"date": "2023-09-26T11:19:19Z",
+				"engine": {
+					"name": "cve-database.git:bin/generate-csaf.pl",
+					"version": "1"
+				}
+			},
+			"id": "SUSE-SU-2023:3785-1",
+			"initial_release_date": "2023-09-26T11:19:19Z",
+			"revision_history": [
+				{
+					"date": "2023-09-26T11:19:19Z",
+					"number": "1",
+					"summary": "Current version"
+				}
+			],
+			"status": "final",
+			"version": "1"
+		}
+	},
+	"product_tree": {
+		"branches": [
+			{
+				"branches": [
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "kernel-devel-rt-5.3.18-150300.141.1.noarch",
+								"product": {
+									"name": "kernel-devel-rt-5.3.18-150300.141.1.noarch",
+									"product_id": "kernel-devel-rt-5.3.18-150300.141.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-source-rt-5.3.18-150300.141.1.noarch",
+								"product": {
+									"name": "kernel-source-rt-5.3.18-150300.141.1.noarch",
+									"product_id": "kernel-source-rt-5.3.18-150300.141.1.noarch"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "noarch"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "cluster-md-kmp-rt-5.3.18-150300.141.1.x86_64",
+								"product": {
+									"name": "cluster-md-kmp-rt-5.3.18-150300.141.1.x86_64",
+									"product_id": "cluster-md-kmp-rt-5.3.18-150300.141.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "cluster-md-kmp-rt_debug-5.3.18-150300.141.1.x86_64",
+								"product": {
+									"name": "cluster-md-kmp-rt_debug-5.3.18-150300.141.1.x86_64",
+									"product_id": "cluster-md-kmp-rt_debug-5.3.18-150300.141.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "dlm-kmp-rt-5.3.18-150300.141.1.x86_64",
+								"product": {
+									"name": "dlm-kmp-rt-5.3.18-150300.141.1.x86_64",
+									"product_id": "dlm-kmp-rt-5.3.18-150300.141.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "dlm-kmp-rt_debug-5.3.18-150300.141.1.x86_64",
+								"product": {
+									"name": "dlm-kmp-rt_debug-5.3.18-150300.141.1.x86_64",
+									"product_id": "dlm-kmp-rt_debug-5.3.18-150300.141.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "gfs2-kmp-rt-5.3.18-150300.141.1.x86_64",
+								"product": {
+									"name": "gfs2-kmp-rt-5.3.18-150300.141.1.x86_64",
+									"product_id": "gfs2-kmp-rt-5.3.18-150300.141.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "gfs2-kmp-rt_debug-5.3.18-150300.141.1.x86_64",
+								"product": {
+									"name": "gfs2-kmp-rt_debug-5.3.18-150300.141.1.x86_64",
+									"product_id": "gfs2-kmp-rt_debug-5.3.18-150300.141.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-rt-5.3.18-150300.141.1.x86_64",
+								"product": {
+									"name": "kernel-rt-5.3.18-150300.141.1.x86_64",
+									"product_id": "kernel-rt-5.3.18-150300.141.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-rt-devel-5.3.18-150300.141.1.x86_64",
+								"product": {
+									"name": "kernel-rt-devel-5.3.18-150300.141.1.x86_64",
+									"product_id": "kernel-rt-devel-5.3.18-150300.141.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-rt-extra-5.3.18-150300.141.1.x86_64",
+								"product": {
+									"name": "kernel-rt-extra-5.3.18-150300.141.1.x86_64",
+									"product_id": "kernel-rt-extra-5.3.18-150300.141.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-rt-livepatch-devel-5.3.18-150300.141.1.x86_64",
+								"product": {
+									"name": "kernel-rt-livepatch-devel-5.3.18-150300.141.1.x86_64",
+									"product_id": "kernel-rt-livepatch-devel-5.3.18-150300.141.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-rt-optional-5.3.18-150300.141.1.x86_64",
+								"product": {
+									"name": "kernel-rt-optional-5.3.18-150300.141.1.x86_64",
+									"product_id": "kernel-rt-optional-5.3.18-150300.141.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-rt_debug-5.3.18-150300.141.1.x86_64",
+								"product": {
+									"name": "kernel-rt_debug-5.3.18-150300.141.1.x86_64",
+									"product_id": "kernel-rt_debug-5.3.18-150300.141.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-rt_debug-devel-5.3.18-150300.141.1.x86_64",
+								"product": {
+									"name": "kernel-rt_debug-devel-5.3.18-150300.141.1.x86_64",
+									"product_id": "kernel-rt_debug-devel-5.3.18-150300.141.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-rt_debug-extra-5.3.18-150300.141.1.x86_64",
+								"product": {
+									"name": "kernel-rt_debug-extra-5.3.18-150300.141.1.x86_64",
+									"product_id": "kernel-rt_debug-extra-5.3.18-150300.141.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-rt_debug-livepatch-devel-5.3.18-150300.141.1.x86_64",
+								"product": {
+									"name": "kernel-rt_debug-livepatch-devel-5.3.18-150300.141.1.x86_64",
+									"product_id": "kernel-rt_debug-livepatch-devel-5.3.18-150300.141.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-rt_debug-optional-5.3.18-150300.141.1.x86_64",
+								"product": {
+									"name": "kernel-rt_debug-optional-5.3.18-150300.141.1.x86_64",
+									"product_id": "kernel-rt_debug-optional-5.3.18-150300.141.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kernel-syms-rt-5.3.18-150300.141.1.x86_64",
+								"product": {
+									"name": "kernel-syms-rt-5.3.18-150300.141.1.x86_64",
+									"product_id": "kernel-syms-rt-5.3.18-150300.141.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kselftests-kmp-rt-5.3.18-150300.141.1.x86_64",
+								"product": {
+									"name": "kselftests-kmp-rt-5.3.18-150300.141.1.x86_64",
+									"product_id": "kselftests-kmp-rt-5.3.18-150300.141.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "kselftests-kmp-rt_debug-5.3.18-150300.141.1.x86_64",
+								"product": {
+									"name": "kselftests-kmp-rt_debug-5.3.18-150300.141.1.x86_64",
+									"product_id": "kselftests-kmp-rt_debug-5.3.18-150300.141.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "ocfs2-kmp-rt-5.3.18-150300.141.1.x86_64",
+								"product": {
+									"name": "ocfs2-kmp-rt-5.3.18-150300.141.1.x86_64",
+									"product_id": "ocfs2-kmp-rt-5.3.18-150300.141.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "ocfs2-kmp-rt_debug-5.3.18-150300.141.1.x86_64",
+								"product": {
+									"name": "ocfs2-kmp-rt_debug-5.3.18-150300.141.1.x86_64",
+									"product_id": "ocfs2-kmp-rt_debug-5.3.18-150300.141.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "reiserfs-kmp-rt-5.3.18-150300.141.1.x86_64",
+								"product": {
+									"name": "reiserfs-kmp-rt-5.3.18-150300.141.1.x86_64",
+									"product_id": "reiserfs-kmp-rt-5.3.18-150300.141.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "reiserfs-kmp-rt_debug-5.3.18-150300.141.1.x86_64",
+								"product": {
+									"name": "reiserfs-kmp-rt_debug-5.3.18-150300.141.1.x86_64",
+									"product_id": "reiserfs-kmp-rt_debug-5.3.18-150300.141.1.x86_64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "x86_64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Micro 5.1",
+								"product": {
+									"name": "SUSE Linux Enterprise Micro 5.1",
+									"product_id": "SUSE Linux Enterprise Micro 5.1",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:suse-microos:5.1"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Micro 5.2",
+								"product": {
+									"name": "SUSE Linux Enterprise Micro 5.2",
+									"product_id": "SUSE Linux Enterprise Micro 5.2",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:suse-microos:5.2"
+									}
+								}
+							}
+						],
+						"category": "product_family",
+						"name": "SUSE Linux Enterprise"
+					}
+				],
+				"category": "vendor",
+				"name": "SUSE"
+			}
+		],
+		"relationships": [
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-rt-5.3.18-150300.141.1.x86_64 as component of SUSE Linux Enterprise Micro 5.1",
+					"product_id": "SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.141.1.x86_64"
+				},
+				"product_reference": "kernel-rt-5.3.18-150300.141.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Micro 5.1"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "kernel-rt-5.3.18-150300.141.1.x86_64 as component of SUSE Linux Enterprise Micro 5.2",
+					"product_id": "SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.141.1.x86_64"
+				},
+				"product_reference": "kernel-rt-5.3.18-150300.141.1.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Micro 5.2"
+			}
+		]
+	},
+	"vulnerabilities": [
+		{
+			"cve": "CVE-2022-36402",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2022-36402"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "An integer overflow vulnerability was found in vmwgfx driver in drivers/gpu/vmxgfx/vmxgfx_execbuf.c in GPU component of Linux kernel with device file '/dev/dri/renderD128 (or Dxxx)'. This flaw allows a local attacker with a user account on the system to gain privilege, causing a denial of service(DoS).",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.141.1.x86_64",
+					"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.141.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2022-36402",
+					"url": "https://www.suse.com/security/cve/CVE-2022-36402"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1203517 for CVE-2022-36402",
+					"url": "https://bugzilla.suse.com/1203517"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.141.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.141.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 5.5,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.141.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.141.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2023-09-26T11:19:19Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2022-36402"
+		},
+		{
+			"cve": "CVE-2023-2007",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2023-2007"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The specific flaw exists within the DPT I2O Controller driver. The issue results from the lack of proper locking when performing operations on an object. An attacker can leverage this in conjunction with other vulnerabilities to escalate privileges and execute arbitrary code in the context of the kernel.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.141.1.x86_64",
+					"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.141.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2023-2007",
+					"url": "https://www.suse.com/security/cve/CVE-2023-2007"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1210448 for CVE-2023-2007",
+					"url": "https://bugzilla.suse.com/1210448"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.141.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.141.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 4.4,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:N/A:N",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.141.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.141.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2023-09-26T11:19:19Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2023-2007"
+		},
+		{
+			"cve": "CVE-2023-20588",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2023-20588"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "\nA division-by-zero error on some AMD processors can potentially return speculative data resulting in loss of confidentiality. \n\n\n\n\n\n\n\n",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.141.1.x86_64",
+					"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.141.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2023-20588",
+					"url": "https://www.suse.com/security/cve/CVE-2023-20588"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1213927 for CVE-2023-20588",
+					"url": "https://bugzilla.suse.com/1213927"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.141.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.141.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 6,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:C/C:H/I:N/A:N",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.141.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.141.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2023-09-26T11:19:19Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2023-20588"
+		},
+		{
+			"cve": "CVE-2023-21400",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2023-21400"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "In multiple functions  of io_uring.c, there is a possible kernel memory corruption due to improper locking. This could lead to local escalation of privilege in the kernel with System execution privileges needed. User interaction is not needed for exploitation.\n\n",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.141.1.x86_64",
+					"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.141.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2023-21400",
+					"url": "https://www.suse.com/security/cve/CVE-2023-21400"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1213272 for CVE-2023-21400",
+					"url": "https://bugzilla.suse.com/1213272"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.141.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.141.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 6.7,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.141.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.141.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2023-09-26T11:19:19Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2023-21400"
+		},
+		{
+			"cve": "CVE-2023-34319",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2023-34319"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The fix for XSA-423 added logic to Linux'es netback driver to deal with\na frontend splitting a packet in a way such that not all of the headers\nwould come in one piece.  Unfortunately the logic introduced there\ndidn't account for the extreme case of the entire packet being split\ninto as many pieces as permitted by the protocol, yet still being\nsmaller than the area that's specially dealt with to keep all (possible)\nheaders together.  Such an unusual packet would therefore trigger a\nbuffer overrun in the driver.\n",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.141.1.x86_64",
+					"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.141.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2023-34319",
+					"url": "https://www.suse.com/security/cve/CVE-2023-34319"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1213546 for CVE-2023-34319",
+					"url": "https://bugzilla.suse.com/1213546"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.141.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.141.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 6.5,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.141.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.141.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2023-09-26T11:19:19Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2023-34319"
+		},
+		{
+			"cve": "CVE-2023-3772",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2023-3772"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A flaw was found in the Linux kernel's IP framework for transforming packets (XFRM subsystem). This issue may allow a malicious user with CAP_NET_ADMIN privileges to directly dereference a NULL pointer in xfrm_update_ae_params(), leading to a possible kernel crash and denial of service.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.141.1.x86_64",
+					"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.141.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2023-3772",
+					"url": "https://www.suse.com/security/cve/CVE-2023-3772"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1213666 for CVE-2023-3772",
+					"url": "https://bugzilla.suse.com/1213666"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.141.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.141.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 5.5,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.141.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.141.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2023-09-26T11:19:19Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2023-3772"
+		},
+		{
+			"cve": "CVE-2023-3863",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2023-3863"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A use-after-free flaw was found in nfc_llcp_find_local in net/nfc/llcp_core.c in NFC in the Linux kernel. This flaw allows a local user with special privileges to impact a kernel information leak issue.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.141.1.x86_64",
+					"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.141.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2023-3863",
+					"url": "https://www.suse.com/security/cve/CVE-2023-3863"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1213601 for CVE-2023-3863",
+					"url": "https://bugzilla.suse.com/1213601"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1213603 for CVE-2023-3863",
+					"url": "https://bugzilla.suse.com/1213603"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1217444 for CVE-2023-3863",
+					"url": "https://bugzilla.suse.com/1217444"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1217531 for CVE-2023-3863",
+					"url": "https://bugzilla.suse.com/1217531"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1219704 for CVE-2023-3863",
+					"url": "https://bugzilla.suse.com/1219704"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.141.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.141.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.4,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:L/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.141.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.141.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2023-09-26T11:19:19Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2023-3863"
+		},
+		{
+			"cve": "CVE-2023-4128",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2023-4128"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "** REJECT ** DO NOT USE THIS CVE RECORD. ConsultIDs: CVE-2023-4206, CVE-2023-4207, CVE-2023-4208.  Reason: This record is a duplicate of CVE-2023-4206, CVE-2023-4207, CVE-2023-4208. Notes: All CVE users should reference CVE-2023-4206, CVE-2023-4207, CVE-2023-4208 instead of this record. All references and descriptions in this record have been removed to prevent accidental usage.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.141.1.x86_64",
+					"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.141.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2023-4128",
+					"url": "https://www.suse.com/security/cve/CVE-2023-4128"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1214149 for CVE-2023-4128",
+					"url": "https://bugzilla.suse.com/1214149"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.141.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.141.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 6.7,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.141.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.141.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2023-09-26T11:19:19Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2023-4128"
+		},
+		{
+			"cve": "CVE-2023-4132",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2023-4132"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A use-after-free vulnerability was found in the siano smsusb module in the Linux kernel. The bug occurs during device initialization when the siano device is plugged in. This flaw allows a local user to crash the system, causing a denial of service condition.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.141.1.x86_64",
+					"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.141.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2023-4132",
+					"url": "https://www.suse.com/security/cve/CVE-2023-4132"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1213969 for CVE-2023-4132",
+					"url": "https://bugzilla.suse.com/1213969"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.141.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.141.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 6.2,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.141.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.141.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2023-09-26T11:19:19Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2023-4132"
+		},
+		{
+			"cve": "CVE-2023-4133",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2023-4133"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A use-after-free vulnerability was found in the cxgb4 driver in the Linux kernel. The bug occurs when the cxgb4 device is detaching due to a possible rearming of the flower_stats_timer from the work queue. This flaw allows a local user to crash the system, causing a denial of service condition.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.141.1.x86_64",
+					"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.141.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2023-4133",
+					"url": "https://www.suse.com/security/cve/CVE-2023-4133"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1213970 for CVE-2023-4133",
+					"url": "https://bugzilla.suse.com/1213970"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.141.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.141.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 5.1,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:L/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.141.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.141.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2023-09-26T11:19:19Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2023-4133"
+		},
+		{
+			"cve": "CVE-2023-4134",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2023-4134"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.141.1.x86_64",
+					"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.141.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2023-4134",
+					"url": "https://www.suse.com/security/cve/CVE-2023-4134"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1213971 for CVE-2023-4134",
+					"url": "https://bugzilla.suse.com/1213971"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.141.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.141.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 4.1,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.141.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.141.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2023-09-26T11:19:19Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2023-4134"
+		},
+		{
+			"cve": "CVE-2023-4147",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2023-4147"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A use-after-free flaw was found in the Linux kernel's Netfilter functionality when adding a rule with NFTA_RULE_CHAIN_ID. This flaw allows a local user to crash or escalate their privileges on the system.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.141.1.x86_64",
+					"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.141.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2023-4147",
+					"url": "https://www.suse.com/security/cve/CVE-2023-4147"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1213968 for CVE-2023-4147",
+					"url": "https://bugzilla.suse.com/1213968"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1215118 for CVE-2023-4147",
+					"url": "https://bugzilla.suse.com/1215118"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.141.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.141.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.8,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.141.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.141.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2023-09-26T11:19:19Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2023-4147"
+		},
+		{
+			"cve": "CVE-2023-4194",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2023-4194"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A flaw was found in the Linux kernel's TUN/TAP functionality. This issue could allow a local user to bypass network filters and gain unauthorized access to some resources. The original patches fixing CVE-2023-1076 are incorrect or incomplete. The problem is that the following upstream commits - a096ccca6e50 (\"tun: tun_chr_open(): correctly initialize socket uid\"), - 66b2c338adce (\"tap: tap_open(): correctly initialize socket uid\"), pass \"inode->i_uid\" to sock_init_data_uid() as the last parameter and that turns out to not be accurate.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.141.1.x86_64",
+					"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.141.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2023-4194",
+					"url": "https://www.suse.com/security/cve/CVE-2023-4194"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1214019 for CVE-2023-4194",
+					"url": "https://bugzilla.suse.com/1214019"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.141.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.141.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 4.7,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.141.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.141.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2023-09-26T11:19:19Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2023-4194"
+		},
+		{
+			"cve": "CVE-2023-4273",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2023-4273"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A flaw was found in the exFAT driver of the Linux kernel. The vulnerability exists in the implementation of the file name reconstruction function, which is responsible for reading file name entries from a directory index and merging file name parts belonging to one file into a single long file name. Since the file name characters are copied into a stack variable, a local privileged attacker could use this flaw to overflow the kernel stack.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.141.1.x86_64",
+					"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.141.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2023-4273",
+					"url": "https://www.suse.com/security/cve/CVE-2023-4273"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1214120 for CVE-2023-4273",
+					"url": "https://bugzilla.suse.com/1214120"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1214123 for CVE-2023-4273",
+					"url": "https://bugzilla.suse.com/1214123"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.141.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.141.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.8,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.141.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.141.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2023-09-26T11:19:19Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2023-4273"
+		},
+		{
+			"cve": "CVE-2023-4385",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2023-4385"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A NULL pointer dereference flaw was found in dbFree in fs/jfs/jfs_dmap.c in the journaling file system (JFS) in the Linux Kernel. This issue may allow a local attacker to crash the system due to a missing sanity check.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.141.1.x86_64",
+					"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.141.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2023-4385",
+					"url": "https://www.suse.com/security/cve/CVE-2023-4385"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1214348 for CVE-2023-4385",
+					"url": "https://bugzilla.suse.com/1214348"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1222212 for CVE-2023-4385",
+					"url": "https://bugzilla.suse.com/1222212"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.141.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.141.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 5.5,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.141.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.141.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2023-09-26T11:19:19Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2023-4385"
+		},
+		{
+			"cve": "CVE-2023-4387",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2023-4387"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A use-after-free flaw was found in vmxnet3_rq_alloc_rx_buf in drivers/net/vmxnet3/vmxnet3_drv.c in VMware's vmxnet3 ethernet NIC driver in the Linux Kernel. This issue could allow a local attacker to crash the system due to a double-free while cleaning up vmxnet3_rq_cleanup_all, which could also lead to a kernel information leak problem.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.141.1.x86_64",
+					"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.141.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2023-4387",
+					"url": "https://www.suse.com/security/cve/CVE-2023-4387"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1214350 for CVE-2023-4387",
+					"url": "https://bugzilla.suse.com/1214350"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.141.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.141.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 6.6,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:N/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.141.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.141.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2023-09-26T11:19:19Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2023-4387"
+		},
+		{
+			"cve": "CVE-2023-4459",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2023-4459"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A NULL pointer dereference flaw was found in vmxnet3_rq_cleanup in drivers/net/vmxnet3/vmxnet3_drv.c in the networking sub-component in vmxnet3 in the Linux Kernel. This issue may allow a local attacker with normal user privilege to cause a denial of service due to a missing sanity check during cleanup.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.141.1.x86_64",
+					"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.141.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2023-4459",
+					"url": "https://www.suse.com/security/cve/CVE-2023-4459"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1214451 for CVE-2023-4459",
+					"url": "https://bugzilla.suse.com/1214451"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.141.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.141.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 6.5,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Micro 5.1:kernel-rt-5.3.18-150300.141.1.x86_64",
+						"SUSE Linux Enterprise Micro 5.2:kernel-rt-5.3.18-150300.141.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2023-09-26T11:19:19Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2023-4459"
+		}
+	]
+}

@@ -1,0 +1,227 @@
+{
+	"document": {
+		"aggregate_severity": {
+			"namespace": "https://www.suse.com/support/security/rating/",
+			"text": "important"
+		},
+		"category": "csaf_security_advisory",
+		"csaf_version": "2.0",
+		"distribution": {
+			"text": "Copyright 2024 SUSE LLC. All rights reserved.",
+			"tlp": {
+				"label": "WHITE",
+				"url": "https://www.first.org/tlp/"
+			}
+		},
+		"lang": "en",
+		"notes": [
+			{
+				"category": "summary",
+				"text": "Security update for uftpd",
+				"title": "Title of the patch"
+			},
+			{
+				"category": "description",
+				"text": "This update for uftpd to version 2.11 fixes the following issues:\n\n- CVE-2020-5204: Fixed a buffer overflow in FTP PORT parser (boo#1160199).\n- Fixed additional bugs which could have security implications.\n",
+				"title": "Description of the patch"
+			},
+			{
+				"category": "details",
+				"text": "openSUSE-2020-69",
+				"title": "Patchnames"
+			},
+			{
+				"category": "legal_disclaimer",
+				"text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+				"title": "Terms of use"
+			}
+		],
+		"publisher": {
+			"category": "vendor",
+			"contact_details": "https://www.suse.com/support/security/contact/",
+			"name": "SUSE Product Security Team",
+			"namespace": "https://www.suse.com/"
+		},
+		"references": [
+			{
+				"category": "external",
+				"summary": "SUSE ratings",
+				"url": "https://www.suse.com/support/security/rating/"
+			},
+			{
+				"category": "self",
+				"summary": "URL of this CSAF notice",
+				"url": "https://ftp.suse.com/pub/projects/security/csaf/opensuse-su-2020_0069-1.json"
+			},
+			{
+				"category": "self",
+				"summary": "URL for openSUSE-SU-2020:0069-1",
+				"url": "https://lists.opensuse.org/archives/list/security-announce@lists.opensuse.org/thread/IDYGZ633D4H5UECALITDGXDPUI2GPPSA/"
+			},
+			{
+				"category": "self",
+				"summary": "E-Mail link for openSUSE-SU-2020:0069-1",
+				"url": "https://lists.opensuse.org/archives/list/security-announce@lists.opensuse.org/thread/IDYGZ633D4H5UECALITDGXDPUI2GPPSA/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1160199",
+				"url": "https://bugzilla.suse.com/1160199"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2020-5204 page",
+				"url": "https://www.suse.com/security/cve/CVE-2020-5204/"
+			}
+		],
+		"title": "Security update for uftpd",
+		"tracking": {
+			"current_release_date": "2020-01-18T13:10:54Z",
+			"generator": {
+				"date": "2020-01-18T13:10:54Z",
+				"engine": {
+					"name": "cve-database.git:bin/generate-csaf.pl",
+					"version": "1"
+				}
+			},
+			"id": "openSUSE-SU-2020:0069-1",
+			"initial_release_date": "2020-01-18T13:10:54Z",
+			"revision_history": [
+				{
+					"date": "2020-01-18T13:10:54Z",
+					"number": "1",
+					"summary": "Current version"
+				}
+			],
+			"status": "final",
+			"version": "1"
+		}
+	},
+	"product_tree": {
+		"branches": [
+			{
+				"branches": [
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "uftpd-2.11-lp151.2.3.1.x86_64",
+								"product": {
+									"name": "uftpd-2.11-lp151.2.3.1.x86_64",
+									"product_id": "uftpd-2.11-lp151.2.3.1.x86_64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "x86_64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_name",
+								"name": "openSUSE Leap 15.1",
+								"product": {
+									"name": "openSUSE Leap 15.1",
+									"product_id": "openSUSE Leap 15.1",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:opensuse:leap:15.1"
+									}
+								}
+							}
+						],
+						"category": "product_family",
+						"name": "SUSE Linux Enterprise"
+					}
+				],
+				"category": "vendor",
+				"name": "SUSE"
+			}
+		],
+		"relationships": [
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "uftpd-2.11-lp151.2.3.1.x86_64 as component of openSUSE Leap 15.1",
+					"product_id": "openSUSE Leap 15.1:uftpd-2.11-lp151.2.3.1.x86_64"
+				},
+				"product_reference": "uftpd-2.11-lp151.2.3.1.x86_64",
+				"relates_to_product_reference": "openSUSE Leap 15.1"
+			}
+		]
+	},
+	"vulnerabilities": [
+		{
+			"cve": "CVE-2020-5204",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2020-5204"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "In uftpd before 2.11, there is a buffer overflow vulnerability in handle_PORT in ftpcmd.c that is caused by a buffer that is 16 bytes large being filled via sprintf() with user input based on the format specifier string %d.%d.%d.%d. The 16 byte size is correct for valid IPv4 addresses (len(&#39;255.255.255.255&#39;) == 16), but the format specifier %d allows more than 3 digits. This has been fixed in version 2.11",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"openSUSE Leap 15.1:uftpd-2.11-lp151.2.3.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2020-5204",
+					"url": "https://www.suse.com/security/cve/CVE-2020-5204"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1160199 for CVE-2020-5204",
+					"url": "https://bugzilla.suse.com/1160199"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1161667 for CVE-2020-5204",
+					"url": "https://bugzilla.suse.com/1161667"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1180249 for CVE-2020-5204",
+					"url": "https://bugzilla.suse.com/1180249"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"openSUSE Leap 15.1:uftpd-2.11-lp151.2.3.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 8.8,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"openSUSE Leap 15.1:uftpd-2.11-lp151.2.3.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2020-01-18T13:10:54Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2020-5204"
+		}
+	]
+}

@@ -1,0 +1,382 @@
+{
+	"document": {
+		"aggregate_severity": {
+			"namespace": "https://www.suse.com/support/security/rating/",
+			"text": "important"
+		},
+		"category": "csaf_security_advisory",
+		"csaf_version": "2.0",
+		"distribution": {
+			"text": "Copyright 2024 SUSE LLC. All rights reserved.",
+			"tlp": {
+				"label": "WHITE",
+				"url": "https://www.first.org/tlp/"
+			}
+		},
+		"lang": "en",
+		"notes": [
+			{
+				"category": "summary",
+				"text": "Security update for haproxy",
+				"title": "Title of the patch"
+			},
+			{
+				"category": "description",
+				"text": "This update for haproxy to version 1.8.14 fixes the following issues:\n\nThese security issues were fixed:\n\n- CVE-2018-14645: A flaw was discovered in the HPACK decoder what caused an\n  out-of-bounds read in hpack_valid_idx() that resulted in a remote crash and\n  denial of service (bsc#1108683)\n- CVE-2018-11469: Incorrect caching of responses to requests including an\n  Authorization header allowed attackers to achieve information disclosure via an\n  unauthenticated remote request (bsc#1094846).\n\nThese non-security issues were fixed:\n\n- Require apparmor-abstractions to reduce dependencies (bsc#1100787)\n- hpack: fix improper sign check on the header index value\n- cli: make sure the 'getsock' command is only called on connections\n- tools: fix set_net_port() / set_host_port() on IPv4\n- patterns: fix possible double free when reloading a pattern list\n- server: Crash when setting FQDN via CLI.\n- kqueue: Don't reset the changes number by accident.\n- snapshot: take the proxy's lock while dumping errors\n- http/threads: atomically increment the error snapshot ID\n- dns: check and link servers' resolvers right after config parsing\n- h2: fix risk of memory leak on malformated wrapped frames\n- session: fix reporting of handshake processing time in the logs\n- stream: use atomic increments for the request counter\n- thread: implement HA_ATOMIC_XADD()\n- ECC cert should work with TLS < v1.2 and openssl >= 1.1.1\n- dns/server: fix incomatibility between SRV resolution and server state file\n- hlua: Don't call RESET_SAFE_LJMP if SET_SAFE_LJMP returns 0.\n- thread: lua: Wrong SSL context initialization.\n- hlua: Make sure we drain the output buffer when done.\n- lua: reset lua transaction between http requests\n- mux_pt: dereference the connection with care in mux_pt_wake()\n- lua: Bad HTTP client request duration.\n- unix: provide a ->drain() function\n- Fix spelling error in configuration doc\n- cli/threads: protect some server commands against concurrent operations\n- cli/threads: protect all 'proxy' commands against concurrent updates\n- lua: socket timeouts are not applied\n- ssl: Use consistent naming for TLS protocols\n- dns: explain set server ... fqdn requires resolver\n- map: fix map_regm with backref\n- ssl: loading dh param from certifile causes unpredictable error.\n- ssl: fix missing error loading a keytype cert from a bundle.\n- ssl: empty connections reported as errors.\n- cli: make 'show fd' thread-safe\n- hathreads: implement a more flexible rendez-vous point\n- threads: fix the no-thread case after the change to the sync point\n- threads: add more consistency between certain variables in no-thread case\n- threads: fix the double CAS implementation for ARMv7\n- threads: Introduce double-width CAS on x86_64 and arm.\n- lua: possible CLOSE-WAIT state with '\\n' headers\n\nFor additional changes please refer to the changelog.\n",
+				"title": "Description of the patch"
+			},
+			{
+				"category": "details",
+				"text": "SUSE-SLE-Product-HA-15-2018-2332",
+				"title": "Patchnames"
+			},
+			{
+				"category": "legal_disclaimer",
+				"text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+				"title": "Terms of use"
+			}
+		],
+		"publisher": {
+			"category": "vendor",
+			"contact_details": "https://www.suse.com/support/security/contact/",
+			"name": "SUSE Product Security Team",
+			"namespace": "https://www.suse.com/"
+		},
+		"references": [
+			{
+				"category": "external",
+				"summary": "SUSE ratings",
+				"url": "https://www.suse.com/support/security/rating/"
+			},
+			{
+				"category": "self",
+				"summary": "URL of this CSAF notice",
+				"url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2018_3249-1.json"
+			},
+			{
+				"category": "self",
+				"summary": "URL for SUSE-SU-2018:3249-1",
+				"url": "https://www.suse.com/support/update/announcement/2018/suse-su-20183249-1/"
+			},
+			{
+				"category": "self",
+				"summary": "E-Mail link for SUSE-SU-2018:3249-1",
+				"url": "https://lists.suse.com/pipermail/sle-security-updates/2018-October/004745.html"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1094846",
+				"url": "https://bugzilla.suse.com/1094846"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1100787",
+				"url": "https://bugzilla.suse.com/1100787"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1108683",
+				"url": "https://bugzilla.suse.com/1108683"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2018-11469 page",
+				"url": "https://www.suse.com/security/cve/CVE-2018-11469/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2018-14645 page",
+				"url": "https://www.suse.com/security/cve/CVE-2018-14645/"
+			}
+		],
+		"title": "Security update for haproxy",
+		"tracking": {
+			"current_release_date": "2018-10-19T12:59:02Z",
+			"generator": {
+				"date": "2018-10-19T12:59:02Z",
+				"engine": {
+					"name": "cve-database.git:bin/generate-csaf.pl",
+					"version": "1"
+				}
+			},
+			"id": "SUSE-SU-2018:3249-1",
+			"initial_release_date": "2018-10-19T12:59:02Z",
+			"revision_history": [
+				{
+					"date": "2018-10-19T12:59:02Z",
+					"number": "1",
+					"summary": "Current version"
+				}
+			],
+			"status": "final",
+			"version": "1"
+		}
+	},
+	"product_tree": {
+		"branches": [
+			{
+				"branches": [
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "haproxy-1.8.14~git0.52e4d43b-3.3.2.aarch64",
+								"product": {
+									"name": "haproxy-1.8.14~git0.52e4d43b-3.3.2.aarch64",
+									"product_id": "haproxy-1.8.14~git0.52e4d43b-3.3.2.aarch64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "aarch64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "haproxy-1.8.14~git0.52e4d43b-3.3.2.ppc64le",
+								"product": {
+									"name": "haproxy-1.8.14~git0.52e4d43b-3.3.2.ppc64le",
+									"product_id": "haproxy-1.8.14~git0.52e4d43b-3.3.2.ppc64le"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "ppc64le"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "haproxy-1.8.14~git0.52e4d43b-3.3.2.s390x",
+								"product": {
+									"name": "haproxy-1.8.14~git0.52e4d43b-3.3.2.s390x",
+									"product_id": "haproxy-1.8.14~git0.52e4d43b-3.3.2.s390x"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "s390x"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "haproxy-1.8.14~git0.52e4d43b-3.3.2.x86_64",
+								"product": {
+									"name": "haproxy-1.8.14~git0.52e4d43b-3.3.2.x86_64",
+									"product_id": "haproxy-1.8.14~git0.52e4d43b-3.3.2.x86_64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "x86_64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise High Availability Extension 15",
+								"product": {
+									"name": "SUSE Linux Enterprise High Availability Extension 15",
+									"product_id": "SUSE Linux Enterprise High Availability Extension 15",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-ha:15"
+									}
+								}
+							}
+						],
+						"category": "product_family",
+						"name": "SUSE Linux Enterprise"
+					}
+				],
+				"category": "vendor",
+				"name": "SUSE"
+			}
+		],
+		"relationships": [
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "haproxy-1.8.14~git0.52e4d43b-3.3.2.aarch64 as component of SUSE Linux Enterprise High Availability Extension 15",
+					"product_id": "SUSE Linux Enterprise High Availability Extension 15:haproxy-1.8.14~git0.52e4d43b-3.3.2.aarch64"
+				},
+				"product_reference": "haproxy-1.8.14~git0.52e4d43b-3.3.2.aarch64",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Availability Extension 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "haproxy-1.8.14~git0.52e4d43b-3.3.2.ppc64le as component of SUSE Linux Enterprise High Availability Extension 15",
+					"product_id": "SUSE Linux Enterprise High Availability Extension 15:haproxy-1.8.14~git0.52e4d43b-3.3.2.ppc64le"
+				},
+				"product_reference": "haproxy-1.8.14~git0.52e4d43b-3.3.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Availability Extension 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "haproxy-1.8.14~git0.52e4d43b-3.3.2.s390x as component of SUSE Linux Enterprise High Availability Extension 15",
+					"product_id": "SUSE Linux Enterprise High Availability Extension 15:haproxy-1.8.14~git0.52e4d43b-3.3.2.s390x"
+				},
+				"product_reference": "haproxy-1.8.14~git0.52e4d43b-3.3.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Availability Extension 15"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "haproxy-1.8.14~git0.52e4d43b-3.3.2.x86_64 as component of SUSE Linux Enterprise High Availability Extension 15",
+					"product_id": "SUSE Linux Enterprise High Availability Extension 15:haproxy-1.8.14~git0.52e4d43b-3.3.2.x86_64"
+				},
+				"product_reference": "haproxy-1.8.14~git0.52e4d43b-3.3.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise High Availability Extension 15"
+			}
+		]
+	},
+	"vulnerabilities": [
+		{
+			"cve": "CVE-2018-11469",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2018-11469"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Incorrect caching of responses to requests including an Authorization header in HAProxy 1.8.0 through 1.8.9 (if cache enabled) allows attackers to achieve information disclosure via an unauthenticated remote request, related to the proto_http.c check_request_for_cacheability function.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise High Availability Extension 15:haproxy-1.8.14~git0.52e4d43b-3.3.2.aarch64",
+					"SUSE Linux Enterprise High Availability Extension 15:haproxy-1.8.14~git0.52e4d43b-3.3.2.ppc64le",
+					"SUSE Linux Enterprise High Availability Extension 15:haproxy-1.8.14~git0.52e4d43b-3.3.2.s390x",
+					"SUSE Linux Enterprise High Availability Extension 15:haproxy-1.8.14~git0.52e4d43b-3.3.2.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2018-11469",
+					"url": "https://www.suse.com/security/cve/CVE-2018-11469"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1094846 for CVE-2018-11469",
+					"url": "https://bugzilla.suse.com/1094846"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise High Availability Extension 15:haproxy-1.8.14~git0.52e4d43b-3.3.2.aarch64",
+						"SUSE Linux Enterprise High Availability Extension 15:haproxy-1.8.14~git0.52e4d43b-3.3.2.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 15:haproxy-1.8.14~git0.52e4d43b-3.3.2.s390x",
+						"SUSE Linux Enterprise High Availability Extension 15:haproxy-1.8.14~git0.52e4d43b-3.3.2.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 5.3,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise High Availability Extension 15:haproxy-1.8.14~git0.52e4d43b-3.3.2.aarch64",
+						"SUSE Linux Enterprise High Availability Extension 15:haproxy-1.8.14~git0.52e4d43b-3.3.2.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 15:haproxy-1.8.14~git0.52e4d43b-3.3.2.s390x",
+						"SUSE Linux Enterprise High Availability Extension 15:haproxy-1.8.14~git0.52e4d43b-3.3.2.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-10-19T12:59:02Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2018-11469"
+		},
+		{
+			"cve": "CVE-2018-14645",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2018-14645"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A flaw was discovered in the HPACK decoder of HAProxy, before 1.8.14, that is used for HTTP/2. An out-of-bounds read access in hpack_valid_idx() resulted in a remote crash and denial of service.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise High Availability Extension 15:haproxy-1.8.14~git0.52e4d43b-3.3.2.aarch64",
+					"SUSE Linux Enterprise High Availability Extension 15:haproxy-1.8.14~git0.52e4d43b-3.3.2.ppc64le",
+					"SUSE Linux Enterprise High Availability Extension 15:haproxy-1.8.14~git0.52e4d43b-3.3.2.s390x",
+					"SUSE Linux Enterprise High Availability Extension 15:haproxy-1.8.14~git0.52e4d43b-3.3.2.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2018-14645",
+					"url": "https://www.suse.com/security/cve/CVE-2018-14645"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1108683 for CVE-2018-14645",
+					"url": "https://bugzilla.suse.com/1108683"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise High Availability Extension 15:haproxy-1.8.14~git0.52e4d43b-3.3.2.aarch64",
+						"SUSE Linux Enterprise High Availability Extension 15:haproxy-1.8.14~git0.52e4d43b-3.3.2.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 15:haproxy-1.8.14~git0.52e4d43b-3.3.2.s390x",
+						"SUSE Linux Enterprise High Availability Extension 15:haproxy-1.8.14~git0.52e4d43b-3.3.2.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.5,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise High Availability Extension 15:haproxy-1.8.14~git0.52e4d43b-3.3.2.aarch64",
+						"SUSE Linux Enterprise High Availability Extension 15:haproxy-1.8.14~git0.52e4d43b-3.3.2.ppc64le",
+						"SUSE Linux Enterprise High Availability Extension 15:haproxy-1.8.14~git0.52e4d43b-3.3.2.s390x",
+						"SUSE Linux Enterprise High Availability Extension 15:haproxy-1.8.14~git0.52e4d43b-3.3.2.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2018-10-19T12:59:02Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2018-14645"
+		}
+	]
+}

@@ -1,0 +1,4016 @@
+{
+	"document": {
+		"aggregate_severity": {
+			"namespace": "https://www.suse.com/support/security/rating/",
+			"text": "important"
+		},
+		"category": "csaf_security_advisory",
+		"csaf_version": "2.0",
+		"distribution": {
+			"text": "Copyright 2024 SUSE LLC. All rights reserved.",
+			"tlp": {
+				"label": "WHITE",
+				"url": "https://www.first.org/tlp/"
+			}
+		},
+		"lang": "en",
+		"notes": [
+			{
+				"category": "summary",
+				"text": "Security update for ntp",
+				"title": "Title of the patch"
+			},
+			{
+				"category": "description",
+				"text": "ntp was updated to version 4.2.8p6 to fix 28 security issues.\n\nMajor functional changes:\n- The 'sntp' commandline tool changed its option handling in a major way,\n  some options have been renamed or dropped.\n- 'controlkey 1' is added during update to ntp.conf to allow sntp to work.\n- The local clock is being disabled during update.\n- ntpd is no longer running chrooted.\n\nOther functional changes:\n- ntp-signd is installed.\n- 'enable mode7' can be added to the configuration to allow ntdpc to work as compatibility mode option.\n- 'kod' was removed from the default restrictions.\n- SHA1 keys are used by default instead of MD5 keys.\n\nAlso yast2-ntp-client was updated to match some sntp syntax changes. (bsc#937837)\n\nThese security issues were fixed:\n- CVE-2015-8158: Fixed potential infinite loop in ntpq (bsc#962966).\n- CVE-2015-8138: Zero Origin Timestamp Bypass (bsc#963002).\n- CVE-2015-7979: Off-path Denial of Service (DoS) attack on authenticated broadcast mode (bsc#962784).\n- CVE-2015-7978: Stack exhaustion in recursive traversal of restriction list (bsc#963000).\n- CVE-2015-7977: reslist NULL pointer dereference (bsc#962970).\n- CVE-2015-7976: ntpq saveconfig command allows dangerous characters in filenames (bsc#962802).\n- CVE-2015-7975: nextvar() missing length check (bsc#962988).\n- CVE-2015-7974: Skeleton Key: Missing key check allows impersonation between authenticated peers (bsc#962960).\n- CVE-2015-7973: Replay attack on authenticated broadcast mode (bsc#962995).\n- CVE-2015-8140: ntpq vulnerable to replay attacks (bsc#962994).\n- CVE-2015-8139: Origin Leak: ntpq and ntpdc, disclose origin (bsc#962997).\n- CVE-2015-5300: MITM attacker could have forced ntpd to make a step larger than the panic threshold (bsc#951629).\n- CVE-2015-7871: NAK to the Future: Symmetric association authentication bypass via crypto-NAK (bsc#951608).\n- CVE-2015-7855: decodenetnum() will ASSERT botch instead of returning FAIL on some bogus values (bsc#951608).\n- CVE-2015-7854: Password Length Memory Corruption Vulnerability (bsc#951608).\n- CVE-2015-7853: Invalid length data provided by a custom refclock driver could cause a buffer overflow (bsc#951608).\n- CVE-2015-7852: ntpq atoascii() Memory Corruption Vulnerability (bsc#951608).\n- CVE-2015-7851: saveconfig Directory Traversal Vulnerability (bsc#951608).\n- CVE-2015-7850: remote config logfile-keyfile (bsc#951608).\n- CVE-2015-7849: trusted key use-after-free (bsc#951608).\n- CVE-2015-7848: mode 7 loop counter underrun (bsc#951608).\n- CVE-2015-7701: Slow memory leak in CRYPTO_ASSOC (bsc#951608).\n- CVE-2015-7703: configuration directives 'pidfile' and 'driftfile' should only be allowed locally (bsc#951608).\n- CVE-2015-7704, CVE-2015-7705: Clients that receive a KoD should validate the origin timestamp field (bsc#951608).\n- CVE-2015-7691, CVE-2015-7692, CVE-2015-7702: Incomplete autokey data packet length checks (bsc#951608).\n\nThese non-security issues were fixed:\n- fate#320758 bsc#975981: Enable compile-time support for MS-SNTP (--enable-ntp-signd).\n  This replaces the w32 patches in 4.2.4 that added the authreg\n  directive.\n- bsc#962318: Call /usr/sbin/sntp with full path to synchronize in start-ntpd.\n  When run as cron job, /usr/sbin/ is not in the path, which caused\n  the synchronization to fail.\n- bsc#782060: Speedup ntpq.\n- bsc#916617: Add /var/db/ntp-kod.\n- bsc#956773: Add ntp-ENOBUFS.patch to limit a warning that might happen quite a lot on loaded systems.\n- bsc#951559,bsc#975496: Fix the TZ offset output of sntp during DST.\n- Add ntp-fork.patch and build with threads disabled to allow name resolution even when running chrooted.\n- Add a controlkey line to /etc/ntp.conf if one does not already exist to allow runtime configuuration via ntpq.\n- bsc#946386: Temporarily disable memlock to avoid problems due to high memory usage during name resolution.\n- bsc#905885: Use SHA1 instead of MD5 for symmetric keys.\n- Improve runtime configuration:\n  * Read keytype from ntp.conf\n  * Don't write ntp keys to syslog.\n- Fix legacy action scripts to pass on command line arguments.\n- bsc#944300: Remove 'kod' from the restrict line in ntp.conf.\n- bsc#936327: Use ntpq instead of deprecated ntpdc in start-ntpd.\n- Add a controlkey to ntp.conf to make the above work.\n- Don't let 'keysdir' lines in ntp.conf trigger the 'keys' parser.\n- Disable mode 7 (ntpdc) again, now that we don't use it anymore.\n- Add 'addserver' as a new legacy action.\n- bsc#910063: Fix the comment regarding addserver in ntp.conf.\n- bsc#926510: Disable chroot by default.\n- bsc#920238: Enable ntpdc for backwards compatibility.\n",
+				"title": "Description of the patch"
+			},
+			{
+				"category": "details",
+				"text": "SUSE-SLE-DESKTOP-12-2016-727,SUSE-SLE-SDK-12-2016-727,SUSE-SLE-SERVER-12-2016-727",
+				"title": "Patchnames"
+			},
+			{
+				"category": "legal_disclaimer",
+				"text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+				"title": "Terms of use"
+			}
+		],
+		"publisher": {
+			"category": "vendor",
+			"contact_details": "https://www.suse.com/support/security/contact/",
+			"name": "SUSE Product Security Team",
+			"namespace": "https://www.suse.com/"
+		},
+		"references": [
+			{
+				"category": "external",
+				"summary": "SUSE ratings",
+				"url": "https://www.suse.com/support/security/rating/"
+			},
+			{
+				"category": "self",
+				"summary": "URL of this CSAF notice",
+				"url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2016_1247-1.json"
+			},
+			{
+				"category": "self",
+				"summary": "URL for SUSE-SU-2016:1247-1",
+				"url": "https://www.suse.com/support/update/announcement/2016/suse-su-20161247-1/"
+			},
+			{
+				"category": "self",
+				"summary": "E-Mail link for SUSE-SU-2016:1247-1",
+				"url": "https://lists.suse.com/pipermail/sle-security-updates/2016-May/002043.html"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 782060",
+				"url": "https://bugzilla.suse.com/782060"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 905885",
+				"url": "https://bugzilla.suse.com/905885"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 910063",
+				"url": "https://bugzilla.suse.com/910063"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 916617",
+				"url": "https://bugzilla.suse.com/916617"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 920238",
+				"url": "https://bugzilla.suse.com/920238"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 926510",
+				"url": "https://bugzilla.suse.com/926510"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 936327",
+				"url": "https://bugzilla.suse.com/936327"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 937837",
+				"url": "https://bugzilla.suse.com/937837"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 942587",
+				"url": "https://bugzilla.suse.com/942587"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 944300",
+				"url": "https://bugzilla.suse.com/944300"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 946386",
+				"url": "https://bugzilla.suse.com/946386"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 951559",
+				"url": "https://bugzilla.suse.com/951559"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 951608",
+				"url": "https://bugzilla.suse.com/951608"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 951629",
+				"url": "https://bugzilla.suse.com/951629"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 954982",
+				"url": "https://bugzilla.suse.com/954982"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 956773",
+				"url": "https://bugzilla.suse.com/956773"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 962318",
+				"url": "https://bugzilla.suse.com/962318"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 962784",
+				"url": "https://bugzilla.suse.com/962784"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 962802",
+				"url": "https://bugzilla.suse.com/962802"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 962960",
+				"url": "https://bugzilla.suse.com/962960"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 962966",
+				"url": "https://bugzilla.suse.com/962966"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 962970",
+				"url": "https://bugzilla.suse.com/962970"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 962988",
+				"url": "https://bugzilla.suse.com/962988"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 962994",
+				"url": "https://bugzilla.suse.com/962994"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 962995",
+				"url": "https://bugzilla.suse.com/962995"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 962997",
+				"url": "https://bugzilla.suse.com/962997"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 963000",
+				"url": "https://bugzilla.suse.com/963000"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 963002",
+				"url": "https://bugzilla.suse.com/963002"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 975496",
+				"url": "https://bugzilla.suse.com/975496"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 975981",
+				"url": "https://bugzilla.suse.com/975981"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-5300 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-5300/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-7691 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-7691/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-7692 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-7692/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-7701 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-7701/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-7702 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-7702/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-7703 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-7703/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-7704 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-7704/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-7705 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-7705/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-7848 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-7848/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-7849 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-7849/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-7850 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-7850/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-7851 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-7851/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-7852 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-7852/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-7853 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-7853/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-7854 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-7854/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-7855 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-7855/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-7871 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-7871/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-7973 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-7973/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-7974 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-7974/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-7975 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-7975/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-7976 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-7976/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-7977 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-7977/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-7978 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-7978/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-7979 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-7979/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-8138 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-8138/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-8139 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-8139/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-8140 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-8140/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2015-8158 page",
+				"url": "https://www.suse.com/security/cve/CVE-2015-8158/"
+			}
+		],
+		"title": "Security update for ntp",
+		"tracking": {
+			"current_release_date": "2016-05-06T07:50:51Z",
+			"generator": {
+				"date": "2016-05-06T07:50:51Z",
+				"engine": {
+					"name": "cve-database.git:bin/generate-csaf.pl",
+					"version": "1"
+				}
+			},
+			"id": "SUSE-SU-2016:1247-1",
+			"initial_release_date": "2016-05-06T07:50:51Z",
+			"revision_history": [
+				{
+					"date": "2016-05-06T07:50:51Z",
+					"number": "1",
+					"summary": "Current version"
+				}
+			],
+			"status": "final",
+			"version": "1"
+		}
+	},
+	"product_tree": {
+		"branches": [
+			{
+				"branches": [
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "yast2-ntp-client-3.1.12.4-8.2.noarch",
+								"product": {
+									"name": "yast2-ntp-client-3.1.12.4-8.2.noarch",
+									"product_id": "yast2-ntp-client-3.1.12.4-8.2.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch",
+								"product": {
+									"name": "yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch",
+									"product_id": "yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "noarch"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "ntp-4.2.8p6-46.5.2.ppc64le",
+								"product": {
+									"name": "ntp-4.2.8p6-46.5.2.ppc64le",
+									"product_id": "ntp-4.2.8p6-46.5.2.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "ntp-doc-4.2.8p6-46.5.2.ppc64le",
+								"product": {
+									"name": "ntp-doc-4.2.8p6-46.5.2.ppc64le",
+									"product_id": "ntp-doc-4.2.8p6-46.5.2.ppc64le"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "ppc64le"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "ntp-4.2.8p6-46.5.2.s390x",
+								"product": {
+									"name": "ntp-4.2.8p6-46.5.2.s390x",
+									"product_id": "ntp-4.2.8p6-46.5.2.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "ntp-doc-4.2.8p6-46.5.2.s390x",
+								"product": {
+									"name": "ntp-doc-4.2.8p6-46.5.2.s390x",
+									"product_id": "ntp-doc-4.2.8p6-46.5.2.s390x"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "s390x"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "ntp-4.2.8p6-46.5.2.x86_64",
+								"product": {
+									"name": "ntp-4.2.8p6-46.5.2.x86_64",
+									"product_id": "ntp-4.2.8p6-46.5.2.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "ntp-doc-4.2.8p6-46.5.2.x86_64",
+								"product": {
+									"name": "ntp-doc-4.2.8p6-46.5.2.x86_64",
+									"product_id": "ntp-doc-4.2.8p6-46.5.2.x86_64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "x86_64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Desktop 12",
+								"product": {
+									"name": "SUSE Linux Enterprise Desktop 12",
+									"product_id": "SUSE Linux Enterprise Desktop 12",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sled:12"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Software Development Kit 12",
+								"product": {
+									"name": "SUSE Linux Enterprise Software Development Kit 12",
+									"product_id": "SUSE Linux Enterprise Software Development Kit 12",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sle-sdk:12"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server 12",
+								"product": {
+									"name": "SUSE Linux Enterprise Server 12",
+									"product_id": "SUSE Linux Enterprise Server 12",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sles:12"
+									}
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Linux Enterprise Server for SAP Applications 12",
+								"product": {
+									"name": "SUSE Linux Enterprise Server for SAP Applications 12",
+									"product_id": "SUSE Linux Enterprise Server for SAP Applications 12",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:suse:sles_sap:12"
+									}
+								}
+							}
+						],
+						"category": "product_family",
+						"name": "SUSE Linux Enterprise"
+					}
+				],
+				"category": "vendor",
+				"name": "SUSE"
+			}
+		],
+		"relationships": [
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ntp-4.2.8p6-46.5.2.x86_64 as component of SUSE Linux Enterprise Desktop 12",
+					"product_id": "SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64"
+				},
+				"product_reference": "ntp-4.2.8p6-46.5.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Desktop 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ntp-doc-4.2.8p6-46.5.2.x86_64 as component of SUSE Linux Enterprise Desktop 12",
+					"product_id": "SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64"
+				},
+				"product_reference": "ntp-doc-4.2.8p6-46.5.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Desktop 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "yast2-ntp-client-3.1.12.4-8.2.noarch as component of SUSE Linux Enterprise Desktop 12",
+					"product_id": "SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch"
+				},
+				"product_reference": "yast2-ntp-client-3.1.12.4-8.2.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Desktop 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch as component of SUSE Linux Enterprise Software Development Kit 12",
+					"product_id": "SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+				},
+				"product_reference": "yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Software Development Kit 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ntp-4.2.8p6-46.5.2.ppc64le as component of SUSE Linux Enterprise Server 12",
+					"product_id": "SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le"
+				},
+				"product_reference": "ntp-4.2.8p6-46.5.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ntp-4.2.8p6-46.5.2.s390x as component of SUSE Linux Enterprise Server 12",
+					"product_id": "SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x"
+				},
+				"product_reference": "ntp-4.2.8p6-46.5.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ntp-4.2.8p6-46.5.2.x86_64 as component of SUSE Linux Enterprise Server 12",
+					"product_id": "SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64"
+				},
+				"product_reference": "ntp-4.2.8p6-46.5.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ntp-doc-4.2.8p6-46.5.2.ppc64le as component of SUSE Linux Enterprise Server 12",
+					"product_id": "SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le"
+				},
+				"product_reference": "ntp-doc-4.2.8p6-46.5.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ntp-doc-4.2.8p6-46.5.2.s390x as component of SUSE Linux Enterprise Server 12",
+					"product_id": "SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x"
+				},
+				"product_reference": "ntp-doc-4.2.8p6-46.5.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ntp-doc-4.2.8p6-46.5.2.x86_64 as component of SUSE Linux Enterprise Server 12",
+					"product_id": "SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64"
+				},
+				"product_reference": "ntp-doc-4.2.8p6-46.5.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "yast2-ntp-client-3.1.12.4-8.2.noarch as component of SUSE Linux Enterprise Server 12",
+					"product_id": "SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch"
+				},
+				"product_reference": "yast2-ntp-client-3.1.12.4-8.2.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ntp-4.2.8p6-46.5.2.ppc64le as component of SUSE Linux Enterprise Server for SAP Applications 12",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le"
+				},
+				"product_reference": "ntp-4.2.8p6-46.5.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ntp-4.2.8p6-46.5.2.s390x as component of SUSE Linux Enterprise Server for SAP Applications 12",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x"
+				},
+				"product_reference": "ntp-4.2.8p6-46.5.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ntp-4.2.8p6-46.5.2.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 12",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64"
+				},
+				"product_reference": "ntp-4.2.8p6-46.5.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ntp-doc-4.2.8p6-46.5.2.ppc64le as component of SUSE Linux Enterprise Server for SAP Applications 12",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le"
+				},
+				"product_reference": "ntp-doc-4.2.8p6-46.5.2.ppc64le",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ntp-doc-4.2.8p6-46.5.2.s390x as component of SUSE Linux Enterprise Server for SAP Applications 12",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x"
+				},
+				"product_reference": "ntp-doc-4.2.8p6-46.5.2.s390x",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "ntp-doc-4.2.8p6-46.5.2.x86_64 as component of SUSE Linux Enterprise Server for SAP Applications 12",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64"
+				},
+				"product_reference": "ntp-doc-4.2.8p6-46.5.2.x86_64",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "yast2-ntp-client-3.1.12.4-8.2.noarch as component of SUSE Linux Enterprise Server for SAP Applications 12",
+					"product_id": "SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch"
+				},
+				"product_reference": "yast2-ntp-client-3.1.12.4-8.2.noarch",
+				"relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12"
+			}
+		]
+	},
+	"vulnerabilities": [
+		{
+			"cve": "CVE-2015-5300",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-5300"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The panic_gate check in NTP before 4.2.8p5 is only re-enabled after the first change to the system clock that was greater than 128 milliseconds by default, which allows remote attackers to set NTP to an arbitrary time when started with the -g option, or to alter the time by up to 900 seconds otherwise by responding to an unspecified number of requests from trusted sources, and leveraging a resulting denial of service (abort and restart).",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-5300",
+					"url": "https://www.suse.com/security/cve/CVE-2015-5300"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 951629 for CVE-2015-5300",
+					"url": "https://bugzilla.suse.com/951629"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 959243 for CVE-2015-5300",
+					"url": "https://bugzilla.suse.com/959243"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 962624 for CVE-2015-5300",
+					"url": "https://bugzilla.suse.com/962624"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2016-05-06T07:50:51Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2015-5300"
+		},
+		{
+			"cve": "CVE-2015-7691",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-7691"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The crypto_xmit function in ntpd in NTP 4.2.x before 4.2.8p4, and 4.3.x before 4.3.77 allows remote attackers to cause a denial of service (crash) via crafted packets containing particular autokey operations.  NOTE: This vulnerability exists due to an incomplete fix for CVE-2014-9750.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-7691",
+					"url": "https://www.suse.com/security/cve/CVE-2015-7691"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1010964 for CVE-2015-7691",
+					"url": "https://bugzilla.suse.com/1010964"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 911792 for CVE-2015-7691",
+					"url": "https://bugzilla.suse.com/911792"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 951608 for CVE-2015-7691",
+					"url": "https://bugzilla.suse.com/951608"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 959243 for CVE-2015-7691",
+					"url": "https://bugzilla.suse.com/959243"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 992991 for CVE-2015-7691",
+					"url": "https://bugzilla.suse.com/992991"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.5,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2016-05-06T07:50:51Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2015-7691"
+		},
+		{
+			"cve": "CVE-2015-7692",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-7692"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The crypto_xmit function in ntpd in NTP 4.2.x before 4.2.8p4, and 4.3.x before 4.3.77 allows remote attackers to cause a denial of service (crash).  NOTE: This vulnerability exists due to an incomplete fix for CVE-2014-9750.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-7692",
+					"url": "https://www.suse.com/security/cve/CVE-2015-7692"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1010964 for CVE-2015-7692",
+					"url": "https://bugzilla.suse.com/1010964"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 911792 for CVE-2015-7692",
+					"url": "https://bugzilla.suse.com/911792"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 951608 for CVE-2015-7692",
+					"url": "https://bugzilla.suse.com/951608"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 959243 for CVE-2015-7692",
+					"url": "https://bugzilla.suse.com/959243"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 992991 for CVE-2015-7692",
+					"url": "https://bugzilla.suse.com/992991"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.5,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2016-05-06T07:50:51Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2015-7692"
+		},
+		{
+			"cve": "CVE-2015-7701",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-7701"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Memory leak in the CRYPTO_ASSOC function in ntpd in NTP 4.2.x before 4.2.8p4, and 4.3.x before 4.3.77 allows remote attackers to cause a denial of service (memory consumption).",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-7701",
+					"url": "https://www.suse.com/security/cve/CVE-2015-7701"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1010964 for CVE-2015-7701",
+					"url": "https://bugzilla.suse.com/1010964"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 951608 for CVE-2015-7701",
+					"url": "https://bugzilla.suse.com/951608"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 959243 for CVE-2015-7701",
+					"url": "https://bugzilla.suse.com/959243"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 992991 for CVE-2015-7701",
+					"url": "https://bugzilla.suse.com/992991"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.5,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2016-05-06T07:50:51Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2015-7701"
+		},
+		{
+			"cve": "CVE-2015-7702",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-7702"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The crypto_xmit function in ntpd in NTP 4.2.x before 4.2.8p4, and 4.3.x before 4.3.77 allows remote attackers to cause a denial of service (crash).  NOTE: This vulnerability exists due to an incomplete fix for CVE-2014-9750.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-7702",
+					"url": "https://www.suse.com/security/cve/CVE-2015-7702"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1010964 for CVE-2015-7702",
+					"url": "https://bugzilla.suse.com/1010964"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 911792 for CVE-2015-7702",
+					"url": "https://bugzilla.suse.com/911792"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 951608 for CVE-2015-7702",
+					"url": "https://bugzilla.suse.com/951608"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 959243 for CVE-2015-7702",
+					"url": "https://bugzilla.suse.com/959243"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 992991 for CVE-2015-7702",
+					"url": "https://bugzilla.suse.com/992991"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 6.5,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2016-05-06T07:50:51Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2015-7702"
+		},
+		{
+			"cve": "CVE-2015-7703",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-7703"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The \"pidfile\" or \"driftfile\" directives in NTP ntpd 4.2.x before 4.2.8p4, and 4.3.x before 4.3.77, when ntpd is configured to allow remote configuration, allows remote attackers with an IP address that is allowed to send configuration requests, and with knowledge of the remote configuration password to write to arbitrary files via the :config command.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-7703",
+					"url": "https://www.suse.com/security/cve/CVE-2015-7703"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1010964 for CVE-2015-7703",
+					"url": "https://bugzilla.suse.com/1010964"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 943216 for CVE-2015-7703",
+					"url": "https://bugzilla.suse.com/943216"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 943218 for CVE-2015-7703",
+					"url": "https://bugzilla.suse.com/943218"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 943219 for CVE-2015-7703",
+					"url": "https://bugzilla.suse.com/943219"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 943221 for CVE-2015-7703",
+					"url": "https://bugzilla.suse.com/943221"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 951608 for CVE-2015-7703",
+					"url": "https://bugzilla.suse.com/951608"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 959243 for CVE-2015-7703",
+					"url": "https://bugzilla.suse.com/959243"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2016-05-06T07:50:51Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2015-7703"
+		},
+		{
+			"cve": "CVE-2015-7704",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-7704"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The ntpd client in NTP 4.x before 4.2.8p4 and 4.3.x before 4.3.77 allows remote attackers to cause a denial of service via a number of crafted \"KOD\" messages.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-7704",
+					"url": "https://www.suse.com/security/cve/CVE-2015-7704"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1010964 for CVE-2015-7704",
+					"url": "https://bugzilla.suse.com/1010964"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 951608 for CVE-2015-7704",
+					"url": "https://bugzilla.suse.com/951608"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 952611 for CVE-2015-7704",
+					"url": "https://bugzilla.suse.com/952611"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 959243 for CVE-2015-7704",
+					"url": "https://bugzilla.suse.com/959243"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 977446 for CVE-2015-7704",
+					"url": "https://bugzilla.suse.com/977446"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.5,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2016-05-06T07:50:51Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2015-7704"
+		},
+		{
+			"cve": "CVE-2015-7705",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-7705"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The rate limiting feature in NTP 4.x before 4.2.8p4 and 4.3.x before 4.3.77 allows remote attackers to have unspecified impact via a large number of crafted requests.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-7705",
+					"url": "https://www.suse.com/security/cve/CVE-2015-7705"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1010964 for CVE-2015-7705",
+					"url": "https://bugzilla.suse.com/1010964"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 951608 for CVE-2015-7705",
+					"url": "https://bugzilla.suse.com/951608"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 952611 for CVE-2015-7705",
+					"url": "https://bugzilla.suse.com/952611"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 959243 for CVE-2015-7705",
+					"url": "https://bugzilla.suse.com/959243"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 9.8,
+						"baseSeverity": "CRITICAL",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2016-05-06T07:50:51Z",
+					"details": "critical"
+				}
+			],
+			"title": "CVE-2015-7705"
+		},
+		{
+			"cve": "CVE-2015-7848",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-7848"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "An integer overflow can occur in NTP-dev.4.3.70 leading to an out-of-bounds memory copy operation when processing a specially crafted private mode packet. The crafted packet needs to have the correct message authentication code and a valid timestamp. When processed by the NTP daemon, it leads to an immediate crash.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-7848",
+					"url": "https://www.suse.com/security/cve/CVE-2015-7848"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1010964 for CVE-2015-7848",
+					"url": "https://bugzilla.suse.com/1010964"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 951608 for CVE-2015-7848",
+					"url": "https://bugzilla.suse.com/951608"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 959243 for CVE-2015-7848",
+					"url": "https://bugzilla.suse.com/959243"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 992991 for CVE-2015-7848",
+					"url": "https://bugzilla.suse.com/992991"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2016-05-06T07:50:51Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2015-7848"
+		},
+		{
+			"cve": "CVE-2015-7849",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-7849"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Use-after-free vulnerability in ntpd in NTP 4.2.x before 4.2.8p4, and 4.3.x before 4.3.77 allows remote authenticated users to possibly execute arbitrary code or cause a denial of service (crash) via crafted packets.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-7849",
+					"url": "https://www.suse.com/security/cve/CVE-2015-7849"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1010964 for CVE-2015-7849",
+					"url": "https://bugzilla.suse.com/1010964"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 951608 for CVE-2015-7849",
+					"url": "https://bugzilla.suse.com/951608"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 959243 for CVE-2015-7849",
+					"url": "https://bugzilla.suse.com/959243"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 992991 for CVE-2015-7849",
+					"url": "https://bugzilla.suse.com/992991"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 8.8,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2016-05-06T07:50:51Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2015-7849"
+		},
+		{
+			"cve": "CVE-2015-7850",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-7850"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "ntpd in NTP 4.2.x before 4.2.8p4, and 4.3.x before 4.3.77 allows remote authenticated users to cause a denial of service (infinite loop or crash) by pointing the key file at the log file.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-7850",
+					"url": "https://www.suse.com/security/cve/CVE-2015-7850"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1010964 for CVE-2015-7850",
+					"url": "https://bugzilla.suse.com/1010964"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 951608 for CVE-2015-7850",
+					"url": "https://bugzilla.suse.com/951608"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 959243 for CVE-2015-7850",
+					"url": "https://bugzilla.suse.com/959243"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 992991 for CVE-2015-7850",
+					"url": "https://bugzilla.suse.com/992991"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 6.5,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2016-05-06T07:50:51Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2015-7850"
+		},
+		{
+			"cve": "CVE-2015-7851",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-7851"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Directory traversal vulnerability in the save_config function in ntpd in ntp_control.c in NTP before 4.2.8p4, when used on systems that do not use '\\' or '/' characters for directory separation such as OpenVMS, allows remote authenticated users to overwrite arbitrary files.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-7851",
+					"url": "https://www.suse.com/security/cve/CVE-2015-7851"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1010964 for CVE-2015-7851",
+					"url": "https://bugzilla.suse.com/1010964"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 951608 for CVE-2015-7851",
+					"url": "https://bugzilla.suse.com/951608"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 959243 for CVE-2015-7851",
+					"url": "https://bugzilla.suse.com/959243"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 6.5,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:H/A:N",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2016-05-06T07:50:51Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2015-7851"
+		},
+		{
+			"cve": "CVE-2015-7852",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-7852"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "ntpq in NTP 4.2.x before 4.2.8p4, and 4.3.x before 4.3.77 allows remote attackers to cause a denial of service (crash) via crafted mode 6 response packets.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-7852",
+					"url": "https://www.suse.com/security/cve/CVE-2015-7852"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1010964 for CVE-2015-7852",
+					"url": "https://bugzilla.suse.com/1010964"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 951608 for CVE-2015-7852",
+					"url": "https://bugzilla.suse.com/951608"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 959243 for CVE-2015-7852",
+					"url": "https://bugzilla.suse.com/959243"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 992991 for CVE-2015-7852",
+					"url": "https://bugzilla.suse.com/992991"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 5.9,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2016-05-06T07:50:51Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2015-7852"
+		},
+		{
+			"cve": "CVE-2015-7853",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-7853"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The datalen parameter in the refclock driver in NTP 4.2.x before 4.2.8p4, and 4.3.x before 4.3.77 allows remote attackers to execute arbitrary code or cause a denial of service (crash) via a negative input value.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-7853",
+					"url": "https://www.suse.com/security/cve/CVE-2015-7853"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1010964 for CVE-2015-7853",
+					"url": "https://bugzilla.suse.com/1010964"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 951608 for CVE-2015-7853",
+					"url": "https://bugzilla.suse.com/951608"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 959243 for CVE-2015-7853",
+					"url": "https://bugzilla.suse.com/959243"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 992991 for CVE-2015-7853",
+					"url": "https://bugzilla.suse.com/992991"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 9.8,
+						"baseSeverity": "CRITICAL",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2016-05-06T07:50:51Z",
+					"details": "critical"
+				}
+			],
+			"title": "CVE-2015-7853"
+		},
+		{
+			"cve": "CVE-2015-7854",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-7854"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Buffer overflow in the password management functionality in NTP 4.2.x before 4.2.8p4, and 4.3.x before 4.3.77 allows remote authenticated users to cause a denial of service (daemon crash) or possibly execute arbitrary code via a crafted key file.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-7854",
+					"url": "https://www.suse.com/security/cve/CVE-2015-7854"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1010964 for CVE-2015-7854",
+					"url": "https://bugzilla.suse.com/1010964"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 951608 for CVE-2015-7854",
+					"url": "https://bugzilla.suse.com/951608"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 959243 for CVE-2015-7854",
+					"url": "https://bugzilla.suse.com/959243"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 992991 for CVE-2015-7854",
+					"url": "https://bugzilla.suse.com/992991"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 8.8,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2016-05-06T07:50:51Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2015-7854"
+		},
+		{
+			"cve": "CVE-2015-7855",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-7855"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The decodenetnum function in ntpd in NTP 4.2.x before 4.2.8p4, and 4.3.x before 4.3.77 allows remote attackers to cause a denial of service (assertion failure) via a 6 or mode 7 packet containing a long data value.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-7855",
+					"url": "https://www.suse.com/security/cve/CVE-2015-7855"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1010964 for CVE-2015-7855",
+					"url": "https://bugzilla.suse.com/1010964"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 951608 for CVE-2015-7855",
+					"url": "https://bugzilla.suse.com/951608"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 959243 for CVE-2015-7855",
+					"url": "https://bugzilla.suse.com/959243"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 992991 for CVE-2015-7855",
+					"url": "https://bugzilla.suse.com/992991"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 6.5,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2016-05-06T07:50:51Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2015-7855"
+		},
+		{
+			"cve": "CVE-2015-7871",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-7871"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "Crypto-NAK packets in ntpd in NTP 4.2.x before 4.2.8p4, and 4.3.x before 4.3.77 allows remote attackers to bypass authentication.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-7871",
+					"url": "https://www.suse.com/security/cve/CVE-2015-7871"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1010964 for CVE-2015-7871",
+					"url": "https://bugzilla.suse.com/1010964"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 951608 for CVE-2015-7871",
+					"url": "https://bugzilla.suse.com/951608"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 952606 for CVE-2015-7871",
+					"url": "https://bugzilla.suse.com/952606"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 959243 for CVE-2015-7871",
+					"url": "https://bugzilla.suse.com/959243"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 9.8,
+						"baseSeverity": "CRITICAL",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2016-05-06T07:50:51Z",
+					"details": "critical"
+				}
+			],
+			"title": "CVE-2015-7871"
+		},
+		{
+			"cve": "CVE-2015-7973",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-7973"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "NTP before 4.2.8p6 and 4.3.x before 4.3.90, when configured in broadcast mode, allows man-in-the-middle attackers to conduct replay attacks by sniffing the network.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-7973",
+					"url": "https://www.suse.com/security/cve/CVE-2015-7973"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 959243 for CVE-2015-7973",
+					"url": "https://bugzilla.suse.com/959243"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 962995 for CVE-2015-7973",
+					"url": "https://bugzilla.suse.com/962995"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 6.5,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2016-05-06T07:50:51Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2015-7973"
+		},
+		{
+			"cve": "CVE-2015-7974",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-7974"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "NTP 4.x before 4.2.8p6 and 4.3.x before 4.3.90 do not verify peer associations of symmetric keys when authenticating packets, which might allow remote attackers to conduct impersonation attacks via an arbitrary trusted key, aka a \"skeleton key.\"",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-7974",
+					"url": "https://www.suse.com/security/cve/CVE-2015-7974"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 959243 for CVE-2015-7974",
+					"url": "https://bugzilla.suse.com/959243"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 962960 for CVE-2015-7974",
+					"url": "https://bugzilla.suse.com/962960"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 962995 for CVE-2015-7974",
+					"url": "https://bugzilla.suse.com/962995"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.7,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:N/I:H/A:N",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2016-05-06T07:50:51Z",
+					"details": "low"
+				}
+			],
+			"title": "CVE-2015-7974"
+		},
+		{
+			"cve": "CVE-2015-7975",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-7975"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The nextvar function in NTP before 4.2.8p6 and 4.3.x before 4.3.90 does not properly validate the length of its input, which allows an attacker to cause a denial of service (application crash).",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-7975",
+					"url": "https://www.suse.com/security/cve/CVE-2015-7975"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 959243 for CVE-2015-7975",
+					"url": "https://bugzilla.suse.com/959243"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 962988 for CVE-2015-7975",
+					"url": "https://bugzilla.suse.com/962988"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 962995 for CVE-2015-7975",
+					"url": "https://bugzilla.suse.com/962995"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2016-05-06T07:50:51Z",
+					"details": "low"
+				}
+			],
+			"title": "CVE-2015-7975"
+		},
+		{
+			"cve": "CVE-2015-7976",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-7976"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The ntpq saveconfig command in NTP 4.1.2, 4.2.x before 4.2.8p6, 4.3, 4.3.25, 4.3.70, and 4.3.77 does not properly filter special characters, which allows attackers to cause unspecified impact via a crafted filename.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-7976",
+					"url": "https://www.suse.com/security/cve/CVE-2015-7976"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 962802 for CVE-2015-7976",
+					"url": "https://bugzilla.suse.com/962802"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 962995 for CVE-2015-7976",
+					"url": "https://bugzilla.suse.com/962995"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2016-05-06T07:50:51Z",
+					"details": "low"
+				}
+			],
+			"title": "CVE-2015-7976"
+		},
+		{
+			"cve": "CVE-2015-7977",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-7977"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "ntpd in NTP before 4.2.8p6 and 4.3.x before 4.3.90 allows remote attackers to cause a denial of service (NULL pointer dereference) via a ntpdc reslist command.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-7977",
+					"url": "https://www.suse.com/security/cve/CVE-2015-7977"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 959243 for CVE-2015-7977",
+					"url": "https://bugzilla.suse.com/959243"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 962970 for CVE-2015-7977",
+					"url": "https://bugzilla.suse.com/962970"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 962995 for CVE-2015-7977",
+					"url": "https://bugzilla.suse.com/962995"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 5.9,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2016-05-06T07:50:51Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2015-7977"
+		},
+		{
+			"cve": "CVE-2015-7978",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-7978"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "NTP before 4.2.8p6 and 4.3.0 before 4.3.90 allows a remote attackers to cause a denial of service (stack exhaustion) via an ntpdc relist command, which triggers recursive traversal of the restriction list.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-7978",
+					"url": "https://www.suse.com/security/cve/CVE-2015-7978"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 959243 for CVE-2015-7978",
+					"url": "https://bugzilla.suse.com/959243"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 962970 for CVE-2015-7978",
+					"url": "https://bugzilla.suse.com/962970"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 962995 for CVE-2015-7978",
+					"url": "https://bugzilla.suse.com/962995"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 963000 for CVE-2015-7978",
+					"url": "https://bugzilla.suse.com/963000"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2016-05-06T07:50:51Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2015-7978"
+		},
+		{
+			"cve": "CVE-2015-7979",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-7979"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "NTP before 4.2.8p6 and 4.3.x before 4.3.90 allows remote attackers to cause a denial of service (client-server association tear down) by sending broadcast packets with invalid authentication to a broadcast client.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-7979",
+					"url": "https://www.suse.com/security/cve/CVE-2015-7979"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 959243 for CVE-2015-7979",
+					"url": "https://bugzilla.suse.com/959243"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 962784 for CVE-2015-7979",
+					"url": "https://bugzilla.suse.com/962784"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 962995 for CVE-2015-7979",
+					"url": "https://bugzilla.suse.com/962995"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 977459 for CVE-2015-7979",
+					"url": "https://bugzilla.suse.com/977459"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 982065 for CVE-2015-7979",
+					"url": "https://bugzilla.suse.com/982065"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.5,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2016-05-06T07:50:51Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2015-7979"
+		},
+		{
+			"cve": "CVE-2015-8138",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-8138"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "NTP before 4.2.8p6 and 4.3.x before 4.3.90 allows remote attackers to bypass the origin timestamp validation via a packet with an origin timestamp set to zero.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-8138",
+					"url": "https://www.suse.com/security/cve/CVE-2015-8138"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 951608 for CVE-2015-8138",
+					"url": "https://bugzilla.suse.com/951608"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 959243 for CVE-2015-8138",
+					"url": "https://bugzilla.suse.com/959243"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 963002 for CVE-2015-8138",
+					"url": "https://bugzilla.suse.com/963002"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 974668 for CVE-2015-8138",
+					"url": "https://bugzilla.suse.com/974668"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 977446 for CVE-2015-8138",
+					"url": "https://bugzilla.suse.com/977446"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 5.3,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N",
+						"version": "3.0"
+					},
+					"products": [
+						"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2016-05-06T07:50:51Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2015-8138"
+		},
+		{
+			"cve": "CVE-2015-8139",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-8139"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "ntpq in NTP before 4.2.8p7 allows remote attackers to obtain origin timestamps and then impersonate peers via unspecified vectors.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-8139",
+					"url": "https://www.suse.com/security/cve/CVE-2015-8139"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1010964 for CVE-2015-8139",
+					"url": "https://bugzilla.suse.com/1010964"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 959243 for CVE-2015-8139",
+					"url": "https://bugzilla.suse.com/959243"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 962997 for CVE-2015-8139",
+					"url": "https://bugzilla.suse.com/962997"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2016-05-06T07:50:51Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2015-8139"
+		},
+		{
+			"cve": "CVE-2015-8140",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-8140"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The ntpq protocol in NTP before 4.2.8p7 allows remote attackers to conduct replay attacks by sniffing the network.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-8140",
+					"url": "https://www.suse.com/security/cve/CVE-2015-8140"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1010964 for CVE-2015-8140",
+					"url": "https://bugzilla.suse.com/1010964"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 959243 for CVE-2015-8140",
+					"url": "https://bugzilla.suse.com/959243"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 962994 for CVE-2015-8140",
+					"url": "https://bugzilla.suse.com/962994"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2016-05-06T07:50:51Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2015-8140"
+		},
+		{
+			"cve": "CVE-2015-8158",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2015-8158"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The getresponse function in ntpq in NTP versions before 4.2.8p9 and 4.3.x before 4.3.90 allows remote attackers to cause a denial of service (infinite loop) via crafted packets with incorrect values.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+					"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+					"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+					"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2015-8158",
+					"url": "https://www.suse.com/security/cve/CVE-2015-8158"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 959243 for CVE-2015-8158",
+					"url": "https://bugzilla.suse.com/959243"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 962966 for CVE-2015-8158",
+					"url": "https://bugzilla.suse.com/962966"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Linux Enterprise Desktop 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Desktop 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.ppc64le",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.s390x",
+						"SUSE Linux Enterprise Server for SAP Applications 12:ntp-doc-4.2.8p6-46.5.2.x86_64",
+						"SUSE Linux Enterprise Server for SAP Applications 12:yast2-ntp-client-3.1.12.4-8.2.noarch",
+						"SUSE Linux Enterprise Software Development Kit 12:yast2-ntp-client-devel-doc-3.1.12.4-8.2.noarch"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2016-05-06T07:50:51Z",
+					"details": "low"
+				}
+			],
+			"title": "CVE-2015-8158"
+		}
+	]
+}

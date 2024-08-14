@@ -1,0 +1,1069 @@
+{
+	"document": {
+		"aggregate_severity": {
+			"namespace": "https://www.suse.com/support/security/rating/",
+			"text": "moderate"
+		},
+		"category": "csaf_security_advisory",
+		"csaf_version": "2.0",
+		"distribution": {
+			"text": "Copyright 2024 SUSE LLC. All rights reserved.",
+			"tlp": {
+				"label": "WHITE",
+				"url": "https://www.first.org/tlp/"
+			}
+		},
+		"lang": "en",
+		"notes": [
+			{
+				"category": "summary",
+				"text": "Security update for gssntlmssp",
+				"title": "Title of the patch"
+			},
+			{
+				"category": "description",
+				"text": "This update for gssntlmssp fixes the following issues:\n\nUpdate to version 1.2.0\n\n* Implement gss_set_cred_option.\n* Allow to gss_wrap even if NEGOTIATE_SEAL is not negotiated.\n* Move HMAC code to OpenSSL EVP API.\n* Fix crash bug when acceptor credentials are NULL.\n* Translations update from Fedora Weblate.\n\nFix security issues:\n\n* CVE-2023-25563 (boo#1208278): multiple out-of-bounds read when decoding NTLM fields.\n* CVE-2023-25564 (boo#1208279): memory corruption when decoding UTF16 strings.\n* CVE-2023-25565 (boo#1208280): incorrect free when decoding target information.\n* CVE-2023-25566 (boo#1208281): memory leak when parsing usernames.\n* CVE-2023-25567 (boo#1208282): out-of-bounds read when decoding target information.\n\nUpdate to version 1.1\n\n* various build fixes and better compatibility when a MIC is\n  requested.\n\nUpdate to version 1.0\n\n* Fix test_gssapi_rfc5587.\n* Actually run tests with make check.\n* Add two tests around NTLMSSP_NEGOTIATE_LMKEY.\n* Refine LM compatibility level logic.\n* Refactor the gssntlm_required_security function.\n* Implement reading LM/NT hashes.\n* Add test for smpasswd-like user files.\n* Return confidentiality status.\n* Fix segfault in sign/seal functions.\n* Fix dummy signature generation.\n* Use UCS16LE instead of UCS-2LE.\n* Provide a zero lm key if the password is too long.\n* Completely omit CBs AV pairs when no CB provided.\n* Change license to the more permissive ISC.\n* Do not require cached users with winbind.\n* Add ability to pass keyfile via cred store.\n* Remove unused parts of Makefile.am.\n* Move attribute names to allocated strings.\n* Adjust serialization for name attributes.\n* Fix crash in acquiring credentials.\n* Fix fallback to external_creds interface.\n* Introduce parse_user_name() function.\n* Add test for parse_user_name.\n* Change how we assemble user names in ASC.\n* Use thread local storage for winbind context.\n* Make per thread winbind context optional.\n* Fixed memleak of usr_cred.\n* Support get_sids request via name attributes.\n* Fixed memory leaks found by valgrind.\n- Update to version 0.9\n* add support for getting session key.\n* Add gss_inquire_attrs_for_mech().\n* Return actual data for RFC5587 API.\n* Add new Windows version flags.\n* Add Key exchange also when wanting integrity only.\n* Drop support for GSS_C_MA_NOT_DFLT_MECH.\n",
+				"title": "Description of the patch"
+			},
+			{
+				"category": "details",
+				"text": "openSUSE-2023-48",
+				"title": "Patchnames"
+			},
+			{
+				"category": "legal_disclaimer",
+				"text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+				"title": "Terms of use"
+			}
+		],
+		"publisher": {
+			"category": "vendor",
+			"contact_details": "https://www.suse.com/support/security/contact/",
+			"name": "SUSE Product Security Team",
+			"namespace": "https://www.suse.com/"
+		},
+		"references": [
+			{
+				"category": "external",
+				"summary": "SUSE ratings",
+				"url": "https://www.suse.com/support/security/rating/"
+			},
+			{
+				"category": "self",
+				"summary": "URL of this CSAF notice",
+				"url": "https://ftp.suse.com/pub/projects/security/csaf/opensuse-su-2023_0048-1.json"
+			},
+			{
+				"category": "self",
+				"summary": "URL for openSUSE-SU-2023:0048-1",
+				"url": "https://lists.opensuse.org/archives/list/security-announce@lists.opensuse.org/thread/WXCOTOTL4ZIZB65QEGM65YZZILOED4A3/"
+			},
+			{
+				"category": "self",
+				"summary": "E-Mail link for openSUSE-SU-2023:0048-1",
+				"url": "https://lists.opensuse.org/archives/list/security-announce@lists.opensuse.org/thread/WXCOTOTL4ZIZB65QEGM65YZZILOED4A3/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1208278",
+				"url": "https://bugzilla.suse.com/1208278"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1208279",
+				"url": "https://bugzilla.suse.com/1208279"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1208280",
+				"url": "https://bugzilla.suse.com/1208280"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1208281",
+				"url": "https://bugzilla.suse.com/1208281"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1208282",
+				"url": "https://bugzilla.suse.com/1208282"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2023-25563 page",
+				"url": "https://www.suse.com/security/cve/CVE-2023-25563/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2023-25564 page",
+				"url": "https://www.suse.com/security/cve/CVE-2023-25564/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2023-25565 page",
+				"url": "https://www.suse.com/security/cve/CVE-2023-25565/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2023-25566 page",
+				"url": "https://www.suse.com/security/cve/CVE-2023-25566/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2023-25567 page",
+				"url": "https://www.suse.com/security/cve/CVE-2023-25567/"
+			}
+		],
+		"title": "Security update for gssntlmssp",
+		"tracking": {
+			"current_release_date": "2023-02-18T15:01:17Z",
+			"generator": {
+				"date": "2023-02-18T15:01:17Z",
+				"engine": {
+					"name": "cve-database.git:bin/generate-csaf.pl",
+					"version": "1"
+				}
+			},
+			"id": "openSUSE-SU-2023:0048-1",
+			"initial_release_date": "2023-02-18T15:01:17Z",
+			"revision_history": [
+				{
+					"date": "2023-02-18T15:01:17Z",
+					"number": "1",
+					"summary": "Current version"
+				}
+			],
+			"status": "final",
+			"version": "1"
+		}
+	},
+	"product_tree": {
+		"branches": [
+			{
+				"branches": [
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "gssntlmssp-1.2.0-bp154.2.3.1.aarch64",
+								"product": {
+									"name": "gssntlmssp-1.2.0-bp154.2.3.1.aarch64",
+									"product_id": "gssntlmssp-1.2.0-bp154.2.3.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "gssntlmssp-devel-1.2.0-bp154.2.3.1.aarch64",
+								"product": {
+									"name": "gssntlmssp-devel-1.2.0-bp154.2.3.1.aarch64",
+									"product_id": "gssntlmssp-devel-1.2.0-bp154.2.3.1.aarch64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "aarch64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "gssntlmssp-1.2.0-bp154.2.3.1.i586",
+								"product": {
+									"name": "gssntlmssp-1.2.0-bp154.2.3.1.i586",
+									"product_id": "gssntlmssp-1.2.0-bp154.2.3.1.i586"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "gssntlmssp-devel-1.2.0-bp154.2.3.1.i586",
+								"product": {
+									"name": "gssntlmssp-devel-1.2.0-bp154.2.3.1.i586",
+									"product_id": "gssntlmssp-devel-1.2.0-bp154.2.3.1.i586"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "i586"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "gssntlmssp-1.2.0-bp154.2.3.1.ppc64le",
+								"product": {
+									"name": "gssntlmssp-1.2.0-bp154.2.3.1.ppc64le",
+									"product_id": "gssntlmssp-1.2.0-bp154.2.3.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "gssntlmssp-devel-1.2.0-bp154.2.3.1.ppc64le",
+								"product": {
+									"name": "gssntlmssp-devel-1.2.0-bp154.2.3.1.ppc64le",
+									"product_id": "gssntlmssp-devel-1.2.0-bp154.2.3.1.ppc64le"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "ppc64le"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "gssntlmssp-1.2.0-bp154.2.3.1.s390x",
+								"product": {
+									"name": "gssntlmssp-1.2.0-bp154.2.3.1.s390x",
+									"product_id": "gssntlmssp-1.2.0-bp154.2.3.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "gssntlmssp-devel-1.2.0-bp154.2.3.1.s390x",
+								"product": {
+									"name": "gssntlmssp-devel-1.2.0-bp154.2.3.1.s390x",
+									"product_id": "gssntlmssp-devel-1.2.0-bp154.2.3.1.s390x"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "s390x"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "gssntlmssp-1.2.0-bp154.2.3.1.x86_64",
+								"product": {
+									"name": "gssntlmssp-1.2.0-bp154.2.3.1.x86_64",
+									"product_id": "gssntlmssp-1.2.0-bp154.2.3.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "gssntlmssp-devel-1.2.0-bp154.2.3.1.x86_64",
+								"product": {
+									"name": "gssntlmssp-devel-1.2.0-bp154.2.3.1.x86_64",
+									"product_id": "gssntlmssp-devel-1.2.0-bp154.2.3.1.x86_64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "x86_64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_name",
+								"name": "SUSE Package Hub 15 SP4",
+								"product": {
+									"name": "SUSE Package Hub 15 SP4",
+									"product_id": "SUSE Package Hub 15 SP4"
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "openSUSE Leap 15.4",
+								"product": {
+									"name": "openSUSE Leap 15.4",
+									"product_id": "openSUSE Leap 15.4",
+									"product_identification_helper": {
+										"cpe": "cpe:/o:opensuse:leap:15.4"
+									}
+								}
+							}
+						],
+						"category": "product_family",
+						"name": "SUSE Linux Enterprise"
+					}
+				],
+				"category": "vendor",
+				"name": "SUSE"
+			}
+		],
+		"relationships": [
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "gssntlmssp-1.2.0-bp154.2.3.1.aarch64 as component of SUSE Package Hub 15 SP4",
+					"product_id": "SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.aarch64"
+				},
+				"product_reference": "gssntlmssp-1.2.0-bp154.2.3.1.aarch64",
+				"relates_to_product_reference": "SUSE Package Hub 15 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "gssntlmssp-1.2.0-bp154.2.3.1.i586 as component of SUSE Package Hub 15 SP4",
+					"product_id": "SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.i586"
+				},
+				"product_reference": "gssntlmssp-1.2.0-bp154.2.3.1.i586",
+				"relates_to_product_reference": "SUSE Package Hub 15 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "gssntlmssp-1.2.0-bp154.2.3.1.ppc64le as component of SUSE Package Hub 15 SP4",
+					"product_id": "SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.ppc64le"
+				},
+				"product_reference": "gssntlmssp-1.2.0-bp154.2.3.1.ppc64le",
+				"relates_to_product_reference": "SUSE Package Hub 15 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "gssntlmssp-1.2.0-bp154.2.3.1.s390x as component of SUSE Package Hub 15 SP4",
+					"product_id": "SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.s390x"
+				},
+				"product_reference": "gssntlmssp-1.2.0-bp154.2.3.1.s390x",
+				"relates_to_product_reference": "SUSE Package Hub 15 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "gssntlmssp-1.2.0-bp154.2.3.1.x86_64 as component of SUSE Package Hub 15 SP4",
+					"product_id": "SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.x86_64"
+				},
+				"product_reference": "gssntlmssp-1.2.0-bp154.2.3.1.x86_64",
+				"relates_to_product_reference": "SUSE Package Hub 15 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "gssntlmssp-devel-1.2.0-bp154.2.3.1.aarch64 as component of SUSE Package Hub 15 SP4",
+					"product_id": "SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.aarch64"
+				},
+				"product_reference": "gssntlmssp-devel-1.2.0-bp154.2.3.1.aarch64",
+				"relates_to_product_reference": "SUSE Package Hub 15 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "gssntlmssp-devel-1.2.0-bp154.2.3.1.i586 as component of SUSE Package Hub 15 SP4",
+					"product_id": "SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.i586"
+				},
+				"product_reference": "gssntlmssp-devel-1.2.0-bp154.2.3.1.i586",
+				"relates_to_product_reference": "SUSE Package Hub 15 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "gssntlmssp-devel-1.2.0-bp154.2.3.1.ppc64le as component of SUSE Package Hub 15 SP4",
+					"product_id": "SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.ppc64le"
+				},
+				"product_reference": "gssntlmssp-devel-1.2.0-bp154.2.3.1.ppc64le",
+				"relates_to_product_reference": "SUSE Package Hub 15 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "gssntlmssp-devel-1.2.0-bp154.2.3.1.s390x as component of SUSE Package Hub 15 SP4",
+					"product_id": "SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.s390x"
+				},
+				"product_reference": "gssntlmssp-devel-1.2.0-bp154.2.3.1.s390x",
+				"relates_to_product_reference": "SUSE Package Hub 15 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "gssntlmssp-devel-1.2.0-bp154.2.3.1.x86_64 as component of SUSE Package Hub 15 SP4",
+					"product_id": "SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.x86_64"
+				},
+				"product_reference": "gssntlmssp-devel-1.2.0-bp154.2.3.1.x86_64",
+				"relates_to_product_reference": "SUSE Package Hub 15 SP4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "gssntlmssp-1.2.0-bp154.2.3.1.aarch64 as component of openSUSE Leap 15.4",
+					"product_id": "openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.aarch64"
+				},
+				"product_reference": "gssntlmssp-1.2.0-bp154.2.3.1.aarch64",
+				"relates_to_product_reference": "openSUSE Leap 15.4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "gssntlmssp-1.2.0-bp154.2.3.1.i586 as component of openSUSE Leap 15.4",
+					"product_id": "openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.i586"
+				},
+				"product_reference": "gssntlmssp-1.2.0-bp154.2.3.1.i586",
+				"relates_to_product_reference": "openSUSE Leap 15.4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "gssntlmssp-1.2.0-bp154.2.3.1.ppc64le as component of openSUSE Leap 15.4",
+					"product_id": "openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.ppc64le"
+				},
+				"product_reference": "gssntlmssp-1.2.0-bp154.2.3.1.ppc64le",
+				"relates_to_product_reference": "openSUSE Leap 15.4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "gssntlmssp-1.2.0-bp154.2.3.1.s390x as component of openSUSE Leap 15.4",
+					"product_id": "openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.s390x"
+				},
+				"product_reference": "gssntlmssp-1.2.0-bp154.2.3.1.s390x",
+				"relates_to_product_reference": "openSUSE Leap 15.4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "gssntlmssp-1.2.0-bp154.2.3.1.x86_64 as component of openSUSE Leap 15.4",
+					"product_id": "openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.x86_64"
+				},
+				"product_reference": "gssntlmssp-1.2.0-bp154.2.3.1.x86_64",
+				"relates_to_product_reference": "openSUSE Leap 15.4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "gssntlmssp-devel-1.2.0-bp154.2.3.1.aarch64 as component of openSUSE Leap 15.4",
+					"product_id": "openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.aarch64"
+				},
+				"product_reference": "gssntlmssp-devel-1.2.0-bp154.2.3.1.aarch64",
+				"relates_to_product_reference": "openSUSE Leap 15.4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "gssntlmssp-devel-1.2.0-bp154.2.3.1.i586 as component of openSUSE Leap 15.4",
+					"product_id": "openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.i586"
+				},
+				"product_reference": "gssntlmssp-devel-1.2.0-bp154.2.3.1.i586",
+				"relates_to_product_reference": "openSUSE Leap 15.4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "gssntlmssp-devel-1.2.0-bp154.2.3.1.ppc64le as component of openSUSE Leap 15.4",
+					"product_id": "openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.ppc64le"
+				},
+				"product_reference": "gssntlmssp-devel-1.2.0-bp154.2.3.1.ppc64le",
+				"relates_to_product_reference": "openSUSE Leap 15.4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "gssntlmssp-devel-1.2.0-bp154.2.3.1.s390x as component of openSUSE Leap 15.4",
+					"product_id": "openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.s390x"
+				},
+				"product_reference": "gssntlmssp-devel-1.2.0-bp154.2.3.1.s390x",
+				"relates_to_product_reference": "openSUSE Leap 15.4"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "gssntlmssp-devel-1.2.0-bp154.2.3.1.x86_64 as component of openSUSE Leap 15.4",
+					"product_id": "openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.x86_64"
+				},
+				"product_reference": "gssntlmssp-devel-1.2.0-bp154.2.3.1.x86_64",
+				"relates_to_product_reference": "openSUSE Leap 15.4"
+			}
+		]
+	},
+	"vulnerabilities": [
+		{
+			"cve": "CVE-2023-25563",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2023-25563"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "GSS-NTLMSSP is a mechglue plugin for the GSSAPI library that implements NTLM authentication. Prior to version 1.2.0, multiple out-of-bounds reads when decoding NTLM fields can trigger a denial of service. A 32-bit integer overflow condition can lead to incorrect checks of consistency of length of internal buffers. Although most applications will error out before accepting a singe input buffer of 4GB in length this could theoretically happen. This vulnerability can be triggered via the main `gss_accept_sec_context` entry point if the application allows tokens greater than 4GB in length. This can lead to a large, up to 65KB, out-of-bounds read which could cause a denial-of-service if it reads from unmapped memory. Version 1.2.0 contains a patch for the out-of-bounds reads.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.aarch64",
+					"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.i586",
+					"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.ppc64le",
+					"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.s390x",
+					"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.x86_64",
+					"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.aarch64",
+					"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.i586",
+					"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.ppc64le",
+					"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.s390x",
+					"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.x86_64",
+					"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.aarch64",
+					"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.i586",
+					"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.ppc64le",
+					"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.s390x",
+					"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.x86_64",
+					"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.aarch64",
+					"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.i586",
+					"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.ppc64le",
+					"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.s390x",
+					"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2023-25563",
+					"url": "https://www.suse.com/security/cve/CVE-2023-25563"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1208278 for CVE-2023-25563",
+					"url": "https://bugzilla.suse.com/1208278"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.aarch64",
+						"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.i586",
+						"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.ppc64le",
+						"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.s390x",
+						"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.x86_64",
+						"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.aarch64",
+						"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.i586",
+						"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.ppc64le",
+						"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.s390x",
+						"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.x86_64",
+						"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.aarch64",
+						"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.i586",
+						"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.ppc64le",
+						"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.s390x",
+						"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.x86_64",
+						"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.aarch64",
+						"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.i586",
+						"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.ppc64le",
+						"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.s390x",
+						"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 5.9,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.aarch64",
+						"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.i586",
+						"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.ppc64le",
+						"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.s390x",
+						"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.x86_64",
+						"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.aarch64",
+						"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.i586",
+						"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.ppc64le",
+						"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.s390x",
+						"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.x86_64",
+						"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.aarch64",
+						"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.i586",
+						"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.ppc64le",
+						"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.s390x",
+						"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.x86_64",
+						"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.aarch64",
+						"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.i586",
+						"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.ppc64le",
+						"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.s390x",
+						"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2023-02-18T15:01:17Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2023-25563"
+		},
+		{
+			"cve": "CVE-2023-25564",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2023-25564"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "GSS-NTLMSSP is a mechglue plugin for the GSSAPI library that implements NTLM authentication. Prior to version 1.2.0, memory corruption can be triggered when decoding UTF16 strings. The variable `outlen` was not initialized and could cause writing a zero to an arbitrary place in memory if `ntlm_str_convert()` were to fail, which would leave `outlen` uninitialized. This can lead to a denial of service if the write hits unmapped memory or randomly corrupts a byte in the application memory space. This vulnerability can trigger an out-of-bounds write, leading to memory corruption. This vulnerability can be triggered via the main `gss_accept_sec_context` entry point. This issue is fixed in version 1.2.0.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.aarch64",
+					"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.i586",
+					"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.ppc64le",
+					"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.s390x",
+					"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.x86_64",
+					"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.aarch64",
+					"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.i586",
+					"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.ppc64le",
+					"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.s390x",
+					"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.x86_64",
+					"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.aarch64",
+					"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.i586",
+					"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.ppc64le",
+					"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.s390x",
+					"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.x86_64",
+					"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.aarch64",
+					"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.i586",
+					"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.ppc64le",
+					"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.s390x",
+					"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2023-25564",
+					"url": "https://www.suse.com/security/cve/CVE-2023-25564"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1208279 for CVE-2023-25564",
+					"url": "https://bugzilla.suse.com/1208279"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.aarch64",
+						"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.i586",
+						"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.ppc64le",
+						"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.s390x",
+						"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.x86_64",
+						"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.aarch64",
+						"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.i586",
+						"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.ppc64le",
+						"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.s390x",
+						"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.x86_64",
+						"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.aarch64",
+						"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.i586",
+						"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.ppc64le",
+						"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.s390x",
+						"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.x86_64",
+						"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.aarch64",
+						"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.i586",
+						"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.ppc64le",
+						"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.s390x",
+						"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 6.5,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.aarch64",
+						"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.i586",
+						"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.ppc64le",
+						"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.s390x",
+						"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.x86_64",
+						"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.aarch64",
+						"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.i586",
+						"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.ppc64le",
+						"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.s390x",
+						"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.x86_64",
+						"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.aarch64",
+						"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.i586",
+						"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.ppc64le",
+						"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.s390x",
+						"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.x86_64",
+						"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.aarch64",
+						"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.i586",
+						"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.ppc64le",
+						"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.s390x",
+						"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2023-02-18T15:01:17Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2023-25564"
+		},
+		{
+			"cve": "CVE-2023-25565",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2023-25565"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "GSS-NTLMSSP is a mechglue plugin for the GSSAPI library that implements NTLM authentication. Prior to version 1.2.0, an incorrect free when decoding target information can trigger a denial of service. The error condition incorrectly assumes the `cb` and `sh` buffers contain a copy of the data that needs to be freed. However, that is not the case. This vulnerability can be triggered via the main `gss_accept_sec_context` entry point. This will likely trigger an assertion failure in `free`, causing a denial-of-service. This issue is fixed in version 1.2.0.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.aarch64",
+					"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.i586",
+					"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.ppc64le",
+					"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.s390x",
+					"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.x86_64",
+					"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.aarch64",
+					"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.i586",
+					"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.ppc64le",
+					"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.s390x",
+					"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.x86_64",
+					"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.aarch64",
+					"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.i586",
+					"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.ppc64le",
+					"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.s390x",
+					"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.x86_64",
+					"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.aarch64",
+					"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.i586",
+					"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.ppc64le",
+					"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.s390x",
+					"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2023-25565",
+					"url": "https://www.suse.com/security/cve/CVE-2023-25565"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1208280 for CVE-2023-25565",
+					"url": "https://bugzilla.suse.com/1208280"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.aarch64",
+						"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.i586",
+						"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.ppc64le",
+						"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.s390x",
+						"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.x86_64",
+						"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.aarch64",
+						"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.i586",
+						"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.ppc64le",
+						"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.s390x",
+						"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.x86_64",
+						"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.aarch64",
+						"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.i586",
+						"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.ppc64le",
+						"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.s390x",
+						"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.x86_64",
+						"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.aarch64",
+						"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.i586",
+						"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.ppc64le",
+						"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.s390x",
+						"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.5,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.aarch64",
+						"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.i586",
+						"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.ppc64le",
+						"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.s390x",
+						"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.x86_64",
+						"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.aarch64",
+						"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.i586",
+						"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.ppc64le",
+						"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.s390x",
+						"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.x86_64",
+						"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.aarch64",
+						"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.i586",
+						"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.ppc64le",
+						"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.s390x",
+						"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.x86_64",
+						"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.aarch64",
+						"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.i586",
+						"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.ppc64le",
+						"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.s390x",
+						"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2023-02-18T15:01:17Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2023-25565"
+		},
+		{
+			"cve": "CVE-2023-25566",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2023-25566"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "GSS-NTLMSSP is a mechglue plugin for the GSSAPI library that implements NTLM authentication. Prior to version 1.2.0, a memory leak can be triggered when parsing usernames which can trigger a denial-of-service. The domain portion of a username may be overridden causing an allocated memory area the size of the domain name to be leaked. An attacker can leak memory via the main `gss_accept_sec_context` entry point, potentially causing a denial-of-service. This issue is fixed in version 1.2.0.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.aarch64",
+					"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.i586",
+					"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.ppc64le",
+					"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.s390x",
+					"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.x86_64",
+					"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.aarch64",
+					"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.i586",
+					"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.ppc64le",
+					"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.s390x",
+					"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.x86_64",
+					"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.aarch64",
+					"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.i586",
+					"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.ppc64le",
+					"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.s390x",
+					"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.x86_64",
+					"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.aarch64",
+					"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.i586",
+					"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.ppc64le",
+					"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.s390x",
+					"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2023-25566",
+					"url": "https://www.suse.com/security/cve/CVE-2023-25566"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1208281 for CVE-2023-25566",
+					"url": "https://bugzilla.suse.com/1208281"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.aarch64",
+						"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.i586",
+						"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.ppc64le",
+						"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.s390x",
+						"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.x86_64",
+						"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.aarch64",
+						"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.i586",
+						"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.ppc64le",
+						"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.s390x",
+						"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.x86_64",
+						"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.aarch64",
+						"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.i586",
+						"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.ppc64le",
+						"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.s390x",
+						"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.x86_64",
+						"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.aarch64",
+						"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.i586",
+						"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.ppc64le",
+						"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.s390x",
+						"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.5,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.aarch64",
+						"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.i586",
+						"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.ppc64le",
+						"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.s390x",
+						"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.x86_64",
+						"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.aarch64",
+						"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.i586",
+						"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.ppc64le",
+						"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.s390x",
+						"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.x86_64",
+						"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.aarch64",
+						"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.i586",
+						"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.ppc64le",
+						"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.s390x",
+						"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.x86_64",
+						"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.aarch64",
+						"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.i586",
+						"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.ppc64le",
+						"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.s390x",
+						"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2023-02-18T15:01:17Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2023-25566"
+		},
+		{
+			"cve": "CVE-2023-25567",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2023-25567"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "GSS-NTLMSSP, a mechglue plugin for the GSSAPI library that implements NTLM authentication, has an out-of-bounds read when decoding target information prior to version 1.2.0. The length of the `av_pair` is not checked properly for two of the elements which can trigger an out-of-bound read. The out-of-bounds read can be triggered via the main `gss_accept_sec_context` entry point and could cause a denial-of-service if the memory is unmapped. The issue is fixed in version 1.2.0.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.aarch64",
+					"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.i586",
+					"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.ppc64le",
+					"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.s390x",
+					"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.x86_64",
+					"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.aarch64",
+					"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.i586",
+					"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.ppc64le",
+					"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.s390x",
+					"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.x86_64",
+					"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.aarch64",
+					"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.i586",
+					"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.ppc64le",
+					"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.s390x",
+					"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.x86_64",
+					"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.aarch64",
+					"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.i586",
+					"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.ppc64le",
+					"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.s390x",
+					"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2023-25567",
+					"url": "https://www.suse.com/security/cve/CVE-2023-25567"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1208282 for CVE-2023-25567",
+					"url": "https://bugzilla.suse.com/1208282"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.aarch64",
+						"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.i586",
+						"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.ppc64le",
+						"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.s390x",
+						"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.x86_64",
+						"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.aarch64",
+						"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.i586",
+						"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.ppc64le",
+						"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.s390x",
+						"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.x86_64",
+						"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.aarch64",
+						"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.i586",
+						"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.ppc64le",
+						"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.s390x",
+						"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.x86_64",
+						"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.aarch64",
+						"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.i586",
+						"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.ppc64le",
+						"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.s390x",
+						"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.5,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.aarch64",
+						"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.i586",
+						"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.ppc64le",
+						"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.s390x",
+						"SUSE Package Hub 15 SP4:gssntlmssp-1.2.0-bp154.2.3.1.x86_64",
+						"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.aarch64",
+						"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.i586",
+						"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.ppc64le",
+						"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.s390x",
+						"SUSE Package Hub 15 SP4:gssntlmssp-devel-1.2.0-bp154.2.3.1.x86_64",
+						"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.aarch64",
+						"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.i586",
+						"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.ppc64le",
+						"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.s390x",
+						"openSUSE Leap 15.4:gssntlmssp-1.2.0-bp154.2.3.1.x86_64",
+						"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.aarch64",
+						"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.i586",
+						"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.ppc64le",
+						"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.s390x",
+						"openSUSE Leap 15.4:gssntlmssp-devel-1.2.0-bp154.2.3.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2023-02-18T15:01:17Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2023-25567"
+		}
+	]
+}
