@@ -1,0 +1,3014 @@
+{
+	"document": {
+		"aggregate_severity": {
+			"namespace": "https://www.suse.com/support/security/rating/",
+			"text": "important"
+		},
+		"category": "csaf_security_advisory",
+		"csaf_version": "2.0",
+		"distribution": {
+			"text": "Copyright 2024 SUSE LLC. All rights reserved.",
+			"tlp": {
+				"label": "WHITE",
+				"url": "https://www.first.org/tlp/"
+			}
+		},
+		"lang": "en",
+		"notes": [
+			{
+				"category": "summary",
+				"text": "Security update for SUSE Manager Salt Bundle",
+				"title": "Title of the patch"
+			},
+			{
+				"category": "description",
+				"text": "This update fixes the following issues:\n\nvenv-salt-minion:\n\n- Security fixes on Python 3.11 interpreter:\n\n  * CVE-2024-7592: Fixed quadratic complexity in parsing -quoted cookie values with backslashes\n    (bsc#1229873, bsc#1230059)\n  * CVE-2024-8088: Prevent malformed payload to cause infinite loops in zipfile.Path (bsc#1229704, bsc#1230058)\n  * CVE-2024-6923: Prevent email header injection due to unquoted newlines (bsc#1228780)\n  * CVE-2024-4032: Rearranging definition of private global IP addresses (bsc#1226448)\n  * CVE-2024-0397: ssl.SSLContext.cert_store_stats() and ssl.SSLContext.get_ca_certs() now correctly lock access to the\n    certificate store, when the ssl.SSLContext is shared across multiple threads (bsc#1226447)\n\n- Security fixes on Python dependencies:\n\n  * CVE-2024-5569: zipp: Fixed a Denial of Service (DoS) vulnerability in the jaraco/zipp library\n    (bsc#1227547, bsc#1229996)\n  * CVE-2024-6345: setuptools: Sanitize any VCS URL used for download (bsc#1228105, bsc#1229995)\n  * CVE-2024-3651: idna: Fix a potential DoS via resource consumption via specially crafted inputs to idna.encode()\n    (bsc#1222842, bsc#1229994)\n  * CVE-2024-37891: urllib3: Added the ``Proxy-Authorization`` header to the list of headers to strip from requests\n    when redirecting to a different host (bsc#1226469, bsc#1229654)\n\n- Other bugs fixed:\n\n  * Fixed failing x509 tests with OpenSSL < 1.1 \n  * Avoid explicit reading of /etc/salt/minion (bsc#1220357)\n  * Allow NamedLoaderContexts to be returned from loader\n  * Reverted the change making reactor less blocking (bsc#1230322)\n  * Use --cachedir for extension_modules in salt-call (bsc#1226141)\n  * Prevent using SyncWrapper with no reason\n  * Enable post_start_cleanup.sh to work in a transaction\n  * Fixed the SELinux context for Salt Minion service (bsc#1219041)\n  * Increase warn_until_date date for code we still support\n  * Avoid crash on wrong output of systemctl version (bsc#1229539)\n  * Improved error handling with different OpenSSL versions\n  * Fixed cloud Minion configuration for multiple Masters (bsc#1229109)\n  * Use Pygit2 id instead of deprecated oid in gitfs\n  * Added passlib Python module to the bundle\n\n",
+				"title": "Description of the patch"
+			},
+			{
+				"category": "details",
+				"text": "SUSE-2024-4029,SUSE-EL-9-CLIENT-TOOLS-2024-4029",
+				"title": "Patchnames"
+			},
+			{
+				"category": "legal_disclaimer",
+				"text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+				"title": "Terms of use"
+			}
+		],
+		"publisher": {
+			"category": "vendor",
+			"contact_details": "https://www.suse.com/support/security/contact/",
+			"name": "SUSE Product Security Team",
+			"namespace": "https://www.suse.com/"
+		},
+		"references": [
+			{
+				"category": "external",
+				"summary": "SUSE ratings",
+				"url": "https://www.suse.com/support/security/rating/"
+			},
+			{
+				"category": "self",
+				"summary": "URL of this CSAF notice",
+				"url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2024_4029-1.json"
+			},
+			{
+				"category": "self",
+				"summary": "URL for SUSE-SU-2024:4029-1",
+				"url": "https://www.suse.com/support/update/announcement/2024/suse-su-20244029-1/"
+			},
+			{
+				"category": "self",
+				"summary": "E-Mail link for SUSE-SU-2024:4029-1",
+				"url": "https://lists.suse.com/pipermail/sle-security-updates/2024-November/019825.html"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1219041",
+				"url": "https://bugzilla.suse.com/1219041"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1220357",
+				"url": "https://bugzilla.suse.com/1220357"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1222842",
+				"url": "https://bugzilla.suse.com/1222842"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1226141",
+				"url": "https://bugzilla.suse.com/1226141"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1226447",
+				"url": "https://bugzilla.suse.com/1226447"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1226448",
+				"url": "https://bugzilla.suse.com/1226448"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1226469",
+				"url": "https://bugzilla.suse.com/1226469"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1227547",
+				"url": "https://bugzilla.suse.com/1227547"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1228105",
+				"url": "https://bugzilla.suse.com/1228105"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1228780",
+				"url": "https://bugzilla.suse.com/1228780"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1229109",
+				"url": "https://bugzilla.suse.com/1229109"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1229539",
+				"url": "https://bugzilla.suse.com/1229539"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1229654",
+				"url": "https://bugzilla.suse.com/1229654"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1229704",
+				"url": "https://bugzilla.suse.com/1229704"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1229873",
+				"url": "https://bugzilla.suse.com/1229873"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1229994",
+				"url": "https://bugzilla.suse.com/1229994"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1229995",
+				"url": "https://bugzilla.suse.com/1229995"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1229996",
+				"url": "https://bugzilla.suse.com/1229996"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1230058",
+				"url": "https://bugzilla.suse.com/1230058"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1230059",
+				"url": "https://bugzilla.suse.com/1230059"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE Bug 1230322",
+				"url": "https://bugzilla.suse.com/1230322"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2024-0397 page",
+				"url": "https://www.suse.com/security/cve/CVE-2024-0397/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2024-3651 page",
+				"url": "https://www.suse.com/security/cve/CVE-2024-3651/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2024-37891 page",
+				"url": "https://www.suse.com/security/cve/CVE-2024-37891/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2024-4032 page",
+				"url": "https://www.suse.com/security/cve/CVE-2024-4032/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2024-5569 page",
+				"url": "https://www.suse.com/security/cve/CVE-2024-5569/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2024-6345 page",
+				"url": "https://www.suse.com/security/cve/CVE-2024-6345/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2024-6923 page",
+				"url": "https://www.suse.com/security/cve/CVE-2024-6923/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2024-7592 page",
+				"url": "https://www.suse.com/security/cve/CVE-2024-7592/"
+			},
+			{
+				"category": "self",
+				"summary": "SUSE CVE CVE-2024-8088 page",
+				"url": "https://www.suse.com/security/cve/CVE-2024-8088/"
+			}
+		],
+		"title": "Security update for SUSE Manager Salt Bundle",
+		"tracking": {
+			"current_release_date": "2024-11-18T13:29:50Z",
+			"generator": {
+				"date": "2024-11-18T13:29:50Z",
+				"engine": {
+					"name": "cve-database.git:bin/generate-csaf.pl",
+					"version": "1"
+				}
+			},
+			"id": "SUSE-SU-2024:4029-1",
+			"initial_release_date": "2024-11-18T13:29:50Z",
+			"revision_history": [
+				{
+					"date": "2024-11-18T13:29:50Z",
+					"number": "1",
+					"summary": "Current version"
+				}
+			],
+			"status": "final",
+			"version": "1"
+		}
+	},
+	"product_tree": {
+		"branches": [
+			{
+				"branches": [
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "saltbundlepy-3.11.9-1.26.1.aarch64",
+								"product": {
+									"name": "saltbundlepy-3.11.9-1.26.1.aarch64",
+									"product_id": "saltbundlepy-3.11.9-1.26.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "saltbundlepy-base-3.11.9-1.26.1.aarch64",
+								"product": {
+									"name": "saltbundlepy-base-3.11.9-1.26.1.aarch64",
+									"product_id": "saltbundlepy-base-3.11.9-1.26.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "saltbundlepy-cryptography-3.3.2-1.18.1.aarch64",
+								"product": {
+									"name": "saltbundlepy-cryptography-3.3.2-1.18.1.aarch64",
+									"product_id": "saltbundlepy-cryptography-3.3.2-1.18.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "saltbundlepy-curses-3.11.9-1.26.1.aarch64",
+								"product": {
+									"name": "saltbundlepy-curses-3.11.9-1.26.1.aarch64",
+									"product_id": "saltbundlepy-curses-3.11.9-1.26.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "saltbundlepy-dbm-3.11.9-1.26.1.aarch64",
+								"product": {
+									"name": "saltbundlepy-dbm-3.11.9-1.26.1.aarch64",
+									"product_id": "saltbundlepy-dbm-3.11.9-1.26.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "saltbundlepy-devel-3.11.9-1.26.1.aarch64",
+								"product": {
+									"name": "saltbundlepy-devel-3.11.9-1.26.1.aarch64",
+									"product_id": "saltbundlepy-devel-3.11.9-1.26.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "saltbundlepy-libs-3.11.9-1.26.1.aarch64",
+								"product": {
+									"name": "saltbundlepy-libs-3.11.9-1.26.1.aarch64",
+									"product_id": "saltbundlepy-libs-3.11.9-1.26.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "saltbundlepy-testsuite-3.11.9-1.26.1.aarch64",
+								"product": {
+									"name": "saltbundlepy-testsuite-3.11.9-1.26.1.aarch64",
+									"product_id": "saltbundlepy-testsuite-3.11.9-1.26.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "saltbundlepy-tools-3.11.9-1.26.1.aarch64",
+								"product": {
+									"name": "saltbundlepy-tools-3.11.9-1.26.1.aarch64",
+									"product_id": "saltbundlepy-tools-3.11.9-1.26.1.aarch64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "venv-salt-minion-3006.0-1.47.1.aarch64",
+								"product": {
+									"name": "venv-salt-minion-3006.0-1.47.1.aarch64",
+									"product_id": "venv-salt-minion-3006.0-1.47.1.aarch64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "aarch64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "saltbundlepy-docker-7.0.0-1.8.1.noarch",
+								"product": {
+									"name": "saltbundlepy-docker-7.0.0-1.8.1.noarch",
+									"product_id": "saltbundlepy-docker-7.0.0-1.8.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "saltbundlepy-idna-3.4-1.9.2.noarch",
+								"product": {
+									"name": "saltbundlepy-idna-3.4-1.9.2.noarch",
+									"product_id": "saltbundlepy-idna-3.4-1.9.2.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "saltbundlepy-passlib-1.7.4-1.3.1.noarch",
+								"product": {
+									"name": "saltbundlepy-passlib-1.7.4-1.3.1.noarch",
+									"product_id": "saltbundlepy-passlib-1.7.4-1.3.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "saltbundlepy-setuptools-67.7.2-1.12.1.noarch",
+								"product": {
+									"name": "saltbundlepy-setuptools-67.7.2-1.12.1.noarch",
+									"product_id": "saltbundlepy-setuptools-67.7.2-1.12.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "saltbundlepy-urllib3-2.0.7-1.12.1.noarch",
+								"product": {
+									"name": "saltbundlepy-urllib3-2.0.7-1.12.1.noarch",
+									"product_id": "saltbundlepy-urllib3-2.0.7-1.12.1.noarch"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "saltbundlepy-zipp-3.15.0-1.9.2.noarch",
+								"product": {
+									"name": "saltbundlepy-zipp-3.15.0-1.9.2.noarch",
+									"product_id": "saltbundlepy-zipp-3.15.0-1.9.2.noarch"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "noarch"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "saltbundlepy-3.11.9-1.26.1.ppc64le",
+								"product": {
+									"name": "saltbundlepy-3.11.9-1.26.1.ppc64le",
+									"product_id": "saltbundlepy-3.11.9-1.26.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "saltbundlepy-base-3.11.9-1.26.1.ppc64le",
+								"product": {
+									"name": "saltbundlepy-base-3.11.9-1.26.1.ppc64le",
+									"product_id": "saltbundlepy-base-3.11.9-1.26.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "saltbundlepy-cryptography-3.3.2-1.18.1.ppc64le",
+								"product": {
+									"name": "saltbundlepy-cryptography-3.3.2-1.18.1.ppc64le",
+									"product_id": "saltbundlepy-cryptography-3.3.2-1.18.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "saltbundlepy-curses-3.11.9-1.26.1.ppc64le",
+								"product": {
+									"name": "saltbundlepy-curses-3.11.9-1.26.1.ppc64le",
+									"product_id": "saltbundlepy-curses-3.11.9-1.26.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "saltbundlepy-dbm-3.11.9-1.26.1.ppc64le",
+								"product": {
+									"name": "saltbundlepy-dbm-3.11.9-1.26.1.ppc64le",
+									"product_id": "saltbundlepy-dbm-3.11.9-1.26.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "saltbundlepy-devel-3.11.9-1.26.1.ppc64le",
+								"product": {
+									"name": "saltbundlepy-devel-3.11.9-1.26.1.ppc64le",
+									"product_id": "saltbundlepy-devel-3.11.9-1.26.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "saltbundlepy-libs-3.11.9-1.26.1.ppc64le",
+								"product": {
+									"name": "saltbundlepy-libs-3.11.9-1.26.1.ppc64le",
+									"product_id": "saltbundlepy-libs-3.11.9-1.26.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "saltbundlepy-testsuite-3.11.9-1.26.1.ppc64le",
+								"product": {
+									"name": "saltbundlepy-testsuite-3.11.9-1.26.1.ppc64le",
+									"product_id": "saltbundlepy-testsuite-3.11.9-1.26.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "saltbundlepy-tools-3.11.9-1.26.1.ppc64le",
+								"product": {
+									"name": "saltbundlepy-tools-3.11.9-1.26.1.ppc64le",
+									"product_id": "saltbundlepy-tools-3.11.9-1.26.1.ppc64le"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "venv-salt-minion-3006.0-1.47.1.ppc64le",
+								"product": {
+									"name": "venv-salt-minion-3006.0-1.47.1.ppc64le",
+									"product_id": "venv-salt-minion-3006.0-1.47.1.ppc64le"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "ppc64le"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "saltbundlepy-3.11.9-1.26.1.s390x",
+								"product": {
+									"name": "saltbundlepy-3.11.9-1.26.1.s390x",
+									"product_id": "saltbundlepy-3.11.9-1.26.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "saltbundlepy-base-3.11.9-1.26.1.s390x",
+								"product": {
+									"name": "saltbundlepy-base-3.11.9-1.26.1.s390x",
+									"product_id": "saltbundlepy-base-3.11.9-1.26.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "saltbundlepy-cryptography-3.3.2-1.18.1.s390x",
+								"product": {
+									"name": "saltbundlepy-cryptography-3.3.2-1.18.1.s390x",
+									"product_id": "saltbundlepy-cryptography-3.3.2-1.18.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "saltbundlepy-curses-3.11.9-1.26.1.s390x",
+								"product": {
+									"name": "saltbundlepy-curses-3.11.9-1.26.1.s390x",
+									"product_id": "saltbundlepy-curses-3.11.9-1.26.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "saltbundlepy-dbm-3.11.9-1.26.1.s390x",
+								"product": {
+									"name": "saltbundlepy-dbm-3.11.9-1.26.1.s390x",
+									"product_id": "saltbundlepy-dbm-3.11.9-1.26.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "saltbundlepy-devel-3.11.9-1.26.1.s390x",
+								"product": {
+									"name": "saltbundlepy-devel-3.11.9-1.26.1.s390x",
+									"product_id": "saltbundlepy-devel-3.11.9-1.26.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "saltbundlepy-libs-3.11.9-1.26.1.s390x",
+								"product": {
+									"name": "saltbundlepy-libs-3.11.9-1.26.1.s390x",
+									"product_id": "saltbundlepy-libs-3.11.9-1.26.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "saltbundlepy-testsuite-3.11.9-1.26.1.s390x",
+								"product": {
+									"name": "saltbundlepy-testsuite-3.11.9-1.26.1.s390x",
+									"product_id": "saltbundlepy-testsuite-3.11.9-1.26.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "saltbundlepy-tools-3.11.9-1.26.1.s390x",
+								"product": {
+									"name": "saltbundlepy-tools-3.11.9-1.26.1.s390x",
+									"product_id": "saltbundlepy-tools-3.11.9-1.26.1.s390x"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "venv-salt-minion-3006.0-1.47.1.s390x",
+								"product": {
+									"name": "venv-salt-minion-3006.0-1.47.1.s390x",
+									"product_id": "venv-salt-minion-3006.0-1.47.1.s390x"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "s390x"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_version",
+								"name": "saltbundlepy-3.11.9-1.26.1.x86_64",
+								"product": {
+									"name": "saltbundlepy-3.11.9-1.26.1.x86_64",
+									"product_id": "saltbundlepy-3.11.9-1.26.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "saltbundlepy-base-3.11.9-1.26.1.x86_64",
+								"product": {
+									"name": "saltbundlepy-base-3.11.9-1.26.1.x86_64",
+									"product_id": "saltbundlepy-base-3.11.9-1.26.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "saltbundlepy-cryptography-3.3.2-1.18.1.x86_64",
+								"product": {
+									"name": "saltbundlepy-cryptography-3.3.2-1.18.1.x86_64",
+									"product_id": "saltbundlepy-cryptography-3.3.2-1.18.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "saltbundlepy-curses-3.11.9-1.26.1.x86_64",
+								"product": {
+									"name": "saltbundlepy-curses-3.11.9-1.26.1.x86_64",
+									"product_id": "saltbundlepy-curses-3.11.9-1.26.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "saltbundlepy-dbm-3.11.9-1.26.1.x86_64",
+								"product": {
+									"name": "saltbundlepy-dbm-3.11.9-1.26.1.x86_64",
+									"product_id": "saltbundlepy-dbm-3.11.9-1.26.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "saltbundlepy-devel-3.11.9-1.26.1.x86_64",
+								"product": {
+									"name": "saltbundlepy-devel-3.11.9-1.26.1.x86_64",
+									"product_id": "saltbundlepy-devel-3.11.9-1.26.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "saltbundlepy-libs-3.11.9-1.26.1.x86_64",
+								"product": {
+									"name": "saltbundlepy-libs-3.11.9-1.26.1.x86_64",
+									"product_id": "saltbundlepy-libs-3.11.9-1.26.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "saltbundlepy-testsuite-3.11.9-1.26.1.x86_64",
+								"product": {
+									"name": "saltbundlepy-testsuite-3.11.9-1.26.1.x86_64",
+									"product_id": "saltbundlepy-testsuite-3.11.9-1.26.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "saltbundlepy-tools-3.11.9-1.26.1.x86_64",
+								"product": {
+									"name": "saltbundlepy-tools-3.11.9-1.26.1.x86_64",
+									"product_id": "saltbundlepy-tools-3.11.9-1.26.1.x86_64"
+								}
+							},
+							{
+								"category": "product_version",
+								"name": "venv-salt-minion-3006.0-1.47.1.x86_64",
+								"product": {
+									"name": "venv-salt-minion-3006.0-1.47.1.x86_64",
+									"product_id": "venv-salt-minion-3006.0-1.47.1.x86_64"
+								}
+							}
+						],
+						"category": "architecture",
+						"name": "x86_64"
+					},
+					{
+						"branches": [
+							{
+								"category": "product_name",
+								"name": "SUSE:EL-9:Update:Products:SaltBundle:Update",
+								"product": {
+									"name": "SUSE:EL-9:Update:Products:SaltBundle:Update",
+									"product_id": "SUSE:EL-9:Update:Products:SaltBundle:Update"
+								}
+							},
+							{
+								"category": "product_name",
+								"name": "SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS",
+								"product": {
+									"name": "SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS",
+									"product_id": "SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS"
+								}
+							}
+						],
+						"category": "product_family",
+						"name": "SUSE Linux Enterprise"
+					}
+				],
+				"category": "vendor",
+				"name": "SUSE"
+			}
+		],
+		"relationships": [
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "saltbundlepy-3.11.9-1.26.1.aarch64 as component of SUSE:EL-9:Update:Products:SaltBundle:Update",
+					"product_id": "SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.aarch64"
+				},
+				"product_reference": "saltbundlepy-3.11.9-1.26.1.aarch64",
+				"relates_to_product_reference": "SUSE:EL-9:Update:Products:SaltBundle:Update"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "saltbundlepy-3.11.9-1.26.1.ppc64le as component of SUSE:EL-9:Update:Products:SaltBundle:Update",
+					"product_id": "SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.ppc64le"
+				},
+				"product_reference": "saltbundlepy-3.11.9-1.26.1.ppc64le",
+				"relates_to_product_reference": "SUSE:EL-9:Update:Products:SaltBundle:Update"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "saltbundlepy-3.11.9-1.26.1.s390x as component of SUSE:EL-9:Update:Products:SaltBundle:Update",
+					"product_id": "SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.s390x"
+				},
+				"product_reference": "saltbundlepy-3.11.9-1.26.1.s390x",
+				"relates_to_product_reference": "SUSE:EL-9:Update:Products:SaltBundle:Update"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "saltbundlepy-3.11.9-1.26.1.x86_64 as component of SUSE:EL-9:Update:Products:SaltBundle:Update",
+					"product_id": "SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.x86_64"
+				},
+				"product_reference": "saltbundlepy-3.11.9-1.26.1.x86_64",
+				"relates_to_product_reference": "SUSE:EL-9:Update:Products:SaltBundle:Update"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "saltbundlepy-base-3.11.9-1.26.1.aarch64 as component of SUSE:EL-9:Update:Products:SaltBundle:Update",
+					"product_id": "SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.aarch64"
+				},
+				"product_reference": "saltbundlepy-base-3.11.9-1.26.1.aarch64",
+				"relates_to_product_reference": "SUSE:EL-9:Update:Products:SaltBundle:Update"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "saltbundlepy-base-3.11.9-1.26.1.ppc64le as component of SUSE:EL-9:Update:Products:SaltBundle:Update",
+					"product_id": "SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.ppc64le"
+				},
+				"product_reference": "saltbundlepy-base-3.11.9-1.26.1.ppc64le",
+				"relates_to_product_reference": "SUSE:EL-9:Update:Products:SaltBundle:Update"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "saltbundlepy-base-3.11.9-1.26.1.s390x as component of SUSE:EL-9:Update:Products:SaltBundle:Update",
+					"product_id": "SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.s390x"
+				},
+				"product_reference": "saltbundlepy-base-3.11.9-1.26.1.s390x",
+				"relates_to_product_reference": "SUSE:EL-9:Update:Products:SaltBundle:Update"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "saltbundlepy-base-3.11.9-1.26.1.x86_64 as component of SUSE:EL-9:Update:Products:SaltBundle:Update",
+					"product_id": "SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.x86_64"
+				},
+				"product_reference": "saltbundlepy-base-3.11.9-1.26.1.x86_64",
+				"relates_to_product_reference": "SUSE:EL-9:Update:Products:SaltBundle:Update"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "saltbundlepy-cryptography-3.3.2-1.18.1.aarch64 as component of SUSE:EL-9:Update:Products:SaltBundle:Update",
+					"product_id": "SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.aarch64"
+				},
+				"product_reference": "saltbundlepy-cryptography-3.3.2-1.18.1.aarch64",
+				"relates_to_product_reference": "SUSE:EL-9:Update:Products:SaltBundle:Update"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "saltbundlepy-cryptography-3.3.2-1.18.1.ppc64le as component of SUSE:EL-9:Update:Products:SaltBundle:Update",
+					"product_id": "SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.ppc64le"
+				},
+				"product_reference": "saltbundlepy-cryptography-3.3.2-1.18.1.ppc64le",
+				"relates_to_product_reference": "SUSE:EL-9:Update:Products:SaltBundle:Update"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "saltbundlepy-cryptography-3.3.2-1.18.1.s390x as component of SUSE:EL-9:Update:Products:SaltBundle:Update",
+					"product_id": "SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.s390x"
+				},
+				"product_reference": "saltbundlepy-cryptography-3.3.2-1.18.1.s390x",
+				"relates_to_product_reference": "SUSE:EL-9:Update:Products:SaltBundle:Update"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "saltbundlepy-cryptography-3.3.2-1.18.1.x86_64 as component of SUSE:EL-9:Update:Products:SaltBundle:Update",
+					"product_id": "SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.x86_64"
+				},
+				"product_reference": "saltbundlepy-cryptography-3.3.2-1.18.1.x86_64",
+				"relates_to_product_reference": "SUSE:EL-9:Update:Products:SaltBundle:Update"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "saltbundlepy-curses-3.11.9-1.26.1.aarch64 as component of SUSE:EL-9:Update:Products:SaltBundle:Update",
+					"product_id": "SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.aarch64"
+				},
+				"product_reference": "saltbundlepy-curses-3.11.9-1.26.1.aarch64",
+				"relates_to_product_reference": "SUSE:EL-9:Update:Products:SaltBundle:Update"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "saltbundlepy-curses-3.11.9-1.26.1.ppc64le as component of SUSE:EL-9:Update:Products:SaltBundle:Update",
+					"product_id": "SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.ppc64le"
+				},
+				"product_reference": "saltbundlepy-curses-3.11.9-1.26.1.ppc64le",
+				"relates_to_product_reference": "SUSE:EL-9:Update:Products:SaltBundle:Update"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "saltbundlepy-curses-3.11.9-1.26.1.s390x as component of SUSE:EL-9:Update:Products:SaltBundle:Update",
+					"product_id": "SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.s390x"
+				},
+				"product_reference": "saltbundlepy-curses-3.11.9-1.26.1.s390x",
+				"relates_to_product_reference": "SUSE:EL-9:Update:Products:SaltBundle:Update"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "saltbundlepy-curses-3.11.9-1.26.1.x86_64 as component of SUSE:EL-9:Update:Products:SaltBundle:Update",
+					"product_id": "SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.x86_64"
+				},
+				"product_reference": "saltbundlepy-curses-3.11.9-1.26.1.x86_64",
+				"relates_to_product_reference": "SUSE:EL-9:Update:Products:SaltBundle:Update"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "saltbundlepy-dbm-3.11.9-1.26.1.aarch64 as component of SUSE:EL-9:Update:Products:SaltBundle:Update",
+					"product_id": "SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.aarch64"
+				},
+				"product_reference": "saltbundlepy-dbm-3.11.9-1.26.1.aarch64",
+				"relates_to_product_reference": "SUSE:EL-9:Update:Products:SaltBundle:Update"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "saltbundlepy-dbm-3.11.9-1.26.1.ppc64le as component of SUSE:EL-9:Update:Products:SaltBundle:Update",
+					"product_id": "SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.ppc64le"
+				},
+				"product_reference": "saltbundlepy-dbm-3.11.9-1.26.1.ppc64le",
+				"relates_to_product_reference": "SUSE:EL-9:Update:Products:SaltBundle:Update"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "saltbundlepy-dbm-3.11.9-1.26.1.s390x as component of SUSE:EL-9:Update:Products:SaltBundle:Update",
+					"product_id": "SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.s390x"
+				},
+				"product_reference": "saltbundlepy-dbm-3.11.9-1.26.1.s390x",
+				"relates_to_product_reference": "SUSE:EL-9:Update:Products:SaltBundle:Update"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "saltbundlepy-dbm-3.11.9-1.26.1.x86_64 as component of SUSE:EL-9:Update:Products:SaltBundle:Update",
+					"product_id": "SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.x86_64"
+				},
+				"product_reference": "saltbundlepy-dbm-3.11.9-1.26.1.x86_64",
+				"relates_to_product_reference": "SUSE:EL-9:Update:Products:SaltBundle:Update"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "saltbundlepy-devel-3.11.9-1.26.1.aarch64 as component of SUSE:EL-9:Update:Products:SaltBundle:Update",
+					"product_id": "SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.aarch64"
+				},
+				"product_reference": "saltbundlepy-devel-3.11.9-1.26.1.aarch64",
+				"relates_to_product_reference": "SUSE:EL-9:Update:Products:SaltBundle:Update"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "saltbundlepy-devel-3.11.9-1.26.1.ppc64le as component of SUSE:EL-9:Update:Products:SaltBundle:Update",
+					"product_id": "SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.ppc64le"
+				},
+				"product_reference": "saltbundlepy-devel-3.11.9-1.26.1.ppc64le",
+				"relates_to_product_reference": "SUSE:EL-9:Update:Products:SaltBundle:Update"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "saltbundlepy-devel-3.11.9-1.26.1.s390x as component of SUSE:EL-9:Update:Products:SaltBundle:Update",
+					"product_id": "SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.s390x"
+				},
+				"product_reference": "saltbundlepy-devel-3.11.9-1.26.1.s390x",
+				"relates_to_product_reference": "SUSE:EL-9:Update:Products:SaltBundle:Update"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "saltbundlepy-devel-3.11.9-1.26.1.x86_64 as component of SUSE:EL-9:Update:Products:SaltBundle:Update",
+					"product_id": "SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.x86_64"
+				},
+				"product_reference": "saltbundlepy-devel-3.11.9-1.26.1.x86_64",
+				"relates_to_product_reference": "SUSE:EL-9:Update:Products:SaltBundle:Update"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "saltbundlepy-docker-7.0.0-1.8.1.noarch as component of SUSE:EL-9:Update:Products:SaltBundle:Update",
+					"product_id": "SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-docker-7.0.0-1.8.1.noarch"
+				},
+				"product_reference": "saltbundlepy-docker-7.0.0-1.8.1.noarch",
+				"relates_to_product_reference": "SUSE:EL-9:Update:Products:SaltBundle:Update"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "saltbundlepy-idna-3.4-1.9.2.noarch as component of SUSE:EL-9:Update:Products:SaltBundle:Update",
+					"product_id": "SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-idna-3.4-1.9.2.noarch"
+				},
+				"product_reference": "saltbundlepy-idna-3.4-1.9.2.noarch",
+				"relates_to_product_reference": "SUSE:EL-9:Update:Products:SaltBundle:Update"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "saltbundlepy-libs-3.11.9-1.26.1.aarch64 as component of SUSE:EL-9:Update:Products:SaltBundle:Update",
+					"product_id": "SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.aarch64"
+				},
+				"product_reference": "saltbundlepy-libs-3.11.9-1.26.1.aarch64",
+				"relates_to_product_reference": "SUSE:EL-9:Update:Products:SaltBundle:Update"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "saltbundlepy-libs-3.11.9-1.26.1.ppc64le as component of SUSE:EL-9:Update:Products:SaltBundle:Update",
+					"product_id": "SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.ppc64le"
+				},
+				"product_reference": "saltbundlepy-libs-3.11.9-1.26.1.ppc64le",
+				"relates_to_product_reference": "SUSE:EL-9:Update:Products:SaltBundle:Update"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "saltbundlepy-libs-3.11.9-1.26.1.s390x as component of SUSE:EL-9:Update:Products:SaltBundle:Update",
+					"product_id": "SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.s390x"
+				},
+				"product_reference": "saltbundlepy-libs-3.11.9-1.26.1.s390x",
+				"relates_to_product_reference": "SUSE:EL-9:Update:Products:SaltBundle:Update"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "saltbundlepy-libs-3.11.9-1.26.1.x86_64 as component of SUSE:EL-9:Update:Products:SaltBundle:Update",
+					"product_id": "SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.x86_64"
+				},
+				"product_reference": "saltbundlepy-libs-3.11.9-1.26.1.x86_64",
+				"relates_to_product_reference": "SUSE:EL-9:Update:Products:SaltBundle:Update"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "saltbundlepy-passlib-1.7.4-1.3.1.noarch as component of SUSE:EL-9:Update:Products:SaltBundle:Update",
+					"product_id": "SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-passlib-1.7.4-1.3.1.noarch"
+				},
+				"product_reference": "saltbundlepy-passlib-1.7.4-1.3.1.noarch",
+				"relates_to_product_reference": "SUSE:EL-9:Update:Products:SaltBundle:Update"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "saltbundlepy-setuptools-67.7.2-1.12.1.noarch as component of SUSE:EL-9:Update:Products:SaltBundle:Update",
+					"product_id": "SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-setuptools-67.7.2-1.12.1.noarch"
+				},
+				"product_reference": "saltbundlepy-setuptools-67.7.2-1.12.1.noarch",
+				"relates_to_product_reference": "SUSE:EL-9:Update:Products:SaltBundle:Update"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "saltbundlepy-testsuite-3.11.9-1.26.1.aarch64 as component of SUSE:EL-9:Update:Products:SaltBundle:Update",
+					"product_id": "SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.aarch64"
+				},
+				"product_reference": "saltbundlepy-testsuite-3.11.9-1.26.1.aarch64",
+				"relates_to_product_reference": "SUSE:EL-9:Update:Products:SaltBundle:Update"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "saltbundlepy-testsuite-3.11.9-1.26.1.ppc64le as component of SUSE:EL-9:Update:Products:SaltBundle:Update",
+					"product_id": "SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.ppc64le"
+				},
+				"product_reference": "saltbundlepy-testsuite-3.11.9-1.26.1.ppc64le",
+				"relates_to_product_reference": "SUSE:EL-9:Update:Products:SaltBundle:Update"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "saltbundlepy-testsuite-3.11.9-1.26.1.s390x as component of SUSE:EL-9:Update:Products:SaltBundle:Update",
+					"product_id": "SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.s390x"
+				},
+				"product_reference": "saltbundlepy-testsuite-3.11.9-1.26.1.s390x",
+				"relates_to_product_reference": "SUSE:EL-9:Update:Products:SaltBundle:Update"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "saltbundlepy-testsuite-3.11.9-1.26.1.x86_64 as component of SUSE:EL-9:Update:Products:SaltBundle:Update",
+					"product_id": "SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.x86_64"
+				},
+				"product_reference": "saltbundlepy-testsuite-3.11.9-1.26.1.x86_64",
+				"relates_to_product_reference": "SUSE:EL-9:Update:Products:SaltBundle:Update"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "saltbundlepy-tools-3.11.9-1.26.1.aarch64 as component of SUSE:EL-9:Update:Products:SaltBundle:Update",
+					"product_id": "SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.aarch64"
+				},
+				"product_reference": "saltbundlepy-tools-3.11.9-1.26.1.aarch64",
+				"relates_to_product_reference": "SUSE:EL-9:Update:Products:SaltBundle:Update"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "saltbundlepy-tools-3.11.9-1.26.1.ppc64le as component of SUSE:EL-9:Update:Products:SaltBundle:Update",
+					"product_id": "SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.ppc64le"
+				},
+				"product_reference": "saltbundlepy-tools-3.11.9-1.26.1.ppc64le",
+				"relates_to_product_reference": "SUSE:EL-9:Update:Products:SaltBundle:Update"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "saltbundlepy-tools-3.11.9-1.26.1.s390x as component of SUSE:EL-9:Update:Products:SaltBundle:Update",
+					"product_id": "SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.s390x"
+				},
+				"product_reference": "saltbundlepy-tools-3.11.9-1.26.1.s390x",
+				"relates_to_product_reference": "SUSE:EL-9:Update:Products:SaltBundle:Update"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "saltbundlepy-tools-3.11.9-1.26.1.x86_64 as component of SUSE:EL-9:Update:Products:SaltBundle:Update",
+					"product_id": "SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.x86_64"
+				},
+				"product_reference": "saltbundlepy-tools-3.11.9-1.26.1.x86_64",
+				"relates_to_product_reference": "SUSE:EL-9:Update:Products:SaltBundle:Update"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "saltbundlepy-urllib3-2.0.7-1.12.1.noarch as component of SUSE:EL-9:Update:Products:SaltBundle:Update",
+					"product_id": "SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-urllib3-2.0.7-1.12.1.noarch"
+				},
+				"product_reference": "saltbundlepy-urllib3-2.0.7-1.12.1.noarch",
+				"relates_to_product_reference": "SUSE:EL-9:Update:Products:SaltBundle:Update"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "saltbundlepy-zipp-3.15.0-1.9.2.noarch as component of SUSE:EL-9:Update:Products:SaltBundle:Update",
+					"product_id": "SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-zipp-3.15.0-1.9.2.noarch"
+				},
+				"product_reference": "saltbundlepy-zipp-3.15.0-1.9.2.noarch",
+				"relates_to_product_reference": "SUSE:EL-9:Update:Products:SaltBundle:Update"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "venv-salt-minion-3006.0-1.47.1.aarch64 as component of SUSE:EL-9:Update:Products:SaltBundle:Update",
+					"product_id": "SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.aarch64"
+				},
+				"product_reference": "venv-salt-minion-3006.0-1.47.1.aarch64",
+				"relates_to_product_reference": "SUSE:EL-9:Update:Products:SaltBundle:Update"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "venv-salt-minion-3006.0-1.47.1.ppc64le as component of SUSE:EL-9:Update:Products:SaltBundle:Update",
+					"product_id": "SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.ppc64le"
+				},
+				"product_reference": "venv-salt-minion-3006.0-1.47.1.ppc64le",
+				"relates_to_product_reference": "SUSE:EL-9:Update:Products:SaltBundle:Update"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "venv-salt-minion-3006.0-1.47.1.s390x as component of SUSE:EL-9:Update:Products:SaltBundle:Update",
+					"product_id": "SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.s390x"
+				},
+				"product_reference": "venv-salt-minion-3006.0-1.47.1.s390x",
+				"relates_to_product_reference": "SUSE:EL-9:Update:Products:SaltBundle:Update"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "venv-salt-minion-3006.0-1.47.1.x86_64 as component of SUSE:EL-9:Update:Products:SaltBundle:Update",
+					"product_id": "SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.x86_64"
+				},
+				"product_reference": "venv-salt-minion-3006.0-1.47.1.x86_64",
+				"relates_to_product_reference": "SUSE:EL-9:Update:Products:SaltBundle:Update"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "venv-salt-minion-3006.0-1.47.1.aarch64 as component of SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS",
+					"product_id": "SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.aarch64"
+				},
+				"product_reference": "venv-salt-minion-3006.0-1.47.1.aarch64",
+				"relates_to_product_reference": "SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "venv-salt-minion-3006.0-1.47.1.ppc64le as component of SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS",
+					"product_id": "SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.ppc64le"
+				},
+				"product_reference": "venv-salt-minion-3006.0-1.47.1.ppc64le",
+				"relates_to_product_reference": "SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "venv-salt-minion-3006.0-1.47.1.s390x as component of SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS",
+					"product_id": "SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.s390x"
+				},
+				"product_reference": "venv-salt-minion-3006.0-1.47.1.s390x",
+				"relates_to_product_reference": "SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS"
+			},
+			{
+				"category": "default_component_of",
+				"full_product_name": {
+					"name": "venv-salt-minion-3006.0-1.47.1.x86_64 as component of SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS",
+					"product_id": "SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.x86_64"
+				},
+				"product_reference": "venv-salt-minion-3006.0-1.47.1.x86_64",
+				"relates_to_product_reference": "SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS"
+			}
+		]
+	},
+	"vulnerabilities": [
+		{
+			"cve": "CVE-2024-0397",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2024-0397"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A defect was discovered in the Python \"ssl\" module where there is a memory\nrace condition with the ssl.SSLContext methods \"cert_store_stats()\" and\n\"get_ca_certs()\". The race condition can be triggered if the methods are\ncalled at the same time as certificates are loaded into the SSLContext,\nsuch as during the TLS handshake with a certificate directory configured.\nThis issue is fixed in CPython 3.10.14, 3.11.9, 3.12.3, and 3.13.0a5.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.aarch64",
+					"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.ppc64le",
+					"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.s390x",
+					"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-docker-7.0.0-1.8.1.noarch",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-idna-3.4-1.9.2.noarch",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-passlib-1.7.4-1.3.1.noarch",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-setuptools-67.7.2-1.12.1.noarch",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-urllib3-2.0.7-1.12.1.noarch",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-zipp-3.15.0-1.9.2.noarch",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2024-0397",
+					"url": "https://www.suse.com/security/cve/CVE-2024-0397"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1226447 for CVE-2024-0397",
+					"url": "https://bugzilla.suse.com/1226447"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.aarch64",
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.ppc64le",
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.s390x",
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-docker-7.0.0-1.8.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-idna-3.4-1.9.2.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-passlib-1.7.4-1.3.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-setuptools-67.7.2-1.12.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-urllib3-2.0.7-1.12.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-zipp-3.15.0-1.9.2.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 4.8,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:L",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.aarch64",
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.ppc64le",
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.s390x",
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-docker-7.0.0-1.8.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-idna-3.4-1.9.2.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-passlib-1.7.4-1.3.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-setuptools-67.7.2-1.12.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-urllib3-2.0.7-1.12.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-zipp-3.15.0-1.9.2.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2024-11-18T13:29:50Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2024-0397"
+		},
+		{
+			"cve": "CVE-2024-3651",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2024-3651"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A vulnerability was identified in the kjd/idna library, specifically within the `idna.encode()` function, affecting version 3.6. The issue arises from the function's handling of crafted input strings, which can lead to quadratic complexity and consequently, a denial of service condition. This vulnerability is triggered by a crafted input that causes the `idna.encode()` function to process the input with considerable computational load, significantly increasing the processing time in a quadratic manner relative to the input size.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.aarch64",
+					"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.ppc64le",
+					"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.s390x",
+					"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-docker-7.0.0-1.8.1.noarch",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-idna-3.4-1.9.2.noarch",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-passlib-1.7.4-1.3.1.noarch",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-setuptools-67.7.2-1.12.1.noarch",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-urllib3-2.0.7-1.12.1.noarch",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-zipp-3.15.0-1.9.2.noarch",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2024-3651",
+					"url": "https://www.suse.com/security/cve/CVE-2024-3651"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1222842 for CVE-2024-3651",
+					"url": "https://bugzilla.suse.com/1222842"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.aarch64",
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.ppc64le",
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.s390x",
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-docker-7.0.0-1.8.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-idna-3.4-1.9.2.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-passlib-1.7.4-1.3.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-setuptools-67.7.2-1.12.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-urllib3-2.0.7-1.12.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-zipp-3.15.0-1.9.2.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 6.5,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.aarch64",
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.ppc64le",
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.s390x",
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-docker-7.0.0-1.8.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-idna-3.4-1.9.2.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-passlib-1.7.4-1.3.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-setuptools-67.7.2-1.12.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-urllib3-2.0.7-1.12.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-zipp-3.15.0-1.9.2.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2024-11-18T13:29:50Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2024-3651"
+		},
+		{
+			"cve": "CVE-2024-37891",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2024-37891"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": " urllib3 is a user-friendly HTTP client library for Python. When using urllib3's proxy support with `ProxyManager`, the `Proxy-Authorization` header is only sent to the configured proxy, as expected. However, when sending HTTP requests *without* using urllib3's proxy support, it's possible to accidentally configure the `Proxy-Authorization` header even though it won't have any effect as the request is not using a forwarding proxy or a tunneling proxy. In those cases, urllib3 doesn't treat the `Proxy-Authorization` HTTP header as one carrying authentication material and thus doesn't strip the header on cross-origin redirects. Because this is a highly unlikely scenario, we believe the severity of this vulnerability is low for almost all users. Out of an abundance of caution urllib3 will automatically strip the `Proxy-Authorization` header during cross-origin redirects to avoid the small chance that users are doing this on accident. Users should use urllib3's proxy support or disable automatic redirects to achieve safe processing of the `Proxy-Authorization` header, but we still decided to strip the header by default in order to further protect users who aren't using the correct approach. We believe the number of usages affected by this advisory is low. It requires all of the following to be true to be exploited: 1. Setting the `Proxy-Authorization` header without using urllib3's built-in proxy support. 2. Not disabling HTTP redirects. 3. Either not using an HTTPS origin server or for the proxy or target origin to redirect to a malicious origin. Users are advised to update to either version 1.26.19 or version 2.2.2. Users unable to upgrade may use the `Proxy-Authorization` header with urllib3's `ProxyManager`, disable HTTP redirects using `redirects=False` when sending requests, or not user the `Proxy-Authorization` header as mitigations.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.aarch64",
+					"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.ppc64le",
+					"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.s390x",
+					"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-docker-7.0.0-1.8.1.noarch",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-idna-3.4-1.9.2.noarch",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-passlib-1.7.4-1.3.1.noarch",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-setuptools-67.7.2-1.12.1.noarch",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-urllib3-2.0.7-1.12.1.noarch",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-zipp-3.15.0-1.9.2.noarch",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2024-37891",
+					"url": "https://www.suse.com/security/cve/CVE-2024-37891"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1226469 for CVE-2024-37891",
+					"url": "https://bugzilla.suse.com/1226469"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.aarch64",
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.ppc64le",
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.s390x",
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-docker-7.0.0-1.8.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-idna-3.4-1.9.2.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-passlib-1.7.4-1.3.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-setuptools-67.7.2-1.12.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-urllib3-2.0.7-1.12.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-zipp-3.15.0-1.9.2.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 4.4,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:N/AC:H/PR:H/UI:N/S:U/C:H/I:N/A:N",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.aarch64",
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.ppc64le",
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.s390x",
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-docker-7.0.0-1.8.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-idna-3.4-1.9.2.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-passlib-1.7.4-1.3.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-setuptools-67.7.2-1.12.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-urllib3-2.0.7-1.12.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-zipp-3.15.0-1.9.2.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2024-11-18T13:29:50Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2024-37891"
+		},
+		{
+			"cve": "CVE-2024-4032",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2024-4032"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "The \"ipaddress\" module contained incorrect information about whether certain IPv4 and IPv6 addresses were designated as \"globally reachable\" or \"private\". This affected the is_private and is_global properties of the ipaddress.IPv4Address, ipaddress.IPv4Network, ipaddress.IPv6Address, and ipaddress.IPv6Network classes, where values wouldn't be returned in accordance with the latest information from the IANA Special-Purpose Address Registries.\n\nCPython 3.12.4 and 3.13.0a6 contain updated information from these registries and thus have the intended behavior.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.aarch64",
+					"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.ppc64le",
+					"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.s390x",
+					"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-docker-7.0.0-1.8.1.noarch",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-idna-3.4-1.9.2.noarch",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-passlib-1.7.4-1.3.1.noarch",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-setuptools-67.7.2-1.12.1.noarch",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-urllib3-2.0.7-1.12.1.noarch",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-zipp-3.15.0-1.9.2.noarch",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2024-4032",
+					"url": "https://www.suse.com/security/cve/CVE-2024-4032"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1226448 for CVE-2024-4032",
+					"url": "https://bugzilla.suse.com/1226448"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.aarch64",
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.ppc64le",
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.s390x",
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-docker-7.0.0-1.8.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-idna-3.4-1.9.2.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-passlib-1.7.4-1.3.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-setuptools-67.7.2-1.12.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-urllib3-2.0.7-1.12.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-zipp-3.15.0-1.9.2.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 3.7,
+						"baseSeverity": "LOW",
+						"vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:L",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.aarch64",
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.ppc64le",
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.s390x",
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-docker-7.0.0-1.8.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-idna-3.4-1.9.2.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-passlib-1.7.4-1.3.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-setuptools-67.7.2-1.12.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-urllib3-2.0.7-1.12.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-zipp-3.15.0-1.9.2.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2024-11-18T13:29:50Z",
+					"details": "low"
+				}
+			],
+			"title": "CVE-2024-4032"
+		},
+		{
+			"cve": "CVE-2024-5569",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2024-5569"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A Denial of Service (DoS) vulnerability exists in the jaraco/zipp library, affecting all versions prior to 3.19.1. The vulnerability is triggered when processing a specially crafted zip file that leads to an infinite loop. This issue also impacts the zipfile module of CPython, as features from the third-party zipp library are later merged into CPython, and the affected code is identical in both projects. The infinite loop can be initiated through the use of functions affecting the `Path` module in both zipp and zipfile, such as `joinpath`, the overloaded division operator, and `iterdir`. Although the infinite loop is not resource exhaustive, it prevents the application from responding. The vulnerability was addressed in version 3.19.1 of jaraco/zipp.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.aarch64",
+					"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.ppc64le",
+					"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.s390x",
+					"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-docker-7.0.0-1.8.1.noarch",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-idna-3.4-1.9.2.noarch",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-passlib-1.7.4-1.3.1.noarch",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-setuptools-67.7.2-1.12.1.noarch",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-urllib3-2.0.7-1.12.1.noarch",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-zipp-3.15.0-1.9.2.noarch",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2024-5569",
+					"url": "https://www.suse.com/security/cve/CVE-2024-5569"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1227547 for CVE-2024-5569",
+					"url": "https://bugzilla.suse.com/1227547"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.aarch64",
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.ppc64le",
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.s390x",
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-docker-7.0.0-1.8.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-idna-3.4-1.9.2.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-passlib-1.7.4-1.3.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-setuptools-67.7.2-1.12.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-urllib3-2.0.7-1.12.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-zipp-3.15.0-1.9.2.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 3.3,
+						"baseSeverity": "LOW",
+						"vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:L",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.aarch64",
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.ppc64le",
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.s390x",
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-docker-7.0.0-1.8.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-idna-3.4-1.9.2.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-passlib-1.7.4-1.3.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-setuptools-67.7.2-1.12.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-urllib3-2.0.7-1.12.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-zipp-3.15.0-1.9.2.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2024-11-18T13:29:50Z",
+					"details": "low"
+				}
+			],
+			"title": "CVE-2024-5569"
+		},
+		{
+			"cve": "CVE-2024-6345",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2024-6345"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "A vulnerability in the package_index module of pypa/setuptools versions up to 69.1.1 allows for remote code execution via its download functions. These functions, which are used to download packages from URLs provided by users or retrieved from package index servers, are susceptible to code injection. If these functions are exposed to user-controlled inputs, such as package URLs, they can execute arbitrary commands on the system. The issue is fixed in version 70.0.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.aarch64",
+					"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.ppc64le",
+					"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.s390x",
+					"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-docker-7.0.0-1.8.1.noarch",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-idna-3.4-1.9.2.noarch",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-passlib-1.7.4-1.3.1.noarch",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-setuptools-67.7.2-1.12.1.noarch",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-urllib3-2.0.7-1.12.1.noarch",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-zipp-3.15.0-1.9.2.noarch",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2024-6345",
+					"url": "https://www.suse.com/security/cve/CVE-2024-6345"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1228105 for CVE-2024-6345",
+					"url": "https://bugzilla.suse.com/1228105"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.aarch64",
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.ppc64le",
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.s390x",
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-docker-7.0.0-1.8.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-idna-3.4-1.9.2.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-passlib-1.7.4-1.3.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-setuptools-67.7.2-1.12.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-urllib3-2.0.7-1.12.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-zipp-3.15.0-1.9.2.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:L/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.aarch64",
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.ppc64le",
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.s390x",
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-docker-7.0.0-1.8.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-idna-3.4-1.9.2.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-passlib-1.7.4-1.3.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-setuptools-67.7.2-1.12.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-urllib3-2.0.7-1.12.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-zipp-3.15.0-1.9.2.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2024-11-18T13:29:50Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2024-6345"
+		},
+		{
+			"cve": "CVE-2024-6923",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2024-6923"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "There is a MEDIUM severity vulnerability affecting CPython.\n\nThe \nemail module didn't properly quote newlines for email headers when \nserializing an email message allowing for header injection when an email\n is serialized.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.aarch64",
+					"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.ppc64le",
+					"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.s390x",
+					"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-docker-7.0.0-1.8.1.noarch",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-idna-3.4-1.9.2.noarch",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-passlib-1.7.4-1.3.1.noarch",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-setuptools-67.7.2-1.12.1.noarch",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-urllib3-2.0.7-1.12.1.noarch",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-zipp-3.15.0-1.9.2.noarch",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2024-6923",
+					"url": "https://www.suse.com/security/cve/CVE-2024-6923"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1228780 for CVE-2024-6923",
+					"url": "https://bugzilla.suse.com/1228780"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.aarch64",
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.ppc64le",
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.s390x",
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-docker-7.0.0-1.8.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-idna-3.4-1.9.2.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-passlib-1.7.4-1.3.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-setuptools-67.7.2-1.12.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-urllib3-2.0.7-1.12.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-zipp-3.15.0-1.9.2.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 7.5,
+						"baseSeverity": "HIGH",
+						"vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.aarch64",
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.ppc64le",
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.s390x",
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-docker-7.0.0-1.8.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-idna-3.4-1.9.2.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-passlib-1.7.4-1.3.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-setuptools-67.7.2-1.12.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-urllib3-2.0.7-1.12.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-zipp-3.15.0-1.9.2.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2024-11-18T13:29:50Z",
+					"details": "important"
+				}
+			],
+			"title": "CVE-2024-6923"
+		},
+		{
+			"cve": "CVE-2024-7592",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2024-7592"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "There is a LOW severity vulnerability affecting CPython, specifically the\n'http.cookies' standard library module.\n\n\nWhen parsing cookies that contained backslashes for quoted characters in\nthe cookie value, the parser would use an algorithm with quadratic\ncomplexity, resulting in excess CPU resources being used while parsing the\nvalue.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.aarch64",
+					"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.ppc64le",
+					"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.s390x",
+					"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-docker-7.0.0-1.8.1.noarch",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-idna-3.4-1.9.2.noarch",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-passlib-1.7.4-1.3.1.noarch",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-setuptools-67.7.2-1.12.1.noarch",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-urllib3-2.0.7-1.12.1.noarch",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-zipp-3.15.0-1.9.2.noarch",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2024-7592",
+					"url": "https://www.suse.com/security/cve/CVE-2024-7592"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1229596 for CVE-2024-7592",
+					"url": "https://bugzilla.suse.com/1229596"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.aarch64",
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.ppc64le",
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.s390x",
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-docker-7.0.0-1.8.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-idna-3.4-1.9.2.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-passlib-1.7.4-1.3.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-setuptools-67.7.2-1.12.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-urllib3-2.0.7-1.12.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-zipp-3.15.0-1.9.2.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 2.6,
+						"baseSeverity": "LOW",
+						"vectorString": "CVSS:3.1/AV:N/AC:H/PR:L/UI:R/S:U/C:N/I:N/A:L",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.aarch64",
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.ppc64le",
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.s390x",
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-docker-7.0.0-1.8.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-idna-3.4-1.9.2.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-passlib-1.7.4-1.3.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-setuptools-67.7.2-1.12.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-urllib3-2.0.7-1.12.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-zipp-3.15.0-1.9.2.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2024-11-18T13:29:50Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2024-7592"
+		},
+		{
+			"cve": "CVE-2024-8088",
+			"ids": [
+				{
+					"system_name": "SUSE CVE Page",
+					"text": "https://www.suse.com/security/cve/CVE-2024-8088"
+				}
+			],
+			"notes": [
+				{
+					"category": "general",
+					"text": "There is a HIGH severity vulnerability affecting the CPython \"zipfile\"\nmodule affecting \"zipfile.Path\". Note that the more common API \"zipfile.ZipFile\" class is unaffected.\n\n\n\n\n\nWhen iterating over names of entries in a zip archive (for example, methods\nof \"zipfile.Path\" like \"namelist()\", \"iterdir()\", etc)\nthe process can be put into an infinite loop with a maliciously crafted\nzip archive. This defect applies when reading only metadata or extracting\nthe contents of the zip archive. Programs that are not handling\nuser-controlled zip archives are not affected.",
+					"title": "CVE description"
+				}
+			],
+			"product_status": {
+				"recommended": [
+					"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.aarch64",
+					"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.ppc64le",
+					"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.s390x",
+					"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-docker-7.0.0-1.8.1.noarch",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-idna-3.4-1.9.2.noarch",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-passlib-1.7.4-1.3.1.noarch",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-setuptools-67.7.2-1.12.1.noarch",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.x86_64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-urllib3-2.0.7-1.12.1.noarch",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-zipp-3.15.0-1.9.2.noarch",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.aarch64",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.ppc64le",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.s390x",
+					"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.x86_64"
+				]
+			},
+			"references": [
+				{
+					"category": "external",
+					"summary": "CVE-2024-8088",
+					"url": "https://www.suse.com/security/cve/CVE-2024-8088"
+				},
+				{
+					"category": "external",
+					"summary": "SUSE Bug 1229704 for CVE-2024-8088",
+					"url": "https://bugzilla.suse.com/1229704"
+				}
+			],
+			"remediations": [
+				{
+					"category": "vendor_fix",
+					"details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+					"product_ids": [
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.aarch64",
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.ppc64le",
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.s390x",
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-docker-7.0.0-1.8.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-idna-3.4-1.9.2.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-passlib-1.7.4-1.3.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-setuptools-67.7.2-1.12.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-urllib3-2.0.7-1.12.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-zipp-3.15.0-1.9.2.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.x86_64"
+					]
+				}
+			],
+			"scores": [
+				{
+					"cvss_v3": {
+						"baseScore": 5.3,
+						"baseSeverity": "MEDIUM",
+						"vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:N/I:N/A:H",
+						"version": "3.1"
+					},
+					"products": [
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.aarch64",
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.ppc64le",
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.s390x",
+						"SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:venv-salt-minion-3006.0-1.47.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-base-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-cryptography-3.3.2-1.18.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-curses-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-dbm-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-devel-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-docker-7.0.0-1.8.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-idna-3.4-1.9.2.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-libs-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-passlib-1.7.4-1.3.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-setuptools-67.7.2-1.12.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-testsuite-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-tools-3.11.9-1.26.1.x86_64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-urllib3-2.0.7-1.12.1.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:saltbundlepy-zipp-3.15.0-1.9.2.noarch",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.aarch64",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.ppc64le",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.s390x",
+						"SUSE:EL-9:Update:Products:SaltBundle:Update:venv-salt-minion-3006.0-1.47.1.x86_64"
+					]
+				}
+			],
+			"threats": [
+				{
+					"category": "impact",
+					"date": "2024-11-18T13:29:50Z",
+					"details": "moderate"
+				}
+			],
+			"title": "CVE-2024-8088"
+		}
+	]
+}
